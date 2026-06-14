@@ -199,7 +199,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Background Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                      Background color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -397,7 +397,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Bottom [!Invalid] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                  Border bottom [!Invalid] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                  Errors\n" +
@@ -407,7 +407,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Bottom Color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
+                "                      Border bottom color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            green\n" +
@@ -596,7 +596,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Bottom Style\n" +
+                "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -615,13 +615,13 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Bottom Width [!Invalid] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
+                "                    Border bottom width [!Invalid] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
                 "                    Errors\n" +
                 "                      Invalid character '!' at 0\n" +
                 "            BorderLeftComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Left [!Invalid] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                  Border left [!Invalid] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                  Errors\n" +
@@ -631,7 +631,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Left Color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
+                "                      Border left color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            blue\n" +
@@ -820,7 +820,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Left Style\n" +
+                "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -839,13 +839,13 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Left Width [!Invalid] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
+                "                    Border left width [!Invalid] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
                 "                    Errors\n" +
                 "                      Invalid character '!' at 0\n" +
                 "            BorderRightComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Right [!Invalid] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                  Border right [!Invalid] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                  Errors\n" +
@@ -855,7 +855,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Right Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
+                "                      Border right color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -1044,7 +1044,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Right Style\n" +
+                "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1063,13 +1063,13 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Right Width [!Invalid] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
+                "                    Border right width [!Invalid] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
                 "                    Errors\n" +
                 "                      Invalid character '!' at 0\n" +
                 "            BorderTopComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Top [!Invalid] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                  Border top [!Invalid] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                  Errors\n" +
@@ -1079,7 +1079,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Top Color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
+                "                      Border top color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            white\n" +
@@ -1268,7 +1268,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Top Style\n" +
+                "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1287,7 +1287,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Top Width [!Invalid] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
+                "                    Border top width [!Invalid] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
                 "                    Errors\n" +
                 "                      Invalid character '!' at 0\n" +
                 "            TextStyleColorComponent\n" +
@@ -1493,13 +1493,13 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
-                "                Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
                 "                  \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
                 "                  \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
                 "                  \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "            FontKerningComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Kerning\n" +
+                "                Font kerning\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1509,10 +1509,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
-                "                Font Size [99]\n" +
+                "                Font size [99]\n" +
                 "            FontStretchComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Stretch\n" +
+                "                Font stretch\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1528,7 +1528,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Style\n" +
+                "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1538,7 +1538,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Oblique\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Variant\n" +
+                "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1549,7 +1549,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Font Weight\n" +
+                "                  Font weight\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    FontWeightComponent\n" +
@@ -1563,7 +1563,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Hanging Punctuation\n" +
+                "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1594,14 +1594,14 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Letter Spacing [!Invalid] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
+                "                    Letter spacing [!Invalid] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
                 "                    Errors\n" +
                 "                      Invalid character '!' at 0\n" +
                 "            LineHeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Line Height [!Invalid] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
+                "                    Line height [!Invalid] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
                 "                    Errors\n" +
                 "                      Invalid character '!' at 0\n" +
                 "            BigMarginComponent\n" +
@@ -1651,7 +1651,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    Invalid character '!' at 0\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow X\n" +
+                "                Overflow x\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1662,7 +1662,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Y\n" +
+                "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1673,7 +1673,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Wrap\n" +
+                "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1722,7 +1722,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                      padding-top=1px\n" +
                 "            TextAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Align\n" +
+                "                Text align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1733,7 +1733,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Line\n" +
+                "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1744,7 +1744,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Style\n" +
+                "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1758,19 +1758,19 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Decoration Thickness [!Invalid] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
+                "                    Text decoration thickness [!Invalid] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
                 "                    Errors\n" +
                 "                      Invalid character '!' at 0\n" +
                 "            TextIndentComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Indent [!Invalid] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
+                "                    Text indent [!Invalid] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
                 "                    Errors\n" +
                 "                      Invalid character '!' at 0\n" +
                 "            TextJustifyComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Justify\n" +
+                "                Text justify\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1782,7 +1782,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Text Overflow\n" +
+                "                  Text overflow\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextBoxComponent\n" +
@@ -1798,7 +1798,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "            TextTransformComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Transform\n" +
+                "                Text transform\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1809,7 +1809,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Wrapping\n" +
+                "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1819,7 +1819,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Wrap\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Vertical Align\n" +
+                "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1839,7 +1839,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Collapse\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                White Space\n" +
+                "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1858,7 +1858,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                      Invalid character '!' at 0\n" +
                 "            WordBreakComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Break\n" +
+                "                Word break\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1869,7 +1869,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Wrap\n" +
+                "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -1878,7 +1878,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Writing Mode\n" +
+                "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -2015,7 +2015,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Background Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                      Background color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -2226,7 +2226,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                  Border bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -2240,7 +2240,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Bottom Color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
+                "                      Border bottom color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            green\n" +
@@ -2429,7 +2429,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Bottom Style\n" +
+                "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -2448,11 +2448,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Bottom Width [3px] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
+                "                    Border bottom width [3px] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
                 "            BorderLeftComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                  Border left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -2466,7 +2466,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Left Color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
+                "                      Border left color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            blue\n" +
@@ -2655,7 +2655,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Left Style\n" +
+                "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -2674,11 +2674,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Left Width [4px] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
+                "                    Border left width [4px] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
                 "            BorderRightComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                  Border right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -2692,7 +2692,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Right Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
+                "                      Border right color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -2881,7 +2881,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Right Style\n" +
+                "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -2900,11 +2900,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Right Width [1px] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
+                "                    Border right width [1px] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
                 "            BorderTopComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                  Border top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -2918,7 +2918,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Top Color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
+                "                      Border top color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            white\n" +
@@ -3107,7 +3107,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Top Style\n" +
+                "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3126,7 +3126,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Top Width [2px] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
+                "                    Border top width [2px] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
                 "            TextStyleColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -3330,13 +3330,13 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
-                "                Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
                 "                  \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
                 "                  \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
                 "                  \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "            FontKerningComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Kerning\n" +
+                "                Font kerning\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3346,10 +3346,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
-                "                Font Size [99]\n" +
+                "                Font size [99]\n" +
                 "            FontStretchComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Stretch\n" +
+                "                Font stretch\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3365,7 +3365,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Style\n" +
+                "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3375,7 +3375,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Oblique\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Variant\n" +
+                "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3386,7 +3386,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Font Weight\n" +
+                "                  Font weight\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    FontWeightComponent\n" +
@@ -3400,7 +3400,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Hanging Punctuation\n" +
+                "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3429,12 +3429,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Letter Spacing [33px] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
+                "                    Letter spacing [33px] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
                 "            LineHeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Line Height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
+                "                    Line height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
                 "            BigMarginComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -3480,7 +3480,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  Opacity [0.5] icons=mdi-close-circle id=TextStyle-opacity-TextBox\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow X\n" +
+                "                Overflow x\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3491,7 +3491,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Y\n" +
+                "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3502,7 +3502,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Wrap\n" +
+                "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3551,7 +3551,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                      padding-top=1px\n" +
                 "            TextAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Align\n" +
+                "                Text align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3562,7 +3562,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Line\n" +
+                "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3573,7 +3573,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Style\n" +
+                "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3587,15 +3587,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Decoration Thickness [123px] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
+                "                    Text decoration thickness [123px] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
                 "            TextIndentComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Indent [123px] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
+                "                    Text indent [123px] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
                 "            TextJustifyComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Justify\n" +
+                "                Text justify\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3607,7 +3607,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Text Overflow\n" +
+                "                  Text overflow\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextBoxComponent\n" +
@@ -3623,7 +3623,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "            TextTransformComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Transform\n" +
+                "                Text transform\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3634,7 +3634,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Wrapping\n" +
+                "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3644,7 +3644,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Wrap\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Vertical Align\n" +
+                "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3664,7 +3664,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Collapse\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                White Space\n" +
+                "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3681,7 +3681,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    Width [44px] icons=mdi-close-circle id=TextStyle-width-TextBox\n" +
                 "            WordBreakComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Break\n" +
+                "                Word break\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3692,7 +3692,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Wrap\n" +
+                "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3701,7 +3701,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Writing Mode\n" +
+                "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -3824,7 +3824,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Background Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                      Background color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -4035,7 +4035,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                  Border bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -4049,7 +4049,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Bottom Color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
+                "                      Border bottom color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            green\n" +
@@ -4238,7 +4238,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Bottom Style\n" +
+                "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -4257,11 +4257,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Bottom Width [3px] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
+                "                    Border bottom width [3px] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
                 "            BorderLeftComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                  Border left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -4275,7 +4275,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Left Color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
+                "                      Border left color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            blue\n" +
@@ -4464,7 +4464,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Left Style\n" +
+                "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -4483,11 +4483,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Left Width [4px] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
+                "                    Border left width [4px] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
                 "            BorderRightComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                  Border right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -4501,7 +4501,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Right Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
+                "                      Border right color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -4690,7 +4690,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Right Style\n" +
+                "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -4709,11 +4709,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Right Width [1px] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
+                "                    Border right width [1px] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
                 "            BorderTopComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                  Border top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -4727,7 +4727,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Top Color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
+                "                      Border top color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            white\n" +
@@ -4916,7 +4916,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Top Style\n" +
+                "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -4935,7 +4935,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Top Width [2px] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
+                "                    Border top width [2px] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
                 "            TextStyleColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -5139,13 +5139,13 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
-                "                Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
                 "                  \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
                 "                  \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
                 "                  \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "            FontKerningComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Kerning\n" +
+                "                Font kerning\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5155,10 +5155,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
-                "                Font Size [99]\n" +
+                "                Font size [99]\n" +
                 "            FontStretchComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Stretch\n" +
+                "                Font stretch\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5174,7 +5174,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Style\n" +
+                "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5184,7 +5184,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Oblique\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Variant\n" +
+                "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5195,7 +5195,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Font Weight\n" +
+                "                  Font weight\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    FontWeightComponent\n" +
@@ -5209,7 +5209,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Hanging Punctuation\n" +
+                "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5238,12 +5238,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Letter Spacing [33px] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
+                "                    Letter spacing [33px] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
                 "            LineHeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Line Height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
+                "                    Line height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
                 "            BigMarginComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -5289,7 +5289,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  Opacity [0.5] icons=mdi-close-circle id=TextStyle-opacity-TextBox\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow X\n" +
+                "                Overflow x\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5300,7 +5300,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Y\n" +
+                "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5311,7 +5311,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Wrap\n" +
+                "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5360,7 +5360,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                      padding-top=1px\n" +
                 "            TextAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Align\n" +
+                "                Text align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5371,7 +5371,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Line\n" +
+                "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5382,7 +5382,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Style\n" +
+                "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5396,15 +5396,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Decoration Thickness [123px] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
+                "                    Text decoration thickness [123px] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
                 "            TextIndentComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Indent [123px] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
+                "                    Text indent [123px] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
                 "            TextJustifyComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Justify\n" +
+                "                Text justify\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5416,7 +5416,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Text Overflow\n" +
+                "                  Text overflow\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextBoxComponent\n" +
@@ -5432,7 +5432,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "            TextTransformComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Transform\n" +
+                "                Text transform\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5443,7 +5443,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Wrapping\n" +
+                "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5453,7 +5453,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Wrap\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Vertical Align\n" +
+                "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5473,7 +5473,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Collapse\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                White Space\n" +
+                "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5490,7 +5490,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    Width [44px] icons=mdi-close-circle id=TextStyle-width-TextBox\n" +
                 "            WordBreakComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Break\n" +
+                "                Word break\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5501,7 +5501,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Wrap\n" +
+                "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5510,7 +5510,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Writing Mode\n" +
+                "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -5631,7 +5631,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Background Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                      Background color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -5842,7 +5842,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                  Border bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -5856,7 +5856,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Bottom Color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
+                "                      Border bottom color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            green\n" +
@@ -6045,7 +6045,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Bottom Style\n" +
+                "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -6064,11 +6064,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Bottom Width [3px] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
+                "                    Border bottom width [3px] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
                 "            BorderLeftComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                  Border left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -6082,7 +6082,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Left Color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
+                "                      Border left color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            blue\n" +
@@ -6271,7 +6271,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Left Style\n" +
+                "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -6290,11 +6290,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Left Width [4px] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
+                "                    Border left width [4px] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
                 "            BorderRightComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                  Border right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -6308,7 +6308,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Right Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
+                "                      Border right color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -6497,7 +6497,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Right Style\n" +
+                "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -6516,11 +6516,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Right Width [1px] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
+                "                    Border right width [1px] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
                 "            BorderTopComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                  Border top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -6534,7 +6534,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Top Color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
+                "                      Border top color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            white\n" +
@@ -6723,7 +6723,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Top Style\n" +
+                "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -6742,7 +6742,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Top Width [2px] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
+                "                    Border top width [2px] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
                 "            TextStyleColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -6946,13 +6946,13 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Right to Left\" [#/1/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
-                "                Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
                 "                  \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
                 "                  \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
                 "                  \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "            FontKerningComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Kerning\n" +
+                "                Font kerning\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -6962,10 +6962,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
-                "                Font Size [99]\n" +
+                "                Font size [99]\n" +
                 "            FontStretchComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Stretch\n" +
+                "                Font stretch\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -6981,7 +6981,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Ultra Expanded\" [#/1/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Style\n" +
+                "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -6991,7 +6991,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Oblique\" [#/1/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Variant\n" +
+                "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7002,7 +7002,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Font Weight\n" +
+                "                  Font weight\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    FontWeightComponent\n" +
@@ -7016,7 +7016,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Hanging Punctuation\n" +
+                "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7045,12 +7045,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Letter Spacing [33px] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
+                "                    Letter spacing [33px] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
                 "            LineHeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Line Height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
+                "                    Line height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
                 "            BigMarginComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -7096,7 +7096,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  Opacity [0.5] icons=mdi-close-circle id=TextStyle-opacity-TextBox\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow X\n" +
+                "                Overflow x\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7107,7 +7107,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Y\n" +
+                "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7118,7 +7118,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Wrap\n" +
+                "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7167,7 +7167,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                      padding-top=1px\n" +
                 "            TextAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Align\n" +
+                "                Text align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7178,7 +7178,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Line\n" +
+                "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7189,7 +7189,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Style\n" +
+                "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7203,15 +7203,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Decoration Thickness [123px] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
+                "                    Text decoration thickness [123px] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
                 "            TextIndentComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Indent [123px] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
+                "                    Text indent [123px] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
                 "            TextJustifyComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Justify\n" +
+                "                Text justify\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7223,7 +7223,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Text Overflow\n" +
+                "                  Text overflow\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextBoxComponent\n" +
@@ -7239,7 +7239,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "            TextTransformComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Transform\n" +
+                "                Text transform\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7250,7 +7250,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Wrapping\n" +
+                "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7260,7 +7260,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Wrap\" [#/1/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Vertical Align\n" +
+                "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7280,7 +7280,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Collapse\" [#/1/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                White Space\n" +
+                "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7297,7 +7297,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    Width [44px] icons=mdi-close-circle id=TextStyle-width-TextBox\n" +
                 "            WordBreakComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Break\n" +
+                "                Word break\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7308,7 +7308,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Wrap\n" +
+                "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7317,7 +7317,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Writing Mode\n" +
+                "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7435,7 +7435,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Background Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                      Background color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -7646,7 +7646,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                  Border bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -7660,7 +7660,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Bottom Color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
+                "                      Border bottom color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            green\n" +
@@ -7849,7 +7849,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Bottom Style\n" +
+                "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -7868,11 +7868,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Bottom Width [3px] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
+                "                    Border bottom width [3px] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
                 "            BorderLeftComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                  Border left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -7886,7 +7886,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Left Color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
+                "                      Border left color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            blue\n" +
@@ -8075,7 +8075,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Left Style\n" +
+                "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8094,11 +8094,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Left Width [4px] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
+                "                    Border left width [4px] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
                 "            BorderRightComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                  Border right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -8112,7 +8112,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Right Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
+                "                      Border right color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -8301,7 +8301,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Right Style\n" +
+                "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8320,11 +8320,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Right Width [1px] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
+                "                    Border right width [1px] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
                 "            BorderTopComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                  Border top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -8338,7 +8338,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Top Color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
+                "                      Border top color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            white\n" +
@@ -8527,7 +8527,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Top Style\n" +
+                "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8546,7 +8546,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Top Width [2px] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
+                "                    Border top width [2px] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
                 "            TextStyleColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -8750,13 +8750,13 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Right to Left\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
-                "                Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
                 "                  \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
                 "                  \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
                 "                  \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "            FontKerningComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Kerning\n" +
+                "                Font kerning\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8766,10 +8766,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
-                "                Font Size [99]\n" +
+                "                Font size [99]\n" +
                 "            FontStretchComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Stretch\n" +
+                "                Font stretch\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8785,7 +8785,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Ultra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Style\n" +
+                "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8795,7 +8795,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Oblique\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Variant\n" +
+                "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8806,7 +8806,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Font Weight\n" +
+                "                  Font weight\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    FontWeightComponent\n" +
@@ -8820,7 +8820,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Hanging Punctuation\n" +
+                "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8849,12 +8849,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Letter Spacing [33px] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
+                "                    Letter spacing [33px] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
                 "            LineHeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Line Height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
+                "                    Line height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
                 "            BigMarginComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -8900,7 +8900,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  Opacity [0.5] icons=mdi-close-circle id=TextStyle-opacity-TextBox\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow X\n" +
+                "                Overflow x\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8911,7 +8911,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Y\n" +
+                "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8922,7 +8922,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Wrap\n" +
+                "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8971,7 +8971,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                      padding-top=1px\n" +
                 "            TextAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Align\n" +
+                "                Text align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8982,7 +8982,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Line\n" +
+                "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -8993,7 +8993,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Style\n" +
+                "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9007,15 +9007,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Decoration Thickness [123px] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
+                "                    Text decoration thickness [123px] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
                 "            TextIndentComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Indent [123px] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
+                "                    Text indent [123px] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
                 "            TextJustifyComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Justify\n" +
+                "                Text justify\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9027,7 +9027,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Text Overflow\n" +
+                "                  Text overflow\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextBoxComponent\n" +
@@ -9043,7 +9043,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "            TextTransformComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Transform\n" +
+                "                Text transform\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9054,7 +9054,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/spreadsheet/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Wrapping\n" +
+                "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9064,7 +9064,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Wrap\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Vertical Align\n" +
+                "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9084,7 +9084,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Collapse\" [#/1/SpreadsheetName1/spreadsheet/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                White Space\n" +
+                "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9101,7 +9101,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    Width [44px] icons=mdi-close-circle id=TextStyle-width-TextBox\n" +
                 "            WordBreakComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Break\n" +
+                "                Word break\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9112,7 +9112,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/spreadsheet/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Wrap\n" +
+                "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9121,7 +9121,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/spreadsheet/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Writing Mode\n" +
+                "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9253,7 +9253,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Background Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                      Background color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -9464,7 +9464,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BorderBottomComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
+                "                  Border bottom [green DOTTED 3px] icons=mdi-close-circle id=TextStyle-borderBottom-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -9478,7 +9478,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Bottom Color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
+                "                      Border bottom color [green] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            green\n" +
@@ -9667,7 +9667,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Bottom Style\n" +
+                "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9686,11 +9686,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Bottom Width [3px] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
+                "                    Border bottom width [3px] icons=mdi-close-circle id=TextStyle-borderBottomWidth-TextBox\n" +
                 "            BorderLeftComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
+                "                  Border left [blue DOTTED 4px] icons=mdi-close-circle id=TextStyle-borderLeft-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -9704,7 +9704,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Left Color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
+                "                      Border left color [blue] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            blue\n" +
@@ -9893,7 +9893,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Left Style\n" +
+                "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -9912,11 +9912,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Left Width [4px] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
+                "                    Border left width [4px] icons=mdi-close-circle id=TextStyle-borderLeftWidth-TextBox\n" +
                 "            BorderRightComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
+                "                  Border right [black SOLID 1px] icons=mdi-close-circle id=TextStyle-borderRight-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -9930,7 +9930,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Right Color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
+                "                      Border right color [black] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            black\n" +
@@ -10119,7 +10119,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Right Style\n" +
+                "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10138,11 +10138,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Right Width [1px] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
+                "                    Border right width [1px] icons=mdi-close-circle id=TextStyle-borderRightWidth-TextBox\n" +
                 "            BorderTopComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Border Top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
+                "                  Border top [white DASHED 2px] icons=mdi-close-circle id=TextStyle-borderTop-TextBox\n" +
                 "                    innerRight\n" +
                 "                      BorderBoxComponent\n" +
                 "                        Border\n" +
@@ -10156,7 +10156,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Top Color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
+                "                      Border top color [white] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                            white\n" +
@@ -10345,7 +10345,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Clear\" [#/1/SpreadsheetName1/spreadsheet/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Border Top Style\n" +
+                "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10364,7 +10364,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Border Top Width [2px] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
+                "                    Border top width [2px] icons=mdi-close-circle id=TextStyle-borderTopWidth-TextBox\n" +
                 "            TextStyleColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -10568,13 +10568,13 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Right to Left\" [#/1/SpreadsheetName1/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
-                "                Font Family [Courier] id=TextStyle-fontFamily-Select\n" +
+                "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
                 "                  \"Courier\" DISABLED id=TextStyle-fontFamily-courier-Option\n" +
                 "                  \"Sans Serif\" DISABLED id=TextStyle-fontFamily-sansSerif-Option\n" +
                 "                  \"Times New Roman\" DISABLED id=TextStyle-fontFamily-timesNewRoman-Option\n" +
                 "            FontKerningComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Kerning\n" +
+                "                Font kerning\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10584,10 +10584,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
-                "                Font Size [99]\n" +
+                "                Font size [99]\n" +
                 "            FontStretchComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Stretch\n" +
+                "                Font stretch\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10603,7 +10603,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Ultra Expanded\" [#/1/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Style\n" +
+                "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10613,7 +10613,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Oblique\" [#/1/SpreadsheetName1/spreadsheet/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Font Variant\n" +
+                "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10624,7 +10624,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Font Weight\n" +
+                "                  Font weight\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    FontWeightComponent\n" +
@@ -10638,7 +10638,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          \"Normal\" [#/1/SpreadsheetName1/spreadsheet/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Hanging Punctuation\n" +
+                "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10667,12 +10667,12 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Letter Spacing [33px] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
+                "                    Letter spacing [33px] icons=mdi-close-circle id=TextStyle-letterSpacing-TextBox\n" +
                 "            LineHeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Line Height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
+                "                    Line height [44px] icons=mdi-close-circle id=TextStyle-lineHeight-TextBox\n" +
                 "            BigMarginComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -10718,7 +10718,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  Opacity [0.5] icons=mdi-close-circle id=TextStyle-opacity-TextBox\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow X\n" +
+                "                Overflow x\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10729,7 +10729,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Y\n" +
+                "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10740,7 +10740,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Auto\" [#/1/SpreadsheetName1/spreadsheet/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Overflow Wrap\n" +
+                "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10789,7 +10789,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                      padding-top=1px\n" +
                 "            TextAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Align\n" +
+                "                Text align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10800,7 +10800,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-align-justify \"Justify\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Line\n" +
+                "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10811,7 +10811,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-underline \"Underline\" [#/1/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Decoration Style\n" +
+                "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10825,15 +10825,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Decoration Thickness [123px] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
+                "                    Text decoration thickness [123px] icons=mdi-close-circle id=TextStyle-textDecorationThickness-TextBox\n" +
                 "            TextIndentComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
                 "                  TextBoxComponent\n" +
-                "                    Text Indent [123px] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
+                "                    Text indent [123px] icons=mdi-close-circle id=TextStyle-textIndent-TextBox\n" +
                 "            TextJustifyComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Justify\n" +
+                "                Text justify\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10845,7 +10845,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
-                "                  Text Overflow\n" +
+                "                  Text overflow\n" +
                 "                FlexLayoutComponent\n" +
                 "                  COLUMN\n" +
                 "                    TextBoxComponent\n" +
@@ -10861,7 +10861,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                          Value [\"Hello World\"] icons=mdi-close-circle id=TextStyle-textOverflow-value-TextBox\n" +
                 "            TextTransformComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Transform\n" +
+                "                Text transform\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10872,7 +10872,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/spreadsheet/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Text Wrapping\n" +
+                "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10882,7 +10882,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Wrap\" [#/1/SpreadsheetName1/spreadsheet/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Vertical Align\n" +
+                "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10902,7 +10902,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Collapse\" [#/1/SpreadsheetName1/spreadsheet/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                White Space\n" +
+                "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10919,7 +10919,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    Width [44px] icons=mdi-close-circle id=TextStyle-width-TextBox\n" +
                 "            WordBreakComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Break\n" +
+                "                Word break\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10930,7 +10930,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/spreadsheet/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Word Wrap\n" +
+                "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -10939,7 +10939,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                        \"Break Word\" [#/1/SpreadsheetName1/spreadsheet/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
-                "                Writing Mode\n" +
+                "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
@@ -11062,7 +11062,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Background Color [] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
+                "                      Background color [] icons=mdi-close-circle, mdi-palette id=TextStyle-backgroundColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                    ColorPaletteComponent\n" +
@@ -11253,7 +11253,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Bottom Color [] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
+                "                      Border bottom color [] icons=mdi-close-circle, mdi-palette id=TextStyle-borderBottomColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                    ColorPaletteComponent\n" +
@@ -11444,7 +11444,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Left Color [] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
+                "                      Border left color [] icons=mdi-close-circle, mdi-palette id=TextStyle-borderLeftColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                    ColorPaletteComponent\n" +
@@ -11635,7 +11635,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Right Color [] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
+                "                      Border right color [] icons=mdi-close-circle, mdi-palette id=TextStyle-borderRightColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                    ColorPaletteComponent\n" +
@@ -11826,7 +11826,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                ColorComponent\n" +
                 "                  ValueTextBoxComponent\n" +
                 "                    TextBoxComponent\n" +
-                "                      Border Top Color [] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
+                "                      Border top color [] icons=mdi-close-circle, mdi-palette id=TextStyle-borderTopColor-TextBox\n" +
                 "                        innerRight\n" +
                 "                          ColorBoxComponent\n" +
                 "                    ColorPaletteComponent\n" +

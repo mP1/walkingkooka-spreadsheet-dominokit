@@ -43,7 +43,7 @@ public final class TextStylePropertyLengthComponentLikeTest implements FormValue
                 "  LengthComponent\n" +
                 "    ValueTextBoxComponent\n" +
                 "      TextBoxComponent\n" +
-                "        Text Decoration Thickness [] icons=mdi-close-circle id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n" +
+                "        Text decoration thickness [] icons=mdi-close-circle id=TestIdPrefix123-textDecorationThickness-TextBox REQUIRED\n" +
                 "        Errors\n" +
                 "          Empty \"text\"\n"
         );
