@@ -90,6 +90,326 @@ public final class AppSpreadsheetFormatterContextTest implements SpreadsheetForm
     }
 
     @Override
+    public void testMarshallCollectionNull() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testMarshallCollectionWithTypeNull() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testMarshallMapNull() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testMarshallMapWithTypeNull() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testMarshallNull() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testMarshallOptionalWithNullFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testMarshallOptionalWithTypeWithNullFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testMarshallWithTypeNull() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testParseStoragePathWithNullFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeBigDecimal() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeBigInteger() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeBoolean() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeByte() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeCharacter() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeDouble() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeFloat() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeInteger() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeList() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeLocalDate() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeLocalDateTime() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeLocale() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeLocalTime() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeLong() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeMap() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeMathContext() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeOptional() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeSet() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeShort() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testRegisteredTypeString() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testResolveLabelWithNullFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testSetObjectPostProcessor() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testSetObjectPostProcessorNullFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testSetObjectPostProcessorSame() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testSetPreProcessor() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testSetPreProcessorNullFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testSetPreProcessorSame() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameBigDecimal() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameBigInteger() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameBoolean() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameByte() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameCharacter() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameDouble() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameFloat() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameInteger() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameList() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameLocalDate() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameLocalDateTime() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameLocale() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameLocalTime() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameLong() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameMap() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameMathContext() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameOptional() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameSet() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameShort() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testTypeNameString() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testUnmarshallListWithNullTypeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testUnmarshallMapNullKeyTypeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testUnmarshallMapNullValueTypeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testUnmarshallOptionalWithNullJsonNodeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testUnmarshallOptionalWithNullTypeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testUnmarshallOptionalWithTypeWithNullJsonNodeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testUnmarshallSetWithNullTypeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testUnmarshallWithNullTypeFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public AppSpreadsheetFormatterContext createContext() {
         return AppSpreadsheetFormatterContext.with(
             DATE_TIME_CONTEXT,
