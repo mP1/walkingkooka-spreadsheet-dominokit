@@ -167,6 +167,7 @@ import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterProvider;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterProviders;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataLoaders;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContext;
@@ -1719,6 +1720,7 @@ public class App implements EntryPoint,
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 this.lineEnding(),
                 MULTIPLIER,
+                SpreadsheetMetadataLoaders.fake(),
                 this, // CurrencyLocaleContext
                 this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext

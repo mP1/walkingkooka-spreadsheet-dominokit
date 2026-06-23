@@ -972,6 +972,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public Optional<SpreadsheetMetadata> loadMetadata(final SpreadsheetId spreadsheetId) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public StoragePath parseStoragePath(final String path) {
         throw new UnsupportedOperationException();
     }
