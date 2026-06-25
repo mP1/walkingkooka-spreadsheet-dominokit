@@ -346,37 +346,6 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         );
     }
 
-    public void getFindCells(final SpreadsheetId id,
-                             final SpreadsheetCellRangeReference cells,
-                             final SpreadsheetCellQueryRequest find) {
-        this.get(
-            findCellsUrl(
-                id,
-                cells,
-                find
-            )
-        );
-    }
-
-    // @VisibleForTesting
-    static RelativeUrl findCellsUrl(final SpreadsheetId id,
-                                    final SpreadsheetCellRangeReference cells,
-                                    final SpreadsheetCellQueryRequest find) {
-        return SpreadsheetMetadataFetcher.url(id)
-            .appendPathName(SpreadsheetHateosResourceNames.CELL.toUrlPathName())
-            .appendPathName(
-                UrlPathName.with(
-                    Objects.requireNonNull(cells, "cells")
-                        .toStringMaybeStar()
-                )
-            ).appendPathName(
-                SpreadsheetServerLinkRelations.FIND.toUrlPathName()
-                    .get()
-            ).setQuery(
-                find.toUrlQueryString()
-            );
-    }
-
     public void postInsertAfterColumn(final SpreadsheetId id,
                                       final SpreadsheetSelection selection,
                                       final int count) {
@@ -487,6 +456,37 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
                 )
             )
         );
+    }
+
+    public void getQueryCells(final SpreadsheetId id,
+                              final SpreadsheetCellRangeReference cells,
+                              final SpreadsheetCellQueryRequest find) {
+        this.get(
+            queryCellsUrl(
+                id,
+                cells,
+                find
+            )
+        );
+    }
+
+    // @VisibleForTesting
+    static RelativeUrl queryCellsUrl(final SpreadsheetId id,
+                                     final SpreadsheetCellRangeReference cells,
+                                     final SpreadsheetCellQueryRequest find) {
+        return SpreadsheetMetadataFetcher.url(id)
+            .appendPathName(SpreadsheetHateosResourceNames.CELL.toUrlPathName())
+            .appendPathName(
+                UrlPathName.with(
+                    Objects.requireNonNull(cells, "cells")
+                        .toStringMaybeStar()
+                )
+            ).appendPathName(
+                SpreadsheetServerLinkRelations.QUERY.toUrlPathName()
+                    .get()
+            ).setQuery(
+                find.toUrlQueryString()
+            );
     }
 
     /**

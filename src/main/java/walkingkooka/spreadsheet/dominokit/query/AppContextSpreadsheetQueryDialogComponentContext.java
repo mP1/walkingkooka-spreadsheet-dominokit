@@ -121,7 +121,7 @@ final class AppContextSpreadsheetQueryDialogComponentContext implements Spreadsh
                           final SpreadsheetCellRangeReference cells,
                           final SpreadsheetCellQueryRequest find) {
         this.context.spreadsheetDeltaFetcher()
-            .getFindCells(
+            .getQueryCells(
                 id,
                 cells,
                 find
