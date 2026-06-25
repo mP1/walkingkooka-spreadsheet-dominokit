@@ -644,7 +644,7 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
 
     /**
      * Copies the parameters from the current {@link HistoryToken} assuming its a {@link SpreadsheetCellQueryHistoryToken}
-     * and performs a {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher#getFindCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellQueryRequest)}.
+     * and performs a {@link walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher#getQueryCells(SpreadsheetId, SpreadsheetCellRangeReference, SpreadsheetCellQueryRequest)}.
      */
     private void findCells(final SpreadsheetCellQueryRequest query) {
         final SpreadsheetQueryDialogComponentContext context = this.context;

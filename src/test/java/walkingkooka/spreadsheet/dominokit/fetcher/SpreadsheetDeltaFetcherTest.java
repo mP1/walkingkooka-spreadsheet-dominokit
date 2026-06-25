@@ -913,10 +913,10 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     );
 
     @Test
-    public void testGetFindCellsWithNullIdFails() {
+    public void testGetQueryCellsWithNullIdFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetDeltaFetcher.findCellsUrl(
+            () -> SpreadsheetDeltaFetcher.queryCellsUrl(
                 null,
                 CELLS,
                 SpreadsheetCellQueryRequest.empty()
@@ -925,10 +925,10 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     }
 
     @Test
-    public void testGetFindCellsWithNullCellsFails() {
+    public void testGetQueryCellsWithNullCellsFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetDeltaFetcher.findCellsUrl(
+            () -> SpreadsheetDeltaFetcher.queryCellsUrl(
                 ID,
                 null,
                 SpreadsheetCellQueryRequest.empty()
@@ -937,10 +937,10 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     }
 
     @Test
-    public void testGetFindCellsWithNullFindFails() {
+    public void testGetQueryCellsWithNullQueryFails() {
         assertThrows(
             NullPointerException.class,
-            () -> SpreadsheetDeltaFetcher.findCellsUrl(
+            () -> SpreadsheetDeltaFetcher.queryCellsUrl(
                 ID,
                 CELLS,
                 null
@@ -949,41 +949,41 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
     }
 
     @Test
-    public void testGetFindCellsPath() {
-        this.getFindCellsUrlAndCheck(
+    public void testGetQueryCellsPath() {
+        this.getQueryCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellQueryRequest.empty()
                 .setPath(PATH),
-            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=BULR")
+            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/query?cell-range-path=BULR")
         );
     }
 
     @Test
-    public void testGetFindCellsOffset() {
-        this.getFindCellsUrlAndCheck(
+    public void testGetQueryCellsOffset() {
+        this.getQueryCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellQueryRequest.empty()
                 .setOffset(OFFSET),
-            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?offset=12")
+            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/query?offset=12")
         );
     }
 
     @Test
-    public void testGetFindCellsCount() {
-        this.getFindCellsUrlAndCheck(
+    public void testGetQueryCellsCount() {
+        this.getQueryCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellQueryRequest.empty()
                 .setCount(COUNT),
-            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?count=34")
+            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/query?count=34")
         );
     }
 
     @Test
-    public void testGetFindCellsValueType() {
-        this.getFindCellsUrlAndCheck(
+    public void testGetQueryCellsValueType() {
+        this.getQueryCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellQueryRequest.empty()
@@ -991,24 +991,24 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                     Optional.of(
                         SpreadsheetValueType.NUMBER)
                 ),
-            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?value-type=number")
+            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/query?value-type=number")
         );
     }
 
     @Test
-    public void testGetFindCellsQuery() {
-        this.getFindCellsUrlAndCheck(
+    public void testGetQueryCellsQuery() {
+        this.getQueryCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellQueryRequest.empty()
                 .setQuery(QUERY),
-            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?query=query789()")
+            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/query?query=query789()")
         );
     }
 
     @Test
-    public void testGetFindCellsAllParameters() {
-        this.getFindCellsUrlAndCheck(
+    public void testGetQueryCellsAllParameters() {
+        this.getQueryCellsUrlAndCheck(
             ID,
             CELLS,
             SpreadsheetCellQueryRequest.empty()
@@ -1017,22 +1017,22 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
                 .setCount(COUNT)
                 .setValueType(VALUE_TYPE)
                 .setQuery(QUERY),
-            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/find?cell-range-path=BULR&count=34&offset=12&query=query789()&value-type=date")
+            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/query?cell-range-path=BULR&count=34&offset=12&query=query789()&value-type=date")
         );
     }
 
-    private void getFindCellsUrlAndCheck(final SpreadsheetId id,
-                                         final SpreadsheetCellRangeReference cells,
-                                         final SpreadsheetCellQueryRequest find,
-                                         final RelativeUrl expected) {
+    private void getQueryCellsUrlAndCheck(final SpreadsheetId id,
+                                          final SpreadsheetCellRangeReference cells,
+                                          final SpreadsheetCellQueryRequest query,
+                                          final RelativeUrl expected) {
         this.checkEquals(
             expected,
-            SpreadsheetDeltaFetcher.findCellsUrl(
+            SpreadsheetDeltaFetcher.queryCellsUrl(
                 id,
                 cells,
-                find
+                query
             ),
-            () -> "findCellsUrl " + id + " " + cells + " find=" + find
+            () -> "queryCellsUrl " + id + " " + cells + " query=" + query
         );
     }
 
