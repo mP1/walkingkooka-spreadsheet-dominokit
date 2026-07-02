@@ -109,6 +109,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Text With Numbers\" id=column-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-with-numbers] id=column-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-with-numbers-reversed] id=column-sort-text-with-numbers-reverse-MenuItem\n" +
+                "    \"Text With Numbers Case Insensitive\" id=column-sort-text-with-numbers-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-with-numbers-case-insensitive] id=column-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-with-numbers-case-insensitive-reversed] id=column-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=column-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=time] id=column-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=time-reversed] id=column-sort-time-reverse-MenuItem\n" +
@@ -178,6 +181,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Text With Numbers\" id=row-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-with-numbers] id=row-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-with-numbers-reversed] id=row-sort-text-with-numbers-reverse-MenuItem\n" +
+                "    \"Text With Numbers Case Insensitive\" id=row-sort-text-with-numbers-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-with-numbers-case-insensitive] id=row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-with-numbers-case-insensitive-reversed] id=row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=row-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=time] id=row-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=time-reversed] id=row-sort-time-reverse-MenuItem\n" +
@@ -247,6 +253,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Text With Numbers\" id=column-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-with-numbers] id=column-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-with-numbers-reversed] id=column-sort-text-with-numbers-reverse-MenuItem\n" +
+                "    \"Text With Numbers Case Insensitive\" id=column-sort-text-with-numbers-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-with-numbers-case-insensitive] id=column-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-with-numbers-case-insensitive-reversed] id=column-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=column-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=time] id=column-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=time-reversed] id=column-sort-time-reverse-MenuItem\n" +
