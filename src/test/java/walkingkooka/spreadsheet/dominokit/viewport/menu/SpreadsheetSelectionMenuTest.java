@@ -1789,7 +1789,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-Style-color-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-1-Link\n" +
@@ -1814,7 +1814,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-8-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-9-Link\n" +
@@ -1839,7 +1839,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-16-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-17-Link\n" +
@@ -1864,7 +1864,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-24-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-25-Link\n" +
@@ -1889,7 +1889,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-32-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-33-Link\n" +
@@ -1914,7 +1914,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-40-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-41-Link\n" +
@@ -1939,7 +1939,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-48-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-49-Link\n" +
@@ -1964,7 +1964,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-56-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/color/save/] id=test-Style-color-color-clear-Link\n" +
@@ -1973,7 +1973,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "        TABLE\n" +
                 "          id=\"test-Style-backgroundColor-Table\" className=dui dui-menu-item\n" +
                 "            TBODY\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-1-Link\n" +
@@ -1998,7 +1998,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-8-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-9-Link\n" +
@@ -2023,7 +2023,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-16-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-17-Link\n" +
@@ -2048,7 +2048,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-24-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-25-Link\n" +
@@ -2073,7 +2073,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-32-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-33-Link\n" +
@@ -2098,7 +2098,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-40-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-41-Link\n" +
@@ -2123,7 +2123,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-48-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-49-Link\n" +
@@ -2148,7 +2148,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-56-Link\n" +
-                "              TR\n",
+                "              TR\n" +
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
                 "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
@@ -3292,6 +3292,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text With Numbers\" id=test-column-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers] id=test-column-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers-reversed] id=test-column-sort-text-with-numbers-reverse-MenuItem\n" +
+                "    \"Text With Numbers Case Insensitive\" id=test-column-sort-text-with-numbers-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers-case-insensitive] id=test-column-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers-case-insensitive-reversed] id=test-column-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-column-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
@@ -3343,6 +3346,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
+                "    \"Text With Numbers Case Insensitive\" id=test-row-sort-text-with-numbers-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time] id=test-row-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
@@ -6610,6 +6616,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
+                "    \"Text With Numbers Case Insensitive\" id=test-row-sort-text-with-numbers-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
@@ -6710,6 +6719,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
+                "    \"Text With Numbers Case Insensitive\" id=test-row-sort-text-with-numbers-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
@@ -6810,6 +6822,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
+                "    \"Text With Numbers Case Insensitive\" id=test-row-sort-text-with-numbers-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +

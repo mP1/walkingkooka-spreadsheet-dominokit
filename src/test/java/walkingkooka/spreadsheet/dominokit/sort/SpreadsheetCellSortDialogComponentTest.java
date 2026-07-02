@@ -133,8 +133,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/Z=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -213,8 +214,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/99=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -295,8 +297,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=time] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=year] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=time] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=year] id=SpreadsheetCellSort-comparatorNames-0-append-16-Link\n" +
                 "          SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            FlexLayoutComponent\n" +
                 "              COLUMN\n" +
@@ -370,8 +373,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=time] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=year] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=time] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=year] id=SpreadsheetCellSort-comparatorNames-0-append-16-Link\n" +
                 "          SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            FlexLayoutComponent\n" +
                 "              COLUMN\n" +
@@ -442,8 +446,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -517,8 +522,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,time] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,year] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,time] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text2,year] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -593,8 +599,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,seconds-of-minute;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,time;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,year;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,time;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,year;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -631,8 +638,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-15-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-15-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-16-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -697,8 +705,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,seconds-of-minute;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,time;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,year;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,time;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text,year;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -737,8 +746,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-15-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-15-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-16-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -800,8 +810,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,seconds-of-minute;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,text-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,text-with-numbers;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,time;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,year;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,time;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text,year;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -838,8 +849,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"text\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-15-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-15-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-16-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -918,8 +930,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1001,8 +1014,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,seconds-of-minute;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-case-insensitive;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-with-numbers;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,time;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,year;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-with-numbers-case-insensitive;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,time;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,year;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1040,8 +1054,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-10-Link\n" +
                 "                            \"text\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-1-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1109,8 +1124,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,seconds-of-minute;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-case-insensitive;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-with-numbers;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,time;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,year;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,text-with-numbers-case-insensitive;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,time;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text,year;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1148,8 +1164,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-10-Link\n" +
                 "                            \"text\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-1-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1215,8 +1232,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1298,8 +1316,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,seconds-of-minute;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,text-case-insensitive;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,text-with-numbers;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,time;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,year;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,text-with-numbers-case-insensitive;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,time;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text,year;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1335,8 +1354,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,seconds-of-minute;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,text-case-insensitive;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,text-with-numbers;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,time;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,year;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,text-with-numbers-case-insensitive;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,time;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text,year;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1374,8 +1394,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-2-append-10-Link\n" +
                 "                            \"text\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-2-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-2-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-2-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-2-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-2-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-2-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-2-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1443,8 +1464,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,seconds-of-minute;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,text-case-insensitive;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,text-with-numbers;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,time;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,year;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,text-with-numbers-case-insensitive;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,time;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text,year;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1482,8 +1504,9 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"seconds-of-minute\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-10-Link\n" +
                 "                            \"text-case-insensitive\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-11-Link\n" +
                 "                            \"text-with-numbers\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-12-Link\n" +
-                "                            \"time\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,time] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
-                "                            \"year\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,year] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-13-Link\n" +
+                "                            \"time\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,time] id=SpreadsheetCellSort-comparatorNames-1-append-14-Link\n" +
+                "                            \"year\" [#/1/SpreadsheetName1/row/3:4/bottom/sort/edit/3=text;A=text,year] id=SpreadsheetCellSort-comparatorNames-1-append-15-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
