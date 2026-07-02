@@ -22,8 +22,11 @@ import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
+import walkingkooka.spreadsheet.reference.SpreadsheetColumnReferenceOrRange;
+import walkingkooka.spreadsheet.reference.SpreadsheetRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
+import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -68,12 +71,15 @@ final class SpreadsheetSelectionMenuInsert {
             .orElse(null);
 
         if (null != selectionNotLabel && (selection.isColumnOrColumnRange() | selection.isExternalReference())) {
+            final SpreadsheetColumnReferenceOrRange columnOrRange =  selectionNotLabel.toColumnOrColumnRange();
+
             final HistoryToken columnHistoryToken = historyToken.setAnchoredSelection(
                 Optional.of(
-                    selectionNotLabel.toColumnOrColumnRange()
-                        .setAnchor(
-                            anchoredSpreadsheetSelection.anchor()
-                                .toColumnOrColumnRangeAnchor()
+                   columnOrRange.setAnchor(
+                       columnOrRange.isUnit() ?
+                                SpreadsheetViewportAnchor.NONE :
+                                anchoredSpreadsheetSelection.anchor()
+                                    .toColumnOrColumnRangeAnchor()
                         )
                 )
             );
@@ -114,13 +120,16 @@ final class SpreadsheetSelectionMenuInsert {
             .orElse(null);
 
         if (null != selectionNotLabel && (selection.isRowOrRowRange() | selection.isExternalReference())) {
+            final SpreadsheetRowReferenceOrRange rowOrRange =  selectionNotLabel.toRowOrRowRange();
+
             final HistoryToken rowHistoryToken = historyToken.setAnchoredSelection(
                 Optional.of(
-                    selectionNotLabel.toRowOrRowRange()
-                        .setAnchor(
+                    rowOrRange.setAnchor(
+                        rowOrRange.isUnit() ?
+                            SpreadsheetViewportAnchor.NONE :
                             anchoredSpreadsheetSelection.anchor()
                                 .toRowOrRowRangeAnchor()
-                        )
+                    )
                 )
             );
 
