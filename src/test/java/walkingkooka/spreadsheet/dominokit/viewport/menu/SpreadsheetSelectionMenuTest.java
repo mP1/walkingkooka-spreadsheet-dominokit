@@ -3289,6 +3289,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "    \"Text With Numbers\" id=test-column-sort-text-with-numbers-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers] id=test-column-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers-reversed] id=test-column-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Time\" id=test-column-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
@@ -3337,6 +3340,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time] id=test-row-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
@@ -6601,6 +6607,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
@@ -6698,6 +6707,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
@@ -6795,6 +6807,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
