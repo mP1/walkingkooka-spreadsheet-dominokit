@@ -17,10 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin;
 
-import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.PluginNameSet;
-import walkingkooka.plugin.store.Plugin;
-import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.SpreadsheetStrings;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
@@ -30,7 +27,6 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponent;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycle;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
@@ -38,13 +34,10 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySav
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
-import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -55,8 +48,7 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher,
-    SpreadsheetMetadataFetcherWatcher,
-    PluginFetcherWatcher {
+    SpreadsheetMetadataFetcherWatcher {
 
     /**
      * Creates a new {@link PluginNameSetDialogComponent}.
@@ -70,7 +62,6 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
     private PluginNameSetDialogComponent(final PluginNameSetDialogComponentContext context) {
         this.context = context;
         context.addHistoryWatcher(this);
-        context.addPluginFetcherWatcher(this);
         context.addSpreadsheetMetadataFetcherWatcher(this);
 
         this.add = AddPluginNameSetComponent.empty(ID + "-add-");
@@ -130,17 +121,8 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
 
     // add..............................................................................................................
 
-    /**
-     * When the ADD card filter changes, execute a {@link walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher#}.
-     * When the {@link PluginFetcherWatcher#onPluginSet(PluginSet)}.
-     */
     private void addFilterOnValue(final Optional<String> value) {
-        this.context.pluginFilter(
-            this.add.filterValue()
-                .orElse("*"),
-            OptionalInt.of(0),
-            OptionalInt.of(50)
-        );
+        // NOP
     }
 
     private final AddPluginNameSetComponent add;
@@ -229,33 +211,6 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
         // Ignore many
     }
 
-    // PluginFetcherWatcher.............................................................................................
-
-    @Override
-    public void onJarEntryInfoList(final PluginName name,
-                                   final Optional<JarEntryInfoList> list) {
-        // NOP
-    }
-
-    @Override
-    public void onJarEntryInfoName(final PluginName pluginName,
-                                   final Optional<JarEntryInfoName> filename,
-                                   final Optional<String> body) {
-        // NOP
-    }
-
-    @Override
-    public void onPlugin(final PluginName name,
-                         final Optional<Plugin> plugin) {
-        // NOP
-    }
-
-    @Override
-    public void onPluginSet(final PluginSet plugins) {
-        this.filterMatchPluginNames = plugins.names();
-        this.refreshIfOpen(this.context);
-    }
-
     /**
      * This will hold the {@link PluginNameSet} after executing the ADD filter query.
      */
@@ -304,13 +259,6 @@ public final class PluginNameSetDialogComponent implements DialogComponentLifecy
         // load latest metadata
         dialogContext.loadSpreadsheetMetadata(
             propertySelectHistoryToken.spreadsheetId()
-        );
-
-        dialogContext.pluginFilter(
-            this.add.filterValue()
-                .orElse("*"),
-            OptionalInt.of(0),
-            OptionalInt.of(50)
         );
 
         context.giveFocus(

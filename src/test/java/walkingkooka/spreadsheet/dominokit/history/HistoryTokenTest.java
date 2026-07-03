@@ -22,12 +22,10 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
-import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueMap;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
@@ -2272,143 +2270,6 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.parseStringAndCheck(
             "/XYZ",
             HistoryToken.spreadsheetListSelect(HistoryTokenOffsetAndCount.EMPTY)
-        );
-    }
-
-    // plugin...........................................................................................................
-
-    @Test
-    public void testParsePlugin() {
-        this.parseStringAndCheck(
-            "/plugin",
-            HistoryToken.pluginListSelect(HistoryTokenOffsetAndCount.EMPTY)
-        );
-    }
-
-    @Test
-    public void testParsePluginOffset() {
-        this.parseStringAndCheck(
-            "/plugin/*/offset/123",
-            HistoryToken.pluginListSelect(
-                HistoryTokenOffsetAndCount.with(
-                    OptionalInt.of(123), // offset
-                    OptionalInt.empty() // count
-                )
-            )
-        );
-    }
-
-
-    @Test
-    public void testParsePluginCount() {
-        this.parseStringAndCheck(
-            "/plugin/*/count/456",
-            HistoryToken.pluginListSelect(
-                HistoryTokenOffsetAndCount.with(
-                    OptionalInt.empty(), // offset
-                    OptionalInt.of(456) // count
-                )
-            )
-        );
-    }
-
-    @Test
-    public void testParsePluginReload() {
-        this.parseStringAndCheck(
-            "/plugin/reload",
-            HistoryToken.pluginSelect(
-                PluginName.with("reload")
-            )
-        );
-    }
-
-    @Test
-    public void testParsePluginStarReload() {
-        this.parseStringAndCheck(
-            "/plugin/*/reload",
-            HistoryToken.pluginListReload(
-                HistoryTokenOffsetAndCount.with(
-                    OptionalInt.empty(), // offset
-                    OptionalInt.empty() // count
-                )
-            )
-        );
-    }
-
-    @Test
-    public void testParsePluginStarOffsetReload() {
-        this.parseStringAndCheck(
-            "/plugin/*/offset/123/reload",
-            HistoryToken.pluginListReload(
-                HistoryTokenOffsetAndCount.with(
-                    OptionalInt.of(123), // offset
-                    OptionalInt.empty() // count
-                )
-            )
-        );
-    }
-
-    @Test
-    public void testParsePluginPluginNameSave() {
-        this.parseStringAndCheck(
-            "/plugin/test-plugin-name-123/save/text123",
-            HistoryToken.pluginSave(
-                PluginName.with("test-plugin-name-123"),
-                "text123"
-            )
-        );
-    }
-
-    @Test
-    public void testParsePluginSlashUpload() {
-        this.parseStringAndCheck(
-            "/plugin/upload",
-            HistoryToken.pluginSelect(
-                PluginName.with("upload")
-            )
-        );
-    }
-
-    @Test
-    public void testParsePluginUploadSelect() {
-        this.parseStringAndCheck(
-            "/plugin-upload",
-            HistoryToken.pluginUploadSelect()
-        );
-    }
-
-    @Test
-    public void testParsePluginUploadSave() {
-        this.parseStringAndCheck(
-            "/plugin-upload/save/base64/Filename123/FileContent456",
-            HistoryToken.pluginUploadSave(
-                BrowserFile.base64(
-                    "Filename123",
-                    "FileContent456"
-                )
-            )
-        );
-    }
-
-    // plugin/name......................................................................................................
-
-    @Test
-    public void testParsePluginNameInvalid() {
-        this.parseStringAndCheck(
-            "/plugin/!test-plugin-name-123",
-            HistoryToken.pluginListSelect(
-                HistoryTokenOffsetAndCount.EMPTY
-            )
-        );
-    }
-
-    @Test
-    public void testParsePluginName() {
-        this.parseStringAndCheck(
-            "/plugin/test-plugin-name-123",
-            HistoryToken.pluginSelect(
-                PluginName.with("test-plugin-name-123")
-            )
         );
     }
 

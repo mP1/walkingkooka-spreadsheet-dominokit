@@ -32,21 +32,6 @@ import java.util.Objects;
 public interface DialogComponentContext extends RefreshContext {
 
     /**
-     * Helper that may be used to create a standard dialog title for a relating to plugins.
-     */
-    default String pluginDialogTitle(final String action) {
-        CharSequences.failIfNullOrEmpty(action, "action");
-
-        return "Plugin" +
-            this.historyToken()
-                .pluginName()
-                .map(p -> " " + p)
-                .orElse("") +
-            ": " +
-            action;
-    }
-
-    /**
      * Helper that may be used to create a standard dialog title for a {@link SpreadsheetSelection} and some action.
      */
     default String selectionDialogTitle(final String action) {

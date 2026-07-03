@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.datetime.DateTimeSymbols;
-import walkingkooka.plugin.PluginName;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -42,46 +41,6 @@ public final class DialogComponentContextTest implements ClassTesting<DialogComp
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
     private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName123");
-
-    // pluginDialogTitle................................................................................................
-
-    @Test
-    public void testPluginDialogTitleWithoutPluginName() {
-        this.pluginDialogTitleAndCheck(
-            Optional.empty(),
-            "Action123",
-            "Plugin: Action123"
-        );
-    }
-
-    @Test
-    public void testPluginDialogTitleWithPluginName() {
-        this.pluginDialogTitleAndCheck(
-            Optional.of(
-                PluginName.with("hello-plugin")
-            ),
-            "Action456",
-            "Plugin hello-plugin: Action456"
-        );
-    }
-
-    private void pluginDialogTitleAndCheck(final Optional<PluginName> plugin,
-                                           final String action,
-                                           final String expected) {
-        this.checkEquals(
-            expected,
-            new FakeDialogComponentContext() {
-
-                @Override
-                public HistoryToken historyToken() {
-                    return plugin.isPresent() ?
-                        HistoryToken.pluginSelect(plugin.get()) :
-                        HistoryToken.pluginUploadSelect();
-                }
-            }.pluginDialogTitle(action),
-            () -> "plugin: " + plugin + " action: " + action
-        );
-    }
 
     // selectionDialogTitle.............................................................................................
 

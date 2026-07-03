@@ -55,11 +55,8 @@ import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
-import walkingkooka.plugin.PluginName;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
-import walkingkooka.plugin.store.Plugin;
-import walkingkooka.plugin.store.PluginSet;
 import walkingkooka.plugin.store.PluginStores;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
@@ -91,8 +88,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.FormHandlerFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.FormHandlerFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.FormHandlerFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
@@ -101,9 +96,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.LocaleFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetComparatorFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetComparatorFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetComparatorFetcherWatchers;
@@ -190,8 +182,6 @@ import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbols
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
-import walkingkooka.spreadsheet.server.plugin.JarEntryInfoList;
-import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
@@ -245,7 +235,6 @@ public class App implements EntryPoint,
     DecimalNumberSymbolsFetcherWatcher,
     ExpressionFunctionFetcherWatcher,
     FormHandlerFetcherWatcher,
-    HasPluginFetcherWatchersDelegator,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
     HasSpreadsheetMetadataFetcherWatchersDelegator,
     HistoryContextDelegator,
@@ -254,7 +243,6 @@ public class App implements EntryPoint,
     LocaleContextDelegator,
     LoggingContextDelegator,
     NopEmptyResponseFetcherWatcher,
-    PluginFetcherWatcher,
     ProviderContextDelegator,
     RecentValueSavesContextDelegator,
     SpreadsheetComparatorFetcherWatcher,
@@ -476,14 +464,6 @@ public class App implements EntryPoint,
         );
         this.validatorInfoSet = ValidatorInfoSet.EMPTY;
         this.addValidatorFetcherWatcher(this);
-
-        // plugins
-        this.pluginFetcherWatchers = PluginFetcherWatchers.empty();
-        this.pluginFetcher = PluginFetcher.with(
-            this.pluginFetcherWatchers,
-            this
-        );
-        this.addPluginFetcherWatcher(this);
 
         this.spreadsheetEnvironmentContext = SpreadsheetEnvironmentContexts.basic(
             Storages.fake(),
@@ -1523,46 +1503,6 @@ public class App implements EntryPoint,
     public void onSpreadsheetParserSelectorEdit(final SpreadsheetId id,
                                                 final SpreadsheetParserSelectorEdit edit) {
         // nop
-    }
-
-    // PluginFetcher....................................................................................................
-
-    @Override
-    public PluginFetcher pluginFetcher() {
-        return this.pluginFetcher;
-    }
-
-    private final PluginFetcher pluginFetcher;
-
-    @Override
-    public HasPluginFetcherWatchers hasPluginFetcherWatchers() {
-        return this.pluginFetcherWatchers;
-    }
-
-    private final PluginFetcherWatchers pluginFetcherWatchers;
-
-    @Override
-    public void onJarEntryInfoList(final PluginName name,
-                                   final Optional<JarEntryInfoList> list) {
-        // NOP
-    }
-
-    @Override
-    public void onJarEntryInfoName(final PluginName pluginName,
-                                   final Optional<JarEntryInfoName> filename,
-                                   final Optional<String> body) {
-        // NOP
-    }
-
-    @Override
-    public void onPlugin(final PluginName name,
-                         final Optional<Plugin> plugin) {
-        // NOP
-    }
-
-    @Override
-    public void onPluginSet(final PluginSet plugins) {
-        // TODO
     }
 
     // ProviderContext..................................................................................................

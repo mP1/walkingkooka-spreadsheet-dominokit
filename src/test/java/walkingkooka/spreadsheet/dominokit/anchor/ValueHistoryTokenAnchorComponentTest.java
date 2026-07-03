@@ -21,9 +21,8 @@ import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.net.RelativeUrl;
-import walkingkooka.plugin.PluginName;
+import walkingkooka.net.UrlPath;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
@@ -31,44 +30,29 @@ import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class ValueHistoryTokenAnchorComponentTest implements ValueComponentTesting<HTMLAnchorElement, JarEntryInfoName, ValueHistoryTokenAnchorComponent<JarEntryInfoName>> {
 
-    private final static PluginName PLUGIN_NAME = PluginName.with("test-plugin-name-123");
-
     private final static Function<HistoryTokenAnchorComponent, Optional<JarEntryInfoName>> GETTER = (a) -> {
         final RelativeUrl url = (RelativeUrl) a.href();
+        final UrlPath path = null != url ?
+            url.path() :
+            null;
 
-        JarEntryInfoName name = null;
-        if (null != url) {
-            // 1=api / 2=plugin / 3=download / 4=path
-            name = JarEntryInfoName.with(
-                url.path()
-                    .namesList()
-                    .stream()
-                    .skip(5)
-                    .map(n -> n.value())
-                    .collect(
-                        Collectors.joining(
-                            JarEntryInfoName.SEPARATOR.string(),
-                            JarEntryInfoName.SEPARATOR.string(),
-                            ""
-                        )
-                    )
-            );
-        }
-
-        return Optional.ofNullable(name);
+        return Optional.ofNullable(
+            null == path || path.isRoot() ?
+                null :
+                JarEntryInfoName.with(path.value())
+        );
     };
 
     private final static BiConsumer<Optional<JarEntryInfoName>, HistoryTokenAnchorComponent> SETTER = (v, c) ->
         c.setHref(
-            PluginFetcher.downloadUrl(
-                PLUGIN_NAME,
-                v
+            RelativeUrl.parseRelative(
+                v.map(JarEntryInfoName::value)
+                    .orElse("")
             )
         );
 
@@ -176,7 +160,7 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
                         JarEntryInfoName.MANIFEST_MF
                     )
                 ),
-            "[/api/plugin/test-plugin-name-123/download/META-INF/MANIFEST.MF]"
+            "[/META-INF/MANIFEST.MF]"
         );
     }
 
