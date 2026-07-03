@@ -64,16 +64,6 @@ import walkingkooka.spreadsheet.dominokit.value.locale.LocaleDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.locale.LocaleDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.number.NumberComponent;
 import walkingkooka.spreadsheet.dominokit.value.number.WholeNumberComponent;
-import walkingkooka.spreadsheet.dominokit.value.plugin.JarEntryInfoListDialogComponent;
-import walkingkooka.spreadsheet.dominokit.value.plugin.JarEntryInfoListDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.value.plugin.PluginFileViewDialogComponent;
-import walkingkooka.spreadsheet.dominokit.value.plugin.PluginFileViewDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.value.plugin.PluginNameSetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.value.plugin.PluginNameSetDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.value.plugin.PluginSetDialogComponent;
-import walkingkooka.spreadsheet.dominokit.value.plugin.PluginSetDialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.value.plugin.PluginUploadDialogComponent;
-import walkingkooka.spreadsheet.dominokit.value.plugin.PluginUploadDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.plugin.comparator.SpreadsheetComparatorNameListDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.plugin.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.plugin.convert.ConverterSelectorDialogComponent;
@@ -108,8 +98,6 @@ import java.util.function.BiFunction;
 final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
     static void register(final AppContext context) {
-        plugin(context);
-
         spreadsheet(context);
 
         metadata(context);
@@ -396,10 +384,6 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
     }
 
     private static void metadataPlugin(final AppContext context) {
-        PluginNameSetDialogComponent.with(
-            PluginNameSetDialogComponentContexts.appContext(context)
-        );
-
         PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.findFunctions(context)
         );
@@ -490,21 +474,6 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         SpreadsheetParserSelectorDialogComponent.with(
             SpreadsheetParserSelectorDialogComponentContexts.metadata(context)
-        );
-    }
-
-    private static void plugin(final AppContext context) {
-        PluginSetDialogComponent.with(
-            PluginSetDialogComponentContexts.appContext(context)
-        );
-        JarEntryInfoListDialogComponent.with(
-            JarEntryInfoListDialogComponentContexts.appContext(context)
-        );
-        PluginFileViewDialogComponent.with(
-            PluginFileViewDialogComponentContexts.appContext(context)
-        );
-        PluginUploadDialogComponent.with(
-            PluginUploadDialogComponentContexts.appContext(context)
         );
     }
 

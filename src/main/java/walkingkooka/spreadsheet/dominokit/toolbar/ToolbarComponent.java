@@ -147,8 +147,6 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
             ToolbarComponentItem.labelList(context),
             // reload
             ToolbarComponentItem.reload(context),
-            // plugin
-            ToolbarComponentItem.plugin(context),
             // swagger
             ToolbarComponentItem.keyboard(context),
             // swagger

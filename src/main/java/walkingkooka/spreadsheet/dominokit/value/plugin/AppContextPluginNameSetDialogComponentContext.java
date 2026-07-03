@@ -22,8 +22,6 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -32,10 +30,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 final class AppContextPluginNameSetDialogComponentContext implements PluginNameSetDialogComponentContext,
-    HasPluginFetcherWatchersDelegator,
     HasSpreadsheetMetadataFetcherWatchersDelegator,
     DialogComponentContextDelegator {
 
@@ -58,25 +54,6 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
     public Optional<PluginNameSet> undo() {
         return this.spreadsheetMetadata()
             .get(SpreadsheetMetadataPropertyName.PLUGINS);
-    }
-
-    // HasPluginFetcher.................................................................................................
-
-    @Override
-    public void pluginFilter(final String query,
-                             final OptionalInt offset,
-                             final OptionalInt count) {
-        this.context.pluginFetcher()
-            .getPluginFilter(
-                query,
-                offset,
-                count
-            );
-    }
-
-    @Override
-    public HasPluginFetcherWatchers hasPluginFetcherWatchers() {
-        return this.context;
     }
 
     // HasSpreadsheetMetadataFetcherWatcher.............................................................................

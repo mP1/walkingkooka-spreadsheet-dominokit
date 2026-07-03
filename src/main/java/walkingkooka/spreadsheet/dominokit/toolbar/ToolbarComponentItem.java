@@ -187,13 +187,6 @@ abstract class ToolbarComponentItem<C extends ToolbarComponentItem<C>> implement
     }
 
     /**
-     * {@link ToolbarComponentItemAnchorPlugin}
-     */
-    static ToolbarComponentItem<?> plugin(final ToolbarComponentContext context) {
-        return ToolbarComponentItemAnchorPlugin.with(context);
-    }
-
-    /**
      * {@link ToolbarComponentItemAnchorCellQuery}
      */
     static ToolbarComponentItem<?> queryCells(final ToolbarComponentContext context) {

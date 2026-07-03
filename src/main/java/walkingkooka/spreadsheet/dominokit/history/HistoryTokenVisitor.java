@@ -20,10 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.plugin.PluginName;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
-import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -32,7 +30,6 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
-import walkingkooka.spreadsheet.server.plugin.JarEntryInfoName;
 import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
@@ -589,42 +586,6 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
     protected void visitNavigate(final SpreadsheetId id,
                                  final SpreadsheetName name,
                                  final Optional<SpreadsheetViewportHomeNavigationList> navigation) {
-        // NOP
-    }
-
-    // PLUGIN...........................................................................................................
-
-    protected void visitPluginDelete(final PluginName name) {
-        // NOP
-    }
-
-    protected void visitPluginFileView(final PluginName name,
-                                       final Optional<JarEntryInfoName> file) {
-        // NOP
-    }
-
-    protected void visitPluginListReload(final HistoryTokenOffsetAndCount offsetAndCount) {
-        // NOP
-    }
-
-    protected void visitPluginListSelect(final HistoryTokenOffsetAndCount offsetAndCount) {
-        // NOP
-    }
-
-    protected void visitPluginSave(final PluginName name,
-                                   final String value) {
-        // NOP
-    }
-
-    protected void visitPluginSelect(final PluginName name) {
-        // NOP
-    }
-
-    protected void visitPluginUploadSave(final BrowserFile file) {
-        // NOP
-    }
-
-    protected void visitPluginUploadSelect() {
         // NOP
     }
 

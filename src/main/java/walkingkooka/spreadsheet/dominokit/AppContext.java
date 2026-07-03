@@ -40,7 +40,6 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasDecimalNumberSymbolsFetcher
 import walkingkooka.spreadsheet.dominokit.fetcher.HasExpressionFunctionFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasFormHandlerFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasLocaleFetcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetComparatorFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetExporterFetcher;
@@ -99,7 +98,6 @@ public interface AppContext extends CanGiveFocus,
     HasExpressionFunctionFetcher,
     HasFormHandlerFetcher,
     HasLocaleFetcher,
-    HasPluginFetcher,
     HasSpreadsheetDeltaFetcher,
     HasSpreadsheetExporterFetcher,
     HasSpreadsheetFormatterFetcher,

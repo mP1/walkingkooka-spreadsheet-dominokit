@@ -19,13 +19,11 @@ package walkingkooka.spreadsheet.dominokit.value.plugin;
 
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.PluginFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Optional;
-import java.util.OptionalInt;
 
 public class FakePluginNameSetDialogComponentContext extends FakeDialogComponentContext
     implements PluginNameSetDialogComponentContext {
@@ -41,23 +39,6 @@ public class FakePluginNameSetDialogComponentContext extends FakeDialogComponent
 
     @Override
     public Optional<PluginNameSet> undo() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Runnable addPluginFetcherWatcher(final PluginFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Runnable addPluginFetcherWatcherOnce(final PluginFetcherWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void pluginFilter(final String query,
-                             final OptionalInt offset,
-                             final OptionalInt count) {
         throw new UnsupportedOperationException();
     }
 

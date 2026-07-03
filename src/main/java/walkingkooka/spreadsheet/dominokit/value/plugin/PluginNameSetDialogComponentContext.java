@@ -21,12 +21,9 @@ package walkingkooka.spreadsheet.dominokit.value.plugin;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
-import walkingkooka.spreadsheet.dominokit.fetcher.HasPluginFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-
-import java.util.OptionalInt;
 
 /**
  * A {@link walkingkooka.Context} tht accompanies a {@link PluginNameSetDialogComponent} providing custom values and functionality.
@@ -36,7 +33,6 @@ public interface PluginNameSetDialogComponentContext
     AddPluginNameSetComponentContext,
     RemovePluginNameSetComponentContext,
     DialogAnchorListComponentContext<PluginNameSet>,
-    HasPluginFetcherWatchers,
     HasSpreadsheetMetadataFetcherWatchers,
     HasSpreadsheetMetadata {
 
@@ -44,8 +40,4 @@ public interface PluginNameSetDialogComponentContext
      * Loads an existing spreadsheet
      */
     void loadSpreadsheetMetadata(final SpreadsheetId id);
-
-    void pluginFilter(final String query,
-                      final OptionalInt offset,
-                      final OptionalInt count);
 }
