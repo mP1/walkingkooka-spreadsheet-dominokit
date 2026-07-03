@@ -67,6 +67,12 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
             SORT_COMPARATOR_NAMES,
             "\"Sort Column\" id=sort\n" +
                 "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
+                "    \"Custom List\" id=column-sort-custom-list-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=custom-list] id=column-sort-custom-list-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=custom-list-reversed] id=column-sort-custom-list-reverse-MenuItem\n" +
+                "    \"Custom List Case Insensitive\" id=column-sort-custom-list-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=custom-list-case-insensitive] id=column-sort-custom-list-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=custom-list-case-insensitive-reversed] id=column-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
                 "    \"Date\" id=column-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=date] id=column-sort-date-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=date-reversed] id=column-sort-date-reverse-MenuItem\n" +
@@ -139,6 +145,12 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
             SORT_COMPARATOR_NAMES,
             "\"Sort Row\" id=sort\n" +
                 "  (mdi-sort) \"Sort Row\" id=row-sort-SubMenu\n" +
+                "    \"Custom List\" id=row-sort-custom-list-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=custom-list] id=row-sort-custom-list-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=custom-list-reversed] id=row-sort-custom-list-reverse-MenuItem\n" +
+                "    \"Custom List Case Insensitive\" id=row-sort-custom-list-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=custom-list-case-insensitive] id=row-sort-custom-list-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=custom-list-case-insensitive-reversed] id=row-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
                 "    \"Date\" id=row-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=date] id=row-sort-date-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=date-reversed] id=row-sort-date-reverse-MenuItem\n" +
@@ -211,6 +223,12 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
             SORT_COMPARATOR_NAMES,
             "\"Sort Column\" id=sort\n" +
                 "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
+                "    \"Custom List\" id=column-sort-custom-list-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=custom-list] id=column-sort-custom-list-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=custom-list-reversed] id=column-sort-custom-list-reverse-MenuItem\n" +
+                "    \"Custom List Case Insensitive\" id=column-sort-custom-list-case-insensitive-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=custom-list-case-insensitive] id=column-sort-custom-list-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=custom-list-case-insensitive-reversed] id=column-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
                 "    \"Date\" id=column-sort-date-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=date] id=column-sort-date-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=date-reversed] id=column-sort-date-reverse-MenuItem\n" +
