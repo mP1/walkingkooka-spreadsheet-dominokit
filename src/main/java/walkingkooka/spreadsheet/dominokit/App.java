@@ -53,6 +53,8 @@ import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
+import walkingkooka.net.header.MediaTypeDetector;
+import walkingkooka.net.header.MediaTypeDetectors;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.plugin.ProviderContext;
@@ -281,6 +283,8 @@ public class App implements EntryPoint,
 
     private final static LineEnding LINE_ENDING = LineEnding.CRNL;
 
+    private final static MediaTypeDetector MEDIA_TYPE_DETECTOR = MediaTypeDetectors.fake();
+
     private final static BinaryNumberConverterFunction<SpreadsheetConverterContext> MULTIPLIER = ExpressionNumberBinaryNumberConverterFunctions.multiply();
 
     private final static HasNow NOW = LocalDateTime::now;
@@ -479,6 +483,7 @@ public class App implements EntryPoint,
         );
 
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
+            MEDIA_TYPE_DETECTOR,
             MULTIPLIER,
             PluginStores.fake(),
             this,
@@ -1363,6 +1368,7 @@ public class App implements EntryPoint,
             );
 
             this.providerContext = SpreadsheetProviderContexts.spreadsheet(
+                MEDIA_TYPE_DETECTOR,
                 MULTIPLIER,
                 PluginStores.fake(),
                 this, // CurrencyLocaleContext
@@ -1545,6 +1551,7 @@ public class App implements EntryPoint,
 
     private void refreshSpreadsheetProviderAndSystemSpreadsheetProvider() {
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
+            MEDIA_TYPE_DETECTOR,
             MULTIPLIER,
             PluginStores.fake(),
             this, // CurrencyLocaleContext
@@ -1659,6 +1666,7 @@ public class App implements EntryPoint,
                 this.indentation(),
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 this.lineEnding(),
+                MEDIA_TYPE_DETECTOR,
                 MULTIPLIER,
                 SpreadsheetMetadataLoaders.fake(),
                 this, // CurrencyLocaleContext

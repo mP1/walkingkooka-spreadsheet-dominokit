@@ -70,6 +70,21 @@ public final class AppSpreadsheetFormatterContextTest implements SpreadsheetForm
     }
 
     @Override
+    public void testDetectWithNullBinaryFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testDetectWithNullFilenameFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void testDetectWithEmptyFilenameFails() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void testLoadMetadataWithNullIdFails() {
         throw new UnsupportedOperationException();
     }
