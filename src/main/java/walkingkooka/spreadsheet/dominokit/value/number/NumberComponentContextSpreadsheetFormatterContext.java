@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.number;
 
+import walkingkooka.Binary;
 import walkingkooka.Either;
 import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
@@ -31,6 +32,7 @@ import walkingkooka.locale.LocaleContexts;
 import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
+import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
@@ -289,6 +291,14 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
     }
 
     private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.fake();
+
+    // MediaTypeDetector................................................................................................
+
+    @Override
+    public MediaType detect(final String filename,
+                            final Binary content) {
+        throw new UnsupportedOperationException();
+    }
 
     // StorageConverterContext..........................................................................................
 

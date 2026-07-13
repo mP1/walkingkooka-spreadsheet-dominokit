@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.Binary;
 import walkingkooka.Either;
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.color.Color;
@@ -941,6 +942,12 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     // StorageConverterContext..........................................................................................
+
+    @Override
+    public MediaType detect(final String filename,
+                            final Binary content) {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public Optional<StoragePath> currentWorkingDirectory() {
