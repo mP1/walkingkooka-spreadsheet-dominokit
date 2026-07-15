@@ -192,6 +192,7 @@ import walkingkooka.storage.Storages;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
+import walkingkooka.text.TextPrinting;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -1658,17 +1659,18 @@ public class App implements EntryPoint,
         try {
             this.formatterContext = metadata.spreadsheetFormatterContext(
                 SpreadsheetMetadata.NO_CELL,
-                CHARSET,
                 (final Optional<Object> value) -> {
                     throw new UnsupportedOperationException();
                 },
                 this, // HasUserDirectories
-                this.indentation(),
                 this.viewportCache, // SpreadsheetLabelNameResolver
-                this.lineEnding(),
                 MEDIA_TYPE_DETECTOR,
                 MULTIPLIER,
                 SpreadsheetMetadataLoaders.fake(),
+                TextPrinting.with(
+                    this.indentation(),
+                    this.lineEnding()
+                ).setCharset(CHARSET),
                 this, // CurrencyLocaleContext
                 this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext
