@@ -32,8 +32,6 @@ import static org.junit.Assert.assertThrows;
 
 public final class AppLocaleContextTest implements LocaleContextTesting2<AppLocaleContext> {
 
-    private final static Locale LOCALE = Locale.forLanguageTag("en-AU");
-
     private final static HasLocaleFetcherWatchers HAS_LOCALE_FETCHER_WATCHERS = new HasLocaleFetcherWatchers() {
         @Override
         public Runnable addLocaleFetcherWatcher(final LocaleFetcherWatcher watcher) {
@@ -80,15 +78,9 @@ public final class AppLocaleContextTest implements LocaleContextTesting2<AppLoca
 
     @Test
     public void testSetLocale() {
-        final Locale locale = Locale.forLanguageTag("en-NZ");
-        this.checkNotEquals(
-            locale,
-            LOCALE
-        );
-
         this.setLocaleAndCheck(
             this.createContext(),
-            locale
+            DIFFERENT_LOCALE
         );
     }
 
