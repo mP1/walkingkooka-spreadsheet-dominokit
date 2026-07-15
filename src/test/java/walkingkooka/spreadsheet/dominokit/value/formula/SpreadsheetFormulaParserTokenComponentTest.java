@@ -27,8 +27,6 @@ import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaP
 import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
-import walkingkooka.text.Indentation;
-import walkingkooka.text.LineEnding;
 import walkingkooka.text.cursor.parser.ParserToken;
 
 import java.util.List;
@@ -214,10 +212,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
         this.checkEquals(
             expected,
             component.value(),
-            () -> component.treeToString(
-                Indentation.SPACES2,
-                LineEnding.NL
-            )
+            () -> component.treeToString(TEXT_CONTEXT)
         );
     }
 
