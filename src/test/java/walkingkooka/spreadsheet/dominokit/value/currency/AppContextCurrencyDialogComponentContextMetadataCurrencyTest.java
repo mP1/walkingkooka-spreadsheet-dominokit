@@ -24,7 +24,6 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-import java.util.Currency;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -50,8 +49,6 @@ public final class AppContextCurrencyDialogComponentContextMetadataCurrencyTest 
     }
 
     // undo.............................................................................................................
-
-    private final static Currency CURRENCY = Currency.getInstance("AUD");
 
     @Test
     public void testUndo() {
