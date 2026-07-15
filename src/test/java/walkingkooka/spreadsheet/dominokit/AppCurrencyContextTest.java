@@ -37,8 +37,6 @@ import static org.junit.Assert.assertThrows;
 
 public final class AppCurrencyContextTest implements CurrencyContextTesting2<AppCurrencyContext> {
 
-    private final static Currency CURRENCY = Currency.getInstance("AUD");
-
     private final static HasCurrencyFetcherWatchers HAS_CURRENCY_FETCHER_WATCHERS = new HasCurrencyFetcherWatchers() {
         @Override
         public Runnable addCurrencyFetcherWatcher(final CurrencyFetcherWatcher watcher) {

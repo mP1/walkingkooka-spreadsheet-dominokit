@@ -36,8 +36,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends SpreadsheetCellSaveMapHistoryTokenTestCase<SpreadsheetCellSaveCurrencyHistoryToken>
     implements SpreadsheetMetadataTesting {
 
-    private final static Currency CURRENCY2 = Currency.getInstance("AUD");
-
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {
         final IllegalArgumentException thrown = assertThrows(
@@ -124,7 +122,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
 
     // {
     //   "A1": CURRENCY
-    //   "A2": CURRENCY2
+    //   "A2": DIFFERENT_CURRENCY
     // }
     @Test
     public void testParseSeveralCells() {
@@ -132,7 +130,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
             SpreadsheetSelection.A1,
             Optional.of(CURRENCY),
             SpreadsheetSelection.parseCell("A2"),
-            Optional.of(CURRENCY2)
+            Optional.of(DIFFERENT_CURRENCY)
         );
 
         this.parseAndCheck(
@@ -193,7 +191,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
     public void testUrlFragment2() {
         final Map<SpreadsheetCellReference, Optional<Currency>> cellToCurrency = Maps.of(
             SpreadsheetSelection.A1,
-            Optional.of(CURRENCY2)
+            Optional.of(DIFFERENT_CURRENCY)
         );
 
         this.urlFragmentAndCheck(
@@ -214,7 +212,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
             SpreadsheetSelection.A1,
             Optional.of(CURRENCY),
             SpreadsheetSelection.parseCell("A2"),
-            Optional.of(CURRENCY2),
+            Optional.of(DIFFERENT_CURRENCY),
             SpreadsheetSelection.parseCell("A3"),
             Optional.of(
                 Currency.getInstance("CAD")
