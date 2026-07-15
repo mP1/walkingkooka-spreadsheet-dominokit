@@ -101,7 +101,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "  SpreadsheetMetadataPanelComponentItemReadOnlyText\n" +
                 "    DIV\n" +
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
-                "        \"user@example.com\"\n" +
+                "        \"user123@example.com\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemReadOnlyText\n" +
                 "    DIV\n" +
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
@@ -109,7 +109,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "  SpreadsheetMetadataPanelComponentItemReadOnlyText\n" +
                 "    DIV\n" +
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
-                "        \"user@example.com\"\n" +
+                "        \"user123@example.com\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemReadOnlyText\n" +
                 "    DIV\n" +
                 "      style=\"padding-bottom: 5px; padding-top: 5px;\"\n" +
