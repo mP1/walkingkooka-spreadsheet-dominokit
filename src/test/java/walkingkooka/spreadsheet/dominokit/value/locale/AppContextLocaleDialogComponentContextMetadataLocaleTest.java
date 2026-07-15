@@ -51,8 +51,6 @@ public final class AppContextLocaleDialogComponentContextMetadataLocaleTest exte
 
     // undoLocale.......................................................................................................
 
-    private final static Locale LOCALE = Locale.forLanguageTag("en-AU");
-
     @Test
     public void testUndo() {
         this.undoAndCheck(
