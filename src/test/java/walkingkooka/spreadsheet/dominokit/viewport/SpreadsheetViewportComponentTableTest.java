@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigation;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
+import walkingkooka.text.TextPrinting;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
@@ -1006,8 +1007,10 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
         );
 
         return component.treeToString(
-            INDENTATION,
-            EOL
+            TextPrinting.with(
+                INDENTATION,
+                EOL
+            )
         );
     }
 
