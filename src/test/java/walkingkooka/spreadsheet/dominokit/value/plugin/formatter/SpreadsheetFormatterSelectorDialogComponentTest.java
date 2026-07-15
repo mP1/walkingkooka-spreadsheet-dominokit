@@ -378,25 +378,25 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                    Medium\n" +
                 "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                    31 Dec. 1999, 12:58:00 PM\n" +
+                "                    31 Dec. 1999, 12:58:59 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
                 "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                    31 December 1999 at 12:58:00 PM\n" +
+                "                    31 December 1999 at 12:58:59 PM\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
                 "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
+                "                    Friday, 31 December 1999 at 12:58:59 PM\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
                 "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/cell/A1/formatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                    31/12/1999 12:58:00\n" +
+                "                    31/12/1999 12:58:59\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -814,7 +814,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                    Long\n" +
                 "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/formatter/save/time%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                    12:58:00 PM\n" +
+                "                    12:58:59 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
@@ -1097,25 +1097,25 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                    Medium\n" +
                 "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                    31 Dec. 1999, 12:58:00 PM\n" +
+                "                    31 Dec. 1999, 12:58:59 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
                 "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                    31 December 1999 at 12:58:00 PM\n" +
+                "                    31 December 1999 at 12:58:59 PM\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
                 "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                    Friday, 31 December 1999 at 12:58:00 PM\n" +
+                "                    Friday, 31 December 1999 at 12:58:59 PM\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
                 "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeFormatter/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetFormatterSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                    31/12/1999 12:58:00\n" +
+                "                    31/12/1999 12:58:59\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1766,7 +1766,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "                    Long\n" +
                 "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeFormatter/save/time%20h:mm:ss%20AM/PM] id=SpreadsheetFormatterSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                    12:58:00 PM\n" +
+                "                    12:58:59 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
