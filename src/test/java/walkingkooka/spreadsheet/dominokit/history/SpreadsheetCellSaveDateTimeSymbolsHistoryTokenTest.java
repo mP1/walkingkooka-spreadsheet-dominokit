@@ -96,7 +96,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols",
+            "/1/SpreadsheetName456/cell/A1/save/dateTimeSymbols",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -116,7 +116,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" + marshallMap(map),
+            "/1/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" + marshallMap(map),
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -140,7 +140,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/dateTimeSymbols/" + marshallMap(map),
+            "/1/SpreadsheetName456/cell/A1:A2/bottom-right/save/dateTimeSymbols/" + marshallMap(map),
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -162,7 +162,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" + marshallMap(map),
+            "/1/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" + marshallMap(map),
             SpreadsheetCellSaveDateTimeSymbolsHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -188,7 +188,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
                 SELECTION,
                 cellToDateTimeSymbols
             ),
-            "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" +
+            "/1/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" +
                 marshallMap(cellToDateTimeSymbols)
         );
     }
@@ -207,7 +207,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
                 SELECTION,
                 cellToDateTimeSymbols
             ),
-            "/123/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" +
+            "/1/SpreadsheetName456/cell/A1/save/dateTimeSymbols/" +
                 marshallMap(cellToDateTimeSymbols)
         );
     }
@@ -235,7 +235,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
                     .setDefaultAnchor(),
                 cellToDateTimeSymbols
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/dateTimeSymbols/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/dateTimeSymbols/" +
                 marshallMap(cellToDateTimeSymbols)
         );
     }
@@ -255,7 +255,7 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
                     .setDefaultAnchor(),
                 cellToDateTimeSymbols
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/dateTimeSymbols/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/dateTimeSymbols/" +
                 marshallMap(cellToDateTimeSymbols)
         );
     }

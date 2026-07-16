@@ -18,13 +18,10 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
-import walkingkooka.test.Testing;
 
-public interface ComponentLifecycleMatcherTesting extends Testing {
-
-    SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
+public interface ComponentLifecycleMatcherTesting extends SpreadsheetMetadataTesting {
 
     SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName1");
 

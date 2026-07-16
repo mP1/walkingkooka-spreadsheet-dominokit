@@ -30,14 +30,14 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
     public void testUrlFragmentColumn() {
         this.urlFragmentAndCheck(
             COLUMN,
-            "/123/SpreadsheetName456/column/A");
+            "/1/SpreadsheetName456/column/A");
     }
 
     @Test
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
             COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT),
-            "/123/SpreadsheetName456/column/B:C/right"
+            "/1/SpreadsheetName456/column/B:C/right"
         );
     }
 
@@ -45,7 +45,7 @@ public final class SpreadsheetColumnSelectHistoryTokenTest extends SpreadsheetCo
     public void testUrlFragmentColumnRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_COLUMNS.setAnchor(SpreadsheetViewportAnchor.RIGHT),
-            "/123/SpreadsheetName456/column/*/right"
+            "/1/SpreadsheetName456/column/*/right"
         );
     }
 

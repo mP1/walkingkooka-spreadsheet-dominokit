@@ -68,7 +68,7 @@ public final class SpreadsheetFormDeleteHistoryTokenTest extends SpreadsheetForm
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-            "/123/SpreadsheetName456/form/FormName123/delete"
+            "/1/SpreadsheetName456/form/FormName123/delete"
         );
     }
 

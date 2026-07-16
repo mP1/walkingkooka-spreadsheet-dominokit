@@ -28,14 +28,14 @@ public final class SpreadsheetColumnKeyboardHistoryTokenTest extends Spreadsheet
 
     @Test
     public void testUrlFragmentColumn() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/column/A/keyboard");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/column/A/keyboard");
     }
 
     @Test
     public void testUrlFragmentColumnRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_COLUMNS.setAnchor(SpreadsheetViewportAnchor.LEFT),
-            "/123/SpreadsheetName456/column/*/left/keyboard"
+            "/1/SpreadsheetName456/column/*/left/keyboard"
         );
     }
 
@@ -43,7 +43,7 @@ public final class SpreadsheetColumnKeyboardHistoryTokenTest extends Spreadsheet
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
             COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT),
-            "/123/SpreadsheetName456/column/B:C/left/keyboard"
+            "/1/SpreadsheetName456/column/B:C/left/keyboard"
         );
     }
 

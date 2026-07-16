@@ -180,14 +180,14 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/references");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/references");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/references"
+            "/1/SpreadsheetName456/cell/B2:C3/top-left/references"
         );
     }
 
@@ -195,7 +195,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/*/top-left/references"
+            "/1/SpreadsheetName456/cell/*/top-left/references"
         );
     }
 
@@ -203,7 +203,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/references"
+            "/1/SpreadsheetName456/cell/Label123/references"
         );
     }
 
@@ -212,7 +212,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/references",
+            "/1/SpreadsheetName456/cell/A1/references",
             SpreadsheetCellReferenceListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -225,7 +225,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCellOffset() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/references/offset/123",
+            "/1/SpreadsheetName456/cell/A1/references/offset/123",
             SpreadsheetCellReferenceListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -240,7 +240,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCellCount() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/references/count/123",
+            "/1/SpreadsheetName456/cell/A1/references/count/123",
             SpreadsheetCellReferenceListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -255,7 +255,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCellOffsetAndCount() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/references/offset/123/count/456",
+            "/1/SpreadsheetName456/cell/A1/references/offset/123/count/456",
             SpreadsheetCellReferenceListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -272,7 +272,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCellRange() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/B2:C3/references",
+            "/1/SpreadsheetName456/cell/B2:C3/references",
             SpreadsheetCellReferenceListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -285,7 +285,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCellRangeAndAnchor() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/B2:C3/references",
+            "/1/SpreadsheetName456/cell/B2:C3/references",
             SpreadsheetCellReferenceListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -298,7 +298,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCellRangeStar() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/*/references",
+            "/1/SpreadsheetName456/cell/*/references",
             SpreadsheetCellReferenceListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -311,7 +311,7 @@ public final class SpreadsheetCellReferenceListHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCellRangeStarAndAnchor() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/*/bottom-right/references",
+            "/1/SpreadsheetName456/cell/*/bottom-right/references",
             SpreadsheetCellReferenceListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,

@@ -89,7 +89,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/cell",
+            "/1/SpreadsheetName456/cell/A1/save/cell",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -101,7 +101,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/cell/{\"A1\":{\"formula\":{\"text\":\"\"}}}",
+            "/1/SpreadsheetName456/cell/A1/save/cell/{\"A1\":{\"formula\":{\"text\":\"\"}}}",
             SpreadsheetCellSaveCellHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -116,7 +116,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/save/cell/{\"A1\":{\"formula\":{}},\"A2\":{\"formula\":{\"text\": \"=2\"}}}",
+            "/1/SpreadsheetName456/cell/A1:A2/save/cell/{\"A1\":{\"formula\":{}},\"A2\":{\"formula\":{\"text\": \"=2\"}}}",
             SpreadsheetCellSaveCellHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -147,7 +147,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
                 SELECTION,
                 cells
             ),
-            "/123/SpreadsheetName456/cell/A1/save/cell/" +
+            "/1/SpreadsheetName456/cell/A1/save/cell/" +
                 marshall(
                     SpreadsheetCellSet.EMPTY.setElements(cells)
                 )
@@ -168,7 +168,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
                 SELECTION,
                 cells
             ),
-            "/123/SpreadsheetName456/cell/A1/save/cell/" +
+            "/1/SpreadsheetName456/cell/A1/save/cell/" +
                 marshall(
                     SpreadsheetCellSet.EMPTY.setElements(cells)
                 )
@@ -199,7 +199,7 @@ public final class SpreadsheetCellSaveCellHistoryTokenTest extends SpreadsheetCe
                     .setDefaultAnchor(),
                 cells
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/cell/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/cell/" +
                 marshall(
                     SpreadsheetCellSet.EMPTY.setElements(cells)
                 )

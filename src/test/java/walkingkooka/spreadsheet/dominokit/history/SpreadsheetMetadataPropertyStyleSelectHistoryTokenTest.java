@@ -269,7 +269,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                 Optional.empty(),
                 NO_FILTER
             ),
-            "/123/SpreadsheetName456/spreadsheet/style"
+            "/1/SpreadsheetName456/spreadsheet/style"
         );
     }
 
@@ -282,13 +282,13 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                 Optional.empty(),
                 FILTER
             ),
-            "/123/SpreadsheetName456/spreadsheet/style/*/filter/Filter%20123"
+            "/1/SpreadsheetName456/spreadsheet/style/*/filter/Filter%20123"
         );
     }
 
     @Test
     public void testUrlFragmentColor() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/spreadsheet/style/color");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/spreadsheet/style/color");
     }
 
     @Test
@@ -300,7 +300,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                 Optional.of(TextStylePropertyName.FONT_FAMILY),
                 NO_FILTER
             ),
-            "/123/SpreadsheetName456/spreadsheet/style/font-family"
+            "/1/SpreadsheetName456/spreadsheet/style/font-family"
         );
     }
 
@@ -313,7 +313,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                 Optional.of(TextStylePropertyName.FONT_FAMILY),
                 FILTER
             ),
-            "/123/SpreadsheetName456/spreadsheet/style/font-family/filter/Filter%20123"
+            "/1/SpreadsheetName456/spreadsheet/style/font-family/filter/Filter%20123"
         );
     }
 
@@ -326,7 +326,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                 Optional.of(TextStylePropertyName.FONT_STYLE),
                 NO_FILTER
             ),
-            "/123/SpreadsheetName456/spreadsheet/style/font-style"
+            "/1/SpreadsheetName456/spreadsheet/style/font-style"
         );
     }
 
@@ -339,14 +339,14 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                 Optional.of(TextStylePropertyName.FONT_STYLE),
                 FILTER
             ),
-            "/123/SpreadsheetName456/spreadsheet/style/font-style/filter/Filter%20123"
+            "/1/SpreadsheetName456/spreadsheet/style/font-style/filter/Filter%20123"
         );
     }
 
     @Test
     public void testParseBackgroundColor() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/style/background-color",
+            "/1/SpreadsheetName456/spreadsheet/style/background-color",
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -359,7 +359,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     @Test
     public void testParseBackgroundColorFilterEmptyText() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/style/background-color/filter",
+            "/1/SpreadsheetName456/spreadsheet/style/background-color/filter",
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -372,7 +372,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     @Test
     public void testParseBackgroundColorFilter() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/style/background-color/filter/Filter%20123",
+            "/1/SpreadsheetName456/spreadsheet/style/background-color/filter/Filter%20123",
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -385,7 +385,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     @Test
     public void testParseFontFamily() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/style/font-family",
+            "/1/SpreadsheetName456/spreadsheet/style/font-family",
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -398,7 +398,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
     @Test
     public void testParseFontFamilyWithFilter() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/style/font-family/filter/Filter%20123",
+            "/1/SpreadsheetName456/spreadsheet/style/font-family/filter/Filter%20123",
             SpreadsheetMetadataPropertyStyleSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -415,7 +415,7 @@ public final class SpreadsheetMetadataPropertyStyleSelectHistoryTokenTest extend
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME
             ),
-            "/123/SpreadsheetName456"
+            "/1/SpreadsheetName456"
         );
     }
 

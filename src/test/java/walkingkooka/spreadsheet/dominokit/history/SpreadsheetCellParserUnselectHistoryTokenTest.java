@@ -30,14 +30,14 @@ public final class SpreadsheetCellParserUnselectHistoryTokenTest extends Spreads
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/parser/toolbar");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/parser/toolbar");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/parser/toolbar"
+            "/1/SpreadsheetName456/cell/B2:C3/top-left/parser/toolbar"
         );
     }
 
@@ -45,7 +45,7 @@ public final class SpreadsheetCellParserUnselectHistoryTokenTest extends Spreads
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/*/top-left/parser/toolbar"
+            "/1/SpreadsheetName456/cell/*/top-left/parser/toolbar"
         );
     }
 
@@ -53,7 +53,7 @@ public final class SpreadsheetCellParserUnselectHistoryTokenTest extends Spreads
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/parser/toolbar"
+            "/1/SpreadsheetName456/cell/Label123/parser/toolbar"
         );
     }
 

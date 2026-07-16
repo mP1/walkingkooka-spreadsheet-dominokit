@@ -132,7 +132,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-            "/123/SpreadsheetName456/form/FormName123"
+            "/1/SpreadsheetName456/form/FormName123"
         );
     }
 
@@ -144,7 +144,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
                     SpreadsheetSelection.A1
                 )
             ),
-            "/123/SpreadsheetName456/form/FormName123/field/A1"
+            "/1/SpreadsheetName456/form/FormName123/field/A1"
         );
     }
 
@@ -156,7 +156,7 @@ public final class SpreadsheetFormSelectHistoryTokenTest extends SpreadsheetForm
                     SpreadsheetSelection.labelName("Label123")
                 )
             ),
-            "/123/SpreadsheetName456/form/FormName123/field/Label123"
+            "/1/SpreadsheetName456/form/FormName123/field/Label123"
         );
     }
 

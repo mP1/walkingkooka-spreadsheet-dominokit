@@ -47,7 +47,7 @@ public final class SpreadsheetCellCurrencySaveHistoryTokenTest extends Spreadshe
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/currency/save/" + CURRENCY.getCurrencyCode());
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/currency/save/" + CURRENCY.getCurrencyCode());
     }
 
     @Test
@@ -59,7 +59,7 @@ public final class SpreadsheetCellCurrencySaveHistoryTokenTest extends Spreadshe
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             ),
-            "/123/SpreadsheetName456/cell/A1/currency/save/"
+            "/1/SpreadsheetName456/cell/A1/currency/save/"
         );
     }
 
@@ -67,7 +67,7 @@ public final class SpreadsheetCellCurrencySaveHistoryTokenTest extends Spreadshe
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/currency/save/" + CURRENCY.getCurrencyCode()
+            "/1/SpreadsheetName456/cell/B2:C3/top-left/currency/save/" + CURRENCY.getCurrencyCode()
         );
     }
 
@@ -75,7 +75,7 @@ public final class SpreadsheetCellCurrencySaveHistoryTokenTest extends Spreadshe
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/*/top-left/currency/save/" + CURRENCY.getCurrencyCode()
+            "/1/SpreadsheetName456/cell/*/top-left/currency/save/" + CURRENCY.getCurrencyCode()
         );
     }
 
@@ -83,7 +83,7 @@ public final class SpreadsheetCellCurrencySaveHistoryTokenTest extends Spreadshe
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/currency/save/" + CURRENCY.getCurrencyCode()
+            "/1/SpreadsheetName456/cell/Label123/currency/save/" + CURRENCY.getCurrencyCode()
         );
     }
 

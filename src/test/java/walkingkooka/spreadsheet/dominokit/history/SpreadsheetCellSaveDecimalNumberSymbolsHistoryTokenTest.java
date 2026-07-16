@@ -98,7 +98,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/decimalNumberSymbols",
+            "/1/SpreadsheetName456/cell/A1/save/decimalNumberSymbols",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -118,7 +118,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
+            "/1/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
                 UrlFragment.with(
                     marshallMap(map)
                 ),
@@ -145,7 +145,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/decimalNumberSymbols/" +
+            "/1/SpreadsheetName456/cell/A1:A2/bottom-right/save/decimalNumberSymbols/" +
                 UrlFragment.with(
                     marshallMap(map)
                 ),
@@ -170,7 +170,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
+            "/1/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
                 UrlFragment.with(
                     marshallMap(map)
                 ),
@@ -199,7 +199,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
                 SELECTION,
                 cellToDecimalNumberSymbols
             ),
-            "/123/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
+            "/1/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
                 UrlFragment.with(
                     marshallMap(cellToDecimalNumberSymbols)
                 )
@@ -220,7 +220,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
                 SELECTION,
                 cellToDecimalNumberSymbols
             ),
-            "/123/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
+            "/1/SpreadsheetName456/cell/A1/save/decimalNumberSymbols/" +
                 UrlFragment.with(
                     marshallMap(cellToDecimalNumberSymbols)
                 )
@@ -251,7 +251,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
                     .setDefaultAnchor(),
                 cellToDecimalNumberSymbols
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/decimalNumberSymbols/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/decimalNumberSymbols/" +
                 UrlFragment.with(
                     marshallMap(cellToDecimalNumberSymbols)
                 )
@@ -273,7 +273,7 @@ public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest exten
                     .setDefaultAnchor(),
                 cellToDecimalNumberSymbols
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/decimalNumberSymbols/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/decimalNumberSymbols/" +
                 UrlFragment.with(
                     marshallMap(cellToDecimalNumberSymbols)
                 )

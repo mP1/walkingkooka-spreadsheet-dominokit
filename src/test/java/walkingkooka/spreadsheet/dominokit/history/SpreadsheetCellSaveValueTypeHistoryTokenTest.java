@@ -92,7 +92,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/valueType",
+            "/1/SpreadsheetName456/cell/A1/save/valueType",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -112,7 +112,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/valueType/" + marshallMap(map),
+            "/1/SpreadsheetName456/cell/A1/save/valueType/" + marshallMap(map),
             SpreadsheetCellSaveValueTypeHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -136,7 +136,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/valueType/" + marshallMap(map),
+            "/1/SpreadsheetName456/cell/A1:A2/bottom-right/save/valueType/" + marshallMap(map),
             SpreadsheetCellSaveValueTypeHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -158,7 +158,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         );
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/valueType/" + marshallMap(map),
+            "/1/SpreadsheetName456/cell/A1/save/valueType/" + marshallMap(map),
             SpreadsheetCellSaveValueTypeHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -184,7 +184,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
                 SELECTION,
                 cellToValueType
             ),
-            "/123/SpreadsheetName456/cell/A1/save/valueType/" +
+            "/1/SpreadsheetName456/cell/A1/save/valueType/" +
                 marshallMap(cellToValueType)
         );
     }
@@ -203,7 +203,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
                 SELECTION,
                 cellToValueType
             ),
-            "/123/SpreadsheetName456/cell/A1/save/valueType/" +
+            "/1/SpreadsheetName456/cell/A1/save/valueType/" +
                 marshallMap(cellToValueType)
         );
     }
@@ -229,7 +229,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
                     .setDefaultAnchor(),
                 cellToValueType
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/valueType/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/valueType/" +
                 marshallMap(cellToValueType)
         );
     }
@@ -249,7 +249,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
                     .setDefaultAnchor(),
                 cellToValueType
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/valueType/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/valueType/" +
                 marshallMap(cellToValueType)
         );
     }

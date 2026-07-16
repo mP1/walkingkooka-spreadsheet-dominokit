@@ -95,7 +95,7 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
     public void testUrlFragmentColumn1() {
         this.urlFragmentAndCheck(
             COLUMN,
-            "/123/SpreadsheetName456/column/A/insertAfter/1");
+            "/1/SpreadsheetName456/column/A/insertAfter/1");
     }
 
     @Test
@@ -107,7 +107,7 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
                 SpreadsheetSelection.parseColumn("BC").setDefaultAnchor(),
                 OptionalInt.empty()
             ),
-            "/123/SpreadsheetName456/column/BC/insertAfter");
+            "/1/SpreadsheetName456/column/BC/insertAfter");
     }
 
     @Test
@@ -121,14 +121,14 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
                     23
                 )
             ),
-            "/123/SpreadsheetName456/column/BC/insertAfter/23");
+            "/1/SpreadsheetName456/column/BC/insertAfter/23");
     }
 
     @Test
     public void testUrlFragmentColumnRange1() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.parseColumnRange("A:B").setAnchor(SpreadsheetViewportAnchor.RIGHT),
-            "/123/SpreadsheetName456/column/A:B/right/insertAfter/1"
+            "/1/SpreadsheetName456/column/A:B/right/insertAfter/1"
         );
     }
 
@@ -136,7 +136,7 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
     public void testUrlFragmentColumnRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_COLUMNS.setAnchor(SpreadsheetViewportAnchor.RIGHT),
-            "/123/SpreadsheetName456/column/*/right/insertAfter/1"
+            "/1/SpreadsheetName456/column/*/right/insertAfter/1"
         );
     }
 
@@ -145,7 +145,7 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseColumnMissingCount() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/column/B",
+            "/1/SpreadsheetName456/column/B",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -157,7 +157,7 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseColumnZeroCount() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/column/C/insertAfter/0",
+            "/1/SpreadsheetName456/column/C/insertAfter/0",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -169,7 +169,7 @@ public final class SpreadsheetColumnInsertAfterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseColumnWithCount() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/column/B/insertAfter/1",
+            "/1/SpreadsheetName456/column/B/insertAfter/1",
             SpreadsheetColumnInsertAfterHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,

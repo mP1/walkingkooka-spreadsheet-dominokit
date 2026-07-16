@@ -79,7 +79,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
 
     @Test
     public void testUrlFragmentExpressionNumberKind() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/spreadsheet/expressionNumberKind/save/BIG_DECIMAL");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/spreadsheet/expressionNumberKind/save/BIG_DECIMAL");
     }
 
     @Test
@@ -91,7 +91,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                 SpreadsheetMetadataPropertyName.DATE_FORMATTER,
                 Optional.empty()
             ),
-            "/123/SpreadsheetName456/spreadsheet/dateFormatter/save/"
+            "/1/SpreadsheetName456/spreadsheet/dateFormatter/save/"
         );
     }
 
@@ -107,7 +107,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                         .spreadsheetFormatterSelector()
                 )
             ),
-            "/123/SpreadsheetName456/spreadsheet/dateFormatter/save/date yymmdd"
+            "/1/SpreadsheetName456/spreadsheet/dateFormatter/save/date yymmdd"
         );
     }
 
@@ -122,7 +122,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                     99
                 )
             ),
-            "/123/SpreadsheetName456/spreadsheet/defaultYear/save/99"
+            "/1/SpreadsheetName456/spreadsheet/defaultYear/save/99"
         );
     }
 
@@ -140,7 +140,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                     )
                 )
             ),
-            "/123/SpreadsheetName456/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,E,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0"
+            "/1/SpreadsheetName456/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,E,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0"
         );
     }
 
@@ -155,7 +155,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                     SpreadsheetSelection.parseColumnRange("A:B")
                 )
             ),
-            "/123/SpreadsheetName456/spreadsheet/frozenColumns/save/A:B"
+            "/1/SpreadsheetName456/spreadsheet/frozenColumns/save/A:B"
         );
     }
 
@@ -170,14 +170,14 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                     SpreadsheetSelection.parseRowRange("1:2")
                 )
             ),
-            "/123/SpreadsheetName456/spreadsheet/frozenRows/save/1:2"
+            "/1/SpreadsheetName456/spreadsheet/frozenRows/save/1:2"
         );
     }
 
     @Test
     public void testParseDateFormatter() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/dateFormatter/save/date%20yymmdd",
+            "/1/SpreadsheetName456/spreadsheet/dateFormatter/save/date%20yymmdd",
             SpreadsheetMetadataPropertySaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -193,7 +193,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testParseDecimalNumberSymbols() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,E,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0",
+            "/1/SpreadsheetName456/spreadsheet/decimalNumberSymbols/save/-,+,0,$,.,E,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0",
             SpreadsheetMetadataPropertySaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -211,7 +211,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testParseDefaultYear() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/defaultYear/save/49",
+            "/1/SpreadsheetName456/spreadsheet/defaultYear/save/49",
             SpreadsheetMetadataPropertySaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -226,7 +226,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testParseFrozenColumns() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/frozenColumns/save/A:B",
+            "/1/SpreadsheetName456/spreadsheet/frozenColumns/save/A:B",
             SpreadsheetMetadataPropertySaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -241,7 +241,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testParseFrozenRows() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/frozenRows/save/1:2",
+            "/1/SpreadsheetName456/spreadsheet/frozenRows/save/1:2",
             SpreadsheetMetadataPropertySaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -258,7 +258,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
         final Locale locale = Locale.forLanguageTag("en-AU");
 
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/locale/save/" + HistoryToken.saveUrlFragmentValue(locale),
+            "/1/SpreadsheetName456/spreadsheet/locale/save/" + HistoryToken.saveUrlFragmentValue(locale),
             SpreadsheetMetadataPropertySaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -273,7 +273,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testParseSpreadsheetId() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/spreadsheetId/save/456",
+            "/1/SpreadsheetName456/spreadsheet/spreadsheetId/save/456",
             HistoryToken.metadataPropertySave(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -288,7 +288,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testParseStyleSaveWithoutValue() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/style/color/save/",
+            "/1/SpreadsheetName456/spreadsheet/style/color/save/",
             HistoryToken.metadataPropertyStyleSave(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -301,7 +301,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
     @Test
     public void testParseStyleSaveValue() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
+            "/1/SpreadsheetName456/spreadsheet/style/color/save/#123456",
             HistoryToken.metadataPropertyStyleSave(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -407,7 +407,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
             }
 
             this.parseAndCheck(
-                "/123/SpreadsheetName456/spreadsheet/" + propertyName.value() + "/save" + urlFragment,
+                "/1/SpreadsheetName456/spreadsheet/" + propertyName.value() + "/save" + urlFragment,
                 SpreadsheetMetadataPropertySaveHistoryToken.with(
                     SPREADSHEET_ID,
                     SPREADSHEET_NAME,

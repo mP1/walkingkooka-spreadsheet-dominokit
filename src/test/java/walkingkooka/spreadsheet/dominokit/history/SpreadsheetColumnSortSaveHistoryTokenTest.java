@@ -45,14 +45,14 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
             this.createHistoryToken(),
-            "/123/SpreadsheetName456/column/A/sort/save/" + COMPARATOR_NAMES_LIST_STRING
+            "/1/SpreadsheetName456/column/A/sort/save/" + COMPARATOR_NAMES_LIST_STRING
         );
     }
 
     @Test
     public void testParseInvalidComparator() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/column/A/sort/save/!invalid",
+            "/1/SpreadsheetName456/column/A/sort/save/!invalid",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -64,7 +64,7 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseInvalidComparatorColumn() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/column/A/sort/save/Z=text",
+            "/1/SpreadsheetName456/column/A/sort/save/Z=text",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -76,7 +76,7 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
     @Test
     public void testParse2() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/column/A/sort/save/" + COMPARATOR_NAMES_LIST_STRING,
+            "/1/SpreadsheetName456/column/A/sort/save/" + COMPARATOR_NAMES_LIST_STRING,
             this.createHistoryToken()
         );
     }
@@ -84,7 +84,7 @@ public final class SpreadsheetColumnSortSaveHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseColumnRange() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/column/A:C/right/sort/save/" + COMPARATOR_NAMES_LIST_STRING2,
+            "/1/SpreadsheetName456/column/A:C/right/sort/save/" + COMPARATOR_NAMES_LIST_STRING2,
             SpreadsheetColumnSortSaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
