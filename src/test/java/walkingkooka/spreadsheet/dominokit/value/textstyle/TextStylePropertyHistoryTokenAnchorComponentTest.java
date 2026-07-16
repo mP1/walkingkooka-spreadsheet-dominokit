@@ -120,7 +120,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                     SpreadsheetSelection.A1.setDefaultAnchor()
                 )
             ),
-            "\"Left!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
+            "\"Left!\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
         );
     }
 
@@ -140,7 +140,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                     )
                 )
             ),
-            "mdi-format-align-left \"Left!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
+            "mdi-format-align-left \"Left!\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
         );
     }
 
@@ -157,7 +157,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                     )
                 )
             ),
-            "\"Left!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] id=TestID123-textAlign-Link"
+            "\"Left!\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/] id=TestID123-textAlign-Link"
         );
     }
 
@@ -185,7 +185,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
                     SPREADSHEET_NAME
                 )
             ),
-            "\"Left!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
+            "\"Left!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
         );
     }
 
@@ -212,7 +212,7 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
 
         this.treePrintAndCheck(
             anchor,
-            "\"Left!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
+            "\"Left!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestID123-textAlign-LEFT-Link"
         );
     }
 

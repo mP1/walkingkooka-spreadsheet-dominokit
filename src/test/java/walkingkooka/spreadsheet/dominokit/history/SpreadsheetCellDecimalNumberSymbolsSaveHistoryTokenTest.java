@@ -50,7 +50,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
     @Test
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
-            "/1/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/" + DECIMAL_NUMBER_SYMBOLS_URL
+            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/" + DECIMAL_NUMBER_SYMBOLS_URL
         );
     }
 
@@ -63,7 +63,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             ),
-            "/1/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/"
+            "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/"
         );
     }
 
@@ -71,7 +71,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/decimalNumberSymbols/save/" + DECIMAL_NUMBER_SYMBOLS_URL
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/decimalNumberSymbols/save/" + DECIMAL_NUMBER_SYMBOLS_URL
         );
     }
 
@@ -79,7 +79,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/*/top-left/decimalNumberSymbols/save/" + DECIMAL_NUMBER_SYMBOLS_URL
+            "/123/SpreadsheetName456/cell/*/top-left/decimalNumberSymbols/save/" + DECIMAL_NUMBER_SYMBOLS_URL
         );
     }
 
@@ -87,7 +87,7 @@ public final class SpreadsheetCellDecimalNumberSymbolsSaveHistoryTokenTest exten
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123/decimalNumberSymbols/save/" + DECIMAL_NUMBER_SYMBOLS_URL
+            "/123/SpreadsheetName456/cell/Label123/decimalNumberSymbols/save/" + DECIMAL_NUMBER_SYMBOLS_URL
         );
     }
 

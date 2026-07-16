@@ -48,8 +48,8 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "              \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -73,8 +73,8 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "              \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -96,8 +96,8 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "              \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -125,8 +125,8 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] CHECKED id=TestIdPrefix123-clip-Link\n" +
-                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] CHECKED id=TestIdPrefix123-ellipsis-Link\n" +
+                "              \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] CHECKED id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] CHECKED id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -152,8 +152,8 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "              \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -179,8 +179,8 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "              \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +
@@ -208,8 +208,8 @@ public final class BigTextOverflowComponentTest implements TextStylePropertyComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Clip\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
-                "              \"Ellipsis\" [#/1/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
+                "              \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TestIdPrefix123-clip-Link\n" +
+                "              \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TestIdPrefix123-ellipsis-Link\n" +
                 "        TextOverflowComponent\n" +
                 "          ValueTextBoxComponent\n" +
                 "            TextBoxComponent\n" +

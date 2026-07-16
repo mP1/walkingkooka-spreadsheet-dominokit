@@ -37,7 +37,7 @@ public final class FormHandlerSelectorDialogComponentTest implements DialogCompo
     @Test
     public void testOnHistoryTokenChange() {
         final AppContext context = this.appContext(
-            "/1/Spreadsheet123/spreadsheet/defaultFormHandler"
+            "/123/Spreadsheet123/spreadsheet/defaultFormHandler"
         );
 
         final FormHandlerSelectorDialogComponent dialog = FormHandlerSelectorDialogComponent.with(
@@ -72,10 +72,10 @@ public final class FormHandlerSelectorDialogComponentTest implements DialogCompo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=FormHandlerSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/] id=FormHandlerSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=FormHandlerSelector-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=FormHandlerSelector-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=FormHandlerSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet123/spreadsheet/defaultFormHandler/save/] id=FormHandlerSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet123/spreadsheet/defaultFormHandler/save/hello-form-handler] id=FormHandlerSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet123/spreadsheet] id=FormHandlerSelector-close-Link\n"
         );
     }
 

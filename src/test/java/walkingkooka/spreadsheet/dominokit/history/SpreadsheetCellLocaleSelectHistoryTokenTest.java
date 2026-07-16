@@ -30,14 +30,14 @@ public final class SpreadsheetCellLocaleSelectHistoryTokenTest extends Spreadshe
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/locale");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/locale");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/locale"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/locale"
         );
     }
 
@@ -45,7 +45,7 @@ public final class SpreadsheetCellLocaleSelectHistoryTokenTest extends Spreadshe
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/*/top-left/locale"
+            "/123/SpreadsheetName456/cell/*/top-left/locale"
         );
     }
 
@@ -53,7 +53,7 @@ public final class SpreadsheetCellLocaleSelectHistoryTokenTest extends Spreadshe
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123/locale"
+            "/123/SpreadsheetName456/cell/Label123/locale"
         );
     }
 

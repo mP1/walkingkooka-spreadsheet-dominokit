@@ -129,7 +129,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n"
         );
     }
 
@@ -163,7 +163,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n"
         );
     }
 
@@ -178,7 +178,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n"
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n"
         );
     }
 
@@ -196,7 +196,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n"
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n"
         );
     }
 
@@ -211,7 +211,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n"
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n"
         );
     }
 
@@ -229,7 +229,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n"
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n"
         );
     }
 
@@ -244,7 +244,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -262,7 +262,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -283,10 +283,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -316,10 +316,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-GB] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-GB] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -344,10 +344,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -373,9 +373,9 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        \"Save\" DISABLED id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -401,10 +401,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -433,9 +433,9 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        \"Save\" DISABLED id=Test123-save-Link\n" + // disabled because of errors
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -486,10 +486,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/color:%20white;%20text-align:%20LEFT;] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName1/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName1/cell/A1/style/*/save/color:%20white;%20text-align:%20LEFT;] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -528,10 +528,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/*/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName1/cell/A1/style/*/save/color:%20white;%20text-align:%20LEFT;] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName1/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName1/cell/A1/style/*/save/color:%20white;%20text-align:%20LEFT;] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -733,10 +733,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        \"Save\" DISABLED id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
                 "        \"111\" DISABLED\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -757,10 +757,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -781,10 +781,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -806,10 +806,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -837,10 +837,10 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -869,9 +869,9 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        \"Save\" DISABLED id=Test123-save-Link\n" +
-                "        \"Clear\" [#/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
-                "        \"Close\" [#/1/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
         );
     }
 
@@ -885,7 +885,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
 
     private DialogAnchorListComponentContext<Locale> createContext() {
         return this.createContext(
-            HistoryToken.parseString("/1/SpreadsheetName111/cell/A1/locale"),
+            HistoryToken.parseString("/123/SpreadsheetName111/cell/A1/locale"),
             Optional.of(
                 Locale.forLanguageTag("en-NZ")
             )

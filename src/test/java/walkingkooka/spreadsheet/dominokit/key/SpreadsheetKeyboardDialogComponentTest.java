@@ -287,7 +287,7 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Close\" [#/1/SpreadsheetName1] id=keyboard-close-Link\n"
+                "            \"Close\" [#/123/SpreadsheetName1] id=keyboard-close-Link\n"
         );
     }
 
@@ -544,7 +544,7 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/A1] id=keyboard-close-Link\n"
+                "            \"Close\" [#/123/SpreadsheetName1/cell/A1] id=keyboard-close-Link\n"
         );
     }
 
@@ -801,7 +801,7 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/column/A] id=keyboard-close-Link\n"
+                "            \"Close\" [#/123/SpreadsheetName1/column/A] id=keyboard-close-Link\n"
         );
     }
 
@@ -1058,7 +1058,7 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/row/1] id=keyboard-close-Link\n"
+                "            \"Close\" [#/123/SpreadsheetName1/row/1] id=keyboard-close-Link\n"
         );
     }
 

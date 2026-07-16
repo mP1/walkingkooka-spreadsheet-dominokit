@@ -114,8 +114,8 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=navigate-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/navigate/A1] id=navigate-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1] id=navigate-close-Link\n"
+                "            \"Undo\" [#/123/SpreadsheetName1/navigate/A1] id=navigate-undo-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName1] id=navigate-close-Link\n"
         );
     }
 
@@ -153,8 +153,8 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=navigate-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/cell/B2/navigate/A1] id=navigate-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/cell/B2] id=navigate-close-Link\n"
+                "            \"Undo\" [#/123/SpreadsheetName1/cell/B2/navigate/A1] id=navigate-undo-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName1/cell/B2] id=navigate-close-Link\n"
         );
     }
 
@@ -192,8 +192,8 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=navigate-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/column/C/navigate/A1] id=navigate-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/column/C] id=navigate-close-Link\n"
+                "            \"Undo\" [#/123/SpreadsheetName1/column/C/navigate/A1] id=navigate-undo-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName1/column/C] id=navigate-close-Link\n"
         );
     }
 
@@ -231,8 +231,8 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=navigate-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName1/row/99/navigate/A1] id=navigate-undo-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName1/row/99] id=navigate-close-Link\n"
+                "            \"Undo\" [#/123/SpreadsheetName1/row/99/navigate/A1] id=navigate-undo-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName1/row/99] id=navigate-close-Link\n"
         );
     }
 

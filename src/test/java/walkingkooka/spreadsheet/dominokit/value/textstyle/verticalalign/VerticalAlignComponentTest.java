@@ -51,10 +51,10 @@ public final class VerticalAlignComponentTest implements TextStylePropertyEnumCo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
-                "          mdi-format-align-top \"Top\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
-                "          mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
-                "          mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
+                "          mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
+                "          mdi-format-align-top \"Top\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
+                "          mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
+                "          mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
         );
     }
 
@@ -82,10 +82,10 @@ public final class VerticalAlignComponentTest implements TextStylePropertyEnumCo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          mdi-format-clear \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
-                "          mdi-format-align-top \"Top\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
-                "          mdi-format-align-middle \"Middle\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
-                "          mdi-format-align-bottom \"Bottom\" [#/1/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
+                "          mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=Test123-verticalAlign-Link\n" +
+                "          mdi-format-align-top \"Top\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=Test123-verticalAlign-TOP-Link\n" +
+                "          mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=Test123-verticalAlign-MIDDLE-Link\n" +
+                "          mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=Test123-verticalAlign-BOTTOM-Link\n"
         );
     }
 

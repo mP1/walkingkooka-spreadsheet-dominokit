@@ -71,8 +71,8 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              \"Save\" DISABLED id=SpreadsheetName-save-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
+                "              \"Undo\" [#/123/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
         );
     }
 
@@ -115,9 +115,9 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/rename/save/DifferentSpreadsheetName222] id=SpreadsheetName-save-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName1/rename/save/DifferentSpreadsheetName222] id=SpreadsheetName-save-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
         );
     }
 
@@ -158,9 +158,9 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-save-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-save-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
         );
     }
 

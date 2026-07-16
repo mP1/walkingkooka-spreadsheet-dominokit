@@ -30,14 +30,14 @@ public final class SpreadsheetCellDateTimeSymbolsSelectHistoryTokenTest extends 
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/dateTimeSymbols");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/dateTimeSymbols");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/dateTimeSymbols"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/dateTimeSymbols"
         );
     }
 
@@ -45,7 +45,7 @@ public final class SpreadsheetCellDateTimeSymbolsSelectHistoryTokenTest extends 
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/*/top-left/dateTimeSymbols"
+            "/123/SpreadsheetName456/cell/*/top-left/dateTimeSymbols"
         );
     }
 
@@ -53,7 +53,7 @@ public final class SpreadsheetCellDateTimeSymbolsSelectHistoryTokenTest extends 
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123/dateTimeSymbols"
+            "/123/SpreadsheetName456/cell/Label123/dateTimeSymbols"
         );
     }
 

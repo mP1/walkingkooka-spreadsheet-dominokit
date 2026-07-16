@@ -90,7 +90,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/save/currency",
+            "/123/SpreadsheetName456/cell/A1/save/currency",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -110,7 +110,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
         );
 
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/save/currency/" + marshallMap(map),
+            "/123/SpreadsheetName456/cell/A1/save/currency/" + marshallMap(map),
             SpreadsheetCellSaveCurrencyHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -134,7 +134,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
         );
 
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1:A2/bottom-right/save/currency/" + marshallMap(map),
+            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/currency/" + marshallMap(map),
             SpreadsheetCellSaveCurrencyHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -156,7 +156,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
         );
 
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/save/currency/" + marshallMap(map),
+            "/123/SpreadsheetName456/cell/A1/save/currency/" + marshallMap(map),
             SpreadsheetCellSaveCurrencyHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -182,7 +182,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
                 SELECTION,
                 cellToCurrency
             ),
-            "/1/SpreadsheetName456/cell/A1/save/currency/" +
+            "/123/SpreadsheetName456/cell/A1/save/currency/" +
                 marshallMap(cellToCurrency)
         );
     }
@@ -201,7 +201,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
                 SELECTION,
                 cellToCurrency
             ),
-            "/1/SpreadsheetName456/cell/A1/save/currency/" +
+            "/123/SpreadsheetName456/cell/A1/save/currency/" +
                 marshallMap(cellToCurrency)
         );
     }
@@ -227,7 +227,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
                     .setDefaultAnchor(),
                 cellToCurrency
             ),
-            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/currency/" +
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/currency/" +
                 marshallMap(cellToCurrency)
         );
     }
@@ -247,7 +247,7 @@ public final class SpreadsheetCellSaveCurrencyHistoryTokenTest extends Spreadshe
                     .setDefaultAnchor(),
                 cellToCurrency
             ),
-            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/currency/" +
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/currency/" +
                 marshallMap(cellToCurrency)
         );
     }

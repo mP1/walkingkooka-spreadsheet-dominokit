@@ -55,14 +55,14 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
 
     @Test
     public void testUrlFragmentColumn() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/column/A/navigate/Z99/scroll right 555px");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/column/A/navigate/Z99/scroll right 555px");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT),
-            "/1/SpreadsheetName456/column/B:C/left/navigate/Z99/scroll right 555px"
+            "/123/SpreadsheetName456/column/B:C/left/navigate/Z99/scroll right 555px"
         );
     }
 
@@ -71,7 +71,7 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseInvalidHome() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/column/A/navigate/!invalid",
+            "/123/SpreadsheetName456/column/A/navigate/!invalid",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -83,7 +83,7 @@ public final class SpreadsheetColumnNavigateHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseInvalidNavigation() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/column/A/navigate/Z9/!invalid",
+            "/123/SpreadsheetName456/column/A/navigate/Z9/!invalid",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,

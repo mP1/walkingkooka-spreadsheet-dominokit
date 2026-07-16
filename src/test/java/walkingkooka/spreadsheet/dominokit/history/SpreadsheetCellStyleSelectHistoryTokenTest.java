@@ -265,7 +265,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 Optional.empty(),
                 NO_FILTER
             ),
-            "/1/SpreadsheetName456/cell/A1/style"
+            "/123/SpreadsheetName456/cell/A1/style"
         );
     }
 
@@ -279,7 +279,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 Optional.empty(),
                 FILTER
             ),
-            "/1/SpreadsheetName456/cell/A1/style/*/filter/Filter%20123"
+            "/123/SpreadsheetName456/cell/A1/style/*/filter/Filter%20123"
         );
     }
 
@@ -293,27 +293,27 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 Optional.of(TextStylePropertyName.ALL),
                 NO_FILTER
             ),
-            "/1/SpreadsheetName456/cell/A1/style/*"
+            "/123/SpreadsheetName456/cell/A1/style/*"
         );
     }
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/style/color");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/style/color");
     }
 
     @Test
     public void testUrlFragmentCellAndFilter() {
         this.urlFragmentAndCheck(
             this.createHistoryToken(FILTER),
-            "/1/SpreadsheetName456/cell/A1/style/color/filter/Filter%20123");
+            "/123/SpreadsheetName456/cell/A1/style/color/filter/Filter%20123");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/style/color"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color"
         );
     }
 
@@ -321,7 +321,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/*/top-left/style/color"
+            "/123/SpreadsheetName456/cell/*/top-left/style/color"
         );
     }
 
@@ -335,7 +335,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
                 Optional.of(STYLE_PROPERTY_NAME),
                 FILTER
             ),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/style/color/filter/Filter%20123"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color/filter/Filter%20123"
         );
     }
 
@@ -343,7 +343,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123/style/color"
+            "/123/SpreadsheetName456/cell/Label123/style/color"
         );
     }
 
@@ -359,7 +359,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
             );
             this.urlFragmentAndCheck(
                 token,
-                "/1/SpreadsheetName456/cell/A1/style/" + propertyName.value()
+                "/123/SpreadsheetName456/cell/A1/style/" + propertyName.value()
             );
         }
     }
@@ -390,7 +390,7 @@ public final class SpreadsheetCellStyleSelectHistoryTokenTest extends Spreadshee
         );
         this.urlFragmentAndCheck(
             token,
-            "/1/SpreadsheetName456/cell/A1/style/*/filter/Filter%20123"
+            "/123/SpreadsheetName456/cell/A1/style/*/filter/Filter%20123"
         );
     }
 

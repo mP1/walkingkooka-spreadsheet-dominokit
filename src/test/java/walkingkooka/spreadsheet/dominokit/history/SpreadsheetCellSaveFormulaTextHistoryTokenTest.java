@@ -86,7 +86,7 @@ public final class SpreadsheetCellSaveFormulaTextHistoryTokenTest extends Spread
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/save/formula",
+            "/123/SpreadsheetName456/cell/A1/save/formula",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -98,7 +98,7 @@ public final class SpreadsheetCellSaveFormulaTextHistoryTokenTest extends Spread
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/save/formula/{\"A1\":\"=1\"}",
+            "/123/SpreadsheetName456/cell/A1/save/formula/{\"A1\":\"=1\"}",
             SpreadsheetCellSaveFormulaTextHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -114,7 +114,7 @@ public final class SpreadsheetCellSaveFormulaTextHistoryTokenTest extends Spread
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1:A2/save/formula/{\"A1\":\"=1\",\"A2\":\"=2\"}",
+            "/123/SpreadsheetName456/cell/A1:A2/save/formula/{\"A1\":\"=1\",\"A2\":\"=2\"}",
             SpreadsheetCellSaveFormulaTextHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -143,7 +143,7 @@ public final class SpreadsheetCellSaveFormulaTextHistoryTokenTest extends Spread
                 SELECTION,
                 cellToFormulaText
             ),
-            "/1/SpreadsheetName456/cell/A1/save/formula/" + marshallMap(cellToFormulaText)
+            "/123/SpreadsheetName456/cell/A1/save/formula/" + marshallMap(cellToFormulaText)
         );
     }
 
@@ -161,7 +161,7 @@ public final class SpreadsheetCellSaveFormulaTextHistoryTokenTest extends Spread
                 SELECTION,
                 cellToFormulaText
             ),
-            "/1/SpreadsheetName456/cell/A1/save/formula/" + marshallMap(cellToFormulaText)
+            "/123/SpreadsheetName456/cell/A1/save/formula/" + marshallMap(cellToFormulaText)
         );
     }
 
@@ -184,7 +184,7 @@ public final class SpreadsheetCellSaveFormulaTextHistoryTokenTest extends Spread
                     .setDefaultAnchor(),
                 cellToFormulaText
             ),
-            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/formula/" + marshallMap(cellToFormulaText)
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formula/" + marshallMap(cellToFormulaText)
         );
     }
 

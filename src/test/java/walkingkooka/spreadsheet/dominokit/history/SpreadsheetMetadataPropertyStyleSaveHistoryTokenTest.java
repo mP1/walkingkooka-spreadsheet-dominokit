@@ -68,7 +68,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
 
     @Test
     public void testUrlFragmentColor() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/spreadsheet/style/color/save/#123456");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/spreadsheet/style/color/save/#123456");
     }
 
     @Test
@@ -80,7 +80,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
                 TextStylePropertyName.FONT_FAMILY,
                 Optional.empty()
             ),
-            "/1/SpreadsheetName456/spreadsheet/style/font-family/save/"
+            "/123/SpreadsheetName456/spreadsheet/style/font-family/save/"
         );
     }
 
@@ -95,7 +95,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
                     FontFamily.with("TimesNewRoman")
                 )
             ),
-            "/1/SpreadsheetName456/spreadsheet/style/font-family/save/TimesNewRoman"
+            "/123/SpreadsheetName456/spreadsheet/style/font-family/save/TimesNewRoman"
         );
     }
 
@@ -110,14 +110,14 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
                     FontStyle.ITALIC
                 )
             ),
-            "/1/SpreadsheetName456/spreadsheet/style/font-style/save/ITALIC"
+            "/123/SpreadsheetName456/spreadsheet/style/font-style/save/ITALIC"
         );
     }
 
     @Test
     public void testParseColor() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/spreadsheet/style/color/save/#123456",
+            "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
             SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -132,7 +132,7 @@ public final class SpreadsheetMetadataPropertyStyleSaveHistoryTokenTest extends 
     @Test
     public void testParseFontFamily() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/spreadsheet/style/font-family/save/TimesNewRoman2",
+            "/123/SpreadsheetName456/spreadsheet/style/font-family/save/TimesNewRoman2",
             SpreadsheetMetadataPropertyStyleSaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,

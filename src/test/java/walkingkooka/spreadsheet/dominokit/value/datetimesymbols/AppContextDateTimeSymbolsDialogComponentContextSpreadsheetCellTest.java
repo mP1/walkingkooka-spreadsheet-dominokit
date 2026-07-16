@@ -189,7 +189,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
         appContext.spreadsheetViewportCache()
             .onSpreadsheetDelta(
                 HttpMethod.GET,
-                Url.parseRelative("/api/spreadsheet/1/cell/*"),
+                Url.parseRelative("/api/spreadsheet/123/cell/*"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         cell

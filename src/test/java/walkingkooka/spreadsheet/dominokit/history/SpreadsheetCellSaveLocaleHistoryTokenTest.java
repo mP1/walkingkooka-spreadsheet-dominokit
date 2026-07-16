@@ -90,7 +90,7 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/save/locale",
+            "/123/SpreadsheetName456/cell/A1/save/locale",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -105,7 +105,7 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/save/locale/%7B%0A%20%20%22A1%22:%20%22en-AU%22%0A%7D",
+            "/123/SpreadsheetName456/cell/A1/save/locale/%7B%0A%20%20%22A1%22:%20%22en-AU%22%0A%7D",
             SpreadsheetCellSaveLocaleHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -125,7 +125,7 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1:A2/bottom-right/save/locale/%7B%0A%20%20%22A1%22:%20%22en-AU%22,%0A%20%20%22A2%22:%20%22en-NZ%22%0A%7D",
+            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/locale/%7B%0A%20%20%22A1%22:%20%22en-AU%22,%0A%20%20%22A2%22:%20%22en-NZ%22%0A%7D",
             SpreadsheetCellSaveLocaleHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -151,7 +151,7 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseOneCellWithoutLocale() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/save/locale/%7B%0A%20%20%22A1%22:%20null%0A%7D",
+            "/123/SpreadsheetName456/cell/A1/save/locale/%7B%0A%20%20%22A1%22:%20null%0A%7D",
             SpreadsheetCellSaveLocaleHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -182,7 +182,7 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
                 SELECTION,
                 cellToLocale
             ),
-            "/1/SpreadsheetName456/cell/A1/save/locale/" +
+            "/123/SpreadsheetName456/cell/A1/save/locale/" +
                 marshallMap(cellToLocale)
         );
     }
@@ -201,7 +201,7 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
                 SELECTION,
                 cellToLocale
             ),
-            "/1/SpreadsheetName456/cell/A1/save/locale/" +
+            "/123/SpreadsheetName456/cell/A1/save/locale/" +
                 marshallMap(cellToLocale)
         );
     }
@@ -225,7 +225,7 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
                     .setDefaultAnchor(),
                 cellToLocale
             ),
-            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/locale/" +
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/locale/" +
                 marshallMap(cellToLocale)
         );
     }
@@ -245,7 +245,7 @@ public final class SpreadsheetCellSaveLocaleHistoryTokenTest extends Spreadsheet
                     .setDefaultAnchor(),
                 cellToLocale
             ),
-            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/locale/" +
+            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/locale/" +
                 marshallMap(cellToLocale)
         );
     }

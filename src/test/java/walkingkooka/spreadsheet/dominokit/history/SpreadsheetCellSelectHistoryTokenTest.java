@@ -44,14 +44,14 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left"
         );
     }
 
@@ -59,7 +59,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/*/top-left"
+            "/123/SpreadsheetName456/cell/*/top-left"
         );
     }
 
@@ -67,7 +67,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123"
+            "/123/SpreadsheetName456/cell/Label123"
         );
     }
 
@@ -76,7 +76,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testParseCell() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1",
+            "/123/SpreadsheetName456/cell/A1",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -88,7 +88,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testParseCellRange() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/B2:C3",
+            "/123/SpreadsheetName456/cell/B2:C3",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -100,7 +100,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testParseCellRangeAndAnchor() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/B2:C3",
+            "/123/SpreadsheetName456/cell/B2:C3",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -112,7 +112,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testParseCellRangeStar() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/*",
+            "/123/SpreadsheetName456/cell/*",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -124,7 +124,7 @@ public final class SpreadsheetCellSelectHistoryTokenTest extends SpreadsheetCell
     @Test
     public void testParseCellRangeStarAndAnchor() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/*/bottom-right",
+            "/123/SpreadsheetName456/cell/*/bottom-right",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,

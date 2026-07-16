@@ -51,17 +51,17 @@ public final class OutlineStyleComponentTest implements TextStylePropertyEnumCom
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/] id=Test123-outlineStyle-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/NONE] id=Test123-outlineStyle-NONE-Link\n" +
-                "          \"Hidden\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/HIDDEN] id=Test123-outlineStyle-HIDDEN-Link\n" +
-                "          \"Dotted\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/DOTTED] id=Test123-outlineStyle-DOTTED-Link\n" +
-                "          \"Dashed\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/DASHED] CHECKED id=Test123-outlineStyle-DASHED-Link\n" +
-                "          \"Solid\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/SOLID] id=Test123-outlineStyle-SOLID-Link\n" +
-                "          \"Double\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/DOUBLE] id=Test123-outlineStyle-DOUBLE-Link\n" +
-                "          \"Groove\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/GROOVE] id=Test123-outlineStyle-GROOVE-Link\n" +
-                "          \"Ridge\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/RIDGE] id=Test123-outlineStyle-RIDGE-Link\n" +
-                "          \"Inset\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/INSET] id=Test123-outlineStyle-INSET-Link\n" +
-                "          \"Outset\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/OUTSET] id=Test123-outlineStyle-OUTSET-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/] id=Test123-outlineStyle-Link\n" +
+                "          \"None\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/NONE] id=Test123-outlineStyle-NONE-Link\n" +
+                "          \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/HIDDEN] id=Test123-outlineStyle-HIDDEN-Link\n" +
+                "          \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/DOTTED] id=Test123-outlineStyle-DOTTED-Link\n" +
+                "          \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/DASHED] CHECKED id=Test123-outlineStyle-DASHED-Link\n" +
+                "          \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/SOLID] id=Test123-outlineStyle-SOLID-Link\n" +
+                "          \"Double\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/DOUBLE] id=Test123-outlineStyle-DOUBLE-Link\n" +
+                "          \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/GROOVE] id=Test123-outlineStyle-GROOVE-Link\n" +
+                "          \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/RIDGE] id=Test123-outlineStyle-RIDGE-Link\n" +
+                "          \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/INSET] id=Test123-outlineStyle-INSET-Link\n" +
+                "          \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/OUTSET] id=Test123-outlineStyle-OUTSET-Link\n"
         );
     }
 
@@ -89,17 +89,17 @@ public final class OutlineStyleComponentTest implements TextStylePropertyEnumCom
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/] id=Test123-outlineStyle-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/NONE] id=Test123-outlineStyle-NONE-Link\n" +
-                "          \"Hidden\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/HIDDEN] id=Test123-outlineStyle-HIDDEN-Link\n" +
-                "          \"Dotted\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/DOTTED] id=Test123-outlineStyle-DOTTED-Link\n" +
-                "          \"Dashed\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/DASHED] id=Test123-outlineStyle-DASHED-Link\n" +
-                "          \"Solid\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/SOLID] CHECKED id=Test123-outlineStyle-SOLID-Link\n" +
-                "          \"Double\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/DOUBLE] id=Test123-outlineStyle-DOUBLE-Link\n" +
-                "          \"Groove\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/GROOVE] id=Test123-outlineStyle-GROOVE-Link\n" +
-                "          \"Ridge\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/RIDGE] id=Test123-outlineStyle-RIDGE-Link\n" +
-                "          \"Inset\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/INSET] id=Test123-outlineStyle-INSET-Link\n" +
-                "          \"Outset\" [#/1/SpreadsheetName1/cell/A1/style/outline-style/save/OUTSET] id=Test123-outlineStyle-OUTSET-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/] id=Test123-outlineStyle-Link\n" +
+                "          \"None\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/NONE] id=Test123-outlineStyle-NONE-Link\n" +
+                "          \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/HIDDEN] id=Test123-outlineStyle-HIDDEN-Link\n" +
+                "          \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/DOTTED] id=Test123-outlineStyle-DOTTED-Link\n" +
+                "          \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/DASHED] id=Test123-outlineStyle-DASHED-Link\n" +
+                "          \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/SOLID] CHECKED id=Test123-outlineStyle-SOLID-Link\n" +
+                "          \"Double\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/DOUBLE] id=Test123-outlineStyle-DOUBLE-Link\n" +
+                "          \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/GROOVE] id=Test123-outlineStyle-GROOVE-Link\n" +
+                "          \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/RIDGE] id=Test123-outlineStyle-RIDGE-Link\n" +
+                "          \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/INSET] id=Test123-outlineStyle-INSET-Link\n" +
+                "          \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/outline-style/save/OUTSET] id=Test123-outlineStyle-OUTSET-Link\n"
         );
     }
 

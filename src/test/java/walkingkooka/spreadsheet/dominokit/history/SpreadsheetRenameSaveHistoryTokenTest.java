@@ -30,7 +30,7 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
     @Test
     public void testParseMissingName() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/rename/save",
+            "/123/SpreadsheetName456/rename/save",
             HistoryToken.spreadsheetRenameSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME
@@ -40,7 +40,7 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/rename/save/RenameToSpreadsheetName567");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/rename/save/RenameToSpreadsheetName567");
     }
 
     @Test

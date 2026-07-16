@@ -32,14 +32,14 @@ public final class SpreadsheetColumnDeleteHistoryTokenTest extends SpreadsheetCo
     public void testUrlFragmentColumn() {
         this.urlFragmentAndCheck(
             COLUMN,
-            "/1/SpreadsheetName456/column/A/delete");
+            "/123/SpreadsheetName456/column/A/delete");
     }
 
     @Test
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
             COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT),
-            "/1/SpreadsheetName456/column/B:C/right/delete"
+            "/123/SpreadsheetName456/column/B:C/right/delete"
         );
     }
 
@@ -47,7 +47,7 @@ public final class SpreadsheetColumnDeleteHistoryTokenTest extends SpreadsheetCo
     public void testUrlFragmentColumnRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_COLUMNS.setAnchor(SpreadsheetViewportAnchor.RIGHT),
-            "/1/SpreadsheetName456/column/*/right/delete"
+            "/123/SpreadsheetName456/column/*/right/delete"
         );
     }
 

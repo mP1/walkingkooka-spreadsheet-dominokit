@@ -132,7 +132,7 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/label/Label123/save/A1"
+            "/123/SpreadsheetName456/label/Label123/save/A1"
         );
     }
 
@@ -144,7 +144,7 @@ public final class SpreadsheetLabelMappingSaveHistoryTokenTest extends Spreadshe
                 SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(SpreadsheetSelection.parseCellRange("B2:C3"))
             ),
-            "/1/SpreadsheetName456/label/Label123/save/B2:C3"
+            "/123/SpreadsheetName456/label/Label123/save/B2:C3"
         );
     }
 

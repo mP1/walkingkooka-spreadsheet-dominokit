@@ -131,7 +131,7 @@ public final class SpreadsheetCellLabelSelectHistoryTokenTest extends Spreadshee
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-            "/1/SpreadsheetName456/cell/A1/label"
+            "/123/SpreadsheetName456/cell/A1/label"
         );
     }
 

@@ -51,11 +51,11 @@ public final class TextTransformComponentTest implements TextStylePropertyEnumCo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/] id=Test123-textTransform-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/NONE] id=Test123-textTransform-NONE-Link\n" +
-                "          mdi-format-letter-case \"Capitalize\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/CAPITALIZE] id=Test123-textTransform-CAPITALIZE-Link\n" +
-                "          mdi-format-letter-case-upper \"Uppercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=Test123-textTransform-UPPERCASE-Link\n" +
-                "          mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=Test123-textTransform-LOWERCASE-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/] id=Test123-textTransform-Link\n" +
+                "          \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/NONE] id=Test123-textTransform-NONE-Link\n" +
+                "          mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/CAPITALIZE] id=Test123-textTransform-CAPITALIZE-Link\n" +
+                "          mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=Test123-textTransform-UPPERCASE-Link\n" +
+                "          mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=Test123-textTransform-LOWERCASE-Link\n"
         );
     }
 
@@ -83,11 +83,11 @@ public final class TextTransformComponentTest implements TextStylePropertyEnumCo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/] id=Test123-textTransform-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/NONE] id=Test123-textTransform-NONE-Link\n" +
-                "          mdi-format-letter-case \"Capitalize\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/CAPITALIZE] id=Test123-textTransform-CAPITALIZE-Link\n" +
-                "          mdi-format-letter-case-upper \"Uppercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] id=Test123-textTransform-UPPERCASE-Link\n" +
-                "          mdi-format-letter-case-lower \"Lowercase\" [#/1/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] CHECKED id=Test123-textTransform-LOWERCASE-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/] id=Test123-textTransform-Link\n" +
+                "          \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/NONE] id=Test123-textTransform-NONE-Link\n" +
+                "          mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/CAPITALIZE] id=Test123-textTransform-CAPITALIZE-Link\n" +
+                "          mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] id=Test123-textTransform-UPPERCASE-Link\n" +
+                "          mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] CHECKED id=Test123-textTransform-LOWERCASE-Link\n"
         );
     }
 

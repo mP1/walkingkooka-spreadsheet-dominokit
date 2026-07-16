@@ -29,7 +29,7 @@ public final class SpreadsheetLoadHistoryTokenTest extends SpreadsheetIdHistoryT
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/1");
+        this.urlFragmentAndCheck("/123");
     }
 
     @Test

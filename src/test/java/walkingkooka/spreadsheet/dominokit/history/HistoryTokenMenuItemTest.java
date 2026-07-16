@@ -47,7 +47,7 @@ public final class HistoryTokenMenuItemTest implements HashCodeEqualsDefinedTest
             HistoryTokenAnchorComponent.empty()
                 .setHistoryToken(
                     Optional.of(
-                        HistoryToken.parseString("/1/SpreadsheetName111")
+                        HistoryToken.parseString("/123/SpreadsheetName111")
                     )
                 )
         );
@@ -57,7 +57,7 @@ public final class HistoryTokenMenuItemTest implements HashCodeEqualsDefinedTest
     public void testToString() {
         this.toStringAndCheck(
             this.createObject(),
-            "[#/1/SpreadsheetName111]"
+            "[#/123/SpreadsheetName111]"
         );
     }
 

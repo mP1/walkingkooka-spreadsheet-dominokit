@@ -28,14 +28,14 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/menu");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/menu");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/menu"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/menu"
         );
     }
 
@@ -43,7 +43,7 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/*/top-left/menu"
+            "/123/SpreadsheetName456/cell/*/top-left/menu"
         );
     }
 
@@ -51,7 +51,7 @@ public final class SpreadsheetCellMenuHistoryTokenTest extends SpreadsheetCellHi
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123/menu"
+            "/123/SpreadsheetName456/cell/Label123/menu"
         );
     }
 

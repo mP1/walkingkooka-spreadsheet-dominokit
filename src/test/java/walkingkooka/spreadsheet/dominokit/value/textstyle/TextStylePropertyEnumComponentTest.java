@@ -227,11 +227,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -271,11 +271,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -306,11 +306,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -345,11 +345,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "          \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "          \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "          \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "          \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "          mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "          \"Left!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "          \"Center!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "          \"Right!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "          \"Justify!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -386,11 +386,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -429,11 +429,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -557,11 +557,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] CHECKED id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -603,11 +603,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/] CHECKED id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/] CHECKED id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/cell/B2/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -716,11 +716,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n"
         );
     }
 
@@ -735,11 +735,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
                 "    HelperText 123\n"
         );
     }
@@ -759,11 +759,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
                 "    Error(s)\n" +
                 "      Error111\n" +
                 "      Error222\n" +
@@ -788,11 +788,11 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
-                "        \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
-                "        \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
-                "        \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
-                "        \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
+                "        mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link\n" +
+                "        \"Left!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link\n" +
+                "        \"Center!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link\n" +
+                "        \"Right!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link\n" +
+                "        \"Justify!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link\n" +
                 "    HelperText 123\n" +
                 "    Error(s)\n" +
                 "      Error111\n" +
@@ -807,7 +807,7 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
     public void testToString() {
         this.toStringAndCheck(
             this.createComponent(),
-            "ROW DIV [mdi-format-clear \"Clear!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link, \"Left!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link, \"Center!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link, \"Right!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link, \"Justify!!\" [#/1/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link]"
+            "ROW DIV [mdi-format-clear \"Clear!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TestId123textAlign-Link, \"Left!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TestId123textAlign-LEFT-Link, \"Center!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] id=TestId123textAlign-CENTER-Link, \"Right!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TestId123textAlign-RIGHT-Link, \"Justify!!\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TestId123textAlign-JUSTIFY-Link]"
         );
     }
 

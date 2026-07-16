@@ -41,7 +41,7 @@ public final class SpreadsheetRenameSelectHistoryTokenTest extends SpreadsheetRe
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/rename");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/rename");
     }
 
     @Test
