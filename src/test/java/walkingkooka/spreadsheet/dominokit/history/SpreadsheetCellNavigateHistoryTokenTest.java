@@ -55,14 +55,14 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/navigate/Z99/scroll right 555px");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/navigate/Z99/scroll right 555px");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/Z99/scroll right 555px"
+            "/1/SpreadsheetName456/cell/B2:C3/top-left/navigate/Z99/scroll right 555px"
         );
     }
 
@@ -70,7 +70,7 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/navigate/Z99/scroll right 555px"
+            "/1/SpreadsheetName456/cell/Label123/navigate/Z99/scroll right 555px"
         );
     }
 
@@ -79,7 +79,7 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseInvalidHome() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/!invalid",
+            "/1/SpreadsheetName456/cell/A1/navigate/!invalid",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -91,7 +91,7 @@ public final class SpreadsheetCellNavigateHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseInvalidNavigation() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/navigate/Z9/invalid",
+            "/1/SpreadsheetName456/cell/A1/navigate/Z9/invalid",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,

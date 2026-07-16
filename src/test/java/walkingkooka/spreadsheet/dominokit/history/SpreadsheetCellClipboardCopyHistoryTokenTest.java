@@ -29,7 +29,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
     @Test
     public void testParseUnknownKind() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/copy/?unknown",
+            "/1/SpreadsheetName456/cell/A1/copy/?unknown",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -41,7 +41,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/copy/cell",
+            "/1/SpreadsheetName456/cell/A1/copy/cell",
             this.createHistoryToken()
         );
     }
@@ -49,7 +49,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCell2() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:B2/copy/cell",
+            "/1/SpreadsheetName456/cell/A1:B2/copy/cell",
             this.createHistoryToken(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -62,7 +62,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
     @Test
     public void testParseFormula() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/copy/formula",
+            "/1/SpreadsheetName456/cell/A1/copy/formula",
             this.createHistoryToken(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -76,7 +76,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
             this.createHistoryToken(),
-            "/123/SpreadsheetName456/cell/A1/copy/cell"
+            "/1/SpreadsheetName456/cell/A1/copy/cell"
         );
     }
 
@@ -89,7 +89,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.FORMULA
             ),
-            "/123/SpreadsheetName456/cell/A1/copy/formula"
+            "/1/SpreadsheetName456/cell/A1/copy/formula"
         );
     }
 
@@ -102,7 +102,7 @@ public final class SpreadsheetCellClipboardCopyHistoryTokenTest extends Spreadsh
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.FORMATTER
             ),
-            "/123/SpreadsheetName456/cell/A1/copy/formatter"
+            "/1/SpreadsheetName456/cell/A1/copy/formatter"
         );
     }
 

@@ -100,14 +100,14 @@ public final class SpreadsheetFormListHistoryTokenTest extends SpreadsheetFormHi
                 SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY
             ),
-            "/123/SpreadsheetName456/form"
+            "/1/SpreadsheetName456/form"
         );
     }
 
     @Test
     public void testUrlFragmentWithOffsetAndCount() {
         this.urlFragmentAndCheck(
-            "/123/SpreadsheetName456/form/*/offset/1/count/2"
+            "/1/SpreadsheetName456/form/*/offset/1/count/2"
         );
     }
 

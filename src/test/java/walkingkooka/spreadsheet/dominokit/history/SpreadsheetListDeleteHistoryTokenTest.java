@@ -40,7 +40,7 @@ public final class SpreadsheetListDeleteHistoryTokenTest extends SpreadsheetIdHi
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/delete/123");
+        this.urlFragmentAndCheck("/delete/1");
     }
 
     @Test

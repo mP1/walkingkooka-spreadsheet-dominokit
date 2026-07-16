@@ -47,7 +47,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryTokenTest extends Sp
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text());
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text());
     }
 
     @Test
@@ -59,7 +59,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryTokenTest extends Sp
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             ),
-            "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/"
+            "/1/SpreadsheetName456/cell/A1/dateTimeSymbols/save/"
         );
     }
 
@@ -67,7 +67,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryTokenTest extends Sp
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text()
+            "/1/SpreadsheetName456/cell/B2:C3/top-left/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text()
         );
     }
 
@@ -75,7 +75,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryTokenTest extends Sp
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/*/top-left/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text()
+            "/1/SpreadsheetName456/cell/*/top-left/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text()
         );
     }
 
@@ -83,7 +83,7 @@ public final class SpreadsheetCellDateTimeSymbolsSaveHistoryTokenTest extends Sp
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text()
+            "/1/SpreadsheetName456/cell/Label123/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text()
         );
     }
 

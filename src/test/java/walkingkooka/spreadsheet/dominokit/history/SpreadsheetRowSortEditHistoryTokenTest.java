@@ -65,7 +65,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
             this.createHistoryToken(),
-            "/123/SpreadsheetName456/row/1/sort/edit/" + COMPARATOR_NAMES_LIST_STRING
+            "/1/SpreadsheetName456/row/1/sort/edit/" + COMPARATOR_NAMES_LIST_STRING
         );
     }
 
@@ -78,14 +78,14 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
                 ANCHORED_ROW,
                 ""
             ),
-            "/123/SpreadsheetName456/row/1:3/bottom/sort/edit"
+            "/1/SpreadsheetName456/row/1:3/bottom/sort/edit"
         );
     }
 
     @Test
     public void testParseInvalidComparatorNames() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1:3/sort/edit/!invalid",
+            "/1/SpreadsheetName456/row/1:3/sort/edit/!invalid",
             SpreadsheetRowSortEditHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -98,7 +98,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParseMissingComparatorNames() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1/sort/edit",
+            "/1/SpreadsheetName456/row/1/sort/edit",
             SpreadsheetRowSortEditHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -111,7 +111,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParseEmptyComparatorNames() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1/sort/edit/",
+            "/1/SpreadsheetName456/row/1/sort/edit/",
             SpreadsheetRowSortEditHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -124,7 +124,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParseInvalidComparatorColumn() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1/sort/edit/Z=text",
+            "/1/SpreadsheetName456/row/1/sort/edit/Z=text",
             SpreadsheetRowSortEditHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -137,7 +137,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParseInvalidComparatorRow() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1/sort/edit/99=text",
+            "/1/SpreadsheetName456/row/1/sort/edit/99=text",
             SpreadsheetRowSortEditHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -150,7 +150,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParse2() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1/sort/edit/" + COMPARATOR_NAMES_LIST_STRING,
+            "/1/SpreadsheetName456/row/1/sort/edit/" + COMPARATOR_NAMES_LIST_STRING,
             this.createHistoryToken()
         );
     }
@@ -158,7 +158,7 @@ public final class SpreadsheetRowSortEditHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParseColumnRange() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1:3/bottom/sort/edit/" + COMPARATOR_NAMES_LIST_STRING2,
+            "/1/SpreadsheetName456/row/1:3/bottom/sort/edit/" + COMPARATOR_NAMES_LIST_STRING2,
             SpreadsheetRowSortEditHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,

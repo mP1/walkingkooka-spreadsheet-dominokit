@@ -54,7 +54,7 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/navigate/Z99/scroll right 555px");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/navigate/Z99/scroll right 555px");
     }
 
     // parse............................................................................................................
@@ -62,7 +62,7 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
     @Test
     public void testParseInvalidHome() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/navigate/!invalid",
+            "/1/SpreadsheetName456/navigate/!invalid",
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME
@@ -73,7 +73,7 @@ public final class SpreadsheetNavigateHistoryTokenTest extends SpreadsheetNameHi
     @Test
     public void testParseInvalidNavigation() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/navigate/Z9/!invalid",
+            "/1/SpreadsheetName456/navigate/Z9/!invalid",
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME

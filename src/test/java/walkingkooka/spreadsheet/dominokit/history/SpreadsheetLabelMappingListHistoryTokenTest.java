@@ -152,7 +152,7 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
     @Test
     public void testParseWithoutOffsetAndCount() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/label/*",
+            "/1/SpreadsheetName456/label/*",
             SpreadsheetLabelMappingListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -164,7 +164,7 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
     @Test
     public void testParseWithOffset() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/label/*/offset/123",
+            "/1/SpreadsheetName456/label/*/offset/123",
             SpreadsheetLabelMappingListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -178,7 +178,7 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
     @Test
     public void testParseWithCount() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/label/*/count/123",
+            "/1/SpreadsheetName456/label/*/count/123",
             SpreadsheetLabelMappingListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -192,7 +192,7 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
     @Test
     public void testParseWithOffsetAndCount() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/label/*/offset/123/count/456",
+            "/1/SpreadsheetName456/label/*/offset/123/count/456",
             SpreadsheetLabelMappingListHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -222,7 +222,7 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
                 SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY
             ),
-            "/123/SpreadsheetName456/label"
+            "/1/SpreadsheetName456/label"
         );
     }
 
@@ -236,7 +236,7 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
                     OptionalInt.of(123)
                 )
             ),
-            "/123/SpreadsheetName456/label/*/offset/123"
+            "/1/SpreadsheetName456/label/*/offset/123"
         );
     }
 
@@ -252,7 +252,7 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
                     OptionalInt.of(456)
                 )
             ),
-            "/123/SpreadsheetName456/label/*/offset/123/count/456"
+            "/1/SpreadsheetName456/label/*/offset/123/count/456"
         );
     }
 
@@ -266,7 +266,7 @@ public final class SpreadsheetLabelMappingListHistoryTokenTest extends Spreadshe
                     OptionalInt.of(456)
                 )
             ),
-            "/123/SpreadsheetName456/label/*/count/456"
+            "/1/SpreadsheetName456/label/*/count/456"
         );
     }
 

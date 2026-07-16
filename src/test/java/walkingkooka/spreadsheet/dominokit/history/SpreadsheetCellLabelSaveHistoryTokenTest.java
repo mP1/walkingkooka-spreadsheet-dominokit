@@ -51,7 +51,7 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseMissingLabelNameFails() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/label/save",
+            "/1/SpreadsheetName456/cell/A1/label/save",
             HistoryToken.cellLabelSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -177,7 +177,7 @@ public final class SpreadsheetCellLabelSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-            "/123/SpreadsheetName456/cell/A1/label/save/Label123"
+            "/1/SpreadsheetName456/cell/A1/label/save/Label123"
         );
     }
 

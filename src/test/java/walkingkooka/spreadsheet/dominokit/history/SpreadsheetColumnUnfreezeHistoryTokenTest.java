@@ -33,14 +33,14 @@ public final class SpreadsheetColumnUnfreezeHistoryTokenTest extends Spreadsheet
     public void testUrlFragmentColumn() {
         this.urlFragmentAndCheck(
             COLUMN,
-            "/123/SpreadsheetName456/column/A/unfreeze");
+            "/1/SpreadsheetName456/column/A/unfreeze");
     }
 
     @Test
     public void testUrlFragmentColumnRange() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.parseColumnRange("A:B").setAnchor(SpreadsheetViewportAnchor.RIGHT),
-            "/123/SpreadsheetName456/column/A:B/right/unfreeze"
+            "/1/SpreadsheetName456/column/A:B/right/unfreeze"
         );
     }
 

@@ -72,14 +72,14 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
 
     @Test
     public void testUrlFragmentColumn() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/row/1/navigate/Z99/scroll down 555px");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/row/1/navigate/Z99/scroll down 555px");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-            "/123/SpreadsheetName456/row/2:3/bottom/navigate/Z99/scroll down 555px"
+            "/1/SpreadsheetName456/row/2:3/bottom/navigate/Z99/scroll down 555px"
         );
     }
 
@@ -88,7 +88,7 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParseInvalidHome() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1/navigate/!invalid",
+            "/1/SpreadsheetName456/row/1/navigate/!invalid",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -100,7 +100,7 @@ public final class SpreadsheetRowNavigateHistoryTokenTest extends SpreadsheetRow
     @Test
     public void testParseInvalidNavigation() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/row/1/navigate/Z9/!invalid",
+            "/1/SpreadsheetName456/row/1/navigate/Z9/!invalid",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,

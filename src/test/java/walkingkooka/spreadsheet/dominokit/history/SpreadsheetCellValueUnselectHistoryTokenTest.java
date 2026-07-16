@@ -51,14 +51,14 @@ public final class SpreadsheetCellValueUnselectHistoryTokenTest extends Spreadsh
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/value");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/value");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/value"
+            "/1/SpreadsheetName456/cell/B2:C3/top-left/value"
         );
     }
 
@@ -66,7 +66,7 @@ public final class SpreadsheetCellValueUnselectHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/*/top-left/value"
+            "/1/SpreadsheetName456/cell/*/top-left/value"
         );
     }
 
@@ -74,7 +74,7 @@ public final class SpreadsheetCellValueUnselectHistoryTokenTest extends Spreadsh
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/value"
+            "/1/SpreadsheetName456/cell/Label123/value"
         );
     }
 

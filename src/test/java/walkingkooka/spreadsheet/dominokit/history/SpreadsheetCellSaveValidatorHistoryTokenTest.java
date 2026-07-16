@@ -96,7 +96,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/validator",
+            "/1/SpreadsheetName456/cell/A1/save/validator",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -111,7 +111,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/validator/" + JsonNode.parse("{\"A1\":\"hello-validator-\"}"),
+            "/1/SpreadsheetName456/cell/A1/save/validator/" + JsonNode.parse("{\"A1\":\"hello-validator-\"}"),
             SpreadsheetCellSaveValidatorHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -133,7 +133,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/validator/" + JsonNode.parse("{\"A1\":\"hello-validator-1\",\"A2\":null}"),
+            "/1/SpreadsheetName456/cell/A1:A2/bottom-right/save/validator/" + JsonNode.parse("{\"A1\":\"hello-validator-1\",\"A2\":null}"),
             SpreadsheetCellSaveValidatorHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -157,7 +157,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
     @Test
     public void testParseCellWithoutValidator() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/validator/%7B%22A1%22%3Anull%7D",
+            "/1/SpreadsheetName456/cell/A1:A2/bottom-right/save/validator/%7B%22A1%22%3Anull%7D",
             SpreadsheetCellSaveValidatorHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -189,7 +189,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                 SELECTION,
                 cellToValidator
             ),
-            "/123/SpreadsheetName456/cell/A1/save/validator/" +
+            "/1/SpreadsheetName456/cell/A1/save/validator/" +
                 marshallMap(cellToValidator)
         );
     }
@@ -210,7 +210,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                 SELECTION,
                 cellToValidator
             ),
-            "/123/SpreadsheetName456/cell/A1/save/validator/" +
+            "/1/SpreadsheetName456/cell/A1/save/validator/" +
                 marshallMap(cellToValidator)
         );
     }
@@ -240,7 +240,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                     .setDefaultAnchor(),
                 cellToValidator
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/validator/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/validator/" +
                 marshallMap(cellToValidator)
         );
     }
@@ -260,7 +260,7 @@ public final class SpreadsheetCellSaveValidatorHistoryTokenTest extends Spreadsh
                     .setDefaultAnchor(),
                 cellToValidator
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/validator/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/validator/" +
                 marshallMap(cellToValidator)
         );
     }

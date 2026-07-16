@@ -33,7 +33,7 @@ public final class SpreadsheetKeyboardHistoryTokenTest extends SpreadsheetNameHi
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/keyboard");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/keyboard");
     }
 
     // clearAction......................................................................................................

@@ -33,6 +33,7 @@ import walkingkooka.reflect.MethodAttributes;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -59,9 +60,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public abstract class HistoryTokenTestCase<T extends HistoryToken> implements ClassTesting<T>,
     HashCodeEqualsDefinedTesting2<T>,
     HasUrlFragmentTesting,
+    SpreadsheetMetadataTesting,
     ToStringTesting<T> {
-
-    final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(0x123);
 
     final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName456");
 

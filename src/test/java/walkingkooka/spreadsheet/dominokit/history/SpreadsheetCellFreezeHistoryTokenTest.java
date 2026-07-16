@@ -55,7 +55,7 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
     public void testUrlFragmentCell() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.A1.setDefaultAnchor(),
-            "/123/SpreadsheetName456/cell/A1/freeze"
+            "/1/SpreadsheetName456/cell/A1/freeze"
         );
     }
 
@@ -63,7 +63,7 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.parseCellRange("A1:B2").setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/A1:B2/top-left/freeze"
+            "/1/SpreadsheetName456/cell/A1:B2/top-left/freeze"
         );
     }
 
@@ -71,7 +71,7 @@ public final class SpreadsheetCellFreezeHistoryTokenTest extends SpreadsheetCell
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/freeze"
+            "/1/SpreadsheetName456/cell/Label123/freeze"
         );
     }
 

@@ -100,7 +100,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/parser",
+            "/1/SpreadsheetName456/cell/A1/save/parser",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -115,7 +115,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/parser/%7B%20%22A1%22%3A%20%22number%200.00%22%20%7D",
+            "/1/SpreadsheetName456/cell/A1/save/parser/%7B%20%22A1%22%3A%20%22number%200.00%22%20%7D",
             SpreadsheetCellSaveParserHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -138,7 +138,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%0A%20%20%22A1%22:%20%22date%20dd/mm/yyyy%22,%0A%20%20%22A2%22:%20%22time%20hh:mm%22%0A%7D",
+            "/1/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%0A%20%20%22A1%22:%20%22date%20dd/mm/yyyy%22,%0A%20%20%22A2%22:%20%22time%20hh:mm%22%0A%7D",
             SpreadsheetCellSaveParserHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -166,7 +166,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
     @Test
     public void testParseCellWithoutParser() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%22A1%22%3Anull%7D",
+            "/1/SpreadsheetName456/cell/A1:A2/bottom-right/save/parser/%7B%22A1%22%3Anull%7D",
             SpreadsheetCellSaveParserHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -199,7 +199,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
                 SELECTION,
                 cellToParser
             ),
-            "/123/SpreadsheetName456/cell/A1/save/parser/" +
+            "/1/SpreadsheetName456/cell/A1/save/parser/" +
                 marshallMap(cellToParser)
         );
     }
@@ -221,7 +221,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
                 SELECTION,
                 cellToParser
             ),
-            "/123/SpreadsheetName456/cell/A1/save/parser/" +
+            "/1/SpreadsheetName456/cell/A1/save/parser/" +
                 marshallMap(cellToParser)
         );
     }
@@ -254,7 +254,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
                     .setDefaultAnchor(),
                 cellToParserText
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/parser/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/parser/" +
                 marshallMap(cellToParserText)
         );
     }
@@ -274,7 +274,7 @@ public final class SpreadsheetCellSaveParserHistoryTokenTest extends Spreadsheet
                     .setDefaultAnchor(),
                 cellToParserText
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/parser/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/parser/" +
                 marshallMap(cellToParserText)
         );
     }

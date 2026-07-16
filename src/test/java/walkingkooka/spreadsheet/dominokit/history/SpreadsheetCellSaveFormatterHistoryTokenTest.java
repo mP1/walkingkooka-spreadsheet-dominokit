@@ -100,7 +100,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/formatter",
+            "/1/SpreadsheetName456/cell/A1/save/formatter",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -115,7 +115,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/formatter/%7B%0A%20%20%20%22A1%22%3A%20%22text%20%40%22%0A%7D",
+            "/1/SpreadsheetName456/cell/A1/save/formatter/%7B%0A%20%20%20%22A1%22%3A%20%22text%20%40%22%0A%7D",
             SpreadsheetCellSaveFormatterHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -138,7 +138,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/bottom-right/save/formatter/%7B%0A%20%20%22A1%22%3A%20%22date%20dd%2Fmm%2Fyyyy%22%2C%0A%20%20%22A2%22%3A%20%22time%20hh%3Amm%22%0A%7D",
+            "/1/SpreadsheetName456/cell/A1:A2/bottom-right/save/formatter/%7B%0A%20%20%22A1%22%3A%20%22date%20dd%2Fmm%2Fyyyy%22%2C%0A%20%20%22A2%22%3A%20%22time%20hh%3Amm%22%0A%7D",
             SpreadsheetCellSaveFormatterHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -166,7 +166,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
     @Test
     public void testParseOneCellWithoutPattern() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/formatter/%7B%22A1%22%3Anull%7D",
+            "/1/SpreadsheetName456/cell/A1/save/formatter/%7B%22A1%22%3Anull%7D",
             SpreadsheetCellSaveFormatterHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -201,7 +201,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
                 SELECTION,
                 cellToFormatter
             ),
-            "/123/SpreadsheetName456/cell/A1/save/formatter/" +
+            "/1/SpreadsheetName456/cell/A1/save/formatter/" +
                 marshallMap(cellToFormatter)
         );
     }
@@ -223,7 +223,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
                 SELECTION,
                 cellToFormatter
             ),
-            "/123/SpreadsheetName456/cell/A1/save/formatter/" +
+            "/1/SpreadsheetName456/cell/A1/save/formatter/" +
                 marshallMap(cellToFormatter)
         );
     }
@@ -256,7 +256,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
                     .setDefaultAnchor(),
                 cellToFormulaText
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formatter/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/formatter/" +
                 marshallMap(cellToFormulaText)
         );
     }
@@ -276,7 +276,7 @@ public final class SpreadsheetCellSaveFormatterHistoryTokenTest extends Spreadsh
                     .setDefaultAnchor(),
                 cellToFormulaText
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/formatter/" +
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/formatter/" +
                 marshallMap(cellToFormulaText)
         );
     }

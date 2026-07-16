@@ -44,14 +44,14 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
             this.createHistoryToken(),
-            "/123/SpreadsheetName456/cell/A1/sort/save/" + COMPARATOR_NAMES_LIST_STRING
+            "/1/SpreadsheetName456/cell/A1/sort/save/" + COMPARATOR_NAMES_LIST_STRING
         );
     }
 
     @Test
     public void testParseInvalidComparator() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/sort/save/!invalid",
+            "/1/SpreadsheetName456/cell/A1/sort/save/!invalid",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -63,7 +63,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseInvalidComparatorColumn() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/sort/save/Z=text",
+            "/1/SpreadsheetName456/cell/A1/sort/save/Z=text",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -75,7 +75,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseInvalidComparatorRow() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/sort/save/99=text",
+            "/1/SpreadsheetName456/cell/A1/sort/save/99=text",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -88,7 +88,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParse2() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/sort/save/" + COMPARATOR_NAMES_LIST_STRING,
+            "/1/SpreadsheetName456/cell/A1/sort/save/" + COMPARATOR_NAMES_LIST_STRING,
             this.createHistoryToken()
         );
     }
@@ -96,7 +96,7 @@ public final class SpreadsheetCellSortSaveHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testParseCellRange() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:C3/bottom-right/sort/save/" + COMPARATOR_NAMES_LIST_STRING2,
+            "/1/SpreadsheetName456/cell/A1:C3/bottom-right/sort/save/" + COMPARATOR_NAMES_LIST_STRING2,
             SpreadsheetCellSortSaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,

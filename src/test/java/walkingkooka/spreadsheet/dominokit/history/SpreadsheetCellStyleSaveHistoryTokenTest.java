@@ -82,20 +82,20 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
                 TextStylePropertyName.ALL,
                 Optional.empty()
             ),
-            "/123/SpreadsheetName456/cell/A1/style/*/save/"
+            "/1/SpreadsheetName456/cell/A1/style/*/save/"
         );
     }
 
     @Test
     public void testUrlFragmentCellColor() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/style/color/save/#123456");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/style/color/save/#123456");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/style/color/save/#123456"
+            "/1/SpreadsheetName456/cell/B2:C3/top-left/style/color/save/#123456"
         );
     }
 
@@ -103,7 +103,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/*/top-left/style/color/save/#123456"
+            "/1/SpreadsheetName456/cell/*/top-left/style/color/save/#123456"
         );
     }
 
@@ -111,7 +111,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/style/color/save/#123456"
+            "/1/SpreadsheetName456/cell/Label123/style/color/save/#123456"
         );
     }
 
@@ -120,7 +120,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         this.urlFragmentAndCheck(
             TextStylePropertyName.BORDER_BOTTOM_STYLE,
             BorderStyle.DASHED,
-            "/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED"
+            "/1/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED"
         );
     }
 
@@ -129,7 +129,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             TextStylePropertyName.BORDER_BOTTOM_STYLE,
             BorderStyle.DASHED,
-            "/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED"
+            "/1/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED"
         );
     }
 
@@ -138,7 +138,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         this.urlFragmentAndCheck(
             TextStylePropertyName.BORDER_BOTTOM_WIDTH,
             Length.pixel(123.5),
-            "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/123.5px"
+            "/1/SpreadsheetName456/cell/A1/style/border-bottom-width/save/123.5px"
         );
     }
 
@@ -147,7 +147,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             TextStylePropertyName.BORDER_BOTTOM_WIDTH,
             Length.pixel(123.5),
-            "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/123.5px"
+            "/1/SpreadsheetName456/cell/A1/style/border-bottom-width/save/123.5px"
         );
     }
 
@@ -156,7 +156,7 @@ public final class SpreadsheetCellStyleSaveHistoryTokenTest extends SpreadsheetC
         this.parseAndCheck(
             TextStylePropertyName.BORDER_BOTTOM_WIDTH,
             null,
-            "/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/"
+            "/1/SpreadsheetName456/cell/A1/style/border-bottom-width/save/"
         );
     }
 

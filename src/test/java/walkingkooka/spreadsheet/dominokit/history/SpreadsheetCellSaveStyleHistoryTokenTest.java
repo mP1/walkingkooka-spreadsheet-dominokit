@@ -90,7 +90,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseNoCellsFails() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/style",
+            "/1/SpreadsheetName456/cell/A1/save/style",
             SpreadsheetCellSelectHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -102,7 +102,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/style/{\"A1\":{\"color\":\"#123456\"}}",
+            "/1/SpreadsheetName456/cell/A1/save/style/{\"A1\":{\"color\":\"#123456\"}}",
             SpreadsheetCellSaveStyleHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -121,7 +121,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/save/style/{\"A1\":{\"color\":\"#111111\"},\"A2\":{\"color\":\"#222222\"}}",
+            "/1/SpreadsheetName456/cell/A1:A2/save/style/{\"A1\":{\"color\":\"#111111\"},\"A2\":{\"color\":\"#222222\"}}",
             SpreadsheetCellSaveStyleHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -159,7 +159,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
                 SELECTION,
                 cellToStyle
             ),
-            "/123/SpreadsheetName456/cell/A1/save/style/" + marshallMap(cellToStyle)
+            "/1/SpreadsheetName456/cell/A1/save/style/" + marshallMap(cellToStyle)
         );
     }
 
@@ -180,7 +180,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
                 SELECTION,
                 cellToStyle
             ),
-            "/123/SpreadsheetName456/cell/A1/save/style/" + marshallMap(cellToStyle)
+            "/1/SpreadsheetName456/cell/A1/save/style/" + marshallMap(cellToStyle)
         );
     }
 
@@ -212,7 +212,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
                     .setDefaultAnchor(),
                 cellToStyle
             ),
-            "/123/SpreadsheetName456/cell/A1:A3/bottom-right/save/style/" + marshallMap(cellToStyle)
+            "/1/SpreadsheetName456/cell/A1:A3/bottom-right/save/style/" + marshallMap(cellToStyle)
         );
     }
 

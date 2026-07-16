@@ -30,7 +30,7 @@ public final class SpreadsheetRowClearHistoryTokenTest extends SpreadsheetRowHis
     public void testUrlFragmentRow() {
         this.urlFragmentAndCheck(
             ROW,
-            "/123/SpreadsheetName456/row/1/clear"
+            "/1/SpreadsheetName456/row/1/clear"
         );
     }
 
@@ -38,7 +38,7 @@ public final class SpreadsheetRowClearHistoryTokenTest extends SpreadsheetRowHis
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
             ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-            "/123/SpreadsheetName456/row/2:3/bottom/clear"
+            "/1/SpreadsheetName456/row/2:3/bottom/clear"
         );
     }
 
@@ -46,7 +46,7 @@ public final class SpreadsheetRowClearHistoryTokenTest extends SpreadsheetRowHis
     public void testUrlFragmentRowRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-            "/123/SpreadsheetName456/row/*/bottom/clear"
+            "/1/SpreadsheetName456/row/*/bottom/clear"
         );
     }
 

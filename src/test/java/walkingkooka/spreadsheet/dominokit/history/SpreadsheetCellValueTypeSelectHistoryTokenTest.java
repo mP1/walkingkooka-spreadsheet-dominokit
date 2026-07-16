@@ -30,14 +30,14 @@ public final class SpreadsheetCellValueTypeSelectHistoryTokenTest extends Spread
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/valueType");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/valueType");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/valueType"
+            "/1/SpreadsheetName456/cell/B2:C3/top-left/valueType"
         );
     }
 
@@ -45,7 +45,7 @@ public final class SpreadsheetCellValueTypeSelectHistoryTokenTest extends Spread
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/*/top-left/valueType"
+            "/1/SpreadsheetName456/cell/*/top-left/valueType"
         );
     }
 
@@ -53,7 +53,7 @@ public final class SpreadsheetCellValueTypeSelectHistoryTokenTest extends Spread
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/valueType"
+            "/1/SpreadsheetName456/cell/Label123/valueType"
         );
     }
 

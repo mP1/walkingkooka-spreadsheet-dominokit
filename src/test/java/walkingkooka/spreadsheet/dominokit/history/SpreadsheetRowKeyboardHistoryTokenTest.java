@@ -28,14 +28,14 @@ public final class SpreadsheetRowKeyboardHistoryTokenTest extends SpreadsheetRow
 
     @Test
     public void testUrlFragmentRow() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/row/1/keyboard");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/row/1/keyboard");
     }
 
     @Test
     public void testUrlFragmentRowRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.TOP),
-            "/123/SpreadsheetName456/row/*/top/keyboard"
+            "/1/SpreadsheetName456/row/*/top/keyboard"
         );
     }
 
@@ -43,7 +43,7 @@ public final class SpreadsheetRowKeyboardHistoryTokenTest extends SpreadsheetRow
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
             ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP),
-            "/123/SpreadsheetName456/row/2:3/top/keyboard"
+            "/1/SpreadsheetName456/row/2:3/top/keyboard"
         );
     }
 

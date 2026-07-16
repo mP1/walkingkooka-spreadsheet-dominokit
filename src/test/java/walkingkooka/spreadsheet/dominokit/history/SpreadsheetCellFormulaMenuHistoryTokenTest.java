@@ -52,14 +52,14 @@ public final class SpreadsheetCellFormulaMenuHistoryTokenTest extends Spreadshee
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formula/menu");
+        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/formula/menu");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/formula/menu"
+            "/1/SpreadsheetName456/cell/B2:C3/top-left/formula/menu"
         );
     }
 
@@ -67,7 +67,7 @@ public final class SpreadsheetCellFormulaMenuHistoryTokenTest extends Spreadshee
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/formula/menu"
+            "/1/SpreadsheetName456/cell/Label123/formula/menu"
         );
     }
 

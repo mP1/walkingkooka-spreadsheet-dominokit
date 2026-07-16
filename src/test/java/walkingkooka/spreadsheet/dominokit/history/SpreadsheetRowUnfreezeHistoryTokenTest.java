@@ -33,7 +33,7 @@ public final class SpreadsheetRowUnfreezeHistoryTokenTest extends SpreadsheetRow
     public void testUrlFragmentRow() {
         this.urlFragmentAndCheck(
             ROW,
-            "/123/SpreadsheetName456/row/1/unfreeze"
+            "/1/SpreadsheetName456/row/1/unfreeze"
         );
     }
 
@@ -41,7 +41,7 @@ public final class SpreadsheetRowUnfreezeHistoryTokenTest extends SpreadsheetRow
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.parseRowRange("1:2").setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-            "/123/SpreadsheetName456/row/1:2/bottom/unfreeze"
+            "/1/SpreadsheetName456/row/1:2/bottom/unfreeze"
         );
     }
 
