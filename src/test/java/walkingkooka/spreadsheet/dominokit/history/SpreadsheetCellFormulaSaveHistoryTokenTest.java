@@ -29,14 +29,14 @@ public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends Spreadshee
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/formula/save/=12+3");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/formula/save/=12+3");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/formula/save/=12+3"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/formula/save/=12+3"
         );
     }
 
@@ -44,7 +44,7 @@ public final class SpreadsheetCellFormulaSaveHistoryTokenTest extends Spreadshee
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123/formula/save/=12+3"
+            "/123/SpreadsheetName456/cell/Label123/formula/save/=12+3"
         );
     }
 

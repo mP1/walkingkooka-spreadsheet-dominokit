@@ -42,7 +42,7 @@ public final class SpreadsheetListRenameSaveHistoryTokenTest extends Spreadsheet
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
             this.createHistoryToken(),
-            "/rename/1/save/" + SPREADSHEET_NAME
+            "/rename/123/save/" + SPREADSHEET_NAME
         );
     }
 

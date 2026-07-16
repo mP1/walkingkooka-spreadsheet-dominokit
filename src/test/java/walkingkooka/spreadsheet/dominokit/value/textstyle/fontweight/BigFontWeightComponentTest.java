@@ -52,8 +52,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
+                "              \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -73,8 +73,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
+                "              \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -96,8 +96,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
+                "              \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -121,8 +121,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
+                "              \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -146,8 +146,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] CHECKED id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] CHECKED id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
+                "              \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] CHECKED id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] CHECKED id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -171,8 +171,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
+                "              \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 
@@ -200,8 +200,8 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Bold\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
-                "              \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
+                "              \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TestIdPrefix123-fontWeight-BOLD-Link\n" +
+                "              \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TestIdPrefix123-fontWeight-NORMAL-Link\n"
         );
     }
 

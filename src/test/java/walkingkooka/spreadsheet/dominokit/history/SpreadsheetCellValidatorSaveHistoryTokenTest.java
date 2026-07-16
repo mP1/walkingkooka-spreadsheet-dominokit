@@ -52,7 +52,7 @@ public final class SpreadsheetCellValidatorSaveHistoryTokenTest extends Spreadsh
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/validator/save/hello-validator");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/validator/save/hello-validator");
     }
 
     @Test
@@ -64,7 +64,7 @@ public final class SpreadsheetCellValidatorSaveHistoryTokenTest extends Spreadsh
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             ),
-            "/1/SpreadsheetName456/cell/A1/validator/save/"
+            "/123/SpreadsheetName456/cell/A1/validator/save/"
         );
     }
 
@@ -72,7 +72,7 @@ public final class SpreadsheetCellValidatorSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/validator/save/hello-validator"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/validator/save/hello-validator"
         );
     }
 
@@ -80,7 +80,7 @@ public final class SpreadsheetCellValidatorSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/*/top-left/validator/save/hello-validator"
+            "/123/SpreadsheetName456/cell/*/top-left/validator/save/hello-validator"
         );
     }
 
@@ -88,7 +88,7 @@ public final class SpreadsheetCellValidatorSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123/validator/save/hello-validator"
+            "/123/SpreadsheetName456/cell/Label123/validator/save/hello-validator"
         );
     }
 

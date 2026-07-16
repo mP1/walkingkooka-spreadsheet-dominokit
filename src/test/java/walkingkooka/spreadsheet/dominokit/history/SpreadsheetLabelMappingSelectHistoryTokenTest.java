@@ -133,7 +133,7 @@ public final class SpreadsheetLabelMappingSelectHistoryTokenTest extends Spreads
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/label/Label123"
+            "/123/SpreadsheetName456/label/Label123"
         );
     }
 

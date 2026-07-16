@@ -28,14 +28,14 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/delete");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/delete");
     }
 
     @Test
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/*/top-left/delete"
+            "/123/SpreadsheetName456/cell/*/top-left/delete"
         );
     }
 
@@ -43,7 +43,7 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/delete"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/delete"
         );
     }
 
@@ -51,7 +51,7 @@ public final class SpreadsheetCellDeleteHistoryTokenTest extends SpreadsheetCell
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123/delete"
+            "/123/SpreadsheetName456/cell/Label123/delete"
         );
     }
 

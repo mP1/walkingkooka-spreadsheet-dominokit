@@ -30,7 +30,7 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
     public void testUrlFragmentRow() {
         this.urlFragmentAndCheck(
             ROW,
-            "/1/SpreadsheetName456/row/1"
+            "/123/SpreadsheetName456/row/1"
         );
     }
 
@@ -38,7 +38,7 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
     public void testUrlFragmentRowRange() {
         this.urlFragmentAndCheck(
             ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-            "/1/SpreadsheetName456/row/2:3/bottom"
+            "/123/SpreadsheetName456/row/2:3/bottom"
         );
     }
 
@@ -46,7 +46,7 @@ public final class SpreadsheetRowSelectHistoryTokenTest extends SpreadsheetRowHi
     public void testUrlFragmentRowRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_ROWS.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
-            "/1/SpreadsheetName456/row/*/bottom"
+            "/123/SpreadsheetName456/row/*/bottom"
         );
     }
 

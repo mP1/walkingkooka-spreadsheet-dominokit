@@ -72,7 +72,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
     @Test
     public void testOnHistoryTokenChangeCellDateMissingPattern() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet1/cell/A1/parser")
+            HistoryToken.parseString("/123/Spreadsheet1/cell/A1/parser")
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
@@ -92,23 +92,23 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetParserSelector-parserNames-0-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
+                "                  \"Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
+                "                  \"Full Date\" [#/123/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Full Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"Full Time\" [#/123/Spreadsheet1/cell/A1/parser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"General\" [#/123/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date\" [#/123/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Long Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Long Time\" [#/123/Spreadsheet1/cell/A1/parser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Medium Date\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Medium Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Medium Time\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Number\" [#/123/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Short Date\" [#/123/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
+                "                  \"Short Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
+                "                  \"Short Time\" [#/123/Spreadsheet1/cell/A1/parser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
+                "                  \"Time\" [#/123/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
+                "                  \"Whole Number\" [#/123/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -118,31 +118,31 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d/m/yy] id=SpreadsheetParserSelector-Short-Link\n" +
+                "                  \"d/m/yy\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20d/m/yy] id=SpreadsheetParserSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d%20mmm%20yyyy] id=SpreadsheetParserSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20d%20mmm%20yyyy] id=SpreadsheetParserSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  [#/1/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-Sample-Link\n" +
+                "                  [#/123/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    ERROR Empty \"text\"\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -158,16 +158,16 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              \"Save\" DISABLED id=SpreadsheetParserSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
+                "              \"Clear\" [#/123/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
     @Test
     public void testOnHistoryTokenChangeCellDate() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet1/cell/A1/parser")
+            HistoryToken.parseString("/123/Spreadsheet1/cell/A1/parser")
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
@@ -187,23 +187,23 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetParserSelector-parserNames-0-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
+                "                  \"Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
+                "                  \"Full Date\" [#/123/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Full Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"Full Time\" [#/123/Spreadsheet1/cell/A1/parser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"General\" [#/123/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date\" [#/123/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Long Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Long Time\" [#/123/Spreadsheet1/cell/A1/parser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Medium Date\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Medium Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Medium Time\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Number\" [#/123/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Short Date\" [#/123/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
+                "                  \"Short Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
+                "                  \"Short Time\" [#/123/Spreadsheet1/cell/A1/parser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
+                "                  \"Time\" [#/123/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
+                "                  \"Whole Number\" [#/123/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -213,31 +213,31 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d/m/yy] id=SpreadsheetParserSelector-Short-Link\n" +
+                "                  \"d/m/yy\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20d/m/yy] id=SpreadsheetParserSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d%20mmm%20yyyy] id=SpreadsheetParserSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20d%20mmm%20yyyy] id=SpreadsheetParserSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -246,34 +246,34 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"d\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyyd] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyydd] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyyddd] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyydddd] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyym] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymmm] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymmmm] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymmmmm] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
+                "                  \"d\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyyd] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"dd\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyydd] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"ddd\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyyddd] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \"dddd\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyydddd] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \"m\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyym] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"mmm\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymmm] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"mmmm\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymmmm] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"mmmmm\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyymmmmm] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/cell/A1/parser/save/date%20d/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/cell/A1/parser/save/date%20ddd/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dddd/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20ddmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd//yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dd/m/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mmmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mmmmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mmyyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yy] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/123/Spreadsheet1/cell/A1/parser/save/date%20d/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/123/Spreadsheet1/cell/A1/parser/save/date%20ddd/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/123/Spreadsheet1/cell/A1/parser/save/date%20dddd/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20ddmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd//yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/123/Spreadsheet1/cell/A1/parser/save/date%20dd/m/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mmmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mmmmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mmyyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yy] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -282,10 +282,10 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet1/cell/A1/parser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -294,7 +294,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
     @Test
     public void testOnHistoryTokenChangeCellDateTime() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet1/cell/A1/parser")
+            HistoryToken.parseString("/123/Spreadsheet1/cell/A1/parser")
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
@@ -313,24 +313,24 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" [#/123/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
+                "                  \"Full Date\" [#/123/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Full Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"Full Time\" [#/123/Spreadsheet1/cell/A1/parser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"General\" [#/123/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date\" [#/123/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Long Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Long Time\" [#/123/Spreadsheet1/cell/A1/parser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Medium Date\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Medium Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Medium Time\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Number\" [#/123/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Short Date\" [#/123/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
+                "                  \"Short Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
+                "                  \"Short Time\" [#/123/Spreadsheet1/cell/A1/parser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
+                "                  \"Time\" [#/123/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
+                "                  \"Whole Number\" [#/123/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -340,31 +340,31 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20d/m/yy,%20h:mm%20AM/PM] id=SpreadsheetParserSelector-Short-Link\n" +
+                "                  \"d/m/yy, h:mm AM/PM\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20d/m/yy,%20h:mm%20AM/PM] id=SpreadsheetParserSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99, 12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999, 12:58:59 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999 at 12:58:59 PM\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999 at 12:58:59 PM\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy hh:mm:ss\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999 12:58:59\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -373,53 +373,53 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ss.] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ss0] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssA/P] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssa/p] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssam/pm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"d\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssd] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssdd] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssddd] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssdddd] id=SpreadsheetParserSelector-appender-append-9-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssh] id=SpreadsheetParserSelector-appender-append-10-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:sshh] id=SpreadsheetParserSelector-appender-append-11-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssm] id=SpreadsheetParserSelector-appender-append-12-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmm] id=SpreadsheetParserSelector-appender-append-13-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmm] id=SpreadsheetParserSelector-appender-append-14-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmm] id=SpreadsheetParserSelector-appender-append-15-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=SpreadsheetParserSelector-appender-append-16-Link\n" +
-                "                  \"yy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssyy] id=SpreadsheetParserSelector-appender-append-17-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssyyyy] id=SpreadsheetParserSelector-appender-append-18-Link\n" +
+                "                  \".\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ss.] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ss0] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssA/P] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssa/p] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssam/pm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"d\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssd] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"dd\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssdd] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"ddd\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssddd] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
+                "                  \"dddd\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssdddd] id=SpreadsheetParserSelector-appender-append-9-Link\n" +
+                "                  \"h\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssh] id=SpreadsheetParserSelector-appender-append-10-Link\n" +
+                "                  \"hh\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:sshh] id=SpreadsheetParserSelector-appender-append-11-Link\n" +
+                "                  \"m\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssm] id=SpreadsheetParserSelector-appender-append-12-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmm] id=SpreadsheetParserSelector-appender-append-13-Link\n" +
+                "                  \"mmm\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmm] id=SpreadsheetParserSelector-appender-append-14-Link\n" +
+                "                  \"mmmm\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmm] id=SpreadsheetParserSelector-appender-append-15-Link\n" +
+                "                  \"mmmmm\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=SpreadsheetParserSelector-appender-append-16-Link\n" +
+                "                  \"yy\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssyy] id=SpreadsheetParserSelector-appender-append-17-Link\n" +
+                "                  \"yyyy\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ssyyyy] id=SpreadsheetParserSelector-appender-append-18-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20d/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20ddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20dddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20ddmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd//yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/m/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mmmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mmmmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mmyyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
-                "                  \" \" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyyhh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-6-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20h:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hhmm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-7-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh::ss] id=SpreadsheetParserSelector-removeOrReplace-remove-8-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:m:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mmss] id=SpreadsheetParserSelector-removeOrReplace-remove-9-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:] id=SpreadsheetParserSelector-removeOrReplace-remove-10-Link\n" +
-                "                      \"s\" [/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:s] id=SpreadsheetParserSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20d/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20ddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20dddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20ddmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd//yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/m/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mmmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mmmmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mmyyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \" \" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyyhh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"hh\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-6-Link\n" +
+                "                      \"h\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20h:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hhmm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-7-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh::ss] id=SpreadsheetParserSelector-removeOrReplace-remove-8-Link\n" +
+                "                      \"m\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:m:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mmss] id=SpreadsheetParserSelector-removeOrReplace-remove-9-Link\n" +
+                "                  \"ss\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:] id=SpreadsheetParserSelector-removeOrReplace-remove-10-Link\n" +
+                "                      \"s\" [/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:s] id=SpreadsheetParserSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -428,10 +428,10 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -440,7 +440,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
     @Test
     public void testOnHistoryTokenChangeCellNumber() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet1/cell/A1/parser")
+            HistoryToken.parseString("/123/Spreadsheet1/cell/A1/parser")
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
@@ -459,24 +459,24 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Date\" [#/123/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
+                "                  \"Full Date\" [#/123/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Full Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"Full Time\" [#/123/Spreadsheet1/cell/A1/parser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"General\" [#/123/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date\" [#/123/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Long Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Long Time\" [#/123/Spreadsheet1/cell/A1/parser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Medium Date\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Medium Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Medium Time\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetParserSelector-parserNames-12-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
+                "                  \"Short Date\" [#/123/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
+                "                  \"Short Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
+                "                  \"Short Time\" [#/123/Spreadsheet1/cell/A1/parser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
+                "                  \"Time\" [#/123/Spreadsheet1/cell/A1/parser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
+                "                  \"Whole Number\" [#/123/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -486,79 +486,79 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    123.5\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -123.5\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0.\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    124\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -124\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12,350%\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -12,350%\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0%\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $123.50\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $-123.50\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $0.00\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"$#0.00\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00] id=SpreadsheetParserSelector-Sample-Link\n" +
+                "                  \"$#0.00\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.00] id=SpreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $1234.50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -567,26 +567,26 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"#\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00%23] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"$\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00$] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"%\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00%25] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \",\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00,] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00.] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"/\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00/] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"?\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00?] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"E\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00E] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"#\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.00%23] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.00$] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.00%25] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.00,] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.00.] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.00/] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.00?] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.00E] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"$\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20%230.00] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \"#\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$0.00] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%23.00] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%23000] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.0] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.0] id=SpreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"$\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20%230.00] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$0.00] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%23.00] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%23000] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.0] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.0] id=SpreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -595,10 +595,10 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/number%20$%230.00] id=SpreadsheetParserSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet1/cell/A1/parser/save/number%20$%230.00] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -607,7 +607,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
     @Test
     public void testOnHistoryTokenChangeCellTime() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet1/cell/A1/parser")
+            HistoryToken.parseString("/123/Spreadsheet1/cell/A1/parser")
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
@@ -626,24 +626,24 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/cell/A1/parser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/cell/A1/parser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/cell/A1/parser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/cell/A1/parser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
+                "                  \"Date\" [#/123/Spreadsheet1/cell/A1/parser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
+                "                  \"Full Date\" [#/123/Spreadsheet1/cell/A1/parser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Full Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"Full Time\" [#/123/Spreadsheet1/cell/A1/parser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"General\" [#/123/Spreadsheet1/cell/A1/parser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date\" [#/123/Spreadsheet1/cell/A1/parser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Long Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Long Time\" [#/123/Spreadsheet1/cell/A1/parser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Medium Date\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Medium Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Medium Time\" [#/123/Spreadsheet1/cell/A1/parser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Number\" [#/123/Spreadsheet1/cell/A1/parser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Short Date\" [#/123/Spreadsheet1/cell/A1/parser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
+                "                  \"Short Date Time\" [#/123/Spreadsheet1/cell/A1/parser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
+                "                  \"Short Time\" [#/123/Spreadsheet1/cell/A1/parser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetParserSelector-parserNames-16-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
+                "                  \"Whole Number\" [#/123/Spreadsheet1/cell/A1/parser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -653,19 +653,19 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"h:mm AM/PM\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20h:mm%20AM/PM] id=SpreadsheetParserSelector-Short-Link\n" +
+                "                  \"h:mm AM/PM\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20h:mm%20AM/PM] id=SpreadsheetParserSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Long-Link\n" +
+                "                  \"h:mm:ss AM/PM\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58:59 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"hh:mm\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mm] id=SpreadsheetParserSelector-Sample-Link\n" +
+                "                  \"hh:mm\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mm] id=SpreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -674,27 +674,27 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mm.] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mm0] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mmA/P] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mmAM/PM] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mma/p] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mmam/pm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mmh] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mmhh] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
-                "                  \"s\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mms] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mmss] id=SpreadsheetParserSelector-appender-append-9-Link\n" +
+                "                  \".\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mm.] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mm0] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mmA/P] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mmAM/PM] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mma/p] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mmam/pm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"h\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mmh] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"hh\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mmhh] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"s\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mms] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
+                "                  \"ss\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mmss] id=SpreadsheetParserSelector-appender-append-9-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20:mm] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/cell/A1/parser/save/time%20h:mm] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hhmm] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/cell/A1/parser/save/time%20hh:m] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                  \"hh\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20:mm] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"h\" [/123/Spreadsheet1/cell/A1/parser/save/time%20h:mm] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hhmm] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/123/Spreadsheet1/cell/A1/parser/save/time%20hh:m] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -703,10 +703,10 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet1/cell/A1/parser/save/time%20hh:mm] id=SpreadsheetParserSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet1/cell/A1/parser/save/time%20hh:mm] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/cell/A1/parser/save/] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet1/cell/A1] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -715,7 +715,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
     @Test
     public void testOnHistoryTokenChangeMetadataDate() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/dateParser")
+            HistoryToken.parseString("/123/Spreadsheet1/spreadsheet/dateParser")
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
@@ -733,11 +733,11 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "          TAB 0 SELECTED\n" +
                 "            \"Date\" DISABLED id=SpreadsheetParserSelector-Tabs-dateParser\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser] id=SpreadsheetParserSelector-Tabs-dateTimeParser\n" +
+                "            \"Date Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser] id=SpreadsheetParserSelector-Tabs-dateTimeParser\n" +
                 "          TAB 2\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberParser] id=SpreadsheetParserSelector-Tabs-numberParser\n" +
+                "            \"Number\" [#/123/Spreadsheet1/spreadsheet/numberParser] id=SpreadsheetParserSelector-Tabs-numberParser\n" +
                 "          TAB 3\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeParser] id=SpreadsheetParserSelector-Tabs-timeParser\n" +
+                "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeParser] id=SpreadsheetParserSelector-Tabs-timeParser\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
@@ -745,23 +745,23 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetParserSelector-parserNames-0-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
+                "                  \"Date Time\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
+                "                  \"Full Date\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Full Date Time\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"Full Time\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"General\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Long Date Time\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Long Time\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Medium Date\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Medium Date Time\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Medium Time\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Number\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Short Date\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
+                "                  \"Short Date Time\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
+                "                  \"Short Time\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
+                "                  \"Time\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
+                "                  \"Whole Number\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -771,31 +771,31 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20d/m/yy] id=SpreadsheetParserSelector-Short-Link\n" +
+                "                  \"d/m/yy\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20d/m/yy] id=SpreadsheetParserSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20d%20mmm%20yyyy] id=SpreadsheetParserSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20d%20mmm%20yyyy] id=SpreadsheetParserSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dddd,%20d%20mmmm%20yyyy] id=SpreadsheetParserSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -804,34 +804,34 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyyd] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyydd] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyyddd] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyydddd] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyym] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymmm] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymmmm] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymmmmm] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
+                "                  \"d\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyyd] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"dd\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyydd] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"ddd\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyyddd] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \"dddd\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyydddd] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \"m\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyym] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"mmm\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymmm] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"mmmm\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymmmm] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"mmmmm\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyymmmmm] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20d/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20ddd/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dddd/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20ddmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd//yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/m/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmmmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmyyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yy] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/123/Spreadsheet1/spreadsheet/dateParser/save/date%20d/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/123/Spreadsheet1/spreadsheet/dateParser/save/date%20ddd/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dddd/mm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20ddmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd//yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/m/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmmmm/yyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mmyyyy] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yy] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -840,10 +840,10 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateParser/save/date%20yyyy/mm/dd] id=SpreadsheetParserSelector-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20dd/mm/yyyy] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/spreadsheet/dateParser/save/date%20yyyy/mm/dd] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -852,7 +852,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
     @Test
     public void testOnHistoryTokenChangeMetadataDateTime() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/dateTimeParser")
+            HistoryToken.parseString("/123/Spreadsheet1/spreadsheet/dateTimeParser")
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
@@ -868,37 +868,37 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        TabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateParser] id=SpreadsheetParserSelector-Tabs-dateParser\n" +
+                "            \"Date\" [#/123/Spreadsheet1/spreadsheet/dateParser] id=SpreadsheetParserSelector-Tabs-dateParser\n" +
                 "          TAB 1 SELECTED\n" +
                 "            \"Date Time\" DISABLED id=SpreadsheetParserSelector-Tabs-dateTimeParser\n" +
                 "          TAB 2\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberParser] id=SpreadsheetParserSelector-Tabs-numberParser\n" +
+                "            \"Number\" [#/123/Spreadsheet1/spreadsheet/numberParser] id=SpreadsheetParserSelector-Tabs-numberParser\n" +
                 "          TAB 3\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeParser] id=SpreadsheetParserSelector-Tabs-timeParser\n" +
+                "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeParser] id=SpreadsheetParserSelector-Tabs-timeParser\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
+                "                  \"Full Date\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Full Date Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"Full Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"General\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Long Date Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Long Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Medium Date\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Medium Date Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Medium Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Number\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Short Date\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
+                "                  \"Short Date Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
+                "                  \"Short Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
+                "                  \"Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
+                "                  \"Whole Number\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -908,31 +908,31 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"d/m/yy, h:mm AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20d/m/yy,%20h:mm%20AM/PM] id=SpreadsheetParserSelector-Short-Link\n" +
+                "                  \"d/m/yy, h:mm AM/PM\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20d/m/yy,%20h:mm%20AM/PM] id=SpreadsheetParserSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/99, 12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Medium\n" +
-                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Medium-Link\n" +
+                "                  \"d mmm yyyy, h:mm:ss AM/PM\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20d%20mmm%20yyyy,%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Medium-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 Dec. 1999, 12:58:59 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Long-Link\n" +
+                "                  \"d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31 December 1999 at 12:58:59 PM\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Full\n" +
-                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Full-Link\n" +
+                "                  \"dddd, d mmmm yyyy \\a\\t h:mm:ss AM/PM\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dddd,%20d%20mmmm%20yyyy%20%5Ca%5Ct%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Full-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    Friday, 31 December 1999 at 12:58:59 PM\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"dd/mm/yyyy hh:mm:ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-Sample-Link\n" +
+                "                  \"dd/mm/yyyy hh:mm:ss\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    31/12/1999 12:58:59\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -941,53 +941,53 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss.] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss0] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssA/P] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssa/p] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssam/pm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"d\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssd] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssdd] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
-                "                  \"ddd\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssddd] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
-                "                  \"dddd\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssdddd] id=SpreadsheetParserSelector-appender-append-9-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssh] id=SpreadsheetParserSelector-appender-append-10-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:sshh] id=SpreadsheetParserSelector-appender-append-11-Link\n" +
-                "                  \"m\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssm] id=SpreadsheetParserSelector-appender-append-12-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmm] id=SpreadsheetParserSelector-appender-append-13-Link\n" +
-                "                  \"mmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmm] id=SpreadsheetParserSelector-appender-append-14-Link\n" +
-                "                  \"mmmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmm] id=SpreadsheetParserSelector-appender-append-15-Link\n" +
-                "                  \"mmmmm\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=SpreadsheetParserSelector-appender-append-16-Link\n" +
-                "                  \"yy\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssyy] id=SpreadsheetParserSelector-appender-append-17-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssyyyy] id=SpreadsheetParserSelector-appender-append-18-Link\n" +
+                "                  \".\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss.] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss0] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssA/P] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssAM/PM] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssa/p] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssam/pm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"d\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssd] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"dd\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssdd] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"ddd\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssddd] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
+                "                  \"dddd\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssdddd] id=SpreadsheetParserSelector-appender-append-9-Link\n" +
+                "                  \"h\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssh] id=SpreadsheetParserSelector-appender-append-10-Link\n" +
+                "                  \"hh\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:sshh] id=SpreadsheetParserSelector-appender-append-11-Link\n" +
+                "                  \"m\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssm] id=SpreadsheetParserSelector-appender-append-12-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmm] id=SpreadsheetParserSelector-appender-append-13-Link\n" +
+                "                  \"mmm\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmm] id=SpreadsheetParserSelector-appender-append-14-Link\n" +
+                "                  \"mmmm\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmm] id=SpreadsheetParserSelector-appender-append-15-Link\n" +
+                "                  \"mmmmm\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssmmmmm] id=SpreadsheetParserSelector-appender-append-16-Link\n" +
+                "                  \"yy\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssyy] id=SpreadsheetParserSelector-appender-append-17-Link\n" +
+                "                  \"yyyy\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ssyyyy] id=SpreadsheetParserSelector-appender-append-18-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"dd\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"d\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20d/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                      \"ddd\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20ddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
-                "                      \"dddd\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20ddmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd//yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/m/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
-                "                      \"mmm\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
-                "                      \"mmmm\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mmmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
-                "                      \"mmmmm\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mmmmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mmyyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"yyyy\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
-                "                      \"yy\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
-                "                  \" \" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyyhh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-6-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20h:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hhmm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-7-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh::ss] id=SpreadsheetParserSelector-removeOrReplace-remove-8-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:m:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mmss] id=SpreadsheetParserSelector-removeOrReplace-remove-9-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:] id=SpreadsheetParserSelector-removeOrReplace-remove-10-Link\n" +
-                "                      \"s\" [/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:s] id=SpreadsheetParserSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
+                "                  \"dd\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"d\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20d/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                      \"ddd\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20ddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-1-MenuItem\n" +
+                "                      \"dddd\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dddd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-2-MenuItem\n" +
+                "                  \"/\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20ddmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd//yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/m/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                      \"mmm\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-1-MenuItem\n" +
+                "                      \"mmmm\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mmmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-2-MenuItem\n" +
+                "                      \"mmmmm\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mmmmm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-3-MenuItem\n" +
+                "                  \"/\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mmyyyy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"yyyy\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
+                "                      \"yy\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yy%20hh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link-replace-0-MenuItem\n" +
+                "                  \" \" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyyhh:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"hh\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-6-Link\n" +
+                "                      \"h\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20h:mm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-6-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hhmm:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-7-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh::ss] id=SpreadsheetParserSelector-removeOrReplace-remove-8-Link\n" +
+                "                      \"m\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:m:ss] id=SpreadsheetParserSelector-removeOrReplace-remove-8-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mmss] id=SpreadsheetParserSelector-removeOrReplace-remove-9-Link\n" +
+                "                  \"ss\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:] id=SpreadsheetParserSelector-removeOrReplace-remove-10-Link\n" +
+                "                      \"s\" [/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:s] id=SpreadsheetParserSelector-removeOrReplace-remove-10-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -996,10 +996,10 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20yyyy/mm/dd%20hh:mm] id=SpreadsheetParserSelector-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20yyyy/mm/dd%20hh:mm] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -1008,7 +1008,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
     @Test
     public void testOnHistoryTokenChangeMetadataNumber() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/numberParser")
+            HistoryToken.parseString("/123/Spreadsheet1/spreadsheet/numberParser")
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
@@ -1024,37 +1024,37 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        TabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateParser] id=SpreadsheetParserSelector-Tabs-dateParser\n" +
+                "            \"Date\" [#/123/Spreadsheet1/spreadsheet/dateParser] id=SpreadsheetParserSelector-Tabs-dateParser\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser] id=SpreadsheetParserSelector-Tabs-dateTimeParser\n" +
+                "            \"Date Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser] id=SpreadsheetParserSelector-Tabs-dateTimeParser\n" +
                 "          TAB 2 SELECTED\n" +
                 "            \"Number\" DISABLED id=SpreadsheetParserSelector-Tabs-numberParser\n" +
                 "          TAB 3\n" +
-                "            \"Time\" [#/1/Spreadsheet1/spreadsheet/timeParser] id=SpreadsheetParserSelector-Tabs-timeParser\n" +
+                "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeParser] id=SpreadsheetParserSelector-Tabs-timeParser\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
                 "        CardLinkListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Date\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date Time\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
+                "                  \"Full Date\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Full Date Time\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"Full Time\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"General\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Long Date Time\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Long Time\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Medium Date\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Medium Date Time\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Medium Time\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetParserSelector-parserNames-12-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
-                "                  \"Time\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
+                "                  \"Short Date\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
+                "                  \"Short Date Time\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
+                "                  \"Short Time\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
+                "                  \"Time\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/time] id=SpreadsheetParserSelector-parserNames-16-Link\n" +
+                "                  \"Whole Number\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1064,79 +1064,79 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    123.5\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -123.5\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Number\n" +
-                "                  \"#,##0.###\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
+                "                  \"#,##0.###\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230.%23%23%23] id=SpreadsheetParserSelector-Number-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0.\n" +
                 "                ROW 3\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    124\n" +
                 "                ROW 4\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -124\n" +
                 "                ROW 5\n" +
                 "                  TextNodeComponent\n" +
                 "                    Integer\n" +
-                "                  \"#,##0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
+                "                  \"#,##0\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230] id=SpreadsheetParserSelector-Integer-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0\n" +
                 "                ROW 6\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12,350%\n" +
                 "                ROW 7\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    -12,350%\n" +
                 "                ROW 8\n" +
                 "                  TextNodeComponent\n" +
                 "                    Percent\n" +
-                "                  \"#,##0%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
+                "                  \"#,##0%\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20%23,%23%230%25] id=SpreadsheetParserSelector-Percent-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    0%\n" +
                 "                ROW 9\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $123.50\n" +
                 "                ROW 10\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $-123.50\n" +
                 "                ROW 11\n" +
                 "                  TextNodeComponent\n" +
                 "                    Currency\n" +
-                "                  \"$#,##0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
+                "                  \"$#,##0.00\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23,%23%230.00] id=SpreadsheetParserSelector-Currency-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $0.00\n" +
                 "                ROW 12\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"$#0.00\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00] id=SpreadsheetParserSelector-Sample-Link\n" +
+                "                  \"$#0.00\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00] id=SpreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    $1234.50\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1145,26 +1145,26 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00%23] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00$] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"%\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00%25] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \",\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00,] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00.] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"/\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00/] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"?\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00?] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"E\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00E] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"#\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00%23] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"$\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00$] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"%\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00%25] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \",\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00,] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \".\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00.] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"/\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00/] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"?\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00?] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"E\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00E] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"$\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20%230.00] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                  \"#\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$0.00] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23.00] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23000] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.0] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.0] id=SpreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
+                "                  \"$\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20%230.00] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                  \"#\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$0.00] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"0\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23.00] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                  \".\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%23000] id=SpreadsheetParserSelector-removeOrReplace-remove-3-Link\n" +
+                "                  \"0\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.0] id=SpreadsheetParserSelector-removeOrReplace-remove-4-Link\n" +
+                "                  \"0\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.0] id=SpreadsheetParserSelector-removeOrReplace-remove-5-Link\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1173,10 +1173,10 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00] id=SpreadsheetParserSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/numberParser/save/number%200.%23;0.%23;0] id=SpreadsheetParserSelector-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%20$%230.00] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/spreadsheet/numberParser/save/number%200.%23;0.%23;0] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 
@@ -1185,7 +1185,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
     @Test
     public void testOnHistoryTokenChangeMetadataTime() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet1/spreadsheet/timeParser")
+            HistoryToken.parseString("/123/Spreadsheet1/spreadsheet/timeParser")
         );
 
         this.onHistoryTokenChangeAndSetTextAndCheck(
@@ -1201,11 +1201,11 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "      SpreadsheetMetadataPropertyNameTabsComponent\n" +
                 "        TabsComponent\n" +
                 "          TAB 0\n" +
-                "            \"Date\" [#/1/Spreadsheet1/spreadsheet/dateParser] id=SpreadsheetParserSelector-Tabs-dateParser\n" +
+                "            \"Date\" [#/123/Spreadsheet1/spreadsheet/dateParser] id=SpreadsheetParserSelector-Tabs-dateParser\n" +
                 "          TAB 1\n" +
-                "            \"Date Time\" [#/1/Spreadsheet1/spreadsheet/dateTimeParser] id=SpreadsheetParserSelector-Tabs-dateTimeParser\n" +
+                "            \"Date Time\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser] id=SpreadsheetParserSelector-Tabs-dateTimeParser\n" +
                 "          TAB 2\n" +
-                "            \"Number\" [#/1/Spreadsheet1/spreadsheet/numberParser] id=SpreadsheetParserSelector-Tabs-numberParser\n" +
+                "            \"Number\" [#/123/Spreadsheet1/spreadsheet/numberParser] id=SpreadsheetParserSelector-Tabs-numberParser\n" +
                 "          TAB 3 SELECTED\n" +
                 "            \"Time\" DISABLED id=SpreadsheetParserSelector-Tabs-timeParser\n" +
                 "      SpreadsheetParserNameLinkListComponent\n" +
@@ -1214,24 +1214,24 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
-                "                  \"Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
-                "                  \"Full Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
-                "                  \"Full Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
-                "                  \"Full Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
-                "                  \"General\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
-                "                  \"Long Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
-                "                  \"Long Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
-                "                  \"Long Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
-                "                  \"Medium Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
-                "                  \"Medium Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
-                "                  \"Medium Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
-                "                  \"Number\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
-                "                  \"Short Date\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
-                "                  \"Short Date Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
-                "                  \"Short Time\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
+                "                  \"Date\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/date] id=SpreadsheetParserSelector-parserNames-0-Link\n" +
+                "                  \"Date Time\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/date-time] id=SpreadsheetParserSelector-parserNames-1-Link\n" +
+                "                  \"Full Date\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/full-date] id=SpreadsheetParserSelector-parserNames-2-Link\n" +
+                "                  \"Full Date Time\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/full-date-time] id=SpreadsheetParserSelector-parserNames-3-Link\n" +
+                "                  \"Full Time\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/full-time] id=SpreadsheetParserSelector-parserNames-4-Link\n" +
+                "                  \"General\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/general] id=SpreadsheetParserSelector-parserNames-5-Link\n" +
+                "                  \"Long Date\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/long-date] id=SpreadsheetParserSelector-parserNames-6-Link\n" +
+                "                  \"Long Date Time\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/long-date-time] id=SpreadsheetParserSelector-parserNames-7-Link\n" +
+                "                  \"Long Time\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/long-time] id=SpreadsheetParserSelector-parserNames-8-Link\n" +
+                "                  \"Medium Date\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/medium-date] id=SpreadsheetParserSelector-parserNames-9-Link\n" +
+                "                  \"Medium Date Time\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/medium-date-time] id=SpreadsheetParserSelector-parserNames-10-Link\n" +
+                "                  \"Medium Time\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/medium-time] id=SpreadsheetParserSelector-parserNames-11-Link\n" +
+                "                  \"Number\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/number] id=SpreadsheetParserSelector-parserNames-12-Link\n" +
+                "                  \"Short Date\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/short-date] id=SpreadsheetParserSelector-parserNames-13-Link\n" +
+                "                  \"Short Date Time\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/short-date-time] id=SpreadsheetParserSelector-parserNames-14-Link\n" +
+                "                  \"Short Time\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/short-time] id=SpreadsheetParserSelector-parserNames-15-Link\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetParserSelector-parserNames-16-Link\n" +
-                "                  \"Whole Number\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
+                "                  \"Whole Number\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/whole-number] id=SpreadsheetParserSelector-parserNames-17-Link\n" +
                 "      SpreadsheetFormatterTableComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
@@ -1241,19 +1241,19 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "                ROW 0\n" +
                 "                  TextNodeComponent\n" +
                 "                    Short\n" +
-                "                  \"h:mm AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20h:mm%20AM/PM] id=SpreadsheetParserSelector-Short-Link\n" +
+                "                  \"h:mm AM/PM\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20h:mm%20AM/PM] id=SpreadsheetParserSelector-Short-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58 PM\n" +
                 "                ROW 1\n" +
                 "                  TextNodeComponent\n" +
                 "                    Long\n" +
-                "                  \"h:mm:ss AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Long-Link\n" +
+                "                  \"h:mm:ss AM/PM\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20h:mm:ss%20AM/PM] id=SpreadsheetParserSelector-Long-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58:59 PM\n" +
                 "                ROW 2\n" +
                 "                  TextNodeComponent\n" +
                 "                    Sample\n" +
-                "                  \"hh:mm\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm] id=SpreadsheetParserSelector-Sample-Link\n" +
+                "                  \"hh:mm\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm] id=SpreadsheetParserSelector-Sample-Link\n" +
                 "                  TextNodeComponent\n" +
                 "                    12:58\n" +
                 "      AppendPluginSelectorTokenComponent\n" +
@@ -1262,27 +1262,27 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            Append component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \".\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm.] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
-                "                  \"0\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm0] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
-                "                  \"A/P\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmA/P] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
-                "                  \"AM/PM\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmAM/PM] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
-                "                  \"a/p\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mma/p] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
-                "                  \"am/pm\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmam/pm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
-                "                  \"h\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmh] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmhh] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
-                "                  \"s\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mms] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
-                "                  \"ss\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmss] id=SpreadsheetParserSelector-appender-append-9-Link\n" +
+                "                  \".\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm.] id=SpreadsheetParserSelector-appender-append-0-Link\n" +
+                "                  \"0\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm0] id=SpreadsheetParserSelector-appender-append-1-Link\n" +
+                "                  \"A/P\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmA/P] id=SpreadsheetParserSelector-appender-append-2-Link\n" +
+                "                  \"AM/PM\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmAM/PM] id=SpreadsheetParserSelector-appender-append-3-Link\n" +
+                "                  \"a/p\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mma/p] id=SpreadsheetParserSelector-appender-append-4-Link\n" +
+                "                  \"am/pm\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmam/pm] id=SpreadsheetParserSelector-appender-append-5-Link\n" +
+                "                  \"h\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmh] id=SpreadsheetParserSelector-appender-append-6-Link\n" +
+                "                  \"hh\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmhh] id=SpreadsheetParserSelector-appender-append-7-Link\n" +
+                "                  \"s\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mms] id=SpreadsheetParserSelector-appender-append-8-Link\n" +
+                "                  \"ss\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mmss] id=SpreadsheetParserSelector-appender-append-9-Link\n" +
                 "      RemoveOrReplacePluginSelectorTokenComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove / Replace component(s)\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"hh\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20:mm] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
-                "                      \"h\" [/1/Spreadsheet1/spreadsheet/timeParser/save/time%20h:mm] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
-                "                  \":\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hhmm] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
-                "                  \"mm\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
-                "                      \"m\" [/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:m] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
+                "                  \"hh\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20:mm] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link\n" +
+                "                      \"h\" [/123/Spreadsheet1/spreadsheet/timeParser/save/time%20h:mm] id=SpreadsheetParserSelector-removeOrReplace-remove-0-Link-replace-0-MenuItem\n" +
+                "                  \":\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hhmm] id=SpreadsheetParserSelector-removeOrReplace-remove-1-Link\n" +
+                "                  \"mm\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link\n" +
+                "                      \"m\" [/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:m] id=SpreadsheetParserSelector-removeOrReplace-remove-2-Link-replace-0-MenuItem\n" +
                 "      SpreadsheetParserSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1291,10 +1291,10 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm] id=SpreadsheetParserSelector-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm:ss] id=SpreadsheetParserSelector-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm] id=SpreadsheetParserSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm:ss] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
 

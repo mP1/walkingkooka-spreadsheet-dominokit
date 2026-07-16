@@ -85,7 +85,7 @@ public final class SpreadsheetCellFormSaveHistoryTokenTest extends SpreadsheetCe
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-            "/1/SpreadsheetName456/cell/A1/form/FormName123/save/" + SpreadsheetCellReferenceToValueMap.with(CELL_TO_VALUE).urlFragment()
+            "/123/SpreadsheetName456/cell/A1/form/FormName123/save/" + SpreadsheetCellReferenceToValueMap.with(CELL_TO_VALUE).urlFragment()
         );
     }
 

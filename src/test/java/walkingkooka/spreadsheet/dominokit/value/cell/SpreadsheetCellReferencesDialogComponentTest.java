@@ -83,7 +83,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
     @Test
     public void testOnHistoryTokenChangeRefreshEmptyTable() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/1/SpreadsheetName456/cell/A1/references"
+            "/123/SpreadsheetName456/cell/A1/references"
         );
 
         final AppContext context = this.appContext(historyToken);
@@ -120,14 +120,14 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
         );
     }
 
     @Test
     public void testOnHistoryTokenChangeRefreshNonEmptyTable() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/1/SpreadsheetName456/cell/A1/references"
+            "/123/SpreadsheetName456/cell/A1/references"
         );
 
         final TestAppContext context = this.appContext(historyToken);
@@ -164,7 +164,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
         );
 
         context.metadataFetcherWatchers.onSpreadsheetMetadata(
@@ -173,7 +173,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
 
         context.deltaFetcherWatchers.onSpreadsheetDelta(
             HttpMethod.GET,
-            Url.parseRelative("/api/spreadsheet/1/cell/A1/"),
+            Url.parseRelative("/api/spreadsheet/123/cell/A1/"),
             SpreadsheetDelta.EMPTY.setCells(
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
@@ -213,8 +213,8 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
-                "                  \"A1\" [#/1/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-cells-A1-Link\n" +
-                "                  \"A1\" [#/1/SpreadsheetName456/cell/A1/formula] id=SpreadsheetCellReferences-cells-A1-formula-Link\n" +
+                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-cells-A1-Link\n" +
+                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=SpreadsheetCellReferences-cells-A1-formula-Link\n" +
                 "                  TextComponent\n" +
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
@@ -222,11 +222,11 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Value\" [#/1/SpreadsheetName456/cell/A1/value/text] id=SpreadsheetCellReferences-cells-A1-value-Link\n" +
-                "                          \"Create Label\" [#/1/SpreadsheetName456/cell/A1/label] id=SpreadsheetCellReferences-cells-A1-createLabel-Link\n" +
-                "                          \"Labels\" [#/1/SpreadsheetName456/cell/A1/labels] (0) id=SpreadsheetCellReferences-cells-A1-label-Link\n" +
-                "                          \"References\" [#/1/SpreadsheetName456/cell/A1/references] (2) id=SpreadsheetCellReferences-cells-A1-references-Link\n" +
-                "                          \"Delete\" [#/1/SpreadsheetName456/cell/A1/delete] id=SpreadsheetCellReferences-cells-A1-delete-Link\n" +
+                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value/text] id=SpreadsheetCellReferences-cells-A1-value-Link\n" +
+                "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=SpreadsheetCellReferences-cells-A1-createLabel-Link\n" +
+                "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (0) id=SpreadsheetCellReferences-cells-A1-label-Link\n" +
+                "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (2) id=SpreadsheetCellReferences-cells-A1-references-Link\n" +
+                "                          \"Delete\" [#/123/SpreadsheetName456/cell/A1/delete] id=SpreadsheetCellReferences-cells-A1-delete-Link\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
@@ -238,7 +238,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Close\" [#/1/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-close-Link\n"
         );
     }
 

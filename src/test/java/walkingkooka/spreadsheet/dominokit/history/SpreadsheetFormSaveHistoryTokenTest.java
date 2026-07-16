@@ -153,7 +153,7 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
     @Test
     public void testUrlFragment() {
         this.urlFragmentAndCheck(
-            "/1/SpreadsheetName456/form/FormName123/save/" +
+            "/123/SpreadsheetName456/form/FormName123/save/" +
                 JsonNodeMarshallContexts.basic()
                     .marshall(FORM)
         );
@@ -165,7 +165,7 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
             this.createHistoryToken(
                 Optional.of(SpreadsheetSelection.A1)
             ),
-            "/1/SpreadsheetName456/form/FormName123/field/A1/save/" +
+            "/123/SpreadsheetName456/form/FormName123/field/A1/save/" +
                 JsonNodeMarshallContexts.basic()
                     .marshall(FORM)
         );
@@ -177,7 +177,7 @@ public final class SpreadsheetFormSaveHistoryTokenTest extends SpreadsheetFormHi
             this.createHistoryToken(
                 Optional.of(LABEL)
             ),
-            "/1/SpreadsheetName456/form/FormName123/field/Label123/save/" +
+            "/123/SpreadsheetName456/form/FormName123/field/Label123/save/" +
                 JsonNodeMarshallContexts.basic()
                     .marshall(FORM)
         );

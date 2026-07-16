@@ -29,14 +29,14 @@ public final class SpreadsheetCellClearAndFormulaHistoryTokenTest extends Spread
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/clear-and-formula");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/clear-and-formula");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/clear-and-formula"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/clear-and-formula"
         );
     }
 
@@ -44,7 +44,7 @@ public final class SpreadsheetCellClearAndFormulaHistoryTokenTest extends Spread
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123/clear-and-formula"
+            "/123/SpreadsheetName456/cell/Label123/clear-and-formula"
         );
     }
 

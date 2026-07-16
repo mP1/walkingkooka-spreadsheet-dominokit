@@ -268,20 +268,20 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
                 VALUE_TYPE,
                 Optional.empty()
             ),
-            "/1/SpreadsheetName456/cell/A1/value/number/save/"
+            "/123/SpreadsheetName456/cell/A1/value/number/save/"
         );
     }
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/1/SpreadsheetName456/cell/A1/value/number/save/%22123.5%22");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/value/number/save/%22123.5%22");
     }
 
     @Test
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/B2:C3/top-left/value/number/save/%22123.5%22"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/value/number/save/%22123.5%22"
         );
     }
 
@@ -289,7 +289,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/1/SpreadsheetName456/cell/*/top-left/value/number/save/%22123.5%22"
+            "/123/SpreadsheetName456/cell/*/top-left/value/number/save/%22123.5%22"
         );
     }
 
@@ -297,7 +297,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/1/SpreadsheetName456/cell/Label123/value/number/save/%22123.5%22"
+            "/123/SpreadsheetName456/cell/Label123/value/number/save/%22123.5%22"
         );
     }
 
@@ -306,7 +306,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseDateToday() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/value/date/save/today",
+            "/123/SpreadsheetName456/cell/A1/value/date/save/today",
             SpreadsheetCellValueSaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -320,7 +320,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseDateTimeToday() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/value/date-time/save/now",
+            "/123/SpreadsheetName456/cell/A1/value/date-time/save/now",
             SpreadsheetCellValueSaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -334,7 +334,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseTimeToday() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/value/time/save/now",
+            "/123/SpreadsheetName456/cell/A1/value/time/save/now",
             SpreadsheetCellValueSaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -348,7 +348,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseNumber() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/value/number/save/\"1.5\"",
+            "/123/SpreadsheetName456/cell/A1/value/number/save/\"1.5\"",
             SpreadsheetCellValueSaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -364,7 +364,7 @@ public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseText() {
         this.parseAndCheck(
-            "/1/SpreadsheetName456/cell/A1/value/text/save/\"Hello\"",
+            "/123/SpreadsheetName456/cell/A1/value/text/save/\"Hello\"",
             SpreadsheetCellValueSaveHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,

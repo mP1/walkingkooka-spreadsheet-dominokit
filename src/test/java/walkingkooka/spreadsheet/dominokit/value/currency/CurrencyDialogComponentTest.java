@@ -81,7 +81,7 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
         context.spreadsheetViewportCache()
             .onSpreadsheetDelta(
                 HttpMethod.GET,
-                Url.parseRelative("/api/spreadsheet/1/cell"),
+                Url.parseRelative("/api/spreadsheet/123/cell"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         cell.setFormula(SpreadsheetFormula.EMPTY) // no currency
@@ -111,10 +111,10 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/currency/save/NZD] id=Currency-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/currency/save/NZD] id=Currency-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/currency/save/] id=Currency-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
         );
     }
 
@@ -139,7 +139,7 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
         context.spreadsheetViewportCache()
             .onSpreadsheetDelta(
                 HttpMethod.GET,
-                Url.parseRelative("/api/spreadsheet/1/cell"),
+                Url.parseRelative("/api/spreadsheet/123/cell"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         cell.setFormula(SpreadsheetFormula.EMPTY) // no currency
@@ -170,10 +170,10 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/currency/save/] id=Currency-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/currency/save/] id=Currency-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
         );
     }
 
@@ -198,7 +198,7 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
         context.spreadsheetViewportCache()
             .onSpreadsheetDelta(
                 HttpMethod.GET,
-                Url.parseRelative("/api/spreadsheet/1/cell"),
+                Url.parseRelative("/api/spreadsheet/123/cell"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         cell.setFormula(SpreadsheetFormula.EMPTY)
@@ -232,10 +232,10 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/currency/save/AUD] id=Currency-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/currency/save/AUD] id=Currency-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/currency/save/AUD] id=Currency-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/currency/save/] id=Currency-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/currency/save/AUD] id=Currency-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Currency-close-Link\n"
         );
     }
 

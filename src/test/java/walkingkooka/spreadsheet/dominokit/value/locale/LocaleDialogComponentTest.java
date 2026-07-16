@@ -74,7 +74,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
         context.spreadsheetViewportCache()
             .onSpreadsheetDelta(
                 HttpMethod.GET,
-                Url.parseRelative("/api/spreadsheet/1/cell"),
+                Url.parseRelative("/api/spreadsheet/123/cell"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         cell.setFormula(SpreadsheetFormula.EMPTY) // no locale
@@ -112,10 +112,10 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/fr] id=Locale-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/locale/save/fr] id=Locale-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
         );
     }
 
@@ -142,7 +142,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
         context.spreadsheetViewportCache()
             .onSpreadsheetDelta(
                 HttpMethod.GET,
-                Url.parseRelative("/api/spreadsheet/1/cell"),
+                Url.parseRelative("/api/spreadsheet/123/cell"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         cell.setFormula(SpreadsheetFormula.EMPTY) // no locale
@@ -173,10 +173,10 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
         );
     }
 
@@ -201,7 +201,7 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
         context.spreadsheetViewportCache()
             .onSpreadsheetDelta(
                 HttpMethod.GET,
-                Url.parseRelative("/api/spreadsheet/1/cell"),
+                Url.parseRelative("/api/spreadsheet/123/cell"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         cell.setFormula(SpreadsheetFormula.EMPTY)
@@ -235,10 +235,10 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-save-Link\n" +
-                "              \"Clear\" [#/1/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
-                "              \"Undo\" [#/1/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-undo-Link\n" +
-                "              \"Close\" [#/1/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
         );
     }
 

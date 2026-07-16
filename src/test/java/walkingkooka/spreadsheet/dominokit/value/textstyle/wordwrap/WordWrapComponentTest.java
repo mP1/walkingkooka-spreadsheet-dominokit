@@ -51,9 +51,9 @@ public final class WordWrapComponentTest implements TextStylePropertyEnumCompone
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] id=Test123-wordWrap-NORMAL-Link\n" +
-                "          \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=Test123-wordWrap-BREAK_WORD-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] id=Test123-wordWrap-NORMAL-Link\n" +
+                "          \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=Test123-wordWrap-BREAK_WORD-Link\n"
         );
     }
 
@@ -81,9 +81,9 @@ public final class WordWrapComponentTest implements TextStylePropertyEnumCompone
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] CHECKED id=Test123-wordWrap-NORMAL-Link\n" +
-                "          \"Break Word\" [#/1/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] id=Test123-wordWrap-BREAK_WORD-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=Test123-wordWrap-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] CHECKED id=Test123-wordWrap-NORMAL-Link\n" +
+                "          \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] id=Test123-wordWrap-BREAK_WORD-Link\n"
         );
     }
 

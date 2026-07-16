@@ -51,10 +51,10 @@ public final class FontKerningComponentTest implements TextStylePropertyEnumComp
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/] id=Test123-fontKerning-Link\n" +
-                "          \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] CHECKED id=Test123-fontKerning-AUTO-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=Test123-fontKerning-NONE-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=Test123-fontKerning-NORMAL-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/] id=Test123-fontKerning-Link\n" +
+                "          \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] CHECKED id=Test123-fontKerning-AUTO-Link\n" +
+                "          \"None\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=Test123-fontKerning-NONE-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=Test123-fontKerning-NORMAL-Link\n"
         );
     }
 
@@ -82,10 +82,10 @@ public final class FontKerningComponentTest implements TextStylePropertyEnumComp
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/] id=Test123-fontKerning-Link\n" +
-                "          \"Auto\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] id=Test123-fontKerning-AUTO-Link\n" +
-                "          \"None\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=Test123-fontKerning-NONE-Link\n" +
-                "          \"Normal\" [#/1/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] CHECKED id=Test123-fontKerning-NORMAL-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/] id=Test123-fontKerning-Link\n" +
+                "          \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] id=Test123-fontKerning-AUTO-Link\n" +
+                "          \"None\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=Test123-fontKerning-NONE-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] CHECKED id=Test123-fontKerning-NORMAL-Link\n"
         );
     }
 

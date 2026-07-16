@@ -132,7 +132,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
     @Test
     public void testOnHistoryTokenChangeSpreadsheetLabelMappingCreateHistoryToken() {
         this.onHistoryTokenChangeAndCheck(
-            "/1/SpreadsheetName111/create-label",
+            "/123/SpreadsheetName111/create-label",
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
@@ -154,7 +154,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "            \"Save\" DISABLED id=SpreadsheetLabelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=SpreadsheetLabelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=SpreadsheetLabelMapping-delete-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
+                "            \"Close\" [#/123/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
         );
     }
 
@@ -162,7 +162,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
     @Test
     public void testOnHistoryTokenChangeSpreadsheetLabelMappingSelectHistoryTokenWithCell() {
         this.onHistoryTokenChangeAndCheck(
-            "/1/SpreadsheetName111/cell/A1/label",
+            "/123/SpreadsheetName111/cell/A1/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
@@ -182,7 +182,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "            \"Save\" DISABLED id=SpreadsheetLabelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=SpreadsheetLabelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=SpreadsheetLabelMapping-delete-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName111/cell/A1] id=SpreadsheetLabelMapping-close-Link\n"
+                "            \"Close\" [#/123/SpreadsheetName111/cell/A1] id=SpreadsheetLabelMapping-close-Link\n"
         );
     }
 
@@ -190,7 +190,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
     @Test
     public void testOnHistoryTokenChangeSpreadsheetLabelMappingSelectHistoryTokenWIthCellRange() {
         this.onHistoryTokenChangeAndCheck(
-            "/1/SpreadsheetName111/cell/B2:C3/label",
+            "/123/SpreadsheetName111/cell/B2:C3/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
@@ -210,7 +210,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "            \"Save\" DISABLED id=SpreadsheetLabelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=SpreadsheetLabelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=SpreadsheetLabelMapping-delete-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName111/cell/B2:C3/bottom-right] id=SpreadsheetLabelMapping-close-Link\n"
+                "            \"Close\" [#/123/SpreadsheetName111/cell/B2:C3/bottom-right] id=SpreadsheetLabelMapping-close-Link\n"
         );
     }
 
@@ -218,7 +218,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
     @Test
     public void testOnHistoryTokenChangeSpreadsheetLabelMappingSelectHistoryTokenWithLabel() {
         this.onHistoryTokenChangeAndCheck(
-            "/1/SpreadsheetName111/cell/Label123/label",
+            "/123/SpreadsheetName111/cell/Label123/label",
             "SpreadsheetLabelMappingDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    Spreadsheet: Label\n" +
@@ -238,13 +238,13 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "            \"Save\" DISABLED id=SpreadsheetLabelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=SpreadsheetLabelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=SpreadsheetLabelMapping-delete-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName111/cell/Label123] id=SpreadsheetLabelMapping-close-Link\n"
+                "            \"Close\" [#/123/SpreadsheetName111/cell/Label123] id=SpreadsheetLabelMapping-close-Link\n"
         );
     }
 
     @Test
     public void testOnHistoryTokenChangeSpreadsheetLabelMappingCreateHistoryTokenAndHistoryTokenRefresh() {
-        final AppContext context = appContext("/1/SpreadsheetName111/create-label");
+        final AppContext context = appContext("/123/SpreadsheetName111/create-label");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
             context(context)
@@ -275,7 +275,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "            \"Save\" DISABLED id=SpreadsheetLabelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=SpreadsheetLabelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=SpreadsheetLabelMapping-delete-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
+                "            \"Close\" [#/123/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
         );
 
         // refresh again ! for now label and expression reference are not updated from the SAVE response
@@ -303,13 +303,13 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "            \"Save\" DISABLED id=SpreadsheetLabelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=SpreadsheetLabelMapping-undo-Link\n" +
                 "            \"Delete\" DISABLED id=SpreadsheetLabelMapping-delete-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
+                "            \"Close\" [#/123/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
         );
     }
 
     @Test
     public void testOnHistoryTokenChangeSpreadsheetLabelMappingSelectHistoryTokenWithLabelNameAndSpreadsheetDeltaRefresh() {
-        final AppContext context = appContext("/1/SpreadsheetName111/label/Label999");
+        final AppContext context = appContext("/123/SpreadsheetName111/label/Label999");
 
         final SpreadsheetLabelMappingDialogComponent dialog = this.dialog(
             context(context)
@@ -337,13 +337,13 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "          ROW\n" +
                 "            \"Save\" DISABLED id=SpreadsheetLabelMapping-save-Link\n" +
                 "            \"Undo\" DISABLED id=SpreadsheetLabelMapping-undo-Link\n" +
-                "            \"Delete\" [#/1/SpreadsheetName111/label/Label999/delete] id=SpreadsheetLabelMapping-delete-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
+                "            \"Delete\" [#/123/SpreadsheetName111/label/Label999/delete] id=SpreadsheetLabelMapping-delete-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
         );
 
         dialog.onSpreadsheetDelta(
             HttpMethod.GET,
-            Url.parseAbsolute("https://example.com/api/spreadsheet/1/label"),
+            Url.parseAbsolute("https://example.com/api/spreadsheet/123/label"),
             SpreadsheetDelta.EMPTY.setLabels(
                 Sets.of(
                     SpreadsheetSelection.labelName("LoadedLabel123")
@@ -370,10 +370,10 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Save\" [#/1/SpreadsheetName111/label/LoadedLabel123/save/C3] id=SpreadsheetLabelMapping-save-Link\n" +
-                "            \"Undo\" [#/1/SpreadsheetName111/label/LoadedLabel123/save/C3] id=SpreadsheetLabelMapping-undo-Link\n" +
-                "            \"Delete\" [#/1/SpreadsheetName111/label/LoadedLabel123/delete] id=SpreadsheetLabelMapping-delete-Link\n" +
-                "            \"Close\" [#/1/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
+                "            \"Save\" [#/123/SpreadsheetName111/label/LoadedLabel123/save/C3] id=SpreadsheetLabelMapping-save-Link\n" +
+                "            \"Undo\" [#/123/SpreadsheetName111/label/LoadedLabel123/save/C3] id=SpreadsheetLabelMapping-undo-Link\n" +
+                "            \"Delete\" [#/123/SpreadsheetName111/label/LoadedLabel123/delete] id=SpreadsheetLabelMapping-delete-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName111] id=SpreadsheetLabelMapping-close-Link\n"
         );
     }
 

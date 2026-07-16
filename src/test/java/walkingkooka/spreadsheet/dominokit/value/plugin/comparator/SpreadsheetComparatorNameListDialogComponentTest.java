@@ -39,7 +39,7 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
     @Test
     public void testSetStringInvalid() {
         final AppContext context = this.appContext(
-            "/1/Spreadsheet123/spreadsheet/sortComparators"
+            "/123/Spreadsheet123/spreadsheet/sortComparators"
         );
 
         final SpreadsheetComparatorNameListDialogComponent dialog = SpreadsheetComparatorNameListDialogComponent.with(
@@ -78,16 +78,16 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              \"Save\" DISABLED id=SpreadsheetComparatorNameList-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
+                "              \"Clear\" [#/123/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
         );
     }
 
     @Test
     public void testSetString() {
         final AppContext context = this.appContext(
-            "/1/Spreadsheet123/spreadsheet/sortComparators"
+            "/123/Spreadsheet123/spreadsheet/sortComparators"
         );
 
         final SpreadsheetComparatorNameListDialogComponent dialog = SpreadsheetComparatorNameListDialogComponent.with(
@@ -123,17 +123,17 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/month-of-year] id=SpreadsheetComparatorNameList-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet123/spreadsheet/sortComparators/save/month-of-year] id=SpreadsheetComparatorNameList-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
         );
     }
 
     @Test
     public void testOnHistoryTokenChange() {
         final AppContext context = this.appContext(
-            "/1/Spreadsheet123/spreadsheet/sortComparators"
+            "/123/Spreadsheet123/spreadsheet/sortComparators"
         );
 
         final SpreadsheetComparatorNameListDialogComponent dialog = SpreadsheetComparatorNameListDialogComponent.with(
@@ -168,10 +168,10 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet123/spreadsheet/sortComparators/save/] id=SpreadsheetComparatorNameList-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet123/spreadsheet/sortComparators/save/day-of-month] id=SpreadsheetComparatorNameList-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet123/spreadsheet] id=SpreadsheetComparatorNameList-close-Link\n"
         );
     }
 

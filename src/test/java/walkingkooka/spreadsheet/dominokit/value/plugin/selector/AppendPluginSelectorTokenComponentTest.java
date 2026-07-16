@@ -58,7 +58,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
     @Test
     public void testRefreshNoTextComponentsNoAlternatives() {
         this.refreshAndCheck(
-            "/1/Untitled/cell/A1/formatter",
+            "/123/Untitled/cell/A1/formatter",
             SpreadsheetFormatterName.DATE,
             Lists.empty(), // textComponents
             Lists.empty(), // append
@@ -69,7 +69,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
     @Test
     public void testRefreshDateFormatEmptyTextComponents() {
         this.refreshAndCheck(
-            "/1/Untitled/cell/A1/formatter",
+            "/123/Untitled/cell/A1/formatter",
             SpreadsheetFormatterName.DATE,
             Lists.empty(), // textComponents
             Lists.of(
@@ -88,15 +88,15 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date%20d] id=id123-append-0-Link\n" +
-                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date%20m] id=id123-append-1-Link\n" // expected
+                "            \"d\" [#/123/Untitled/cell/A1/formatter/save/date%20d] id=id123-append-0-Link\n" +
+                "            \"m\" [#/123/Untitled/cell/A1/formatter/save/date%20m] id=id123-append-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshDateFormatTextComponentsAndAlternatives() {
         this.refreshAndCheck(
-            "/1/Untitled/cell/A1/formatter",
+            "/123/Untitled/cell/A1/formatter",
             SpreadsheetFormatterName.DATE,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
@@ -131,15 +131,15 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date%20dmyyd] id=id123-append-0-Link\n" +
-                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date%20dmyym] id=id123-append-1-Link\n" // expected
+                "            \"d\" [#/123/Untitled/cell/A1/formatter/save/date%20dmyyd] id=id123-append-0-Link\n" +
+                "            \"m\" [#/123/Untitled/cell/A1/formatter/save/date%20dmyym] id=id123-append-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshDateTimeFormat() {
         this.refreshAndCheck(
-            "/1/Untitled/cell/A1/formatter",
+            "/123/Untitled/cell/A1/formatter",
             SpreadsheetFormatterName.DATE_TIME,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
@@ -174,15 +174,15 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"d\" [#/1/Untitled/cell/A1/formatter/save/date-time%20dmyyd] id=id123-append-0-Link\n" +
-                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/date-time%20dmyym] id=id123-append-1-Link\n" // expected
+                "            \"d\" [#/123/Untitled/cell/A1/formatter/save/date-time%20dmyyd] id=id123-append-0-Link\n" +
+                "            \"m\" [#/123/Untitled/cell/A1/formatter/save/date-time%20dmyym] id=id123-append-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshNumberFormat() {
         this.refreshAndCheck(
-            "/1/Untitled/cell/A1/formatter",
+            "/123/Untitled/cell/A1/formatter",
             SpreadsheetFormatterName.NUMBER,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
@@ -207,15 +207,15 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"0\" [#/1/Untitled/cell/A1/formatter/save/number%20$0] id=id123-append-0-Link\n" +
-                "            \"#\" [#/1/Untitled/cell/A1/formatter/save/number%20$%23] id=id123-append-1-Link\n" // expected
+                "            \"0\" [#/123/Untitled/cell/A1/formatter/save/number%20$0] id=id123-append-0-Link\n" +
+                "            \"#\" [#/123/Untitled/cell/A1/formatter/save/number%20$%23] id=id123-append-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshTextFormat() {
         this.refreshAndCheck(
-            "/1/Untitled/cell/A1/formatter",
+            "/123/Untitled/cell/A1/formatter",
             SpreadsheetFormatterName.TEXT,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
@@ -240,15 +240,15 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"@\" [#/1/Untitled/cell/A1/formatter/save/text%20@@] id=id123-append-0-Link\n" +
-                "            \"_ \" [#/1/Untitled/cell/A1/formatter/save/text%20@_%20] id=id123-append-1-Link\n" // expected
+                "            \"@\" [#/123/Untitled/cell/A1/formatter/save/text%20@@] id=id123-append-0-Link\n" +
+                "            \"_ \" [#/123/Untitled/cell/A1/formatter/save/text%20@_%20] id=id123-append-1-Link\n" // expected
         );
     }
 
     @Test
     public void testRefreshTimeFormat() {
         this.refreshAndCheck(
-            "/1/Untitled/cell/A1/formatter",
+            "/123/Untitled/cell/A1/formatter",
             SpreadsheetFormatterName.TIME,
             Lists.of(
                 SpreadsheetFormatterSelectorToken.with(
@@ -269,7 +269,7 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
                 "      Append component(s)\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"m\" [#/1/Untitled/cell/A1/formatter/save/time%20hm] id=id123-append-0-Link\n" // expected
+                "            \"m\" [#/123/Untitled/cell/A1/formatter/save/time%20hm] id=id123-append-0-Link\n" // expected
         );
     }
 

@@ -63,7 +63,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
     @Test
     public void testOnHistoryTokenChangeSpreadsheetMetadataPropertySelectHistoryTokenWithEmptyText() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/formulaFunctions"),
+            HistoryToken.parseString("/123/Spreadsheet123/spreadsheet/formulaFunctions"),
             SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET.setElements(
                 SortedSets.of(
                     ALIAS1,
@@ -88,10 +88,10 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
                 "            Add\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-add-0-Link\n" +
-                "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-add-1-Link\n" +
-                "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name2] id=PluginAliasSetLike-add-2-Link\n" +
-                "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name3] id=PluginAliasSetLike-add-3-Link\n" +
+                "                  \"*\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-add-0-Link\n" +
+                "                  \"Name1\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-add-1-Link\n" +
+                "                  \"Name2\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name2] id=PluginAliasSetLike-add-2-Link\n" +
+                "                  \"Name3\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name3] id=PluginAliasSetLike-add-3-Link\n" +
                 "      RemovePluginAliasSetLikeComponent\n" +
                 "      ExpressionFunctionAliasSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
@@ -101,17 +101,17 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginAliasSetLike-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet123/spreadsheet] id=PluginAliasSetLike-close-Link\n"
         );
     }
 
     @Test
     public void testOnHistoryTokenChangeSpreadsheetMetadataPropertySelectHistoryToken() {
         final AppContext context = this.appContext(
-            HistoryToken.parseString("/1/Spreadsheet123/spreadsheet/formulaFunctions/"),
+            HistoryToken.parseString("/123/Spreadsheet123/spreadsheet/formulaFunctions/"),
             SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET.setElements(
                 SortedSets.of(
                     ALIAS1,
@@ -140,17 +140,17 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
                 "            Add\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-add-0-Link\n" +
-                "                  \"Name2\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2] id=PluginAliasSetLike-add-1-Link\n" +
-                "                  \"Name3\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name3] id=PluginAliasSetLike-add-2-Link\n" +
+                "                  \"*\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-add-0-Link\n" +
+                "                  \"Name2\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2] id=PluginAliasSetLike-add-1-Link\n" +
+                "                  \"Name3\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name3] id=PluginAliasSetLike-add-2-Link\n" +
                 "      RemovePluginAliasSetLikeComponent\n" +
                 "        CardComponent\n" +
                 "          Card\n" +
                 "            Remove\n" +
                 "              FlexLayoutComponent\n" +
                 "                ROW\n" +
-                "                  \"*\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-remove-0-Link\n" +
-                "                  \"Name1\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-remove-1-Link\n" +
+                "                  \"*\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-remove-0-Link\n" +
+                "                  \"Name1\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-remove-1-Link\n" +
                 "      ExpressionFunctionAliasSetComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -159,10 +159,10 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-save-Link\n" +
-                "              \"Clear\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-clear-Link\n" +
-                "              \"Undo\" [#/1/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-undo-Link\n" +
-                "              \"Close\" [#/1/Spreadsheet123/spreadsheet] id=PluginAliasSetLike-close-Link\n"
+                "              \"Save\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name1] id=PluginAliasSetLike-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/] id=PluginAliasSetLike-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet123/spreadsheet/formulaFunctions/save/name1,%20name2,%20name3] id=PluginAliasSetLike-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet123/spreadsheet] id=PluginAliasSetLike-close-Link\n"
         );
     }
 
