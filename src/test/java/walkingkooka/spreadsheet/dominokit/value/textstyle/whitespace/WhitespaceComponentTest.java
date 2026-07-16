@@ -51,12 +51,12 @@ public final class WhitespaceComponentTest implements TextStylePropertyEnumCompo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/] id=Test123-whiteSpace-Link\n" +
-                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NORMAL] id=Test123-whiteSpace-NORMAL-Link\n" +
-                "          \"Nowrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NOWRAP] id=Test123-whiteSpace-NOWRAP-Link\n" +
-                "          \"Pre\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE] id=Test123-whiteSpace-PRE-Link\n" +
-                "          \"Pre Line\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_LINE] CHECKED id=Test123-whiteSpace-PRE_LINE-Link\n" +
-                "          \"Pre Wrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_WRAP] id=Test123-whiteSpace-PRE_WRAP-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/] id=Test123-whiteSpace-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NORMAL] id=Test123-whiteSpace-NORMAL-Link\n" +
+                "          \"Nowrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NOWRAP] id=Test123-whiteSpace-NOWRAP-Link\n" +
+                "          \"Pre\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE] id=Test123-whiteSpace-PRE-Link\n" +
+                "          \"Pre Line\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_LINE] CHECKED id=Test123-whiteSpace-PRE_LINE-Link\n" +
+                "          \"Pre Wrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_WRAP] id=Test123-whiteSpace-PRE_WRAP-Link\n"
         );
     }
 
@@ -84,12 +84,12 @@ public final class WhitespaceComponentTest implements TextStylePropertyEnumCompo
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/] id=Test123-whiteSpace-Link\n" +
-                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NORMAL] CHECKED id=Test123-whiteSpace-NORMAL-Link\n" +
-                "          \"Nowrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NOWRAP] id=Test123-whiteSpace-NOWRAP-Link\n" +
-                "          \"Pre\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE] id=Test123-whiteSpace-PRE-Link\n" +
-                "          \"Pre Line\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_LINE] id=Test123-whiteSpace-PRE_LINE-Link\n" +
-                "          \"Pre Wrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_WRAP] id=Test123-whiteSpace-PRE_WRAP-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/] id=Test123-whiteSpace-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NORMAL] CHECKED id=Test123-whiteSpace-NORMAL-Link\n" +
+                "          \"Nowrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NOWRAP] id=Test123-whiteSpace-NOWRAP-Link\n" +
+                "          \"Pre\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE] id=Test123-whiteSpace-PRE-Link\n" +
+                "          \"Pre Line\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_LINE] id=Test123-whiteSpace-PRE_LINE-Link\n" +
+                "          \"Pre Wrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_WRAP] id=Test123-whiteSpace-PRE_WRAP-Link\n"
         );
     }
 

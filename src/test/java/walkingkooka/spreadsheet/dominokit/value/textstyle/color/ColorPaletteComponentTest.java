@@ -497,10 +497,10 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 "        TR\n" +
                 "          TD\n" +
                 "            style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              \"Black\" [#/123/SpreadsheetName1/cell/A1/style/color/save/black] id=TestColorPicker-color-1-Link\n" +
+                "              \"Black\" [#/123/SpreadsheetName456/cell/A1/style/color/save/black] id=TestColorPicker-color-1-Link\n" +
                 "          TD\n" +
                 "            style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              \"White\" [#/123/SpreadsheetName1/cell/A1/style/color/save/white] id=TestColorPicker-color-2-Link\n" +
+                "              \"White\" [#/123/SpreadsheetName456/cell/A1/style/color/save/white] id=TestColorPicker-color-2-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "              DISABLED id=TestColorPicker-color-3-Link\n" +
@@ -672,7 +672,7 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 "        TR\n" +
                 "          TD\n" +
                 "            colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/color/save/] id=TestColorPicker-color-clear-Link\n"
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=TestColorPicker-color-clear-Link\n"
         );
     }
 
@@ -688,10 +688,10 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 "        TR\n" +
                 "          TD\n" +
                 "            style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              \"Black\" [#/123/SpreadsheetName1/cell/A1/style/color/save/black] id=TestColorPicker-color-1-Link\n" +
+                "              \"Black\" [#/123/SpreadsheetName456/cell/A1/style/color/save/black] id=TestColorPicker-color-1-Link\n" +
                 "          TD\n" +
                 "            style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              \"White\" [#/123/SpreadsheetName1/cell/A1/style/color/save/white] id=TestColorPicker-color-2-Link\n" +
+                "              \"White\" [#/123/SpreadsheetName456/cell/A1/style/color/save/white] id=TestColorPicker-color-2-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "              DISABLED id=TestColorPicker-color-3-Link\n" +
@@ -863,7 +863,7 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 "        TR\n" +
                 "          TD\n" +
                 "            colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/color/save/] id=TestColorPicker-color-clear-Link\n"
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=TestColorPicker-color-clear-Link\n"
         );
     }
 
@@ -884,7 +884,7 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 "              \"Black\" DISABLED id=TestColorPicker-color-1-Link\n" +
                 "          TD\n" +
                 "            style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "              \"White\" [#/123/SpreadsheetName1/cell/A1/style/color/save/white] id=TestColorPicker-color-2-Link\n" +
+                "              \"White\" [#/123/SpreadsheetName456/cell/A1/style/color/save/white] id=TestColorPicker-color-2-Link\n" +
                 "          TD\n" +
                 "            style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "              DISABLED id=TestColorPicker-color-3-Link\n" +
@@ -1056,7 +1056,7 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
                 "        TR\n" +
                 "          TD\n" +
                 "            colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/color/save/] id=TestColorPicker-color-clear-Link\n"
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=TestColorPicker-color-clear-Link\n"
         );
     }
 

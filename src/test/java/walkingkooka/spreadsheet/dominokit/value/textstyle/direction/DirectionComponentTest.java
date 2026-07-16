@@ -72,9 +72,9 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
-                "          \"Left to Right\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
-                "          \"Right to Left\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
+                "          \"Left to Right\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
+                "          \"Right to Left\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
         );
     }
 
@@ -123,9 +123,9 @@ public final class DirectionComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
-                "          \"Left to Right\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
-                "          \"Right to Left\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/] id=Test123-direction-Link\n" +
+                "          \"Left to Right\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/LTR] id=Test123-direction-LTR-Link\n" +
+                "          \"Right to Left\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/RTL] CHECKED id=Test123-direction-RTL-Link\n"
         );
     }
 

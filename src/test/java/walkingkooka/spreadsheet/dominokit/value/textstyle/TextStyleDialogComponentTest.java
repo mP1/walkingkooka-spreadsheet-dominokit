@@ -185,15 +185,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
-                "                          \"Box\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
-                "                          \"Break\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
-                "                          \"Color\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
-                "                          \"Font\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
-                "                          \"Measure\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -213,7 +213,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -385,7 +385,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -418,10 +418,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -593,24 +593,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
                 "            BorderBottomWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -642,10 +642,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -817,24 +817,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
                 "            BorderLeftWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -869,7 +869,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -1041,24 +1041,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
                 "            BorderRightWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -1090,7 +1090,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  \"White\" DISABLED id=TextStyle-color-2-Link\n" +
@@ -1265,24 +1265,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
                 "            BorderTopWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -1309,7 +1309,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -1481,16 +1481,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
                 "            DirectionComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Direction\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
-                "                        \"Left to Right\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
-                "                        \"Right to Left\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
+                "                        \"Left to Right\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
+                "                        \"Right to Left\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
                 "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
@@ -1503,10 +1503,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
                 "                Font size [99]\n" +
@@ -1516,36 +1516,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
-                "                        \"Ultra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
-                "                        \"Extra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
-                "                        \"Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
-                "                        \"Semi Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
-                "                        \"Semi Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
-                "                        \"Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
-                "                        \"Extra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
-                "                        \"Ultra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
+                "                        \"Ultra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
+                "                        \"Extra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
+                "                        \"Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
+                "                        \"Semi Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                        \"Semi Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
+                "                        \"Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
+                "                        \"Extra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
+                "                        \"Ultra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
-                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
-                "                        \"Oblique\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
+                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
+                "                        \"Oblique\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
-                "                        \"Initial\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
-                "                        \"Small Caps\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
+                "                        \"Initial\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
+                "                        \"Small Caps\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -1559,20 +1559,20 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
-                "                          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                          \"Bold\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
-                "                        \"First\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
-                "                        \"Last\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
-                "                        \"Allow End\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
-                "                        \"Force End\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
+                "                        \"First\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
+                "                        \"Last\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
+                "                        \"Allow End\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
+                "                        \"Force End\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "            HeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -1586,10 +1586,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
-                "                        \"Manual\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
+                "                        \"Manual\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
                 "            LetterSpacingComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -1655,32 +1655,32 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
-                "                        \"Anywhere\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
+                "                        \"Anywhere\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
                 "            BigPaddingComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -1726,34 +1726,34 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
-                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
-                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
-                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
-                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
+                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
+                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
+                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
+                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
-                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
-                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
-                "                        \"Overline\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
-                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
+                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
+                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
+                "                        \"Overline\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
+                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
-                "                        \"Wavy\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
+                "                        \"Wavy\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "            TextDecorationThicknessComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -1774,11 +1774,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
-                "                        \"Inter Word\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
-                "                        \"Inter Character\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
+                "                        \"Inter Word\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
+                "                        \"Inter Character\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -1790,8 +1790,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
-                "                          \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
+                "                          \"Clip\" [#/123/SpreadsheetName456/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                          \"Ellipsis\" [#/123/SpreadsheetName456/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                    TextOverflowComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
@@ -1802,53 +1802,53 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
-                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
-                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
-                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
+                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
+                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
+                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
-                "                        \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
-                "                        \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
-                "                        \"Wrap\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                        \"Clip\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
+                "                        \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
+                "                        \"Wrap\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
-                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
-                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
-                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
+                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
+                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
+                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
                 "            VisibilityComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Visibility\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
-                "                        \"Collapse\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
+                "                        \"Collapse\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
-                "                        \"Nowrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
-                "                        \"Pre\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
-                "                        \"Pre Line\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
-                "                        \"Pre Wrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
+                "                        \"Nowrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
+                "                        \"Pre\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
+                "                        \"Pre Line\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
+                "                        \"Pre Wrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
                 "            WidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -1862,30 +1862,30 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
-                "                        \"Break All\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
-                "                        \"Keep All\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
+                "                        \"Break All\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
+                "                        \"Keep All\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
-                "                        \"Horizontal Tb\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
-                "                        \"Vertical Lr\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
-                "                        \"Vertical Rl\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
+                "                        \"Horizontal Tb\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
+                "                        \"Vertical Lr\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
+                "                        \"Vertical Rl\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
                 "      TextStyleComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -1894,10 +1894,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD id=TextStyle-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WO id=TextStyle-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=TextStyle-close-Link\n"
         );
     }
 
@@ -2001,15 +2001,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
-                "                          \"Box\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
-                "                          \"Break\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
-                "                          \"Color\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
-                "                          \"Font\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
-                "                          \"Measure\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -2029,7 +2029,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -2201,7 +2201,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -2251,10 +2251,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -2426,24 +2426,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
                 "            BorderBottomWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -2477,10 +2477,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -2652,24 +2652,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
                 "            BorderLeftWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -2706,7 +2706,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -2878,24 +2878,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
                 "            BorderRightWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -2929,7 +2929,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  \"White\" DISABLED id=TextStyle-color-2-Link\n" +
@@ -3104,24 +3104,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
                 "            BorderTopWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -3146,7 +3146,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -3318,16 +3318,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
                 "            DirectionComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Direction\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
-                "                        \"Left to Right\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
-                "                        \"Right to Left\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
+                "                        \"Left to Right\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
+                "                        \"Right to Left\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
                 "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
@@ -3340,10 +3340,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
                 "                Font size [99]\n" +
@@ -3353,36 +3353,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
-                "                        \"Ultra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
-                "                        \"Extra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
-                "                        \"Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
-                "                        \"Semi Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
-                "                        \"Semi Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
-                "                        \"Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
-                "                        \"Extra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
-                "                        \"Ultra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
+                "                        \"Ultra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
+                "                        \"Extra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
+                "                        \"Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
+                "                        \"Semi Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                        \"Semi Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
+                "                        \"Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
+                "                        \"Extra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
+                "                        \"Ultra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
-                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
-                "                        \"Oblique\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
+                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
+                "                        \"Oblique\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
-                "                        \"Initial\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
-                "                        \"Small Caps\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
+                "                        \"Initial\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
+                "                        \"Small Caps\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -3396,20 +3396,20 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
-                "                          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                          \"Bold\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
-                "                        \"First\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
-                "                        \"Last\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
-                "                        \"Allow End\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
-                "                        \"Force End\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
+                "                        \"First\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
+                "                        \"Last\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
+                "                        \"Allow End\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
+                "                        \"Force End\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "            HeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -3421,10 +3421,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
-                "                        \"Manual\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
+                "                        \"Manual\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
                 "            LetterSpacingComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -3484,32 +3484,32 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
-                "                        \"Anywhere\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
+                "                        \"Anywhere\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
                 "            BigPaddingComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -3555,34 +3555,34 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
-                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
-                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
-                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
-                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
+                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
+                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
+                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
+                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
-                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
-                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
-                "                        \"Overline\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
-                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
+                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
+                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
+                "                        \"Overline\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
+                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
-                "                        \"Wavy\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
+                "                        \"Wavy\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "            TextDecorationThicknessComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -3599,11 +3599,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
-                "                        \"Inter Word\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
-                "                        \"Inter Character\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
+                "                        \"Inter Word\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
+                "                        \"Inter Character\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -3615,8 +3615,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
-                "                          \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
+                "                          \"Clip\" [#/123/SpreadsheetName456/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                          \"Ellipsis\" [#/123/SpreadsheetName456/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                    TextOverflowComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
@@ -3627,53 +3627,53 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
-                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
-                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
-                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
+                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
+                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
+                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
-                "                        \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
-                "                        \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
-                "                        \"Wrap\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                        \"Clip\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
+                "                        \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
+                "                        \"Wrap\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
-                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
-                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
-                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
+                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
+                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
+                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
                 "            VisibilityComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Visibility\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
-                "                        \"Collapse\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
+                "                        \"Collapse\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
-                "                        \"Nowrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
-                "                        \"Pre\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
-                "                        \"Pre Line\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
-                "                        \"Pre Wrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
+                "                        \"Nowrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
+                "                        \"Pre\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
+                "                        \"Pre Line\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
+                "                        \"Pre Wrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
                 "            WidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -3685,30 +3685,30 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
-                "                        \"Break All\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
-                "                        \"Keep All\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
+                "                        \"Break All\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
+                "                        \"Keep All\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
-                "                        \"Horizontal Tb\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
-                "                        \"Vertical Lr\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
-                "                        \"Vertical Rl\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
+                "                        \"Horizontal Tb\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
+                "                        \"Vertical Lr\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
+                "                        \"Vertical Rl\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
                 "      TextStyleComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -3720,9 +3720,9 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              \"Save\" DISABLED id=TextStyle-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=TextStyle-close-Link\n"
         );
     }
 
@@ -3810,15 +3810,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
-                "                          \"Box\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
-                "                          \"Break\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
-                "                          \"Color\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
-                "                          \"Font\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
-                "                          \"Measure\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -3838,7 +3838,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -4010,7 +4010,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -4060,10 +4060,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -4235,24 +4235,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
                 "            BorderBottomWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -4286,10 +4286,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -4461,24 +4461,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
                 "            BorderLeftWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -4515,7 +4515,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -4687,24 +4687,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
                 "            BorderRightWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -4738,7 +4738,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  \"White\" DISABLED id=TextStyle-color-2-Link\n" +
@@ -4913,24 +4913,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
                 "            BorderTopWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -4955,7 +4955,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -5127,16 +5127,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
                 "            DirectionComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Direction\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
-                "                        \"Left to Right\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
-                "                        \"Right to Left\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
+                "                        \"Left to Right\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
+                "                        \"Right to Left\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
                 "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
@@ -5149,10 +5149,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
                 "                Font size [99]\n" +
@@ -5162,36 +5162,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
-                "                        \"Ultra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
-                "                        \"Extra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
-                "                        \"Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
-                "                        \"Semi Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
-                "                        \"Semi Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
-                "                        \"Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
-                "                        \"Extra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
-                "                        \"Ultra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
+                "                        \"Ultra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
+                "                        \"Extra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
+                "                        \"Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
+                "                        \"Semi Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                        \"Semi Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
+                "                        \"Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
+                "                        \"Extra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
+                "                        \"Ultra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
-                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
-                "                        \"Oblique\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
+                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
+                "                        \"Oblique\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
-                "                        \"Initial\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
-                "                        \"Small Caps\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
+                "                        \"Initial\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
+                "                        \"Small Caps\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -5205,20 +5205,20 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
-                "                          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                          \"Bold\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
-                "                        \"First\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
-                "                        \"Last\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
-                "                        \"Allow End\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
-                "                        \"Force End\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
+                "                        \"First\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
+                "                        \"Last\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
+                "                        \"Allow End\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
+                "                        \"Force End\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "            HeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -5230,10 +5230,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
-                "                        \"Manual\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
+                "                        \"Manual\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
                 "            LetterSpacingComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -5293,32 +5293,32 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
-                "                        \"Anywhere\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
+                "                        \"Anywhere\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
                 "            BigPaddingComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -5364,34 +5364,34 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
-                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
-                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
-                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
-                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
+                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
+                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
+                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
+                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
-                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
-                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
-                "                        \"Overline\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
-                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
+                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
+                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
+                "                        \"Overline\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
+                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
-                "                        \"Wavy\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
+                "                        \"Wavy\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "            TextDecorationThicknessComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -5408,11 +5408,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
-                "                        \"Inter Word\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
-                "                        \"Inter Character\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
+                "                        \"Inter Word\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
+                "                        \"Inter Character\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -5424,8 +5424,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
-                "                          \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
+                "                          \"Clip\" [#/123/SpreadsheetName456/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                          \"Ellipsis\" [#/123/SpreadsheetName456/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                    TextOverflowComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
@@ -5436,53 +5436,53 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
-                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
-                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
-                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
+                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
+                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
+                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
-                "                        \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
-                "                        \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
-                "                        \"Wrap\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                        \"Clip\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
+                "                        \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
+                "                        \"Wrap\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
-                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
-                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
-                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
+                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
+                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
+                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
                 "            VisibilityComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Visibility\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
-                "                        \"Collapse\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
+                "                        \"Collapse\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
-                "                        \"Nowrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
-                "                        \"Pre\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
-                "                        \"Pre Line\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
-                "                        \"Pre Wrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
+                "                        \"Nowrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
+                "                        \"Pre\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
+                "                        \"Pre Line\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
+                "                        \"Pre Wrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
                 "            WidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -5494,30 +5494,30 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
-                "                        \"Break All\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
-                "                        \"Keep All\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
+                "                        \"Break All\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
+                "                        \"Keep All\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
-                "                        \"Horizontal Tb\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
-                "                        \"Vertical Lr\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
-                "                        \"Vertical Rl\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
+                "                        \"Horizontal Tb\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
+                "                        \"Vertical Lr\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
+                "                        \"Vertical Rl\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
                 "      TextStyleComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -5526,10 +5526,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD id=TextStyle-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WO id=TextStyle-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=TextStyle-close-Link\n"
         );
     }
 
@@ -5617,15 +5617,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/123/SpreadsheetName1/cell/A1/style/color/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
-                "                          \"Box\" [#/123/SpreadsheetName1/cell/A1/style/color/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
-                "                          \"Break\" [#/123/SpreadsheetName1/cell/A1/style/color/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
-                "                          \"Color\" [#/123/SpreadsheetName1/cell/A1/style/color/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
-                "                          \"Font\" [#/123/SpreadsheetName1/cell/A1/style/color/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
-                "                          \"Measure\" [#/123/SpreadsheetName1/cell/A1/style/color/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/color/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/123/SpreadsheetName1/cell/A1/style/color/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/123/SpreadsheetName1/cell/A1/style/color/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/123/SpreadsheetName456/cell/A1/style/color/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/123/SpreadsheetName456/cell/A1/style/color/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/123/SpreadsheetName456/cell/A1/style/color/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/123/SpreadsheetName456/cell/A1/style/color/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/123/SpreadsheetName456/cell/A1/style/color/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/123/SpreadsheetName456/cell/A1/style/color/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/color/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/123/SpreadsheetName456/cell/A1/style/color/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/123/SpreadsheetName456/cell/A1/style/color/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -5645,7 +5645,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -5817,7 +5817,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -5867,10 +5867,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -6042,24 +6042,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
                 "            BorderBottomWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -6093,10 +6093,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -6268,24 +6268,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
                 "            BorderLeftWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -6322,7 +6322,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -6494,24 +6494,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
                 "            BorderRightWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -6545,7 +6545,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  \"White\" DISABLED id=TextStyle-color-2-Link\n" +
@@ -6720,24 +6720,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/cell/A1/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/cell/A1/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
                 "            BorderTopWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -6762,7 +6762,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -6934,16 +6934,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
                 "            DirectionComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Direction\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
-                "                        \"Left to Right\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
-                "                        \"Right to Left\" [#/123/SpreadsheetName1/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/] id=TextStyle-direction-Link\n" +
+                "                        \"Left to Right\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
+                "                        \"Right to Left\" [#/123/SpreadsheetName456/cell/A1/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
                 "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
@@ -6956,10 +6956,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
                 "                Font size [99]\n" +
@@ -6969,36 +6969,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
-                "                        \"Ultra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
-                "                        \"Extra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
-                "                        \"Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
-                "                        \"Semi Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
-                "                        \"Semi Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
-                "                        \"Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
-                "                        \"Extra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
-                "                        \"Ultra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
+                "                        \"Ultra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
+                "                        \"Extra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
+                "                        \"Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
+                "                        \"Semi Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                        \"Semi Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
+                "                        \"Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
+                "                        \"Extra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
+                "                        \"Ultra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
-                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
-                "                        \"Oblique\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
+                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
+                "                        \"Oblique\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
-                "                        \"Initial\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
-                "                        \"Small Caps\" [#/123/SpreadsheetName1/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
+                "                        \"Initial\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
+                "                        \"Small Caps\" [#/123/SpreadsheetName456/cell/A1/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -7012,20 +7012,20 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Bold\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
-                "                          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                          \"Bold\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
-                "                        \"First\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
-                "                        \"Last\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
-                "                        \"Allow End\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
-                "                        \"Force End\" [#/123/SpreadsheetName1/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
+                "                        \"First\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
+                "                        \"Last\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
+                "                        \"Allow End\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
+                "                        \"Force End\" [#/123/SpreadsheetName456/cell/A1/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "            HeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -7037,10 +7037,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
-                "                        \"Manual\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
+                "                        \"Manual\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
                 "            LetterSpacingComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -7100,32 +7100,32 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
-                "                        \"Anywhere\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
+                "                        \"Anywhere\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
                 "            BigPaddingComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -7171,34 +7171,34 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
-                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
-                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
-                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
-                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName1/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
+                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
+                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
+                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
+                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName456/cell/A1/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
-                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
-                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
-                "                        \"Overline\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
-                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
+                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
+                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
+                "                        \"Overline\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
+                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
-                "                        \"Wavy\" [#/123/SpreadsheetName1/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
+                "                        \"Wavy\" [#/123/SpreadsheetName456/cell/A1/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "            TextDecorationThicknessComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -7215,11 +7215,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
-                "                        \"Inter Word\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
-                "                        \"Inter Character\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
+                "                        \"Inter Word\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
+                "                        \"Inter Character\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -7231,8 +7231,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
-                "                          \"Ellipsis\" [#/123/SpreadsheetName1/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
+                "                          \"Clip\" [#/123/SpreadsheetName456/cell/A1/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                          \"Ellipsis\" [#/123/SpreadsheetName456/cell/A1/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                    TextOverflowComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
@@ -7243,53 +7243,53 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
-                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
-                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
-                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName1/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
+                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
+                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
+                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName456/cell/A1/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
-                "                        \"Clip\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
-                "                        \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
-                "                        \"Wrap\" [#/123/SpreadsheetName1/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                        \"Clip\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
+                "                        \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
+                "                        \"Wrap\" [#/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
-                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
-                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
-                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName1/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
+                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
+                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
+                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName456/cell/A1/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
                 "            VisibilityComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Visibility\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
-                "                        \"Collapse\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
+                "                        \"Collapse\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
-                "                        \"Nowrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
-                "                        \"Pre\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
-                "                        \"Pre Line\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
-                "                        \"Pre Wrap\" [#/123/SpreadsheetName1/cell/A1/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
+                "                        \"Nowrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
+                "                        \"Pre\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
+                "                        \"Pre Line\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
+                "                        \"Pre Wrap\" [#/123/SpreadsheetName456/cell/A1/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
                 "            WidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -7301,30 +7301,30 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
-                "                        \"Break All\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
-                "                        \"Keep All\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
+                "                        \"Break All\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
+                "                        \"Keep All\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
-                "                        \"Horizontal Tb\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
-                "                        \"Vertical Lr\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
-                "                        \"Vertical Rl\" [#/123/SpreadsheetName1/cell/A1/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
+                "                        \"Horizontal Tb\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
+                "                        \"Vertical Lr\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
+                "                        \"Vertical Rl\" [#/123/SpreadsheetName456/cell/A1/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
                 "      TextStyleComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -7333,10 +7333,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WORD id=TextStyle-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_WO id=TextStyle-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=TextStyle-close-Link\n"
         );
     }
 
@@ -7421,15 +7421,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
-                "                          \"Box\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
-                "                          \"Break\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
-                "                          \"Color\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
-                "                          \"Font\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
-                "                          \"Measure\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -7449,7 +7449,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -7621,7 +7621,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -7671,10 +7671,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -7846,24 +7846,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
                 "            BorderBottomWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -7897,10 +7897,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -8072,24 +8072,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
                 "            BorderLeftWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -8126,7 +8126,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -8298,24 +8298,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
                 "            BorderRightWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -8349,7 +8349,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  \"White\" DISABLED id=TextStyle-color-2-Link\n" +
@@ -8524,24 +8524,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
                 "            BorderTopWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -8566,7 +8566,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/spreadsheet/style/color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/spreadsheet/style/color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -8738,16 +8738,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/color/save/] id=TextStyle-color-clear-Link\n" +
                 "            DirectionComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Direction\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/direction/save/] id=TextStyle-direction-Link\n" +
-                "                        \"Left to Right\" [#/123/SpreadsheetName1/spreadsheet/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
-                "                        \"Right to Left\" [#/123/SpreadsheetName1/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/direction/save/] id=TextStyle-direction-Link\n" +
+                "                        \"Left to Right\" [#/123/SpreadsheetName456/spreadsheet/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
+                "                        \"Right to Left\" [#/123/SpreadsheetName456/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
                 "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
@@ -8760,10 +8760,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/spreadsheet/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/spreadsheet/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
                 "                Font size [99]\n" +
@@ -8773,36 +8773,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
-                "                        \"Ultra Condensed\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
-                "                        \"Extra Condensed\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
-                "                        \"Condensed\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
-                "                        \"Semi Condensed\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
-                "                        \"Semi Expanded\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
-                "                        \"Expanded\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
-                "                        \"Extra Expanded\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
-                "                        \"Ultra Expanded\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
+                "                        \"Ultra Condensed\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
+                "                        \"Extra Condensed\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
+                "                        \"Condensed\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
+                "                        \"Semi Condensed\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                        \"Semi Expanded\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
+                "                        \"Expanded\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
+                "                        \"Extra Expanded\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
+                "                        \"Ultra Expanded\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
-                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName1/spreadsheet/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
-                "                        \"Oblique\" [#/123/SpreadsheetName1/spreadsheet/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
+                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName456/spreadsheet/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
+                "                        \"Oblique\" [#/123/SpreadsheetName456/spreadsheet/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
-                "                        \"Initial\" [#/123/SpreadsheetName1/spreadsheet/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
-                "                        \"Small Caps\" [#/123/SpreadsheetName1/spreadsheet/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
+                "                        \"Initial\" [#/123/SpreadsheetName456/spreadsheet/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
+                "                        \"Small Caps\" [#/123/SpreadsheetName456/spreadsheet/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -8816,20 +8816,20 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Bold\" [#/123/SpreadsheetName1/spreadsheet/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
-                "                          \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                          \"Bold\" [#/123/SpreadsheetName456/spreadsheet/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                          \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
-                "                        \"First\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
-                "                        \"Last\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
-                "                        \"Allow End\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
-                "                        \"Force End\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
+                "                        \"First\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
+                "                        \"Last\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
+                "                        \"Allow End\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
+                "                        \"Force End\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "            HeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -8841,10 +8841,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
-                "                        \"Manual\" [#/123/SpreadsheetName1/spreadsheet/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/spreadsheet/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
+                "                        \"Manual\" [#/123/SpreadsheetName456/spreadsheet/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/spreadsheet/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
                 "            LetterSpacingComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -8904,32 +8904,32 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
-                "                        \"Anywhere\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
+                "                        \"Anywhere\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
                 "            BigPaddingComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -8975,34 +8975,34 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
-                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
-                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
-                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
-                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
+                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
+                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
+                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
+                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
-                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
-                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
-                "                        \"Overline\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
-                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
+                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
+                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
+                "                        \"Overline\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
+                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
-                "                        \"Wavy\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
+                "                        \"Wavy\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "            TextDecorationThicknessComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -9019,11 +9019,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/spreadsheet/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
-                "                        \"Inter Word\" [#/123/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
-                "                        \"Inter Character\" [#/123/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/spreadsheet/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
+                "                        \"Inter Word\" [#/123/SpreadsheetName456/spreadsheet/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
+                "                        \"Inter Character\" [#/123/SpreadsheetName456/spreadsheet/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -9035,8 +9035,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Clip\" [#/123/SpreadsheetName1/spreadsheet/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
-                "                          \"Ellipsis\" [#/123/SpreadsheetName1/spreadsheet/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
+                "                          \"Clip\" [#/123/SpreadsheetName456/spreadsheet/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                          \"Ellipsis\" [#/123/SpreadsheetName456/spreadsheet/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                    TextOverflowComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
@@ -9047,53 +9047,53 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
-                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName1/spreadsheet/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
-                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName1/spreadsheet/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
-                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName1/spreadsheet/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
+                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName456/spreadsheet/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
+                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName456/spreadsheet/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
+                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName456/spreadsheet/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
-                "                        \"Clip\" [#/123/SpreadsheetName1/spreadsheet/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
-                "                        \"Overflow\" [#/123/SpreadsheetName1/spreadsheet/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
-                "                        \"Wrap\" [#/123/SpreadsheetName1/spreadsheet/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                        \"Clip\" [#/123/SpreadsheetName456/spreadsheet/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
+                "                        \"Overflow\" [#/123/SpreadsheetName456/spreadsheet/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
+                "                        \"Wrap\" [#/123/SpreadsheetName456/spreadsheet/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
-                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName1/spreadsheet/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
-                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName1/spreadsheet/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
-                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName1/spreadsheet/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
+                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName456/spreadsheet/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
+                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName456/spreadsheet/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
+                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName456/spreadsheet/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
                 "            VisibilityComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Visibility\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/visibility/save/] id=TextStyle-visibility-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/spreadsheet/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
-                "                        \"Collapse\" [#/123/SpreadsheetName1/spreadsheet/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/visibility/save/] id=TextStyle-visibility-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/spreadsheet/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
+                "                        \"Collapse\" [#/123/SpreadsheetName456/spreadsheet/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
-                "                        \"Nowrap\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
-                "                        \"Pre\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
-                "                        \"Pre Line\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
-                "                        \"Pre Wrap\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
+                "                        \"Nowrap\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
+                "                        \"Pre\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
+                "                        \"Pre Line\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
+                "                        \"Pre Wrap\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
                 "            WidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -9105,30 +9105,30 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
-                "                        \"Break All\" [#/123/SpreadsheetName1/spreadsheet/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
-                "                        \"Keep All\" [#/123/SpreadsheetName1/spreadsheet/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/spreadsheet/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
+                "                        \"Break All\" [#/123/SpreadsheetName456/spreadsheet/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
+                "                        \"Keep All\" [#/123/SpreadsheetName456/spreadsheet/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/spreadsheet/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/spreadsheet/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/spreadsheet/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
-                "                        \"Horizontal Tb\" [#/123/SpreadsheetName1/spreadsheet/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
-                "                        \"Vertical Lr\" [#/123/SpreadsheetName1/spreadsheet/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
-                "                        \"Vertical Rl\" [#/123/SpreadsheetName1/spreadsheet/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
+                "                        \"Horizontal Tb\" [#/123/SpreadsheetName456/spreadsheet/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
+                "                        \"Vertical Lr\" [#/123/SpreadsheetName456/spreadsheet/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
+                "                        \"Vertical Rl\" [#/123/SpreadsheetName456/spreadsheet/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
                 "      TextStyleComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -9137,10 +9137,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/spreadsheet/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_ id=TextStyle-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/spreadsheet/style/*/save/text-align:%20LEFT;] id=TextStyle-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1] id=TextStyle-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/spreadsheet/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREA id=TextStyle-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/spreadsheet/style/*/save/text-align:%20LEFT;] id=TextStyle-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456] id=TextStyle-close-Link\n"
         );
     }
 
@@ -9239,15 +9239,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
-                "                          \"Box\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
-                "                          \"Break\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
-                "                          \"Color\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
-                "                          \"Font\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
-                "                          \"Measure\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/123/SpreadsheetName1/spreadsheet/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/123/SpreadsheetName456/spreadsheet/style/*/filter/WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -9267,7 +9267,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -9439,7 +9439,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -9489,10 +9489,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -9664,24 +9664,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border bottom style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/spreadsheet/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/] id=TextStyle-borderBottomStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/NONE] id=TextStyle-borderBottomStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/HIDDEN] id=TextStyle-borderBottomStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/DOTTED] CHECKED id=TextStyle-borderBottomStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/DASHED] id=TextStyle-borderBottomStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/SOLID] id=TextStyle-borderBottomStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/DOUBLE] id=TextStyle-borderBottomStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/GROOVE] id=TextStyle-borderBottomStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/RIDGE] id=TextStyle-borderBottomStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/INSET] id=TextStyle-borderBottomStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/spreadsheet/style/border-bottom-style/save/OUTSET] id=TextStyle-borderBottomStyle-OUTSET-Link\n" +
                 "            BorderBottomWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -9715,10 +9715,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -9890,24 +9890,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border left style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/spreadsheet/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/] id=TextStyle-borderLeftStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/NONE] id=TextStyle-borderLeftStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/HIDDEN] id=TextStyle-borderLeftStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/DOTTED] CHECKED id=TextStyle-borderLeftStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/DASHED] id=TextStyle-borderLeftStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/SOLID] id=TextStyle-borderLeftStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/DOUBLE] id=TextStyle-borderLeftStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/GROOVE] id=TextStyle-borderLeftStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/RIDGE] id=TextStyle-borderLeftStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/INSET] id=TextStyle-borderLeftStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/spreadsheet/style/border-left-style/save/OUTSET] id=TextStyle-borderLeftStyle-OUTSET-Link\n" +
                 "            BorderLeftWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -9944,7 +9944,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -10116,24 +10116,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border right style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/spreadsheet/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/] id=TextStyle-borderRightStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/NONE] id=TextStyle-borderRightStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/HIDDEN] id=TextStyle-borderRightStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/DOTTED] id=TextStyle-borderRightStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/DASHED] id=TextStyle-borderRightStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/SOLID] CHECKED id=TextStyle-borderRightStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/DOUBLE] id=TextStyle-borderRightStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/GROOVE] id=TextStyle-borderRightStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/RIDGE] id=TextStyle-borderRightStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/INSET] id=TextStyle-borderRightStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/spreadsheet/style/border-right-style/save/OUTSET] id=TextStyle-borderRightStyle-OUTSET-Link\n" +
                 "            BorderRightWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -10167,7 +10167,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  \"White\" DISABLED id=TextStyle-color-2-Link\n" +
@@ -10342,24 +10342,24 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Border top style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
-                "                        \"Groove\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
-                "                        \"Ridge\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
-                "                        \"Inset\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
-                "                        \"Outset\" [#/123/SpreadsheetName1/spreadsheet/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/] id=TextStyle-borderTopStyle-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/NONE] id=TextStyle-borderTopStyle-NONE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/HIDDEN] id=TextStyle-borderTopStyle-HIDDEN-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/DOTTED] id=TextStyle-borderTopStyle-DOTTED-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/DASHED] CHECKED id=TextStyle-borderTopStyle-DASHED-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/SOLID] id=TextStyle-borderTopStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/DOUBLE] id=TextStyle-borderTopStyle-DOUBLE-Link\n" +
+                "                        \"Groove\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/GROOVE] id=TextStyle-borderTopStyle-GROOVE-Link\n" +
+                "                        \"Ridge\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/RIDGE] id=TextStyle-borderTopStyle-RIDGE-Link\n" +
+                "                        \"Inset\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/INSET] id=TextStyle-borderTopStyle-INSET-Link\n" +
+                "                        \"Outset\" [#/123/SpreadsheetName456/spreadsheet/style/border-top-style/save/OUTSET] id=TextStyle-borderTopStyle-OUTSET-Link\n" +
                 "            BorderTopWidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -10384,7 +10384,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                                  \"Black\" DISABLED id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/spreadsheet/style/color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/spreadsheet/style/color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -10556,16 +10556,16 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/color/save/] id=TextStyle-color-clear-Link\n" +
                 "            DirectionComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Direction\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/direction/save/] id=TextStyle-direction-Link\n" +
-                "                        \"Left to Right\" [#/123/SpreadsheetName1/spreadsheet/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
-                "                        \"Right to Left\" [#/123/SpreadsheetName1/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/direction/save/] id=TextStyle-direction-Link\n" +
+                "                        \"Left to Right\" [#/123/SpreadsheetName456/spreadsheet/style/direction/save/LTR] CHECKED id=TextStyle-direction-LTR-Link\n" +
+                "                        \"Right to Left\" [#/123/SpreadsheetName456/spreadsheet/style/direction/save/RTL] id=TextStyle-direction-RTL-Link\n" +
                 "            FontFamilyComponent\n" +
                 "              SelectComponent\n" +
                 "                Font family [Courier] id=TextStyle-fontFamily-Select\n" +
@@ -10578,10 +10578,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/spreadsheet/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/font-kerning/save/] id=TextStyle-fontKerning-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/spreadsheet/style/font-kerning/save/AUTO] CHECKED id=TextStyle-fontKerning-AUTO-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/font-kerning/save/NONE] id=TextStyle-fontKerning-NONE-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/font-kerning/save/NORMAL] id=TextStyle-fontKerning-NORMAL-Link\n" +
                 "            FontSizeComponent\n" +
                 "              SuggestBoxComponent\n" +
                 "                Font size [99]\n" +
@@ -10591,36 +10591,36 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
-                "                        \"Ultra Condensed\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
-                "                        \"Extra Condensed\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
-                "                        \"Condensed\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
-                "                        \"Semi Condensed\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
-                "                        \"Semi Expanded\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
-                "                        \"Expanded\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
-                "                        \"Extra Expanded\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
-                "                        \"Ultra Expanded\" [#/123/SpreadsheetName1/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/] id=TextStyle-fontStretch-Link\n" +
+                "                        \"Ultra Condensed\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/ULTRA_CONDENSED] id=TextStyle-fontStretch-ULTRA_CONDENSED-Link\n" +
+                "                        \"Extra Condensed\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/EXTRA_CONDENSED] id=TextStyle-fontStretch-EXTRA_CONDENSED-Link\n" +
+                "                        \"Condensed\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/CONDENSED] id=TextStyle-fontStretch-CONDENSED-Link\n" +
+                "                        \"Semi Condensed\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/SEMI_CONDENSED] id=TextStyle-fontStretch-SEMI_CONDENSED-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/NORMAL] CHECKED id=TextStyle-fontStretch-NORMAL-Link\n" +
+                "                        \"Semi Expanded\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/SEMI_EXPANDED] id=TextStyle-fontStretch-SEMI_EXPANDED-Link\n" +
+                "                        \"Expanded\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/EXPANDED] id=TextStyle-fontStretch-EXPANDED-Link\n" +
+                "                        \"Extra Expanded\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/EXTRA_EXPANDED] id=TextStyle-fontStretch-EXTRA_EXPANDED-Link\n" +
+                "                        \"Ultra Expanded\" [#/123/SpreadsheetName456/spreadsheet/style/font-stretch/save/ULTRA_EXPANDED] id=TextStyle-fontStretch-ULTRA_EXPANDED-Link\n" +
                 "            FontStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
-                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName1/spreadsheet/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
-                "                        \"Oblique\" [#/123/SpreadsheetName1/spreadsheet/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/font-style/save/] id=TextStyle-fontStyle-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/font-style/save/NORMAL] id=TextStyle-fontStyle-NORMAL-Link\n" +
+                "                        mdi-format-italic \"Italic\" [#/123/SpreadsheetName456/spreadsheet/style/font-style/save/ITALIC] CHECKED id=TextStyle-fontStyle-ITALIC-Link\n" +
+                "                        \"Oblique\" [#/123/SpreadsheetName456/spreadsheet/style/font-style/save/OBLIQUE] id=TextStyle-fontStyle-OBLIQUE-Link\n" +
                 "            FontVariantComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Font variant\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
-                "                        \"Initial\" [#/123/SpreadsheetName1/spreadsheet/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
-                "                        \"Small Caps\" [#/123/SpreadsheetName1/spreadsheet/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/font-variant/save/] id=TextStyle-fontVariant-Link\n" +
+                "                        \"Initial\" [#/123/SpreadsheetName456/spreadsheet/style/font-variant/save/INITIAL] id=TextStyle-fontVariant-INITIAL-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/font-variant/save/NORMAL] id=TextStyle-fontVariant-NORMAL-Link\n" +
+                "                        \"Small Caps\" [#/123/SpreadsheetName456/spreadsheet/style/font-variant/save/SMALL_CAPS] CHECKED id=TextStyle-fontVariant-SMALL_CAPS-Link\n" +
                 "            BigFontWeightComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -10634,20 +10634,20 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Bold\" [#/123/SpreadsheetName1/spreadsheet/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
-                "                          \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
+                "                          \"Bold\" [#/123/SpreadsheetName456/spreadsheet/style/font-weight/save/BOLD] id=TextStyle-fontWeight-BOLD-Link\n" +
+                "                          \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/font-weight/save/NORMAL] id=TextStyle-fontWeight-NORMAL-Link\n" +
                 "            HangingPunctuationComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Hanging punctuation\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
-                "                        \"First\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
-                "                        \"Last\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
-                "                        \"Allow End\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
-                "                        \"Force End\" [#/123/SpreadsheetName1/spreadsheet/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/] id=TextStyle-hangingPunctuation-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/NONE] id=TextStyle-hangingPunctuation-NONE-Link\n" +
+                "                        \"First\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/FIRST] CHECKED id=TextStyle-hangingPunctuation-FIRST-Link\n" +
+                "                        \"Last\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/LAST] id=TextStyle-hangingPunctuation-LAST-Link\n" +
+                "                        \"Allow End\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/ALLOW_END] id=TextStyle-hangingPunctuation-ALLOW_END-Link\n" +
+                "                        \"Force End\" [#/123/SpreadsheetName456/spreadsheet/style/hanging-punctuation/save/FORCE_END] id=TextStyle-hangingPunctuation-FORCE_END-Link\n" +
                 "            HeightComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -10659,10 +10659,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
-                "                        \"Manual\" [#/123/SpreadsheetName1/spreadsheet/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/spreadsheet/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/hyphens/save/] id=TextStyle-hyphens-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/hyphens/save/NONE] id=TextStyle-hyphens-NONE-Link\n" +
+                "                        \"Manual\" [#/123/SpreadsheetName456/spreadsheet/style/hyphens/save/MANUAL] id=TextStyle-hyphens-MANUAL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/spreadsheet/style/hyphens/save/AUTO] CHECKED id=TextStyle-hyphens-AUTO-Link\n" +
                 "            LetterSpacingComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -10722,32 +10722,32 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-x/save/] id=TextStyle-overflowX-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-x/save/VISIBLE] CHECKED id=TextStyle-overflowX-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-x/save/HIDDEN] id=TextStyle-overflowX-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-x/save/SCROLL] id=TextStyle-overflowX-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-x/save/AUTO] id=TextStyle-overflowX-AUTO-Link\n" +
                 "            OverflowComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow y\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
-                "                        \"Scroll\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-y/save/] id=TextStyle-overflowY-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-y/save/VISIBLE] id=TextStyle-overflowY-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-y/save/HIDDEN] CHECKED id=TextStyle-overflowY-HIDDEN-Link\n" +
+                "                        \"Scroll\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-y/save/SCROLL] id=TextStyle-overflowY-SCROLL-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-y/save/AUTO] id=TextStyle-overflowY-AUTO-Link\n" +
                 "            OverflowWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Overflow wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
-                "                        \"Anywhere\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/spreadsheet/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-wrap/save/] id=TextStyle-overflowWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-wrap/save/NORMAL] id=TextStyle-overflowWrap-NORMAL-Link\n" +
+                "                        \"Anywhere\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-wrap/save/ANYWHERE] id=TextStyle-overflowWrap-ANYWHERE-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/spreadsheet/style/overflow-wrap/save/BREAK_WORD] CHECKED id=TextStyle-overflowWrap-BREAK_WORD-Link\n" +
                 "            BigPaddingComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -10793,34 +10793,34 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
-                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
-                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
-                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
-                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/] id=TextStyle-textAlign-Link\n" +
+                "                        mdi-format-align-left \"Left\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/LEFT] id=TextStyle-textAlign-LEFT-Link\n" +
+                "                        mdi-format-align-center \"Center\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/CENTER] CHECKED id=TextStyle-textAlign-CENTER-Link\n" +
+                "                        mdi-format-align-right \"Right\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/RIGHT] id=TextStyle-textAlign-RIGHT-Link\n" +
+                "                        mdi-format-align-justify \"Justify\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/JUSTIFY] id=TextStyle-textAlign-JUSTIFY-Link\n" +
                 "            TextDecorationLineComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration line\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
-                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
-                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
-                "                        \"Overline\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
-                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-line/save/] id=TextStyle-textDecorationLine-Link\n" +
+                "                        mdi-format-clear \"None\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-line/save/NONE] id=TextStyle-textDecorationLine-NONE-Link\n" +
+                "                        mdi-format-strikethrough \"Strikethrough\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-line/save/LINE_THROUGH] id=TextStyle-textDecorationLine-LINE_THROUGH-Link\n" +
+                "                        \"Overline\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-line/save/OVERLINE] CHECKED id=TextStyle-textDecorationLine-OVERLINE-Link\n" +
+                "                        mdi-format-underline \"Underline\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-line/save/UNDERLINE] id=TextStyle-textDecorationLine-UNDERLINE-Link\n" +
                 "            TextDecorationStyleComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text decoration style\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
-                "                        \"Solid\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
-                "                        \"Double\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
-                "                        \"Dashed\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
-                "                        \"Dotted\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
-                "                        \"Wavy\" [#/123/SpreadsheetName1/spreadsheet/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/] id=TextStyle-textDecorationStyle-Link\n" +
+                "                        \"Solid\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/SOLID] id=TextStyle-textDecorationStyle-SOLID-Link\n" +
+                "                        \"Double\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/DOUBLE] id=TextStyle-textDecorationStyle-DOUBLE-Link\n" +
+                "                        \"Dashed\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/DASHED] id=TextStyle-textDecorationStyle-DASHED-Link\n" +
+                "                        \"Dotted\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/DOTTED] CHECKED id=TextStyle-textDecorationStyle-DOTTED-Link\n" +
+                "                        \"Wavy\" [#/123/SpreadsheetName456/spreadsheet/style/text-decoration-style/save/WAVY] id=TextStyle-textDecorationStyle-WAVY-Link\n" +
                 "            TextDecorationThicknessComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -10837,11 +10837,11 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
-                "                        \"Auto\" [#/123/SpreadsheetName1/spreadsheet/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
-                "                        \"Inter Word\" [#/123/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
-                "                        \"Inter Character\" [#/123/SpreadsheetName1/spreadsheet/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-justify/save/] id=TextStyle-textJustify-Link\n" +
+                "                        \"Auto\" [#/123/SpreadsheetName456/spreadsheet/style/text-justify/save/AUTO] id=TextStyle-textJustify-AUTO-Link\n" +
+                "                        \"Inter Word\" [#/123/SpreadsheetName456/spreadsheet/style/text-justify/save/INTER_WORD] CHECKED id=TextStyle-textJustify-INTER_WORD-Link\n" +
+                "                        \"Inter Character\" [#/123/SpreadsheetName456/spreadsheet/style/text-justify/save/INTER_CHARACTER] id=TextStyle-textJustify-INTER_CHARACTER-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/text-justify/save/NONE] id=TextStyle-textJustify-NONE-Link\n" +
                 "            BigTextOverflowComponent\n" +
                 "              FormElementComponent\n" +
                 "                label\n" +
@@ -10853,8 +10853,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Clip\" [#/123/SpreadsheetName1/spreadsheet/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
-                "                          \"Ellipsis\" [#/123/SpreadsheetName1/spreadsheet/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
+                "                          \"Clip\" [#/123/SpreadsheetName456/spreadsheet/style/text-overflow/save/CLIP] id=TextStyle-textOverflow-clip-Link\n" +
+                "                          \"Ellipsis\" [#/123/SpreadsheetName456/spreadsheet/style/text-overflow/save/ELLIPSIS] id=TextStyle-textOverflow-ellipsis-Link\n" +
                 "                    TextOverflowComponent\n" +
                 "                      ValueTextBoxComponent\n" +
                 "                        TextBoxComponent\n" +
@@ -10865,53 +10865,53 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
-                "                        \"None\" [#/123/SpreadsheetName1/spreadsheet/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
-                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName1/spreadsheet/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
-                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName1/spreadsheet/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
-                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName1/spreadsheet/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-transform/save/] id=TextStyle-textTransform-Link\n" +
+                "                        \"None\" [#/123/SpreadsheetName456/spreadsheet/style/text-transform/save/NONE] id=TextStyle-textTransform-NONE-Link\n" +
+                "                        mdi-format-letter-case \"Capitalize\" [#/123/SpreadsheetName456/spreadsheet/style/text-transform/save/CAPITALIZE] id=TextStyle-textTransform-CAPITALIZE-Link\n" +
+                "                        mdi-format-letter-case-upper \"Uppercase\" [#/123/SpreadsheetName456/spreadsheet/style/text-transform/save/UPPERCASE] CHECKED id=TextStyle-textTransform-UPPERCASE-Link\n" +
+                "                        mdi-format-letter-case-lower \"Lowercase\" [#/123/SpreadsheetName456/spreadsheet/style/text-transform/save/LOWERCASE] id=TextStyle-textTransform-LOWERCASE-Link\n" +
                 "            TextWrappingComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Text wrapping\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
-                "                        \"Clip\" [#/123/SpreadsheetName1/spreadsheet/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
-                "                        \"Overflow\" [#/123/SpreadsheetName1/spreadsheet/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
-                "                        \"Wrap\" [#/123/SpreadsheetName1/spreadsheet/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-wrapping/save/] id=TextStyle-textWrapping-Link\n" +
+                "                        \"Clip\" [#/123/SpreadsheetName456/spreadsheet/style/text-wrapping/save/CLIP] id=TextStyle-textWrapping-CLIP-Link\n" +
+                "                        \"Overflow\" [#/123/SpreadsheetName456/spreadsheet/style/text-wrapping/save/OVERFLOW] id=TextStyle-textWrapping-OVERFLOW-Link\n" +
+                "                        \"Wrap\" [#/123/SpreadsheetName456/spreadsheet/style/text-wrapping/save/WRAP] CHECKED id=TextStyle-textWrapping-WRAP-Link\n" +
                 "            VerticalAlignComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Vertical align\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
-                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName1/spreadsheet/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
-                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName1/spreadsheet/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
-                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName1/spreadsheet/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
+                "                        mdi-format-clear \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/vertical-align/save/] id=TextStyle-verticalAlign-Link\n" +
+                "                        mdi-format-align-top \"Top\" [#/123/SpreadsheetName456/spreadsheet/style/vertical-align/save/TOP] id=TextStyle-verticalAlign-TOP-Link\n" +
+                "                        mdi-format-align-middle \"Middle\" [#/123/SpreadsheetName456/spreadsheet/style/vertical-align/save/MIDDLE] CHECKED id=TextStyle-verticalAlign-MIDDLE-Link\n" +
+                "                        mdi-format-align-bottom \"Bottom\" [#/123/SpreadsheetName456/spreadsheet/style/vertical-align/save/BOTTOM] id=TextStyle-verticalAlign-BOTTOM-Link\n" +
                 "            VisibilityComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Visibility\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/visibility/save/] id=TextStyle-visibility-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/spreadsheet/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/spreadsheet/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
-                "                        \"Collapse\" [#/123/SpreadsheetName1/spreadsheet/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/visibility/save/] id=TextStyle-visibility-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/spreadsheet/style/visibility/save/VISIBLE] CHECKED id=TextStyle-visibility-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/spreadsheet/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
+                "                        \"Collapse\" [#/123/SpreadsheetName456/spreadsheet/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "            WhitespaceComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                White space\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
-                "                        \"Nowrap\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
-                "                        \"Pre\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
-                "                        \"Pre Line\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
-                "                        \"Pre Wrap\" [#/123/SpreadsheetName1/spreadsheet/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/] id=TextStyle-whiteSpace-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/NORMAL] id=TextStyle-whiteSpace-NORMAL-Link\n" +
+                "                        \"Nowrap\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/NOWRAP] CHECKED id=TextStyle-whiteSpace-NOWRAP-Link\n" +
+                "                        \"Pre\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/PRE] id=TextStyle-whiteSpace-PRE-Link\n" +
+                "                        \"Pre Line\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/PRE_LINE] id=TextStyle-whiteSpace-PRE_LINE-Link\n" +
+                "                        \"Pre Wrap\" [#/123/SpreadsheetName456/spreadsheet/style/white-space/save/PRE_WRAP] id=TextStyle-whiteSpace-PRE_WRAP-Link\n" +
                 "            WidthComponent\n" +
                 "              LengthComponent\n" +
                 "                ValueTextBoxComponent\n" +
@@ -10923,30 +10923,30 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
-                "                        \"Break All\" [#/123/SpreadsheetName1/spreadsheet/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
-                "                        \"Keep All\" [#/123/SpreadsheetName1/spreadsheet/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/spreadsheet/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/word-break/save/] id=TextStyle-wordBreak-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/word-break/save/NORMAL] id=TextStyle-wordBreak-NORMAL-Link\n" +
+                "                        \"Break All\" [#/123/SpreadsheetName456/spreadsheet/style/word-break/save/BREAK_ALL] id=TextStyle-wordBreak-BREAK_ALL-Link\n" +
+                "                        \"Keep All\" [#/123/SpreadsheetName456/spreadsheet/style/word-break/save/KEEP_ALL] id=TextStyle-wordBreak-KEEP_ALL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/spreadsheet/style/word-break/save/BREAK_WORD] CHECKED id=TextStyle-wordBreak-BREAK_WORD-Link\n" +
                 "            WordWrapComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Word wrap\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
-                "                        \"Normal\" [#/123/SpreadsheetName1/spreadsheet/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
-                "                        \"Break Word\" [#/123/SpreadsheetName1/spreadsheet/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/word-wrap/save/] id=TextStyle-wordWrap-Link\n" +
+                "                        \"Normal\" [#/123/SpreadsheetName456/spreadsheet/style/word-wrap/save/NORMAL] id=TextStyle-wordWrap-NORMAL-Link\n" +
+                "                        \"Break Word\" [#/123/SpreadsheetName456/spreadsheet/style/word-wrap/save/BREAK_WORD] CHECKED id=TextStyle-wordWrap-BREAK_WORD-Link\n" +
                 "            WritingModeComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Writing mode\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
-                "                        \"Horizontal Tb\" [#/123/SpreadsheetName1/spreadsheet/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
-                "                        \"Vertical Lr\" [#/123/SpreadsheetName1/spreadsheet/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
-                "                        \"Vertical Rl\" [#/123/SpreadsheetName1/spreadsheet/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/writing-mode/save/] id=TextStyle-writingMode-Link\n" +
+                "                        \"Horizontal Tb\" [#/123/SpreadsheetName456/spreadsheet/style/writing-mode/save/HORIZONTAL_TB] CHECKED id=TextStyle-writingMode-HORIZONTAL_TB-Link\n" +
+                "                        \"Vertical Lr\" [#/123/SpreadsheetName456/spreadsheet/style/writing-mode/save/VERTICAL_LR] id=TextStyle-writingMode-VERTICAL_LR-Link\n" +
+                "                        \"Vertical Rl\" [#/123/SpreadsheetName456/spreadsheet/style/writing-mode/save/VERTICAL_RL] id=TextStyle-writingMode-VERTICAL_RL-Link\n" +
                 "      TextStyleComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -10955,10 +10955,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/spreadsheet/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_ id=TextStyle-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/spreadsheet/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREAK_ id=TextStyle-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1] id=TextStyle-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/spreadsheet/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREA id=TextStyle-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/*/save/] id=TextStyle-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/spreadsheet/style/*/save/background-color:%20black;%20border-bottom-color:%20green;%20border-bottom-style:%20DOTTED;%20border-bottom-width:%203px;%20border-left-color:%20blue;%20border-left-style:%20DOTTED;%20border-left-width:%204px;%20border-right-color:%20black;%20border-right-style:%20SOLID;%20border-right-width:%201px;%20border-top-color:%20white;%20border-top-style:%20DASHED;%20border-top-width:%202px;%20color:%20black;%20direction:%20LTR;%20font-family:%20Courier;%20font-kerning:%20AUTO;%20font-size:%2099;%20font-stretch:%20NORMAL;%20font-style:%20ITALIC;%20font-variant:%20SMALL_CAPS;%20font-weight:%20BOLD;%20hanging-punctuation:%20FIRST;%20height:%2055px;%20hyphens:%20AUTO;%20letter-spacing:%2033px;%20line-height:%2044px;%20margin-bottom:%203px;%20margin-left:%204px;%20margin-right:%202px;%20margin-top:%201px;%20opacity:%2050%25;%20overflow-wrap:%20BREA id=TextStyle-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456] id=TextStyle-close-Link\n"
         );
     }
 
@@ -11048,15 +11048,15 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Border\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COL%20BORDER] id=TextStyle-filter-BORDER-Link\n" +
-                "                          \"Box\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COL%20BOX] id=TextStyle-filter-BOX-Link\n" +
-                "                          \"Break\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COL%20BREAK] id=TextStyle-filter-BREAK-Link\n" +
-                "                          \"Color\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COL%20COLOR] id=TextStyle-filter-COLOR-Link\n" +
-                "                          \"Font\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COL%20FONT] id=TextStyle-filter-FONT-Link\n" +
-                "                          \"Measure\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COL%20MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
-                "                          \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COL%20OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
-                "                          \"Text\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COL%20TEXT] id=TextStyle-filter-TEXT-Link\n" +
-                "                          \"Whitespace\" [#/123/SpreadsheetName1/cell/A1/style/*/filter/COL%20WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
+                "                          \"Border\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COL%20BORDER] id=TextStyle-filter-BORDER-Link\n" +
+                "                          \"Box\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COL%20BOX] id=TextStyle-filter-BOX-Link\n" +
+                "                          \"Break\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COL%20BREAK] id=TextStyle-filter-BREAK-Link\n" +
+                "                          \"Color\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COL%20COLOR] id=TextStyle-filter-COLOR-Link\n" +
+                "                          \"Font\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COL%20FONT] id=TextStyle-filter-FONT-Link\n" +
+                "                          \"Measure\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COL%20MEASURE] id=TextStyle-filter-MEASURE-Link\n" +
+                "                          \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COL%20OVERFLOW] id=TextStyle-filter-OVERFLOW-Link\n" +
+                "                          \"Text\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COL%20TEXT] id=TextStyle-filter-TEXT-Link\n" +
+                "                          \"Whitespace\" [#/123/SpreadsheetName456/cell/A1/style/*/filter/COL%20WHITESPACE] id=TextStyle-filter-WHITESPACE-Link\n" +
                 "            BackgroundColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -11072,10 +11072,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -11247,7 +11247,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderBottomColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -11263,10 +11263,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -11438,7 +11438,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderLeftColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -11454,10 +11454,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -11629,7 +11629,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderRightColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -11645,10 +11645,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -11820,7 +11820,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            BorderTopColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -11836,10 +11836,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -12011,7 +12011,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/] id=TextStyle-color-clear-Link\n" +
                 "            TextStyleColorComponent\n" +
                 "              TextStylePropertyColorComponent\n" +
                 "                ColorComponent\n" +
@@ -12027,10 +12027,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"Black\" [#/123/SpreadsheetName1/cell/A1/style/color/save/black] id=TextStyle-color-1-Link\n" +
+                "                                  \"Black\" [#/123/SpreadsheetName456/cell/A1/style/color/save/black] id=TextStyle-color-1-Link\n" +
                 "                              TD\n" +
                 "                                style=\"background-color: white; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                                  \"White\" [#/123/SpreadsheetName1/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
+                "                                  \"White\" [#/123/SpreadsheetName456/cell/A1/style/color/save/white] id=TextStyle-color-2-Link\n" +
                 "                              TD\n" +
                 "                                style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                                  DISABLED id=TextStyle-color-3-Link\n" +
@@ -12202,17 +12202,17 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "                            TR\n",
                 "                              TD\n" +
                 "                                colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                                  \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
+                "                                  \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=TextStyle-color-clear-Link\n" +
                 "            VisibilityComponent\n" +
                 "              TextStylePropertyEnumComponent\n" +
                 "                Visibility\n" +
                 "                  AnchorListComponent\n" +
                 "                    FlexLayoutComponent\n" +
                 "                      ROW\n" +
-                "                        \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
-                "                        \"Visible\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/VISIBLE] id=TextStyle-visibility-VISIBLE-Link\n" +
-                "                        \"Hidden\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
-                "                        \"Collapse\" [#/123/SpreadsheetName1/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/] id=TextStyle-visibility-Link\n" +
+                "                        \"Visible\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/VISIBLE] id=TextStyle-visibility-VISIBLE-Link\n" +
+                "                        \"Hidden\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/HIDDEN] id=TextStyle-visibility-HIDDEN-Link\n" +
+                "                        \"Collapse\" [#/123/SpreadsheetName456/cell/A1/style/visibility/save/COLLAPSE] id=TextStyle-visibility-COLLAPSE-Link\n" +
                 "      TextStyleComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -12221,10 +12221,10 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=TextStyle-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=TextStyle-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=TextStyle-close-Link\n"
         );
     }
 

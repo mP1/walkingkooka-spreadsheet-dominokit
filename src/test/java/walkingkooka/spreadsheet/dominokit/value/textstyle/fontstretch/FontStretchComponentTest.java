@@ -51,16 +51,16 @@ public final class FontStretchComponentTest implements TextStylePropertyEnumComp
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/] id=Test123-fontStretch-Link\n" +
-                "          \"Ultra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=Test123-fontStretch-ULTRA_CONDENSED-Link\n" +
-                "          \"Extra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=Test123-fontStretch-EXTRA_CONDENSED-Link\n" +
-                "          \"Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] CHECKED id=Test123-fontStretch-CONDENSED-Link\n" +
-                "          \"Semi Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=Test123-fontStretch-SEMI_CONDENSED-Link\n" +
-                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] id=Test123-fontStretch-NORMAL-Link\n" +
-                "          \"Semi Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=Test123-fontStretch-SEMI_EXPANDED-Link\n" +
-                "          \"Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=Test123-fontStretch-EXPANDED-Link\n" +
-                "          \"Extra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=Test123-fontStretch-EXTRA_EXPANDED-Link\n" +
-                "          \"Ultra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=Test123-fontStretch-ULTRA_EXPANDED-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/] id=Test123-fontStretch-Link\n" +
+                "          \"Ultra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=Test123-fontStretch-ULTRA_CONDENSED-Link\n" +
+                "          \"Extra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=Test123-fontStretch-EXTRA_CONDENSED-Link\n" +
+                "          \"Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/CONDENSED] CHECKED id=Test123-fontStretch-CONDENSED-Link\n" +
+                "          \"Semi Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=Test123-fontStretch-SEMI_CONDENSED-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/NORMAL] id=Test123-fontStretch-NORMAL-Link\n" +
+                "          \"Semi Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=Test123-fontStretch-SEMI_EXPANDED-Link\n" +
+                "          \"Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXPANDED] id=Test123-fontStretch-EXPANDED-Link\n" +
+                "          \"Extra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=Test123-fontStretch-EXTRA_EXPANDED-Link\n" +
+                "          \"Ultra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=Test123-fontStretch-ULTRA_EXPANDED-Link\n"
         );
     }
 
@@ -88,16 +88,16 @@ public final class FontStretchComponentTest implements TextStylePropertyEnumComp
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/] id=Test123-fontStretch-Link\n" +
-                "          \"Ultra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=Test123-fontStretch-ULTRA_CONDENSED-Link\n" +
-                "          \"Extra Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=Test123-fontStretch-EXTRA_CONDENSED-Link\n" +
-                "          \"Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/CONDENSED] id=Test123-fontStretch-CONDENSED-Link\n" +
-                "          \"Semi Condensed\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=Test123-fontStretch-SEMI_CONDENSED-Link\n" +
-                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=Test123-fontStretch-NORMAL-Link\n" +
-                "          \"Semi Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=Test123-fontStretch-SEMI_EXPANDED-Link\n" +
-                "          \"Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXPANDED] id=Test123-fontStretch-EXPANDED-Link\n" +
-                "          \"Extra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=Test123-fontStretch-EXTRA_EXPANDED-Link\n" +
-                "          \"Ultra Expanded\" [#/123/SpreadsheetName1/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=Test123-fontStretch-ULTRA_EXPANDED-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/] id=Test123-fontStretch-Link\n" +
+                "          \"Ultra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_CONDENSED] id=Test123-fontStretch-ULTRA_CONDENSED-Link\n" +
+                "          \"Extra Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_CONDENSED] id=Test123-fontStretch-EXTRA_CONDENSED-Link\n" +
+                "          \"Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/CONDENSED] id=Test123-fontStretch-CONDENSED-Link\n" +
+                "          \"Semi Condensed\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_CONDENSED] id=Test123-fontStretch-SEMI_CONDENSED-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/NORMAL] CHECKED id=Test123-fontStretch-NORMAL-Link\n" +
+                "          \"Semi Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/SEMI_EXPANDED] id=Test123-fontStretch-SEMI_EXPANDED-Link\n" +
+                "          \"Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXPANDED] id=Test123-fontStretch-EXPANDED-Link\n" +
+                "          \"Extra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/EXTRA_EXPANDED] id=Test123-fontStretch-EXTRA_EXPANDED-Link\n" +
+                "          \"Ultra Expanded\" [#/123/SpreadsheetName456/cell/A1/style/font-stretch/save/ULTRA_EXPANDED] id=Test123-fontStretch-ULTRA_EXPANDED-Link\n"
         );
     }
 

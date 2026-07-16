@@ -51,10 +51,10 @@ public final class FontStyleComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/] id=Test123-fontStyle-Link\n" +
-                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/NORMAL] id=Test123-fontStyle-NORMAL-Link\n" +
-                "          mdi-format-italic \"Italic\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] CHECKED id=Test123-fontStyle-ITALIC-Link\n" +
-                "          \"Oblique\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] id=Test123-fontStyle-OBLIQUE-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/] id=Test123-fontStyle-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/NORMAL] id=Test123-fontStyle-NORMAL-Link\n" +
+                "          mdi-format-italic \"Italic\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/ITALIC] CHECKED id=Test123-fontStyle-ITALIC-Link\n" +
+                "          \"Oblique\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/OBLIQUE] id=Test123-fontStyle-OBLIQUE-Link\n"
         );
     }
 
@@ -82,10 +82,10 @@ public final class FontStyleComponentTest implements TextStylePropertyEnumCompon
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/] id=Test123-fontStyle-Link\n" +
-                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/NORMAL] id=Test123-fontStyle-NORMAL-Link\n" +
-                "          mdi-format-italic \"Italic\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/ITALIC] id=Test123-fontStyle-ITALIC-Link\n" +
-                "          \"Oblique\" [#/123/SpreadsheetName1/cell/A1/style/font-style/save/OBLIQUE] CHECKED id=Test123-fontStyle-OBLIQUE-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/] id=Test123-fontStyle-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/NORMAL] id=Test123-fontStyle-NORMAL-Link\n" +
+                "          mdi-format-italic \"Italic\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/ITALIC] id=Test123-fontStyle-ITALIC-Link\n" +
+                "          \"Oblique\" [#/123/SpreadsheetName456/cell/A1/style/font-style/save/OBLIQUE] CHECKED id=Test123-fontStyle-OBLIQUE-Link\n"
         );
     }
 

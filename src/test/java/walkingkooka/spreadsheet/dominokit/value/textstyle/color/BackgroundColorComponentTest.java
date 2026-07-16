@@ -91,179 +91,179 @@ public final class BackgroundColorComponentTest implements TextStylePropertyColo
                 "                      \"Black\" DISABLED id=TestIdPrefix-color-1-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000002; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"White\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000002] id=TestIdPrefix-color-2-Link\n" +
+                "                      \"White\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000002] id=TestIdPrefix-color-2-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000003; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 3\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000003] id=TestIdPrefix-color-3-Link\n" +
+                "                      \"color 3\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000003] id=TestIdPrefix-color-3-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000004; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 4\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000004] id=TestIdPrefix-color-4-Link\n" +
+                "                      \"color 4\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000004] id=TestIdPrefix-color-4-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000005; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 5\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000005] id=TestIdPrefix-color-5-Link\n" +
+                "                      \"color 5\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000005] id=TestIdPrefix-color-5-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000006; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 6\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000006] id=TestIdPrefix-color-6-Link\n" +
+                "                      \"color 6\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000006] id=TestIdPrefix-color-6-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000007; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 7\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000007] id=TestIdPrefix-color-7-Link\n" +
+                "                      \"color 7\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000007] id=TestIdPrefix-color-7-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000008; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 8\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000008] id=TestIdPrefix-color-8-Link\n" +
+                "                      \"color 8\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000008] id=TestIdPrefix-color-8-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000009; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 9\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000009] id=TestIdPrefix-color-9-Link\n" +
+                "                      \"color 9\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000009] id=TestIdPrefix-color-9-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000a; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 10\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000a] id=TestIdPrefix-color-10-Link\n" +
+                "                      \"color 10\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300000a] id=TestIdPrefix-color-10-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000b; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 11\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000b] id=TestIdPrefix-color-11-Link\n" +
+                "                      \"color 11\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300000b] id=TestIdPrefix-color-11-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000c; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 12\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000c] id=TestIdPrefix-color-12-Link\n" +
+                "                      \"color 12\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300000c] id=TestIdPrefix-color-12-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000d; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 13\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000d] id=TestIdPrefix-color-13-Link\n" +
+                "                      \"color 13\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300000d] id=TestIdPrefix-color-13-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000e; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 14\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000e] id=TestIdPrefix-color-14-Link\n" +
+                "                      \"color 14\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300000e] id=TestIdPrefix-color-14-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000f; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 15\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300000f] id=TestIdPrefix-color-15-Link\n" +
+                "                      \"color 15\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300000f] id=TestIdPrefix-color-15-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000010; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 16\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000010] id=TestIdPrefix-color-16-Link\n" +
+                "                      \"color 16\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000010] id=TestIdPrefix-color-16-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000011; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 17\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23001] id=TestIdPrefix-color-17-Link\n" +
+                "                      \"color 17\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23001] id=TestIdPrefix-color-17-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000012; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 18\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000012] id=TestIdPrefix-color-18-Link\n" +
+                "                      \"color 18\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000012] id=TestIdPrefix-color-18-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000013; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 19\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000013] id=TestIdPrefix-color-19-Link\n" +
+                "                      \"color 19\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000013] id=TestIdPrefix-color-19-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000014; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 20\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000014] id=TestIdPrefix-color-20-Link\n" +
+                "                      \"color 20\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000014] id=TestIdPrefix-color-20-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000015; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 21\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000015] id=TestIdPrefix-color-21-Link\n" +
+                "                      \"color 21\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000015] id=TestIdPrefix-color-21-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000016; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 22\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000016] id=TestIdPrefix-color-22-Link\n" +
+                "                      \"color 22\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000016] id=TestIdPrefix-color-22-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000017; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 23\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000017] id=TestIdPrefix-color-23-Link\n" +
+                "                      \"color 23\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000017] id=TestIdPrefix-color-23-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000018; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 24\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000018] id=TestIdPrefix-color-24-Link\n" +
+                "                      \"color 24\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000018] id=TestIdPrefix-color-24-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000019; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 25\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000019] id=TestIdPrefix-color-25-Link\n" +
+                "                      \"color 25\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000019] id=TestIdPrefix-color-25-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001a; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 26\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001a] id=TestIdPrefix-color-26-Link\n" +
+                "                      \"color 26\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300001a] id=TestIdPrefix-color-26-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001b; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 27\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001b] id=TestIdPrefix-color-27-Link\n" +
+                "                      \"color 27\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300001b] id=TestIdPrefix-color-27-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001c; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 28\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001c] id=TestIdPrefix-color-28-Link\n" +
+                "                      \"color 28\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300001c] id=TestIdPrefix-color-28-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001d; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 29\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001d] id=TestIdPrefix-color-29-Link\n" +
+                "                      \"color 29\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300001d] id=TestIdPrefix-color-29-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001e; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 30\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001e] id=TestIdPrefix-color-30-Link\n" +
+                "                      \"color 30\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300001e] id=TestIdPrefix-color-30-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001f; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 31\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300001f] id=TestIdPrefix-color-31-Link\n" +
+                "                      \"color 31\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300001f] id=TestIdPrefix-color-31-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000020; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 32\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000020] id=TestIdPrefix-color-32-Link\n" +
+                "                      \"color 32\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000020] id=TestIdPrefix-color-32-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000021; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 33\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000021] id=TestIdPrefix-color-33-Link\n" +
+                "                      \"color 33\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000021] id=TestIdPrefix-color-33-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000022; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 34\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23002] id=TestIdPrefix-color-34-Link\n" +
+                "                      \"color 34\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23002] id=TestIdPrefix-color-34-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000023; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 35\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000023] id=TestIdPrefix-color-35-Link\n" +
+                "                      \"color 35\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000023] id=TestIdPrefix-color-35-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000024; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 36\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000024] id=TestIdPrefix-color-36-Link\n" +
+                "                      \"color 36\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000024] id=TestIdPrefix-color-36-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000025; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 37\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000025] id=TestIdPrefix-color-37-Link\n" +
+                "                      \"color 37\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000025] id=TestIdPrefix-color-37-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000026; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 38\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000026] id=TestIdPrefix-color-38-Link\n" +
+                "                      \"color 38\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000026] id=TestIdPrefix-color-38-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000027; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 39\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000027] id=TestIdPrefix-color-39-Link\n" +
+                "                      \"color 39\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000027] id=TestIdPrefix-color-39-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000028; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 40\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000028] id=TestIdPrefix-color-40-Link\n" +
+                "                      \"color 40\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000028] id=TestIdPrefix-color-40-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000029; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 41\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000029] id=TestIdPrefix-color-41-Link\n" +
+                "                      \"color 41\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000029] id=TestIdPrefix-color-41-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002a; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 42\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002a] id=TestIdPrefix-color-42-Link\n" +
+                "                      \"color 42\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300002a] id=TestIdPrefix-color-42-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002b; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 43\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002b] id=TestIdPrefix-color-43-Link\n" +
+                "                      \"color 43\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300002b] id=TestIdPrefix-color-43-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002c; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 44\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002c] id=TestIdPrefix-color-44-Link\n" +
+                "                      \"color 44\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300002c] id=TestIdPrefix-color-44-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002d; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 45\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002d] id=TestIdPrefix-color-45-Link\n" +
+                "                      \"color 45\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300002d] id=TestIdPrefix-color-45-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002e; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 46\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002e] id=TestIdPrefix-color-46-Link\n" +
+                "                      \"color 46\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300002e] id=TestIdPrefix-color-46-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002f; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 47\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%2300002f] id=TestIdPrefix-color-47-Link\n" +
+                "                      \"color 47\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%2300002f] id=TestIdPrefix-color-47-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000030; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 48\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000030] id=TestIdPrefix-color-48-Link\n" +
+                "                      \"color 48\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000030] id=TestIdPrefix-color-48-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000031; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 49\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000031] id=TestIdPrefix-color-49-Link\n" +
+                "                      \"color 49\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000031] id=TestIdPrefix-color-49-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000032; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 50\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000032] id=TestIdPrefix-color-50-Link\n" +
+                "                      \"color 50\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000032] id=TestIdPrefix-color-50-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000033; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 51\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23003] id=TestIdPrefix-color-51-Link\n" +
+                "                      \"color 51\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23003] id=TestIdPrefix-color-51-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000034; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 52\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000034] id=TestIdPrefix-color-52-Link\n" +
+                "                      \"color 52\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000034] id=TestIdPrefix-color-52-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000035; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 53\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000035] id=TestIdPrefix-color-53-Link\n" +
+                "                      \"color 53\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000035] id=TestIdPrefix-color-53-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000036; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 54\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000036] id=TestIdPrefix-color-54-Link\n" +
+                "                      \"color 54\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000036] id=TestIdPrefix-color-54-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000037; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 55\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/%23000037] id=TestIdPrefix-color-55-Link\n" +
+                "                      \"color 55\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/%23000037] id=TestIdPrefix-color-55-Link\n" +
                 "                  TD\n" +
                 "                    style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                      DISABLED id=TestIdPrefix-color-56-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                      \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/background-color/save/] id=TestIdPrefix-color-clear-Link\n"
+                "                      \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/background-color/save/] id=TestIdPrefix-color-clear-Link\n"
         );
     }
 
@@ -318,179 +318,179 @@ public final class BackgroundColorComponentTest implements TextStylePropertyColo
                 "                      \"Black\" DISABLED id=Test123-color-1-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000002; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"White\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000002] id=Test123-color-2-Link\n" +
+                "                      \"White\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000002] id=Test123-color-2-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000003; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 3\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000003] id=Test123-color-3-Link\n" +
+                "                      \"color 3\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000003] id=Test123-color-3-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000004; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 4\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000004] id=Test123-color-4-Link\n" +
+                "                      \"color 4\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000004] id=Test123-color-4-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000005; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 5\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000005] id=Test123-color-5-Link\n" +
+                "                      \"color 5\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000005] id=Test123-color-5-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000006; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 6\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000006] id=Test123-color-6-Link\n" +
+                "                      \"color 6\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000006] id=Test123-color-6-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000007; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 7\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000007] id=Test123-color-7-Link\n" +
+                "                      \"color 7\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000007] id=Test123-color-7-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000008; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 8\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000008] id=Test123-color-8-Link\n" +
+                "                      \"color 8\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000008] id=Test123-color-8-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000009; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 9\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000009] id=Test123-color-9-Link\n" +
+                "                      \"color 9\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000009] id=Test123-color-9-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000a; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 10\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300000a] id=Test123-color-10-Link\n" +
+                "                      \"color 10\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300000a] id=Test123-color-10-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000b; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 11\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300000b] id=Test123-color-11-Link\n" +
+                "                      \"color 11\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300000b] id=Test123-color-11-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000c; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 12\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300000c] id=Test123-color-12-Link\n" +
+                "                      \"color 12\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300000c] id=Test123-color-12-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000d; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 13\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300000d] id=Test123-color-13-Link\n" +
+                "                      \"color 13\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300000d] id=Test123-color-13-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000e; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 14\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300000e] id=Test123-color-14-Link\n" +
+                "                      \"color 14\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300000e] id=Test123-color-14-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00000f; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 15\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300000f] id=Test123-color-15-Link\n" +
+                "                      \"color 15\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300000f] id=Test123-color-15-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000010; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 16\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000010] id=Test123-color-16-Link\n" +
+                "                      \"color 16\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000010] id=Test123-color-16-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000011; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 17\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23001] id=Test123-color-17-Link\n" +
+                "                      \"color 17\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23001] id=Test123-color-17-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000012; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 18\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000012] id=Test123-color-18-Link\n" +
+                "                      \"color 18\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000012] id=Test123-color-18-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000013; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 19\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000013] id=Test123-color-19-Link\n" +
+                "                      \"color 19\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000013] id=Test123-color-19-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000014; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 20\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000014] id=Test123-color-20-Link\n" +
+                "                      \"color 20\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000014] id=Test123-color-20-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000015; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 21\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000015] id=Test123-color-21-Link\n" +
+                "                      \"color 21\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000015] id=Test123-color-21-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000016; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 22\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000016] id=Test123-color-22-Link\n" +
+                "                      \"color 22\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000016] id=Test123-color-22-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000017; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 23\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000017] id=Test123-color-23-Link\n" +
+                "                      \"color 23\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000017] id=Test123-color-23-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000018; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 24\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000018] id=Test123-color-24-Link\n" +
+                "                      \"color 24\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000018] id=Test123-color-24-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000019; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 25\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000019] id=Test123-color-25-Link\n" +
+                "                      \"color 25\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000019] id=Test123-color-25-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001a; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 26\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300001a] id=Test123-color-26-Link\n" +
+                "                      \"color 26\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300001a] id=Test123-color-26-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001b; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 27\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300001b] id=Test123-color-27-Link\n" +
+                "                      \"color 27\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300001b] id=Test123-color-27-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001c; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 28\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300001c] id=Test123-color-28-Link\n" +
+                "                      \"color 28\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300001c] id=Test123-color-28-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001d; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 29\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300001d] id=Test123-color-29-Link\n" +
+                "                      \"color 29\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300001d] id=Test123-color-29-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001e; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 30\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300001e] id=Test123-color-30-Link\n" +
+                "                      \"color 30\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300001e] id=Test123-color-30-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00001f; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 31\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300001f] id=Test123-color-31-Link\n" +
+                "                      \"color 31\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300001f] id=Test123-color-31-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000020; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 32\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000020] id=Test123-color-32-Link\n" +
+                "                      \"color 32\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000020] id=Test123-color-32-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000021; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 33\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000021] id=Test123-color-33-Link\n" +
+                "                      \"color 33\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000021] id=Test123-color-33-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000022; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 34\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23002] id=Test123-color-34-Link\n" +
+                "                      \"color 34\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23002] id=Test123-color-34-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000023; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 35\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000023] id=Test123-color-35-Link\n" +
+                "                      \"color 35\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000023] id=Test123-color-35-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000024; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 36\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000024] id=Test123-color-36-Link\n" +
+                "                      \"color 36\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000024] id=Test123-color-36-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000025; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 37\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000025] id=Test123-color-37-Link\n" +
+                "                      \"color 37\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000025] id=Test123-color-37-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000026; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 38\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000026] id=Test123-color-38-Link\n" +
+                "                      \"color 38\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000026] id=Test123-color-38-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000027; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 39\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000027] id=Test123-color-39-Link\n" +
+                "                      \"color 39\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000027] id=Test123-color-39-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000028; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 40\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000028] id=Test123-color-40-Link\n" +
+                "                      \"color 40\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000028] id=Test123-color-40-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000029; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 41\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000029] id=Test123-color-41-Link\n" +
+                "                      \"color 41\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000029] id=Test123-color-41-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002a; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 42\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300002a] id=Test123-color-42-Link\n" +
+                "                      \"color 42\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300002a] id=Test123-color-42-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002b; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 43\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300002b] id=Test123-color-43-Link\n" +
+                "                      \"color 43\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300002b] id=Test123-color-43-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002c; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 44\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300002c] id=Test123-color-44-Link\n" +
+                "                      \"color 44\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300002c] id=Test123-color-44-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002d; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 45\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300002d] id=Test123-color-45-Link\n" +
+                "                      \"color 45\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300002d] id=Test123-color-45-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002e; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 46\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300002e] id=Test123-color-46-Link\n" +
+                "                      \"color 46\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300002e] id=Test123-color-46-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #00002f; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 47\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%2300002f] id=Test123-color-47-Link\n" +
+                "                      \"color 47\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%2300002f] id=Test123-color-47-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000030; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 48\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000030] id=Test123-color-48-Link\n" +
+                "                      \"color 48\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000030] id=Test123-color-48-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000031; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 49\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000031] id=Test123-color-49-Link\n" +
+                "                      \"color 49\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000031] id=Test123-color-49-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000032; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 50\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000032] id=Test123-color-50-Link\n" +
+                "                      \"color 50\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000032] id=Test123-color-50-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000033; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 51\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23003] id=Test123-color-51-Link\n" +
+                "                      \"color 51\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23003] id=Test123-color-51-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000034; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 52\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000034] id=Test123-color-52-Link\n" +
+                "                      \"color 52\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000034] id=Test123-color-52-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000035; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 53\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000035] id=Test123-color-53-Link\n" +
+                "                      \"color 53\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000035] id=Test123-color-53-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000036; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 54\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000036] id=Test123-color-54-Link\n" +
+                "                      \"color 54\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000036] id=Test123-color-54-Link\n" +
                 "                  TD\n" +
                 "                    style=\"background-color: #000037; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                      \"color 55\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/%23000037] id=Test123-color-55-Link\n" +
+                "                      \"color 55\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/%23000037] id=Test123-color-55-Link\n" +
                 "                  TD\n" +
                 "                    style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                      DISABLED id=Test123-color-56-Link\n" +
                 "                TR\n" +
                 "                  TD\n" +
                 "                    colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                      \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/background-color/save/] id=Test123-color-clear-Link\n"
+                "                      \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/] id=Test123-color-clear-Link\n"
         );
     }
 

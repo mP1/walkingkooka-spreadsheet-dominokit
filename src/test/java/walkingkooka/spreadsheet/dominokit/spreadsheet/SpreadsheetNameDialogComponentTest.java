@@ -71,8 +71,8 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
                 "              \"Save\" DISABLED id=SpreadsheetName-save-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
+                "              \"Undo\" [#/123/SpreadsheetName456/rename/save/SpreadsheetName456] id=SpreadsheetName-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456] id=SpreadsheetName-close-Link\n"
         );
     }
 
@@ -115,9 +115,9 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/rename/save/DifferentSpreadsheetName222] id=SpreadsheetName-save-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/rename/save/DifferentSpreadsheetName222] id=SpreadsheetName-save-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/rename/save/SpreadsheetName456] id=SpreadsheetName-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456] id=SpreadsheetName-close-Link\n"
         );
     }
 
@@ -153,14 +153,14 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
                 "      SpreadsheetNameComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [SpreadsheetName1] icons=mdi-close-circle id=SpreadsheetName-TextBox REQUIRED\n" +
+                "            [SpreadsheetName456] icons=mdi-close-circle id=SpreadsheetName-TextBox REQUIRED\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-save-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/rename/save/SpreadsheetName1] id=SpreadsheetName-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1] id=SpreadsheetName-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/rename/save/SpreadsheetName456] id=SpreadsheetName-save-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/rename/save/SpreadsheetName456] id=SpreadsheetName-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456] id=SpreadsheetName-close-Link\n"
         );
     }
 

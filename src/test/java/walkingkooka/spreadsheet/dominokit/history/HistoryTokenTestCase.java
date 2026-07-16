@@ -63,8 +63,6 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
     SpreadsheetMetadataTesting,
     ToStringTesting<T> {
 
-    final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName456");
-
     final static Optional<String> NO_FILTER = Optional.empty();
 
     HistoryTokenTestCase() {

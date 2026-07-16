@@ -112,10 +112,10 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/locale/save/fr] id=Locale-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/locale/save/fr] id=Locale-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/locale/save/] id=Locale-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Locale-close-Link\n"
         );
     }
 
@@ -173,10 +173,10 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/locale/save/] id=Locale-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/locale/save/] id=Locale-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Locale-close-Link\n"
         );
     }
 
@@ -235,10 +235,10 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName1/cell/A1/locale/save/] id=Locale-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName1/cell/A1/locale/save/en-AU] id=Locale-undo-Link\n" +
-                "              \"Close\" [#/123/SpreadsheetName1/cell/A1] id=Locale-close-Link\n"
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/locale/save/en-AU] id=Locale-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/locale/save/] id=Locale-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/locale/save/en-AU] id=Locale-undo-Link\n" +
+                "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Locale-close-Link\n"
         );
     }
 

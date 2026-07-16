@@ -51,10 +51,10 @@ public final class OverflowWrapComponentTest implements TextStylePropertyEnumCom
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/] id=Test123-overflowWrap-Link\n" +
-                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/NORMAL] id=Test123-overflowWrap-NORMAL-Link\n" +
-                "          \"Anywhere\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/ANYWHERE] CHECKED id=Test123-overflowWrap-ANYWHERE-Link\n" +
-                "          \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/BREAK_WORD] id=Test123-overflowWrap-BREAK_WORD-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/] id=Test123-overflowWrap-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/NORMAL] id=Test123-overflowWrap-NORMAL-Link\n" +
+                "          \"Anywhere\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/ANYWHERE] CHECKED id=Test123-overflowWrap-ANYWHERE-Link\n" +
+                "          \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/BREAK_WORD] id=Test123-overflowWrap-BREAK_WORD-Link\n"
         );
     }
 
@@ -82,10 +82,10 @@ public final class OverflowWrapComponentTest implements TextStylePropertyEnumCom
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/] id=Test123-overflowWrap-Link\n" +
-                "          \"Normal\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/NORMAL] id=Test123-overflowWrap-NORMAL-Link\n" +
-                "          \"Anywhere\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/ANYWHERE] id=Test123-overflowWrap-ANYWHERE-Link\n" +
-                "          \"Break Word\" [#/123/SpreadsheetName1/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=Test123-overflowWrap-BREAK_WORD-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/] id=Test123-overflowWrap-Link\n" +
+                "          \"Normal\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/NORMAL] id=Test123-overflowWrap-NORMAL-Link\n" +
+                "          \"Anywhere\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/ANYWHERE] id=Test123-overflowWrap-ANYWHERE-Link\n" +
+                "          \"Break Word\" [#/123/SpreadsheetName456/cell/A1/style/overflow-wrap/save/BREAK_WORD] CHECKED id=Test123-overflowWrap-BREAK_WORD-Link\n"
         );
     }
 
