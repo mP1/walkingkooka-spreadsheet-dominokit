@@ -49,15 +49,15 @@ public final class BigTextStylePropertyFilterComponentTest implements FormValueC
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Border\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/BORDER] id=TestIdPrefix123-BigTextStylePropertyFilter-BORDER-Link\n" +
-                "              \"Box\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/BOX] id=TestIdPrefix123-BigTextStylePropertyFilter-BOX-Link\n" +
-                "              \"Break\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/BREAK] id=TestIdPrefix123-BigTextStylePropertyFilter-BREAK-Link\n" +
-                "              \"Color\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/COLOR] id=TestIdPrefix123-BigTextStylePropertyFilter-COLOR-Link\n" +
-                "              \"Font\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/FONT] id=TestIdPrefix123-BigTextStylePropertyFilter-FONT-Link\n" +
-                "              \"Measure\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/MEASURE] id=TestIdPrefix123-BigTextStylePropertyFilter-MEASURE-Link\n" +
-                "              \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/OVERFLOW] id=TestIdPrefix123-BigTextStylePropertyFilter-OVERFLOW-Link\n" +
-                "              \"Text\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/TEXT] id=TestIdPrefix123-BigTextStylePropertyFilter-TEXT-Link\n" +
-                "              \"Whitespace\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/WHITESPACE] id=TestIdPrefix123-BigTextStylePropertyFilter-WHITESPACE-Link\n"
+                "              \"Border\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/BORDER] id=TestIdPrefix123-BigTextStylePropertyFilter-BORDER-Link\n" +
+                "              \"Box\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/BOX] id=TestIdPrefix123-BigTextStylePropertyFilter-BOX-Link\n" +
+                "              \"Break\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/BREAK] id=TestIdPrefix123-BigTextStylePropertyFilter-BREAK-Link\n" +
+                "              \"Color\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/COLOR] id=TestIdPrefix123-BigTextStylePropertyFilter-COLOR-Link\n" +
+                "              \"Font\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/FONT] id=TestIdPrefix123-BigTextStylePropertyFilter-FONT-Link\n" +
+                "              \"Measure\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/MEASURE] id=TestIdPrefix123-BigTextStylePropertyFilter-MEASURE-Link\n" +
+                "              \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/OVERFLOW] id=TestIdPrefix123-BigTextStylePropertyFilter-OVERFLOW-Link\n" +
+                "              \"Text\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/TEXT] id=TestIdPrefix123-BigTextStylePropertyFilter-TEXT-Link\n" +
+                "              \"Whitespace\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/WHITESPACE] id=TestIdPrefix123-BigTextStylePropertyFilter-WHITESPACE-Link\n"
         );
     }
 
@@ -77,15 +77,15 @@ public final class BigTextStylePropertyFilterComponentTest implements FormValueC
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Border\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/BORDER] id=TestIdPrefix123-BigTextStylePropertyFilter-BORDER-Link\n" +
-                "              \"Box\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/BOX] id=TestIdPrefix123-BigTextStylePropertyFilter-BOX-Link\n" +
-                "              \"Break\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/BREAK] id=TestIdPrefix123-BigTextStylePropertyFilter-BREAK-Link\n" +
-                "              \"Color\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/COLOR] id=TestIdPrefix123-BigTextStylePropertyFilter-COLOR-Link\n" +
-                "              \"Font\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/FONT] id=TestIdPrefix123-BigTextStylePropertyFilter-FONT-Link\n" +
-                "              \"Measure\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/MEASURE] id=TestIdPrefix123-BigTextStylePropertyFilter-MEASURE-Link\n" +
-                "              \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/OVERFLOW] id=TestIdPrefix123-BigTextStylePropertyFilter-OVERFLOW-Link\n" +
-                "              \"Text\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/TEXT] id=TestIdPrefix123-BigTextStylePropertyFilter-TEXT-Link\n" +
-                "              \"Whitespace\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/WHITESPACE] id=TestIdPrefix123-BigTextStylePropertyFilter-WHITESPACE-Link\n"
+                "              \"Border\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/BORDER] id=TestIdPrefix123-BigTextStylePropertyFilter-BORDER-Link\n" +
+                "              \"Box\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/BOX] id=TestIdPrefix123-BigTextStylePropertyFilter-BOX-Link\n" +
+                "              \"Break\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/BREAK] id=TestIdPrefix123-BigTextStylePropertyFilter-BREAK-Link\n" +
+                "              \"Color\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/COLOR] id=TestIdPrefix123-BigTextStylePropertyFilter-COLOR-Link\n" +
+                "              \"Font\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/FONT] id=TestIdPrefix123-BigTextStylePropertyFilter-FONT-Link\n" +
+                "              \"Measure\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/MEASURE] id=TestIdPrefix123-BigTextStylePropertyFilter-MEASURE-Link\n" +
+                "              \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/OVERFLOW] id=TestIdPrefix123-BigTextStylePropertyFilter-OVERFLOW-Link\n" +
+                "              \"Text\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/TEXT] id=TestIdPrefix123-BigTextStylePropertyFilter-TEXT-Link\n" +
+                "              \"Whitespace\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/WHITESPACE] id=TestIdPrefix123-BigTextStylePropertyFilter-WHITESPACE-Link\n"
         );
     }
 
@@ -105,15 +105,15 @@ public final class BigTextStylePropertyFilterComponentTest implements FormValueC
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Border\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/BORDER] id=TestIdPrefix123-BigTextStylePropertyFilter-BORDER-Link\n" +
-                "              \"Box\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/BOX] id=TestIdPrefix123-BigTextStylePropertyFilter-BOX-Link\n" +
-                "              \"Break\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/BREAK] id=TestIdPrefix123-BigTextStylePropertyFilter-BREAK-Link\n" +
-                "              \"Color\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/COLOR] id=TestIdPrefix123-BigTextStylePropertyFilter-COLOR-Link\n" +
-                "              \"Font\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/FONT] id=TestIdPrefix123-BigTextStylePropertyFilter-FONT-Link\n" +
-                "              \"Measure\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/MEASURE] id=TestIdPrefix123-BigTextStylePropertyFilter-MEASURE-Link\n" +
-                "              \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/OVERFLOW] id=TestIdPrefix123-BigTextStylePropertyFilter-OVERFLOW-Link\n" +
-                "              \"Text\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/TEXT] id=TestIdPrefix123-BigTextStylePropertyFilter-TEXT-Link\n" +
-                "              \"Whitespace\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/WHITESPACE] id=TestIdPrefix123-BigTextStylePropertyFilter-WHITESPACE-Link\n"
+                "              \"Border\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/BORDER] id=TestIdPrefix123-BigTextStylePropertyFilter-BORDER-Link\n" +
+                "              \"Box\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/BOX] id=TestIdPrefix123-BigTextStylePropertyFilter-BOX-Link\n" +
+                "              \"Break\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/BREAK] id=TestIdPrefix123-BigTextStylePropertyFilter-BREAK-Link\n" +
+                "              \"Color\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/COLOR] id=TestIdPrefix123-BigTextStylePropertyFilter-COLOR-Link\n" +
+                "              \"Font\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/FONT] id=TestIdPrefix123-BigTextStylePropertyFilter-FONT-Link\n" +
+                "              \"Measure\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/MEASURE] id=TestIdPrefix123-BigTextStylePropertyFilter-MEASURE-Link\n" +
+                "              \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/OVERFLOW] id=TestIdPrefix123-BigTextStylePropertyFilter-OVERFLOW-Link\n" +
+                "              \"Text\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/TEXT] id=TestIdPrefix123-BigTextStylePropertyFilter-TEXT-Link\n" +
+                "              \"Whitespace\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/WHITESPACE] id=TestIdPrefix123-BigTextStylePropertyFilter-WHITESPACE-Link\n"
         );
     }
 
@@ -137,15 +137,15 @@ public final class BigTextStylePropertyFilterComponentTest implements FormValueC
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Border\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/123%20BORDER] id=TestIdPrefix123-BigTextStylePropertyFilter-BORDER-Link\n" +
-                "              \"Box\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/123%20BOX] id=TestIdPrefix123-BigTextStylePropertyFilter-BOX-Link\n" +
-                "              \"Break\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/123%20BREAK] id=TestIdPrefix123-BigTextStylePropertyFilter-BREAK-Link\n" +
-                "              \"Color\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/123%20COLOR] id=TestIdPrefix123-BigTextStylePropertyFilter-COLOR-Link\n" +
-                "              \"Font\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/123%20FONT] id=TestIdPrefix123-BigTextStylePropertyFilter-FONT-Link\n" +
-                "              \"Measure\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/123%20MEASURE] id=TestIdPrefix123-BigTextStylePropertyFilter-MEASURE-Link\n" +
-                "              \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/123%20OVERFLOW] id=TestIdPrefix123-BigTextStylePropertyFilter-OVERFLOW-Link\n" +
-                "              \"Text\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/123%20TEXT] id=TestIdPrefix123-BigTextStylePropertyFilter-TEXT-Link\n" +
-                "              \"Whitespace\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/123%20WHITESPACE] id=TestIdPrefix123-BigTextStylePropertyFilter-WHITESPACE-Link\n"
+                "              \"Border\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/123%20BORDER] id=TestIdPrefix123-BigTextStylePropertyFilter-BORDER-Link\n" +
+                "              \"Box\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/123%20BOX] id=TestIdPrefix123-BigTextStylePropertyFilter-BOX-Link\n" +
+                "              \"Break\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/123%20BREAK] id=TestIdPrefix123-BigTextStylePropertyFilter-BREAK-Link\n" +
+                "              \"Color\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/123%20COLOR] id=TestIdPrefix123-BigTextStylePropertyFilter-COLOR-Link\n" +
+                "              \"Font\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/123%20FONT] id=TestIdPrefix123-BigTextStylePropertyFilter-FONT-Link\n" +
+                "              \"Measure\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/123%20MEASURE] id=TestIdPrefix123-BigTextStylePropertyFilter-MEASURE-Link\n" +
+                "              \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/123%20OVERFLOW] id=TestIdPrefix123-BigTextStylePropertyFilter-OVERFLOW-Link\n" +
+                "              \"Text\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/123%20TEXT] id=TestIdPrefix123-BigTextStylePropertyFilter-TEXT-Link\n" +
+                "              \"Whitespace\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/123%20WHITESPACE] id=TestIdPrefix123-BigTextStylePropertyFilter-WHITESPACE-Link\n"
         );
     }
 
@@ -169,15 +169,15 @@ public final class BigTextStylePropertyFilterComponentTest implements FormValueC
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Border\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER] CHECKED id=TestIdPrefix123-BigTextStylePropertyFilter-BORDER-Link\n" +
-                "              \"Box\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER] CHECKED id=TestIdPrefix123-BigTextStylePropertyFilter-BOX-Link\n" +
-                "              \"Break\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20BREAK] id=TestIdPrefix123-BigTextStylePropertyFilter-BREAK-Link\n" +
-                "              \"Color\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20COLOR] id=TestIdPrefix123-BigTextStylePropertyFilter-COLOR-Link\n" +
-                "              \"Font\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20FONT] id=TestIdPrefix123-BigTextStylePropertyFilter-FONT-Link\n" +
-                "              \"Measure\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20MEASURE] id=TestIdPrefix123-BigTextStylePropertyFilter-MEASURE-Link\n" +
-                "              \"Overflow\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20OVERFLOW] id=TestIdPrefix123-BigTextStylePropertyFilter-OVERFLOW-Link\n" +
-                "              \"Text\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20TEXT] id=TestIdPrefix123-BigTextStylePropertyFilter-TEXT-Link\n" +
-                "              \"Whitespace\" [#/123/SpreadsheetName1/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20WHITESPACE] id=TestIdPrefix123-BigTextStylePropertyFilter-WHITESPACE-Link\n"
+                "              \"Border\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER] CHECKED id=TestIdPrefix123-BigTextStylePropertyFilter-BORDER-Link\n" +
+                "              \"Box\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER] CHECKED id=TestIdPrefix123-BigTextStylePropertyFilter-BOX-Link\n" +
+                "              \"Break\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20BREAK] id=TestIdPrefix123-BigTextStylePropertyFilter-BREAK-Link\n" +
+                "              \"Color\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20COLOR] id=TestIdPrefix123-BigTextStylePropertyFilter-COLOR-Link\n" +
+                "              \"Font\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20FONT] id=TestIdPrefix123-BigTextStylePropertyFilter-FONT-Link\n" +
+                "              \"Measure\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20MEASURE] id=TestIdPrefix123-BigTextStylePropertyFilter-MEASURE-Link\n" +
+                "              \"Overflow\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20OVERFLOW] id=TestIdPrefix123-BigTextStylePropertyFilter-OVERFLOW-Link\n" +
+                "              \"Text\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20TEXT] id=TestIdPrefix123-BigTextStylePropertyFilter-TEXT-Link\n" +
+                "              \"Whitespace\" [#/123/SpreadsheetName456/cell/A1/style/font-weight/filter/xyz%20BOX%20BORDER%20WHITESPACE] id=TestIdPrefix123-BigTextStylePropertyFilter-WHITESPACE-Link\n"
         );
     }
 

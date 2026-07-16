@@ -44,9 +44,9 @@ public final class TextStylePropertyEnumComponentDelegatorTest implements TextSt
                 "    AnchorListComponent\n" +
                 "      FlexLayoutComponent\n" +
                 "        ROW\n" +
-                "          \"Clear\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/] id=Test-textAlign-Link\n" +
-                "          \"LEFT\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/LEFT] id=Test-textAlign-LEFT-Link\n" +
-                "          \"RIGHT\" [#/123/SpreadsheetName1/spreadsheet/style/text-align/save/RIGHT] id=Test-textAlign-RIGHT-Link\n"
+                "          \"Clear\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/] id=Test-textAlign-Link\n" +
+                "          \"LEFT\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/LEFT] id=Test-textAlign-LEFT-Link\n" +
+                "          \"RIGHT\" [#/123/SpreadsheetName456/spreadsheet/style/text-align/save/RIGHT] id=Test-textAlign-RIGHT-Link\n"
         );
     }
 

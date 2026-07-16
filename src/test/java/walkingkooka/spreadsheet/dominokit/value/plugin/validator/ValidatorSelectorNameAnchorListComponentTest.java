@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.validation.provider.ValidatorAliasSet;
@@ -35,8 +34,6 @@ import java.util.Optional;
 
 public final class ValidatorSelectorNameAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement, ValidatorSelector, ValidatorSelectorNameAnchorListComponent>,
     SpreadsheetMetadataTesting {
-
-    private final static SpreadsheetName NAME = SpreadsheetName.with("Spreadsheet111");
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
@@ -50,9 +47,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123-links\n" +
-                "          \"Apple Tree\" [#/123/Spreadsheet111/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
-                "          \"Banana\" [#/123/Spreadsheet111/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
-                "          \"Carrot\" [#/123/Spreadsheet111/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
+                "          \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
+                "          \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
+                "          \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
         );
     }
 
@@ -70,9 +67,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123-links\n" +
-                "          \"Apple Tree\" [#/123/Spreadsheet111/cell/A1/validator/save/apple-tree%20123] id=TestId123-apple-tree-Link\n" +
-                "          \"Banana\" [#/123/Spreadsheet111/cell/A1/validator/save/banana%20123] id=TestId123-banana-Link\n" +
-                "          \"Carrot\" [#/123/Spreadsheet111/cell/A1/validator/save/carrot%20123] id=TestId123-carrot-Link\n"
+                "          \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree%20123] id=TestId123-apple-tree-Link\n" +
+                "          \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana%20123] id=TestId123-banana-Link\n" +
+                "          \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot%20123] id=TestId123-carrot-Link\n"
         );
     }
 
@@ -90,9 +87,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123-links\n" +
-                "          \"Apple Tree\" [#/123/Spreadsheet111/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
-                "          \"Banana\" [#/123/Spreadsheet111/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
-                "          \"Carrot\" [#/123/Spreadsheet111/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
+                "          \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
+                "          \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
+                "          \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
         );
     }
 
@@ -110,9 +107,9 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
                 "        id=TestId123-links\n" +
-                "          \"Apple Tree\" [#/123/Spreadsheet111/cell/A1/validator/save/apple-tree%20123] id=TestId123-apple-tree-Link\n" +
-                "          \"Banana\" [#/123/Spreadsheet111/cell/A1/validator/save/banana%20123] id=TestId123-banana-Link\n" +
-                "          \"Carrot\" [#/123/Spreadsheet111/cell/A1/validator/save/carrot%20123] id=TestId123-carrot-Link\n"
+                "          \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree%20123] id=TestId123-apple-tree-Link\n" +
+                "          \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana%20123] id=TestId123-banana-Link\n" +
+                "          \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot%20123] id=TestId123-carrot-Link\n"
         );
     }
 
@@ -125,7 +122,7 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                 public HistoryToken historyToken() {
                     return HistoryToken.cellValidatorSelect(
                         SPREADSHEET_ID,
-                        NAME,
+                        SPREADSHEET_NAME,
                         CELL.setDefaultAnchor()
                     );
                 }

@@ -124,8 +124,8 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Insert\" [#/123/SpreadsheetName1/column/A:B/right/insertAfter/1] id=SpreadsheetColumnOrRowInsert-insert-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName1/column/A:B/right] id=SpreadsheetColumnOrRowInsert-close-Link\n"
+                "            \"Insert\" [#/123/SpreadsheetName456/column/A:B/right/insertAfter/1] id=SpreadsheetColumnOrRowInsert-insert-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/column/A:B/right] id=SpreadsheetColumnOrRowInsert-close-Link\n"
         );
     }
 
@@ -203,8 +203,8 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Insert\" [#/123/SpreadsheetName1/row/1:23/bottom/insertAfter/1] id=SpreadsheetColumnOrRowInsert-insert-Link\n" +
-                "            \"Close\" [#/123/SpreadsheetName1/row/1:23/bottom] id=SpreadsheetColumnOrRowInsert-close-Link\n"
+                "            \"Insert\" [#/123/SpreadsheetName456/row/1:23/bottom/insertAfter/1] id=SpreadsheetColumnOrRowInsert-insert-Link\n" +
+                "            \"Close\" [#/123/SpreadsheetName456/row/1:23/bottom] id=SpreadsheetColumnOrRowInsert-close-Link\n"
         );
     }
 

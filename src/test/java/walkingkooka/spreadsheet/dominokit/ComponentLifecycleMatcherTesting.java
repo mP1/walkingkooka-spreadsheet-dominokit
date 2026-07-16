@@ -19,11 +19,8 @@ package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 public interface ComponentLifecycleMatcherTesting extends SpreadsheetMetadataTesting {
-
-    SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName1");
 
     default void shouldIgnoreAndCheck(final ComponentLifecycleMatcher matcher,
                                       final HistoryToken token,
