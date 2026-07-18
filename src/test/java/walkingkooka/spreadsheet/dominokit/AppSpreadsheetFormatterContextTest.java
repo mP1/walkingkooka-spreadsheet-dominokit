@@ -17,8 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import walkingkooka.datetime.DateTimeContext;
-import walkingkooka.datetime.DateTimeContexts;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextTesting2;
@@ -28,14 +26,6 @@ import java.math.MathContext;
 
 public final class AppSpreadsheetFormatterContextTest implements SpreadsheetFormatterContextTesting2<AppSpreadsheetFormatterContext>,
     SpreadsheetMetadataTesting {
-
-    private final static DateTimeContext DATE_TIME_CONTEXT = DateTimeContexts.basic(
-        DATE_TIME_SYMBOLS,
-        LOCALE,
-        1920, // defaultYear
-        20, // twoDigitYear
-        HAS_NOW
-    );
 
     private final static DecimalNumberContext DECIMAL_NUMBER_CONTEXT = DecimalNumberContexts.basic(
         DecimalNumberContext.DEFAULT_NUMBER_DIGIT_COUNT,
