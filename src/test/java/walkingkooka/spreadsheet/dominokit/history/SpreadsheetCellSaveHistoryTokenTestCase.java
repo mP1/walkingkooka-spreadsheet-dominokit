@@ -18,8 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 
 public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends SpreadsheetCellSaveHistoryToken<?>> extends SpreadsheetCellHistoryTokenTestCase<T> {
 
@@ -28,11 +26,9 @@ public abstract class SpreadsheetCellSaveHistoryTokenTestCase<T extends Spreadsh
     }
 
     static String marshall(final Object value) {
-        return MARSHALL_CONTEXT.marshall(value)
+        return JSON_NODE_MARSHALL_CONTEXT.marshall(value)
             .toString();
     }
-
-    final static JsonNodeMarshallContext MARSHALL_CONTEXT = JsonNodeMarshallContexts.basic();
 
     // navigation.......................................................................................................
 
