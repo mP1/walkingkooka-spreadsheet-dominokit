@@ -187,6 +187,7 @@ import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.storage.StorageEnvironmentContexts;
 import walkingkooka.storage.StoragePath;
 import walkingkooka.storage.Storages;
 import walkingkooka.text.CharSequences;
@@ -472,14 +473,16 @@ public class App implements EntryPoint,
 
         this.spreadsheetEnvironmentContext = SpreadsheetEnvironmentContexts.basic(
             Storages.fake(),
-            EnvironmentContexts.empty(
-                CHARSET,
-                CURRENCY,
-                Indentation.SPACES2, // "default" cant use this.indentation() to avoid race
-                LINE_ENDING,
-                LOCALE,
-                NOW,
-                EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
+            StorageEnvironmentContexts.basic(
+                EnvironmentContexts.map(
+                    CHARSET,
+                    CURRENCY,
+                    Indentation.SPACES2, // "default" cant use this.indentation() to avoid race
+                    LINE_ENDING,
+                    LOCALE,
+                    NOW,
+                    EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
+                )
             )
         );
 
