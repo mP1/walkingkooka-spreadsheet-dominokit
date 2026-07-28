@@ -188,6 +188,7 @@ import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
+import walkingkooka.storage.HasUserDirectories;
 import walkingkooka.storage.StorageEnvironmentContexts;
 import walkingkooka.storage.StoragePath;
 import walkingkooka.storage.Storages;
@@ -1009,6 +1010,11 @@ public class App implements EntryPoint,
 
     @Override
     public SpreadsheetEnvironmentContext environmentContext() {
+        return this.spreadsheetEnvironmentContext;
+    }
+
+    @Override
+    public HasUserDirectories hasUserDirectories() {
         return this.spreadsheetEnvironmentContext;
     }
 
