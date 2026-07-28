@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.query;
 
+import walkingkooka.Binary;
 import walkingkooka.Either;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.environment.EnvironmentWatcher;
 import walkingkooka.net.email.EmailAddress;
+import walkingkooka.net.header.MediaType;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.store.PluginStore;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
@@ -39,6 +41,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.storage.StoragePath;
 import walkingkooka.text.Indentation;
 
 import java.nio.charset.Charset;
@@ -109,6 +112,17 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
     // ProviderContext..................................................................................................
 
     @Override
+    public MediaType detect(final String filename,
+                            final Binary binary) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public StoragePath parseStoragePath(final String text) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public boolean canConvert(final Object value,
                               final Class<?> type) {
         throw new UnsupportedOperationException();
@@ -147,6 +161,26 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
 
     @Override
     public void setCurrency(final Currency currency) {
+        throw new UnsupportedOperationException();
+    }
+    
+    @Override
+    public Optional<StoragePath> currentWorkingDirectory() {
+        throw new UnsupportedOperationException();
+    }
+    
+    @Override
+    public void setCurrentWorkingDirectory(final Optional<StoragePath> currentWorkingDirectory) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<StoragePath> homeDirectory() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setHomeDirectory(final Optional<StoragePath> homeDirectory) {
         throw new UnsupportedOperationException();
     }
 

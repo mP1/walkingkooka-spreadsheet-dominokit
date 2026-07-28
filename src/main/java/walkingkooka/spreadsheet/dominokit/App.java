@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
+import walkingkooka.Binary;
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.convert.BinaryNumberConverterFunction;
 import walkingkooka.convert.ConverterLike;
@@ -1329,6 +1330,14 @@ public class App implements EntryPoint,
 
     private final LoggingContext loggingContext;
 
+    // MediaTypeDetector................................................................................................
+
+    @Override
+    public MediaType detect(final String filename,
+                            final Binary binary) {
+        throw new UnsupportedOperationException();
+    }
+
     // SpreadsheetMetadataFetcher.......................................................................................
 
     @Override
@@ -1532,6 +1541,13 @@ public class App implements EntryPoint,
     }
 
     private final RecentValueSavesContext recentValueSavesContext;
+
+    // StorageContext...................................................................................................
+
+    @Override
+    public StoragePath parseStoragePath(final String text) {
+        throw new UnsupportedOperationException();
+    }
 
     // SpreadsheetProvider..............................................................................................
 
