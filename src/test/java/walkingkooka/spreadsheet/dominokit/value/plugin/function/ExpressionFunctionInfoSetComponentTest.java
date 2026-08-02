@@ -53,7 +53,7 @@ public final class ExpressionFunctionInfoSetComponentTest implements ValueTextBo
             "ExpressionFunctionInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/name name,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/node node,https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/typeName typeName] icons=mdi-close-circle REQUIRED\n"
+                "      [https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/name name, https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/node node, https://github.com/mP1/walkingkooka-tree-expression-function-provider/ExpressionFunction/typeName typeName] icons=mdi-close-circle REQUIRED\n"
         );
     }
 

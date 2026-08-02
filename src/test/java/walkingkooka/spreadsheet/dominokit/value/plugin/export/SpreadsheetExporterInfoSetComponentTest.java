@@ -52,7 +52,7 @@ public final class SpreadsheetExporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetExporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/json json] icons=mdi-close-circle REQUIRED\n"
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/collection collection, https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/empty empty, https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetExporter/json json] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
