@@ -3251,6 +3251,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"...\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
+                "    \"Background Color\" id=test-column-sort-background-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=background-color] id=test-column-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=background-color-reversed] id=test-column-sort-background-color-reverse-MenuItem\n" +
+                "    \"Color\" id=test-column-sort-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=color] id=test-column-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-column-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=custom-list] id=test-column-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=custom-list-reversed] id=test-column-sort-custom-list-reverse-MenuItem\n" +
@@ -3311,6 +3317,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    -----\n" +
                 "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
+                "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=background-color] id=test-row-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "    \"Color\" id=test-row-sort-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=color] id=test-row-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
@@ -3428,6 +3440,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"...\" [/1/SpreadsheetName-1/column/D/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
+                "    \"Background Color\" id=test-column-sort-background-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=background-color] id=test-column-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=background-color-reversed] id=test-column-sort-background-color-reverse-MenuItem\n" +
+                "    \"Color\" id=test-column-sort-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=color] id=test-column-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-column-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=custom-list] id=test-column-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=custom-list-reversed] id=test-column-sort-custom-list-reverse-MenuItem\n" +
@@ -3537,6 +3555,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"...\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
+                "    \"Background Color\" id=test-column-sort-background-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=background-color] id=test-column-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=background-color-reversed] id=test-column-sort-background-color-reverse-MenuItem\n" +
+                "    \"Color\" id=test-column-sort-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=color] id=test-column-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-column-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=custom-list] id=test-column-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=custom-list-reversed] id=test-column-sort-custom-list-reverse-MenuItem\n" +
@@ -6805,6 +6829,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"...\" [/1/SpreadsheetName-1/row/3/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
+                "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "    \"Color\" id=test-row-sort-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
@@ -6914,6 +6944,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"...\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
+                "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "    \"Color\" id=test-row-sort-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
@@ -7023,6 +7059,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "      \"...\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
+                "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "    \"Color\" id=test-row-sort-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
