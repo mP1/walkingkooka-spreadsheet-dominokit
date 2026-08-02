@@ -67,6 +67,12 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
             SORT_COMPARATOR_NAMES,
             "\"Sort Column\" id=sort\n" +
                 "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
+                "    \"Background Color\" id=column-sort-background-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=background-color] id=column-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=background-color-reversed] id=column-sort-background-color-reverse-MenuItem\n" +
+                "    \"Color\" id=column-sort-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=color] id=column-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=color-reversed] id=column-sort-color-reverse-MenuItem\n" +
                 "    \"Custom List\" id=column-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=custom-list] id=column-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=custom-list-reversed] id=column-sort-custom-list-reverse-MenuItem\n" +
@@ -145,6 +151,12 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
             SORT_COMPARATOR_NAMES,
             "\"Sort Row\" id=sort\n" +
                 "  (mdi-sort) \"Sort Row\" id=row-sort-SubMenu\n" +
+                "    \"Background Color\" id=row-sort-background-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=background-color] id=row-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=background-color-reversed] id=row-sort-background-color-reverse-MenuItem\n" +
+                "    \"Color\" id=row-sort-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=color] id=row-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=color-reversed] id=row-sort-color-reverse-MenuItem\n" +
                 "    \"Custom List\" id=row-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=custom-list] id=row-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=custom-list-reversed] id=row-sort-custom-list-reverse-MenuItem\n" +
@@ -223,6 +235,12 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
             SORT_COMPARATOR_NAMES,
             "\"Sort Column\" id=sort\n" +
                 "  (mdi-sort) \"Sort Column\" id=column-sort-SubMenu\n" +
+                "    \"Background Color\" id=column-sort-background-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=background-color] id=column-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=background-color-reversed] id=column-sort-background-color-reverse-MenuItem\n" +
+                "    \"Color\" id=column-sort-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=color] id=column-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=color-reversed] id=column-sort-color-reverse-MenuItem\n" +
                 "    \"Custom List\" id=column-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=custom-list] id=column-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=custom-list-reversed] id=column-sort-custom-list-reverse-MenuItem\n" +
