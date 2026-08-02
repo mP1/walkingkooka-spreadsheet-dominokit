@@ -52,7 +52,7 @@ public final class SpreadsheetImporterInfoSetComponentTest implements ValueTextB
             "SpreadsheetImporterInfoSetComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/collection collection,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/empty empty,https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/json json] icons=mdi-close-circle REQUIRED\n"
+                "      [https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/collection collection, https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/empty empty, https://github.com/mP1/walkingkooka-spreadsheet/SpreadsheetImporter/json json] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
