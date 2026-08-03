@@ -3263,6 +3263,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border Left Color\" id=test-column-sort-border-left-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-left-color] id=test-column-sort-border-left-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-left-color-reversed] id=test-column-sort-border-left-color-reverse-MenuItem\n" +
+                "    \"Border Right Color\" id=test-column-sort-border-right-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-right-color] id=test-column-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-right-color-reversed] id=test-column-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-column-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=color] id=test-column-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
@@ -3338,6 +3341,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border Left Color\" id=test-row-sort-border-left-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
+                "    \"Border Right Color\" id=test-row-sort-border-right-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=color] id=test-row-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
@@ -3470,6 +3476,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border Left Color\" id=test-column-sort-border-left-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-left-color] id=test-column-sort-border-left-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-left-color-reversed] id=test-column-sort-border-left-color-reverse-MenuItem\n" +
+                "    \"Border Right Color\" id=test-column-sort-border-right-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-right-color] id=test-column-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-right-color-reversed] id=test-column-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-column-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=color] id=test-column-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
@@ -6753,6 +6762,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border Left Color\" id=test-row-sort-border-left-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
+                "    \"Border Right Color\" id=test-row-sort-border-right-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
@@ -6877,6 +6889,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border Left Color\" id=test-row-sort-border-left-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
+                "    \"Border Right Color\" id=test-row-sort-border-right-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
@@ -7001,6 +7016,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Border Left Color\" id=test-row-sort-border-left-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
+                "    \"Border Right Color\" id=test-row-sort-border-right-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +

@@ -79,6 +79,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Border Left Color\" id=column-sort-border-left-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=border-left-color] id=column-sort-border-left-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=border-left-color-reversed] id=column-sort-border-left-color-reverse-MenuItem\n" +
+                "    \"Border Right Color\" id=column-sort-border-right-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=border-right-color] id=column-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=border-right-color-reversed] id=column-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Color\" id=column-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=color] id=column-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=color-reversed] id=column-sort-color-reverse-MenuItem\n" +
@@ -172,6 +175,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Border Left Color\" id=row-sort-border-left-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=border-left-color] id=row-sort-border-left-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=border-left-color-reversed] id=row-sort-border-left-color-reverse-MenuItem\n" +
+                "    \"Border Right Color\" id=row-sort-border-right-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=border-right-color] id=row-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=border-right-color-reversed] id=row-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Color\" id=row-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=color] id=row-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=color-reversed] id=row-sort-color-reverse-MenuItem\n" +
@@ -265,6 +271,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Border Left Color\" id=column-sort-border-left-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=border-left-color] id=column-sort-border-left-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=border-left-color-reversed] id=column-sort-border-left-color-reverse-MenuItem\n" +
+                "    \"Border Right Color\" id=column-sort-border-right-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=border-right-color] id=column-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=border-right-color-reversed] id=column-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Color\" id=column-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=color] id=column-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=color-reversed] id=column-sort-color-reverse-MenuItem\n" +
