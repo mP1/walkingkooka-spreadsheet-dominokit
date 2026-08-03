@@ -143,13 +143,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,nano-of-second] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,number] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,outline-color] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,parser] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/Z=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -238,13 +239,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,nano-of-second] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,number] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,outline-color] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,parser] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/99=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -334,14 +336,15 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=nano-of-second] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=number] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=outline-color] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=time] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=year] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=parser] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=time] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=year] id=SpreadsheetCellSort-comparatorNames-0-append-31-Link\n" +
                 "          SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            FlexLayoutComponent\n" +
                 "              COLUMN\n" +
@@ -424,14 +427,15 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=nano-of-second] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=number] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=outline-color] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=time] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=year] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=parser] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=time] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=year] id=SpreadsheetCellSort-comparatorNames-0-append-31-Link\n" +
                 "          SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent\n" +
                 "            FlexLayoutComponent\n" +
                 "              COLUMN\n" +
@@ -512,13 +516,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,nano-of-second] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,number] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,outline-color] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,parser] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -602,13 +607,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,nano-of-second] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,number] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,outline-color] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,time] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,year] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,parser] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,time] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text2,year] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -693,13 +699,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,nano-of-second;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,number;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,outline-color;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,seconds-of-minute;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-decoration-color;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,time;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,year;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,parser;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,seconds-of-minute;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-decoration-color;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,time;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,year;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -745,14 +752,15 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,nano-of-second] id=SpreadsheetCellSort-comparatorNames-1-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,number] id=SpreadsheetCellSort-comparatorNames-1-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,outline-color] id=SpreadsheetCellSort-comparatorNames-1-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
-                "                            \"text\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-30-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,parser] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
+                "                            \"text\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-30-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;C=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-31-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -827,13 +835,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,nano-of-second;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,number;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,outline-color;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,seconds-of-minute;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-decoration-color;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,time;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,year;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,parser;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,seconds-of-minute;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-case-insensitive;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-decoration-color;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,time;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text,year;B=text2] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -881,14 +890,15 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,nano-of-second] id=SpreadsheetCellSort-comparatorNames-1-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,number] id=SpreadsheetCellSort-comparatorNames-1-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,outline-color] id=SpreadsheetCellSort-comparatorNames-1-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
-                "                            \"text\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-30-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,parser] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
+                "                            \"text\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-30-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=text;B=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-31-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -960,13 +970,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,nano-of-second;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,number;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,outline-color;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,seconds-of-minute;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,text-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,text-decoration-color;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,text-with-numbers;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,time;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,year;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,parser;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,seconds-of-minute;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,text-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,text-decoration-color;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,text-with-numbers;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,text-with-numbers-case-insensitive;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,time;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text,year;C=text2] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1012,14 +1023,15 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,nano-of-second] id=SpreadsheetCellSort-comparatorNames-1-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,number] id=SpreadsheetCellSort-comparatorNames-1-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,outline-color] id=SpreadsheetCellSort-comparatorNames-1-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
-                "                            \"text\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-30-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,parser] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
+                "                            \"text\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,time] id=SpreadsheetCellSort-comparatorNames-1-append-30-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/cell/B2:D4/bottom-right/sort/edit/B=text;C=text2,year] id=SpreadsheetCellSort-comparatorNames-1-append-31-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1108,13 +1120,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,nano-of-second] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,number] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,outline-color] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,parser] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1206,13 +1219,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,nano-of-second;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,number;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,outline-color;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,seconds-of-minute;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-case-insensitive;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-decoration-color;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers-case-insensitive;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,time;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,year;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,parser;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,seconds-of-minute;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-case-insensitive;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-decoration-color;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers-case-insensitive;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,time;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,year;B=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1260,13 +1274,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,nano-of-second] id=SpreadsheetCellSort-comparatorNames-1-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,number] id=SpreadsheetCellSort-comparatorNames-1-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,outline-color] id=SpreadsheetCellSort-comparatorNames-1-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
-                "                            \"text\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,parser] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
+                "                            \"text\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;B=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-1-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1344,13 +1359,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,nano-of-second;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,number;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,outline-color;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,seconds-of-minute;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-case-insensitive;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-decoration-color;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers-case-insensitive;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,time;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,year;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,parser;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,seconds-of-minute;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-case-insensitive;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-decoration-color;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,text-with-numbers-case-insensitive;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,time;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text,year;2=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1398,13 +1414,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,nano-of-second] id=SpreadsheetCellSort-comparatorNames-1-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,number] id=SpreadsheetCellSort-comparatorNames-1-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,outline-color] id=SpreadsheetCellSort-comparatorNames-1-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
-                "                            \"text\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,parser] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
+                "                            \"text\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/column/B:C/right/sort/edit/B=text;2=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-1-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1480,13 +1497,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,nano-of-second] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,number] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,outline-color] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,parser] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,time] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,year] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1578,13 +1596,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,nano-of-second;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,number;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,outline-color;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,seconds-of-minute;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,text-case-insensitive;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,text-decoration-color;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,text-with-numbers;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,text-with-numbers-case-insensitive;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,time;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,year;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,parser;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,seconds-of-minute;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,text-case-insensitive;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,text-decoration-color;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,text-with-numbers;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,text-with-numbers-case-insensitive;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,time;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text,year;4=text;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1630,13 +1649,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,nano-of-second;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,number;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,outline-color;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,seconds-of-minute;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,text-case-insensitive;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,text-decoration-color;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,text-with-numbers;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,text-with-numbers-case-insensitive;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,time;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,year;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,parser;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,seconds-of-minute;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,text-case-insensitive;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,text-decoration-color;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,text-with-numbers;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,text-with-numbers-case-insensitive;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,time;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text,year;3=text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1684,13 +1704,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,nano-of-second] id=SpreadsheetCellSort-comparatorNames-2-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,number] id=SpreadsheetCellSort-comparatorNames-2-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,outline-color] id=SpreadsheetCellSort-comparatorNames-2-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-2-append-23-Link\n" +
-                "                            \"text\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-2-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-2-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-2-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-2-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-2-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-2-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,parser] id=SpreadsheetCellSort-comparatorNames-2-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-2-append-24-Link\n" +
+                "                            \"text\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text] id=SpreadsheetCellSort-comparatorNames-2-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-2-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-2-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-2-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,time] id=SpreadsheetCellSort-comparatorNames-2-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/row/3:5/bottom/sort/edit/3=text;4=text;3=text-case-insensitive,year] id=SpreadsheetCellSort-comparatorNames-2-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1768,13 +1789,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,nano-of-second;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,number;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,outline-color;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,seconds-of-minute;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-case-insensitive;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-decoration-color;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-with-numbers;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-with-numbers-case-insensitive;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,time;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,year;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,parser;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,seconds-of-minute;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-case-insensitive;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-decoration-color;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-with-numbers;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,text-with-numbers-case-insensitive;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,time;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text,year;A=text] id=SpreadsheetCellSort-comparatorNames-0-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
@@ -1822,13 +1844,14 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
                 "                            \"nano-of-second\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,nano-of-second] id=SpreadsheetCellSort-comparatorNames-1-append-20-Link\n" +
                 "                            \"number\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,number] id=SpreadsheetCellSort-comparatorNames-1-append-21-Link\n" +
                 "                            \"outline-color\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,outline-color] id=SpreadsheetCellSort-comparatorNames-1-append-22-Link\n" +
-                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
-                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
-                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
-                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
-                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
-                "                            \"time\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,time] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
-                "                            \"year\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,year] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"parser\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,parser] id=SpreadsheetCellSort-comparatorNames-1-append-23-Link\n" +
+                "                            \"seconds-of-minute\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,seconds-of-minute] id=SpreadsheetCellSort-comparatorNames-1-append-24-Link\n" +
+                "                            \"text-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,text-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-25-Link\n" +
+                "                            \"text-decoration-color\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,text-decoration-color] id=SpreadsheetCellSort-comparatorNames-1-append-26-Link\n" +
+                "                            \"text-with-numbers\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,text-with-numbers] id=SpreadsheetCellSort-comparatorNames-1-append-27-Link\n" +
+                "                            \"text-with-numbers-case-insensitive\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,text-with-numbers-case-insensitive] id=SpreadsheetCellSort-comparatorNames-1-append-28-Link\n" +
+                "                            \"time\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,time] id=SpreadsheetCellSort-comparatorNames-1-append-29-Link\n" +
+                "                            \"year\" [#/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=text;A=text,year] id=SpreadsheetCellSort-comparatorNames-1-append-30-Link\n" +
                 "                SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent\n" +
                 "                  CardComponent\n" +
                 "                    Card\n" +
