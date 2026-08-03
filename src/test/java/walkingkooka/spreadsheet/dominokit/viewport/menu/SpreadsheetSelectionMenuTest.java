@@ -3272,6 +3272,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Color\" id=test-column-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=color] id=test-column-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
+                "    \"Currency\" id=test-column-sort-currency-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=currency] id=test-column-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=currency-reversed] id=test-column-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-column-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=custom-list] id=test-column-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=custom-list-reversed] id=test-column-sort-custom-list-reverse-MenuItem\n" +
@@ -3359,6 +3362,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=color] id=test-row-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
+                "    \"Currency\" id=test-row-sort-currency-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=currency] id=test-row-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
@@ -3503,6 +3509,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Color\" id=test-column-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=color] id=test-column-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
+                "    \"Currency\" id=test-column-sort-currency-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=currency] id=test-column-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=currency-reversed] id=test-column-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-column-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=custom-list] id=test-column-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=custom-list-reversed] id=test-column-sort-custom-list-reverse-MenuItem\n" +
@@ -6798,6 +6807,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
+                "    \"Currency\" id=test-row-sort-currency-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=currency] id=test-row-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
@@ -6934,6 +6946,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
+                "    \"Currency\" id=test-row-sort-currency-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=currency] id=test-row-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
@@ -7070,6 +7085,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
+                "    \"Currency\" id=test-row-sort-currency-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=currency] id=test-row-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
