@@ -3299,6 +3299,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
+                "    \"Locale\" id=test-column-sort-locale-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=locale] id=test-column-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=locale-reversed] id=test-column-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
@@ -3389,6 +3392,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
+                "    \"Locale\" id=test-row-sort-locale-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=locale] id=test-row-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
@@ -3536,6 +3542,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
+                "    \"Locale\" id=test-column-sort-locale-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=locale] id=test-column-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=locale-reversed] id=test-column-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
@@ -6834,6 +6843,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
+                "    \"Locale\" id=test-row-sort-locale-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=locale] id=test-row-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
@@ -6973,6 +6985,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
+                "    \"Locale\" id=test-row-sort-locale-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=locale] id=test-row-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
@@ -7112,6 +7127,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
+                "    \"Locale\" id=test-row-sort-locale-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=locale] id=test-row-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
