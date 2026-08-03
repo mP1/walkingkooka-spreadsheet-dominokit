@@ -88,6 +88,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Color\" id=column-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=color] id=column-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=color-reversed] id=column-sort-color-reverse-MenuItem\n" +
+                "    \"Currency\" id=column-sort-currency-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=currency] id=column-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=currency-reversed] id=column-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=column-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=custom-list] id=column-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=custom-list-reversed] id=column-sort-custom-list-reverse-MenuItem\n" +
@@ -193,6 +196,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Color\" id=row-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=color] id=row-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=color-reversed] id=row-sort-color-reverse-MenuItem\n" +
+                "    \"Currency\" id=row-sort-currency-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=currency] id=row-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=currency-reversed] id=row-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=row-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=custom-list] id=row-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=custom-list-reversed] id=row-sort-custom-list-reverse-MenuItem\n" +
@@ -298,6 +304,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Color\" id=column-sort-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=color] id=column-sort-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=color-reversed] id=column-sort-color-reverse-MenuItem\n" +
+                "    \"Currency\" id=column-sort-currency-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=currency] id=column-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=currency-reversed] id=column-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=column-sort-custom-list-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=custom-list] id=column-sort-custom-list-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=custom-list-reversed] id=column-sort-custom-list-reverse-MenuItem\n" +
