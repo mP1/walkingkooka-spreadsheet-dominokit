@@ -160,6 +160,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Time\" id=column-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=time] id=column-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=time-reversed] id=column-sort-time-reverse-MenuItem\n" +
+                "    \"Validator\" id=column-sort-validator-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=validator] id=column-sort-validator-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=validator-reversed] id=column-sort-validator-reverse-MenuItem\n" +
                 "    \"Year\" id=column-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=year] id=column-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=year-reversed] id=column-sort-year-reverse-MenuItem\n" +
@@ -277,6 +280,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Time\" id=row-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=time] id=row-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=time-reversed] id=row-sort-time-reverse-MenuItem\n" +
+                "    \"Validator\" id=row-sort-validator-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=validator] id=row-sort-validator-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=validator-reversed] id=row-sort-validator-reverse-MenuItem\n" +
                 "    \"Year\" id=row-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=year] id=row-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=year-reversed] id=row-sort-year-reverse-MenuItem\n" +
@@ -394,6 +400,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Time\" id=column-sort-time-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=time] id=column-sort-time-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=time-reversed] id=column-sort-time-reverse-MenuItem\n" +
+                "    \"Validator\" id=column-sort-validator-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=validator] id=column-sort-validator-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=validator-reversed] id=column-sort-validator-reverse-MenuItem\n" +
                 "    \"Year\" id=column-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year] id=column-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year-reversed] id=column-sort-year-reverse-MenuItem\n" +
