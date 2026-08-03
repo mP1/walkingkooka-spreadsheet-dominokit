@@ -3308,6 +3308,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Number\" id=test-column-sort-number-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
+                "    \"Outline Color\" id=test-column-sort-outline-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=outline-color] id=test-column-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=outline-color-reversed] id=test-column-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
@@ -3389,6 +3392,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=number] id=test-row-sort-number-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
+                "    \"Outline Color\" id=test-row-sort-outline-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
@@ -3527,6 +3533,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Number\" id=test-column-sort-number-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
+                "    \"Outline Color\" id=test-column-sort-outline-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=outline-color] id=test-column-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=outline-color-reversed] id=test-column-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
@@ -6816,6 +6825,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
+                "    \"Outline Color\" id=test-row-sort-outline-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
@@ -6946,6 +6958,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
+                "    \"Outline Color\" id=test-row-sort-outline-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
@@ -7076,6 +7091,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
+                "    \"Outline Color\" id=test-row-sort-outline-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
