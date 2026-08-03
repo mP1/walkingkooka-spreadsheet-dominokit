@@ -115,6 +115,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Hour Of Day\" id=column-sort-hour-of-day-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=hour-of-day] id=column-sort-hour-of-day-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=hour-of-day-reversed] id=column-sort-hour-of-day-reverse-MenuItem\n" +
+                "    \"Locale\" id=column-sort-locale-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=locale] id=column-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=locale-reversed] id=column-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=column-sort-minute-of-hour-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=minute-of-hour] id=column-sort-minute-of-hour-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=minute-of-hour-reversed] id=column-sort-minute-of-hour-reverse-MenuItem\n" +
@@ -223,6 +226,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Hour Of Day\" id=row-sort-hour-of-day-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=hour-of-day] id=row-sort-hour-of-day-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=hour-of-day-reversed] id=row-sort-hour-of-day-reverse-MenuItem\n" +
+                "    \"Locale\" id=row-sort-locale-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=locale] id=row-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=locale-reversed] id=row-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=row-sort-minute-of-hour-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=minute-of-hour] id=row-sort-minute-of-hour-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=minute-of-hour-reversed] id=row-sort-minute-of-hour-reverse-MenuItem\n" +
@@ -331,6 +337,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Hour Of Day\" id=column-sort-hour-of-day-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=hour-of-day] id=column-sort-hour-of-day-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=hour-of-day-reversed] id=column-sort-hour-of-day-reverse-MenuItem\n" +
+                "    \"Locale\" id=column-sort-locale-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=locale] id=column-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=locale-reversed] id=column-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=column-sort-minute-of-hour-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=minute-of-hour] id=column-sort-minute-of-hour-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=minute-of-hour-reversed] id=column-sort-minute-of-hour-reverse-MenuItem\n" +
