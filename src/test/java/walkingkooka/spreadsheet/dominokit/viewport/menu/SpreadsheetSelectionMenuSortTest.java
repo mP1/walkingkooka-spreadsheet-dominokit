@@ -136,6 +136,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Outline Color\" id=column-sort-outline-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=outline-color] id=column-sort-outline-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=outline-color-reversed] id=column-sort-outline-color-reverse-MenuItem\n" +
+                "    \"Parser\" id=column-sort-parser-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=parser] id=column-sort-parser-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=parser-reversed] id=column-sort-parser-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=column-sort-seconds-of-minute-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=seconds-of-minute] id=column-sort-seconds-of-minute-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=seconds-of-minute-reversed] id=column-sort-seconds-of-minute-reverse-MenuItem\n" +
@@ -250,6 +253,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Outline Color\" id=row-sort-outline-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=outline-color] id=row-sort-outline-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=outline-color-reversed] id=row-sort-outline-color-reverse-MenuItem\n" +
+                "    \"Parser\" id=row-sort-parser-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=parser] id=row-sort-parser-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=parser-reversed] id=row-sort-parser-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=row-sort-seconds-of-minute-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=seconds-of-minute] id=row-sort-seconds-of-minute-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=seconds-of-minute-reversed] id=row-sort-seconds-of-minute-reverse-MenuItem\n" +
@@ -364,6 +370,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Outline Color\" id=column-sort-outline-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=outline-color] id=column-sort-outline-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=outline-color-reversed] id=column-sort-outline-color-reverse-MenuItem\n" +
+                "    \"Parser\" id=column-sort-parser-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=parser] id=column-sort-parser-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=parser-reversed] id=column-sort-parser-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=column-sort-seconds-of-minute-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=seconds-of-minute] id=column-sort-seconds-of-minute-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=seconds-of-minute-reversed] id=column-sort-seconds-of-minute-reverse-MenuItem\n" +
