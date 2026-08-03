@@ -136,6 +136,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Text Case Insensitive\" id=column-sort-text-case-insensitive-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-case-insensitive] id=column-sort-text-case-insensitive-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-case-insensitive-reversed] id=column-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "    \"Text Decoration Color\" id=column-sort-text-decoration-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-decoration-color] id=column-sort-text-decoration-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-decoration-color-reversed] id=column-sort-text-decoration-color-reverse-MenuItem\n" +
                 "    \"Text With Numbers\" id=column-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-with-numbers] id=column-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=text-with-numbers-reversed] id=column-sort-text-with-numbers-reverse-MenuItem\n" +
@@ -238,6 +241,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Text Case Insensitive\" id=row-sort-text-case-insensitive-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-case-insensitive] id=row-sort-text-case-insensitive-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-case-insensitive-reversed] id=row-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "    \"Text Decoration Color\" id=row-sort-text-decoration-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-decoration-color] id=row-sort-text-decoration-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-decoration-color-reversed] id=row-sort-text-decoration-color-reverse-MenuItem\n" +
                 "    \"Text With Numbers\" id=row-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-with-numbers] id=row-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=text-with-numbers-reversed] id=row-sort-text-with-numbers-reverse-MenuItem\n" +
@@ -340,6 +346,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Text Case Insensitive\" id=column-sort-text-case-insensitive-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-case-insensitive] id=column-sort-text-case-insensitive-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-case-insensitive-reversed] id=column-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "    \"Text Decoration Color\" id=column-sort-text-decoration-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-decoration-color] id=column-sort-text-decoration-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-decoration-color-reversed] id=column-sort-text-decoration-color-reverse-MenuItem\n" +
                 "    \"Text With Numbers\" id=column-sort-text-with-numbers-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-with-numbers] id=column-sort-text-with-numbers-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=text-with-numbers-reversed] id=column-sort-text-with-numbers-reverse-MenuItem\n" +
