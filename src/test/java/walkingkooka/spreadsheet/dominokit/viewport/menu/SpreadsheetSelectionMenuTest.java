@@ -3254,6 +3254,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Background Color\" id=test-column-sort-background-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=background-color] id=test-column-sort-background-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=background-color-reversed] id=test-column-sort-background-color-reverse-MenuItem\n" +
+                "    \"Border Bottom Color\" id=test-column-sort-border-bottom-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-bottom-color] id=test-column-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-bottom-color-reversed] id=test-column-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-column-sort-border-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-color] id=test-column-sort-border-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-color-reversed] id=test-column-sort-border-color-reverse-MenuItem\n" +
@@ -3326,6 +3329,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=background-color] id=test-row-sort-background-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "    \"Border Bottom Color\" id=test-row-sort-border-bottom-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-row-sort-border-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-color] id=test-row-sort-border-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
@@ -3409,127 +3415,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     }
 
     @Test
-    public void testColumn() {
-        final SpreadsheetColumnHistoryToken token = HistoryToken.columnSelect(
-            SPREADSHEET_ID, // id
-            SPREADSHEET_NAME, // name
-            SpreadsheetSelection.parseColumn("D").setDefaultAnchor()
-        );
-        final SpreadsheetSelectionMenuContext context = this.context(token);
-
-        final SpreadsheetContextMenu menu = SpreadsheetContextMenuFactory.with(
-            Menu.create(
-                "Column-MenuId",
-                "Column D Menu",
-                Optional.empty(), // no icon
-                Optional.empty() // no badge
-            ),
-            context
-        );
-
-        SpreadsheetSelectionMenu.build(
-            token,
-            menu,
-            context
-        );
-
-        this.treePrintAndCheck2(
-            menu,
-            "\"Column D Menu\" id=Column-MenuId\n" +
-                "  \"Clear\" [/1/SpreadsheetName-1/column/D/clear] id=test-clear-MenuItem\n" +
-                "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/D/delete] id=test-delete-MenuItem\n" +
-                "  -----\n" +
-                "  \"Insert\" id=test-insert-SubMenu\n" +
-                "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/D/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/D/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/D/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/D/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
-                "    (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/D/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/D/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/D/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/D/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
-                "  -----\n" +
-                "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
-                "    \"Background Color\" id=test-column-sort-background-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=background-color] id=test-column-sort-background-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=background-color-reversed] id=test-column-sort-background-color-reverse-MenuItem\n" +
-                "    \"Border Color\" id=test-column-sort-border-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=border-color] id=test-column-sort-border-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=border-color-reversed] id=test-column-sort-border-color-reverse-MenuItem\n" +
-                "    \"Border Left Color\" id=test-column-sort-border-left-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=border-left-color] id=test-column-sort-border-left-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=border-left-color-reversed] id=test-column-sort-border-left-color-reverse-MenuItem\n" +
-                "    \"Color\" id=test-column-sort-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=color] id=test-column-sort-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
-                "    \"Custom List\" id=test-column-sort-custom-list-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=custom-list] id=test-column-sort-custom-list-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=custom-list-reversed] id=test-column-sort-custom-list-reverse-MenuItem\n" +
-                "    \"Custom List Case Insensitive\" id=test-column-sort-custom-list-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=custom-list-case-insensitive] id=test-column-sort-custom-list-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=custom-list-case-insensitive-reversed] id=test-column-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
-                "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=date] id=test-column-sort-date-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
-                "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=date-time] id=test-column-sort-date-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
-                "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
-                "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
-                "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
-                "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
-                "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
-                "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
-                "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
-                "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=number] id=test-column-sort-number-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
-                "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
-                "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=text] id=test-column-sort-text-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
-                "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
-                "    \"Text With Numbers\" id=test-column-sort-text-with-numbers-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=text-with-numbers] id=test-column-sort-text-with-numbers-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=text-with-numbers-reversed] id=test-column-sort-text-with-numbers-reverse-MenuItem\n" +
-                "    \"Text With Numbers Case Insensitive\" id=test-column-sort-text-with-numbers-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=text-with-numbers-case-insensitive] id=test-column-sort-text-with-numbers-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=text-with-numbers-case-insensitive-reversed] id=test-column-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
-                "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=time] id=test-column-sort-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
-                "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/D/sort/save/D=year] id=test-column-sort-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/D/sort/save/D=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
-                "    -----\n" +
-                "    \"Edit\" [/1/SpreadsheetName-1/column/D/sort/edit/D=] id=test-column-sort-edit-MenuItem\n" +
-                "  -----\n" +
-                "  \"Freeze\" id=test-freeze-MenuItem\n" +
-                "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
-        );
-    }
-
-    @Test
     public void testColumnRangeAnchorLeft() {
         final SpreadsheetColumnHistoryToken token = HistoryToken.columnSelect(
             SPREADSHEET_ID, // id
@@ -3576,6 +3461,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Background Color\" id=test-column-sort-background-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=background-color] id=test-column-sort-background-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=background-color-reversed] id=test-column-sort-background-color-reverse-MenuItem\n" +
+                "    \"Border Bottom Color\" id=test-column-sort-border-bottom-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-bottom-color] id=test-column-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-bottom-color-reversed] id=test-column-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-column-sort-border-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-color] id=test-column-sort-border-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-color-reversed] id=test-column-sort-border-color-reverse-MenuItem\n" +
@@ -6856,6 +6744,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "    \"Border Bottom Color\" id=test-row-sort-border-bottom-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-row-sort-border-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-color] id=test-row-sort-border-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
@@ -6977,6 +6868,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "    \"Border Bottom Color\" id=test-row-sort-border-bottom-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-row-sort-border-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-color] id=test-row-sort-border-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
@@ -7098,6 +6992,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "    \"Border Bottom Color\" id=test-row-sort-border-bottom-color-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-row-sort-border-color-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-color] id=test-row-sort-border-color-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
