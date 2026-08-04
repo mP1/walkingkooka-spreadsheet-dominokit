@@ -163,6 +163,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Validator\" id=column-sort-validator-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=validator] id=column-sort-validator-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=validator-reversed] id=column-sort-validator-reverse-MenuItem\n" +
+                "    \"Value Type\" id=column-sort-value-type-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=value-type] id=column-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=value-type-reversed] id=column-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=column-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=year] id=column-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=year-reversed] id=column-sort-year-reverse-MenuItem\n" +
@@ -283,6 +286,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Validator\" id=row-sort-validator-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=validator] id=row-sort-validator-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=validator-reversed] id=row-sort-validator-reverse-MenuItem\n" +
+                "    \"Value Type\" id=row-sort-value-type-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=value-type] id=row-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=value-type-reversed] id=row-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=row-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=year] id=row-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=year-reversed] id=row-sort-year-reverse-MenuItem\n" +
@@ -403,6 +409,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Validator\" id=column-sort-validator-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=validator] id=column-sort-validator-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=validator-reversed] id=column-sort-validator-reverse-MenuItem\n" +
+                "    \"Value Type\" id=column-sort-value-type-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=value-type] id=column-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=value-type-reversed] id=column-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=column-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year] id=column-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=year-reversed] id=column-sort-year-reverse-MenuItem\n" +
