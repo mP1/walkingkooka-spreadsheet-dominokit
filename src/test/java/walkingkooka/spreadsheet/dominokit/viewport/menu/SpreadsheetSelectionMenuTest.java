@@ -3293,6 +3293,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
+                "    \"Error\" id=test-column-sort-error-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=error] id=test-column-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=error-reversed] id=test-column-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-column-sort-formatter-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=formatter] id=test-column-sort-formatter-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=formatter-reversed] id=test-column-sort-formatter-reverse-MenuItem\n" +
@@ -3398,6 +3401,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
+                "    \"Error\" id=test-row-sort-error-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=error] id=test-row-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-row-sort-formatter-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=formatter] id=test-row-sort-formatter-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
@@ -3560,6 +3566,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
+                "    \"Error\" id=test-column-sort-error-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=error] id=test-column-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=error-reversed] id=test-column-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-column-sort-formatter-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=formatter] id=test-column-sort-formatter-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=formatter-reversed] id=test-column-sort-formatter-reverse-MenuItem\n" +
@@ -6873,6 +6882,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
+                "    \"Error\" id=test-row-sort-error-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=error] id=test-row-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-row-sort-formatter-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=formatter] id=test-row-sort-formatter-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
@@ -7027,6 +7039,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
+                "    \"Error\" id=test-row-sort-error-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=error] id=test-row-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-row-sort-formatter-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=formatter] id=test-row-sort-formatter-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
@@ -7181,6 +7196,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
+                "    \"Error\" id=test-row-sort-error-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=error] id=test-row-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-row-sort-formatter-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=formatter] id=test-row-sort-formatter-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +

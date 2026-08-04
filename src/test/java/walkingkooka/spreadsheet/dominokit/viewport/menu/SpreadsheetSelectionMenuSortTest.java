@@ -109,6 +109,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Day Of Week\" id=column-sort-day-of-week-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=day-of-week] id=column-sort-day-of-week-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=day-of-week-reversed] id=column-sort-day-of-week-reverse-MenuItem\n" +
+                "    \"Error\" id=column-sort-error-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=error] id=column-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=error-reversed] id=column-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=column-sort-formatter-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=formatter] id=column-sort-formatter-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A1/sort/save/A=formatter-reversed] id=column-sort-formatter-reverse-MenuItem\n" +
@@ -232,6 +235,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Day Of Week\" id=row-sort-day-of-week-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=day-of-week] id=row-sort-day-of-week-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=day-of-week-reversed] id=row-sort-day-of-week-reverse-MenuItem\n" +
+                "    \"Error\" id=row-sort-error-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=error] id=row-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=error-reversed] id=row-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=row-sort-formatter-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=formatter] id=row-sort-formatter-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/A12/sort/save/12=formatter-reversed] id=row-sort-formatter-reverse-MenuItem\n" +
@@ -355,6 +361,9 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
                 "    \"Day Of Week\" id=column-sort-day-of-week-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-week] id=column-sort-day-of-week-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=day-of-week-reversed] id=column-sort-day-of-week-reverse-MenuItem\n" +
+                "    \"Error\" id=column-sort-error-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=error] id=column-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=error-reversed] id=column-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=column-sort-formatter-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=formatter] id=column-sort-formatter-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2/sort/save/B=formatter-reversed] id=column-sort-formatter-reverse-MenuItem\n" +
