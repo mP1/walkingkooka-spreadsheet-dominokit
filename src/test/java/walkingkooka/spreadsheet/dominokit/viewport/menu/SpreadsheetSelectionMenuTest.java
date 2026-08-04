@@ -3347,6 +3347,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" id=test-column-sort-validator-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=validator] id=test-column-sort-validator-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=validator-reversed] id=test-column-sort-validator-reverse-MenuItem\n" +
+                "    \"Value Type\" id=test-column-sort-value-type-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=value-type] id=test-column-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=value-type-reversed] id=test-column-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-column-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
@@ -3449,6 +3452,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" id=test-row-sort-validator-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=validator] id=test-row-sort-validator-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
+                "    \"Value Type\" id=test-row-sort-value-type-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=value-type] id=test-row-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year] id=test-row-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
@@ -3608,6 +3614,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" id=test-column-sort-validator-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=validator] id=test-column-sort-validator-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=validator-reversed] id=test-column-sort-validator-reverse-MenuItem\n" +
+                "    \"Value Type\" id=test-column-sort-value-type-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=value-type] id=test-column-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=value-type-reversed] id=test-column-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-column-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
@@ -6918,6 +6927,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" id=test-row-sort-validator-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=validator] id=test-row-sort-validator-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
+                "    \"Value Type\" id=test-row-sort-value-type-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=value-type] id=test-row-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
@@ -7069,6 +7081,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" id=test-row-sort-validator-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=validator] id=test-row-sort-validator-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
+                "    \"Value Type\" id=test-row-sort-value-type-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=value-type] id=test-row-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
@@ -7220,6 +7235,9 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" id=test-row-sort-validator-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=validator] id=test-row-sort-validator-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
+                "    \"Value Type\" id=test-row-sort-value-type-SubMenu\n" +
+                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=value-type] id=test-row-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
                 "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
                 "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
