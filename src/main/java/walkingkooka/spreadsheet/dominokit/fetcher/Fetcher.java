@@ -24,6 +24,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlQueryString;
+import walkingkooka.net.header.HasHateosContentType;
 import walkingkooka.net.header.HttpHeaderName;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
@@ -31,7 +32,6 @@ import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.net.http.server.hateos.HateosResourceMappings;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
-import walkingkooka.spreadsheet.server.net.SpreadsheetServerMediaTypes;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.LineEnding;
 import walkingkooka.tree.json.JsonNode;
@@ -45,7 +45,8 @@ import java.util.OptionalInt;
 /**
  * Base class for a variety of fetchers that target HateosResources and other end points.
  */
-abstract public class Fetcher<W extends FetcherWatcher> implements Logging {
+abstract public class Fetcher<W extends FetcherWatcher> implements HasHateosContentType,
+    Logging {
 
     Fetcher(final W watcher,
             final AppContext context) {
@@ -127,7 +128,7 @@ abstract public class Fetcher<W extends FetcherWatcher> implements Logging {
         if (false == HttpMethod.GET.equals(method)) {
             headers.put(
                 HttpHeaderName.CONTENT_TYPE,
-                SpreadsheetServerMediaTypes.CONTENT_TYPE
+                HATEOS_CONTENT_TYPE
             );
         }
 
