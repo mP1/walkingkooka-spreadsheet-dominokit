@@ -22,6 +22,7 @@ import elemental2.dom.Headers;
 import elemental2.dom.RequestInit;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
+import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.header.HttpHeaderName;
 import walkingkooka.net.http.HttpMethod;
@@ -31,7 +32,6 @@ import walkingkooka.net.http.server.hateos.HateosResourceMappings;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
 import walkingkooka.spreadsheet.server.net.SpreadsheetServerMediaTypes;
-import walkingkooka.spreadsheet.server.net.SpreadsheetUrlQueryParameters;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.LineEnding;
 import walkingkooka.tree.json.JsonNode;
@@ -438,7 +438,7 @@ abstract public class Fetcher<W extends FetcherWatcher> implements Logging {
 
             if (value > 0) {
                 queryString = queryString.addParameter(
-                    SpreadsheetUrlQueryParameters.OFFSET,
+                    UrlParameterName.OFFSET,
                     String.valueOf(value)
                 );
             }
@@ -453,7 +453,7 @@ abstract public class Fetcher<W extends FetcherWatcher> implements Logging {
 
             if (value > 0) {
                 queryString = queryString.addParameter(
-                    SpreadsheetUrlQueryParameters.COUNT,
+                    UrlParameterName.COUNT,
                     String.valueOf(value)
                 );
             }
