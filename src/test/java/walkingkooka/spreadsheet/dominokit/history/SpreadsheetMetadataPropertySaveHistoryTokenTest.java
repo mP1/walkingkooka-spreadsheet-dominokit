@@ -398,7 +398,6 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
                     propertyName::toString
                 );
             }
-            System.out.println(propertyName);
 
             String urlFragment = HistoryToken.saveUrlFragmentValue(value)
                 .toString();
