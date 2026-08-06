@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import walkingkooka.currency.CurrencyCode;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
+import walkingkooka.net.UrlParameterName;
 import walkingkooka.net.UrlPathName;
 import walkingkooka.net.UrlQueryString;
 import walkingkooka.net.http.HttpMethod;
@@ -28,7 +29,6 @@ import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResource;
 import walkingkooka.spreadsheet.server.currency.CurrencyHateosResourceSet;
 import walkingkooka.spreadsheet.server.net.SpreadsheetUrlPathTemplate;
-import walkingkooka.spreadsheet.server.net.SpreadsheetUrlQueryParameters;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -83,10 +83,10 @@ public final class CurrencyFetcher extends Fetcher<CurrencyFetcherWatcher> {
                 UrlPathName.WILDCARD
             ).setQuery(
                 UrlQueryString.EMPTY.addParameter(
-                    SpreadsheetUrlQueryParameters.OFFSET,
+                    UrlParameterName.OFFSET,
                     String.valueOf(offset)
                 ).addParameter(
-                    SpreadsheetUrlQueryParameters.COUNT,
+                    UrlParameterName.COUNT,
                     String.valueOf(count)
                 )
             )
