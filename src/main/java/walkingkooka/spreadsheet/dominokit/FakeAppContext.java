@@ -85,7 +85,10 @@ import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
 import walkingkooka.storage.Storage;
+import walkingkooka.storage.StorageMountPoint;
 import walkingkooka.storage.StoragePath;
+import walkingkooka.storage.StorageValue;
+import walkingkooka.storage.StorageValueInfo;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
 import walkingkooka.text.cursor.TextCursor;
@@ -978,6 +981,45 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public SpreadsheetViewportComponentKeyBindings spreadsheetViewportComponentKeyBindings() {
+        throw new UnsupportedOperationException();
+    }
+
+    // StorageContext...................................................................................................
+
+    @Override
+    public Optional<StorageValue> loadStorage(final StoragePath path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public StorageValue saveStorage(final StorageValue value) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void deleteStorage(final StoragePath path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<StorageValueInfo> listStorage(final StoragePath parent,
+                                              final int offset,
+                                              final int count) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void mountStorage(final StorageMountPoint<?> mountPoint) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void unmountStorage(final StoragePath path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<StorageMountPoint<?>> storageMountPoints() {
         throw new UnsupportedOperationException();
     }
 }

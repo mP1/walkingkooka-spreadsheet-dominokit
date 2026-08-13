@@ -41,7 +41,10 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.storage.StorageMountPoint;
 import walkingkooka.storage.StoragePath;
+import walkingkooka.storage.StorageValue;
+import walkingkooka.storage.StorageValueInfo;
 import walkingkooka.text.Indentation;
 
 import java.nio.charset.Charset;
@@ -254,6 +257,45 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
 
     @Override
     public Optional<SpreadsheetCell> cell(final SpreadsheetSelection selection) {
+        throw new UnsupportedOperationException();
+    }
+
+    // StorageContext...................................................................................................
+
+    @Override
+    public Optional<StorageValue> loadStorage(final StoragePath path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public StorageValue saveStorage(final StorageValue value) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void deleteStorage(final StoragePath path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<StorageValueInfo> listStorage(final StoragePath parent,
+                                              final int offset,
+                                              final int count) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void mountStorage(final StorageMountPoint<?> mountPoint) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void unmountStorage(final StoragePath path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<StorageMountPoint<?>> storageMountPoints() {
         throw new UnsupportedOperationException();
     }
 }
