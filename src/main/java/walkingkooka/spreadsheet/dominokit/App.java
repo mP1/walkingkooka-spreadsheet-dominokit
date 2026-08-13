@@ -492,6 +492,7 @@ public class App implements EntryPoint,
             MEDIA_TYPE_DETECTOR,
             MULTIPLIER,
             PluginStores.fake(),
+            Storages.fake(),
             this,
             this.spreadsheetEnvironmentContext(),
             this.jsonNodeMarshallUnmarshallContext()
@@ -1390,6 +1391,7 @@ public class App implements EntryPoint,
                 MEDIA_TYPE_DETECTOR,
                 MULTIPLIER,
                 PluginStores.fake(),
+                Storages.fake(),
                 this, // CurrencyLocaleContext
                 spreadsheetEnvironmentContext,
                 this.jsonNodeMarshallUnmarshallContext()
@@ -1580,6 +1582,7 @@ public class App implements EntryPoint,
             MEDIA_TYPE_DETECTOR,
             MULTIPLIER,
             PluginStores.fake(),
+            Storages.fake(),
             this, // CurrencyLocaleContext
             this.environmentContext(),
             this.jsonNodeMarshallUnmarshallContext()
