@@ -295,6 +295,11 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
     }
 
     @Override
+    public void setAuditInfoStorage(final StorageValueInfo info) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void mountStorage(final StorageMountPoint<?> mountPoint) {
         throw new UnsupportedOperationException();
     }
