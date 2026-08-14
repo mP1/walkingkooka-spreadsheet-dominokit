@@ -263,6 +263,11 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
     // StorageContext...................................................................................................
 
     @Override
+    public boolean canReadStorage(final StoragePath path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Optional<StorageValue> loadStorage(final StoragePath path) {
         throw new UnsupportedOperationException();
     }
