@@ -992,6 +992,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public boolean canWriteStorage(final StoragePath path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Optional<StorageValue> loadStorage(final StoragePath path) {
         throw new UnsupportedOperationException();
     }
