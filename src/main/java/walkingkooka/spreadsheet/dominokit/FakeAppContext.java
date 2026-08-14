@@ -1019,6 +1019,11 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
+    public void setAuditInfoStorage(final StorageValueInfo info) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void mountStorage(final StorageMountPoint<?> mountPoint) {
         throw new UnsupportedOperationException();
     }
