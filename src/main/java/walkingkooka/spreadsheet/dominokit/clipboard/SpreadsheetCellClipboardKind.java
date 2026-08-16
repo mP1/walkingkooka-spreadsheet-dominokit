@@ -22,7 +22,7 @@ import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.HasUrlFragment;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.net.header.HasMediaType;
+import walkingkooka.net.header.HasContentType;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.predicate.Predicates;
 import walkingkooka.spreadsheet.dominokit.AppContext;
@@ -64,7 +64,7 @@ import java.util.function.Predicate;
  * For the moment this only supports possible cell values from the {@link SpreadsheetViewportComponent},
  * which means the clipboard can only holds cells or components of a cell such as the formula text.
  */
-public enum SpreadsheetCellClipboardKind implements HasMediaType,
+public enum SpreadsheetCellClipboardKind implements HasContentType,
     HasUrlFragment {
 
     /**
@@ -789,10 +789,14 @@ public enum SpreadsheetCellClipboardKind implements HasMediaType,
         return map;
     }
 
-    // HasMediaType.....................................................................................................
+    // HasContentType...................................................................................................
 
     @Override
-    public MediaType mediaType() {
+    public Optional<MediaType> contentType() {
+        return Optional.of(this.mediaType);
+    }
+
+    public MediaType contentTypeOrFail() {
         return this.mediaType;
     }
 

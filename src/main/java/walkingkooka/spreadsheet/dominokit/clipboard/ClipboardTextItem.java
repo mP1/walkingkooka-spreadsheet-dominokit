@@ -149,7 +149,7 @@ public final class ClipboardTextItem implements HasText,
         Objects.requireNonNull(kind, "kind");
         Objects.requireNonNull(context, "context");
 
-        final MediaType mediaType = kind.mediaType();
+        final MediaType mediaType = kind.contentTypeOrFail();
         final SpreadsheetCellRangeReference rangeReference = range.range();
 
         final List<JsonNode> value = Lists.array();
