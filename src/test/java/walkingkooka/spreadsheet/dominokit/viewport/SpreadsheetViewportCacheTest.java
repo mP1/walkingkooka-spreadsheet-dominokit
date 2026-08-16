@@ -75,7 +75,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetViewportCacheTest implements IteratorTesting,
-    SpreadsheetLabelNameResolverTesting<SpreadsheetViewportCache>,
+    SpreadsheetLabelNameResolverTesting,
     ClassTesting<SpreadsheetViewportCache> {
 
     private final static SpreadsheetCellReference A1 = SpreadsheetCellReference.A1;
@@ -4776,13 +4776,6 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
             cache.lastWindowHeight(),
             cache::toString
         );
-    }
-
-    // SpreadsheetLabelNameResolver.....................................................................................
-
-    @Override
-    public SpreadsheetViewportCache createSpreadsheetLabelNameResolver() {
-        return this.viewportCache();
     }
 
     // ClassTesting.....................................................................................................

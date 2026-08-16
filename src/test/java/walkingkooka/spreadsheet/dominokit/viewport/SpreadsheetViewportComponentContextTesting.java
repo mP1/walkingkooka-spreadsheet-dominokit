@@ -22,6 +22,6 @@ import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolverTesting;
 
 public interface SpreadsheetViewportComponentContextTesting<C extends SpreadsheetViewportComponentContext>
     extends SpreadsheetComparatorProviderTesting<C>,
-    SpreadsheetLabelNameResolverTesting<C>,
+    SpreadsheetLabelNameResolverTesting,
     SpreadsheetViewportFormulaComponentContextTesting<C> {
 }
