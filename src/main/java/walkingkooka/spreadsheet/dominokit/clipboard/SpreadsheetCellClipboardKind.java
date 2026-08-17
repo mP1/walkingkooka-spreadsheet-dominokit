@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionMaps;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.value.SpreadsheetCellRange;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
@@ -73,8 +74,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     CELL(
         SpreadsheetCell.class,
         SpreadsheetMediaTypes.JSON_CELL,
-        (c) -> c, // returns the entire cell
-        "cell"
+        (c) -> c // returns the entire cell
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -112,8 +112,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     CURRENCY(
         Currency.class,
         SpreadsheetMediaTypes.JSON_CURRENCY,
-        SpreadsheetCell::currency,
-        "currency"
+        SpreadsheetCell::currency
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -162,8 +161,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     DATE_TIME_SYMBOLS(
         DateTimeSymbols.class,
         SpreadsheetMediaTypes.JSON_DATE_TIME_SYMBOLS,
-        SpreadsheetCell::dateTimeSymbols,
-        "dateTimeSymbols"
+        SpreadsheetCell::dateTimeSymbols
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -212,8 +210,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     DECIMAL_NUMBER_SYMBOLS(
         DecimalNumberSymbols.class,
         SpreadsheetMediaTypes.JSON_DECIMAL_NUMBER_SYMBOLS,
-        SpreadsheetCell::decimalNumberSymbols,
-        "decimalNumberSymbols"
+        SpreadsheetCell::decimalNumberSymbols
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -262,8 +259,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     FORMATTED_VALUE(
         TextNode.class,
         SpreadsheetMediaTypes.JSON_FORMATTED_VALUE,
-        SpreadsheetCell::formattedValue,
-        "formatted-value"
+        SpreadsheetCell::formattedValue
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -302,8 +298,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     FORMATTER(
         SpreadsheetFormatterSelector.class,
         SpreadsheetMediaTypes.JSON_FORMATTER,
-        SpreadsheetCell::formatter,
-        "formatter"
+        SpreadsheetCell::formatter
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -352,8 +347,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     FORMULA(
         SpreadsheetFormula.class,
         SpreadsheetMediaTypes.JSON_FORMULA,
-        SpreadsheetCell::formula,
-        "formula"
+        SpreadsheetCell::formula
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -400,8 +394,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     LOCALE(
         Locale.class,
         SpreadsheetMediaTypes.JSON_LOCALE,
-        SpreadsheetCell::locale,
-        "locale"
+        SpreadsheetCell::locale
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -450,8 +443,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     PARSER(
         SpreadsheetParserSelector.class,
         SpreadsheetMediaTypes.JSON_PARSER,
-        SpreadsheetCell::parser,
-        "parser"
+        SpreadsheetCell::parser
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -500,8 +492,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     STYLE(
         TextStyle.class,
         SpreadsheetMediaTypes.JSON_STYLE,
-        SpreadsheetCell::style,
-        "style"
+        SpreadsheetCell::style
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -547,8 +538,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     VALIDATOR(
         ValidatorSelector.class,
         SpreadsheetMediaTypes.JSON_VALIDATOR,
-        SpreadsheetCell::validator,
-        "validator"
+        SpreadsheetCell::validator
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -598,8 +588,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
         Object.class,
         SpreadsheetMediaTypes.JSON_VALUE,
         (SpreadsheetCell cell) -> cell.formula()
-            .value(),
-        "value"
+            .value()
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -648,8 +637,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
         ValueType.class,
         SpreadsheetMediaTypes.JSON_VALUE_TYPE,
         (SpreadsheetCell cell) -> cell.formula()
-            .valueType(),
-        "value-type"
+            .valueType()
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -718,16 +706,22 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
     SpreadsheetCellClipboardKind(final Class<?> type,
                                  final MediaType mediaType,
-                                 final Function<SpreadsheetCell, Object> valueExtractor,
-                                 final String urlFragment) {
+                                 final Function<SpreadsheetCell, Object> valueExtractor) {
         this.mediaTypeClass = type;
         this.mediaType = mediaType;
 
         this.valueExtractor = valueExtractor;
 
-        this.urlFragment = UrlFragment.parse(urlFragment);
+        final String name = this.name();
 
-        this.predicate = this.name().equals("CELL") ?
+        this.urlFragment = UrlFragment.parse(
+            CaseKind.SNAKE.change(
+                name,
+                CaseKind.KEBAB
+            )
+        );
+
+        this.predicate = name.equals("CELL") ?
             Predicates.always() :
             Predicate.isEqual(this);
     }
