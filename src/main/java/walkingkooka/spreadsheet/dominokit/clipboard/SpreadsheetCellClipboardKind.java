@@ -107,54 +107,6 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     },
 
     /**
-     * The clipboard value is cells to {@link String formula text}.
-     */
-    FORMULA(
-        SpreadsheetFormula.class,
-        SpreadsheetMediaTypes.JSON_FORMULA,
-        SpreadsheetCell::formula,
-        "formula"
-    ) {
-        @Override
-        JsonNode marshall(final SpreadsheetCell cell,
-                          final JsonNodeMarshallContext context) {
-            return JsonNode.string(
-                cell.formula()
-                    .text()
-            ).setName(
-                propertyName(cell)
-            );
-        }
-
-        @Override //
-        SpreadsheetCell unmarshall(final JsonNode node,
-                                   final JsonNodeUnmarshallContext context) {
-            return SpreadsheetSelection.parseCell(
-                node.name()
-                    .value()
-            ).setFormula(
-                SpreadsheetFormula.EMPTY.setText(
-                    node.stringOrFail()
-                )
-            );
-        }
-
-        @Override
-        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
-                                      final SpreadsheetId id,
-                                      final SpreadsheetCellRange range) {
-            fetcher.patchCellsFormulaText(
-                id,
-                range.range(),
-                toMap(
-                    range,
-                    (SpreadsheetCell cell) -> cell.formula().text()
-                )
-            );
-        }
-    },
-
-    /**
      * The clipboard value is cells to {@link walkingkooka.datetime.DateTimeSymbols}.
      */
     CURRENCY(
@@ -305,20 +257,20 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     },
 
     /**
-     * The clipboard value is cells to {@link Locale}.
+     * The clipboard value is a formatted text.
      */
-    LOCALE(
-        Locale.class,
-        SpreadsheetMediaTypes.JSON_LOCALE,
-        SpreadsheetCell::locale,
-        "locale"
+    FORMATTED_VALUE(
+        TextNode.class,
+        SpreadsheetMediaTypes.JSON_FORMATTED_VALUE,
+        SpreadsheetCell::formattedValue,
+        "formatted-value"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
-            return marshallCellToOptionalValue(
+            return marshallCellToOptionalTypeValue(
                 cell,
-                cell.locale(),
+                cell.formattedValue(),
                 context
             );
         }
@@ -331,11 +283,8 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
                     .value()
             ).setFormula(
                 SpreadsheetFormula.EMPTY
-            ).setLocale(
-                context.unmarshallOptional(
-                    node,
-                    Locale.class
-                )
+            ).setFormattedValue(
+                context.unmarshallOptionalWithType(node)
             );
         }
 
@@ -343,14 +292,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
         public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
-            fetcher.patchCellsLocale(
-                id,
-                range.range(),
-                toMap(
-                    range,
-                    SpreadsheetCell::locale
-                )
-            );
+            throw new UnsupportedOperationException("Pasting formattedValue not supported");
         }
     },
 
@@ -399,6 +341,104 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
                 toMap(
                     range,
                     SpreadsheetCell::formatter
+                )
+            );
+        }
+    },
+
+    /**
+     * The clipboard value is cells to {@link String formula text}.
+     */
+    FORMULA(
+        SpreadsheetFormula.class,
+        SpreadsheetMediaTypes.JSON_FORMULA,
+        SpreadsheetCell::formula,
+        "formula"
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return JsonNode.string(
+                cell.formula()
+                    .text()
+            ).setName(
+                propertyName(cell)
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final JsonNodeUnmarshallContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY.setText(
+                    node.stringOrFail()
+                )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsFormulaText(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    (SpreadsheetCell cell) -> cell.formula().text()
+                )
+            );
+        }
+    },
+
+    /**
+     * The clipboard value is cells to {@link Locale}.
+     */
+    LOCALE(
+        Locale.class,
+        SpreadsheetMediaTypes.JSON_LOCALE,
+        SpreadsheetCell::locale,
+        "locale"
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalValue(
+                cell,
+                cell.locale(),
+                context
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final JsonNodeUnmarshallContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY
+            ).setLocale(
+                context.unmarshallOptional(
+                    node,
+                    Locale.class
+                )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsLocale(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::locale
                 )
             );
         }
@@ -502,20 +542,20 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     },
 
     /**
-     * The clipboard value is a formatted text.
+     * The clipboard value is a cells to {@link ValidatorSelector}.
      */
-    FORMATTED_VALUE(
-        TextNode.class,
-        SpreadsheetMediaTypes.JSON_FORMATTED_VALUE,
-        SpreadsheetCell::formattedValue,
-        "formatted-value"
+    VALIDATOR(
+        ValidatorSelector.class,
+        SpreadsheetMediaTypes.JSON_VALIDATOR,
+        SpreadsheetCell::validator,
+        "validator"
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
                           final JsonNodeMarshallContext context) {
-            return marshallCellToOptionalTypeValue(
+            return marshallCellToOptionalValue(
                 cell,
-                cell.formattedValue(),
+                cell.validator(),
                 context
             );
         }
@@ -528,8 +568,11 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
                     .value()
             ).setFormula(
                 SpreadsheetFormula.EMPTY
-            ).setFormattedValue(
-                context.unmarshallOptionalWithType(node)
+            ).setValidator(
+                context.unmarshallOptional(
+                    node,
+                    ValidatorSelector.class
+                )
             );
         }
 
@@ -537,7 +580,14 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
         public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
                                       final SpreadsheetId id,
                                       final SpreadsheetCellRange range) {
-            throw new UnsupportedOperationException("Pasting formattedValue not supported");
+            fetcher.patchCellsValidator(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::validator
+                )
+            );
         }
     },
 
@@ -639,56 +689,6 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
                     range,
                     (SpreadsheetCell cell) -> cell.formula()
                         .valueType()
-                )
-            );
-        }
-    },
-
-    /**
-     * The clipboard value is a cells to {@link ValidatorSelector}.
-     */
-    VALIDATOR(
-        ValidatorSelector.class,
-        SpreadsheetMediaTypes.JSON_VALIDATOR,
-        SpreadsheetCell::validator,
-        "validator"
-    ) {
-        @Override
-        JsonNode marshall(final SpreadsheetCell cell,
-                          final JsonNodeMarshallContext context) {
-            return marshallCellToOptionalValue(
-                cell,
-                cell.validator(),
-                context
-            );
-        }
-
-        @Override //
-        SpreadsheetCell unmarshall(final JsonNode node,
-                                   final JsonNodeUnmarshallContext context) {
-            return SpreadsheetSelection.parseCell(
-                node.name()
-                    .value()
-            ).setFormula(
-                SpreadsheetFormula.EMPTY
-            ).setValidator(
-                context.unmarshallOptional(
-                    node,
-                    ValidatorSelector.class
-                )
-            );
-        }
-
-        @Override
-        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
-                                      final SpreadsheetId id,
-                                      final SpreadsheetCellRange range) {
-            fetcher.patchCellsValidator(
-                id,
-                range.range(),
-                toMap(
-                    range,
-                    SpreadsheetCell::validator
                 )
             );
         }
