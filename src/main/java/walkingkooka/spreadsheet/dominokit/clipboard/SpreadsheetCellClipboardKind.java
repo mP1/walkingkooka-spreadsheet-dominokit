@@ -25,7 +25,6 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.HasContentType;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.predicate.Predicates;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardHistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;
@@ -43,6 +42,7 @@ import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonPropertyName;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
+import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
 import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.validation.ValueType;
@@ -86,7 +86,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return context.unmarshall(
                 JsonNode.object()
                     .appendChild(node),
@@ -128,7 +128,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -175,7 +175,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -225,7 +225,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -275,7 +275,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -325,7 +325,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -375,7 +375,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -425,7 +425,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -472,7 +472,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -522,7 +522,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -564,7 +564,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -614,7 +614,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -665,7 +665,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         @Override //
         SpreadsheetCell unmarshall(final JsonNode node,
-                                   final AppContext context) {
+                                   final JsonNodeUnmarshallContext context) {
             return SpreadsheetSelection.parseCell(
                 node.name()
                     .value()
@@ -756,7 +756,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      * Internal method used because each of the different types clipboard values are marshalled differently.
      */
     abstract SpreadsheetCell unmarshall(final JsonNode node,
-                                        final AppContext context);
+                                        final JsonNodeUnmarshallContext context);
 
     /**
      * All {@link SpreadsheetCellClipboardKind} except for {@link #CELL} only match themselves while {@link #CELL} matches all enum values.
