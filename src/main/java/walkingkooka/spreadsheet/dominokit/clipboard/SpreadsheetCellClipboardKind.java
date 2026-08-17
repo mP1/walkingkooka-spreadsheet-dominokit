@@ -796,6 +796,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
         return Optional.of(this.mediaType);
     }
 
+    @Override
     public MediaType contentTypeOrFail() {
         return this.mediaType;
     }
