@@ -737,7 +737,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      * This will be used by the {@link walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardCopyHistoryToken} and {@link walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellClipboardCutHistoryToken}
      * to convert cells to the required value before they are serialized to the clipboard as text.
      */
-    public Object toValue(final SpreadsheetCell cell) {
+    public Object cellValue(final SpreadsheetCell cell) {
         Objects.requireNonNull(cell, "cell");
 
         return this.valueExtractor.apply(cell);

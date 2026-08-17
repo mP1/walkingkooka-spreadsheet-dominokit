@@ -196,8 +196,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     // toValue..........................................................................................................
 
     @Test
-    public void testToValueCell() {
-        this.toValueAndCheck(
+    public void testCellValueCell() {
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.CELL,
             CELL,
             CELL
@@ -205,8 +205,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueFormula() {
-        this.toValueAndCheck(
+    public void testCellValueFormula() {
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
             CELL,
             CELL.formula()
@@ -214,10 +214,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueFormulaEmptyFormula() {
+    public void testCellValueFormulaEmptyFormula() {
         final SpreadsheetCell cell = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY);
 
-        this.toValueAndCheck(
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
             cell,
             cell.formula()
@@ -225,8 +225,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueLocale() {
-        this.toValueAndCheck(
+    public void testCellValueLocale() {
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.LOCALE,
             CELL,
             CELL.locale()
@@ -234,8 +234,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueFormatter() {
-        this.toValueAndCheck(
+    public void testCellValueFormatter() {
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.FORMATTER,
             CELL,
             CELL.formatter()
@@ -243,10 +243,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueFormatterEmpty() {
+    public void testCellValueFormatterEmpty() {
         final SpreadsheetCell cell = CELL.setFormatter(SpreadsheetCell.NO_FORMATTER);
 
-        this.toValueAndCheck(
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.FORMATTER,
             cell,
             cell.formatter()
@@ -254,8 +254,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueParser() {
-        this.toValueAndCheck(
+    public void testCellValueParser() {
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.PARSER,
             CELL,
             CELL.parser()
@@ -263,10 +263,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueParserEmpty() {
+    public void testCellValueParserEmpty() {
         final SpreadsheetCell cell = CELL.setParser(SpreadsheetCell.NO_PARSER);
 
-        this.toValueAndCheck(
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.PARSER,
             cell,
             cell.parser()
@@ -274,8 +274,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueStyle() {
-        this.toValueAndCheck(
+    public void testCellValueStyle() {
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.STYLE,
             CELL,
             CELL.style()
@@ -283,10 +283,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueStyleEmpty() {
+    public void testCellValueStyleEmpty() {
         final SpreadsheetCell cell = CELL.setStyle(TextStyle.EMPTY);
 
-        this.toValueAndCheck(
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.STYLE,
             cell,
             cell.style()
@@ -294,8 +294,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueFormattedValue() {
-        this.toValueAndCheck(
+    public void testCellValueFormattedValue() {
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.FORMATTED_VALUE,
             CELL,
             CELL.formattedValue()
@@ -303,10 +303,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueFormattedValueEmpty() {
+    public void testCellValueFormattedValueEmpty() {
         final SpreadsheetCell cell = CELL.setFormattedValue(SpreadsheetCell.NO_FORMATTED_VALUE_CELL);
 
-        this.toValueAndCheck(
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.FORMATTED_VALUE,
             cell,
             cell.formattedValue()
@@ -314,8 +314,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueWithValueType() {
-        this.toValueAndCheck(
+    public void testCellValueWithValueType() {
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.VALUE_TYPE,
             CELL,
             CELL.formula()
@@ -324,23 +324,23 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testToValueWithValueTypeEmpty() {
+    public void testCellValueWithValueTypeEmpty() {
         final SpreadsheetCell cell = CELL.setFormula(
             CELL.formula()
                 .setValueType(SpreadsheetFormula.NO_VALUE_TYPE)
         );
 
-        this.toValueAndCheck(
+        this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.VALUE_TYPE,
             cell,
             SpreadsheetFormula.NO_VALUE_TYPE
         );
     }
 
-    private void toValueAndCheck(final SpreadsheetCellClipboardKind kind,
-                                 final SpreadsheetCell cell,
-                                 final Object expected) {
-        final Object value = kind.toValue(cell);
+    private void cellValueAndCheck(final SpreadsheetCellClipboardKind kind,
+                                   final SpreadsheetCell cell,
+                                   final Object expected) {
+        final Object value = kind.cellValue(cell);
 
         this.checkEquals(
             expected,
