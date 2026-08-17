@@ -22,7 +22,7 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.net.header.HasMediaTypeTesting;
+import walkingkooka.net.header.HasContentTypeTesting;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.predicate.PredicateTesting;
@@ -65,7 +65,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellClipboardKindTest implements ClassTesting<SpreadsheetCellClipboardKind>,
-    HasMediaTypeTesting,
+    HasContentTypeTesting,
     HasUrlFragmentTesting,
     ParseStringTesting<SpreadsheetCellClipboardKind>,
     PredicateTesting,
@@ -359,19 +359,19 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         );
     }
 
-    // HasMediaType......................................................................................................
+    // HasContentType...................................................................................................
 
     @Test
-    public void testMediaTypeCell() {
-        this.mediaTypeAndCheck(
+    public void testContentTypeCell() {
+        this.contentTypeAndCheck(
             SpreadsheetCellClipboardKind.CELL,
             MediaType.parse("application/json+walkingkooka.spreadsheet.value.SpreadsheetCell")
         );
     }
 
     @Test
-    public void testMediaTypeFormula() {
-        this.mediaTypeAndCheck(
+    public void testContentTypeFormula() {
+        this.contentTypeAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
             MediaType.parse("application/json+walkingkooka.spreadsheet.formula.SpreadsheetFormula")
         );
@@ -515,7 +515,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     @Test
     public void testFromMediaTypeCell() {
         this.fromMediaTypeAndCheck(
-            SpreadsheetCellClipboardKind.CELL.mediaType(),
+            SpreadsheetCellClipboardKind.CELL.contentTypeOrFail(),
             SpreadsheetCellClipboardKind.CELL
         );
     }
@@ -523,7 +523,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     @Test
     public void testFromMediaTypeValue() {
         this.fromMediaTypeAndCheck(
-            SpreadsheetCellClipboardKind.VALUE.mediaType(),
+            SpreadsheetCellClipboardKind.VALUE.contentTypeOrFail(),
             SpreadsheetCellClipboardKind.VALUE
         );
     }
@@ -532,7 +532,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testFromMediaTypeAllValues() {
         for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
             this.fromMediaTypeAndCheck(
-                kind.mediaType(),
+                kind.contentTypeOrFail(),
                 kind
             );
         }
