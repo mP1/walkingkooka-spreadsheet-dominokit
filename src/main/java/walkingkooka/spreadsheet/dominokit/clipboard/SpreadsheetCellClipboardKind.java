@@ -38,6 +38,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionMaps;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.value.SpreadsheetCellRange;
+import walkingkooka.spreadsheet.value.SpreadsheetCellValueKind;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.json.JsonNode;
@@ -73,8 +74,8 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     CELL(
         SpreadsheetCell.class,
-        SpreadsheetMediaTypes.JSON_CELL,
-        (c) -> c // returns the entire cell
+        SpreadsheetMediaTypes.JSON_CELL
+        // returns the entire cell
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -111,8 +112,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     CURRENCY(
         Currency.class,
-        SpreadsheetMediaTypes.JSON_CURRENCY,
-        SpreadsheetCell::currency
+        SpreadsheetMediaTypes.JSON_CURRENCY
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -160,8 +160,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     DATE_TIME_SYMBOLS(
         DateTimeSymbols.class,
-        SpreadsheetMediaTypes.JSON_DATE_TIME_SYMBOLS,
-        SpreadsheetCell::dateTimeSymbols
+        SpreadsheetMediaTypes.JSON_DATE_TIME_SYMBOLS
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -209,8 +208,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     DECIMAL_NUMBER_SYMBOLS(
         DecimalNumberSymbols.class,
-        SpreadsheetMediaTypes.JSON_DECIMAL_NUMBER_SYMBOLS,
-        SpreadsheetCell::decimalNumberSymbols
+        SpreadsheetMediaTypes.JSON_DECIMAL_NUMBER_SYMBOLS
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -258,8 +256,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     FORMATTED_VALUE(
         TextNode.class,
-        SpreadsheetMediaTypes.JSON_FORMATTED_VALUE,
-        SpreadsheetCell::formattedValue
+        SpreadsheetMediaTypes.JSON_FORMATTED_VALUE
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -297,8 +294,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     FORMATTER(
         SpreadsheetFormatterSelector.class,
-        SpreadsheetMediaTypes.JSON_FORMATTER,
-        SpreadsheetCell::formatter
+        SpreadsheetMediaTypes.JSON_FORMATTER
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -346,8 +342,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     FORMULA(
         SpreadsheetFormula.class,
-        SpreadsheetMediaTypes.JSON_FORMULA,
-        SpreadsheetCell::formula
+        SpreadsheetMediaTypes.JSON_FORMULA
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -393,8 +388,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     LOCALE(
         Locale.class,
-        SpreadsheetMediaTypes.JSON_LOCALE,
-        SpreadsheetCell::locale
+        SpreadsheetMediaTypes.JSON_LOCALE
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -442,8 +436,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     PARSER(
         SpreadsheetParserSelector.class,
-        SpreadsheetMediaTypes.JSON_PARSER,
-        SpreadsheetCell::parser
+        SpreadsheetMediaTypes.JSON_PARSER
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -491,8 +484,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     STYLE(
         TextStyle.class,
-        SpreadsheetMediaTypes.JSON_STYLE,
-        SpreadsheetCell::style
+        SpreadsheetMediaTypes.JSON_STYLE
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -537,8 +529,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     VALIDATOR(
         ValidatorSelector.class,
-        SpreadsheetMediaTypes.JSON_VALIDATOR,
-        SpreadsheetCell::validator
+        SpreadsheetMediaTypes.JSON_VALIDATOR
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -586,9 +577,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     VALUE(
         Object.class,
-        SpreadsheetMediaTypes.JSON_VALUE,
-        (SpreadsheetCell cell) -> cell.formula()
-            .value()
+        SpreadsheetMediaTypes.JSON_VALUE
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -635,9 +624,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     VALUE_TYPE(
         ValueType.class,
-        SpreadsheetMediaTypes.JSON_VALUE_TYPE,
-        (SpreadsheetCell cell) -> cell.formula()
-            .valueType()
+        SpreadsheetMediaTypes.JSON_VALUE_TYPE
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
@@ -705,14 +692,13 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     }
 
     SpreadsheetCellClipboardKind(final Class<?> type,
-                                 final MediaType mediaType,
-                                 final Function<SpreadsheetCell, Object> valueExtractor) {
+                                 final MediaType mediaType) {
         this.mediaTypeClass = type;
         this.mediaType = mediaType;
 
-        this.valueExtractor = valueExtractor;
-
         final String name = this.name();
+
+        this.spreadsheetCellValueKind = SpreadsheetCellValueKind.valueOf(name);
 
         this.urlFragment = UrlFragment.parse(
             CaseKind.SNAKE.change(
@@ -732,12 +718,10 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      * to convert cells to the required value before they are serialized to the clipboard as text.
      */
     public Object cellValue(final SpreadsheetCell cell) {
-        Objects.requireNonNull(cell, "cell");
-
-        return this.valueExtractor.apply(cell);
+        return this.spreadsheetCellValueKind.cellValue(cell);
     }
 
-    private final Function<SpreadsheetCell, Object> valueExtractor;
+    private final SpreadsheetCellValueKind spreadsheetCellValueKind;
 
     /**
      * Marshalls a single cell or cell property ready for inclusion in the array of selected cells.
