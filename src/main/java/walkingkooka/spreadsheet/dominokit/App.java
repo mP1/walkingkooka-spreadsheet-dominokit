@@ -38,6 +38,7 @@ import walkingkooka.currency.FakeCurrencyExchangeRater;
 import walkingkooka.datetime.DateTimeContexts;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.datetime.HasNow;
+import walkingkooka.environment.CanParseEnvironmentValueName;
 import walkingkooka.environment.EnvironmentContext;
 import walkingkooka.environment.EnvironmentContexts;
 import walkingkooka.environment.EnvironmentValueName;
@@ -1037,6 +1038,13 @@ public class App implements EntryPoint,
 
     private final SpreadsheetEnvironmentContext spreadsheetEnvironmentContext;
 
+    // CanParseEnvironmentValueNameDelegator............................................................................
+
+    @Override
+    public CanParseEnvironmentValueName canParseEnvironmentValueName() {
+        return this.spreadsheetEnvironmentContext;
+    }
+
     // SpreadsheetExporterFetcher.......................................................................................
 
     @Override
@@ -1701,6 +1709,7 @@ public class App implements EntryPoint,
                 (final Optional<Object> value) -> {
                     throw new UnsupportedOperationException();
                 },
+                this, // CanParseEnvironmentValueName
                 this, // HasUserDirectories
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 MEDIA_TYPE_DETECTOR,
