@@ -27,6 +27,8 @@ import walkingkooka.currency.CurrencyContextDelegator;
 import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.datetime.DateTimeContextDelegator;
+import walkingkooka.environment.CanParseEnvironmentValueName;
+import walkingkooka.environment.CanParseEnvironmentValueNameDelegator;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
@@ -67,6 +69,7 @@ import java.util.Optional;
  * {@link DecimalNumberContext} members.
  */
 final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContext,
+    CanParseEnvironmentValueNameDelegator,
     CurrencyContextDelegator,
     DateTimeContextDelegator,
     DecimalNumberContextDelegator,
@@ -205,6 +208,13 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
 
     @Override
     public LineEnding lineEnding() {
+        throw new UnsupportedOperationException();
+    }
+
+    // CanParseEnvironmentValueNameDelegator............................................................................
+
+    @Override
+    public CanParseEnvironmentValueName canParseEnvironmentValueName() {
         throw new UnsupportedOperationException();
     }
 

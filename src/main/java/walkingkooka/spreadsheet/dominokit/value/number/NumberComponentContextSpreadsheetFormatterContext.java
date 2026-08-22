@@ -26,6 +26,8 @@ import walkingkooka.currency.CurrencyExchange;
 import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.datetime.DateTimeContextDelegator;
 import walkingkooka.datetime.DateTimeContexts;
+import walkingkooka.environment.CanParseEnvironmentValueName;
+import walkingkooka.environment.CanParseEnvironmentValueNameDelegator;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
@@ -70,6 +72,7 @@ import java.util.Set;
  * are not required, eg colors, resolving labels etc.
  */
 final class NumberComponentContextSpreadsheetFormatterContext implements SpreadsheetFormatterContext,
+    CanParseEnvironmentValueNameDelegator,
     DateTimeContextDelegator,
     DecimalNumberContextDelegator,
     JsonNodeMarshallUnmarshallContextDelegator,
@@ -230,6 +233,13 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
 
     @Override
     public char valueSeparator() {
+        throw new UnsupportedOperationException();
+    }
+
+    // CanParseEnvironmentValueNameDelegator............................................................................
+
+    @Override
+    public CanParseEnvironmentValueName canParseEnvironmentValueName() {
         throw new UnsupportedOperationException();
     }
 
