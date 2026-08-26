@@ -274,6 +274,10 @@ public class App implements EntryPoint,
 
     private final static Locale LOCALE = Locale.forLanguageTag("en-AU");
 
+    private final static CanParseEnvironmentValueName CAN_PARSE_ENVIRONMENT_VALUE_NAME = (final String name) -> {
+        throw new UnsupportedOperationException();
+    };
+
     private final static Currency CURRENCY = Currency.getInstance(LOCALE);
 
     private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.readOnly(
@@ -327,6 +331,7 @@ public class App implements EntryPoint,
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
             ExpressionNumberKind.DEFAULT,
+            CAN_PARSE_ENVIRONMENT_VALUE_NAME,
             CURRENCY_CONTEXT.setLocaleContext(LOCALE_CONTEXT),
             MathContext.DECIMAL32
         );
@@ -1397,6 +1402,7 @@ public class App implements EntryPoint,
             // update the global JsonNodeUnmarshallContext.
             this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
                 metadata.expressionNumberKind(),
+                CAN_PARSE_ENVIRONMENT_VALUE_NAME,
                 CURRENCY_CONTEXT.setLocaleContext(LOCALE_CONTEXT),
                 metadata.mathContext()
             );

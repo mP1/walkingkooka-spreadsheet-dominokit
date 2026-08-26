@@ -71,6 +71,9 @@ public final class FormComponent implements ValueTextBoxComponentDelegator<FormC
         JsonNodeMarshallContexts.basic(),
         JsonNodeUnmarshallContexts.basic(
             ExpressionNumberKind.DEFAULT,
+            (String name) -> {
+                throw new UnsupportedOperationException();
+            }, // CanParseEnvironmentValueName
             CurrencyContexts.fake()
                 .setLocaleContext(
                     LocaleContexts.jre(

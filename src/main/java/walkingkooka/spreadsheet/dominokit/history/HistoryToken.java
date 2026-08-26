@@ -328,6 +328,9 @@ public abstract class HistoryToken implements HasUrlFragment {
         JsonNodeMarshallContexts.basic(),
         JsonNodeUnmarshallContexts.basic(
             ExpressionNumberKind.BIG_DECIMAL,
+            (String name) -> {
+                throw new UnsupportedOperationException();
+            }, // CanParseEnvironmentValueName
             new CurrencyCodeLanguageTagContext() {
                 @Override
                 public Optional<Currency> currencyForCurrencyCode(final CurrencyCode currencyCode) {

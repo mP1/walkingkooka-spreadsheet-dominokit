@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.currency.CurrencyLocaleContexts;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
@@ -45,13 +44,10 @@ import walkingkooka.tree.expression.ExpressionNumberKind;
 import walkingkooka.tree.json.JsonNode;
 import walkingkooka.tree.json.JsonString;
 import walkingkooka.tree.json.marshall.JsonNodeMarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeMarshallContexts;
 import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContext;
-import walkingkooka.tree.json.marshall.JsonNodeUnmarshallContexts;
 import walkingkooka.validation.ValueType;
 import walkingkooka.validation.form.FormName;
 
-import java.math.MathContext;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -428,16 +424,12 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
 
                     @Override
                     public JsonNodeMarshallContext jsonNodeMarshallContext() {
-                        return JsonNodeMarshallContexts.basic();
+                        return JSON_NODE_MARSHALL_CONTEXT;
                     }
 
                     @Override
                     public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
-                        return JsonNodeUnmarshallContexts.basic(
-                            ExpressionNumberKind.BIG_DECIMAL,
-                            CurrencyLocaleContexts.fake(), // CurrencyCodeLanguageTagContext
-                            MathContext.UNLIMITED
-                        );
+                        return JSON_NODE_UNMARSHALL_CONTEXT;
                     }
                 }
             ).patchValuePatch(

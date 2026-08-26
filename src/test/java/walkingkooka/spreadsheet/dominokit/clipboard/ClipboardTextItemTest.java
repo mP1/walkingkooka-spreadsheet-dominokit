@@ -850,6 +850,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         @Override
                         public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
                             return METADATA_EN_AU.jsonNodeUnmarshallContext(
+                                SPREADSHEET_CAN_PARSE_ENVIRONMENT_VALUE_NAME,
                                 CURRENCY_LOCALE_CONTEXT // CurrencyCodeLanguageTagContext
                             );
                         }
@@ -956,6 +957,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         @Override
                         public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
                             return METADATA_EN_AU.jsonNodeUnmarshallContext(
+                                SPREADSHEET_CAN_PARSE_ENVIRONMENT_VALUE_NAME,
                                 CURRENCY_LOCALE_CONTEXT // CurrencyCodeLanguageTagContext
                             );
                         }
