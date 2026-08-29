@@ -1686,10 +1686,10 @@ public class App implements EntryPoint,
 
         this.spreadsheetProvider = metadata.spreadsheetProvider(
             SpreadsheetProviders.basic(
-                converterProvider,
-                expressionFunctionProvider,
                 spreadsheetComparatorProvider,
+                converterProvider,
                 spreadsheetExporterProvider,
+                expressionFunctionProvider,
                 spreadsheetFormatterProvider,
                 formHandlerProvider,
                 spreadsheetImporterProvider,
@@ -1698,10 +1698,10 @@ public class App implements EntryPoint,
             )
         );
         this.systemSpreadsheetProvider = SpreadsheetProviders.basic(
-            converterProvider,
-            expressionFunctionProvider,
             spreadsheetComparatorProvider,
+            converterProvider,
             spreadsheetExporterProvider,
+            expressionFunctionProvider,
             spreadsheetFormatterProvider,
             formHandlerProvider,
             spreadsheetImporterProvider,
