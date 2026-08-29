@@ -35,6 +35,9 @@ import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.currency.CurrencyExchange;
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.currency.FakeCurrencyExchangeRater;
+import walkingkooka.currency.provider.CurrencyExchangeRaterInfoSet;
+import walkingkooka.currency.provider.CurrencyExchangeRaterProvider;
+import walkingkooka.currency.provider.CurrencyExchangeRaterProviders;
 import walkingkooka.datetime.DateTimeContexts;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.datetime.HasNow;
@@ -724,6 +727,10 @@ public class App implements EntryPoint,
                          final Set<MissingConverter> missingConverters) {
         // NOP
     }
+
+    // CurrencyExchangeRaterProvider....................................................................................
+
+    private CurrencyExchangeRaterInfoSet currencyExchangeRaterInfoSet = CurrencyExchangeRaterInfoSet.EMPTY;
 
     // CurrencyWatcher..................................................................................................
 
@@ -1622,6 +1629,15 @@ public class App implements EntryPoint,
             SpreadsheetComparatorProviders.spreadsheetComparators()
         );
 
+        final CurrencyExchangeRaterProvider currencyExchangeRaterProvider = CurrencyExchangeRaterProviders.mergedMapped(
+            this.currencyExchangeRaterInfoSet.renameIfPresent(
+                CurrencyExchangeRaterInfoSet.EMPTY
+            ),
+            CurrencyExchangeRaterProviders.currencyExchangeRaters(
+                ExpressionNumberKind.DEFAULT::parse
+            )
+        );
+
         final SpreadsheetExporterProvider spreadsheetExporterProvider = SpreadsheetExporterProviders.mergedMapped(
             this.spreadsheetExporterInfoSet.renameIfPresent(
                 SpreadsheetExporterInfoSet.EMPTY
@@ -1688,6 +1704,7 @@ public class App implements EntryPoint,
             SpreadsheetProviders.basic(
                 spreadsheetComparatorProvider,
                 converterProvider,
+                currencyExchangeRaterProvider,
                 spreadsheetExporterProvider,
                 expressionFunctionProvider,
                 spreadsheetFormatterProvider,
@@ -1700,6 +1717,7 @@ public class App implements EntryPoint,
         this.systemSpreadsheetProvider = SpreadsheetProviders.basic(
             spreadsheetComparatorProvider,
             converterProvider,
+            currencyExchangeRaterProvider,
             spreadsheetExporterProvider,
             expressionFunctionProvider,
             spreadsheetFormatterProvider,
