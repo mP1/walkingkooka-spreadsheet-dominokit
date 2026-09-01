@@ -24,11 +24,11 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.value.SpreadsheetErrorKind;
 import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.text.printer.TreePrintableTesting;
-import walkingkooka.util.FunctionTesting;
+import walkingkooka.util.FunctionTesting2;
 
 import java.util.Optional;
 
-public final class SpreadsheetFormulaComponentExpressionParserFunctionTest implements FunctionTesting<SpreadsheetFormulaComponentExpressionParserFunction,
+public final class SpreadsheetFormulaComponentExpressionParserFunctionTest implements FunctionTesting2<SpreadsheetFormulaComponentExpressionParserFunction,
     String,
     SpreadsheetFormula>,
     SpreadsheetMetadataTesting,

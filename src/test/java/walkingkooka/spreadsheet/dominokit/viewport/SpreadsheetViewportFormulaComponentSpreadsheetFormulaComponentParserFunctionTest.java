@@ -19,9 +19,9 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.util.FunctionTesting;
+import walkingkooka.util.FunctionTesting2;
 
-public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunctionTest implements FunctionTesting<SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction, String, SpreadsheetFormula> {
+public final class SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunctionTest implements FunctionTesting2<SpreadsheetViewportFormulaComponentSpreadsheetFormulaComponentParserFunction, String, SpreadsheetFormula> {
 
     @Test
     public void testApplyValidExpression() {
