@@ -45,6 +45,7 @@ import walkingkooka.storage.StorageMountPoint;
 import walkingkooka.storage.StoragePath;
 import walkingkooka.storage.StorageValue;
 import walkingkooka.storage.StorageValueInfo;
+import walkingkooka.storage.StorageWatcher;
 import walkingkooka.text.Indentation;
 
 import java.nio.charset.Charset;
@@ -318,6 +319,16 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
 
     @Override
     public List<StorageMountPoint<?>> storageMountPoints() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addStorageWatcher(final StorageWatcher watcher) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Runnable addStorageWatcherOnce(final StorageWatcher watcher) {
         throw new UnsupportedOperationException();
     }
 }
