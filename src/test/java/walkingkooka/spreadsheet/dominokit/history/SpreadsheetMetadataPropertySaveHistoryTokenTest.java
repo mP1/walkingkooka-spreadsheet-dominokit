@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.CanBeEmpty;
 import walkingkooka.Cast;
 import walkingkooka.color.Color;
+import walkingkooka.currency.provider.CurrencyExchangeRaterAliasSet;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.plugin.PluginNameSet;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
@@ -321,6 +322,9 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
         ).set(
             SpreadsheetMetadataPropertyName.CLIPBOARD_IMPORTER,
             SpreadsheetImporterAliasSet.parse("clipboard-importer1")
+        ).set(
+            SpreadsheetMetadataPropertyName.CURRENCY_EXCHANGE_RATERS,
+            CurrencyExchangeRaterAliasSet.parse("currency-exchange-rater-1")
         ).set(
             SpreadsheetMetadataPropertyName.FORM_HANDLERS,
             FormHandlerAliasSet.parse("form-handler3")
