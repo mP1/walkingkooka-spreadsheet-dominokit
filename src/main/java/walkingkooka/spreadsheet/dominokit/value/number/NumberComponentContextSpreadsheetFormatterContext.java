@@ -34,6 +34,7 @@ import walkingkooka.locale.LocaleContexts;
 import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
+import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
@@ -324,6 +325,11 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
 
     @Override
     public StoragePath parseStoragePath(final String path) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<EmailAddress> user() {
         throw new UnsupportedOperationException();
     }
 
