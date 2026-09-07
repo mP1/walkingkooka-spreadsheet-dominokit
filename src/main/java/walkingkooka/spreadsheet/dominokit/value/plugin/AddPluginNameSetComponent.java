@@ -94,7 +94,7 @@ public final class AddPluginNameSetComponent implements HtmlComponentDelegator<H
                     names.add(plugin);
                 }
             }
-            filtered = PluginNameSet.with(names);
+            filtered = PluginNameSet.EMPTY.setElements(names);
         }
 
         // addAll should only contain $availablePluginNames after filtering...
