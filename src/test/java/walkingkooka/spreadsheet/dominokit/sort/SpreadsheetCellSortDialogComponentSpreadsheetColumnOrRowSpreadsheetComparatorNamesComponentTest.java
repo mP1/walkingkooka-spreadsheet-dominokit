@@ -535,7 +535,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetColumnOrRowSprea
 
                 @Override
                 public SpreadsheetComparatorInfoSet spreadsheetComparatorInfos() {
-                    return SpreadsheetComparatorInfoSet.with(
+                    return SpreadsheetComparatorInfoSet.EMPTY.setElements(
                         Sets.of(
                             SpreadsheetComparatorInfo.with(
                                 Url.parseAbsolute("https://example.com/comparator-1"),

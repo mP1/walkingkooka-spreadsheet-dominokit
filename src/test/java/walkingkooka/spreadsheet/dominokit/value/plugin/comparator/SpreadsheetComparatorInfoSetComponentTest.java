@@ -29,7 +29,7 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements ValueTex
 
     @Test
     public void testParseAndText() {
-        final SpreadsheetComparatorInfoSet infos = SpreadsheetComparatorInfoSet.with(
+        final SpreadsheetComparatorInfoSet infos = SpreadsheetComparatorInfoSet.EMPTY.setElements(
             SpreadsheetComparatorProviders.spreadsheetComparators()
                 .spreadsheetComparatorInfos()
         );
