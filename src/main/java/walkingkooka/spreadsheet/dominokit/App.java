@@ -199,7 +199,6 @@ import walkingkooka.storage.Storages;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.Indentation;
 import walkingkooka.text.LineEnding;
-import walkingkooka.text.TextPrinting;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.parser.Parser;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -1029,6 +1028,11 @@ public class App implements EntryPoint,
     }
 
     @Override
+    public Optional<EmailAddress> user() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void setUser(final Optional<EmailAddress> user) {
         throw new UnsupportedOperationException();
     }
@@ -1733,17 +1737,12 @@ public class App implements EntryPoint,
                 (final Optional<Object> value) -> {
                     throw new UnsupportedOperationException();
                 },
-                this, // CanParseEnvironmentValueName
-                this, // HasUserDirectories
                 this.viewportCache, // SpreadsheetLabelNameResolver
                 MEDIA_TYPE_DETECTOR,
                 MULTIPLIER,
                 SpreadsheetMetadataLoaders.fake(),
-                TextPrinting.with(
-                    this.indentation(),
-                    this.lineEnding()
-                ).setCharset(CHARSET),
                 this, // CurrencyLocaleContext
+                this.spreadsheetEnvironmentContext,
                 this.systemSpreadsheetProvider,
                 this.providerContext // ProviderContext
             );
