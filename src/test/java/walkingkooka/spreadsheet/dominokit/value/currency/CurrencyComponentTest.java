@@ -55,7 +55,7 @@ public final class CurrencyComponentTest implements FormValueComponentTesting<HT
 
     private final static CurrencyContext CONTEXT = new FakeCurrencyContext() {
         @Override
-        public Set<CurrencyCode> findByCurrencyText(final String text,
+        public Set<CurrencyCode> findCurrencyByText(final String text,
                                                 final int offset,
                                                 final int count) {
             if (CurrencyContexts.CASE_SENSITIVITY.equals(text, ENGLISH_AUSTRALIA_TEXT)) {

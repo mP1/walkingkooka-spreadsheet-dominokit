@@ -229,7 +229,7 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
             )
         );
 
-        this.findByCurrencyTextAndCheck(
+        this.findCurrencyByTextAndCheck(
             context,
             "Custom",
             1,
