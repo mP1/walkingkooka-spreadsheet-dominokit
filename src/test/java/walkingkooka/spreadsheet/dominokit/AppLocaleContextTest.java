@@ -139,7 +139,7 @@ public final class AppLocaleContextTest implements LocaleContextTesting2<AppLoca
             )
         );
 
-        this.findByLocaleTextAndCheck(
+        this.findLocaleByTextAndCheck(
             context,
             "Custom",
             1,

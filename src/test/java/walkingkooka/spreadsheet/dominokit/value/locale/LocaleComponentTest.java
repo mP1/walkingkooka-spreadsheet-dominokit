@@ -54,7 +54,7 @@ public final class LocaleComponentTest implements FormValueComponentTesting<HTML
 
     private final static LocaleContext CONTEXT = new FakeLocaleContext() {
         @Override
-        public Set<Locale> findByLocaleText(final String text,
+        public Set<Locale> findLocaleByText(final String text,
                                             final int offset,
                                             final int count) {
             if (LocaleContexts.CASE_SENSITIVITY.equals(text, ENGLISH_AUSTRALIA_TEXT)) {
