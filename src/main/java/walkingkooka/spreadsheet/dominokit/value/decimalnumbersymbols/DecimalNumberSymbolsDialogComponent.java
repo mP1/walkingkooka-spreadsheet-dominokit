@@ -474,7 +474,6 @@ public final class DecimalNumberSymbolsDialogComponent implements DialogComponen
 
         } catch (final RuntimeException ignore) {
             // unable to update #decimalNumberSymbols
-            ignore.printStackTrace();
         }
     }
 
