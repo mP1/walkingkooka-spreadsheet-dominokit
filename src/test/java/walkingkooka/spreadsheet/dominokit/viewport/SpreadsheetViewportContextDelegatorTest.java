@@ -39,6 +39,11 @@ public final class SpreadsheetViewportContextDelegatorTest implements Spreadshee
         return TestSpreadsheetViewportContextDelegator.class;
     }
 
+    @Override
+    public void testTestNaming() {
+        throw new UnsupportedOperationException();
+    }
+
     final static class TestSpreadsheetViewportContextDelegator implements SpreadsheetViewportContextDelegator {
 
         @Override

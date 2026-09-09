@@ -91,4 +91,9 @@ public final class FormHandlerSelectorDialogComponentContextDefaultFontHandlerTe
     public Class<FormHandlerSelectorDialogComponentContextDefaultFormHandler> type() {
         return FormHandlerSelectorDialogComponentContextDefaultFormHandler.class;
     }
+
+    @Override
+    public void testTestNaming() {
+        throw new UnsupportedOperationException();
+    }
 }

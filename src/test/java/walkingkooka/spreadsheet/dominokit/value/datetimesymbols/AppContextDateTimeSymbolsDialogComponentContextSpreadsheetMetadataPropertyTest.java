@@ -206,4 +206,9 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMet
     public Class<AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty> type() {
         return AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataProperty.class;
     }
+
+    @Override
+    public void testClassVisibility() {
+        throw new UnsupportedOperationException();
+    }
 }
