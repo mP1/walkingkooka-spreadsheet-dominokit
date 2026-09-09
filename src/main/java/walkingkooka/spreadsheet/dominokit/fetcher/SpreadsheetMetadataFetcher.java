@@ -27,8 +27,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.server.SpreadsheetHttpServer;
+import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataHateosResourceSet;
 import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataPropertyNameHateosResourceMappings;
-import walkingkooka.spreadsheet.server.meta.SpreadsheetMetadataSet;
 import walkingkooka.template.TemplateValueName;
 import walkingkooka.template.url.UrlPathTemplate;
 import walkingkooka.template.url.UrlPathTemplateValues;
@@ -234,11 +234,11 @@ public final class SpreadsheetMetadataFetcher extends Fetcher<SpreadsheetMetadat
                     )
                 );
                 break;
-            case "SpreadsheetMetadataSet":
+            case "SpreadsheetMetadataHateosResourceSet":
                 watcher.onSpreadsheetMetadataSet(
                     this.parse(
                         body,
-                        SpreadsheetMetadataSet.class
+                        SpreadsheetMetadataHateosResourceSet.class
                     )
                 );
                 break;
