@@ -182,4 +182,9 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextSpreadshe
     public Class<AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataProperty> type() {
         return AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataProperty.class;
     }
+
+    @Override
+    public void testClassVisibility() {
+        throw new UnsupportedOperationException();
+    }
 }

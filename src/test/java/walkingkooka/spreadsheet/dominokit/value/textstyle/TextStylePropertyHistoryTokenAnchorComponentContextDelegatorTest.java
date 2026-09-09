@@ -51,6 +51,11 @@ public final class TextStylePropertyHistoryTokenAnchorComponentContextDelegatorT
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public void testTestNaming() {
+        throw new UnsupportedOperationException();
+    }
+
     final static class TestTextStylePropertyHistoryTokenAnchorComponentContextDelegator implements TextStylePropertyHistoryTokenAnchorComponentContextDelegator {
 
         @Override
