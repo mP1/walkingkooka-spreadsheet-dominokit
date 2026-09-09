@@ -64,7 +64,6 @@ import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
-import walkingkooka.plugin.store.PluginStores;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviders;
@@ -499,7 +498,6 @@ public class App implements EntryPoint,
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             MEDIA_TYPE_DETECTOR,
             MULTIPLIER,
-            PluginStores.fake(),
             Storages.fake(),
             this,
             this.spreadsheetEnvironmentContext(),
@@ -1426,7 +1424,6 @@ public class App implements EntryPoint,
             this.providerContext = SpreadsheetProviderContexts.spreadsheet(
                 MEDIA_TYPE_DETECTOR,
                 MULTIPLIER,
-                PluginStores.fake(),
                 Storages.fake(),
                 this, // CurrencyLocaleContext
                 spreadsheetEnvironmentContext,
@@ -1617,7 +1614,6 @@ public class App implements EntryPoint,
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             MEDIA_TYPE_DETECTOR,
             MULTIPLIER,
-            PluginStores.fake(),
             Storages.fake(),
             this, // CurrencyLocaleContext
             this.environmentContext(),

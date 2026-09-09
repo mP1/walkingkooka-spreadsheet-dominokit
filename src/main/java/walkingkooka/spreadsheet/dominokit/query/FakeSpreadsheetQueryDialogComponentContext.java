@@ -24,7 +24,6 @@ import walkingkooka.environment.EnvironmentWatcher;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.plugin.ProviderContext;
-import walkingkooka.plugin.store.PluginStore;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
@@ -232,11 +231,6 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
 
     @Override
     public Runnable addEnvironmentWatcherOnce(final EnvironmentWatcher watcher) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public PluginStore pluginStore() {
         throw new UnsupportedOperationException();
     }
 
