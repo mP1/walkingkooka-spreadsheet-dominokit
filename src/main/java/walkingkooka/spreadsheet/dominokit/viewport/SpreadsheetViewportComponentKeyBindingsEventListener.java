@@ -24,7 +24,7 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
-import walkingkooka.spreadsheet.dominokit.log.Logging;
+import walkingkooka.spreadsheet.dominokit.logging.Logging;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;

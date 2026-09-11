@@ -20,7 +20,8 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.LoggingContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -29,7 +30,7 @@ public final class BasicDialogComponentContextTest implements DialogComponentCon
 
     private final static RefreshContext CONTEXT = new FakeAppContext();
 
-    private final static BrowserLoggingContext LOGGING_CONTEXT = walkingkooka.spreadsheet.dominokit.log.LoggingContexts.fake();
+    private final static BrowserLoggingContext LOGGING_CONTEXT = LoggingContexts.fake();
 
     @Test
     public void testWithNullRefreshContextFails() {

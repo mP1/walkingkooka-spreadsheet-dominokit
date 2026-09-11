@@ -15,34 +15,27 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.log;
+package walkingkooka.spreadsheet.dominokit.logging;
 
-import walkingkooka.logging.FakeLoggingContext;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public class FakeBrowserLoggingContext extends FakeLoggingContext
-    implements BrowserLoggingContext {
+import java.lang.reflect.Method;
 
-    public FakeBrowserLoggingContext() {
-        super();
+public final class LoggingContextsTest implements PublicStaticHelperTesting<LoggingContexts> {
+
+    @Override
+    public Class<LoggingContexts> type() {
+        return LoggingContexts.class;
     }
 
     @Override
-    public void debug(final Object... values) {
-        throw new UnsupportedOperationException();
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
     }
 
     @Override
-    public void info(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void error(final Object... values) {
-        throw new UnsupportedOperationException();
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
     }
 }

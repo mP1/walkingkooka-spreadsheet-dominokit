@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.log;
+package walkingkooka.spreadsheet.dominokit.logging;
 
 import walkingkooka.logging.LoggingContext;
 import walkingkooka.logging.LoggingContextDelegator;

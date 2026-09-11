@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequired;
-import walkingkooka.spreadsheet.dominokit.log.Logging;
+import walkingkooka.spreadsheet.dominokit.logging.Logging;
 
 /**
  * Interface that provides simple operations to update the visual state of the ui.

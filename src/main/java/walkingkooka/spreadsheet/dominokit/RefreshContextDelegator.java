@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContextDelegator;
 
 public interface RefreshContextDelegator extends RefreshContext,
     HistoryContextDelegator,

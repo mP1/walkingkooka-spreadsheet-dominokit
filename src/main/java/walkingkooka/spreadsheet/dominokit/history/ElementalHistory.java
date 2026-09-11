@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import elemental2.dom.DomGlobal;
 import org.gwtproject.core.client.Scheduler;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;

@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
 
 import java.util.Objects;
 

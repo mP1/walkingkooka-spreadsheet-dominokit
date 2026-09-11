@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit;
 
 import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContextDelegator;
 
 import java.util.Objects;
 

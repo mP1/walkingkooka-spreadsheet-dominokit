@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContextDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;

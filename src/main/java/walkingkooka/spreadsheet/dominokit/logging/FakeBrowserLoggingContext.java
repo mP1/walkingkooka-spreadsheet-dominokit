@@ -15,24 +15,34 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.focus;
+package walkingkooka.spreadsheet.dominokit.logging;
 
-import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
+import walkingkooka.logging.FakeLoggingContext;
 
-/**
- * Factories for {@link CanGiveFocus}.
- */
-public final class CanGiveFocuses implements PublicStaticHelper {
+public class FakeBrowserLoggingContext extends FakeLoggingContext
+    implements BrowserLoggingContext {
 
-    /**
-     * {@see SchedulerCanGiveFocus}
-     */
-    public static CanGiveFocus scheduler(final BrowserLoggingContext loggingContext) {
-        return SchedulerCanGiveFocus.with(loggingContext);
+    public FakeBrowserLoggingContext() {
+        super();
     }
 
-    private CanGiveFocuses() {
+    @Override
+    public void debug(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void info(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void warn(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void error(final Object... values) {
         throw new UnsupportedOperationException();
     }
 }

@@ -28,8 +28,8 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContextDelegator;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
