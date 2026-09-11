@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
 
 public interface RefreshContextDelegator extends RefreshContext,
     HistoryContextDelegator,
-    LoggingContextDelegator {
+    BrowserLoggingContextDelegator {
 
     // RefreshContext...................................................................................................
 
@@ -52,7 +52,7 @@ public interface RefreshContextDelegator extends RefreshContext,
     // LoggingContext...................................................................................................
 
     @Override
-    default LoggingContext loggingContext() {
+    default BrowserLoggingContext browserLoggingContext() {
         return this.refreshContext();
     }
 

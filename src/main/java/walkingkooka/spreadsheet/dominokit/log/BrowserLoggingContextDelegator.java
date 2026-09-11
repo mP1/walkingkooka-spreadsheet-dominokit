@@ -17,33 +17,45 @@
 
 package walkingkooka.spreadsheet.dominokit.log;
 
+import walkingkooka.logging.LoggingContext;
+import walkingkooka.logging.LoggingContextDelegator;
+
 /**
- * Helper interface that supports delegating {@link LoggingContext} to a delegate fetched from a method {@link #loggingContext()}.
+ * Helper interface that supports delegating {@link BrowserLoggingContext} to a delegate fetched from a method {@link #browserLoggingContext()}.
  */
-public interface LoggingContextDelegator extends LoggingContext {
+public interface BrowserLoggingContextDelegator extends BrowserLoggingContext,
+    LoggingContextDelegator {
+
+    @Override
+    default LoggingContext loggingContext() {
+        return this.browserLoggingContext();
+    }
+
+    // BrowserLoggingContextDelegator...................................................................................
+
     @Override
     default void debug(final Object... values) {
-        this.loggingContext()
+        this.browserLoggingContext()
             .debug(values);
     }
 
     @Override
     default void info(final Object... values) {
-        this.loggingContext()
+        this.browserLoggingContext()
             .info(values);
     }
 
     @Override
     default void warn(final Object... values) {
-        this.loggingContext()
+        this.browserLoggingContext()
             .warn(values);
     }
 
     @Override
     default void error(final Object... values) {
-        this.loggingContext()
+        this.browserLoggingContext()
             .error(values);
     }
 
-    LoggingContext loggingContext();
+    BrowserLoggingContext browserLoggingContext();
 }

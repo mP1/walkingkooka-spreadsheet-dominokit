@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.focus;
 
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
 
 /**
  * Factories for {@link CanGiveFocus}.
@@ -28,7 +28,7 @@ public final class CanGiveFocuses implements PublicStaticHelper {
     /**
      * {@see SchedulerCanGiveFocus}
      */
-    public static CanGiveFocus scheduler(final LoggingContext loggingContext) {
+    public static CanGiveFocus scheduler(final BrowserLoggingContext loggingContext) {
         return SchedulerCanGiveFocus.with(loggingContext);
     }
 

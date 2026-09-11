@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.focus;
 
 import elemental2.dom.Element;
 import org.gwtproject.core.client.Scheduler;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
 
 import java.util.Objects;
 
@@ -31,13 +31,13 @@ import java.util.Objects;
 final class SchedulerCanGiveFocus implements CanGiveFocus,
     Logging {
 
-    static SchedulerCanGiveFocus with(final LoggingContext loggingContext) {
+    static SchedulerCanGiveFocus with(final BrowserLoggingContext loggingContext) {
         return new SchedulerCanGiveFocus(
-            Objects.requireNonNull(loggingContext, "loggingContext")
+            Objects.requireNonNull(loggingContext, "browserLoggingContext")
         );
     }
 
-    private SchedulerCanGiveFocus(final LoggingContext loggingContext) {
+    private SchedulerCanGiveFocus(final BrowserLoggingContext loggingContext) {
         this.loggingContext = loggingContext;
     }
 
@@ -79,5 +79,5 @@ final class SchedulerCanGiveFocus implements CanGiveFocus,
      */
     private Runnable giveFocus;
 
-    private final LoggingContext loggingContext;
+    private final BrowserLoggingContext loggingContext;
 }

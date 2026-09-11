@@ -445,7 +445,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
             }
 
             @Override
-            public void error(final Object... values) {
+            public void error(final String message) {
                 // load label is expected to fail and cause an error
             }
         };

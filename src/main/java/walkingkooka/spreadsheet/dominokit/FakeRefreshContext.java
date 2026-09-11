@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.logging.LoggingLevel;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
 public class FakeRefreshContext extends FakeHistoryContext implements RefreshContext {
@@ -39,7 +40,7 @@ public class FakeRefreshContext extends FakeHistoryContext implements RefreshCon
         throw new UnsupportedOperationException();
     }
 
-    // LoggingContext...................................................................................................
+    // BrowserLoggingContext............................................................................................
 
     @Override
     public void debug(final Object... values) {
@@ -58,6 +59,98 @@ public class FakeRefreshContext extends FakeHistoryContext implements RefreshCon
 
     @Override
     public void error(final Object... values) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void debug(final String message) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void debug(final String message,
+                      final Throwable throwable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void info(final String message) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void info(final String message,
+                     final Throwable throwable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void warn(final String message) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void warn(final String message,
+                     final Throwable throwable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void error(final String message) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void error(final String message,
+                      final Throwable throwable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void log(final LoggingLevel level,
+                    final String message) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void log(final LoggingLevel level,
+                    final String message,
+                    final Throwable throwable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isDebugEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isInfoEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isWarnEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isErrorEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isNoneEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isLoggingEnabled(final LoggingLevel level) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LoggingLevel loggingLevel() {
         throw new UnsupportedOperationException();
     }
 }

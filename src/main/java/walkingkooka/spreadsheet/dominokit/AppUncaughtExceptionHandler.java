@@ -18,19 +18,19 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import com.google.gwt.core.client.GWT.UncaughtExceptionHandler;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
 
 import java.util.Objects;
 
 final class AppUncaughtExceptionHandler implements UncaughtExceptionHandler {
 
-    static AppUncaughtExceptionHandler with(final LoggingContext loggingContext) {
+    static AppUncaughtExceptionHandler with(final BrowserLoggingContext loggingContext) {
         return new AppUncaughtExceptionHandler(
-            Objects.requireNonNull(loggingContext, "loggingContext")
+            Objects.requireNonNull(loggingContext, "browserLoggingContext")
         );
     }
 
-    private AppUncaughtExceptionHandler(final LoggingContext loggingContext) {
+    private AppUncaughtExceptionHandler(final BrowserLoggingContext loggingContext) {
         this.loggingContext = loggingContext;
     }
 
@@ -39,5 +39,5 @@ final class AppUncaughtExceptionHandler implements UncaughtExceptionHandler {
         this.loggingContext.error(throwable);
     }
 
-    private final LoggingContext loggingContext;
+    private final BrowserLoggingContext loggingContext;
 }

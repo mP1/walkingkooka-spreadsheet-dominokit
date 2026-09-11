@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
 
 import java.util.Objects;
 
@@ -27,7 +27,7 @@ import java.util.Objects;
 final class LoggingClipboardContextWriteWatcher implements ClipboardContextWriteWatcher {
 
     static LoggingClipboardContextWriteWatcher with(final ClipboardTextItem clipboardTextItem,
-                                                    final LoggingContext context) {
+                                                    final BrowserLoggingContext context) {
         Objects.requireNonNull(clipboardTextItem, "clipboardTextItem");
         Objects.requireNonNull(context, "context");
 
@@ -37,7 +37,7 @@ final class LoggingClipboardContextWriteWatcher implements ClipboardContextWrite
         );
     }
 
-    public LoggingClipboardContextWriteWatcher(ClipboardTextItem clipboardTextItem, LoggingContext context) {
+    public LoggingClipboardContextWriteWatcher(ClipboardTextItem clipboardTextItem, BrowserLoggingContext context) {
         this.clipboardTextItem = clipboardTextItem;
         this.context = context;
     }
@@ -64,7 +64,7 @@ final class LoggingClipboardContextWriteWatcher implements ClipboardContextWrite
 
     private final ClipboardTextItem clipboardTextItem;
 
-    private final LoggingContext context;
+    private final BrowserLoggingContext context;
 
     @Override
     public String toString() {

@@ -19,35 +19,22 @@ package walkingkooka.spreadsheet.dominokit;
 
 import org.dominokit.domino.ui.notifications.Notification;
 import org.dominokit.domino.ui.notifications.Notification.Position;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
 
 import java.util.Objects;
 
-final class AppLoggingContext implements LoggingContext {
+final class AppLoggingContext implements BrowserLoggingContext,
+    BrowserLoggingContextDelegator {
 
-    static AppLoggingContext with(final LoggingContext context) {
+    static AppLoggingContext with(final BrowserLoggingContext context) {
         return new AppLoggingContext(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppLoggingContext(final LoggingContext context) {
+    private AppLoggingContext(final BrowserLoggingContext context) {
         this.context = context;
-    }
-
-    @Override
-    public void debug(final Object... values) {
-        this.context.debug(values);
-    }
-
-    @Override
-    public void info(final Object... values) {
-        this.context.info(values);
-    }
-
-    @Override
-    public void warn(final Object... values) {
-        this.context.warn(values);
     }
 
     /**
@@ -63,5 +50,10 @@ final class AppLoggingContext implements LoggingContext {
             .show();
     }
 
-    private final LoggingContext context;
+    @Override
+    public BrowserLoggingContext browserLoggingContext() {
+        return this.context;
+    }
+
+    private final BrowserLoggingContext context;
 }

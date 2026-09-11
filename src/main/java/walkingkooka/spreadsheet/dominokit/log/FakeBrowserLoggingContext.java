@@ -17,7 +17,15 @@
 
 package walkingkooka.spreadsheet.dominokit.log;
 
-public class FakeLoggingContext implements LoggingContext {
+import walkingkooka.logging.FakeLoggingContext;
+
+public class FakeBrowserLoggingContext extends FakeLoggingContext
+    implements BrowserLoggingContext {
+
+    public FakeBrowserLoggingContext() {
+        super();
+    }
+
     @Override
     public void debug(final Object... values) {
         throw new UnsupportedOperationException();

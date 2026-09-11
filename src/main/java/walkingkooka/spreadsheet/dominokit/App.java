@@ -50,6 +50,10 @@ import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.locale.LocaleLanguageTag;
+import walkingkooka.logging.CanLog;
+import walkingkooka.logging.CanLogs;
+import walkingkooka.logging.LoggingContext;
+import walkingkooka.logging.LoggingLevel;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.math.DecimalNumberSymbols;
@@ -137,8 +141,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContexts;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
@@ -235,6 +239,7 @@ import java.util.function.Predicate;
 @LocaleAware
 public class App implements EntryPoint,
     AppContext,
+    BrowserLoggingContextDelegator,
     ConverterFetcherWatcher,
     CurrencyFetcherWatcher,
     CurrencyContextDelegator,
@@ -249,7 +254,6 @@ public class App implements EntryPoint,
     JsonNodeMarshallContextDelegator,
     JsonNodeUnmarshallContextDelegator,
     LocaleContextDelegator,
-    LoggingContextDelegator,
     NopEmptyResponseFetcherWatcher,
     ProviderContextDelegator,
     RecentValueSavesContextDelegator,
@@ -265,6 +269,8 @@ public class App implements EntryPoint,
     SpreadsheetProviderDelegator,
     ValidatorFetcherWatcher,
     WindowResizeWatcher {
+
+    private final static CanLog CAN_LOG = CanLogs.nullCanLog();
 
     private final static Charset CHARSET = StandardCharsets.UTF_8;
 
@@ -484,11 +490,13 @@ public class App implements EntryPoint,
             Storages.fake(),
             StorageEnvironmentContexts.basic(
                 EnvironmentContexts.map(
+                    CAN_LOG,
                     CHARSET,
                     CURRENCY,
                     Indentation.SPACES2, // "default" cant use this.indentation() to avoid race
                     LINE_ENDING,
                     LOCALE,
+                    LoggingLevel.NONE,
                     NOW,
                     EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
                 )
@@ -1011,6 +1019,12 @@ public class App implements EntryPoint,
     }
 
     @Override
+    public LoggingLevel loggingLevel() {
+        return this.spreadsheetEnvironmentContext()
+            .loggingLevel();
+    }
+
+    @Override
     public LocalDateTime now() {
         return NOW.now();
     }
@@ -1047,6 +1061,11 @@ public class App implements EntryPoint,
 
     @Override
     public SpreadsheetEnvironmentContext spreadsheetEnvironmentContext() {
+        return this.spreadsheetEnvironmentContext;
+    }
+
+    @Override
+    public LoggingContext loggingContext() {
         return this.spreadsheetEnvironmentContext;
     }
 
@@ -1361,14 +1380,14 @@ public class App implements EntryPoint,
         return this.localeFetcherWatchers.addOnce(watcher);
     }
 
-    // LoggingContext...................................................................................................
+    // BrowserLoggingContext............................................................................................
 
     @Override
-    public LoggingContext loggingContext() {
+    public BrowserLoggingContext browserLoggingContext() {
         return this.loggingContext;
     }
 
-    private final LoggingContext loggingContext;
+    private final BrowserLoggingContext loggingContext;
 
     // MediaTypeDetector................................................................................................
 

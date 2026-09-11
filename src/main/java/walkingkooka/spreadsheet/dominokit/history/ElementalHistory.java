@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.history;
 import elemental2.dom.DomGlobal;
 import org.gwtproject.core.client.Scheduler;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
 import walkingkooka.text.CharSequences;
 
 import java.util.Objects;
@@ -30,12 +30,12 @@ import java.util.Objects;
  */
 final class ElementalHistory implements History {
 
-    static ElementalHistory with(final LoggingContext context) {
+    static ElementalHistory with(final BrowserLoggingContext context) {
         Objects.requireNonNull(context, "context");
         return new ElementalHistory(context);
     }
 
-    private ElementalHistory(final LoggingContext context) {
+    private ElementalHistory(final BrowserLoggingContext context) {
         this.context = context;
     }
 
@@ -93,7 +93,7 @@ final class ElementalHistory implements History {
      */
     private HistoryToken historyToken;
 
-    private final LoggingContext context;
+    private final BrowserLoggingContext context;
 
     @Override
     public String toString() {

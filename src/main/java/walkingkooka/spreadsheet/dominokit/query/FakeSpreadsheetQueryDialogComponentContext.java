@@ -21,6 +21,7 @@ import walkingkooka.Binary;
 import walkingkooka.Either;
 import walkingkooka.environment.EnvironmentValueName;
 import walkingkooka.environment.EnvironmentWatcher;
+import walkingkooka.logging.LoggingLevel;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.plugin.ProviderContext;
@@ -206,6 +207,16 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
 
     @Override
     public Locale locale() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LoggingLevel loggingLevel() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void setLoggingLevel(final LoggingLevel loggingLevel) {
         throw new UnsupportedOperationException();
     }
 
