@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.log;
+package walkingkooka.spreadsheet.dominokit.logging;
 
 import elemental2.dom.DomGlobal;
 import walkingkooka.logging.LoggingLevel;

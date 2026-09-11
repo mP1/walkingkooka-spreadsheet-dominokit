@@ -15,7 +15,7 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.log;
+package walkingkooka.spreadsheet.dominokit.logging;
 
 /**
  * Global / centralised constants that turn on/off logging for components.

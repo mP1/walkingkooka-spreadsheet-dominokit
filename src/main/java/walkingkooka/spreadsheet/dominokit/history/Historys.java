@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
 
 public final class Historys implements PublicStaticHelper {
 

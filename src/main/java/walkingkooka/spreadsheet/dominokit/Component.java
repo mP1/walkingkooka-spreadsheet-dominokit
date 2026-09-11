@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import elemental2.dom.Node;
-import walkingkooka.spreadsheet.dominokit.log.Logging;
+import walkingkooka.spreadsheet.dominokit.logging.Logging;
 import walkingkooka.text.printer.TreePrintable;
 
 /**

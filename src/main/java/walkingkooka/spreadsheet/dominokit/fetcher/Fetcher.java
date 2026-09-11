@@ -31,7 +31,7 @@ import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
 import walkingkooka.net.http.server.hateos.HateosResourceMappings;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.log.Logging;
+import walkingkooka.spreadsheet.dominokit.logging.Logging;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.LineEnding;
 import walkingkooka.tree.json.JsonNode;
@@ -391,7 +391,7 @@ abstract public class Fetcher<W extends FetcherWatcher> implements HasHateosCont
     }
 
     /**
-     * {@link AppContext} used by final methods to retrieve marshall/unmarshall and log.
+     * {@link AppContext} used by final methods to retrieve marshall/unmarshall and logging.
      */
     final AppContext context;
 

@@ -17,7 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
 
 import java.util.Objects;
 

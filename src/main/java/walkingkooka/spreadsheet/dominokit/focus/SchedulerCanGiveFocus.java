@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.focus;
 
 import elemental2.dom.Element;
 import org.gwtproject.core.client.Scheduler;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.Logging;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.Logging;
 
 import java.util.Objects;
 

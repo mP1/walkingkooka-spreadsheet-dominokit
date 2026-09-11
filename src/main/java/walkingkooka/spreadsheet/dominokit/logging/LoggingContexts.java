@@ -15,20 +15,30 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.log;
+package walkingkooka.spreadsheet.dominokit.logging;
 
-import walkingkooka.logging.LoggingContext;
+import walkingkooka.reflect.PublicStaticHelper;
 
-/**
- * A context that provides several logging methods.
- */
-public interface BrowserLoggingContext extends LoggingContext {
+public final class LoggingContexts implements PublicStaticHelper {
 
-    void debug(final Object... values);
+    /**
+     * {@see ElementalLoggingContext}.
+     */
+    public static BrowserLoggingContext elemental() {
+        return ElementalLoggingContext.INSTANCE;
+    }
 
-    void info(final Object... values);
+    /**
+     * {@see FakeLoggingContext}
+     */
+    public static BrowserLoggingContext fake() {
+        return new FakeBrowserLoggingContext();
+    }
 
-    void warn(final Object... values);
-
-    void error(final Object... values);
+    /**
+     * Stop creation
+     */
+    private LoggingContexts() {
+        throw new UnsupportedOperationException();
+    }
 }

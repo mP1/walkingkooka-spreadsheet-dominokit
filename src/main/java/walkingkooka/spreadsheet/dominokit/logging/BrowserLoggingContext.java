@@ -15,27 +15,20 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.log;
+package walkingkooka.spreadsheet.dominokit.logging;
 
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
+import walkingkooka.logging.LoggingContext;
 
-import java.lang.reflect.Method;
+/**
+ * A context that provides several logging methods.
+ */
+public interface BrowserLoggingContext extends LoggingContext {
 
-public final class LoggingContextsTest implements PublicStaticHelperTesting<LoggingContexts> {
+    void debug(final Object... values);
 
-    @Override
-    public Class<LoggingContexts> type() {
-        return LoggingContexts.class;
-    }
+    void info(final Object... values);
 
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
+    void warn(final Object... values);
 
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
-    }
+    void error(final Object... values);
 }

@@ -141,9 +141,9 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListSelectHistoryTo
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContextDelegator;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContexts;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContexts;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.logging.BrowserLoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.logging.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.value.currency.CurrencyComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponent;

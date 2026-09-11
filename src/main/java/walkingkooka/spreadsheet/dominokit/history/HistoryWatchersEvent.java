@@ -60,7 +60,7 @@ final class HistoryWatchersEvent implements Consumer<HistoryWatcher> {
                 cause
             );
         } finally {
-            // dont log too slow messages in JVM run mode (could be debugging etc).
+            // dont logging too slow messages in JVM run mode (could be debugging etc).
             if (GWT.isClient()) {
                 final long after = System.currentTimeMillis();
                 final long millsTaken = after - before;

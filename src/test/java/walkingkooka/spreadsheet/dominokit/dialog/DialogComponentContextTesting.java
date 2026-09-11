@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.spreadsheet.dominokit.fetcher.Fetcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextTesting;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextTesting;
+import walkingkooka.spreadsheet.dominokit.logging.LoggingContextTesting;
 
 import java.lang.reflect.Method;
 import java.util.Arrays;
