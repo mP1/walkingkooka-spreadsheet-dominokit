@@ -18,8 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.log;
 
 import elemental2.dom.DomGlobal;
+import walkingkooka.logging.LoggingLevel;
 
-final class ElementalLoggingContext implements LoggingContext {
+import java.util.Objects;
+
+final class ElementalLoggingContext implements BrowserLoggingContext {
 
     /**
      * Singleton
@@ -31,6 +34,8 @@ final class ElementalLoggingContext implements LoggingContext {
      */
     private ElementalLoggingContext() {
     }
+
+    // BrowserLoggingContext............................................................................................
 
     @Override
     public void debug(final Object... values) {
@@ -77,5 +82,146 @@ final class ElementalLoggingContext implements LoggingContext {
         // see App.debug
         final elemental2.dom.Console console = DomGlobal.console;
         console.error(values);
+    }
+
+    // LoggingContext...................................................................................................
+
+    @Override
+    public void debug(final String message) {
+        this.debug(
+            message,
+            null
+        );
+    }
+
+    @Override
+    public void debug(final String message,
+                      final Throwable throwable) {
+        this.debug(
+            (Object)message,
+            throwable
+        );
+    }
+
+    @Override
+    public void info(final String message) {
+        this.info(
+            message
+        );
+    }
+
+    @Override
+    public void info(final String message,
+                     final Throwable throwable) {
+        this.info(
+            (Object)message,
+            (Object)throwable
+        );
+    }
+
+    @Override
+    public void warn(final String message) {
+        this.warn(
+            message,
+            null
+        );
+    }
+
+    @Override
+    public void warn(final String message,
+                     final Throwable throwable) {
+        this.warn(
+            (Object) message,
+            throwable
+        );
+    }
+
+    @Override
+    public void error(final String message) {
+        this.error(
+            message
+        );
+    }
+
+    @Override
+    public void error(final String message,
+                      final Throwable throwable) {
+        this.error(
+            (Object)message,
+            throwable
+        );
+    }
+
+    @Override
+    public void log(final LoggingLevel loggingLevel,
+                    final String message,
+                    final Throwable throwable) {
+        Objects.requireNonNull(loggingLevel, "loggingLevel");
+
+        switch (loggingLevel) {
+            case DEBUG:
+                this.debug(
+                    message,
+                    throwable
+                );
+                break;
+            case INFO:
+                this.info(
+                    message,
+                    throwable
+                );
+                break;
+            case WARN:
+                this.warn(
+                    message,
+                    throwable
+                );
+                break;
+            case ERROR:
+                this.error(
+                    message,
+                    throwable
+                );
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown logging level " + loggingLevel);
+        }
+    }
+
+    @Override
+    public boolean isDebugEnabled() {
+        return true;
+    }
+
+    @Override
+    public boolean isInfoEnabled() {
+        return true;
+    }
+
+    @Override
+    public boolean isWarnEnabled() {
+        return true;
+    }
+
+    @Override
+    public boolean isErrorEnabled() {
+        return true;
+    }
+
+    @Override
+    public boolean isNoneEnabled() {
+        return false;
+    }
+
+    @Override
+    public boolean isLoggingEnabled(final LoggingLevel level) {
+        Objects.requireNonNull(level, "level");
+
+        return level != LoggingLevel.NONE;
+    }
+
+    @Override
+    public LoggingLevel loggingLevel() {
+        return LoggingLevel.DEBUG;
     }
 }

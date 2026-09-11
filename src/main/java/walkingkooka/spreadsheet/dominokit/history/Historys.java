@@ -18,14 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
 
 public final class Historys implements PublicStaticHelper {
 
     /**
      * {@see ElementalHistory}
      */
-    public static History elemental(final LoggingContext context) {
+    public static History elemental(final BrowserLoggingContext context) {
         return ElementalHistory.with(context);
     }
 

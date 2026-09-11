@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.query;
 
 import walkingkooka.environment.EnvironmentValueName;
+import walkingkooka.logging.LoggingContext;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.plugin.ProviderContextDelegator;
@@ -27,6 +28,8 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -46,6 +49,7 @@ import java.util.Optional;
 import java.util.Set;
 
 final class AppContextSpreadsheetQueryDialogComponentContext implements SpreadsheetQueryDialogComponentContext,
+    BrowserLoggingContextDelegator,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
     DialogComponentContextDelegator,
     SpreadsheetParserProviderDelegator,
@@ -183,6 +187,18 @@ final class AppContextSpreadsheetQueryDialogComponentContext implements Spreadsh
     @Override
     public void setUser(final Optional<EmailAddress> user) {
         SpreadsheetQueryDialogComponentContext.super.setUser(user);
+    }
+
+    @Override
+    public LoggingContext loggingContext() {
+        return this.context;
+    }
+
+    // BrowserLoggingContext............................................................................................
+
+    @Override
+    public BrowserLoggingContext browserLoggingContext() {
+        return this.context;
     }
 
     // DialogComponentContext...........................................................................................

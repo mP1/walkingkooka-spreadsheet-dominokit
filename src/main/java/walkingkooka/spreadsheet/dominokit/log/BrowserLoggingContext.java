@@ -17,12 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.log;
 
-import walkingkooka.Context;
+import walkingkooka.logging.LoggingContext;
 
 /**
  * A context that provides several logging methods.
  */
-public interface LoggingContext extends Context {
+public interface BrowserLoggingContext extends LoggingContext {
 
     void debug(final Object... values);
 

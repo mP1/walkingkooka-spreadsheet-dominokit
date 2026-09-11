@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportNavigationContext;
 
 final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext implements SpreadsheetViewportComponentTableContext,
     HistoryContextDelegator,
-    LoggingContextDelegator,
+    BrowserLoggingContextDelegator,
     SpreadsheetViewportContextDelegator {
 
 
@@ -146,7 +146,7 @@ final class SpreadsheetViewportComponentSpreadsheetViewportComponentTableContext
     // LoggingContext...................................................................................................
 
     @Override
-    public LoggingContext loggingContext() {
+    public BrowserLoggingContext browserLoggingContext() {
         return this.spreadsheetViewportComponent.context;
     }
 

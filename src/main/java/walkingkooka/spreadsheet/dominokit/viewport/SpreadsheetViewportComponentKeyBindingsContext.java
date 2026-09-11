@@ -19,7 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Optional;
@@ -28,7 +28,7 @@ import java.util.Optional;
  * A {@link walkingkooka.Context} that helps dispatch global keys such as CONTROL-B to bold a cell and more.
  */
 public interface SpreadsheetViewportComponentKeyBindingsContext extends HistoryContext,
-    LoggingContext {
+    BrowserLoggingContext {
 
     /**
      * Returns the {@link SpreadsheetCell} that matches the current {@link HistoryToken}.

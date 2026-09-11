@@ -24,15 +24,15 @@ public final class LoggingContexts implements PublicStaticHelper {
     /**
      * {@see ElementalLoggingContext}.
      */
-    public static LoggingContext elemental() {
+    public static BrowserLoggingContext elemental() {
         return ElementalLoggingContext.INSTANCE;
     }
 
     /**
      * {@see FakeLoggingContext}
      */
-    public static LoggingContext fake() {
-        return new FakeLoggingContext();
+    public static BrowserLoggingContext fake() {
+        return new FakeBrowserLoggingContext();
     }
 
     /**

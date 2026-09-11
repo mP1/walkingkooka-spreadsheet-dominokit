@@ -28,9 +28,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.history.Historys;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetIdHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.UnknownHistoryToken;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContextDelegator;
 import walkingkooka.spreadsheet.dominokit.log.Logging;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContextDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
@@ -43,7 +43,7 @@ import java.util.Optional;
  */
 final class AppHistoryContextHistoryWatcher implements HistoryContext,
     HistoryWatcher,
-    LoggingContextDelegator,
+    BrowserLoggingContextDelegator,
     Logging {
 
     static AppHistoryContextHistoryWatcher with(final AppContext appContext) {
@@ -234,7 +234,7 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
     // LoggingContextDelegator..........................................................................................
 
     @Override
-    public LoggingContext loggingContext() {
+    public BrowserLoggingContext browserLoggingContext() {
         return this.appContext;
     }
 

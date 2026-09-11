@@ -55,7 +55,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetNameHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
-import walkingkooka.spreadsheet.dominokit.log.LoggingContext;
+import walkingkooka.spreadsheet.dominokit.log.BrowserLoggingContext;
 import walkingkooka.spreadsheet.dominokit.value.number.NumberComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.number.WholeNumberComponentContext;
 import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportComponentKeyBindings;
@@ -109,7 +109,7 @@ public interface AppContext extends CanGiveFocus,
     HasValidatorFetcher,
     HistoryContext,
     JsonNodeMarshallUnmarshallContext,
-    LoggingContext,
+    BrowserLoggingContext,
     NumberComponentContext,
     ProviderContext,
     RefreshContext,
