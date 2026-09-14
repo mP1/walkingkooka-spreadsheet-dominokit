@@ -279,6 +279,8 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"converters\" [#/1/SpreadsheetName111/spreadsheet/converters] id=metadata-converters-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
+                "    \"currencyExchangeRaters\" [#/1/SpreadsheetName111/spreadsheet/currencyExchangeRaters] id=metadata-currencyExchangeRaters-Link\n" +
+                "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"exporters\" [#/1/SpreadsheetName111/spreadsheet/exporters] id=metadata-exporters-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"functions\" [#/1/SpreadsheetName111/spreadsheet/functions] id=metadata-functions-Link\n" +
