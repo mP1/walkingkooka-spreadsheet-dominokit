@@ -17,13 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.convert.Converter;
+import walkingkooka.currency.CurrencyExchangeRater;
 import walkingkooka.currency.provider.CurrencyExchangeRaterInfoSet;
 
 /**
- * A watcher that receives all {@link Converter} response events.
+ * A watcher that receives all {@link CurrencyExchangeRater} response events.
  */
 public interface CurrencyExchangeRaterFetcherWatcher extends FetcherWatcher {
 
-    void onConverterInfoSet(final CurrencyExchangeRaterInfoSet infos);
+    void onCurrencyExchangeRaterInfoSet(final CurrencyExchangeRaterInfoSet infos);
 }
