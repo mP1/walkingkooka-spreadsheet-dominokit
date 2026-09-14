@@ -21,6 +21,7 @@ import elemental2.dom.HTMLTableElement;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.convert.provider.ConverterAliasSet;
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.currency.provider.CurrencyExchangeRaterAliasSet;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.environment.AuditInfo;
 import walkingkooka.math.DecimalNumberSymbols;
@@ -128,6 +129,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
 
         items.add(this.comparators());
         items.add(this.converters());
+        items.add(this.currencyExchangeRaters());
         items.add(this.exporters());
         items.add(this.expressionFunctions());
         items.add(this.formatters());
@@ -386,6 +388,12 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     private SpreadsheetMetadataPanelComponentItem<ConverterAliasSet, ?, ?> converters() {
         return link(
             SpreadsheetMetadataPropertyName.CONVERTERS
+        );
+    }
+
+    private SpreadsheetMetadataPanelComponentItem<CurrencyExchangeRaterAliasSet, ?, ?> currencyExchangeRaters() {
+        return link(
+            SpreadsheetMetadataPropertyName.CURRENCY_EXCHANGE_RATERS
         );
     }
 
