@@ -409,6 +409,11 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.comparators(context)
         );
+
+        PluginAliasSetLikeDialogComponent.with(
+            PluginAliasSetLikeDialogComponentContexts.currencyExchangeRaters(context)
+        );
+
         PluginAliasSetLikeDialogComponent.with(
             PluginAliasSetLikeDialogComponentContexts.exporters(context)
         );
