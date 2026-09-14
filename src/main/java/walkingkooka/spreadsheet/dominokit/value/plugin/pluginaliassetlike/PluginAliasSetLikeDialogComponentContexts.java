@@ -23,6 +23,12 @@ import walkingkooka.convert.provider.ConverterInfo;
 import walkingkooka.convert.provider.ConverterInfoSet;
 import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
+import walkingkooka.currency.provider.CurrencyExchangeRaterAlias;
+import walkingkooka.currency.provider.CurrencyExchangeRaterAliasSet;
+import walkingkooka.currency.provider.CurrencyExchangeRaterInfo;
+import walkingkooka.currency.provider.CurrencyExchangeRaterInfoSet;
+import walkingkooka.currency.provider.CurrencyExchangeRaterName;
+import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
 import walkingkooka.naming.Name;
 import walkingkooka.plugin.PluginAliasLike;
 import walkingkooka.plugin.PluginAliasSetLike;
@@ -99,6 +105,13 @@ public final class PluginAliasSetLikeDialogComponentContexts implements PublicSt
         return AppContextPluginAliasSetLikeDialogComponentContextConverterAliasSetConverters.with(context);
     }
 
+    /**
+     * {@see AppContextPluginAliasSetLikeDialogComponentContextCurrencyExchangeRaterAliasSetCurrencyExchangeRaters}
+     */
+    public static PluginAliasSetLikeDialogComponentContext<CurrencyExchangeRaterName, CurrencyExchangeRaterInfo, CurrencyExchangeRaterInfoSet, CurrencyExchangeRaterSelector, CurrencyExchangeRaterAlias, CurrencyExchangeRaterAliasSet> currencyExchangeRaters(final AppContext context) {
+        return AppContextPluginAliasSetLikeDialogComponentContextCurrencyExchangeRaterAliasSetCurrencyExchangeRaters.with(context);
+    }
+    
     /**
      * {@see FakePluginAliasSetLikeDialogComponentContext}
      */
