@@ -82,6 +82,9 @@ import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardTextItem;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatchers;
+import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyExchangeRaterFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyExchangeRaterFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyExchangeRaterFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.CurrencyFetcherWatchers;
@@ -241,6 +244,7 @@ public class App implements EntryPoint,
     AppContext,
     BrowserLoggingContextDelegator,
     ConverterFetcherWatcher,
+    CurrencyExchangeRaterFetcherWatcher,
     CurrencyFetcherWatcher,
     CurrencyContextDelegator,
     CurrencyLocaleContext,
@@ -382,6 +386,15 @@ public class App implements EntryPoint,
         );
         this.addCurrencyFetcherWatcher(this);
 
+        // currencyExchangeRater
+        this.currencyExchangeRaterFetcherWatchers = CurrencyExchangeRaterFetcherWatchers.empty();
+        this.currencyExchangeRaterFetcher = CurrencyExchangeRaterFetcher.with(
+            this.currencyExchangeRaterFetcherWatchers,
+            this
+        );
+        this.currencyExchangeRaterInfoSet = CurrencyExchangeRaterInfoSet.EMPTY;
+        this.addCurrencyExchangeRaterFetcherWatcher(this);
+        
         // dateTimeSymbols
         this.dateTimeSymbolsFetcherWatchers = DateTimeSymbolsFetcherWatchers.empty();
         this.dateTimeSymbolsFetcher = DateTimeSymbolsFetcher.with(
@@ -733,7 +746,32 @@ public class App implements EntryPoint,
         // NOP
     }
 
-    // CurrencyExchangeRaterProvider....................................................................................
+    // CurrencyExchangeRaterFetcher.....................................................................................
+
+    @Override
+    public CurrencyExchangeRaterFetcher currencyExchangeRaterFetcher() {
+        return this.currencyExchangeRaterFetcher;
+    }
+
+    private final CurrencyExchangeRaterFetcher currencyExchangeRaterFetcher;
+
+    @Override
+    public Runnable addCurrencyExchangeRaterFetcherWatcher(final CurrencyExchangeRaterFetcherWatcher watcher) {
+        return this.currencyExchangeRaterFetcherWatchers.add(watcher);
+    }
+
+    @Override
+    public Runnable addCurrencyExchangeRaterFetcherWatcherOnce(final CurrencyExchangeRaterFetcherWatcher watcher) {
+        return this.currencyExchangeRaterFetcherWatchers.addOnce(watcher);
+    }
+
+    private final CurrencyExchangeRaterFetcherWatchers currencyExchangeRaterFetcherWatchers;
+
+    @Override
+    public void onCurrencyExchangeRaterInfoSet(final CurrencyExchangeRaterInfoSet infos) {
+        this.currencyExchangeRaterInfoSet = infos;
+        this.refreshSpreadsheetProviderAndSystemSpreadsheetProvider();
+    }
 
     private CurrencyExchangeRaterInfoSet currencyExchangeRaterInfoSet = CurrencyExchangeRaterInfoSet.EMPTY;
 

@@ -34,6 +34,7 @@ import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.FetcherRequestBody;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasConverterFetcher;
+import walkingkooka.spreadsheet.dominokit.fetcher.HasCurrencyExchangeRaterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasCurrencyFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasDateTimeSymbolsFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasDecimalNumberSymbolsFetcher;
@@ -93,6 +94,7 @@ public interface AppContext extends CanGiveFocus,
     HasSpreadsheetComparatorFetcher,
     HasConverterFetcher,
     HasCurrencyFetcher,
+    HasCurrencyExchangeRaterFetcher,
     HasDateTimeSymbolsFetcher,
     HasDecimalNumberSymbolsFetcher,
     HasExpressionFunctionFetcher,
