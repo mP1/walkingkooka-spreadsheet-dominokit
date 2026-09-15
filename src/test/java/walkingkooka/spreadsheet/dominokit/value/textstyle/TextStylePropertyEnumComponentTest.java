@@ -23,7 +23,6 @@ import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
@@ -816,10 +815,5 @@ public final class TextStylePropertyEnumComponentTest implements TextStyleProper
     @Override
     public Class<TextStylePropertyEnumComponent<TextAlign>> type() {
         return Cast.to(TextStylePropertyEnumComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

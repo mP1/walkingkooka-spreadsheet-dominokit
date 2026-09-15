@@ -25,7 +25,6 @@ import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.plugin.ProviderContext;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -1756,10 +1755,5 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
     @Override
     public Class<SpreadsheetParserSelectorDialogComponent> type() {
         return SpreadsheetParserSelectorDialogComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

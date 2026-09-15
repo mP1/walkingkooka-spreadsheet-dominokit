@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.sort;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.plugin.ProviderContext;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.SpreadsheetComparator;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
@@ -2091,10 +2090,5 @@ public final class SpreadsheetCellSortDialogComponentTest implements DialogCompo
     @Override
     public Class<SpreadsheetCellSortDialogComponent> type() {
         return SpreadsheetCellSortDialogComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

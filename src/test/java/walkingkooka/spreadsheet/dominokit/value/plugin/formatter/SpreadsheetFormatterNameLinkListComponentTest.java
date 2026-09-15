@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.formatter;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfoSet;
@@ -155,10 +154,5 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
     @Override
     public Class<SpreadsheetFormatterNameLinkListComponent> type() {
         return SpreadsheetFormatterNameLinkListComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

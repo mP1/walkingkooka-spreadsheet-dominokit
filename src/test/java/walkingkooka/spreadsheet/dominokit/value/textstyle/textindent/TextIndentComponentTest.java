@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.textindent;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStylePropertyLengthComponentLikeTesting;
 import walkingkooka.tree.text.Length;
 
@@ -72,10 +71,5 @@ public final class TextIndentComponentTest implements TextStylePropertyLengthCom
     @Override
     public Class<TextIndentComponent> type() {
         return TextIndentComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

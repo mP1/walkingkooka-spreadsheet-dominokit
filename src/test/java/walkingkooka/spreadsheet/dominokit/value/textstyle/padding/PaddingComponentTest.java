@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.text.BoxEdge;
@@ -255,10 +254,5 @@ public final class PaddingComponentTest implements TextStylePropertyValueTextBox
     @Override
     public Class<PaddingComponent> type() {
         return PaddingComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

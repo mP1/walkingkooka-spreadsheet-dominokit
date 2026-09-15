@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.overflow;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
@@ -133,10 +132,5 @@ public final class OverflowComponentTest implements TextStylePropertyEnumCompone
     @Override
     public Class<OverflowComponent> type() {
         return OverflowComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

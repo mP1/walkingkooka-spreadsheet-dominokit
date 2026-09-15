@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.cell;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -130,10 +129,5 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlComponentTes
     @Override
     public Class<SpreadsheetCellLinksComponent> type() {
         return SpreadsheetCellLinksComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

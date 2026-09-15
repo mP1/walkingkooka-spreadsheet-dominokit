@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.url;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.Url;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
@@ -141,10 +140,5 @@ public final class AbsoluteUrlComponentTest implements ValueTextBoxComponentLike
     @Override
     public Class<AbsoluteUrlComponent> type() {
         return AbsoluteUrlComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

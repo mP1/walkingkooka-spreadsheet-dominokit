@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Padding;
@@ -179,10 +178,5 @@ public final class PaddingBoxComponentTest implements ValueComponentTesting<HTML
     @Override
     public Class<PaddingBoxComponent> type() {
         return PaddingBoxComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

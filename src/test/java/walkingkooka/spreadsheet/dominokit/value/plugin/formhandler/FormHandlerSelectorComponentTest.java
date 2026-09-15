@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.formhandler;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.validation.form.provider.FormHandlerSelector;
 
@@ -72,10 +71,5 @@ public final class FormHandlerSelectorComponentTest implements ValueTextBoxCompo
     @Override
     public Class<FormHandlerSelectorComponent> type() {
         return FormHandlerSelectorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

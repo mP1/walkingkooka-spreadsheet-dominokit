@@ -26,7 +26,6 @@ import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContext;
 import walkingkooka.currency.CurrencyContexts;
 import walkingkooka.currency.FakeCurrencyContext;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.suggestbox.FakeSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentSuggestionsProvider;
@@ -163,10 +162,5 @@ public final class CurrencyComponentTest implements FormValueComponentTesting<HT
     @Override
     public Class<CurrencyComponent<Currency>> type() {
         return Cast.to(CurrencyComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

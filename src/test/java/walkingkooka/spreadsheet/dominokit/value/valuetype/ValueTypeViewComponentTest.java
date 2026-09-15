@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.valuetype;
 
 import elemental2.dom.HTMLElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.validation.ValueType;
@@ -82,10 +81,5 @@ public final class ValueTypeViewComponentTest implements ValueComponentTesting<H
     @Override
     public Class<ValueTypeViewComponent> type() {
         return ValueTypeViewComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

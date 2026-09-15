@@ -18,12 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.HistoryTokenAwareComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellSelectHistoryToken;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public interface DialogComponentLifecycleTesting<T extends DialogComponentLifecycle> extends HistoryTokenAwareComponentLifecycleTesting<T> {
+public interface DialogComponentLifecycleTesting<T extends DialogComponentLifecycle> extends HistoryTokenAwareComponentLifecycleTesting<T>,
+    PublicClassTesting<T> {
 
     @Test
     default void testShouldIgnoreWithSpreadsheetCellSelectHistoryToken() {

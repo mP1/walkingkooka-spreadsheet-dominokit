@@ -21,7 +21,6 @@ import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -152,10 +151,5 @@ public final class TagBoxComponentTest implements FormValueComponentTesting<HTML
     @Override
     public Class<TagBoxComponent<SpreadsheetCellReference>> type() {
         return Cast.to(TagBoxComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

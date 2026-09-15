@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.comparator;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
@@ -100,10 +99,5 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponentTest
     @Override
     public Class<SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent> type() {
         return SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

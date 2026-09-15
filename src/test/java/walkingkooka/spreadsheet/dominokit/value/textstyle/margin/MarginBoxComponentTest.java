@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.margin;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.tree.text.BoxEdge;
 import walkingkooka.tree.text.Margin;
@@ -179,10 +178,5 @@ public final class MarginBoxComponentTest implements ValueComponentTesting<HTMLD
     @Override
     public Class<MarginBoxComponent> type() {
         return MarginBoxComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

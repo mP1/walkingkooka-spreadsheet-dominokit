@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.fontkerning;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
@@ -128,10 +127,5 @@ public final class FontKerningComponentTest implements TextStylePropertyEnumComp
     @Override
     public Class<FontKerningComponent> type() {
         return FontKerningComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

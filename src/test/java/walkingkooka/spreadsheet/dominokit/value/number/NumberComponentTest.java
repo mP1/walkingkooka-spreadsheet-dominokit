@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
 import walkingkooka.math.DecimalNumberContexts;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.expression.ExpressionNumber;
@@ -296,10 +295,5 @@ public final class NumberComponentTest implements ValueTextBoxComponentLikeTesti
     @Override
     public Class<NumberComponent> type() {
         return NumberComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

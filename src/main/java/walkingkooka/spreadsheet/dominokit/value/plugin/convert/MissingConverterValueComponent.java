@@ -33,7 +33,7 @@ import java.util.Optional;
 /**
  * A component that displays a {@link MissingConverterValue}.
  */
-final class MissingConverterValueComponent implements ValueComponent<HTMLDivElement, MissingConverterValue, MissingConverterValueComponent> {
+public final class MissingConverterValueComponent implements ValueComponent<HTMLDivElement, MissingConverterValue, MissingConverterValueComponent> {
 
     static MissingConverterValueComponent empty(final MissingConverterValue value) {
         return new MissingConverterValueComponent(

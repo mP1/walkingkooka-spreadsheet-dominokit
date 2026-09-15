@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.parser;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -134,10 +133,5 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
     @Override
     public Class<SpreadsheetParserNameLinkListComponent> type() {
         return SpreadsheetParserNameLinkListComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.query.condition;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -76,10 +75,5 @@ public final class ConditionRightSpreadsheetFormulaParserTokenComponentTest impl
     @Override
     public Class<ConditionRightSpreadsheetFormulaParserTokenComponent> type() {
         return ConditionRightSpreadsheetFormulaParserTokenComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

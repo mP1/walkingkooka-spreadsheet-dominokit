@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
@@ -156,10 +155,5 @@ public final class SpreadsheetExpressionReferenceComponentTest implements ValueT
     @Override
     public Class<SpreadsheetExpressionReferenceComponent> type() {
         return SpreadsheetExpressionReferenceComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.query.textmatch;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
 
@@ -81,10 +80,5 @@ public final class TextMatchComponentTest implements ValueTextBoxComponentLikeTe
     @Override
     public Class<TextMatchComponent> type() {
         return TextMatchComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

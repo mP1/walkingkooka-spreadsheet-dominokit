@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.math.DecimalNumberSymbols;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.text.DecimalFormatSymbols;
@@ -90,10 +89,5 @@ public final class DecimalNumberSymbolsComponentTest implements ValueTextBoxComp
     @Override
     public Class<DecimalNumberSymbolsComponent> type() {
         return DecimalNumberSymbolsComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

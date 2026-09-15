@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.form;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.SpreadsheetStartup;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -239,10 +238,5 @@ public final class FormComponentTest implements ValueTextBoxComponentLikeTesting
     @Override
     public Class<FormComponent> type() {
         return FormComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

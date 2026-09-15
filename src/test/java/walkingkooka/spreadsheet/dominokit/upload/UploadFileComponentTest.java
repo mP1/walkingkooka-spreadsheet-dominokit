@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.upload;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.file.BrowserFile;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
@@ -92,10 +91,5 @@ public final class UploadFileComponentTest implements FormValueComponentTesting<
     @Override
     public Class<UploadFileComponent> type() {
         return UploadFileComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

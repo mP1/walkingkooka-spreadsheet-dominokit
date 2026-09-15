@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.lineheight;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStylePropertyLengthComponentLikeTesting;
 import walkingkooka.tree.text.Length;
 
@@ -72,10 +71,5 @@ public final class LineHeightComponentTest implements TextStylePropertyLengthCom
     @Override
     public Class<LineHeightComponent> type() {
         return LineHeightComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

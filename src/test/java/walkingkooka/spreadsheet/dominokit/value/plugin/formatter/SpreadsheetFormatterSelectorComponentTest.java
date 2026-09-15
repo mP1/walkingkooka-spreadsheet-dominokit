@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.formatter;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 
@@ -72,10 +71,5 @@ public final class SpreadsheetFormatterSelectorComponentTest implements ValueTex
     @Override
     public Class<SpreadsheetFormatterSelectorComponent> type() {
         return SpreadsheetFormatterSelectorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

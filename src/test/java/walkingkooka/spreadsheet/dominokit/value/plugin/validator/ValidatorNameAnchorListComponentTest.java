@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.validator;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -143,10 +142,5 @@ public final class ValidatorNameAnchorListComponentTest implements ValueComponen
     @Override
     public Class<ValidatorNameAnchorListComponent> type() {
         return ValidatorNameAnchorListComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

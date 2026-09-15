@@ -25,7 +25,6 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.locale.FakeLocaleContext;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContexts;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.suggestbox.FakeSuggestBoxComponentSuggestionsProvider;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponentSuggestionsProvider;
@@ -175,10 +174,5 @@ public final class LocaleComponentTest implements FormValueComponentTesting<HTML
     @Override
     public Class<LocaleComponent<Locale>> type() {
         return Cast.to(LocaleComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

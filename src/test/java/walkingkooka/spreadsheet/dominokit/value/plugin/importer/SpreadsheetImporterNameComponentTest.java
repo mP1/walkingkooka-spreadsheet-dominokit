@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.importer;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterName;
 
@@ -71,10 +70,5 @@ public final class SpreadsheetImporterNameComponentTest implements ValueTextBoxC
     @Override
     public Class<SpreadsheetImporterNameComponent> type() {
         return SpreadsheetImporterNameComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

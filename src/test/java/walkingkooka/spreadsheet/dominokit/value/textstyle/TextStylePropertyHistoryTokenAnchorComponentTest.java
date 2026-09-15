@@ -23,7 +23,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.EmptyTextException;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
@@ -321,10 +320,5 @@ public final class TextStylePropertyHistoryTokenAnchorComponentTest implements V
     @Override
     public Class<TextStylePropertyHistoryTokenAnchorComponent<TextAlign>> type() {
         return Cast.to(TextStylePropertyHistoryTokenAnchorComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

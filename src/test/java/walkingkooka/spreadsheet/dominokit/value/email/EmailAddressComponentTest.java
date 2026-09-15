@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.email;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.email.EmailAddress;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
@@ -126,10 +125,5 @@ public final class EmailAddressComponentTest implements ValueTextBoxComponentLik
     @Override
     public Class<EmailAddressComponent> type() {
         return EmailAddressComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

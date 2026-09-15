@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.parser;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
@@ -121,10 +120,5 @@ public final class SpreadsheetParserInfoSetComponentTest implements ValueTextBox
     @Override
     public Class<SpreadsheetParserInfoSetComponent> type() {
         return SpreadsheetParserInfoSetComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

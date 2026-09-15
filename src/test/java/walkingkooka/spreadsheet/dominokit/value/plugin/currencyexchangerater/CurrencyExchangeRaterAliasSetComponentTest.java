@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.currency.provider.CurrencyExchangeRaterAliasSet;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
@@ -78,10 +77,5 @@ public final class CurrencyExchangeRaterAliasSetComponentTest implements ValueTe
     @Override
     public Class<CurrencyExchangeRaterAliasSetComponent> type() {
         return CurrencyExchangeRaterAliasSetComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

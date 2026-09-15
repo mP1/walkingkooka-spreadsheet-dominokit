@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.formula;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightEqualsSpreadsheetFormulaParserToken;
@@ -376,10 +375,5 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
     @Override
     public Class<SpreadsheetFormulaParserTokenComponent> type() {
         return SpreadsheetFormulaParserTokenComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

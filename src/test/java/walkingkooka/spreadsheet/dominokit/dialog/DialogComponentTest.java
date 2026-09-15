@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 
@@ -98,10 +97,5 @@ public final class DialogComponentTest implements HtmlComponentTesting<DialogCom
     @Override
     public Class<DialogComponent> type() {
         return DialogComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

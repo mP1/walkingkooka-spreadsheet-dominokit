@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.fontsize;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
@@ -121,10 +120,5 @@ public final class FontSizeComponentTest implements TextStylePropertyComponentTe
     @Override
     public Class<FontSizeComponent> type() {
         return Cast.to(FontSizeComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

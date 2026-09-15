@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.environment.AuditInfo;
 import walkingkooka.net.email.EmailAddress;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -288,11 +287,6 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
     }
 
     // ClassTesting.....................................................................................................
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
 
     @Override
     public Class<SpreadsheetListDialogComponent> type() {

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.form;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.text.CharSequences;
 import walkingkooka.validation.form.FormField;
@@ -86,10 +85,5 @@ public final class FormFieldLabelComponentTest implements ValueTextBoxComponentL
     @Override
     public Class<FormFieldLabelComponent> type() {
         return FormFieldLabelComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

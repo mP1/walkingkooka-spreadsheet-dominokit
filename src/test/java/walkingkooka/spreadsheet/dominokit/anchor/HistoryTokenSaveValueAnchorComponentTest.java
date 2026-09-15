@@ -21,7 +21,6 @@ import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.color.Color;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -286,10 +285,5 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
     @Override
     public Class<HistoryTokenSaveValueAnchorComponent<Color>> type() {
         return Cast.to(HistoryTokenSaveValueAnchorComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

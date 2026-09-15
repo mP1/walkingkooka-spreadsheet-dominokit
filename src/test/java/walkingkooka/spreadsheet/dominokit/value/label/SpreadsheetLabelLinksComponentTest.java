@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.label;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -102,10 +101,5 @@ public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTe
     @Override
     public Class<SpreadsheetLabelLinksComponent> type() {
         return SpreadsheetLabelLinksComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

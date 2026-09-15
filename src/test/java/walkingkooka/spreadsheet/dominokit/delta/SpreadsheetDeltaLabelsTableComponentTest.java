@@ -23,7 +23,6 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -331,15 +330,10 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
         );
     }
 
-// class............................................................................................................
+    // class............................................................................................................
 
     @Override
     public Class<SpreadsheetDeltaLabelsTableComponent> type() {
         return SpreadsheetDeltaLabelsTableComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

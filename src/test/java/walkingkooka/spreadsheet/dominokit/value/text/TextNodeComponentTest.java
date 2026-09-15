@@ -18,14 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.value.text;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.Optional;
 
-public final class TextNodeComponentTest implements ClassTesting<TextNodeComponent>,
+public final class TextNodeComponentTest implements PublicClassTesting<TextNodeComponent>,
     TreePrintableTesting {
 
     @Test
@@ -60,10 +59,5 @@ public final class TextNodeComponentTest implements ClassTesting<TextNodeCompone
     @Override
     public Class<TextNodeComponent> type() {
         return TextNodeComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

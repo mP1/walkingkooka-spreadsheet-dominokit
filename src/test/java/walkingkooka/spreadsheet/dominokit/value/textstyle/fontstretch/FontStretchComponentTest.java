@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.fontstretch;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyEnumComponentTesting;
@@ -140,10 +139,5 @@ public final class FontStretchComponentTest implements TextStylePropertyEnumComp
     @Override
     public Class<FontStretchComponent> type() {
         return FontStretchComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

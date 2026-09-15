@@ -22,7 +22,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
@@ -360,10 +359,5 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
     @Override
     public Class<SpreadsheetViewportFormulaComponent> type() {
         return SpreadsheetViewportFormulaComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

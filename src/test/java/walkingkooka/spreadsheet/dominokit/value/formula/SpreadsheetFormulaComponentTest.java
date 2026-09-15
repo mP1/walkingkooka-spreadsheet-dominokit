@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.formula;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -98,10 +97,5 @@ public final class SpreadsheetFormulaComponentTest implements ValueTextBoxCompon
     @Override
     public Class<SpreadsheetFormulaComponent> type() {
         return SpreadsheetFormulaComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

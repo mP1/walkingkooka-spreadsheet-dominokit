@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.convert;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.convert.provider.ConverterName;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
@@ -84,10 +83,5 @@ public final class ConverterNameComponentTest implements ValueTextBoxComponentLi
     @Override
     public Class<ConverterNameComponent> type() {
         return ConverterNameComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.query;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
@@ -87,10 +86,5 @@ public final class SpreadsheetCellRangeReferencePathComponentTest implements For
     @Override
     public Class<SpreadsheetCellRangeReferencePathComponent> type() {
         return SpreadsheetCellRangeReferencePathComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

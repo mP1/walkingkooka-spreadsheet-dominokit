@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -265,10 +264,5 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
     @Override
     public Class<TextStyleComponent> type() {
         return TextStyleComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

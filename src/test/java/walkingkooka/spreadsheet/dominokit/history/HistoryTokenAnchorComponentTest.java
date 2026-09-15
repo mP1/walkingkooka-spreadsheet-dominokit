@@ -24,7 +24,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
@@ -427,10 +426,5 @@ public final class HistoryTokenAnchorComponentTest implements HtmlComponentTesti
     @Override
     public Class<HistoryTokenAnchorComponent> type() {
         return HistoryTokenAnchorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

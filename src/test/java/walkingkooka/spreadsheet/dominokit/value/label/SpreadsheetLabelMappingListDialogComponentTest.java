@@ -22,7 +22,6 @@ import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -641,10 +640,5 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
     @Override
     public Class<SpreadsheetLabelMappingListDialogComponent> type() {
         return SpreadsheetLabelMappingListDialogComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.color.Color;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -194,10 +193,5 @@ public final class ValueTextBoxComponentTest implements ValueTextBoxComponentLik
     @Override
     public Class<ValueTextBoxComponent<SpreadsheetCellReference>> type() {
         return Cast.to(ValueTextBoxComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

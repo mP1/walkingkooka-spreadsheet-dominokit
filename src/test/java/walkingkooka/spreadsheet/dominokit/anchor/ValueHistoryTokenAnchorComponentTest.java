@@ -22,7 +22,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.UrlPath;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
@@ -174,10 +173,5 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
     @Override
     public Class<ValueHistoryTokenAnchorComponent<String>> type() {
         return Cast.to(ValueHistoryTokenAnchorComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

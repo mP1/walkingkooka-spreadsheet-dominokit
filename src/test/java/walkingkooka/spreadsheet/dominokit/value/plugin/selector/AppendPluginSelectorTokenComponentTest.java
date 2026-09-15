@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
@@ -309,10 +308,5 @@ public final class AppendPluginSelectorTokenComponentTest implements HtmlCompone
     @Override
     public Class<AppendPluginSelectorTokenComponent<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative>> type() {
         return Cast.to(AppendPluginSelectorTokenComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

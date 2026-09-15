@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.width;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.length.TextStylePropertyLengthComponentLikeTesting;
 import walkingkooka.tree.text.Length;
 
@@ -72,10 +71,5 @@ public final class WidthComponentTest implements TextStylePropertyLengthComponen
     @Override
     public Class<WidthComponent> type() {
         return WidthComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

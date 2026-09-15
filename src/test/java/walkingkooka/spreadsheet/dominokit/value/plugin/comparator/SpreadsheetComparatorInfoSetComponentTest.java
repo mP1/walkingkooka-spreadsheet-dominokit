@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.comparator;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
@@ -124,10 +123,5 @@ public final class SpreadsheetComparatorInfoSetComponentTest implements ValueTex
     @Override
     public Class<SpreadsheetComparatorInfoSetComponent> type() {
         return SpreadsheetComparatorInfoSetComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

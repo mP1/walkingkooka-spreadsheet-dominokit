@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.cell;
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
@@ -174,10 +173,5 @@ public final class SpreadsheetCellReferencesAnchorComponentTest implements Ancho
     @Override
     public Class<SpreadsheetCellReferencesAnchorComponent> type() {
         return SpreadsheetCellReferencesAnchorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

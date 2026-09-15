@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -480,11 +479,6 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
     }
 
     // ClassTesting.....................................................................................................
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
 
     @Override
     public Class<SpreadsheetLabelMappingDialogComponent> type() {

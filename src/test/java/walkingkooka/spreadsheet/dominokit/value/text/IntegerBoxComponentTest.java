@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.text;
 import elemental2.dom.HTMLFieldSetElement;
 import org.dominokit.domino.ui.forms.validations.ValidationResult;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.validator.FakeValidator;
 
@@ -124,10 +123,5 @@ public final class IntegerBoxComponentTest implements FormValueComponentTesting<
     @Override
     public Class<IntegerBoxComponent> type() {
         return IntegerBoxComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

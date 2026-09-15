@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.link;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
@@ -193,10 +192,5 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
     @Override
     public Class<CardLinkListComponent> type() {
         return CardLinkListComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

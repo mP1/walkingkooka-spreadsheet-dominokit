@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.spreadsheet;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -189,11 +188,6 @@ public final class SpreadsheetNameDialogComponentTest implements DialogComponent
     @Override
     public Class<SpreadsheetNameDialogComponent> type() {
         return SpreadsheetNameDialogComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }
 
