@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference;
 
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
@@ -139,10 +138,5 @@ public final class SpreadsheetExpressionReferenceSelectAnchorComponentTest imple
     @Override
     public Class<SpreadsheetExpressionReferenceSelectAnchorComponent> type() {
         return SpreadsheetExpressionReferenceSelectAnchorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

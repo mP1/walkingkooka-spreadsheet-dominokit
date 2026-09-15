@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.card;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 
@@ -136,10 +135,5 @@ public final class CardComponentTest implements HtmlComponentTesting<CardCompone
     @Override
     public Class<CardComponent> type() {
         return CardComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

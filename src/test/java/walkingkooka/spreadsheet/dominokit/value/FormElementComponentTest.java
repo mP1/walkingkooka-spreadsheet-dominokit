@@ -20,14 +20,13 @@ package walkingkooka.spreadsheet.dominokit.value;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class FormElementComponentTest implements ClassTesting<FormElementComponent<?, ?, ?>>,
+public final class FormElementComponentTest implements PublicClassTesting<FormElementComponent<?, ?, ?>>,
     TreePrintableTesting {
 
     @Test
@@ -99,10 +98,5 @@ public final class FormElementComponentTest implements ClassTesting<FormElementC
     @Override
     public Class<FormElementComponent<?, ?, ?>> type() {
         return Cast.to(FormElementComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

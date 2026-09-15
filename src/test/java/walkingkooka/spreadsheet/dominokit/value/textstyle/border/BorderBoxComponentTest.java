@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.tree.text.Border;
 import walkingkooka.tree.text.BoxEdge;
@@ -280,10 +279,5 @@ public final class BorderBoxComponentTest implements ValueComponentTesting<HTMLD
     @Override
     public Class<BorderBoxComponent> type() {
         return BorderBoxComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -18,18 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class MarginOrPaddingBoxComponentTest implements ClassTesting<MarginOrPaddingBoxComponent<?, ?>> {
+public final class MarginOrPaddingBoxComponentTest implements PublicClassTesting<MarginOrPaddingBoxComponent<?, ?>> {
 
     @Override
     public Class<MarginOrPaddingBoxComponent<?, ?>> type() {
         return Cast.to(MarginOrPaddingBoxComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.navigate;
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
@@ -119,10 +118,5 @@ public final class SpreadsheetNavigateLinkComponentTest implements HtmlComponent
     @Override
     public Class<SpreadsheetNavigateLinkComponent> type() {
         return SpreadsheetNavigateLinkComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

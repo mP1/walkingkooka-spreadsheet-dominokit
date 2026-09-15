@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.columnrow;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
@@ -146,10 +145,5 @@ public final class SpreadsheetColumnOrRowReferenceBoundedComponentTest implement
     @Override
     public Class<SpreadsheetColumnOrRowReferenceBoundedComponent> type() {
         return SpreadsheetColumnOrRowReferenceBoundedComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

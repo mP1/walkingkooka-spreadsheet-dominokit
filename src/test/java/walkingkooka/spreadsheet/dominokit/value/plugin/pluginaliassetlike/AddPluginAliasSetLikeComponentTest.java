@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.pluginaliassetlike;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
@@ -253,10 +252,5 @@ public final class AddPluginAliasSetLikeComponentTest implements HtmlComponentTe
     @Override
     public Class<AddPluginAliasSetLikeComponent<ExpressionFunctionName, ExpressionFunctionInfo, ExpressionFunctionInfoSet, ExpressionFunctionSelector, ExpressionFunctionAlias, ExpressionFunctionAliasSet>> type() {
         return Cast.to(AddPluginAliasSetLikeComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

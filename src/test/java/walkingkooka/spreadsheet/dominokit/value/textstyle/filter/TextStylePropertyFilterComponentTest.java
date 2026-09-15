@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.filter;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
@@ -110,10 +109,5 @@ public final class TextStylePropertyFilterComponentTest implements FormValueComp
     @Override
     public Class<TextStylePropertyFilterComponent> type() {
         return TextStylePropertyFilterComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
 import walkingkooka.color.Color;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
 import java.util.Optional;
@@ -105,10 +104,5 @@ public final class ColorBoxComponentTest implements ValueComponentTesting<HTMLDi
     @Override
     public Class<ColorBoxComponent> type() {
         return ColorBoxComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

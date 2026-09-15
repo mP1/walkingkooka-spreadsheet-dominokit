@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.fontweight;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
@@ -263,10 +262,5 @@ public final class BigFontWeightComponentTest implements TextStylePropertyCompon
     @Override
     public Class<BigFontWeightComponent> type() {
         return BigFontWeightComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

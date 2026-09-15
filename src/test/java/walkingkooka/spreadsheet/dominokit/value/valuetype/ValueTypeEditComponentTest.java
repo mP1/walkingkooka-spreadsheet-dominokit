@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.valuetype;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -126,10 +125,5 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
     @Override
     public Class<ValueTypeEditComponent> type() {
         return ValueTypeEditComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

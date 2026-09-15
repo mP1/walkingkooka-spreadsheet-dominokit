@@ -35,7 +35,7 @@ import java.util.Optional;
 /**
  * A component that displays a {@link MissingConverterSet}.
  */
-final class MissingConverterSetComponent implements ValueComponent<HTMLDivElement, MissingConverterSet, MissingConverterSetComponent>,
+public final class MissingConverterSetComponent implements ValueComponent<HTMLDivElement, MissingConverterSet, MissingConverterSetComponent>,
     ComponentWithChildren<MissingConverterSetComponent, HTMLDivElement> {
 
     static MissingConverterSetComponent empty(final MissingConverterSet value) {

@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.csv;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.CsvStringList;
 import walkingkooka.datetime.DateTimeSymbols;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.text.DateFormatSymbols;
@@ -249,10 +248,5 @@ public final class CsvStringListComponentTest implements ValueTextBoxComponentLi
     @Override
     public Class<CsvStringListComponent> type() {
         return CsvStringListComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

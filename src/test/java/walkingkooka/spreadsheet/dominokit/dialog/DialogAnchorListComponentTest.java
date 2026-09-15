@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.FakeComponentWithErrors;
@@ -938,10 +937,5 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
     @Override
     public Class<DialogAnchorListComponent<Locale>> type() {
         return Cast.to(DialogAnchorListComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

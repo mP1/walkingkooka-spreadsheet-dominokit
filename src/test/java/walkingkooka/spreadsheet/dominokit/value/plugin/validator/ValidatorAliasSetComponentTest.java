@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.validator;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.validation.provider.ValidatorAliasSet;
 
@@ -82,10 +81,5 @@ public final class ValidatorAliasSetComponentTest implements ValueTextBoxCompone
     @Override
     public Class<ValidatorAliasSetComponent> type() {
         return ValidatorAliasSetComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

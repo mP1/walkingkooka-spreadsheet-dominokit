@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.slider;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
@@ -157,10 +156,5 @@ public final class SliderComponentTest implements FormValueComponentTesting<HTML
     @Override
     public Class<SliderComponent> type() {
         return SliderComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

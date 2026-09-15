@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.label;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -85,10 +84,5 @@ public final class SpreadsheetLabelComponentTest implements FormValueComponentTe
     @Override
     public Class<SpreadsheetLabelComponent> type() {
         return SpreadsheetLabelComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

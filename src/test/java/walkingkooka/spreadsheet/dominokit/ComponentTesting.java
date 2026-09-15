@@ -17,9 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import walkingkooka.reflect.ClassTesting;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public interface ComponentTesting<C extends Component> extends TreePrintableTesting,
-    ClassTesting<C> {
+    PublicClassTesting<C> {
 }

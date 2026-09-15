@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.convert;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.convert.provider.MissingConverterValue;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
@@ -61,11 +60,6 @@ public class MissingConverterValueComponentTest implements ValueComponentTesting
     }
 
     // class............................................................................................................
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
-    }
 
     @Override
     public Class<MissingConverterValueComponent> type() {

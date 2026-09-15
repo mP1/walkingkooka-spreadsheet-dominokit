@@ -24,7 +24,6 @@ import walkingkooka.EmptyTextException;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.color.SpreadsheetColors;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
@@ -3016,10 +3015,5 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
     @Override
     public Class<TextStylePropertyColorComponent> type() {
         return Cast.to(TextStylePropertyColorComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

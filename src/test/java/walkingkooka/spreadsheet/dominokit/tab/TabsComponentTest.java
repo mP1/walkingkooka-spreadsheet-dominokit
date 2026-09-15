@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.tab;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -141,10 +140,5 @@ public final class TabsComponentTest implements HtmlComponentTesting<TabsCompone
     @Override
     public Class<TabsComponent> type() {
         return TabsComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

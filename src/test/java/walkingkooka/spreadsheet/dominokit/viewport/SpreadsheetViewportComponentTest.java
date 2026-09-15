@@ -23,7 +23,6 @@ import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
@@ -732,10 +731,5 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
     @Override
     public Class<SpreadsheetViewportComponent> type() {
         return SpreadsheetViewportComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

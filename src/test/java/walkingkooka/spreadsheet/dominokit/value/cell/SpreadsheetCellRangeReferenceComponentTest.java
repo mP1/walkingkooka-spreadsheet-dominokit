@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.cell;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -140,10 +139,5 @@ public final class SpreadsheetCellRangeReferenceComponentTest implements ValueTe
     @Override
     public Class<SpreadsheetCellRangeReferenceComponent> type() {
         return SpreadsheetCellRangeReferenceComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

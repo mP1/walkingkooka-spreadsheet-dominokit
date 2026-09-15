@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.columnrow;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 
@@ -142,10 +141,5 @@ public final class SpreadsheetColumnOrRowReferenceComponentTest implements Value
     @Override
     public Class<SpreadsheetColumnOrRowReferenceComponent> type() {
         return SpreadsheetColumnOrRowReferenceComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

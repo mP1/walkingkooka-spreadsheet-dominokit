@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.viewport.menu;
 
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
@@ -218,10 +217,5 @@ public final class SpreadsheetSelectionDeleteAnchorComponentTest implements Anch
     @Override
     public Class<SpreadsheetSelectionDeleteAnchorComponent> type() {
         return SpreadsheetSelectionDeleteAnchorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.choicelist;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.validation.ValidationChoice;
@@ -206,10 +205,5 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
     @Override
     public Class<ValidationChoiceListComponent> type() {
         return ValidationChoiceListComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

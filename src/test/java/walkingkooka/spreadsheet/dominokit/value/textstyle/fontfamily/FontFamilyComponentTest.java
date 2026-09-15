@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -122,10 +121,5 @@ public final class FontFamilyComponentTest implements TextStylePropertyComponent
     @Override
     public Class<FontFamilyComponent> type() {
         return FontFamilyComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

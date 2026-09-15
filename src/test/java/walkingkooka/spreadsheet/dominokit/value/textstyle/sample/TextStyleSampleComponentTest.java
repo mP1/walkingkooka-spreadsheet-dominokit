@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.sample;
 
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.tree.text.TextStyle;
 
@@ -85,10 +84,5 @@ public final class TextStyleSampleComponentTest implements ValueComponentTesting
     @Override
     public Class<TextStyleSampleComponent> type() {
         return TextStyleSampleComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.parser;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 
@@ -72,10 +71,5 @@ public final class SpreadsheetParserSelectorComponentTest implements ValueTextBo
     @Override
     public Class<SpreadsheetParserSelectorComponent> type() {
         return SpreadsheetParserSelectorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

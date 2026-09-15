@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.suggestbox;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerTesting;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -164,10 +163,5 @@ public final class SuggestBoxComponentTest implements FormValueComponentTesting<
     @Override
     public Class<SuggestBoxComponent<SpreadsheetCellReference>> type() {
         return Cast.to(SuggestBoxComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

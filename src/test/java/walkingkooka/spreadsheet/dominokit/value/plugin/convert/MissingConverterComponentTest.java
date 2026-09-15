@@ -21,7 +21,6 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.convert.provider.ConverterName;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
 import walkingkooka.spreadsheet.convert.provider.MissingConverterValue;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
@@ -84,10 +83,5 @@ public class MissingConverterComponentTest implements ValueComponentTesting<HTML
     @Override
     public Class<MissingConverterComponent> type() {
         return MissingConverterComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.function;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 
@@ -72,10 +71,5 @@ public final class ExpressionFunctionNameComponentTest implements ValueTextBoxCo
     @Override
     public Class<ExpressionFunctionNameComponent> type() {
         return ExpressionFunctionNameComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

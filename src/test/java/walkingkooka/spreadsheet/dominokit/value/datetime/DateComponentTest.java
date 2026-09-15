@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.datetime;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.time.LocalDate;
@@ -87,10 +86,5 @@ public final class DateComponentTest implements FormValueComponentTesting<HTMLDi
     @Override
     public Class<DateComponent> type() {
         return DateComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

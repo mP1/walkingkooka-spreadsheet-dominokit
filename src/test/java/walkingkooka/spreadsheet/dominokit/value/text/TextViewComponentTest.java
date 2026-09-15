@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.text;
 
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
@@ -63,10 +62,5 @@ public final class TextViewComponentTest implements FormValueComponentTesting<HT
     @Override
     public Class<TextViewComponent> type() {
         return TextViewComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

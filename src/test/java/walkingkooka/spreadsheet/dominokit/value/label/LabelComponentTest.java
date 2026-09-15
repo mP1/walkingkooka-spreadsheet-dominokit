@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.label;
 
 import elemental2.dom.HTMLElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 
 import java.util.Optional;
@@ -72,10 +71,5 @@ public final class LabelComponentTest implements ValueComponentTesting<HTMLEleme
     @Override
     public Class<LabelComponent> type() {
         return LabelComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

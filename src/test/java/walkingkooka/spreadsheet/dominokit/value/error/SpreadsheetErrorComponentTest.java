@@ -18,7 +18,6 @@
 package walkingkooka.spreadsheet.dominokit.value.error;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.value.SpreadsheetError;
 import walkingkooka.spreadsheet.value.SpreadsheetErrorKind;
@@ -98,10 +97,5 @@ public final class SpreadsheetErrorComponentTest implements ValueTextBoxComponen
     @Override
     public Class<SpreadsheetErrorComponent> type() {
         return SpreadsheetErrorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

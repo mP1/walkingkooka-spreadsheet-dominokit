@@ -18,18 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class SpreadsheetViewportScrollbarComponentTest implements ClassTesting<SpreadsheetViewportScrollbarComponent<?>> {
+public final class SpreadsheetViewportScrollbarComponentTest implements PublicClassTesting<SpreadsheetViewportScrollbarComponent<?>> {
 
     @Override
     public Class<SpreadsheetViewportScrollbarComponent<?>> type() {
         return Cast.to(SpreadsheetViewportScrollbarComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

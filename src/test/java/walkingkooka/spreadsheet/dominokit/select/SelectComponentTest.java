@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.select;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.dom.HasEventListenerTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -122,10 +121,5 @@ public final class SelectComponentTest implements FormValueComponentTesting<HTML
     @Override
     public Class<SelectComponent<ValueType>> type() {
         return Cast.to(SelectComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

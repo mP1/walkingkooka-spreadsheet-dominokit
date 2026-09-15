@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.checkbox;
 import elemental2.dom.HTMLFieldSetElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 
 import java.util.Optional;
@@ -105,10 +104,5 @@ public final class CheckboxComponentTest implements FormValueComponentTesting<HT
     @Override
     public Class<CheckboxComponent> type() {
         return CheckboxComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

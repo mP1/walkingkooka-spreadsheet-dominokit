@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.label;
 
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
@@ -171,10 +170,5 @@ public final class SpreadsheetLabelListAnchorComponentTest implements AnchorComp
     @Override
     public Class<SpreadsheetLabelListAnchorComponent> type() {
         return SpreadsheetLabelListAnchorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

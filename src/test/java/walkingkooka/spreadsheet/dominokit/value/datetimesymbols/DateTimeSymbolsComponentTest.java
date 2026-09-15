@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.datetimesymbols;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.datetime.DateTimeSymbols;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.text.DateFormatSymbols;
@@ -88,10 +87,5 @@ public final class DateTimeSymbolsComponentTest implements ValueTextBoxComponent
     @Override
     public Class<DateTimeSymbolsComponent> type() {
         return DateTimeSymbolsComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

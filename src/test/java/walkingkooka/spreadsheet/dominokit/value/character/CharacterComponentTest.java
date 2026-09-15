@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.character;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.predicate.character.CharPredicates;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.util.Optional;
@@ -115,10 +114,5 @@ public final class CharacterComponentTest implements ValueTextBoxComponentLikeTe
     @Override
     public Class<CharacterComponent> type() {
         return CharacterComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

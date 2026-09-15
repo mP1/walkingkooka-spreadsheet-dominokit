@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater;
 import org.junit.jupiter.api.Test;
 import walkingkooka.currency.provider.CurrencyExchangeRaterInfoSet;
 import walkingkooka.currency.provider.CurrencyExchangeRaterProviders;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 
 import java.math.BigDecimal;
@@ -125,10 +124,5 @@ public final class CurrencyExchangeRaterInfoSetComponentTest implements ValueTex
     @Override
     public Class<CurrencyExchangeRaterInfoSetComponent> type() {
         return CurrencyExchangeRaterInfoSetComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

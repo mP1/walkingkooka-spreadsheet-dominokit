@@ -58,7 +58,7 @@ import java.util.Optional;
  * </pre>
  * The {@link SliderComponent#setStep(double)} will be set to match the visible column/row count of the viewport.
  */
-abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumnOrRowReference>
+public abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumnOrRowReference>
     implements ValueComponent<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>>,
     SpreadsheetViewportComponentLifecycle,
     HtmlComponentDelegator<HTMLDivElement, SpreadsheetViewportScrollbarComponent<R>>,

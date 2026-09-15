@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.form;
 
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -126,10 +125,5 @@ public final class SpreadsheetFormSelectHistoryTokenAnchorComponentTest implemen
     @Override
     public Class<SpreadsheetFormSelectHistoryTokenAnchorComponent> type() {
         return SpreadsheetFormSelectHistoryTokenAnchorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

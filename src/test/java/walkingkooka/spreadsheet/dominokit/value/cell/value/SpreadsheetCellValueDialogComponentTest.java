@@ -22,7 +22,6 @@ import walkingkooka.Cast;
 import walkingkooka.net.AbsoluteUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.email.EmailAddress;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -625,10 +624,5 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
     @Override
     public Class<SpreadsheetCellValueDialogComponent<LocalDate>> type() {
         return Cast.to(SpreadsheetCellValueDialogComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

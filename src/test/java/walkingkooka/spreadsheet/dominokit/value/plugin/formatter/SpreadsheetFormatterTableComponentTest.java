@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.formatter;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -145,10 +144,5 @@ public final class SpreadsheetFormatterTableComponentTest implements TableCompon
     @Override
     public Class<SpreadsheetFormatterTableComponent> type() {
         return SpreadsheetFormatterTableComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

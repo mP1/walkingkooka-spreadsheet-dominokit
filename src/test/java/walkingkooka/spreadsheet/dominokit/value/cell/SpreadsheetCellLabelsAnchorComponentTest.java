@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.cell;
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
@@ -150,10 +149,5 @@ public final class SpreadsheetCellLabelsAnchorComponentTest implements AnchorCom
     @Override
     public Class<SpreadsheetCellLabelsAnchorComponent> type() {
         return SpreadsheetCellLabelsAnchorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

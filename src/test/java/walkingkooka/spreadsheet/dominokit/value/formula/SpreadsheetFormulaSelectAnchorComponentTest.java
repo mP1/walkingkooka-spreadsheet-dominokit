@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.formula;
 
 import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
@@ -189,10 +188,5 @@ public final class SpreadsheetFormulaSelectAnchorComponentTest implements Anchor
     @Override
     public Class<SpreadsheetFormulaSelectAnchorComponent> type() {
         return SpreadsheetFormulaSelectAnchorComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

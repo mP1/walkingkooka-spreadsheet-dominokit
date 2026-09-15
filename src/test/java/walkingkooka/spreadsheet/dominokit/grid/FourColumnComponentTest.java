@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.grid;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 
@@ -107,10 +106,5 @@ public final class FourColumnComponentTest implements HtmlComponentTesting<FourC
     @Override
     public Class<FourColumnComponent> type() {
         return FourColumnComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

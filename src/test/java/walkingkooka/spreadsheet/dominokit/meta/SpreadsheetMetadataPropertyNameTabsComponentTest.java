@@ -20,7 +20,6 @@ package walkingkooka.spreadsheet.dominokit.meta;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -89,10 +88,5 @@ public final class SpreadsheetMetadataPropertyNameTabsComponentTest implements H
     @Override
     public Class<SpreadsheetMetadataPropertyNameTabsComponent> type() {
         return SpreadsheetMetadataPropertyNameTabsComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }
