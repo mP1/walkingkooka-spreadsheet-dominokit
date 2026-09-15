@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater;
 
 import walkingkooka.reflect.PublicStaticHelper;
 
-public final class CurrencyExchangeRaterAnchorListComponentContexts implements PublicStaticHelper {
+public final class CurrencyExchangeRaterNameAnchorListComponentContexts implements PublicStaticHelper {
 
     /**
      * Stop creation
      */
-    private CurrencyExchangeRaterAnchorListComponentContexts() {
+    private CurrencyExchangeRaterNameAnchorListComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

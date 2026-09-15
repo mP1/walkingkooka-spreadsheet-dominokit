@@ -22,11 +22,11 @@ import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
 
-public final class CurrencyExchangeRaterAnchorListComponentContextsTest implements PublicStaticHelperTesting<CurrencyExchangeRaterAnchorListComponentContexts> {
+public final class CurrencyExchangeRaterNameAnchorListComponentContextsTest implements PublicStaticHelperTesting<CurrencyExchangeRaterNameAnchorListComponentContexts> {
 
     @Override
-    public Class<CurrencyExchangeRaterAnchorListComponentContexts> type() {
-        return CurrencyExchangeRaterAnchorListComponentContexts.class;
+    public Class<CurrencyExchangeRaterNameAnchorListComponentContexts> type() {
+        return CurrencyExchangeRaterNameAnchorListComponentContexts.class;
     }
 
     @Override
