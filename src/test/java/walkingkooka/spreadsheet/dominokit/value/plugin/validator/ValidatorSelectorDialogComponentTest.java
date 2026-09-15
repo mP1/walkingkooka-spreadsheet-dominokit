@@ -91,7 +91,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
             "ValidatorSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    id=ValidatorSelector-Dialog includeClose=true CLOSED\n" +
-                "      ValidatorSelectorNameAnchorListComponent\n" +
+                "      ValidatorNameAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
@@ -151,7 +151,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
             "ValidatorSelectorDialogComponent\n" +
                 "  DialogComponent\n" +
                 "    id=ValidatorSelector-Dialog includeClose=true CLOSED\n" +
-                "      ValidatorSelectorNameAnchorListComponent\n" +
+                "      ValidatorNameAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
@@ -219,7 +219,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "  DialogComponent\n" +
                 "    Validator Title123\n" +
                 "    id=ValidatorSelector-Dialog includeClose=true\n" +
-                "      ValidatorSelectorNameAnchorListComponent\n" +
+                "      ValidatorNameAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
@@ -311,7 +311,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "  DialogComponent\n" +
                 "    Validator Title123\n" +
                 "    id=ValidatorSelector-Dialog includeClose=true\n" +
-                "      ValidatorSelectorNameAnchorListComponent\n" +
+                "      ValidatorNameAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
@@ -400,7 +400,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "  DialogComponent\n" +
                 "    Validator Title123\n" +
                 "    id=ValidatorSelector-Dialog includeClose=true\n" +
-                "      ValidatorSelectorNameAnchorListComponent\n" +
+                "      ValidatorNameAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +

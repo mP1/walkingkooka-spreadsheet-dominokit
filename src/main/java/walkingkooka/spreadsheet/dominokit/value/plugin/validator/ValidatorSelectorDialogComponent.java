@@ -112,15 +112,15 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     // validators.......................................................................................................
 
-    private ValidatorSelectorNameAnchorListComponent validators() {
-        return ValidatorSelectorNameAnchorListComponent.with(
+    private ValidatorNameAnchorListComponent validators() {
+        return ValidatorNameAnchorListComponent.with(
             this.idPrefix(),
             this.context
         );
     }
 
     // @VisibleForTesting
-    final ValidatorSelectorNameAnchorListComponent validators;
+    final ValidatorNameAnchorListComponent validators;
 
     // textBox..........................................................................................................
 

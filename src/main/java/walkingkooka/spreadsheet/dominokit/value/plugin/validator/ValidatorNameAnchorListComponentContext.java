@@ -20,6 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.validator;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
-public interface ValidatorSelectorNameAnchorListComponentContext extends HistoryContext,
+public interface ValidatorNameAnchorListComponentContext extends HistoryContext,
     HasSpreadsheetMetadata {
 }

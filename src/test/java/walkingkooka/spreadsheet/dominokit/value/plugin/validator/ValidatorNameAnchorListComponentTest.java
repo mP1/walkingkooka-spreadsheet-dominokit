@@ -32,7 +32,7 @@ import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Optional;
 
-public final class ValidatorSelectorNameAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement, ValidatorSelector, ValidatorSelectorNameAnchorListComponent>,
+public final class ValidatorNameAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement, ValidatorSelector, ValidatorNameAnchorListComponent>,
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
@@ -42,7 +42,7 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
         this.treePrintAndCheck(
             this.createComponent()
                 .clearValue(),
-            "ValidatorSelectorNameAnchorListComponent\n" +
+            "ValidatorNameAnchorListComponent\n" +
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
@@ -62,7 +62,7 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                         ValidatorSelector.parse("edit 123")
                     )
                 ),
-            "ValidatorSelectorNameAnchorListComponent\n" +
+            "ValidatorNameAnchorListComponent\n" +
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
@@ -82,7 +82,7 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                         ValidatorSelector.parse("edit")
                     )
                 ),
-            "ValidatorSelectorNameAnchorListComponent\n" +
+            "ValidatorNameAnchorListComponent\n" +
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
@@ -102,7 +102,7 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
                         ValidatorSelector.parse("edit 123")
                     )
                 ),
-            "ValidatorSelectorNameAnchorListComponent\n" +
+            "ValidatorNameAnchorListComponent\n" +
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
@@ -114,10 +114,10 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
     }
 
     @Override
-    public ValidatorSelectorNameAnchorListComponent createComponent() {
-        return ValidatorSelectorNameAnchorListComponent.with(
+    public ValidatorNameAnchorListComponent createComponent() {
+        return ValidatorNameAnchorListComponent.with(
             "TestId123-",
-            new FakeValidatorSelectorNameAnchorListComponentContext() {
+            new FakeValidatorNameAnchorListComponentContext() {
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellValidatorSelect(
@@ -141,8 +141,8 @@ public final class ValidatorSelectorNameAnchorListComponentTest implements Value
     // class............................................................................................................
 
     @Override
-    public Class<ValidatorSelectorNameAnchorListComponent> type() {
-        return ValidatorSelectorNameAnchorListComponent.class;
+    public Class<ValidatorNameAnchorListComponent> type() {
+        return ValidatorNameAnchorListComponent.class;
     }
 
     @Override
