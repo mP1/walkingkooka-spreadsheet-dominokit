@@ -22,6 +22,13 @@ import walkingkooka.reflect.PublicStaticHelper;
 public final class CurrencyExchangeRaterSelectorDialogComponentContexts implements PublicStaticHelper {
 
     /**
+     * {@link FakeCurrencyExchangeRaterSelectorDialogComponentContext}
+     */
+    public static FakeCurrencyExchangeRaterSelectorDialogComponentContext fake() {
+        return new FakeCurrencyExchangeRaterSelectorDialogComponentContext();
+    }
+
+    /**
      * Stop creation
      */
     private CurrencyExchangeRaterSelectorDialogComponentContexts() {
