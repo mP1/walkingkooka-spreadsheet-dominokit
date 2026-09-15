@@ -19,19 +19,19 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.validator;
 
 import walkingkooka.reflect.PublicStaticHelper;
 
-public final class ValidatorSelectorNameAnchorListComponentContexts implements PublicStaticHelper {
+public final class ValidatorNameAnchorListComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see FakeValidatorSelectorNameAnchorListComponentContext}
+     * {@see FakeValidatorNameAnchorListComponentContext}
      */
-    public static FakeValidatorSelectorNameAnchorListComponentContext fake() {
-        return new FakeValidatorSelectorNameAnchorListComponentContext();
+    public static FakeValidatorNameAnchorListComponentContext fake() {
+        return new FakeValidatorNameAnchorListComponentContext();
     }
 
     /**
      * Stop creation
      */
-    private ValidatorSelectorNameAnchorListComponentContexts() {
+    private ValidatorNameAnchorListComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }

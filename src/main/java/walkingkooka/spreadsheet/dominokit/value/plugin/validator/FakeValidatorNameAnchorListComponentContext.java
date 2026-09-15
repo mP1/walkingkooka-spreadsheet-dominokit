@@ -20,9 +20,9 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.validator;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-public class FakeValidatorSelectorNameAnchorListComponentContext extends FakeHistoryContext implements ValidatorSelectorNameAnchorListComponentContext {
+public class FakeValidatorNameAnchorListComponentContext extends FakeHistoryContext implements ValidatorNameAnchorListComponentContext {
 
-    public FakeValidatorSelectorNameAnchorListComponentContext() {
+    public FakeValidatorNameAnchorListComponentContext() {
         super();
     }
 

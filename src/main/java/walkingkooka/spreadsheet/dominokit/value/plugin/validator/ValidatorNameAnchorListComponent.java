@@ -43,22 +43,22 @@ import java.util.Set;
 /**
  * Holds a list of anchors for each given {@link ValidatorName}.
  */
-public final class ValidatorSelectorNameAnchorListComponent implements ValueComponent<HTMLDivElement, ValidatorSelector, ValidatorSelectorNameAnchorListComponent>,
-    HtmlComponentDelegator<HTMLDivElement, ValidatorSelectorNameAnchorListComponent>,
+public final class ValidatorNameAnchorListComponent implements ValueComponent<HTMLDivElement, ValidatorSelector, ValidatorNameAnchorListComponent>,
+    HtmlComponentDelegator<HTMLDivElement, ValidatorNameAnchorListComponent>,
     SpreadsheetMetadataFetcherWatcher,
     NopFetcherWatcher,
     NopEmptyResponseFetcherWatcher {
 
-    public static ValidatorSelectorNameAnchorListComponent with(final String idPrefix,
-                                                                final ValidatorSelectorNameAnchorListComponentContext context) {
-        return new ValidatorSelectorNameAnchorListComponent(
+    public static ValidatorNameAnchorListComponent with(final String idPrefix,
+                                                        final ValidatorNameAnchorListComponentContext context) {
+        return new ValidatorNameAnchorListComponent(
             CharSequences.failIfNullOrEmpty(idPrefix, "idPrefix"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private ValidatorSelectorNameAnchorListComponent(final String idPrefix,
-                                                     final ValidatorSelectorNameAnchorListComponentContext context) {
+    private ValidatorNameAnchorListComponent(final String idPrefix,
+                                             final ValidatorNameAnchorListComponentContext context) {
         super();
 
         this.idPrefix = idPrefix;
@@ -73,7 +73,7 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
         final AnchorListComponent anchors = this.anchors;
         anchors.removeAllChildren();
 
-        final ValidatorSelectorNameAnchorListComponentContext context = this.context;
+        final ValidatorNameAnchorListComponentContext context = this.context;
         final HistoryToken historyToken = context.historyToken();
         final String idPrefix = this.idPrefix;
 
@@ -103,7 +103,7 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
 
     private final String idPrefix;
 
-    private final ValidatorSelectorNameAnchorListComponentContext context;
+    private final ValidatorNameAnchorListComponentContext context;
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
 
@@ -125,7 +125,7 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
     }
 
     @Override
-    public ValidatorSelectorNameAnchorListComponent setValue(final Optional<ValidatorSelector> value) {
+    public ValidatorNameAnchorListComponent setValue(final Optional<ValidatorSelector> value) {
         Objects.requireNonNull(value, "value");
 
         this.value = value;
@@ -148,32 +148,32 @@ public final class ValidatorSelectorNameAnchorListComponent implements ValueComp
     }
 
     @Override
-    public ValidatorSelectorNameAnchorListComponent setDisabled(final boolean disabled) {
+    public ValidatorNameAnchorListComponent setDisabled(final boolean disabled) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public ValidatorSelectorNameAnchorListComponent hideMarginBottom() {
+    public ValidatorNameAnchorListComponent hideMarginBottom() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public ValidatorSelectorNameAnchorListComponent removeBorders() {
+    public ValidatorNameAnchorListComponent removeBorders() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public ValidatorSelectorNameAnchorListComponent removePadding() {
+    public ValidatorNameAnchorListComponent removePadding() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public ValidatorSelectorNameAnchorListComponent focus() {
+    public ValidatorNameAnchorListComponent focus() {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public ValidatorSelectorNameAnchorListComponent blur() {
+    public ValidatorNameAnchorListComponent blur() {
         throw new UnsupportedOperationException();
     }
 

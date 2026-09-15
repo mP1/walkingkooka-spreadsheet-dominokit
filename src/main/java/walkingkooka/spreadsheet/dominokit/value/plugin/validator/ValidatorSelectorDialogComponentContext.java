@@ -29,7 +29,7 @@ import walkingkooka.validation.provider.ValidatorSelector;
 public interface ValidatorSelectorDialogComponentContext extends DialogComponentContext,
     DialogAnchorListComponentContext<ValidatorSelector>,
     HasSpreadsheetViewportCache,
-    ValidatorSelectorNameAnchorListComponentContext {
+    ValidatorNameAnchorListComponentContext {
 
     Runnable addSpreadsheetDeltaFetcherWatcher(final SpreadsheetDeltaFetcherWatcher watcher);
 }
