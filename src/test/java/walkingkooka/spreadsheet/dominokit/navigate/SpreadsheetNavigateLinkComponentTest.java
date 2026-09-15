@@ -17,12 +17,13 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
+import elemental2.dom.HTMLAnchorElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
-import walkingkooka.spreadsheet.dominokit.ComponentTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
@@ -30,7 +31,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public final class SpreadsheetNavigateLinkComponentTest implements ComponentTesting<SpreadsheetNavigateLinkComponent> {
+public final class SpreadsheetNavigateLinkComponentTest implements HtmlComponentTesting<SpreadsheetNavigateLinkComponent, HTMLAnchorElement> {
 
     private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
     private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
