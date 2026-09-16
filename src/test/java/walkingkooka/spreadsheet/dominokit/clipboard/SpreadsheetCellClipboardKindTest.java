@@ -55,6 +55,7 @@ import walkingkooka.tree.text.TextNode;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValueType;
+import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Arrays;
 import java.util.Currency;
@@ -76,15 +77,19 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
     private final static CurrencyExchangeRaterSelector CURRENCY_EXCHANGE_RATER_SELECTOR = CurrencyExchangeRaterSelector.parse("currency-exchange-rater-123");
 
+    private final static Optional<Object> VALUE = Optional.of("string111");
+
+    private final static Optional<ValueType> VALUE_TYPE = Optional.of(ValueType.TEXT);
+
     private final static SpreadsheetCell CELL = SpreadsheetSelection.A1.setFormula(
             SpreadsheetFormula.EMPTY.setText("=1+2")
-                .setValueType(
-                    Optional.of(ValueType.with("hello-value-type"))
-                )
+                .setValueType(VALUE_TYPE)
+                .setValue(VALUE)
         ).setCurrency(OPTIONAL_CURRENCY)
         .setCurrencyExchangeRater(
             Optional.of(CURRENCY_EXCHANGE_RATER_SELECTOR)
         ).setDateTimeSymbols(OPTIONAL_DATE_TIME_SYMBOLS)
+        .setDecimalNumberSymbols(OPTIONAL_DECIMAL_NUMBER_SYMBOLS)
         .setLocale(
             Optional.of(Locale.ENGLISH)
         ).setFormatter(
@@ -100,6 +105,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             TextStyle.EMPTY.set(
                 TextStylePropertyName.COLOR,
                 Color.BLACK
+            )
+        ).setValidator(
+            Optional.of(
+                ValidatorSelector.parse("validator-111")
             )
         ).setFormattedValue(
             Optional.of(
@@ -188,6 +197,27 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testPredicateValidator() {
+        this.predicateAndCheck(
+            SpreadsheetCellClipboardKind.VALIDATOR
+        );
+    }
+
+    @Test
+    public void testPredicateValue() {
+        this.predicateAndCheck(
+            SpreadsheetCellClipboardKind.VALUE
+        );
+    }
+
+    @Test
+    public void testPredicateValueType() {
+        this.predicateAndCheck(
+            SpreadsheetCellClipboardKind.VALUE_TYPE
+        );
+    }
+
+    @Test
     public void testPredicateFormatted() {
         this.predicateAndCheck(
             SpreadsheetCellClipboardKind.FORMATTED_VALUE
@@ -225,7 +255,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     // toValue..........................................................................................................
 
     @Test
-    public void testCellValueCell() {
+    public void testCellValueWithCell() {
         this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.CELL,
             CELL,
@@ -234,7 +264,34 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testCellValueFormula() {
+    public void testCellValueWithCurrency() {
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY,
+            CELL,
+            CELL.currency()
+        );
+    }
+
+    @Test
+    public void testCellValueWithCurrencyExchangeRater() {
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
+            CELL,
+            CELL.currencyExchangeRater()
+        );
+    }
+
+    @Test
+    public void testCellValueWithDateTimeSymbol() {
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS,
+            CELL,
+            CELL.dateTimeSymbols()
+        );
+    }
+
+    @Test
+    public void testCellValueWithFormula() {
         this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
             CELL,
@@ -243,7 +300,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testCellValueFormulaEmptyFormula() {
+    public void testCellValueWithFormulaEmptyFormula() {
         final SpreadsheetCell cell = SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY);
 
         this.cellValueAndCheck(
@@ -254,43 +311,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testCellValueCurrency() {
-        this.cellValueAndCheck(
-            SpreadsheetCellClipboardKind.CURRENCY,
-            CELL,
-            CELL.currency()
-        );
-    }
-
-    @Test
-    public void testCellValueCurrencyExchangeRater() {
-        this.cellValueAndCheck(
-            SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
-            CELL,
-            CELL.currencyExchangeRater()
-        );
-    }
-
-    @Test
-    public void testCellValueDateTimeSymbol() {
-        this.cellValueAndCheck(
-            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS,
-            CELL,
-            CELL.dateTimeSymbols()
-        );
-    }
-
-    @Test
-    public void testCellValueLocale() {
-        this.cellValueAndCheck(
-            SpreadsheetCellClipboardKind.LOCALE,
-            CELL,
-            CELL.locale()
-        );
-    }
-
-    @Test
-    public void testCellValueFormatter() {
+    public void testCellValueWithFormatter() {
         this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.FORMATTER,
             CELL,
@@ -299,7 +320,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testCellValueFormatterEmpty() {
+    public void testCellValueWithFormatterEmpty() {
         final SpreadsheetCell cell = CELL.setFormatter(SpreadsheetCell.NO_FORMATTER);
 
         this.cellValueAndCheck(
@@ -310,7 +331,16 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testCellValueParser() {
+    public void testCellValueWithLocale() {
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.LOCALE,
+            CELL,
+            CELL.locale()
+        );
+    }
+
+    @Test
+    public void testCellValueWithParser() {
         this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.PARSER,
             CELL,
@@ -319,7 +349,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testCellValueParserEmpty() {
+    public void testCellValueWithParserEmpty() {
         final SpreadsheetCell cell = CELL.setParser(SpreadsheetCell.NO_PARSER);
 
         this.cellValueAndCheck(
@@ -330,7 +360,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testCellValueStyle() {
+    public void testCellValueWithStyle() {
         this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.STYLE,
             CELL,
@@ -339,7 +369,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testCellValueStyleEmpty() {
+    public void testCellValueWithStyleEmpty() {
         final SpreadsheetCell cell = CELL.setStyle(TextStyle.EMPTY);
 
         this.cellValueAndCheck(
@@ -350,37 +380,59 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testCellValueFormattedValue() {
+    public void testCellValueWithValidator() {
         this.cellValueAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.VALIDATOR,
             CELL,
-            CELL.formattedValue()
+            CELL.validator()
         );
     }
 
     @Test
-    public void testCellValueFormattedValueEmpty() {
-        final SpreadsheetCell cell = CELL.setFormattedValue(SpreadsheetCell.NO_FORMATTED_VALUE_CELL);
+    public void testCellValueWithValidatorEmpty() {
+        final SpreadsheetCell cell = CELL.setValidator(SpreadsheetCell.NO_VALIDATOR);
 
         this.cellValueAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.VALIDATOR,
             cell,
-            cell.formattedValue()
+            cell.validator()
         );
     }
 
     @Test
-    public void testCellValueWithValueType() {
+    public void testCellValueWithValue() {
         this.cellValueAndCheck(
-            SpreadsheetCellClipboardKind.VALUE_TYPE,
+            SpreadsheetCellClipboardKind.VALUE,
             CELL,
-            CELL.formula()
-                .valueType()
+            VALUE
         );
     }
 
     @Test
-    public void testCellValueWithValueTypeEmpty() {
+    public void testCellValueWithValueEmpty() {
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.VALUE,
+            CELL.setFormula(
+                CELL.formula()
+                    .setValue(
+                        Optional.empty()
+                    )
+            ),
+            Optional.empty()
+        );
+    }
+
+    @Test
+    public void testCellValueWithWithValue() {
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.VALUE,
+            CELL,
+            VALUE
+        );
+    }
+
+    @Test
+    public void testCellValueWithWithValueTypeEmpty() {
         final SpreadsheetCell cell = CELL.setFormula(
             CELL.formula()
                 .setValueType(SpreadsheetFormula.NO_VALUE_TYPE)
@@ -390,6 +442,26 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             SpreadsheetCellClipboardKind.VALUE_TYPE,
             cell,
             SpreadsheetFormula.NO_VALUE_TYPE
+        );
+    }
+
+    @Test
+    public void testCellValueWithFormattedValue() {
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            CELL,
+            CELL.formattedValue()
+        );
+    }
+
+    @Test
+    public void testCellValueWithFormattedValueEmpty() {
+        final SpreadsheetCell cell = CELL.setFormattedValue(SpreadsheetCell.NO_FORMATTED_VALUE_CELL);
+
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            cell,
+            cell.formattedValue()
         );
     }
 
@@ -418,7 +490,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     // HasContentType...................................................................................................
 
     @Test
-    public void testContentTypeCell() {
+    public void testContentTypeWithCell() {
         this.contentTypeAndCheck(
             SpreadsheetCellClipboardKind.CELL,
             MediaType.parse("application/json+walkingkooka.spreadsheet.value.SpreadsheetCell")
@@ -426,7 +498,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testContentTypeCurrency() {
+    public void testContentTypeWithCurrency() {
         this.contentTypeAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY,
             MediaType.parse("application/json+java.util.Currency")
@@ -434,7 +506,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testContentTypeCurrencyExchangeRater() {
+    public void testContentTypeWithCurrencyExchangeRater() {
         this.contentTypeAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
             MediaType.parse("application/json+walkingkooka.currency.provider.CurrencyExchangeRaterSelector")
@@ -442,7 +514,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testContentTypeDateTimeSymbols() {
+    public void testContentTypeWithDateTimeSymbols() {
         this.contentTypeAndCheck(
             SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS,
             MediaType.parse("application/json+walkingkooka.datetime.DateTimeSymbols")
@@ -450,17 +522,89 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testContentTypeFormula() {
+    public void testContentTypeWithDecimalNumberSymbols() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.DECIMAL_NUMBER_SYMBOLS,
+            MediaType.parse("application/json+walkingkooka.math.DecimalNumberSymbols")
+        );
+    }
+
+    @Test
+    public void testContentTypeWithFormatted() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            MediaType.parse("application/json+walkingkooka.tree.text.TextNode")
+        );
+    }
+
+    @Test
+    public void testContentTypeWithFormatter() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.FORMATTER,
+            MediaType.parse("application/json+walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector")
+        );
+    }
+
+    @Test
+    public void testContentTypeWithFormula() {
         this.contentTypeAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
             MediaType.parse("application/json+walkingkooka.spreadsheet.formula.SpreadsheetFormula")
         );
     }
 
+    @Test
+    public void testContentTypeWithLocale() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.LOCALE,
+            MediaType.parse("application/json+java.util.Locale")
+        );
+    }
+
+    @Test
+    public void testContentTypeWithParser() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.PARSER,
+            MediaType.parse("application/json+walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector")
+        );
+    }
+
+    @Test
+    public void testContentTypeWithStyle() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.STYLE,
+            MediaType.parse("application/json+walkingkooka.tree.text.TextStyle")
+        );
+    }
+
+    @Test
+    public void testContentTypeWithValue() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.VALUE,
+            MediaType.parse("application/json+java.lang.Object")
+        );
+    }
+
+    @Test
+    public void testContentTypeWithValueType() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.VALUE_TYPE,
+            MediaType.parse("application/json+walkingkooka.validation.ValueType")
+        );
+    }
+
+    @Test
+    public void testContentTypeWithValidator() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.VALIDATOR,
+            MediaType.parse("application/json+walkingkooka.validation.provider.ValidatorSelector")
+        );
+    }
+
     // mediaTypeClass...................................................................................................
 
     @Test
-    public void testMediaTypeClassCell() {
+    public void testMediaTypeClassWithCell() {
         this.mediaTypeClassAndCheck(
             SpreadsheetCellClipboardKind.CELL,
             SpreadsheetCell.class
@@ -468,7 +612,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testMediaTypeClassFormula() {
+    public void testMediaTypeClassWithFormula() {
         this.mediaTypeClassAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
             SpreadsheetFormula.class
@@ -476,7 +620,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testMediaTypeClassCurrency() {
+    public void testMediaTypeClassWithCurrency() {
         this.mediaTypeClassAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY,
             Currency.class
@@ -484,7 +628,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testMediaTypeClassCurrencyExchangeRaterSelector() {
+    public void testMediaTypeClassWithCurrencyExchangeRaterSelector() {
         this.mediaTypeClassAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
             CurrencyExchangeRaterSelector.class
@@ -492,7 +636,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testMediaTypeClassDateTimeSymbols() {
+    public void testMediaTypeClassWithDateTimeSymbols() {
         this.mediaTypeClassAndCheck(
             SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS,
             DateTimeSymbols.class
@@ -500,7 +644,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testMediaTypeClassStyle() {
+    public void testMediaTypeClassWithStyle() {
         this.mediaTypeClassAndCheck(
             SpreadsheetCellClipboardKind.STYLE,
             TextStyle.class
@@ -518,7 +662,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     // parse............................................................................................................
 
     @Test
-    public void testParseCell() {
+    public void testParseWithCell() {
         this.parseStringAndCheck(
             "cell",
             SpreadsheetCellClipboardKind.CELL
@@ -526,7 +670,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testParseWithCurrency() {
+    public void testParseWithWithCurrency() {
         this.parseStringAndCheck(
             "currency",
             SpreadsheetCellClipboardKind.CURRENCY
@@ -534,7 +678,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testParseWithDateTimeSymbols() {
+    public void testParseWithWithDateTimeSymbols() {
         this.parseStringAndCheck(
             "date-time-symbols",
             SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS
@@ -542,7 +686,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testParseFormula() {
+    public void testParseWithFormula() {
         this.parseStringAndCheck(
             "formula",
             SpreadsheetCellClipboardKind.FORMULA
@@ -567,7 +711,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     // HasUrlFragment...................................................................................................
 
     @Test
-    public void testUrlFragmentCell() {
+    public void testUrlFragmentWithCell() {
         this.urlFragmentAndCheck(
             SpreadsheetCellClipboardKind.CELL,
             UrlFragment.with("cell")
@@ -575,15 +719,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testUrlFragmentFormula() {
-        this.urlFragmentAndCheck(
-            SpreadsheetCellClipboardKind.FORMULA,
-            UrlFragment.with("formula")
-        );
-    }
-
-    @Test
-    public void testUrlFragmentCurrency() {
+    public void testUrlFragmentWithCurrency() {
         this.urlFragmentAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY,
             UrlFragment.with("currency")
@@ -591,7 +727,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testUrlFragmentCurrencyExchangeRaterSelector() {
+    public void testUrlFragmentWithCurrencyExchangeRaterSelector() {
         this.urlFragmentAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
             UrlFragment.with("currency-exchange-rater")
@@ -599,7 +735,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testUrlFragmentDateTimeSymbols() {
+    public void testUrlFragmentWithDateTimeSymbols() {
         this.urlFragmentAndCheck(
             SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS,
             UrlFragment.with("date-time-symbols")
@@ -607,7 +743,15 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testUrlFragmentFormatter() {
+    public void testUrlFragmentWithDecimalNumberSymbols() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellClipboardKind.DECIMAL_NUMBER_SYMBOLS,
+            UrlFragment.with("decimal-number-symbols")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithFormatter() {
         this.urlFragmentAndCheck(
             SpreadsheetCellClipboardKind.FORMATTER,
             UrlFragment.with("formatter")
@@ -615,17 +759,65 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testUrlFragmentStyle() {
+    public void testUrlFragmentWithFormula() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellClipboardKind.FORMULA,
+            UrlFragment.with("formula")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithLocale() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellClipboardKind.LOCALE,
+            UrlFragment.with("locale")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithParser() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellClipboardKind.PARSER,
+            UrlFragment.with("parser")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithStyle() {
         this.urlFragmentAndCheck(
             SpreadsheetCellClipboardKind.STYLE,
             UrlFragment.with("style")
         );
     }
 
+    @Test
+    public void testUrlFragmentWithValidator() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellClipboardKind.VALIDATOR,
+            UrlFragment.with("validator")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithValue() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellClipboardKind.VALUE,
+            UrlFragment.with("value")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentWithValueType() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellClipboardKind.VALUE_TYPE,
+            UrlFragment.with("value-type")
+        );
+    }
+
     // fromMediaType....................................................................................................
 
     @Test
-    public void testFromMediaTypeNullFails() {
+    public void testFromMediaTypeWithNullFails() {
         assertThrows(
             NullPointerException.class,
             () -> SpreadsheetCellClipboardKind.fromMediaType(null)
@@ -633,7 +825,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testFromMediaTypeUnknownFails() {
+    public void testFromMediaTypeWithUnknownFails() {
         assertThrows(
             IllegalArgumentException.class,
             () -> SpreadsheetCellClipboardKind.fromMediaType(MediaType.TEXT_PLAIN)
@@ -641,7 +833,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testFromMediaTypeCell() {
+    public void testFromMediaTypeWithCell() {
         this.fromMediaTypeAndCheck(
             SpreadsheetCellClipboardKind.CELL.contentTypeOrFail(),
             SpreadsheetCellClipboardKind.CELL
@@ -649,7 +841,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testFromMediaTypeCurrency() {
+    public void testFromMediaTypeWithCurrency() {
         this.fromMediaTypeAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY.contentTypeOrFail(),
             SpreadsheetCellClipboardKind.CURRENCY
@@ -657,7 +849,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testFromMediaTypeDateTimeSymbols() {
+    public void testFromMediaTypeWithDateTimeSymbols() {
         this.fromMediaTypeAndCheck(
             SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS.contentTypeOrFail(),
             SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS
@@ -665,15 +857,71 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
-    public void testFromMediaTypeValue() {
+    public void testFromMediaTypeWithDecimalNumberSymbols() {
+        this.fromMediaTypeAndCheck(
+            SpreadsheetCellClipboardKind.DECIMAL_NUMBER_SYMBOLS.contentTypeOrFail(),
+            SpreadsheetCellClipboardKind.DECIMAL_NUMBER_SYMBOLS
+        );
+    }
+
+    @Test
+    public void testFromMediaTypeWithFormatter() {
+        this.fromMediaTypeAndCheck(
+            SpreadsheetCellClipboardKind.FORMATTER.contentTypeOrFail(),
+            SpreadsheetCellClipboardKind.FORMATTER
+        );
+    }
+
+    @Test
+    public void testFromMediaTypeWithFormattedValue() {
+        this.fromMediaTypeAndCheck(
+            SpreadsheetCellClipboardKind.FORMATTED_VALUE.contentTypeOrFail(),
+            SpreadsheetCellClipboardKind.FORMATTED_VALUE
+        );
+    }
+
+    @Test
+    public void testFromMediaTypeWithFormula() {
+        this.fromMediaTypeAndCheck(
+            SpreadsheetCellClipboardKind.FORMULA.contentTypeOrFail(),
+            SpreadsheetCellClipboardKind.FORMULA
+        );
+    }
+
+    @Test
+    public void testFromMediaTypeWithLocale() {
+        this.fromMediaTypeAndCheck(
+            SpreadsheetCellClipboardKind.LOCALE.contentTypeOrFail(),
+            SpreadsheetCellClipboardKind.LOCALE
+        );
+    }
+
+    @Test
+    public void testFromMediaTypeWithParser() {
+        this.fromMediaTypeAndCheck(
+            SpreadsheetCellClipboardKind.PARSER.contentTypeOrFail(),
+            SpreadsheetCellClipboardKind.PARSER
+        );
+    }
+
+    @Test
+    public void testFromMediaTypeWithValue() {
         this.fromMediaTypeAndCheck(
             SpreadsheetCellClipboardKind.VALUE.contentTypeOrFail(),
             SpreadsheetCellClipboardKind.VALUE
         );
     }
+    
+    @Test
+    public void testFromMediaTypeWithValueType() {
+        this.fromMediaTypeAndCheck(
+            SpreadsheetCellClipboardKind.VALUE_TYPE.contentTypeOrFail(),
+            SpreadsheetCellClipboardKind.VALUE_TYPE
+        );
+    }
 
     @Test
-    public void testFromMediaTypeAllValues() {
+    public void testFromMediaTypeWithAllValues() {
         for (final SpreadsheetCellClipboardKind kind : SpreadsheetCellClipboardKind.values()) {
             this.fromMediaTypeAndCheck(
                 kind.contentTypeOrFail(),
@@ -697,33 +945,91 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testMarshallCell() {
         this.marshallAndCheck(
             SpreadsheetCellClipboardKind.CELL,
-            SpreadsheetSelection.A1.setFormula(
-                SpreadsheetFormula.EMPTY.setText("=1+2")
-            ).setFormatter(
-                Optional.of(
-                    SpreadsheetPattern.parseDateFormatPattern("yyyy/mm/dd")
-                        .spreadsheetFormatterSelector()
-                )
-            ).setParser(
-                Optional.of(
-                    SpreadsheetPattern.parseNumberParsePattern("$0.00")
-                        .spreadsheetParserSelector()
-                )
-            ).setStyle(
-                TextStyle.EMPTY.set(
-                    TextStylePropertyName.TEXT_ALIGN,
-                    TextAlign.CENTER
-                )
-            ),
+            CELL,
             "{\n" +
                 "  \"formula\": {\n" +
-                "    \"text\": \"=1+2\"\n" +
+                "    \"value\": \"string111\",\n" +
+                "    \"valueType\": \"text\"\n" +
                 "  },\n" +
-                "  \"style\": {\n" +
-                "    \"textAlign\": \"CENTER\"\n" +
+                "  \"currency\": \"AUD\",\n" +
+                "  \"currencyExchangeRater\": \"currency-exchange-rater-123\",\n" +
+                "  \"dateTimeSymbols\": {\n" +
+                "    \"ampms\": [\n" +
+                "      \"am\",\n" +
+                "      \"pm\"\n" +
+                "    ],\n" +
+                "    \"monthNames\": [\n" +
+                "      \"January\",\n" +
+                "      \"February\",\n" +
+                "      \"March\",\n" +
+                "      \"April\",\n" +
+                "      \"May\",\n" +
+                "      \"June\",\n" +
+                "      \"July\",\n" +
+                "      \"August\",\n" +
+                "      \"September\",\n" +
+                "      \"October\",\n" +
+                "      \"November\",\n" +
+                "      \"December\"\n" +
+                "    ],\n" +
+                "    \"monthNameAbbreviations\": [\n" +
+                "      \"Jan.\",\n" +
+                "      \"Feb.\",\n" +
+                "      \"Mar.\",\n" +
+                "      \"Apr.\",\n" +
+                "      \"May\",\n" +
+                "      \"Jun.\",\n" +
+                "      \"Jul.\",\n" +
+                "      \"Aug.\",\n" +
+                "      \"Sep.\",\n" +
+                "      \"Oct.\",\n" +
+                "      \"Nov.\",\n" +
+                "      \"Dec.\"\n" +
+                "    ],\n" +
+                "    \"weekDayNames\": [\n" +
+                "      \"Sunday\",\n" +
+                "      \"Monday\",\n" +
+                "      \"Tuesday\",\n" +
+                "      \"Wednesday\",\n" +
+                "      \"Thursday\",\n" +
+                "      \"Friday\",\n" +
+                "      \"Saturday\"\n" +
+                "    ],\n" +
+                "    \"weekDayNameAbbreviations\": [\n" +
+                "      \"Sun.\",\n" +
+                "      \"Mon.\",\n" +
+                "      \"Tue.\",\n" +
+                "      \"Wed.\",\n" +
+                "      \"Thu.\",\n" +
+                "      \"Fri.\",\n" +
+                "      \"Sat.\"\n" +
+                "    ]\n" +
                 "  },\n" +
+                "  \"decimalNumberSymbols\": {\n" +
+                "    \"negativeSign\": \"-\",\n" +
+                "    \"positiveSign\": \"+\",\n" +
+                "    \"zeroDigit\": \"0\",\n" +
+                "    \"currencySymbol\": \"$\",\n" +
+                "    \"decimalSeparator\": \".\",\n" +
+                "    \"exponentSymbol\": \"e\",\n" +
+                "    \"groupSeparator\": \",\",\n" +
+                "    \"infinitySymbol\": \"∞\",\n" +
+                "    \"monetaryDecimalSeparator\": \".\",\n" +
+                "    \"nanSymbol\": \"NaN\",\n" +
+                "    \"percentSymbol\": \"%\",\n" +
+                "    \"permillSymbol\": \"‰\"\n" +
+                "  },\n" +
+                "  \"formatter\": \"text @\",\n" +
+                "  \"locale\": \"en\",\n" +
                 "  \"parser\": \"number $0.00\",\n" +
-                "  \"formatter\": \"date yyyy/mm/dd\"\n" +
+                "  \"style\": {\n" +
+                "    \"color\": \"black\"\n" +
+                "  },\n" +
+                "  \"validator\": \"validator-111\",\n" +
+                "  \"formattedValue\": {\n" +
+                "    \"type\": \"text\",\n" +
+                "    \"value\": \"Formatted-value - Hello123\"\n" +
+                "  }\n" +
                 "}"
         );
     }
@@ -732,8 +1038,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testMarshallCurrency() {
         this.marshallAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY,
-            SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                .setCurrency(OPTIONAL_CURRENCY),
+            CELL,
             "\"AUD\""
         );
     }
@@ -742,13 +1047,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testMarshallCurrencyExchangeRater() {
         this.marshallAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
-            SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                .setCurrencyExchangeRater(
-                    Optional.of(
-                        CurrencyExchangeRaterSelector.parse("hello")
-                    )
-                ),
-            "\"hello\""
+            CELL,
+            "\"currency-exchange-rater-123\""
         );
     }
 
@@ -813,13 +1113,33 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testMarshallDecimalNumberSymbols() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.DECIMAL_NUMBER_SYMBOLS,
+            CELL,
+            "{\n" +
+                "  \"negativeSign\": \"-\",\n" +
+                "  \"positiveSign\": \"+\",\n" +
+                "  \"zeroDigit\": \"0\",\n" +
+                "  \"currencySymbol\": \"$\",\n" +
+                "  \"decimalSeparator\": \".\",\n" +
+                "  \"exponentSymbol\": \"e\",\n" +
+                "  \"groupSeparator\": \",\",\n" +
+                "  \"infinitySymbol\": \"∞\",\n" +
+                "  \"monetaryDecimalSeparator\": \".\",\n" +
+                "  \"nanSymbol\": \"NaN\",\n" +
+                "  \"percentSymbol\": \"%\",\n" +
+                "  \"permillSymbol\": \"‰\"\n" +
+                "}"
+        );
+    }
+
+    @Test
     public void testMarshallFormulaEmpty() {
         final String formula = "";
         this.marshallAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
-            SpreadsheetSelection.A1.setFormula(
-                SpreadsheetFormula.EMPTY.setText(formula)
-            ),
+            CELL,
             JsonNode.string(formula)
         );
     }
@@ -861,6 +1181,24 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testMarshallLocaleEmpty() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.LOCALE,
+            CELL.setLocale(SpreadsheetCell.NO_LOCALE),
+            JsonNode.nullNode()
+        );
+    }
+
+    @Test
+    public void testMarshallLocale() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.LOCALE,
+            CELL,
+            JsonNode.string("en")
+        );
+    }
+
+    @Test
     public void testMarshallParserEmpty() {
         this.marshallAndCheck(
             SpreadsheetCellClipboardKind.PARSER,
@@ -898,6 +1236,66 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             "{\n" +
                 "  \"textAlign\": \"CENTER\"\n" +
                 "}"
+        );
+    }
+
+    @Test
+    public void testMarshallValidatorEmpty() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.VALIDATOR,
+            CELL.setValidator(SpreadsheetCell.NO_VALIDATOR),
+            JsonNode.nullNode()
+        );
+    }
+
+    @Test
+    public void testMarshallValidator() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.VALIDATOR,
+            CELL,
+            JsonNode.string("validator-111")
+        );
+    }
+
+    @Test
+    public void testMarshallValueEmpty() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.VALUE,
+            CELL.setFormula(
+                CELL.formula()
+                    .setValue(Optional.empty())
+            ),
+            JsonNode.nullNode()
+        );
+    }
+
+    @Test
+    public void testMarshallValue() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.VALUE,
+            CELL,
+            JsonNode.string("string111")
+        );
+    }
+
+    @Test
+    public void testMarshallValueTypeEmpty() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.VALUE,
+            CELL.setFormula(
+                CELL.formula()
+                    .setValueType(Optional.empty())
+            ),
+            JsonNode.nullNode()
+        );
+    }
+
+    @Test
+    public void testMarshallValueType() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.VALUE_TYPE,
+            CELL,
+            JsonNode.string("text")
         );
     }
 
