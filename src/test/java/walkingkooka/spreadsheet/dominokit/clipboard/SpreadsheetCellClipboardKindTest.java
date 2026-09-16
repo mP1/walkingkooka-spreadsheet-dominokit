@@ -76,33 +76,34 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     private final static CurrencyExchangeRaterSelector CURRENCY_EXCHANGE_RATER_SELECTOR = CurrencyExchangeRaterSelector.parse("currency-exchange-rater-123");
 
     private final static SpreadsheetCell CELL = SpreadsheetSelection.A1.setFormula(
-        SpreadsheetFormula.EMPTY.setText("=1+2")
-            .setValueType(
-                Optional.of(ValueType.with("hello-value-type"))
+            SpreadsheetFormula.EMPTY.setText("=1+2")
+                .setValueType(
+                    Optional.of(ValueType.with("hello-value-type"))
+                )
+        ).setCurrency(OPTIONAL_CURRENCY)
+        .setCurrencyExchangeRater(
+            Optional.of(CURRENCY_EXCHANGE_RATER_SELECTOR)
+        ).setLocale(
+            Optional.of(Locale.ENGLISH)
+        ).setFormatter(
+            Optional.of(
+                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
             )
-    ).setCurrencyExchangeRater(
-        Optional.of(CURRENCY_EXCHANGE_RATER_SELECTOR)
-    ).setLocale(
-        Optional.of(Locale.ENGLISH)
-    ).setFormatter(
-        Optional.of(
-            SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
-        )
-    ).setParser(
-        Optional.of(
-            SpreadsheetPattern.parseNumberParsePattern("$0.00")
-                .spreadsheetParserSelector()
-        )
-    ).setStyle(
-        TextStyle.EMPTY.set(
-            TextStylePropertyName.COLOR,
-            Color.BLACK
-        )
-    ).setFormattedValue(
-        Optional.of(
-            TextNode.text("Formatted-value - Hello123")
-        )
-    );
+        ).setParser(
+            Optional.of(
+                SpreadsheetPattern.parseNumberParsePattern("$0.00")
+                    .spreadsheetParserSelector()
+            )
+        ).setStyle(
+            TextStyle.EMPTY.set(
+                TextStylePropertyName.COLOR,
+                Color.BLACK
+            )
+        ).setFormattedValue(
+            Optional.of(
+                TextNode.text("Formatted-value - Hello123")
+            )
+        );
 
     @Test
     public void testEnumOrderingMatchesSpreadsheetCellValueKind() {
@@ -125,6 +126,13 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.predicateAndCheck(
             SpreadsheetCellClipboardKind.CELL,
             SpreadsheetCellClipboardKind.values()
+        );
+    }
+
+    @Test
+    public void testPredicateCurrency() {
+        this.predicateAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY
         );
     }
 
@@ -233,6 +241,15 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             SpreadsheetCellClipboardKind.FORMULA,
             cell,
             cell.formula()
+        );
+    }
+
+    @Test
+    public void testCellValueCurrency() {
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY,
+            CELL,
+            CELL.currency()
         );
     }
 
@@ -391,6 +408,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testContentTypeCurrency() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY,
+            MediaType.parse("application/json+java.util.Currency")
+        );
+    }
+
+    @Test
     public void testContentTypeCurrencyExchangeRater() {
         this.contentTypeAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
@@ -463,6 +488,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.parseStringAndCheck(
             "cell",
             SpreadsheetCellClipboardKind.CELL
+        );
+    }
+
+    @Test
+    public void testParseWithCurrency() {
+        this.parseStringAndCheck(
+            "currency",
+            SpreadsheetCellClipboardKind.CURRENCY
         );
     }
 
@@ -566,6 +599,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testFromMediaTypeCurrency() {
+        this.fromMediaTypeAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY.contentTypeOrFail(),
+            SpreadsheetCellClipboardKind.CURRENCY
+        );
+    }
+
+    @Test
     public void testFromMediaTypeValue() {
         this.fromMediaTypeAndCheck(
             SpreadsheetCellClipboardKind.VALUE.contentTypeOrFail(),
@@ -626,6 +667,16 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 "  \"parser\": \"number $0.00\",\n" +
                 "  \"formatter\": \"date yyyy/mm/dd\"\n" +
                 "}"
+        );
+    }
+
+    @Test
+    public void testMarshallCurrency() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY,
+            SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                .setCurrency(OPTIONAL_CURRENCY),
+            "\"AUD\""
         );
     }
 
@@ -791,6 +842,15 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testUnmarshallCellFormulaEmpty() {
         this.unmarshallAndCheck(
             SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+        );
+    }
+
+    @Test
+    public void testUnmarshallCellCurrency() {
+        this.unmarshallAndCheck(
+            SpreadsheetSelection.A1.setFormula(
+                SpreadsheetFormula.EMPTY.setText("+1")
+            ).setCurrency(OPTIONAL_CURRENCY)
         );
     }
 
