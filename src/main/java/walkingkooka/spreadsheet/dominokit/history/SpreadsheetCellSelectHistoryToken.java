@@ -21,6 +21,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.value.collection.SpreadsheetCellReferenceToCurrencyExchangeRaterSelectorMap;
 import walkingkooka.spreadsheet.value.collection.SpreadsheetCellReferenceToCurrencyMap;
 import walkingkooka.spreadsheet.value.collection.SpreadsheetCellReferenceToDateTimeSymbolsMap;
 import walkingkooka.spreadsheet.value.collection.SpreadsheetCellReferenceToDecimalNumberSymbolsMap;
@@ -123,6 +124,17 @@ public final class SpreadsheetCellSelectHistoryToken extends SpreadsheetCellHist
                     SpreadsheetCellSaveHistoryToken.parseJson(
                         cursor,
                         SpreadsheetCellReferenceToCurrencyMap.class
+                    )
+                );
+                break;
+            case CURRENCY_EXCHANGE_RATER_STRING:
+                result = cellSaveCurrencyExchangeRater(
+                    this.spreadsheetId,
+                    this.spreadsheetName,
+                    this.anchoredSelection(),
+                    SpreadsheetCellSaveHistoryToken.parseJson(
+                        cursor,
+                        SpreadsheetCellReferenceToCurrencyExchangeRaterSelectorMap.class
                     )
                 );
                 break;

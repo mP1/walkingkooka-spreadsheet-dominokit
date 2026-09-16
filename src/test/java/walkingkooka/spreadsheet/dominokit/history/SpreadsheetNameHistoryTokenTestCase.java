@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -27,9 +28,19 @@ import walkingkooka.spreadsheet.reference.SpreadsheetRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetNameHistoryToken> extends SpreadsheetIdHistoryTokenTestCase<T> {
+
+    final static CurrencyExchangeRaterSelector CURRENCY_EXCHANGE_RATER = CurrencyExchangeRaterSelector.parse("currency-exchange-rater-111");
+
+    final static Optional<CurrencyExchangeRaterSelector> OPTIONAL_CURRENCY_EXCHANGE_RATER = Optional.of(CURRENCY_EXCHANGE_RATER);
+
+    final static CurrencyExchangeRaterSelector DIFFERENT_CURRENCY_EXCHANGE_RATER = CurrencyExchangeRaterSelector.parse("currency-exchange-rater-222");
+
+    final static Optional<CurrencyExchangeRaterSelector> OPTIONAL_DIFFERENT_CURRENCY_EXCHANGE_RATER = Optional.of(DIFFERENT_CURRENCY_EXCHANGE_RATER);
 
     SpreadsheetNameHistoryTokenTestCase() {
         super();

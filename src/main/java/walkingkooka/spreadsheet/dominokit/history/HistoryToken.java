@@ -21,8 +21,10 @@ import walkingkooka.Cast;
 import walkingkooka.HasValue;
 import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyCodeLanguageTagContext;
+import walkingkooka.currency.CurrencyExchangeRater;
 import walkingkooka.currency.CurrencyLocaleContext;
 import walkingkooka.currency.FakeCurrencyLocaleContext;
+import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.math.DecimalNumberSymbols;
@@ -162,6 +164,10 @@ public abstract class HistoryToken implements HasUrlFragment {
     final static String CURRENCY_STRING = "currency";
 
     final static UrlFragment CURRENCY = UrlFragment.parse(CURRENCY_STRING);
+
+    final static String CURRENCY_EXCHANGE_RATER_STRING = "currencyExchangeRater";
+
+    final static UrlFragment CURRENCY_EXCHANGE_RATER = UrlFragment.parse(CURRENCY_EXCHANGE_RATER_STRING);
 
     final static String CUT_STRING = "cut";
 
@@ -464,6 +470,47 @@ public abstract class HistoryToken implements HasUrlFragment {
                                                                                    final SpreadsheetName spreadsheetName,
                                                                                    final AnchoredSpreadsheetSelection anchoredSelection) {
         return SpreadsheetCellCurrencyUnselectHistoryToken.with(
+            spreadsheetId,
+            spreadsheetName,
+            anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellCurrencyExchangeRaterSaveHistoryToken}
+     */
+    public static SpreadsheetCellCurrencyExchangeRaterSaveHistoryToken cellCurrencyExchangeRaterSave(final SpreadsheetId spreadsheetId,
+                                                                                                     final SpreadsheetName spreadsheetName,
+                                                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                                                     final Optional<CurrencyExchangeRaterSelector> currencyExchangeRater) {
+        return SpreadsheetCellCurrencyExchangeRaterSaveHistoryToken.with(
+            spreadsheetId,
+            spreadsheetName,
+            anchoredSelection,
+            currencyExchangeRater
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellCurrencyExchangeRaterSelectHistoryToken}
+     */
+    public static SpreadsheetCellCurrencyExchangeRaterSelectHistoryToken cellCurrencyExchangeRaterSelect(final SpreadsheetId spreadsheetId,
+                                                                                                         final SpreadsheetName spreadsheetName,
+                                                                                                         final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellCurrencyExchangeRaterSelectHistoryToken.with(
+            spreadsheetId,
+            spreadsheetName,
+            anchoredSelection
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellCurrencyExchangeRaterUnselectHistoryToken}
+     */
+    public static SpreadsheetCellCurrencyExchangeRaterUnselectHistoryToken cellCurrencyExchangeRaterUnselect(final SpreadsheetId spreadsheetId,
+                                                                                                             final SpreadsheetName spreadsheetName,
+                                                                                                             final AnchoredSpreadsheetSelection anchoredSelection) {
+        return SpreadsheetCellCurrencyExchangeRaterUnselectHistoryToken.with(
             spreadsheetId,
             spreadsheetName,
             anchoredSelection
@@ -924,6 +971,21 @@ public abstract class HistoryToken implements HasUrlFragment {
                                                                            final AnchoredSpreadsheetSelection anchoredSelection,
                                                                            final Map<SpreadsheetCellReference, Optional<Currency>> value) {
         return SpreadsheetCellSaveCurrencyHistoryToken.with(
+            spreadsheetId,
+            spreadsheetName,
+            anchoredSelection,
+            value
+        );
+    }
+
+    /**
+     * {@see SpreadsheetCellSaveCurrencyExchangeRaterHistoryToken}
+     */
+    public static SpreadsheetCellSaveCurrencyExchangeRaterHistoryToken cellSaveCurrencyExchangeRater(final SpreadsheetId spreadsheetId,
+                                                                                                     final SpreadsheetName spreadsheetName,
+                                                                                                     final AnchoredSpreadsheetSelection anchoredSelection,
+                                                                                                     final Map<SpreadsheetCellReference, Optional<CurrencyExchangeRaterSelector>> value) {
+        return SpreadsheetCellSaveCurrencyExchangeRaterHistoryToken.with(
             spreadsheetId,
             spreadsheetName,
             anchoredSelection,
@@ -2427,6 +2489,7 @@ public abstract class HistoryToken implements HasUrlFragment {
             if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
                 if (this instanceof SpreadsheetCellClearAndFormulaHistoryToken ||
                     this instanceof SpreadsheetCellCurrencyHistoryToken ||
+                    this instanceof SpreadsheetCellCurrencyExchangeRaterHistoryToken ||
                     this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
                     this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
                     this instanceof SpreadsheetCellQueryHistoryToken ||
@@ -2664,6 +2727,27 @@ public abstract class HistoryToken implements HasUrlFragment {
         return this.elseIfDifferent(historyToken);
     }
 
+    // CurrencyExchangeRater............................................................................................
+
+    /**
+     * If possible selects a {@link CurrencyExchangeRater} {@link HistoryToken}.
+     */
+    public final HistoryToken currencyExchangeRater() {
+        HistoryToken historyToken = this;
+
+        if (this instanceof SpreadsheetCellHistoryToken) {
+            final SpreadsheetCellHistoryToken cell = this.cast(SpreadsheetCellHistoryToken.class);
+
+            historyToken = HistoryToken.cellCurrencyExchangeRaterSelect(
+                cell.spreadsheetId(),
+                cell.spreadsheetName,
+                cell.anchoredSelection()
+            );
+        }
+
+        return this.elseIfDifferent(historyToken);
+    }
+
     // DELETE...........................................................................................................
 
     /**
@@ -2691,6 +2775,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
                 if (this instanceof SpreadsheetAnchoredSelectionHistoryToken) {
                     if (this instanceof SpreadsheetCellCurrencyHistoryToken ||
+                        this instanceof SpreadsheetCellCurrencyExchangeRaterHistoryToken ||
                         this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellDecimalNumberSymbolsHistoryToken ||
                         this instanceof SpreadsheetCellFormHistoryToken ||
@@ -2934,7 +3019,7 @@ public abstract class HistoryToken implements HasUrlFragment {
 
         return historyToken;
     }
-    
+
     // FORMATTER........................................................................................................
 
     /**
@@ -4323,6 +4408,18 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 );
                             }
 
+                            if (this instanceof SpreadsheetCellCurrencyExchangeRaterHistoryToken && false == this instanceof SpreadsheetCellCurrencyExchangeRaterUnselectHistoryToken) {
+                                saved = HistoryToken.cellCurrencyExchangeRaterSave(
+                                    spreadsheetId,
+                                    spreadsheetName,
+                                    anchoredSpreadsheetSelection,
+                                    parseOptional(
+                                        value,
+                                        CurrencyExchangeRaterSelector::parse
+                                    )
+                                );
+                            }
+
                             if (this instanceof SpreadsheetCellDateTimeSymbolsHistoryToken && false == this instanceof SpreadsheetCellDateTimeSymbolsUnselectHistoryToken) {
                                 saved = HistoryToken.cellDateTimeSymbolsSave(
                                     spreadsheetId,
@@ -4866,7 +4963,7 @@ public abstract class HistoryToken implements HasUrlFragment {
     public final Optional<SpreadsheetName> spreadsheetName() {
         final SpreadsheetName spreadsheetName;
 
-        if(this instanceof SpreadsheetNameHistoryToken) {
+        if (this instanceof SpreadsheetNameHistoryToken) {
             spreadsheetName = this.cast(SpreadsheetNameHistoryToken.class)
                 .spreadsheetName;
         } else {
@@ -5006,6 +5103,14 @@ public abstract class HistoryToken implements HasUrlFragment {
 
             if (this instanceof SpreadsheetCellCurrencySelectHistoryToken) {
                 historyToken = cellCurrencyUnselect(
+                    spreadsheetId,
+                    spreadsheetName,
+                    anchoredSpreadsheetSelection
+                );
+            }
+
+            if (this instanceof SpreadsheetCellCurrencyExchangeRaterSelectHistoryToken) {
+                historyToken = cellCurrencyExchangeRaterUnselect(
                     spreadsheetId,
                     spreadsheetName,
                     anchoredSpreadsheetSelection
