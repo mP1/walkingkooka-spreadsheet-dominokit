@@ -36,8 +36,6 @@ import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuItem;
 import walkingkooka.spreadsheet.dominokit.value.cell.value.SpreadsheetCellValueDialogComponent;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
-import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellReferenceToValueMap;
-import walkingkooka.spreadsheet.engine.collection.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
@@ -56,6 +54,8 @@ import walkingkooka.spreadsheet.validation.SpreadsheetValidationReference;
 import walkingkooka.spreadsheet.validation.form.SpreadsheetForms;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
+import walkingkooka.spreadsheet.value.collection.SpreadsheetCellReferenceToValueMap;
+import walkingkooka.spreadsheet.value.collection.SpreadsheetCellSet;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportHomeNavigationList;
