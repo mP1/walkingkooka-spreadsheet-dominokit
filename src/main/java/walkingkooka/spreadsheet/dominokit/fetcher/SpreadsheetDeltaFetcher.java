@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.collect.iterable.Iterables;
 import walkingkooka.collect.set.Sets;
+import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
@@ -742,6 +743,19 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
             selection,
             SpreadsheetDelta.cellsCurrencyPatch(
                 cellToCurrency,
+                this.context
+            )
+        );
+    }
+
+    public void patchCellsCurrencyExchangeRater(final SpreadsheetId id,
+                                                final SpreadsheetSelection selection,
+                                                final Map<SpreadsheetCellReference, Optional<CurrencyExchangeRaterSelector>> cellToCurrencyExchangeRater) {
+        this.patchDeltaWithViewportAndWindowQueryString(
+            id,
+            selection,
+            SpreadsheetDelta.cellsCurrencyExchangeRaterPatch(
+                cellToCurrencyExchangeRater,
                 this.context
             )
         );
