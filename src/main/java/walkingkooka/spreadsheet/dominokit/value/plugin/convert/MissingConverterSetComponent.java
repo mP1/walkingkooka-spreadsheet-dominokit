@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.convert;
 
 import elemental2.dom.HTMLDivElement;
 import org.dominokit.domino.ui.IsElement;
+import walkingkooka.CanBeEmpty;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
 import walkingkooka.spreadsheet.convert.provider.MissingConverterSet;
 import walkingkooka.spreadsheet.dominokit.ComponentWithChildren;
@@ -137,7 +138,7 @@ public final class MissingConverterSetComponent implements ValueComponent<HTMLDi
 
         final CardComponent card = this.card;
 
-        if (null == missingConverterSet || missingConverterSet.isEmpty()) {
+        if (CanBeEmpty.maybeCanBeEmpty(missingConverterSet)) {
             card.hide();
         } else {
             card.show();
