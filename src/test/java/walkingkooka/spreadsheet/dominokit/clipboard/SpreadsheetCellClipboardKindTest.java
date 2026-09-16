@@ -59,7 +59,6 @@ import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Arrays;
 import java.util.Currency;
-import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -90,13 +89,12 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             Optional.of(CURRENCY_EXCHANGE_RATER_SELECTOR)
         ).setDateTimeSymbols(OPTIONAL_DATE_TIME_SYMBOLS)
         .setDecimalNumberSymbols(OPTIONAL_DECIMAL_NUMBER_SYMBOLS)
-        .setLocale(
-            Optional.of(Locale.ENGLISH)
-        ).setFormatter(
+        .setFormatter(
             Optional.of(
-                SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()
+                SpreadsheetFormatterSelector.parse("hello-formatter")
             )
-        ).setParser(
+        ).setLocale(OPTIONAL_LOCALE)
+        .setParser(
             Optional.of(
                 SpreadsheetPattern.parseNumberParsePattern("$0.00")
                     .spreadsheetParserSelector()
@@ -1019,8 +1017,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 "    \"percentSymbol\": \"%\",\n" +
                 "    \"permillSymbol\": \"‰\"\n" +
                 "  },\n" +
-                "  \"formatter\": \"text @\",\n" +
-                "  \"locale\": \"en\",\n" +
+                "  \"formatter\": \"hello-formatter\",\n" +
+                "  \"locale\": \"en-AU\",\n" +
                 "  \"parser\": \"number $0.00\",\n" +
                 "  \"style\": {\n" +
                 "    \"color\": \"black\"\n" +
@@ -1194,7 +1192,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.marshallAndCheck(
             SpreadsheetCellClipboardKind.LOCALE,
             CELL,
-            JsonNode.string("en")
+            JsonNode.string("en-AU")
         );
     }
 
