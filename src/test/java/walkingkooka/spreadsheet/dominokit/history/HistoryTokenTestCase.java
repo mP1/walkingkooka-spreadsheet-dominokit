@@ -27,9 +27,9 @@ import walkingkooka.collect.set.SortedSets;
 import walkingkooka.naming.ValueName;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.MethodAttributes;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -57,7 +57,7 @@ import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public abstract class HistoryTokenTestCase<T extends HistoryToken> implements ClassTesting<T>,
+public abstract class HistoryTokenTestCase<T extends HistoryToken> implements PublicClassTesting<T>,
     HashCodeEqualsDefinedTesting2<T>,
     HasUrlFragmentTesting,
     SpreadsheetMetadataTesting,
@@ -1417,10 +1417,5 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Cl
             Sets.empty(),
             nonPublic
         );
-    }
-
-    @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }
