@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
 import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
+import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.HasContentTypeTesting;
@@ -83,7 +84,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         ).setCurrency(OPTIONAL_CURRENCY)
         .setCurrencyExchangeRater(
             Optional.of(CURRENCY_EXCHANGE_RATER_SELECTOR)
-        ).setLocale(
+        ).setDateTimeSymbols(OPTIONAL_DATE_TIME_SYMBOLS)
+        .setLocale(
             Optional.of(Locale.ENGLISH)
         ).setFormatter(
             Optional.of(
@@ -140,6 +142,13 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testPredicateCurrencyExchangeRater() {
         this.predicateAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER
+        );
+    }
+
+    @Test
+    public void testPredicateDateTimeSymbols() {
+        this.predicateAndCheck(
+            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS
         );
     }
 
@@ -259,6 +268,15 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
             CELL,
             CELL.currencyExchangeRater()
+        );
+    }
+
+    @Test
+    public void testCellValueDateTimeSymbol() {
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS,
+            CELL,
+            CELL.dateTimeSymbols()
         );
     }
 
@@ -424,6 +442,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testContentTypeDateTimeSymbols() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS,
+            MediaType.parse("application/json+walkingkooka.datetime.DateTimeSymbols")
+        );
+    }
+
+    @Test
     public void testContentTypeFormula() {
         this.contentTypeAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
@@ -466,6 +492,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testMediaTypeClassDateTimeSymbols() {
+        this.mediaTypeClassAndCheck(
+            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS,
+            DateTimeSymbols.class
+        );
+    }
+
+    @Test
     public void testMediaTypeClassStyle() {
         this.mediaTypeClassAndCheck(
             SpreadsheetCellClipboardKind.STYLE,
@@ -496,6 +530,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.parseStringAndCheck(
             "currency",
             SpreadsheetCellClipboardKind.CURRENCY
+        );
+    }
+
+    @Test
+    public void testParseWithDateTimeSymbols() {
+        this.parseStringAndCheck(
+            "date-time-symbols",
+            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS
         );
     }
 
@@ -557,6 +599,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testUrlFragmentDateTimeSymbols() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS,
+            UrlFragment.with("date-time-symbols")
+        );
+    }
+
+    @Test
     public void testUrlFragmentFormatter() {
         this.urlFragmentAndCheck(
             SpreadsheetCellClipboardKind.FORMATTER,
@@ -603,6 +653,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.fromMediaTypeAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY.contentTypeOrFail(),
             SpreadsheetCellClipboardKind.CURRENCY
+        );
+    }
+
+    @Test
+    public void testFromMediaTypeDateTimeSymbols() {
+        this.fromMediaTypeAndCheck(
+            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS.contentTypeOrFail(),
+            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS
         );
     }
 
@@ -691,6 +749,66 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                     )
                 ),
             "\"hello\""
+        );
+    }
+
+    @Test
+    public void testMarshallDateTimeSymbols() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.DATE_TIME_SYMBOLS,
+            CELL,
+            "{\n" +
+                "  \"ampms\": [\n" +
+                "    \"am\",\n" +
+                "    \"pm\"\n" +
+                "  ],\n" +
+                "  \"monthNames\": [\n" +
+                "    \"January\",\n" +
+                "    \"February\",\n" +
+                "    \"March\",\n" +
+                "    \"April\",\n" +
+                "    \"May\",\n" +
+                "    \"June\",\n" +
+                "    \"July\",\n" +
+                "    \"August\",\n" +
+                "    \"September\",\n" +
+                "    \"October\",\n" +
+                "    \"November\",\n" +
+                "    \"December\"\n" +
+                "  ],\n" +
+                "  \"monthNameAbbreviations\": [\n" +
+                "    \"Jan.\",\n" +
+                "    \"Feb.\",\n" +
+                "    \"Mar.\",\n" +
+                "    \"Apr.\",\n" +
+                "    \"May\",\n" +
+                "    \"Jun.\",\n" +
+                "    \"Jul.\",\n" +
+                "    \"Aug.\",\n" +
+                "    \"Sep.\",\n" +
+                "    \"Oct.\",\n" +
+                "    \"Nov.\",\n" +
+                "    \"Dec.\"\n" +
+                "  ],\n" +
+                "  \"weekDayNames\": [\n" +
+                "    \"Sunday\",\n" +
+                "    \"Monday\",\n" +
+                "    \"Tuesday\",\n" +
+                "    \"Wednesday\",\n" +
+                "    \"Thursday\",\n" +
+                "    \"Friday\",\n" +
+                "    \"Saturday\"\n" +
+                "  ],\n" +
+                "  \"weekDayNameAbbreviations\": [\n" +
+                "    \"Sun.\",\n" +
+                "    \"Mon.\",\n" +
+                "    \"Tue.\",\n" +
+                "    \"Wed.\",\n" +
+                "    \"Thu.\",\n" +
+                "    \"Fri.\",\n" +
+                "    \"Sat.\"\n" +
+                "  ]\n" +
+                "}"
         );
     }
 
@@ -862,6 +980,15 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             ).setCurrencyExchangeRater(
                 Optional.of(CURRENCY_EXCHANGE_RATER_SELECTOR)
             )
+        );
+    }
+
+    @Test
+    public void testUnmarshallDateTimeSymbols() {
+        this.unmarshallAndCheck(
+            SpreadsheetSelection.A1.setFormula(
+                SpreadsheetFormula.EMPTY.setText("+1")
+            ).setDateTimeSymbols(OPTIONAL_DATE_TIME_SYMBOLS)
         );
     }
 
