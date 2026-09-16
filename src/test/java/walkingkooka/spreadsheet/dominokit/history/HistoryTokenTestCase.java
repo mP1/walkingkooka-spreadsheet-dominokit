@@ -101,7 +101,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
         );
     }
 
-    // setAnchoredSelection............................................................................................
+    // setAnchoredSelection.............................................................................................
 
     @Test
     public final void setAnchoredSelectionWithNullFails() {
@@ -223,7 +223,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
         );
     }
 
-    // dateTimeSymbols...........................................................................................................
+    // dateTimeSymbols..................................................................................................
 
     final void dateTimeSymbolsAndCheck(final HistoryToken token) {
         this.dateTimeSymbolsAndCheck(
@@ -251,14 +251,14 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
     }
 
     final void decimalNumberSymbolsAndCheck(final HistoryToken token,
-                                       final HistoryToken expected) {
+                                            final HistoryToken expected) {
         this.checkEquals(
             expected,
             token.decimalNumberSymbols(),
             () -> token + " decimalNumberSymbols"
         );
     }
-    
+
     // setDelete........................................................................................................
 
     final void deleteAndCheck(final HistoryToken token) {
@@ -345,11 +345,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
     public final void testSetFilterWithSame() {
         final HistoryToken token = this.createHistoryToken();
 
-        this.setFilterAndCheck(
-            token,
-            token.filter(),
-            token
-        );
+        this.setFilterAndCheck(token);
     }
 
     final void setFilterAndCheck(final HistoryToken token) {
@@ -363,8 +359,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
                                  final HistoryToken expected) {
         this.setFilterAndCheck(
             token,
-            Optional.empty(),
-            expected
+            Optional.empty()
         );
     }
 
@@ -372,7 +367,15 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
                                  final String filter) {
         this.setFilterAndCheck(
             token,
-            Optional.of(filter),
+            Optional.of(filter)
+        );
+    }
+
+    final void setFilterAndCheck(final HistoryToken token,
+                                 final Optional<String> filter) {
+        this.setFilterAndCheck(
+            token,
+            filter,
             token
         );
     }
@@ -384,15 +387,6 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
             token,
             Optional.of(filter),
             expected
-        );
-    }
-
-    final void setFilterAndCheck(final HistoryToken token,
-                                 final Optional<String> filter) {
-        this.setFilterAndCheck(
-            token,
-            filter,
-            token
         );
     }
 
@@ -757,7 +751,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
             () -> token + " locale"
         );
     }
-    
+
     // setMetadataPropertyName..........................................................................................
 
     @Test
