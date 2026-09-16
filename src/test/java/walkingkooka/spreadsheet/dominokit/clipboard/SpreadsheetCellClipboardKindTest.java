@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.clipboard;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.color.Color;
+import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.net.header.HasContentTypeTesting;
@@ -72,11 +73,15 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     SpreadsheetMetadataTesting,
     TreePrintableTesting {
 
+    private final static CurrencyExchangeRaterSelector CURRENCY_EXCHANGE_RATER_SELECTOR = CurrencyExchangeRaterSelector.parse("currency-exchange-rater-123");
+
     private final static SpreadsheetCell CELL = SpreadsheetSelection.A1.setFormula(
         SpreadsheetFormula.EMPTY.setText("=1+2")
             .setValueType(
                 Optional.of(ValueType.with("hello-value-type"))
             )
+    ).setCurrencyExchangeRater(
+        Optional.of(CURRENCY_EXCHANGE_RATER_SELECTOR)
     ).setLocale(
         Optional.of(Locale.ENGLISH)
     ).setFormatter(
@@ -120,6 +125,13 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.predicateAndCheck(
             SpreadsheetCellClipboardKind.CELL,
             SpreadsheetCellClipboardKind.values()
+        );
+    }
+
+    @Test
+    public void testPredicateCurrencyExchangeRater() {
+        this.predicateAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER
         );
     }
 
@@ -221,6 +233,15 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             SpreadsheetCellClipboardKind.FORMULA,
             cell,
             cell.formula()
+        );
+    }
+
+    @Test
+    public void testCellValueCurrencyExchangeRater() {
+        this.cellValueAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
+            CELL,
+            CELL.currencyExchangeRater()
         );
     }
 
@@ -370,6 +391,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     }
 
     @Test
+    public void testContentTypeCurrencyExchangeRater() {
+        this.contentTypeAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
+            MediaType.parse("application/json+walkingkooka.currency.provider.CurrencyExchangeRaterSelector")
+        );
+    }
+
+    @Test
     public void testContentTypeFormula() {
         this.contentTypeAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
@@ -400,6 +429,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.mediaTypeClassAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY,
             Currency.class
+        );
+    }
+
+    @Test
+    public void testMediaTypeClassCurrencyExchangeRaterSelector() {
+        this.mediaTypeClassAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
+            CurrencyExchangeRaterSelector.class
         );
     }
 
@@ -475,6 +512,14 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.urlFragmentAndCheck(
             SpreadsheetCellClipboardKind.CURRENCY,
             UrlFragment.with("currency")
+        );
+    }
+
+    @Test
+    public void testUrlFragmentCurrencyExchangeRaterSelector() {
+        this.urlFragmentAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
+            UrlFragment.with("currency-exchange-rater")
         );
     }
 
@@ -581,6 +626,20 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 "  \"parser\": \"number $0.00\",\n" +
                 "  \"formatter\": \"date yyyy/mm/dd\"\n" +
                 "}"
+        );
+    }
+
+    @Test
+    public void testMarshallCurrencyExchangeRater() {
+        this.marshallAndCheck(
+            SpreadsheetCellClipboardKind.CURRENCY_EXCHANGE_RATER,
+            SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+                .setCurrencyExchangeRater(
+                    Optional.of(
+                        CurrencyExchangeRaterSelector.parse("hello")
+                    )
+                ),
+            "\"hello\""
         );
     }
 
@@ -732,6 +791,17 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     public void testUnmarshallCellFormulaEmpty() {
         this.unmarshallAndCheck(
             SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+        );
+    }
+
+    @Test
+    public void testUnmarshallCellCurrencyExchangeRater() {
+        this.unmarshallAndCheck(
+            SpreadsheetSelection.A1.setFormula(
+                SpreadsheetFormula.EMPTY.setText("+1")
+            ).setCurrencyExchangeRater(
+                Optional.of(CURRENCY_EXCHANGE_RATER_SELECTOR)
+            )
         );
     }
 

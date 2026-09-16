@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
 import walkingkooka.collect.list.Lists;
+import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.HasUrlFragment;
@@ -150,6 +151,54 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
                 toMap(
                     range,
                     SpreadsheetCell::currency
+                )
+            );
+        }
+    },
+
+    /**
+     * The clipboard value is cells to {@link CurrencyExchangeRaterSelector}.
+     */
+    CURRENCY_EXCHANGE_RATER(
+        CurrencyExchangeRaterSelector.class,
+        SpreadsheetMediaTypes.JSON_CURRENCY_EXCHANGE_RATER
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalValue(
+                cell,
+                cell.currencyExchangeRater(),
+                context
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final JsonNodeUnmarshallContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY
+            ).setCurrencyExchangeRater(
+                context.unmarshallOptional(
+                    node,
+                    CurrencyExchangeRaterSelector.class
+                )
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            fetcher.patchCellsCurrencyExchangeRater(
+                id,
+                range.range(),
+                toMap(
+                    range,
+                    SpreadsheetCell::currencyExchangeRater
                 )
             );
         }
