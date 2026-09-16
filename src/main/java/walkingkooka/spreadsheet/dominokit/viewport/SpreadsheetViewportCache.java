@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.CanBeEmpty;
 import walkingkooka.ToStringBuilder;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.collect.set.Sets;
@@ -531,7 +532,7 @@ public final class SpreadsheetViewportCache implements NopFetcherWatcher,
             }
 
             this.selectionSummary = Optional.ofNullable(
-                null == selectionSummary || selectionSummary.isEmpty() ?
+                CanBeEmpty.maybeCanBeEmpty(selectionSummary) ?
                     null :
                     selectionSummary
             );
