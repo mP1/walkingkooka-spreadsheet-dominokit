@@ -361,7 +361,8 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
                                  final HistoryToken expected) {
         this.setFilterAndCheck(
             token,
-            Optional.empty()
+            Optional.empty(),
+            expected
         );
     }
 
