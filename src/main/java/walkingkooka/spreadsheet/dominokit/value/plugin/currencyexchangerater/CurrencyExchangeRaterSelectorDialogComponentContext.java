@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater;
 
 import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
+import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcher;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -28,6 +29,7 @@ import walkingkooka.spreadsheet.dominokit.viewport.HasSpreadsheetViewportCache;
  */
 public interface CurrencyExchangeRaterSelectorDialogComponentContext extends DialogComponentContext,
     DialogAnchorListComponentContext<CurrencyExchangeRaterSelector>,
+    ComponentLifecycleMatcher,
     HasSpreadsheetViewportCache,
     CurrencyExchangeRaterNameAnchorListComponentContext {
 
