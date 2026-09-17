@@ -19,6 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.color.WebColorName;
+import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -27,7 +28,8 @@ import walkingkooka.tree.text.TextStylePropertyName;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements SpreadsheetViewportContextTesting<SpreadsheetMetadataSpreadsheetViewportContext> {
+public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements SpreadsheetViewportContextTesting<SpreadsheetMetadataSpreadsheetViewportContext>,
+    ThrowableTesting {
 
     @Test
     public void testCellStyleMissingSpreadsheetMetadataFails() {
@@ -36,9 +38,9 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             () -> this.createContext().cellStyle()
         );
 
-        this.checkEquals(
-            "Missing SpreadsheetMetadata and its default cell style",
-            thrown.getMessage()
+        this.getMessageAndCheck(
+            thrown,
+            "Missing SpreadsheetMetadata and its default cell style"
         );
     }
 
@@ -235,9 +237,9 @@ public final class SpreadsheetMetadataSpreadsheetViewportContextTest implements 
             () -> this.createContext().selectedCellStyle(TextStyle.EMPTY)
         );
 
-        this.checkEquals(
-            "Missing SpreadsheetMetadata and its default cell style",
-            thrown.getMessage()
+        this.getMessageAndCheck(
+            thrown,
+            "Missing SpreadsheetMetadata and its default cell style"
         );
     }
 

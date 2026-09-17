@@ -164,10 +164,9 @@ public abstract class SpreadsheetNameHistoryTokenTestCase<T extends SpreadsheetN
                 .menu(selection)
         );
 
-        this.checkEquals(
-            "Got " + selection + ", expected cell, column or row",
-            thrown.getMessage(),
-            () -> "menu " + selection
+        this.getMessageAndCheck(
+            thrown,
+            "Got " + selection + ", expected cell, column or row"
         );
     }
 

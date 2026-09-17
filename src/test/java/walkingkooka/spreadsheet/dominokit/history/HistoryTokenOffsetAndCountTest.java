@@ -24,6 +24,7 @@ import walkingkooka.ToStringTesting;
 import walkingkooka.net.HasUrlFragmentTesting;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
 import walkingkooka.text.cursor.TextCursors;
@@ -37,6 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesting,
     CanBeEmptyTesting,
     HashCodeEqualsDefinedTesting2<HistoryTokenOffsetAndCount>,
+    ThrowableTesting,
     ToStringTesting<HistoryTokenOffsetAndCount>,
     ClassTesting<HistoryTokenOffsetAndCount> {
 
@@ -90,9 +92,9 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
             )
         );
 
-        this.checkEquals(
-            "Invalid offset -987 < 0",
-            thrown.getMessage()
+        this.getMessageAndCheck(
+            thrown,
+            "Invalid offset -987 < 0"
         );
     }
 
@@ -117,9 +119,9 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
             )
         );
 
-        this.checkEquals(
-            "Invalid count -1 < 0",
-            thrown.getMessage()
+        this.getMessageAndCheck(
+            thrown,
+            "Invalid count -1 < 0"
         );
     }
 
@@ -170,9 +172,9 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
                 )
         );
 
-        this.checkEquals(
-            "Invalid offset -2 < 0",
-            thrown.getMessage()
+        this.getMessageAndCheck(
+            thrown,
+            "Invalid offset -2 < 0"
         );
     }
 
@@ -235,9 +237,9 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
                 )
         );
 
-        this.checkEquals(
-            "Invalid count -3 < 0",
-            thrown.getMessage()
+        this.getMessageAndCheck(
+            thrown,
+            "Invalid count -3 < 0"
         );
     }
 
@@ -459,9 +461,9 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
             () -> HistoryTokenOffsetAndCount.parse(TextCursors.charSequence(text))
         );
 
-        this.checkEquals(
-            expected,
-            thrown.getMessage()
+        this.getMessageAndCheck(
+            thrown,
+            expected
         );
     }
 

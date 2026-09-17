@@ -24,6 +24,7 @@ import walkingkooka.color.Color;
 import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -67,7 +68,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     ParseStringTesting<HistoryToken>,
-    SpreadsheetMetadataTesting {
+    SpreadsheetMetadataTesting,
+    ThrowableTesting {
 
     private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
 
@@ -1626,10 +1628,9 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             )
         );
 
-        this.checkEquals(
-            "Invalid value: got HistoryTokenTest expected DateTimeSymbols, /123/SpreadsheetName456/cell/A1/dateTimeSymbols",
-            thrown.getMessage(),
-            "message"
+        this.getMessageAndCheck(
+            thrown,
+            "Invalid value: got HistoryTokenTest expected DateTimeSymbols, /123/SpreadsheetName456/cell/A1/dateTimeSymbols"
         );
     }
 

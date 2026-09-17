@@ -186,10 +186,9 @@ public abstract class SpreadsheetAnchoredSelectionHistoryTokenTestCase<T extends
             )
         );
 
-        this.checkEquals(
-            expected,
-            thrown.getMessage(),
-            () -> "" + anchoredSelection
+        this.getMessageAndCheck(
+            thrown,
+            expected
         );
     }
 

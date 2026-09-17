@@ -57,10 +57,9 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
             )
         );
 
-        this.checkEquals(
-            "Save value includes cells A2 outside A1",
-            thrown.getMessage(),
-            "message"
+        this.getMessageAndCheck(
+            thrown,
+            "Save value includes cells A2 outside A1"
         );
     }
 
@@ -84,10 +83,9 @@ public final class SpreadsheetCellSaveDateTimeSymbolsHistoryTokenTest extends Sp
             )
         );
 
-        this.checkEquals(
-            "Save value includes cells A1, A4 outside A2:A3",
-            thrown.getMessage(),
-            "message"
+        this.getMessageAndCheck(
+            thrown,
+            "Save value includes cells A1, A4 outside A2:A3"
         );
     }
 
