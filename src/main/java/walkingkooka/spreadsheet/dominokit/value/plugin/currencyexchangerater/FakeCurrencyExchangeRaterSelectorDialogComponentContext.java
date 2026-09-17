@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater;
 import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
+import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
@@ -53,6 +54,16 @@ public class FakeCurrencyExchangeRaterSelectorDialogComponentContext extends Fak
 
     @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean shouldIgnore(final HistoryToken token) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isMatch(final HistoryToken token) {
         throw new UnsupportedOperationException();
     }
 }
