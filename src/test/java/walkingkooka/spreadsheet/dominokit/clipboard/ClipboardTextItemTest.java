@@ -26,6 +26,7 @@ import walkingkooka.net.header.MediaType;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviders;
@@ -62,6 +63,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     HashCodeEqualsDefinedTesting2<ClipboardTextItem>,
     HasTextTesting,
     SpreadsheetMetadataTesting,
+    ThrowableTesting,
     ToStringTesting<ClipboardTextItem>,
     TreePrintableTesting {
 
@@ -857,9 +859,9 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     })
         );
 
-        this.checkEquals(
-            "Unsupported clipboard media type image/bmp expected text/plain",
-            thrown.getMessage()
+        this.getMessageAndCheck(
+            thrown,
+            "Unsupported clipboard media type image/bmp expected text/plain"
         );
     }
 

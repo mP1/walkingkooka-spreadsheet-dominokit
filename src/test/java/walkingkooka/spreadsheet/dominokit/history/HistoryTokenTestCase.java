@@ -30,6 +30,7 @@ import walkingkooka.net.UrlFragment;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.MethodAttributes;
 import walkingkooka.reflect.PublicClassTesting;
+import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -61,6 +62,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
     HashCodeEqualsDefinedTesting2<T>,
     HasUrlFragmentTesting,
     SpreadsheetMetadataTesting,
+    ThrowableTesting,
     ToStringTesting<T> {
 
     final static Optional<String> NO_FILTER = Optional.empty();
