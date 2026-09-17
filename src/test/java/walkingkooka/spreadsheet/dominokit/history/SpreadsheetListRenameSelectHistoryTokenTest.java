@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 import java.util.Optional;
 
@@ -50,14 +49,12 @@ public final class SpreadsheetListRenameSelectHistoryTokenTest extends Spreadshe
 
     @Test
     public void testSetSaveStringValueWithNotEmptyString() {
-        final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
-
         this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
-            renameTo.toString(),
+            DIFFERENT_SPREADSHEET_NAME.toString(),
             HistoryToken.spreadsheetListRenameSave(
                 SPREADSHEET_ID,
-                renameTo
+                DIFFERENT_SPREADSHEET_NAME
             )
         );
     }
@@ -74,14 +71,12 @@ public final class SpreadsheetListRenameSelectHistoryTokenTest extends Spreadshe
 
     @Test
     public void testSetSaveValueWithSpreadsheetName() {
-        final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
-
         this.setSaveValueAndCheck(
             this.createHistoryToken(),
-            Optional.of(renameTo),
+            Optional.of(DIFFERENT_SPREADSHEET_NAME),
             HistoryToken.spreadsheetListRenameSave(
                 SPREADSHEET_ID,
-                renameTo
+                DIFFERENT_SPREADSHEET_NAME
             )
         );
     }

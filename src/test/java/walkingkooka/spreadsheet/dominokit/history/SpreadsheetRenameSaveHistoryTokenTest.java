@@ -25,8 +25,6 @@ import java.util.Optional;
 
 public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRenameHistoryTokenTestCase<SpreadsheetRenameSaveHistoryToken> {
 
-    private final static SpreadsheetName RENAME_TO = SpreadsheetName.with("RenameToSpreadsheetName567");
-
     @Test
     public void testParseMissingName() {
         this.parseAndCheck(
@@ -40,7 +38,7 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
 
     @Test
     public void testUrlFragment() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/rename/save/RenameToSpreadsheetName567");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/rename/save/DifferentSpreadsheetName789");
     }
 
     @Test
@@ -58,11 +56,9 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
 
     @Test
     public void testSetSaveStringValueWithNotEmptyString() {
-        final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
-
         this.setSaveStringValueAndCheck(
             this.createHistoryToken(),
-            renameTo.toString()
+            DIFFERENT_SPREADSHEET_NAME.toString()
         );
     }
 
@@ -82,15 +78,13 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
 
     @Test
     public void testSetSaveValueWithSpreadsheetName() {
-        final SpreadsheetName renameTo = SpreadsheetName.with("RenameToSpreadsheetName567");
-
         this.setSaveValueAndCheck(
             this.createHistoryToken(),
-            Optional.of(renameTo),
+            Optional.of(DIFFERENT_SPREADSHEET_NAME),
             HistoryToken.spreadsheetRenameSave(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
-                renameTo
+                DIFFERENT_SPREADSHEET_NAME
             )
         );
     }
@@ -113,7 +107,7 @@ public final class SpreadsheetRenameSaveHistoryTokenTest extends SpreadsheetRena
         return SpreadsheetRenameSaveHistoryToken.with(
             id,
             name,
-            RENAME_TO
+            DIFFERENT_SPREADSHEET_NAME
         );
     }
 

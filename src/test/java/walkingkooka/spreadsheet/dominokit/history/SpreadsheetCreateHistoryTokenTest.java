@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.color.Color;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -61,12 +60,13 @@ public final class SpreadsheetCreateHistoryTokenTest extends SpreadsheetHistoryT
 
     @Test
     public void testSetIdNameDifferentName() {
-        final SpreadsheetName differentName = SpreadsheetName.with("Different");
-
         this.setSpreadsheetIdSpreadsheetNameAndCheck(
             SPREADSHEET_ID,
-            differentName,
-            HistoryToken.spreadsheetSelect(SPREADSHEET_ID, differentName)
+            DIFFERENT_SPREADSHEET_NAME,
+            HistoryToken.spreadsheetSelect(
+                SPREADSHEET_ID,
+                DIFFERENT_SPREADSHEET_NAME
+            )
         );
     }
 
