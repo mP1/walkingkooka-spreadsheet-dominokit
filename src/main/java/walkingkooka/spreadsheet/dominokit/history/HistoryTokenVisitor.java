@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
+import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
@@ -121,6 +122,25 @@ public class HistoryTokenVisitor extends Visitor<HistoryToken> {
     protected void visitCellCurrencyUnselect(final SpreadsheetId id,
                                              final SpreadsheetName name,
                                              final AnchoredSpreadsheetSelection anchoredSelection) {
+        // NOP
+    }
+
+    protected void visitCellCurrencyExchangeRaterSave(final SpreadsheetId id,
+                                                      final SpreadsheetName name,
+                                                      final AnchoredSpreadsheetSelection anchoredSelection,
+                                                      final Optional<CurrencyExchangeRaterSelector> currencyExchangeRater) {
+        // NOP
+    }
+
+    protected void visitCellCurrencyExchangeRaterSelect(final SpreadsheetId id,
+                                                        final SpreadsheetName name,
+                                                        final AnchoredSpreadsheetSelection anchoredSelection) {
+        // NOP
+    }
+
+    protected void visitCellCurrencyExchangeRaterUnselect(final SpreadsheetId id,
+                                                          final SpreadsheetName name,
+                                                          final AnchoredSpreadsheetSelection anchoredSelection) {
         // NOP
     }
 

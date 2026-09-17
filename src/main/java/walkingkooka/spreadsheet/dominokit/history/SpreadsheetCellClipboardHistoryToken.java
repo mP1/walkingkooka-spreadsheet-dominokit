@@ -31,6 +31,7 @@ import java.util.Objects;
  * held in the token.
  */
 public abstract class SpreadsheetCellClipboardHistoryToken extends SpreadsheetCellHistoryToken {
+
     SpreadsheetCellClipboardHistoryToken(final SpreadsheetId spreadsheetId,
                                          final SpreadsheetName spreadsheetName,
                                          final AnchoredSpreadsheetSelection anchoredSelection,

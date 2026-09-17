@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.Cast;
+import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
@@ -88,6 +89,22 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             }
 
             historyToken = HistoryToken.cellCurrencySave(
+                this.spreadsheetId,
+                this.spreadsheetName,
+                this.anchoredSelection,
+                Cast.to(value)
+            );
+        }
+
+        if (this instanceof SpreadsheetCellCurrencyExchangeRaterHistoryToken) {
+            if (null != valueOrNull && false == valueOrNull instanceof CurrencyExchangeRaterSelector) {
+                this.reportInvalidSaveValue(
+                    valueOrNull,
+                    CurrencyExchangeRaterSelector.class
+                );
+            }
+
+            historyToken = HistoryToken.cellCurrencyExchangeRaterSave(
                 this.spreadsheetId,
                 this.spreadsheetName,
                 this.anchoredSelection,
@@ -299,17 +316,18 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 final Map<?, ?> map = Cast.to(valueOrNull);
                 if (false == map.isEmpty()) {
                     final int MODE_CURRENCY = 1;
-                    final int MODE_DATE_TIME_SYMBOLS = 2;
-                    final int MODE_DECIMAL_NUMBER_SYMBOLS = 4;
-                    final int MODE_FORMATTER = 8;
-                    final int MODE_FORMULA = 16;
-                    final int MODE_LOCALE = 32;
-                    final int MODE_PARSER = 64;
-                    final int MODE_STYLE = 128;
-                    final int MODE_VALIDATOR = 256;
-                    final int MODE_VALUE_TYPE = 512;
+                    final int MODE_CURRENCY_EXCHANGE_RATER = 2;
+                    final int MODE_DATE_TIME_SYMBOLS = 4;
+                    final int MODE_DECIMAL_NUMBER_SYMBOLS = 8;
+                    final int MODE_FORMATTER = 16;
+                    final int MODE_FORMULA = 32;
+                    final int MODE_LOCALE = 64;
+                    final int MODE_PARSER = 128;
+                    final int MODE_STYLE = 256;
+                    final int MODE_VALIDATOR = 512;
+                    final int MODE_VALUE_TYPE = 1024;
 
-                    int mode = MODE_CURRENCY | MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_LOCALE | MODE_PARSER | MODE_STYLE | MODE_VALIDATOR | MODE_VALUE_TYPE;
+                    int mode = MODE_CURRENCY | MODE_CURRENCY_EXCHANGE_RATER | MODE_DATE_TIME_SYMBOLS | MODE_DECIMAL_NUMBER_SYMBOLS | MODE_FORMATTER | MODE_FORMULA | MODE_LOCALE | MODE_PARSER | MODE_STYLE | MODE_VALIDATOR | MODE_VALUE_TYPE;
 
                     for (final Object mapValue : map.values()) {
                         // ignore nulls
@@ -320,28 +338,32 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                                 if (mapValueOptionalValue instanceof Currency) {
                                     mode = MODE_CURRENCY & mode;
                                 } else {
-                                    if (mapValueOptionalValue instanceof DateTimeSymbols) {
-                                        mode = MODE_DATE_TIME_SYMBOLS & mode;
+                                    if (mapValueOptionalValue instanceof CurrencyExchangeRaterSelector) {
+                                        mode = MODE_CURRENCY_EXCHANGE_RATER & mode;
                                     } else {
-                                        if (mapValueOptionalValue instanceof DecimalNumberSymbols) {
-                                            mode = MODE_DECIMAL_NUMBER_SYMBOLS & mode;
+                                        if (mapValueOptionalValue instanceof DateTimeSymbols) {
+                                            mode = MODE_DATE_TIME_SYMBOLS & mode;
                                         } else {
-                                            if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
-                                                mode = MODE_FORMATTER & mode;
+                                            if (mapValueOptionalValue instanceof DecimalNumberSymbols) {
+                                                mode = MODE_DECIMAL_NUMBER_SYMBOLS & mode;
                                             } else {
-                                                if (mapValueOptionalValue instanceof Locale) {
-                                                    mode = MODE_LOCALE & mode;
+                                                if (mapValueOptionalValue instanceof SpreadsheetFormatterSelector) {
+                                                    mode = MODE_FORMATTER & mode;
                                                 } else {
-                                                    if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
-                                                        mode = MODE_PARSER & mode;
+                                                    if (mapValueOptionalValue instanceof Locale) {
+                                                        mode = MODE_LOCALE & mode;
                                                     } else {
-                                                        if (mapValueOptionalValue instanceof ValidatorSelector) {
-                                                            mode = MODE_VALIDATOR & mode;
+                                                        if (mapValueOptionalValue instanceof SpreadsheetParserSelector) {
+                                                            mode = MODE_PARSER & mode;
                                                         } else {
-                                                            if (mapValueOptionalValue instanceof ValueType) {
-                                                                mode = MODE_VALUE_TYPE & mode;
+                                                            if (mapValueOptionalValue instanceof ValidatorSelector) {
+                                                                mode = MODE_VALIDATOR & mode;
                                                             } else {
-                                                                mode = 0;
+                                                                if (mapValueOptionalValue instanceof ValueType) {
+                                                                    mode = MODE_VALUE_TYPE & mode;
+                                                                } else {
+                                                                    mode = 0;
+                                                                }
                                                             }
                                                         }
                                                     }
@@ -371,6 +393,14 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                     switch (mode) {
                         case MODE_CURRENCY:
                             historyToken = HistoryToken.cellSaveCurrency(
+                                this.spreadsheetId,
+                                this.spreadsheetName,
+                                this.anchoredSelection,
+                                Cast.to(valueOrNull)
+                            );
+                            break;
+                        case MODE_CURRENCY_EXCHANGE_RATER:
+                            historyToken = HistoryToken.cellSaveCurrencyExchangeRater(
                                 this.spreadsheetId,
                                 this.spreadsheetName,
                                 this.anchoredSelection,
@@ -500,6 +530,9 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                 break;
             case CURRENCY_STRING:
                 result = this.currency();
+                break;
+            case CURRENCY_EXCHANGE_RATER_STRING:
+                result = this.currencyExchangeRater();
                 break;
             case CUT_STRING:
                 result = this.parseCut(cursor);
