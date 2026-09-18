@@ -18,10 +18,22 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 import java.util.function.BooleanSupplier;
 
 public final class HistoryContexts implements PublicStaticHelper {
+
+    /**
+     * {@link HistoryContextBasic}
+     */
+    public static HistoryContext with(final HistoryToken historyToken,
+                                      AppContext context) {
+        return HistoryContextBasic.with(
+            historyToken,
+            context
+        );
+    }
 
     /**
      * {@see DialogComponentOpenAwareHistoryContext}
