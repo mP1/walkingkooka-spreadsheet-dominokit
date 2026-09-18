@@ -24,19 +24,19 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
 
 import java.util.Optional;
 
-final class SpreadsheetFormatterNameLinkListComponentCardAnchorListComponentContext implements CardAnchorListComponentContext,
+final class SpreadsheetFormatterNameAnchorListComponentCardAnchorListComponentContext implements CardAnchorListComponentContext,
     HistoryContextDelegator {
 
-    static SpreadsheetFormatterNameLinkListComponentCardAnchorListComponentContext with(final Optional<SpreadsheetFormatterName> name,
-                                                                                        final HistoryContext context) {
-        return new SpreadsheetFormatterNameLinkListComponentCardAnchorListComponentContext(
+    static SpreadsheetFormatterNameAnchorListComponentCardAnchorListComponentContext with(final Optional<SpreadsheetFormatterName> name,
+                                                                                          final HistoryContext context) {
+        return new SpreadsheetFormatterNameAnchorListComponentCardAnchorListComponentContext(
             name,
             context
         );
     }
 
-    private SpreadsheetFormatterNameLinkListComponentCardAnchorListComponentContext(final Optional<SpreadsheetFormatterName> name,
-                                                                                    final HistoryContext context) {
+    private SpreadsheetFormatterNameAnchorListComponentCardAnchorListComponentContext(final Optional<SpreadsheetFormatterName> name,
+                                                                                      final HistoryContext context) {
         this.name = name;
         this.context = context;
     }

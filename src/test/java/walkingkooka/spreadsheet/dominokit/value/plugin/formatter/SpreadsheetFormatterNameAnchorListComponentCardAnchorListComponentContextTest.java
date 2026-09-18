@@ -20,11 +20,11 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.formatter;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetFormatterNameLinkListComponentCardAnchorListComponentContextTest implements ClassTesting<SpreadsheetFormatterNameLinkListComponentCardAnchorListComponentContext> {
+public final class SpreadsheetFormatterNameAnchorListComponentCardAnchorListComponentContextTest implements ClassTesting<SpreadsheetFormatterNameAnchorListComponentCardAnchorListComponentContext> {
 
     @Override
-    public Class<SpreadsheetFormatterNameLinkListComponentCardAnchorListComponentContext> type() {
-        return SpreadsheetFormatterNameLinkListComponentCardAnchorListComponentContext.class;
+    public Class<SpreadsheetFormatterNameAnchorListComponentCardAnchorListComponentContext> type() {
+        return SpreadsheetFormatterNameAnchorListComponentCardAnchorListComponentContext.class;
     }
 
     @Override
