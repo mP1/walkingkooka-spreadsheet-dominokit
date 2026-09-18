@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class DomsTest implements PublicStaticHelperTesting<Doms> {
     @Override
     public Class<Doms> type() {
         return Doms.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

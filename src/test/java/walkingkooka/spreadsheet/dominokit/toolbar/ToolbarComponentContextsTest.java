@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.toolbar;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -31,10 +30,5 @@ public final class ToolbarComponentContextsTest implements PublicStaticHelperTes
     @Override
     public Class<ToolbarComponentContexts> type() {
         return ToolbarComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

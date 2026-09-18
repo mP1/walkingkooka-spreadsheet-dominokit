@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.choicelist;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -32,10 +31,5 @@ public final class ValidationChoiceListComponentContextsTest implements PublicSt
     @Override
     public Class<ValidationChoiceListComponentContexts> type() {
         return ValidationChoiceListComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

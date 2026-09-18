@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.number;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class NumberComponentContextsTest implements PublicStaticHelperTest
     @Override
     public Class<NumberComponentContexts> type() {
         return NumberComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

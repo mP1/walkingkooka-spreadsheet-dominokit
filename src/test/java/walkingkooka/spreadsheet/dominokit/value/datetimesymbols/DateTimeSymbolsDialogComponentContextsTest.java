@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.datetimesymbols;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class DateTimeSymbolsDialogComponentContextsTest implements PublicS
     @Override
     public Class<DateTimeSymbolsDialogComponentContexts> type() {
         return DateTimeSymbolsDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

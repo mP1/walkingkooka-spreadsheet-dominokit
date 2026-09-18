@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.checkbox;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -32,10 +31,5 @@ public final class ValidationCheckboxComponentContextsTest implements PublicStat
     @Override
     public Class<ValidationCheckboxComponentContexts> type() {
         return ValidationCheckboxComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

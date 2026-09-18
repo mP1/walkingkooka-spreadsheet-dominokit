@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.fontfamily;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class FontFamilyComponentContextsTest implements PublicStaticHelper
     @Override
     public Class<FontFamilyComponentContexts> type() {
         return FontFamilyComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

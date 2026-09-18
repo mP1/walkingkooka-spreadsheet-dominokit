@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.history.recent;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -29,11 +28,6 @@ public final class RecentValueSavesContextsTest implements PublicStaticHelperTes
     @Override
     public Class<RecentValueSavesContexts> type() {
         return RecentValueSavesContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

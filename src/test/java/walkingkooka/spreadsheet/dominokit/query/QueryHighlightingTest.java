@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.query;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class QueryHighlightingTest implements PublicStaticHelperTesting<Qu
     @Override
     public Class<QueryHighlighting> type() {
         return QueryHighlighting.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

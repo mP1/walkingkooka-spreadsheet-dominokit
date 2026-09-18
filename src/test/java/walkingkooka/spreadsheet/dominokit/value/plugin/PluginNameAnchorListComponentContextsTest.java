@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class PluginNameAnchorListComponentContextsTest implements PublicSt
     @Override
     public Class<PluginNameAnchorListComponentContexts> type() {
         return PluginNameAnchorListComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

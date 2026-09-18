@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.query;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -31,10 +30,5 @@ public final class SpreadsheetCellRangeReferencePathComponentContextsTest implem
     @Override
     public Class<SpreadsheetCellRangeReferencePathComponentContexts> type() {
         return SpreadsheetCellRangeReferencePathComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

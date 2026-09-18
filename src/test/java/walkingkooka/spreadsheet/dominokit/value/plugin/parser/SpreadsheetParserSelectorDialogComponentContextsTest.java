@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.parser;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class SpreadsheetParserSelectorDialogComponentContextsTest implemen
     @Override
     public Class<SpreadsheetParserSelectorDialogComponentContexts> type() {
         return SpreadsheetParserSelectorDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

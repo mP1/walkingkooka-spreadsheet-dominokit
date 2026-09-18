@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.locale;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class LocaleDialogComponentContextsTest implements PublicStaticHelp
     @Override
     public Class<LocaleDialogComponentContexts> type() {
         return LocaleDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

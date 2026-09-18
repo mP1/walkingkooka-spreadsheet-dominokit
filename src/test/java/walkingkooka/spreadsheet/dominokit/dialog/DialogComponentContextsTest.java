@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class DialogComponentContextsTest implements PublicStaticHelperTest
     @Override
     public Class<DialogComponentContexts> type() {
         return DialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

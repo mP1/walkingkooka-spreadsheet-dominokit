@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class ClipboardContextsTest implements PublicStaticHelperTesting<Cl
     @Override
     public Class<ClipboardContexts> type() {
         return ClipboardContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

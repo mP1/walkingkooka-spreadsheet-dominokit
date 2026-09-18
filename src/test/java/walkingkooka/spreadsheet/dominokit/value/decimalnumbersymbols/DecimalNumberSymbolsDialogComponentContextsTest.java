@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class DecimalNumberSymbolsDialogComponentContextsTest implements Pu
     @Override
     public Class<DecimalNumberSymbolsDialogComponentContexts> type() {
         return DecimalNumberSymbolsDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

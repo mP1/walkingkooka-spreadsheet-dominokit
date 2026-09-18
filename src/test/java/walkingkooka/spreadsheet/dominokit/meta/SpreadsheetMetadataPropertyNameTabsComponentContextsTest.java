@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.meta;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -26,11 +25,6 @@ public final class SpreadsheetMetadataPropertyNameTabsComponentContextsTest impl
     @Override
     public Class<SpreadsheetMetadataPropertyNameTabsComponentContexts> type() {
         return SpreadsheetMetadataPropertyNameTabsComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override
