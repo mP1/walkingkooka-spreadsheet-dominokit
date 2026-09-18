@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.ToStringTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -26,7 +27,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryContextBasicTest implements HistoryContextTesting<HistoryContextBasic>,
-    SpreadsheetMetadataTesting {
+    SpreadsheetMetadataTesting,
+    ToStringTesting<HistoryContextBasic> {
 
     private final static HistoryToken HISTORY_TOKEN = HistoryToken.cellSelect(
         SPREADSHEET_ID,
@@ -110,6 +112,18 @@ public final class HistoryContextBasicTest implements HistoryContextTesting<Hist
             APP_CONTEXT
         );
     }
+
+    // toString.........................................................................................................
+
+    @Test
+    public void testToString() {
+        this.toStringAndCheck(
+            this.createContext(),
+            HISTORY_TOKEN.toString()
+        );
+    }
+
+    // class............................................................................................................
 
     @Override
     public Class<HistoryContextBasic> type() {
