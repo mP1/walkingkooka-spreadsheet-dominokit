@@ -21,13 +21,9 @@ import elemental2.dom.HTMLDivElement;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -38,16 +34,12 @@ import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * Holds a list of anchors for each given {@link ValidatorName}.
  */
 public final class ValidatorNameAnchorListComponent implements ValueComponent<HTMLDivElement, ValidatorSelector, ValidatorNameAnchorListComponent>,
-    HtmlComponentDelegator<HTMLDivElement, ValidatorNameAnchorListComponent>,
-    SpreadsheetMetadataFetcherWatcher,
-    NopFetcherWatcher,
-    NopEmptyResponseFetcherWatcher {
+    HtmlComponentDelegator<HTMLDivElement, ValidatorNameAnchorListComponent> {
 
     public static ValidatorNameAnchorListComponent with(final String idPrefix,
                                                         final ValidatorNameAnchorListComponentContext context) {
@@ -104,18 +96,6 @@ public final class ValidatorNameAnchorListComponent implements ValueComponent<HT
     private final String idPrefix;
 
     private final ValidatorNameAnchorListComponentContext context;
-
-    // SpreadsheetMetadataFetcherWatcher................................................................................
-
-    @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
-        this.refresh();
-    }
-
-    @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
-        // nop
-    }
 
     // ValueComponent...................................................................................................
 
