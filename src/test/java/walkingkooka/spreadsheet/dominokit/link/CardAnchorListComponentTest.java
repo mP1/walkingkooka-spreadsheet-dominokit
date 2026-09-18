@@ -33,7 +33,7 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class CardLinkListComponentTest implements HtmlComponentTesting<CardLinkListComponent, HTMLDivElement> {
+public final class CardAnchorListComponentTest implements HtmlComponentTesting<CardAnchorListComponent, HTMLDivElement> {
 
     private final static String ID = "LinkList123-";
 
@@ -47,7 +47,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
     public void testWithNullIdFails() {
         assertThrows(
             NullPointerException.class,
-            () -> CardLinkListComponent.with(
+            () -> CardAnchorListComponent.with(
                 null,
                 TITLE,
                 LABEL_MAKER
@@ -59,7 +59,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
     public void testWithEmptyIdFails() {
         assertThrows(
             IllegalArgumentException.class,
-            () -> CardLinkListComponent.with(
+            () -> CardAnchorListComponent.with(
                 "",
                 TITLE,
                 LABEL_MAKER
@@ -71,7 +71,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
     public void testWithNullTitleFails() {
         assertThrows(
             NullPointerException.class,
-            () -> CardLinkListComponent.with(
+            () -> CardAnchorListComponent.with(
                 ID,
                 null,
                 LABEL_MAKER
@@ -83,7 +83,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
     public void testWithNullLabelMakerFails() {
         assertThrows(
             NullPointerException.class,
-            () -> CardLinkListComponent.with(
+            () -> CardAnchorListComponent.with(
                 ID,
                 TITLE,
                 null
@@ -98,7 +98,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
         this.refreshAndCheck(
             Lists.empty(),
             Optional.empty(), // no selection
-            "CardLinkListComponent\n"
+            "CardAnchorListComponent\n"
         );
     }
 
@@ -113,7 +113,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
             Optional.of(
                 SpreadsheetFormatterName.with("banana2")
             ),
-            "CardLinkListComponent\n" +
+            "CardAnchorListComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Title123\n" +
@@ -134,7 +134,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
                 "carrot3"
             ),
             Optional.empty(),
-            "CardLinkListComponent\n" +
+            "CardAnchorListComponent\n" +
                 "  CardComponent\n" +
                 "    Card\n" +
                 "      Title123\n" +
@@ -149,7 +149,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
     private void refreshAndCheck(final List<String> texts,
                                  final Optional<SpreadsheetFormatterName> selected,
                                  final String expected) {
-        final CardLinkListComponent list = CardLinkListComponent.with(
+        final CardAnchorListComponent list = CardAnchorListComponent.with(
             ID,
             TITLE,
             LABEL_MAKER
@@ -157,7 +157,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
 
         list.refresh(
             texts,
-            new FakeCardLinkListComponentContext() {
+            new FakeCardAnchorListComponentContext() {
 
                 @Override
                 public boolean isDisabled(final String text) {
@@ -190,7 +190,7 @@ public final class CardLinkListComponentTest implements HtmlComponentTesting<Car
     // class............................................................................................................
 
     @Override
-    public Class<CardLinkListComponent> type() {
-        return CardLinkListComponent.class;
+    public Class<CardAnchorListComponent> type() {
+        return CardAnchorListComponent.class;
     }
 }

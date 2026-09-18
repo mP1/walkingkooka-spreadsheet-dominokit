@@ -15,16 +15,16 @@
  *
  */
 
-package walkingkooka.spreadsheet.dominokit.value.plugin.formatter;
+package walkingkooka.spreadsheet.dominokit.value.plugin.parser;
 
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 
-public final class SpreadsheetFormatterNameLinkListComponentCardLinkListComponentContextTest implements ClassTesting<SpreadsheetFormatterNameLinkListComponentCardLinkListComponentContext> {
+public final class SpreadsheetParserNameLinkListComponentCardAnchorListComponentContextTest implements ClassTesting<SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext> {
 
     @Override
-    public Class<SpreadsheetFormatterNameLinkListComponentCardLinkListComponentContext> type() {
-        return SpreadsheetFormatterNameLinkListComponentCardLinkListComponentContext.class;
+    public Class<SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext> type() {
+        return SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext.class;
     }
 
     @Override

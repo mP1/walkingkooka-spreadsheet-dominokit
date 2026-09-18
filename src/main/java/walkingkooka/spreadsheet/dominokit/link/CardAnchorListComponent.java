@@ -36,21 +36,21 @@ import java.util.function.Function;
  * A card that holds links, each with a save history token link.
  * The initial use-case for this component is to display available spreadsheet formatter names when the user is editing a formatter.
  */
-public final class CardLinkListComponent implements HtmlComponentDelegator<HTMLDivElement, CardLinkListComponent> {
+public final class CardAnchorListComponent implements HtmlComponentDelegator<HTMLDivElement, CardAnchorListComponent> {
 
-    public static CardLinkListComponent with(final String id,
-                                             final String title,
-                                             final Function<String, String> labelMaker) {
-        return new CardLinkListComponent(
+    public static CardAnchorListComponent with(final String id,
+                                               final String title,
+                                               final Function<String, String> labelMaker) {
+        return new CardAnchorListComponent(
             CharSequences.failIfNullOrEmpty(id, "id"),
             Objects.requireNonNull(title, "title"),
             Objects.requireNonNull(labelMaker, "labelMaker")
         );
     }
 
-    private CardLinkListComponent(final String id,
-                                  final String title,
-                                  final Function<String, String> labelMaker) {
+    private CardAnchorListComponent(final String id,
+                                    final String title,
+                                    final Function<String, String> labelMaker) {
         this.id = id;
 
         this.flex = FlexLayoutComponent.row();
@@ -65,7 +65,7 @@ public final class CardLinkListComponent implements HtmlComponentDelegator<HTMLD
      * Replaces all links and creates links for each of the given text items.
      */
     public void refresh(final List<String> texts,
-                        final CardLinkListComponentContext context) {
+                        final CardAnchorListComponentContext context) {
         this.refresh0(
             Lists.immutable(
                 Objects.requireNonNull(texts, "texts")
@@ -75,7 +75,7 @@ public final class CardLinkListComponent implements HtmlComponentDelegator<HTMLD
     }
 
     void refresh0(final List<String> texts,
-                  final CardLinkListComponentContext context) {
+                  final CardAnchorListComponentContext context) {
         this.root.hide();
 
         final FlexLayoutComponent flex = this.flex.removeAllChildren();
@@ -102,7 +102,7 @@ public final class CardLinkListComponent implements HtmlComponentDelegator<HTMLD
      */
     private HistoryTokenAnchorComponent anchor(final String text,
                                                final int index,
-                                               final CardLinkListComponentContext context) {
+                                               final CardAnchorListComponentContext context) {
         final HistoryToken historyToken = context.historyToken();
 
         return historyToken.saveLink(

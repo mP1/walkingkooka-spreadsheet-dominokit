@@ -19,24 +19,24 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.parser;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.dominokit.link.CardLinkListComponentContext;
+import walkingkooka.spreadsheet.dominokit.link.CardAnchorListComponentContext;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
 
 import java.util.Optional;
 
-final class SpreadsheetParserNameLinkListComponentCardLinkListComponentContext implements CardLinkListComponentContext,
+final class SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext implements CardAnchorListComponentContext,
     HistoryContextDelegator {
 
-    static SpreadsheetParserNameLinkListComponentCardLinkListComponentContext with(final Optional<SpreadsheetParserName> name,
-                                                                                   final HistoryContext context) {
-        return new SpreadsheetParserNameLinkListComponentCardLinkListComponentContext(
+    static SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext with(final Optional<SpreadsheetParserName> name,
+                                                                                     final HistoryContext context) {
+        return new SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext(
             name,
             context
         );
     }
 
-    private SpreadsheetParserNameLinkListComponentCardLinkListComponentContext(final Optional<SpreadsheetParserName> name,
-                                                                               final HistoryContext context) {
+    private SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext(final Optional<SpreadsheetParserName> name,
+                                                                                 final HistoryContext context) {
         this.name = name;
         this.context = context;
     }

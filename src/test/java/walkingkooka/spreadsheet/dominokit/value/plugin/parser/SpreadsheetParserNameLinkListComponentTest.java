@@ -38,7 +38,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
         this.refreshAndCheck(
             Optional.empty(),
             "SpreadsheetParserNameLinkListComponent\n" +
-                "  CardLinkListComponent\n" +
+                "  CardAnchorListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
                 "        FlexLayoutComponent\n" +
@@ -71,7 +71,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
                 SpreadsheetParserName.DATE
             ),
             "SpreadsheetParserNameLinkListComponent\n" +
-                "  CardLinkListComponent\n" +
+                "  CardAnchorListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
                 "        FlexLayoutComponent\n" +
