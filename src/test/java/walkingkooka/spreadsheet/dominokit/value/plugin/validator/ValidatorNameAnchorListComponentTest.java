@@ -27,11 +27,11 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.validation.provider.ValidatorAliasSet;
-import walkingkooka.validation.provider.ValidatorSelector;
+import walkingkooka.validation.provider.ValidatorName;
 
 import java.util.Optional;
 
-public final class ValidatorNameAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement, ValidatorSelector, ValidatorNameAnchorListComponent>,
+public final class ValidatorNameAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement, ValidatorName, ValidatorNameAnchorListComponent>,
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
@@ -42,13 +42,14 @@ public final class ValidatorNameAnchorListComponentTest implements ValueComponen
             this.createComponent()
                 .clearValue(),
             "ValidatorNameAnchorListComponent\n" +
-                "  AnchorListComponent\n" +
-                "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        id=TestId123-links\n" +
-                "          \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
-                "          \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
-                "          \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
+                "  PluginNameAnchorListComponent\n" +
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          id=TestId123-links\n" +
+                "            \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
+                "            \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
+                "            \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
         );
     }
 
@@ -56,39 +57,21 @@ public final class ValidatorNameAnchorListComponentTest implements ValueComponen
     public void testClearValueSetValue() {
         this.treePrintAndCheck(
             this.createComponent()
+                .clearValue()
                 .setValue(
                     Optional.of(
-                        ValidatorSelector.parse("edit 123")
+                        ValidatorName.with("hello")
                     )
                 ),
             "ValidatorNameAnchorListComponent\n" +
-                "  AnchorListComponent\n" +
-                "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        id=TestId123-links\n" +
-                "          \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree%20123] id=TestId123-apple-tree-Link\n" +
-                "          \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana%20123] id=TestId123-banana-Link\n" +
-                "          \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot%20123] id=TestId123-carrot-Link\n"
-        );
-    }
-
-    @Test
-    public void testSetValueOnlyName() {
-        this.treePrintAndCheck(
-            this.createComponent()
-                .setValue(
-                    Optional.of(
-                        ValidatorSelector.parse("edit")
-                    )
-                ),
-            "ValidatorNameAnchorListComponent\n" +
-                "  AnchorListComponent\n" +
-                "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        id=TestId123-links\n" +
-                "          \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
-                "          \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
-                "          \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
+                "  PluginNameAnchorListComponent\n" +
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          id=TestId123-links\n" +
+                "            \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
+                "            \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
+                "            \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
         );
     }
 
@@ -98,17 +81,18 @@ public final class ValidatorNameAnchorListComponentTest implements ValueComponen
             this.createComponent()
                 .setValue(
                     Optional.of(
-                        ValidatorSelector.parse("edit 123")
+                        ValidatorName.with("carrot")
                     )
                 ),
             "ValidatorNameAnchorListComponent\n" +
-                "  AnchorListComponent\n" +
-                "    FlexLayoutComponent\n" +
-                "      ROW\n" +
-                "        id=TestId123-links\n" +
-                "          \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree%20123] id=TestId123-apple-tree-Link\n" +
-                "          \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana%20123] id=TestId123-banana-Link\n" +
-                "          \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot%20123] id=TestId123-carrot-Link\n"
+                "  PluginNameAnchorListComponent\n" +
+                "    AnchorListComponent\n" +
+                "      FlexLayoutComponent\n" +
+                "        ROW\n" +
+                "          id=TestId123-links\n" +
+                "            \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
+                "            \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
+                "            \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
         );
     }
 
