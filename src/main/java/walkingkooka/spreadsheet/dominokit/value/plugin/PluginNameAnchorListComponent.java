@@ -28,13 +28,9 @@ import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorListComponent;
-import walkingkooka.spreadsheet.dominokit.fetcher.NopEmptyResponseFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.NopFetcherWatcher;
-import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 import walkingkooka.text.CharSequences;
@@ -42,7 +38,6 @@ import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * Holds a list of anchors for each given {@link PluginName}, watching a {@link SpreadsheetMetadataPropertyName} and
@@ -54,11 +49,7 @@ public final class PluginNameAnchorListComponent<N extends Name & Comparable<N>,
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
     AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements ValueComponent<HTMLDivElement, N, PluginNameAnchorListComponent<N, I, IS, S, A, AS>>,
-    HtmlComponentDelegator<HTMLDivElement, PluginNameAnchorListComponent<N, I, IS, S, A, AS>>,
-    SpreadsheetMetadataFetcherWatcher,
-    NopFetcherWatcher,
-
-    NopEmptyResponseFetcherWatcher {
+    HtmlComponentDelegator<HTMLDivElement, PluginNameAnchorListComponent<N, I, IS, S, A, AS>> {
 
     public static <N extends Name & Comparable<N>,
         I extends PluginInfoLike<I, N>,
@@ -186,18 +177,6 @@ public final class PluginNameAnchorListComponent<N extends Name & Comparable<N>,
     @Override
     public HtmlComponent<HTMLDivElement, ?> htmlComponent() {
         return this.anchors;
-    }
-
-    // SpreadsheetMetadataFetcherWatcher................................................................................
-
-    @Override
-    public void onSpreadsheetMetadata(final SpreadsheetMetadata metadata) {
-        this.refresh();
-    }
-
-    @Override
-    public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
-        // nop
     }
 
     // TreePrintable....................................................................................................
