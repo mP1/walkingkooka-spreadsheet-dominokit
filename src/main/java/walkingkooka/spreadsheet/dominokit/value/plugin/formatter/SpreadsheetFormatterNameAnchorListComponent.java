@@ -53,7 +53,7 @@ public final class SpreadsheetFormatterNameAnchorListComponent implements HtmlCo
                 .stream()
                 .map(SpreadsheetFormatterNameAnchorListComponent::linkText)
                 .collect(Collectors.toList()),
-            SpreadsheetFormatterNameLinkListComponentCardAnchorListComponentContext.with(
+            SpreadsheetFormatterNameAnchorListComponentCardAnchorListComponentContext.with(
                 context.formatterName(),
                 context
             ) // context
