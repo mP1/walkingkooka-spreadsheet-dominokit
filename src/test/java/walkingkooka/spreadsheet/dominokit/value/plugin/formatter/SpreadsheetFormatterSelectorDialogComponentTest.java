@@ -85,7 +85,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    A1: Formatter\n" +
                 "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -190,7 +190,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    A1: Formatter\n" +
                 "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -327,7 +327,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    A1: Formatter\n" +
                 "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -483,7 +483,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    A1: Formatter\n" +
                 "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -660,7 +660,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    A1: Formatter\n" +
                 "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -763,7 +763,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "    A1: Formatter\n" +
                 "    id=SpreadsheetFormatterSelector-Dialog includeClose=true\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -895,7 +895,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "          TAB 5\n" +
                 "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeFormatter] id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -1046,7 +1046,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "          TAB 5\n" +
                 "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeFormatter] id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -1216,7 +1216,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "          TAB 5\n" +
                 "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeFormatter] id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -1407,7 +1407,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "          TAB 5\n" +
                 "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeFormatter] id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -1598,7 +1598,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "          TAB 5\n" +
                 "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeFormatter] id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +
@@ -1715,7 +1715,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "          TAB 5 SELECTED\n" +
                 "            \"Time\" DISABLED id=SpreadsheetFormatterSelector-Tabs-timeFormatter\n" +
                 "      SpreadsheetFormatterNameLinkListComponent\n" +
-                "        CardLinkListComponent\n" +
+                "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
                 "              FlexLayoutComponent\n" +

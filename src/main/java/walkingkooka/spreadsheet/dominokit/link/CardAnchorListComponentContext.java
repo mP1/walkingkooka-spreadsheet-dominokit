@@ -22,9 +22,9 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 
 /**
- * Context for {@link CardLinkListComponent}.
+ * Context for {@link CardAnchorListComponent}.
  */
-public interface CardLinkListComponentContext extends HistoryContext {
+public interface CardAnchorListComponentContext extends HistoryContext {
 
     /**
      * Called during a render to test if a text item is disabled.

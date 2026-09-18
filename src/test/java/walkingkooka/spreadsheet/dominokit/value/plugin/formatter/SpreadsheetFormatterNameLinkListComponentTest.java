@@ -38,7 +38,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
         this.refreshAndCheck(
             Optional.empty(),
             "SpreadsheetFormatterNameLinkListComponent\n" +
-                "  CardLinkListComponent\n" +
+                "  CardAnchorListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
                 "        FlexLayoutComponent\n" +
@@ -81,7 +81,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
                 SpreadsheetFormatterName.DATE
             ),
             "SpreadsheetFormatterNameLinkListComponent\n" +
-                "  CardLinkListComponent\n" +
+                "  CardAnchorListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
                 "        FlexLayoutComponent\n" +
