@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -31,10 +30,5 @@ public final class SpreadsheetDeltaCellsTableComponentContextsTest implements Pu
     @Override
     public Class<SpreadsheetDeltaCellsTableComponentContexts> type() {
         return SpreadsheetDeltaCellsTableComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

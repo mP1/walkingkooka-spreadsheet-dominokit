@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.logging;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class LoggingContextsTest implements PublicStaticHelperTesting<Logg
     @Override
     public Class<LoggingContexts> type() {
         return LoggingContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

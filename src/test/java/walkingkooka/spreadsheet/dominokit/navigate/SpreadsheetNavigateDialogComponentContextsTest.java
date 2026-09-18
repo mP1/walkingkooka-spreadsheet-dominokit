@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class SpreadsheetNavigateDialogComponentContextsTest implements Pub
     @Override
     public Class<SpreadsheetNavigateDialogComponentContexts> type() {
         return SpreadsheetNavigateDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

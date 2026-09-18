@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -31,10 +30,5 @@ public final class SpreadsheetViewportComponentKeyBindingsesTest implements Publ
     @Override
     public Class<SpreadsheetViewportComponentKeyBindingses> type() {
         return SpreadsheetViewportComponentKeyBindingses.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

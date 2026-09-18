@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.sort;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class SpreadsheetCellSortDialogComponentContextsTest implements Pub
     @Override
     public Class<SpreadsheetCellSortDialogComponentContexts> type() {
         return SpreadsheetCellSortDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

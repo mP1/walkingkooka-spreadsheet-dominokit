@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.hidezerovalues;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class HideZeroValuesTest implements PublicStaticHelperTesting<HideZ
     @Override
     public Class<HideZeroValues> type() {
         return HideZeroValues.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

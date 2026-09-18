@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class CurrencyExchangeRaterNameAnchorListComponentContextsTest impl
     @Override
     public Class<CurrencyExchangeRaterNameAnchorListComponentContexts> type() {
         return CurrencyExchangeRaterNameAnchorListComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class AppContextsTest implements PublicStaticHelperTesting<AppConte
     @Override
     public Class<AppContexts> type() {
         return AppContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

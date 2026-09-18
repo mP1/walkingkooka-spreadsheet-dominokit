@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.contextmenu;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -26,11 +25,6 @@ public final class SpreadsheetContextMenuTargetsTest implements PublicStaticHelp
     @Override
     public Class<SpreadsheetContextMenuTargets> type() {
         return SpreadsheetContextMenuTargets.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

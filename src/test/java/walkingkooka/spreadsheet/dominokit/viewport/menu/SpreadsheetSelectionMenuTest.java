@@ -23,7 +23,6 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
@@ -7452,11 +7451,6 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     @Override
     public Class<SpreadsheetSelectionMenu> type() {
         return SpreadsheetSelectionMenu.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

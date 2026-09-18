@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.label;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class SpreadsheetLabelAnchorListComponentContextsTest implements Pu
     @Override
     public Class<SpreadsheetLabelAnchorListComponentContexts> type() {
         return SpreadsheetLabelAnchorListComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

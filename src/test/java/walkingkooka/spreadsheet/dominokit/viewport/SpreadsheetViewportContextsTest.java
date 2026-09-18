@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class SpreadsheetViewportContextsTest implements PublicStaticHelper
     @Override
     public Class<SpreadsheetViewportContexts> type() {
         return SpreadsheetViewportContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

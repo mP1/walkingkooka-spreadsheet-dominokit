@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.pluginaliassetlike;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class PluginAliasSetLikeDialogComponentContextsTest implements Publ
     @Override
     public Class<PluginAliasSetLikeDialogComponentContexts> type() {
         return PluginAliasSetLikeDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

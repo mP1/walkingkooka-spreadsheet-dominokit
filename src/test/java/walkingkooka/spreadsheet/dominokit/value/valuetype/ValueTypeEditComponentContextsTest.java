@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.valuetype;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -32,10 +31,5 @@ public final class ValueTypeEditComponentContextsTest implements PublicStaticHel
     @Override
     public Class<ValueTypeEditComponentContexts> type() {
         return ValueTypeEditComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

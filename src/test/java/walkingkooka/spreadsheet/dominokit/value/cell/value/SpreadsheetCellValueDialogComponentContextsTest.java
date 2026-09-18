@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.cell.value;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class SpreadsheetCellValueDialogComponentContextsTest implements Pu
     @Override
     public Class<SpreadsheetCellValueDialogComponentContexts> type() {
         return SpreadsheetCellValueDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

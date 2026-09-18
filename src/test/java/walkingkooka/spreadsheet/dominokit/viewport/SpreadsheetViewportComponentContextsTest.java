@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class SpreadsheetViewportComponentContextsTest implements PublicSta
     @Override
     public Class<SpreadsheetViewportComponentContexts> type() {
         return SpreadsheetViewportComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override

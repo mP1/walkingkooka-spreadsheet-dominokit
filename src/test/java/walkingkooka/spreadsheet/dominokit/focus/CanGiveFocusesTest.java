@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.focus;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -31,10 +30,5 @@ public final class CanGiveFocusesTest implements PublicStaticHelperTesting<CanGi
     @Override
     public Class<CanGiveFocuses> type() {
         return CanGiveFocuses.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

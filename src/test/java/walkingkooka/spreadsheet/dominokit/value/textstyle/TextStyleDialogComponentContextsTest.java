@@ -17,7 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 
 import java.lang.reflect.Method;
@@ -27,11 +26,6 @@ public final class TextStyleDialogComponentContextsTest implements PublicStaticH
     @Override
     public Class<TextStyleDialogComponentContexts> type() {
         return TextStyleDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     @Override
