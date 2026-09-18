@@ -25,23 +25,23 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProviderDelegat
 
 import java.util.Optional;
 
-final class SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext implements SpreadsheetParserNameLinkListComponentContext,
+final class SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameAnchorListComponentContext implements SpreadsheetParserNameAnchorListComponentContext,
     HistoryContextDelegator,
     SpreadsheetParserProviderDelegator {
 
-    static SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext with(final HistoryContext historyContext,
-                                                                                                      final SpreadsheetParserProvider spreadsheetParserProvider,
-                                                                                                      final Optional<SpreadsheetParserName> parserName) {
-        return new SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext(
+    static SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameAnchorListComponentContext with(final HistoryContext historyContext,
+                                                                                                        final SpreadsheetParserProvider spreadsheetParserProvider,
+                                                                                                        final Optional<SpreadsheetParserName> parserName) {
+        return new SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameAnchorListComponentContext(
             historyContext,
             spreadsheetParserProvider,
             parserName
         );
     }
 
-    private SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext(final HistoryContext historyContext,
-                                                                                                  final SpreadsheetParserProvider spreadsheetParserProvider,
-                                                                                                  final Optional<SpreadsheetParserName> parserName) {
+    private SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameAnchorListComponentContext(final HistoryContext historyContext,
+                                                                                                    final SpreadsheetParserProvider spreadsheetParserProvider,
+                                                                                                    final Optional<SpreadsheetParserName> parserName) {
         this.historyContext = historyContext;
         this.spreadsheetParserProvider = spreadsheetParserProvider;
         this.parserName = parserName;

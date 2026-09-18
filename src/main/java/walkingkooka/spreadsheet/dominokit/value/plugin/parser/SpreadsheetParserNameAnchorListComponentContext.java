@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProvider;
 
 import java.util.Optional;
 
-public interface SpreadsheetParserNameLinkListComponentContext extends HistoryContext, SpreadsheetParserProvider {
+public interface SpreadsheetParserNameAnchorListComponentContext extends HistoryContext, SpreadsheetParserProvider {
 
     /**
      * Returns the currently selected {@link SpreadsheetParserName}.

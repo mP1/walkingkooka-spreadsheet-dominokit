@@ -24,19 +24,19 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
 
 import java.util.Optional;
 
-final class SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext implements CardAnchorListComponentContext,
+final class SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContext implements CardAnchorListComponentContext,
     HistoryContextDelegator {
 
-    static SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext with(final Optional<SpreadsheetParserName> name,
-                                                                                     final HistoryContext context) {
-        return new SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext(
+    static SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContext with(final Optional<SpreadsheetParserName> name,
+                                                                                       final HistoryContext context) {
+        return new SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContext(
             name,
             context
         );
     }
 
-    private SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext(final Optional<SpreadsheetParserName> name,
-                                                                                 final HistoryContext context) {
+    private SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContext(final Optional<SpreadsheetParserName> name,
+                                                                                   final HistoryContext context) {
         this.name = name;
         this.context = context;
     }

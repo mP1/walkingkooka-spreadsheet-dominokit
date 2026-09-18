@@ -96,7 +96,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
             ) :
             null;
 
-        this.parserNames = SpreadsheetParserNameLinkListComponent.empty(ID + "-parserNames-");
+        this.parserNames = SpreadsheetParserNameAnchorListComponent.empty(ID + "-parserNames-");
         this.parserName = Optional.empty();
 
         this.table = SpreadsheetFormatterTableComponent.empty(ID + "-");
@@ -165,7 +165,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
 
     // tabs............................................................................................................
 
-    private final SpreadsheetParserNameLinkListComponent parserNames;
+    private final SpreadsheetParserNameAnchorListComponent parserNames;
 
     // sample...........................................................................................................
 
@@ -373,7 +373,7 @@ public final class SpreadsheetParserSelectorDialogComponent implements DialogCom
         }
 
         this.parserNames.refresh(
-            SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameLinkListComponentContext.with(
+            SpreadsheetParserSelectorDialogComponentSpreadsheetParserNameAnchorListComponentContext.with(
                 context, // HistoryContext
                 context, // SpreadsheetParserProvider,
                 this.parserName

@@ -29,8 +29,8 @@ import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelectorToken;
 import java.util.List;
 import java.util.Optional;
 
-public class FakeSpreadsheetParserNameLinkListComponentContext extends FakeHistoryContext
-    implements SpreadsheetParserNameLinkListComponentContext {
+public class FakeSpreadsheetParserNameAnchorListComponentContext extends FakeHistoryContext
+    implements SpreadsheetParserNameAnchorListComponentContext {
 
     @Override
     public Optional<SpreadsheetParserName> parserName() {

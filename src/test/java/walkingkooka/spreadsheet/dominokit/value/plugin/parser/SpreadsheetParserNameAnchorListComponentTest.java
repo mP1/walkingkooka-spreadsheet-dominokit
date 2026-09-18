@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponentTesting<SpreadsheetParserNameLinkListComponent, HTMLDivElement>,
+public class SpreadsheetParserNameAnchorListComponentTest implements HtmlComponentTesting<SpreadsheetParserNameAnchorListComponent, HTMLDivElement>,
     SpreadsheetMetadataTesting {
 
     private final static String ID = "ID123-";
@@ -37,7 +37,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
     public void testRefresh() {
         this.refreshAndCheck(
             Optional.empty(),
-            "SpreadsheetParserNameLinkListComponent\n" +
+            "SpreadsheetParserNameAnchorListComponent\n" +
                 "  CardAnchorListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
@@ -70,7 +70,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
             Optional.of(
                 SpreadsheetParserName.DATE
             ),
-            "SpreadsheetParserNameLinkListComponent\n" +
+            "SpreadsheetParserNameAnchorListComponent\n" +
                 "  CardAnchorListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
@@ -99,9 +99,9 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
 
     private void refreshAndCheck(final Optional<SpreadsheetParserName> spreadsheetParserName,
                                  final String expected) {
-        final SpreadsheetParserNameLinkListComponent parsers = SpreadsheetParserNameLinkListComponent.empty(ID);
+        final SpreadsheetParserNameAnchorListComponent parsers = SpreadsheetParserNameAnchorListComponent.empty(ID);
         parsers.refresh(
-            new FakeSpreadsheetParserNameLinkListComponentContext() {
+            new FakeSpreadsheetParserNameAnchorListComponentContext() {
                 @Override
                 public SpreadsheetParserInfoSet spreadsheetParserInfos() {
                     return SPREADSHEET_PARSER_PROVIDER.spreadsheetParserInfos();
@@ -131,7 +131,7 @@ public class SpreadsheetParserNameLinkListComponentTest implements HtmlComponent
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetParserNameLinkListComponent> type() {
-        return SpreadsheetParserNameLinkListComponent.class;
+    public Class<SpreadsheetParserNameAnchorListComponent> type() {
+        return SpreadsheetParserNameAnchorListComponent.class;
     }
 }
