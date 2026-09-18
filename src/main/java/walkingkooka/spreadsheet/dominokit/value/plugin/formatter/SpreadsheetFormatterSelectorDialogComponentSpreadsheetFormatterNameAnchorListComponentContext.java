@@ -25,23 +25,23 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviderDele
 
 import java.util.Optional;
 
-final class SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext implements SpreadsheetFormatterNameLinkListComponentContext,
+final class SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameAnchorListComponentContext implements SpreadsheetFormatterNameAnchorListComponentContext,
     HistoryContextDelegator,
     SpreadsheetFormatterProviderDelegator {
 
-    static SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext with(final HistoryContext historyContext,
-                                                                                                            final SpreadsheetFormatterProvider spreadsheetFormatterProvider,
-                                                                                                            final Optional<SpreadsheetFormatterName> formatterName) {
-        return new SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext(
+    static SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameAnchorListComponentContext with(final HistoryContext historyContext,
+                                                                                                              final SpreadsheetFormatterProvider spreadsheetFormatterProvider,
+                                                                                                              final Optional<SpreadsheetFormatterName> formatterName) {
+        return new SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameAnchorListComponentContext(
             historyContext,
             spreadsheetFormatterProvider,
             formatterName
         );
     }
 
-    private SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext(final HistoryContext historyContext,
-                                                                                                        final SpreadsheetFormatterProvider spreadsheetFormatterProvider,
-                                                                                                        final Optional<SpreadsheetFormatterName> formatterName) {
+    private SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameAnchorListComponentContext(final HistoryContext historyContext,
+                                                                                                          final SpreadsheetFormatterProvider spreadsheetFormatterProvider,
+                                                                                                          final Optional<SpreadsheetFormatterName> formatterName) {
         this.historyContext = historyContext;
         this.spreadsheetFormatterProvider = spreadsheetFormatterProvider;
         this.formatterName = formatterName;

@@ -97,7 +97,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
             ) :
             null;
 
-        this.formatterNames = SpreadsheetFormatterNameLinkListComponent.empty(ID + "-formatterNames-");
+        this.formatterNames = SpreadsheetFormatterNameAnchorListComponent.empty(ID + "-formatterNames-");
 
         this.table = SpreadsheetFormatterTableComponent.empty(
             ID + "-"
@@ -169,7 +169,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
 
     // formatterNames...................................................................................................
 
-    private final SpreadsheetFormatterNameLinkListComponent formatterNames;
+    private final SpreadsheetFormatterNameAnchorListComponent formatterNames;
 
     // sample...........................................................................................................
 
@@ -381,7 +381,7 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
         }
 
         this.formatterNames.refresh(
-            SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameLinkListComponentContext.with(
+            SpreadsheetFormatterSelectorDialogComponentSpreadsheetFormatterNameAnchorListComponentContext.with(
                 context, // HistoryContext
                 context, // SpreadsheetFormatterProvider,
                 this.formatterName
