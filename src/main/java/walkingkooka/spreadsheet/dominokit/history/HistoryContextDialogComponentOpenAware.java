@@ -26,17 +26,17 @@ import java.util.function.BooleanSupplier;
  * A {@link HistoryContext} that wraps another, filtering (skipping) {@link HistoryWatcher}
  * if the enclosing {@link DialogComponent} is closed.
  */
-final class DialogComponentOpenAwareHistoryContext implements HistoryContextDelegator {
+final class HistoryContextDialogComponentOpenAware implements HistoryContextDelegator {
 
-    static DialogComponentOpenAwareHistoryContext with(final BooleanSupplier isDialogOpen,
+    static HistoryContextDialogComponentOpenAware with(final BooleanSupplier isDialogOpen,
                                                        final HistoryContext context) {
-        return new DialogComponentOpenAwareHistoryContext(
+        return new HistoryContextDialogComponentOpenAware(
             Objects.requireNonNull(isDialogOpen, "isDialogOpen"),
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private DialogComponentOpenAwareHistoryContext(final BooleanSupplier isDialogOpen,
+    private HistoryContextDialogComponentOpenAware(final BooleanSupplier isDialogOpen,
                                                    final HistoryContext context) {
         super();
         this.isDialogOpen = isDialogOpen;
