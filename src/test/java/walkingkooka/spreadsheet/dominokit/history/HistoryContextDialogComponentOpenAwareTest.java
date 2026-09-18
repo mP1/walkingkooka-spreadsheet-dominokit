@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
-import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
@@ -88,11 +87,6 @@ public final class HistoryContextDialogComponentOpenAwareTest implements History
     private boolean fired;
 
     @Override
-    public void testPushHistoryTokenWithNullFails() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public HistoryContextDialogComponentOpenAware createContext() {
         return this.createContext(true);
     }
@@ -100,31 +94,13 @@ public final class HistoryContextDialogComponentOpenAwareTest implements History
     private HistoryContextDialogComponentOpenAware createContext(final boolean isDialogOpen) {
         return HistoryContextDialogComponentOpenAware.with(
             () -> isDialogOpen,
-            new FakeDialogAnchorListComponentContext<>() {
-
-                @Override
-                public Runnable addHistoryWatcher(final HistoryWatcher watcher) {
-                    return this.watcher.add(watcher);
-                }
-
-                @Override
-                public Runnable addHistoryWatcherOnce(final HistoryWatcher watcher) {
-                    return this.watcher.addOnce(watcher);
-                }
-
-                private final HistoryWatchers watcher = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
-
-                @Override
-                public void fireCurrentHistoryToken() {
-                    this.watcher.onHistoryTokenChange(
-                        HistoryToken.spreadsheetSelect(
-                            SpreadsheetId.with(1),
-                            SpreadsheetName.with("SpreadsheetName1")
-                        ),
-                        AppContexts.fake()
-                    );
-                }
-            }
+            HistoryContexts.basic(
+                HistoryToken.spreadsheetSelect(
+                    SpreadsheetId.with(1),
+                    SpreadsheetName.with("SpreadsheetName1")
+                ),
+                AppContexts.fake()
+            )
         );
     }
 
