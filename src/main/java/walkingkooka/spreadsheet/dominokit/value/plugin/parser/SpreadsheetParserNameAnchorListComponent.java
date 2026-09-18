@@ -32,13 +32,13 @@ import java.util.stream.Collectors;
 /**
  * A component that list all available {@link SpreadsheetParserName} by querying {@link SpreadsheetParserProvider#spreadsheetParserInfos()}.
  */
-public final class SpreadsheetParserNameLinkListComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetParserNameLinkListComponent> {
+public final class SpreadsheetParserNameAnchorListComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetParserNameAnchorListComponent> {
 
-    static SpreadsheetParserNameLinkListComponent empty(final String id) {
-        return new SpreadsheetParserNameLinkListComponent(id);
+    static SpreadsheetParserNameAnchorListComponent empty(final String id) {
+        return new SpreadsheetParserNameAnchorListComponent(id);
     }
 
-    private SpreadsheetParserNameLinkListComponent(final String id) {
+    private SpreadsheetParserNameAnchorListComponent(final String id) {
         super();
         this.list = CardAnchorListComponent.with(
             id,
@@ -47,13 +47,13 @@ public final class SpreadsheetParserNameLinkListComponent implements HtmlCompone
         );
     }
 
-    public void refresh(final SpreadsheetParserNameLinkListComponentContext context) {
+    public void refresh(final SpreadsheetParserNameAnchorListComponentContext context) {
         this.list.refresh(
             context.spreadsheetParserInfos()
                 .stream()
-                .map(SpreadsheetParserNameLinkListComponent::linkText)
+                .map(SpreadsheetParserNameAnchorListComponent::linkText)
                 .collect(Collectors.toList()),
-            SpreadsheetParserNameLinkListComponentCardAnchorListComponentContext.with(
+            SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContext.with(
                 context.parserName(),
                 context
             ) // context

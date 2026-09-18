@@ -84,7 +84,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "  DialogComponent\n" +
                 "    A1: Parser\n" +
                 "    id=SpreadsheetParserSelector-Dialog includeClose=true\n" +
-                "      SpreadsheetParserNameLinkListComponent\n" +
+                "      SpreadsheetParserNameAnchorListComponent\n" +
                 "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
@@ -179,7 +179,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "  DialogComponent\n" +
                 "    A1: Parser\n" +
                 "    id=SpreadsheetParserSelector-Dialog includeClose=true\n" +
-                "      SpreadsheetParserNameLinkListComponent\n" +
+                "      SpreadsheetParserNameAnchorListComponent\n" +
                 "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
@@ -306,7 +306,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "  DialogComponent\n" +
                 "    A1: Parser\n" +
                 "    id=SpreadsheetParserSelector-Dialog includeClose=true\n" +
-                "      SpreadsheetParserNameLinkListComponent\n" +
+                "      SpreadsheetParserNameAnchorListComponent\n" +
                 "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
@@ -452,7 +452,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "  DialogComponent\n" +
                 "    A1: Parser\n" +
                 "    id=SpreadsheetParserSelector-Dialog includeClose=true\n" +
-                "      SpreadsheetParserNameLinkListComponent\n" +
+                "      SpreadsheetParserNameAnchorListComponent\n" +
                 "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
@@ -619,7 +619,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "  DialogComponent\n" +
                 "    A1: Parser\n" +
                 "    id=SpreadsheetParserSelector-Dialog includeClose=true\n" +
-                "      SpreadsheetParserNameLinkListComponent\n" +
+                "      SpreadsheetParserNameAnchorListComponent\n" +
                 "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
@@ -737,7 +737,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            \"Number\" [#/123/Spreadsheet1/spreadsheet/numberParser] id=SpreadsheetParserSelector-Tabs-numberParser\n" +
                 "          TAB 3\n" +
                 "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeParser] id=SpreadsheetParserSelector-Tabs-timeParser\n" +
-                "      SpreadsheetParserNameLinkListComponent\n" +
+                "      SpreadsheetParserNameAnchorListComponent\n" +
                 "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
@@ -874,7 +874,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            \"Number\" [#/123/Spreadsheet1/spreadsheet/numberParser] id=SpreadsheetParserSelector-Tabs-numberParser\n" +
                 "          TAB 3\n" +
                 "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeParser] id=SpreadsheetParserSelector-Tabs-timeParser\n" +
-                "      SpreadsheetParserNameLinkListComponent\n" +
+                "      SpreadsheetParserNameAnchorListComponent\n" +
                 "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
@@ -1030,7 +1030,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            \"Number\" DISABLED id=SpreadsheetParserSelector-Tabs-numberParser\n" +
                 "          TAB 3\n" +
                 "            \"Time\" [#/123/Spreadsheet1/spreadsheet/timeParser] id=SpreadsheetParserSelector-Tabs-timeParser\n" +
-                "      SpreadsheetParserNameLinkListComponent\n" +
+                "      SpreadsheetParserNameAnchorListComponent\n" +
                 "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
@@ -1207,7 +1207,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            \"Number\" [#/123/Spreadsheet1/spreadsheet/numberParser] id=SpreadsheetParserSelector-Tabs-numberParser\n" +
                 "          TAB 3 SELECTED\n" +
                 "            \"Time\" DISABLED id=SpreadsheetParserSelector-Tabs-timeParser\n" +
-                "      SpreadsheetParserNameLinkListComponent\n" +
+                "      SpreadsheetParserNameAnchorListComponent\n" +
                 "        CardAnchorListComponent\n" +
                 "          CardComponent\n" +
                 "            Card\n" +
