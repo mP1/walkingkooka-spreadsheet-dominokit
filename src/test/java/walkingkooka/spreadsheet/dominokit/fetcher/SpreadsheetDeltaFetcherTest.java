@@ -56,7 +56,8 @@ import java.util.OptionalInt;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTesting {
+public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<SpreadsheetDeltaFetcher, SpreadsheetDeltaFetcherWatcher>,
+    SpreadsheetMetadataTesting {
 
     // isGetAllCells....................................................................................................
 
@@ -1377,5 +1378,12 @@ public final class SpreadsheetDeltaFetcherTest implements SpreadsheetMetadataTes
             ),
             () -> "patchValuePatch " + valueType + " " + value.map(CharSequences::quoteIfChars).orElse(null)
         );
+    }
+
+    // class............................................................................................................
+
+    @Override
+    public Class<SpreadsheetDeltaFetcher> type() {
+        return SpreadsheetDeltaFetcher.class;
     }
 }

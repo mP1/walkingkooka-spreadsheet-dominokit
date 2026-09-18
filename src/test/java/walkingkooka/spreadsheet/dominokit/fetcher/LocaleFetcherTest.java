@@ -20,10 +20,8 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import org.junit.jupiter.api.Test;
 import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.net.UrlPath;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 
-public final class LocaleFetcherTest implements ClassTesting<LocaleFetcher> {
+public final class LocaleFetcherTest implements FetcherTesting<LocaleFetcher, LocaleFetcherWatcher> {
 
     @Test
     public void testLocaleLanguageTagGet() {
@@ -46,10 +44,5 @@ public final class LocaleFetcherTest implements ClassTesting<LocaleFetcher> {
     @Override
     public Class<LocaleFetcher> type() {
         return LocaleFetcher.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

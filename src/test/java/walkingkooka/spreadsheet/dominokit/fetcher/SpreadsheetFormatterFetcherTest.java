@@ -21,8 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -33,7 +31,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetFormatterFetcherTest implements ClassTesting<SpreadsheetFormatterFetcher> {
+public final class SpreadsheetFormatterFetcherTest implements FetcherTesting<SpreadsheetFormatterFetcher, SpreadsheetFormatterFetcherWatcher> {
 
     @Test
     public void testUrlWithNullFails() {
@@ -285,15 +283,10 @@ public final class SpreadsheetFormatterFetcherTest implements ClassTesting<Sprea
         );
     }
 
-    // ClassTesting.....................................................................................................
+    // class............................................................................................................
 
     @Override
     public Class<SpreadsheetFormatterFetcher> type() {
         return SpreadsheetFormatterFetcher.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }
