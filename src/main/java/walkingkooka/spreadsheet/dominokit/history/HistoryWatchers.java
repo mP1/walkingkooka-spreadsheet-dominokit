@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.history;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.watch.Watchers;
 
+import java.util.Objects;
+
 public final class HistoryWatchers implements HistoryWatcher {
 
     public static HistoryWatchers empty() {
@@ -27,12 +29,16 @@ public final class HistoryWatchers implements HistoryWatcher {
     }
 
     public Runnable add(final HistoryWatcher watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
         return this.watchers.add(
             (e) -> e.accept(watcher)
         );
     }
 
     public Runnable addOnce(final HistoryWatcher watcher) {
+        Objects.requireNonNull(watcher, "watcher");
+
         return this.watchers.addOnce(
             (e) -> e.accept(watcher)
         );
