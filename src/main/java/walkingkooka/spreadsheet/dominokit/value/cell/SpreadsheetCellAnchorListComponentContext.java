@@ -17,6 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.value.cell;
 
-public interface SpreadsheetCellLinksComponentContextTesting<C extends SpreadsheetCellLinksComponentContext> extends SpreadsheetCellLabelsAnchorComponentContextTesting<C>,
-    SpreadsheetCellReferencesAnchorComponentContextTesting<C> {
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.value.cell.value.SpreadsheetCellValueAnchorComponentContext;
+
+public interface SpreadsheetCellAnchorListComponentContext extends SpreadsheetCellLabelsAnchorComponentContext,
+    SpreadsheetCellReferencesAnchorComponentContext,
+    SpreadsheetCellValueAnchorComponentContext,
+    HistoryContext {
 }

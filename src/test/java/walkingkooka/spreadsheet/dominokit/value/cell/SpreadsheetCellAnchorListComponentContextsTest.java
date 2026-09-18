@@ -17,11 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.value.cell;
 
-import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
-import walkingkooka.spreadsheet.dominokit.value.cell.value.SpreadsheetCellValueAnchorComponentContext;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public interface SpreadsheetCellLinksComponentContext extends SpreadsheetCellLabelsAnchorComponentContext,
-    SpreadsheetCellReferencesAnchorComponentContext,
-    SpreadsheetCellValueAnchorComponentContext,
-    HistoryContext {
+import java.lang.reflect.Method;
+
+public final class SpreadsheetCellAnchorListComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetCellAnchorListComponentContexts> {
+
+    @Override
+    public Class<SpreadsheetCellAnchorListComponentContexts> type() {
+        return SpreadsheetCellAnchorListComponentContexts.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
+
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
+    }
 }

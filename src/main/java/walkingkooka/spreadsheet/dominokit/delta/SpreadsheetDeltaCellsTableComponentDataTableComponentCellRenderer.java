@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.delta;
 import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
-import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellLinksComponent;
+import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.spreadsheetexpressionreference.SpreadsheetExpressionReferenceSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
@@ -111,10 +111,10 @@ final class SpreadsheetDeltaCellsTableComponentDataTableComponentCellRenderer im
         );
     }
 
-    private SpreadsheetCellLinksComponent renderCellLinks(final SpreadsheetCell cell) {
+    private SpreadsheetCellAnchorListComponent renderCellLinks(final SpreadsheetCell cell) {
         final SpreadsheetCellReference cellReference = cell.reference();
 
-        return SpreadsheetCellLinksComponent.empty(
+        return SpreadsheetCellAnchorListComponent.empty(
             this.idPrefix + cellReference + "-",
             this.context
         ).setValue(

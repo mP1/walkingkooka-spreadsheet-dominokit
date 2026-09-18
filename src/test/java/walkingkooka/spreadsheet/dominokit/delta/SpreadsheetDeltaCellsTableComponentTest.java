@@ -143,7 +143,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "              \"\"\n" +
                 "            TextNodeComponent\n" +
                 "              Hello\n" +
-                "            SpreadsheetCellLinksComponent\n" +
+                "            SpreadsheetCellAnchorListComponent\n" +
                 "              AnchorListComponent\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
@@ -209,7 +209,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "              \"\"\n" +
                 "            TextNodeComponent\n" +
                 "              Hello\n" +
-                "            SpreadsheetCellLinksComponent\n" +
+                "            SpreadsheetCellAnchorListComponent\n" +
                 "              AnchorListComponent\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +
@@ -225,7 +225,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "              \"\"\n" +
                 "            TextNodeComponent\n" +
                 "              2222\n" +
-                "            SpreadsheetCellLinksComponent\n" +
+                "            SpreadsheetCellAnchorListComponent\n" +
                 "              AnchorListComponent\n" +
                 "                FlexLayoutComponent\n" +
                 "                  ROW\n" +

@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.anchor.AnchorComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
-import walkingkooka.spreadsheet.dominokit.value.cell.FakeSpreadsheetCellLinksComponentContext;
+import walkingkooka.spreadsheet.dominokit.value.cell.FakeSpreadsheetCellAnchorListComponentContext;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -229,7 +229,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                                                                 final SpreadsheetCell cell) {
         return SpreadsheetCellValueAnchorComponent.with(
             "cell-value-anchor-id",
-            new FakeSpreadsheetCellLinksComponentContext() {
+            new FakeSpreadsheetCellAnchorListComponentContext() {
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.parseString(historyToken);

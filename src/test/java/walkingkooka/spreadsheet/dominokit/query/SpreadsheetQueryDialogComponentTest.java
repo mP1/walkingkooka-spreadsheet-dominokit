@@ -769,7 +769,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  TextComponent\n" +
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
-                "                  SpreadsheetCellLinksComponent\n" +
+                "                  SpreadsheetCellAnchorListComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
@@ -784,7 +784,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  TextComponent\n" +
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
-                "                  SpreadsheetCellLinksComponent\n" +
+                "                  SpreadsheetCellAnchorListComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +

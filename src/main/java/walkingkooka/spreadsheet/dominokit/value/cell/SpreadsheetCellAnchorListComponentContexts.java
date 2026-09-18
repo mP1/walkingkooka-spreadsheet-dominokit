@@ -19,19 +19,19 @@ package walkingkooka.spreadsheet.dominokit.value.cell;
 
 import walkingkooka.reflect.PublicStaticHelper;
 
-public final class SpreadsheetCellLinksComponentContexts implements PublicStaticHelper {
+public final class SpreadsheetCellAnchorListComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see FakeSpreadsheetCellLinksComponentContext}
+     * {@see FakeSpreadsheetCellAnchorListComponentContext}
      */
-    public static SpreadsheetCellLinksComponentContext fake() {
-        return new FakeSpreadsheetCellLinksComponentContext();
+    public static SpreadsheetCellAnchorListComponentContext fake() {
+        return new FakeSpreadsheetCellAnchorListComponentContext();
     }
 
     /**
      * Stop creation
      */
-    private SpreadsheetCellLinksComponentContexts() {
+    private SpreadsheetCellAnchorListComponentContexts() {
         throw new UnsupportedOperationException();
     }
 }
