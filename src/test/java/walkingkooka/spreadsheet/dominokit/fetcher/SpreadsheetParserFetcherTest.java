@@ -20,13 +20,11 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetParserFetcherTest implements ClassTesting<SpreadsheetParserFetcher> {
+public final class SpreadsheetParserFetcherTest implements FetcherTesting<SpreadsheetParserFetcher, SpreadsheetParserFetcherWatcher> {
 
     @Test
     public void testUrlWithNullFails() {
@@ -88,15 +86,10 @@ public final class SpreadsheetParserFetcherTest implements ClassTesting<Spreadsh
         );
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<SpreadsheetParserFetcher> type() {
         return SpreadsheetParserFetcher.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

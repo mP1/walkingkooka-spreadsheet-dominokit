@@ -21,12 +21,9 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.text.printer.TreePrintableTesting;
 
-public final class DateTimeSymbolsFetcherTest implements TreePrintableTesting,
-    ClassTesting<DateTimeSymbolsFetcher> {
+public final class DateTimeSymbolsFetcherTest implements FetcherTesting<DateTimeSymbolsFetcher, DateTimeSymbolsFetcherWatcher> {
 
     @Test
     public void testLocaleLanguageTagTemplateGet() {

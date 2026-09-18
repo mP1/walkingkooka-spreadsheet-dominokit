@@ -20,10 +20,8 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import org.junit.jupiter.api.Test;
 import walkingkooka.currency.CurrencyCode;
 import walkingkooka.net.UrlPath;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 
-public final class CurrencyFetcherTest implements ClassTesting<CurrencyFetcher> {
+public final class CurrencyFetcherTest implements FetcherTesting<CurrencyFetcher, CurrencyFetcherWatcher> {
 
     @Test
     public void testCurrencyCodeGet() {
@@ -46,10 +44,5 @@ public final class CurrencyFetcherTest implements ClassTesting<CurrencyFetcher> 
     @Override
     public Class<CurrencyFetcher> type() {
         return CurrencyFetcher.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

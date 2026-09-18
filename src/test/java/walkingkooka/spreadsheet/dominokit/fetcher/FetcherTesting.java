@@ -17,10 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-public final class ExpressionFunctionFetcherTest implements FetcherTesting<ExpressionFunctionFetcher, ExpressionFunctionFetcherWatcher> {
+import walkingkooka.reflect.PublicClassTesting;
+import walkingkooka.text.printer.TreePrintableTesting;
 
-    @Override
-    public Class<ExpressionFunctionFetcher> type() {
-        return ExpressionFunctionFetcher.class;
-    }
+public interface FetcherTesting<F extends Fetcher<W>, W extends FetcherWatcher> extends PublicClassTesting<F>,
+    TreePrintableTesting {
 }

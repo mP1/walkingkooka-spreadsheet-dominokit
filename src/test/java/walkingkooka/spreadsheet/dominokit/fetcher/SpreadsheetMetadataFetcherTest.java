@@ -20,8 +20,6 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.RelativeUrl;
 import walkingkooka.net.Url;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
@@ -29,7 +27,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetMetadataFetcherTest implements ClassTesting<SpreadsheetMetadataFetcher> {
+public final class SpreadsheetMetadataFetcherTest implements FetcherTesting<SpreadsheetMetadataFetcher, SpreadsheetMetadataFetcherWatcher> {
 
     @Test
     public void testUrlWithNullFails() {
@@ -137,15 +135,10 @@ public final class SpreadsheetMetadataFetcherTest implements ClassTesting<Spread
         );
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<SpreadsheetMetadataFetcher> type() {
         return SpreadsheetMetadataFetcher.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }
