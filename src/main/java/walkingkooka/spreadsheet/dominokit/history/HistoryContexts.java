@@ -36,11 +36,11 @@ public final class HistoryContexts implements PublicStaticHelper {
     }
 
     /**
-     * {@see DialogComponentOpenAwareHistoryContext}
+     * {@see HistoryContextDialogComponentOpenAware}
      */
     public static HistoryContext dialogComponentOpenAware(final BooleanSupplier isDialogOpen,
                                                           final HistoryContext context) {
-        return DialogComponentOpenAwareHistoryContext.with(
+        return HistoryContextDialogComponentOpenAware.with(
             isDialogOpen,
             context
         );

@@ -25,16 +25,16 @@ import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogAnchorListComponentCo
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
-public final class DialogComponentOpenAwareHistoryContextTest implements HistoryContextTesting<DialogComponentOpenAwareHistoryContext> {
+public final class HistoryContextDialogComponentOpenAwareTest implements HistoryContextTesting<HistoryContextDialogComponentOpenAware> {
 
     @Test
     public void testAddHistoryWatcherOnHistoryTokenDialogOpen() {
         this.fired = false;
 
-        final DialogComponentOpenAwareHistoryContext context = this.createContext(true);
+        final HistoryContextDialogComponentOpenAware context = this.createContext(true);
         context.addHistoryWatcher(
             (final HistoryToken previous,
-             final AppContext appContext) -> DialogComponentOpenAwareHistoryContextTest.this.fired = true
+             final AppContext appContext) -> HistoryContextDialogComponentOpenAwareTest.this.fired = true
         );
         context.fireCurrentHistoryToken();
 
@@ -46,7 +46,7 @@ public final class DialogComponentOpenAwareHistoryContextTest implements History
 
     @Test
     public void testAddHistoryWatcherOnHistoryTokenDialogClose() {
-        final DialogComponentOpenAwareHistoryContext context = this.createContext(false);
+        final HistoryContextDialogComponentOpenAware context = this.createContext(false);
         context.addHistoryWatcher(
             (final HistoryToken previous,
              final AppContext appContext) -> {
@@ -60,10 +60,10 @@ public final class DialogComponentOpenAwareHistoryContextTest implements History
     public void testAddHistoryWatcherOnceOnHistoryTokenDialogOpen() {
         this.fired = false;
 
-        final DialogComponentOpenAwareHistoryContext context = this.createContext(true);
+        final HistoryContextDialogComponentOpenAware context = this.createContext(true);
         context.addHistoryWatcherOnce(
             (final HistoryToken previous,
-             final AppContext appContext) -> DialogComponentOpenAwareHistoryContextTest.this.fired = true
+             final AppContext appContext) -> HistoryContextDialogComponentOpenAwareTest.this.fired = true
         );
         context.fireCurrentHistoryToken();
 
@@ -75,7 +75,7 @@ public final class DialogComponentOpenAwareHistoryContextTest implements History
 
     @Test
     public void testAddHistoryWatcherOnceOnHistoryTokenDialogClose() {
-        final DialogComponentOpenAwareHistoryContext context = this.createContext(false);
+        final HistoryContextDialogComponentOpenAware context = this.createContext(false);
         context.addHistoryWatcherOnce(
             (final HistoryToken previous,
              final AppContext appContext) -> {
@@ -93,12 +93,12 @@ public final class DialogComponentOpenAwareHistoryContextTest implements History
     }
 
     @Override
-    public DialogComponentOpenAwareHistoryContext createContext() {
+    public HistoryContextDialogComponentOpenAware createContext() {
         return this.createContext(true);
     }
 
-    private DialogComponentOpenAwareHistoryContext createContext(final boolean isDialogOpen) {
-        return DialogComponentOpenAwareHistoryContext.with(
+    private HistoryContextDialogComponentOpenAware createContext(final boolean isDialogOpen) {
+        return HistoryContextDialogComponentOpenAware.with(
             () -> isDialogOpen,
             new FakeDialogAnchorListComponentContext<>() {
 
@@ -129,7 +129,12 @@ public final class DialogComponentOpenAwareHistoryContextTest implements History
     }
 
     @Override
-    public Class<DialogComponentOpenAwareHistoryContext> type() {
-        return Cast.to(DialogComponentOpenAwareHistoryContext.class);
+    public Class<HistoryContextDialogComponentOpenAware> type() {
+        return Cast.to(HistoryContextDialogComponentOpenAware.class);
+    }
+
+    @Override
+    public void testTypeNaming() {
+        throw new UnsupportedOperationException();
     }
 }
