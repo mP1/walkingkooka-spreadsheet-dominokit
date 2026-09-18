@@ -25,11 +25,32 @@ import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 /**
  * A collection of factory methods to create {@link PluginNameAnchorListComponentContext}.
  */
 public final class PluginNameAnchorListComponentContexts implements PublicStaticHelper {
+
+    /**
+     * {@link PluginNameAnchorListComponentContextBasic}
+     */
+    public static <N extends Name & Comparable<N>,
+        I extends PluginInfoLike<I, N>,
+        IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
+        S extends PluginSelectorLike<N>,
+        A extends PluginAliasLike<N, S, A>,
+        AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> PluginNameAnchorListComponentContext<N, I, IS, S, A, AS> basic(final SpreadsheetMetadataPropertyName<AS> metadataPropertyName,
+                                                                                                                          final HasSpreadsheetMetadata hasSpreadsheetMetadata,
+                                                                                                                          final HistoryContext historyContext) {
+        return PluginNameAnchorListComponentContextBasic.with(
+            metadataPropertyName,
+            hasSpreadsheetMetadata,
+            historyContext
+        );
+    }
 
     /**
      * {@link FakePluginNameAnchorListComponentContext}
