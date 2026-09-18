@@ -27,8 +27,8 @@ public final class HistoryContexts implements PublicStaticHelper {
     /**
      * {@link HistoryContextBasic}
      */
-    public static HistoryContext with(final HistoryToken historyToken,
-                                      AppContext context) {
+    public static HistoryContext basic(final HistoryToken historyToken,
+                                       final AppContext context) {
         return HistoryContextBasic.with(
             historyToken,
             context
