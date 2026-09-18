@@ -22,9 +22,9 @@ import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 
 import java.util.Set;
 
-public class FakeSpreadsheetLabelLinksComponentContext extends FakeSpreadsheetCellReferencesAnchorComponentContext implements SpreadsheetLabelLinksComponentContext {
+public class FakeSpreadsheetLabelAnchorListComponentContext extends FakeSpreadsheetCellReferencesAnchorComponentContext implements SpreadsheetLabelAnchorListComponentContext {
 
-    public FakeSpreadsheetLabelLinksComponentContext() {
+    public FakeSpreadsheetLabelAnchorListComponentContext() {
         super();
     }
 

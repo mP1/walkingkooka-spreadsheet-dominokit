@@ -36,7 +36,7 @@ import java.util.Optional;
 public final class SpreadsheetLabelLinksComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetLabelLinksComponent> {
 
     public static SpreadsheetLabelLinksComponent empty(final String id,
-                                                       final SpreadsheetLabelLinksComponentContext context) {
+                                                       final SpreadsheetLabelAnchorListComponentContext context) {
         return new SpreadsheetLabelLinksComponent(
             id,
             context
@@ -44,7 +44,7 @@ public final class SpreadsheetLabelLinksComponent implements HtmlComponentDelega
     }
 
     private SpreadsheetLabelLinksComponent(final String id,
-                                           final SpreadsheetLabelLinksComponentContext context) {
+                                           final SpreadsheetLabelAnchorListComponentContext context) {
         this.references = SpreadsheetCellReferencesAnchorComponent.with(
             id + "references" + SpreadsheetElementIds.LINK,
             context

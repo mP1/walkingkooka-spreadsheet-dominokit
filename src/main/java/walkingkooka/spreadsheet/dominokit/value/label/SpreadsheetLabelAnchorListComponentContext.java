@@ -17,21 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.value.label;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
+import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesAnchorComponentContext;
 
-public final class SpreadsheetLabelLinksComponentContexts implements PublicStaticHelper {
-
-    /**
-     * {@see FakeSpreadsheetLabelLinksComponentContext}
-     */
-    public static SpreadsheetLabelLinksComponentContext fake() {
-        return new FakeSpreadsheetLabelLinksComponentContext();
-    }
-
-    /**
-     * Stop creation
-     */
-    private SpreadsheetLabelLinksComponentContexts() {
-        throw new UnsupportedOperationException();
-    }
+public interface SpreadsheetLabelAnchorListComponentContext extends SpreadsheetCellReferencesAnchorComponentContext,
+    HistoryContext {
 }

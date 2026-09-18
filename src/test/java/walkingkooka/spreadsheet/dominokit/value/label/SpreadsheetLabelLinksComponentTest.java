@@ -37,7 +37,7 @@ public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTe
         this.treePrintAndCheck(
             SpreadsheetLabelLinksComponent.empty(
                 "labels-",
-                new FakeSpreadsheetLabelLinksComponentContext() {
+                new FakeSpreadsheetLabelAnchorListComponentContext() {
 
                     @Override
                     public HistoryToken historyToken() {
@@ -63,7 +63,7 @@ public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTe
         this.treePrintAndCheck(
             SpreadsheetLabelLinksComponent.empty(
                 "labels-",
-                new FakeSpreadsheetLabelLinksComponentContext() {
+                new FakeSpreadsheetLabelAnchorListComponentContext() {
 
                     @Override
                     public HistoryToken historyToken() {
