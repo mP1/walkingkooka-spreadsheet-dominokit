@@ -17,7 +17,25 @@
 
 package walkingkooka.spreadsheet.dominokit.value.label;
 
-import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellReferencesAnchorComponentContextTesting;
+import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public interface SpreadsheetLabelLinksComponentContextTesting<C extends SpreadsheetLabelLinksComponentContext> extends SpreadsheetCellReferencesAnchorComponentContextTesting<C> {
+import java.lang.reflect.Method;
+
+public final class SpreadsheetLabelAnchorListComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetLabelAnchorListComponentContexts> {
+
+    @Override
+    public Class<SpreadsheetLabelAnchorListComponentContexts> type() {
+        return SpreadsheetLabelAnchorListComponentContexts.class;
+    }
+
+    @Override
+    public JavaVisibility typeVisibility() {
+        return JavaVisibility.PUBLIC;
+    }
+
+    @Override
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
+    }
 }
