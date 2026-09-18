@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
-public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlComponentTesting<SpreadsheetFormatterNameLinkListComponent, HTMLDivElement>,
+public class SpreadsheetFormatterNameAnchorListComponentTest implements HtmlComponentTesting<SpreadsheetFormatterNameAnchorListComponent, HTMLDivElement>,
     SpreadsheetMetadataTesting {
 
     private final static String ID = "ID123-";
@@ -37,7 +37,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
     public void testRefresh() {
         this.refreshAndCheck(
             Optional.empty(),
-            "SpreadsheetFormatterNameLinkListComponent\n" +
+            "SpreadsheetFormatterNameAnchorListComponent\n" +
                 "  CardAnchorListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
@@ -80,7 +80,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
             Optional.of(
                 SpreadsheetFormatterName.DATE
             ),
-            "SpreadsheetFormatterNameLinkListComponent\n" +
+            "SpreadsheetFormatterNameAnchorListComponent\n" +
                 "  CardAnchorListComponent\n" +
                 "    CardComponent\n" +
                 "      Card\n" +
@@ -119,9 +119,9 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
 
     private void refreshAndCheck(final Optional<SpreadsheetFormatterName> spreadsheetFormatterName,
                                  final String expected) {
-        final SpreadsheetFormatterNameLinkListComponent formatters = SpreadsheetFormatterNameLinkListComponent.empty(ID);
+        final SpreadsheetFormatterNameAnchorListComponent formatters = SpreadsheetFormatterNameAnchorListComponent.empty(ID);
         formatters.refresh(
-            new FakeSpreadsheetFormatterNameLinkListComponentContext() {
+            new FakeSpreadsheetFormatterNameAnchorListComponentContext() {
                 @Override
                 public SpreadsheetFormatterInfoSet spreadsheetFormatterInfos() {
                     return SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterInfos();
@@ -152,7 +152,7 @@ public class SpreadsheetFormatterNameLinkListComponentTest implements HtmlCompon
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetFormatterNameLinkListComponent> type() {
-        return SpreadsheetFormatterNameLinkListComponent.class;
+    public Class<SpreadsheetFormatterNameAnchorListComponent> type() {
+        return SpreadsheetFormatterNameAnchorListComponent.class;
     }
 }

@@ -30,8 +30,8 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelectorToke
 import java.util.List;
 import java.util.Optional;
 
-public class FakeSpreadsheetFormatterNameLinkListComponentContext extends FakeHistoryContext
-    implements SpreadsheetFormatterNameLinkListComponentContext {
+public class FakeSpreadsheetFormatterNameAnchorListComponentContext extends FakeHistoryContext
+    implements SpreadsheetFormatterNameAnchorListComponentContext {
 
     @Override
     public Optional<SpreadsheetFormatterName> formatterName() {

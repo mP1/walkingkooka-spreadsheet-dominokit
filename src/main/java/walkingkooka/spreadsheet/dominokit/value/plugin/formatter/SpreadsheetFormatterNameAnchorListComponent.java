@@ -32,13 +32,13 @@ import java.util.stream.Collectors;
 /**
  * A component that list all available {@link SpreadsheetFormatterName} by querying {@link SpreadsheetFormatterProvider#spreadsheetFormatterInfos()}.
  */
-public final class SpreadsheetFormatterNameLinkListComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetFormatterNameLinkListComponent> {
+public final class SpreadsheetFormatterNameAnchorListComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetFormatterNameAnchorListComponent> {
 
-    static SpreadsheetFormatterNameLinkListComponent empty(final String id) {
-        return new SpreadsheetFormatterNameLinkListComponent(id);
+    static SpreadsheetFormatterNameAnchorListComponent empty(final String id) {
+        return new SpreadsheetFormatterNameAnchorListComponent(id);
     }
 
-    private SpreadsheetFormatterNameLinkListComponent(final String id) {
+    private SpreadsheetFormatterNameAnchorListComponent(final String id) {
         super();
         this.list = CardAnchorListComponent.with(
             id,
@@ -47,11 +47,11 @@ public final class SpreadsheetFormatterNameLinkListComponent implements HtmlComp
         );
     }
 
-    public void refresh(final SpreadsheetFormatterNameLinkListComponentContext context) {
+    public void refresh(final SpreadsheetFormatterNameAnchorListComponentContext context) {
         this.list.refresh(
             context.spreadsheetFormatterInfos()
                 .stream()
-                .map(SpreadsheetFormatterNameLinkListComponent::linkText)
+                .map(SpreadsheetFormatterNameAnchorListComponent::linkText)
                 .collect(Collectors.toList()),
             SpreadsheetFormatterNameLinkListComponentCardAnchorListComponentContext.with(
                 context.formatterName(),

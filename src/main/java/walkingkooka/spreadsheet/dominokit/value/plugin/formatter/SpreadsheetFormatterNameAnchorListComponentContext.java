@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProvider;
 
 import java.util.Optional;
 
-public interface SpreadsheetFormatterNameLinkListComponentContext extends HistoryContext, SpreadsheetFormatterProvider {
+public interface SpreadsheetFormatterNameAnchorListComponentContext extends HistoryContext, SpreadsheetFormatterProvider {
 
     /**
      * Returns the currently selected {@link SpreadsheetFormatterName}.
