@@ -210,7 +210,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "                  \"A1LABEL\" [#/123/SpreadsheetName456/label/A1LABEL] id=SpreadsheetLabelMappingList-labels-A1LABEL-Link\n" +
                 "                  \"=1+2\" [#/123/SpreadsheetName456/cell/A1LABEL/formula] id=SpreadsheetLabelMappingList-labels-A1LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                  SpreadsheetLabelLinksComponent\n" +
+                "                  SpreadsheetLabelAnchorListComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
@@ -220,7 +220,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "                  \"B2LABEL\" [#/123/SpreadsheetName456/label/B2LABEL] id=SpreadsheetLabelMappingList-labels-B2LABEL-Link\n" +
                 "                  \"B2\" [#/123/SpreadsheetName456/cell/B2LABEL/formula] id=SpreadsheetLabelMappingList-labels-B2LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                  SpreadsheetLabelLinksComponent\n" +
+                "                  SpreadsheetLabelAnchorListComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
@@ -335,7 +335,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "                  \"B2LABEL\" [#/123/SpreadsheetName456/label/B2LABEL] id=SpreadsheetLabelMappingList-labels-B2LABEL-Link\n" +
                 "                  \"B2\" [#/123/SpreadsheetName456/cell/B2LABEL/formula] id=SpreadsheetLabelMappingList-labels-B2LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                  SpreadsheetLabelLinksComponent\n" +
+                "                  SpreadsheetLabelAnchorListComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
@@ -345,7 +345,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "                  \"C3LABEL\" [#/123/SpreadsheetName456/label/C3LABEL] id=SpreadsheetLabelMappingList-labels-C3LABEL-Link\n" +
                 "                  \"C3\" [#/123/SpreadsheetName456/cell/C3LABEL/formula] id=SpreadsheetLabelMappingList-labels-C3LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                  SpreadsheetLabelLinksComponent\n" +
+                "                  SpreadsheetLabelAnchorListComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
@@ -461,7 +461,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "                  \"B2LABEL\" [#/123/SpreadsheetName456/label/B2LABEL] id=SpreadsheetLabelMappingList-labels-B2LABEL-Link\n" +
                 "                  \"B2\" [#/123/SpreadsheetName456/cell/B2LABEL/formula] id=SpreadsheetLabelMappingList-labels-B2LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                  SpreadsheetLabelLinksComponent\n" +
+                "                  SpreadsheetLabelAnchorListComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
@@ -471,7 +471,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "                  \"C3LABEL\" [#/123/SpreadsheetName456/label/C3LABEL] id=SpreadsheetLabelMappingList-labels-C3LABEL-Link\n" +
                 "                  \"C3\" [#/123/SpreadsheetName456/cell/C3LABEL/formula] id=SpreadsheetLabelMappingList-labels-C3LABEL-formula-Link\n" +
                 "                  TextNodeComponent\n" +
-                "                  SpreadsheetLabelLinksComponent\n" +
+                "                  SpreadsheetLabelAnchorListComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +

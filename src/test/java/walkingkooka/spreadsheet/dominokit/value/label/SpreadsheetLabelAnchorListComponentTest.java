@@ -30,12 +30,12 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTesting<SpreadsheetLabelLinksComponent, HTMLDivElement> {
+public final class SpreadsheetLabelAnchorListComponentTest implements HtmlComponentTesting<SpreadsheetLabelAnchorListComponent, HTMLDivElement> {
 
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            SpreadsheetLabelLinksComponent.empty(
+            SpreadsheetLabelAnchorListComponent.empty(
                 "labels-",
                 new FakeSpreadsheetLabelAnchorListComponentContext() {
 
@@ -49,7 +49,7 @@ public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTe
                     }
                 }
             ),
-            "SpreadsheetLabelLinksComponent\n" +
+            "SpreadsheetLabelAnchorListComponent\n" +
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
@@ -61,7 +61,7 @@ public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTe
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            SpreadsheetLabelLinksComponent.empty(
+            SpreadsheetLabelAnchorListComponent.empty(
                 "labels-",
                 new FakeSpreadsheetLabelAnchorListComponentContext() {
 
@@ -87,7 +87,7 @@ public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTe
                     SpreadsheetSelection.labelName("LABELZZZ")
                 )
             ),
-            "SpreadsheetLabelLinksComponent\n" +
+            "SpreadsheetLabelAnchorListComponent\n" +
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
@@ -99,7 +99,7 @@ public final class SpreadsheetLabelLinksComponentTest implements HtmlComponentTe
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetLabelLinksComponent> type() {
-        return SpreadsheetLabelLinksComponent.class;
+    public Class<SpreadsheetLabelAnchorListComponent> type() {
+        return SpreadsheetLabelAnchorListComponent.class;
     }
 }

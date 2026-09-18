@@ -21,7 +21,7 @@ import walkingkooka.spreadsheet.dominokit.Component;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
 import walkingkooka.spreadsheet.dominokit.datatable.DataTableComponentCellRenderer;
 import walkingkooka.spreadsheet.dominokit.value.formula.SpreadsheetFormulaSelectAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.label.SpreadsheetLabelLinksComponent;
+import walkingkooka.spreadsheet.dominokit.value.label.SpreadsheetLabelAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.label.SpreadsheetLabelSelectAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.text.TextNodeComponent;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -113,10 +113,10 @@ final class SpreadsheetDeltaLabelsTableComponentDataTableComponentCellRenderer i
             );
     }
 
-    private SpreadsheetLabelLinksComponent renderLabelLinks(final SpreadsheetDeltaLabelsTableComponentRow row) {
+    private SpreadsheetLabelAnchorListComponent renderLabelLinks(final SpreadsheetDeltaLabelsTableComponentRow row) {
         final SpreadsheetLabelName labelName = row.mapping.label();
 
-        return SpreadsheetLabelLinksComponent.empty(
+        return SpreadsheetLabelAnchorListComponent.empty(
             this.idPrefix + labelName + "-",
             this.context
         ).setValue(

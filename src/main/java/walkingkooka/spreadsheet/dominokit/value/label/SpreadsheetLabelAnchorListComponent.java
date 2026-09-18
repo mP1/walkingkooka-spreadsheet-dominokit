@@ -33,18 +33,18 @@ import java.util.Optional;
 /**
  * A container that holds a few links DELETE and CELL REFERENCES for a {@link SpreadsheetLabelName}.
  */
-public final class SpreadsheetLabelLinksComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetLabelLinksComponent> {
+public final class SpreadsheetLabelAnchorListComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetLabelAnchorListComponent> {
 
-    public static SpreadsheetLabelLinksComponent empty(final String id,
-                                                       final SpreadsheetLabelAnchorListComponentContext context) {
-        return new SpreadsheetLabelLinksComponent(
+    public static SpreadsheetLabelAnchorListComponent empty(final String id,
+                                                            final SpreadsheetLabelAnchorListComponentContext context) {
+        return new SpreadsheetLabelAnchorListComponent(
             id,
             context
         );
     }
 
-    private SpreadsheetLabelLinksComponent(final String id,
-                                           final SpreadsheetLabelAnchorListComponentContext context) {
+    private SpreadsheetLabelAnchorListComponent(final String id,
+                                                final SpreadsheetLabelAnchorListComponentContext context) {
         this.references = SpreadsheetCellReferencesAnchorComponent.with(
             id + "references" + SpreadsheetElementIds.LINK,
             context
@@ -66,7 +66,7 @@ public final class SpreadsheetLabelLinksComponent implements HtmlComponentDelega
         return this.delete.value();
     }
 
-    public SpreadsheetLabelLinksComponent setValue(final Optional<SpreadsheetLabelName> value) {
+    public SpreadsheetLabelAnchorListComponent setValue(final Optional<SpreadsheetLabelName> value) {
         Objects.requireNonNull(value, "value");
 
         this.references.setValue(
@@ -78,7 +78,7 @@ public final class SpreadsheetLabelLinksComponent implements HtmlComponentDelega
         return this;
     }
 
-    public SpreadsheetLabelLinksComponent clearValue() {
+    public SpreadsheetLabelAnchorListComponent clearValue() {
         return this.setValue(Optional.empty());
     }
 
