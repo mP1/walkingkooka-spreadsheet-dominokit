@@ -217,7 +217,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "                  TextComponent\n" +
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
-                "                  SpreadsheetCellLinksComponent\n" +
+                "                  SpreadsheetCellAnchorListComponent\n" +
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +

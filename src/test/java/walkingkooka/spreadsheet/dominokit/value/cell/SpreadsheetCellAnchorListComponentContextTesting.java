@@ -17,25 +17,6 @@
 
 package walkingkooka.spreadsheet.dominokit.value.cell;
 
-import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.reflect.PublicStaticHelperTesting;
-
-import java.lang.reflect.Method;
-
-public final class SpreadsheetCellLinksComponentContextsTest implements PublicStaticHelperTesting<SpreadsheetCellLinksComponentContexts> {
-
-    @Override
-    public Class<SpreadsheetCellLinksComponentContexts> type() {
-        return SpreadsheetCellLinksComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
-
-    @Override
-    public boolean canHavePublicTypes(final Method method) {
-        return false;
-    }
+public interface SpreadsheetCellAnchorListComponentContextTesting<C extends SpreadsheetCellAnchorListComponentContext> extends SpreadsheetCellLabelsAnchorComponentContextTesting<C>,
+    SpreadsheetCellReferencesAnchorComponentContextTesting<C> {
 }

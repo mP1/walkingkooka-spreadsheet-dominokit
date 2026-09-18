@@ -34,14 +34,14 @@ import walkingkooka.validation.ValueType;
 import java.util.Optional;
 import java.util.Set;
 
-public final class SpreadsheetCellLinksComponentTest implements HtmlComponentTesting<SpreadsheetCellLinksComponent, HTMLDivElement> {
+public final class SpreadsheetCellAnchorListComponentTest implements HtmlComponentTesting<SpreadsheetCellAnchorListComponent, HTMLDivElement> {
 
     @Test
     public void testClearValue() {
         this.treePrintAndCheck(
-            SpreadsheetCellLinksComponent.empty(
+            SpreadsheetCellAnchorListComponent.empty(
                 "cells-",
-                new FakeSpreadsheetCellLinksComponentContext() {
+                new FakeSpreadsheetCellAnchorListComponentContext() {
 
                     @Override
                     public HistoryToken historyToken() {
@@ -53,7 +53,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlComponentTes
                     }
                 }
             ),
-            "SpreadsheetCellLinksComponent\n" +
+            "SpreadsheetCellAnchorListComponent\n" +
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
@@ -68,9 +68,9 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlComponentTes
     @Test
     public void testSetValue() {
         this.treePrintAndCheck(
-            SpreadsheetCellLinksComponent.empty(
+            SpreadsheetCellAnchorListComponent.empty(
                 "cells-",
-                new FakeSpreadsheetCellLinksComponentContext() {
+                new FakeSpreadsheetCellAnchorListComponentContext() {
 
                     @Override
                     public HistoryToken historyToken() {
@@ -112,7 +112,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlComponentTes
                     SpreadsheetSelection.A1
                 )
             ),
-            "SpreadsheetCellLinksComponent\n" +
+            "SpreadsheetCellAnchorListComponent\n" +
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
@@ -127,7 +127,7 @@ public final class SpreadsheetCellLinksComponentTest implements HtmlComponentTes
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetCellLinksComponent> type() {
-        return SpreadsheetCellLinksComponent.class;
+    public Class<SpreadsheetCellAnchorListComponent> type() {
+        return SpreadsheetCellAnchorListComponent.class;
     }
 }

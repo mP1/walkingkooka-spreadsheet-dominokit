@@ -24,9 +24,9 @@ import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import java.util.Optional;
 import java.util.Set;
 
-public class FakeSpreadsheetCellLinksComponentContext extends FakeSpreadsheetCellLabelsAnchorComponentContext implements SpreadsheetCellLinksComponentContext {
+public class FakeSpreadsheetCellAnchorListComponentContext extends FakeSpreadsheetCellLabelsAnchorComponentContext implements SpreadsheetCellAnchorListComponentContext {
 
-    public FakeSpreadsheetCellLinksComponentContext() {
+    public FakeSpreadsheetCellAnchorListComponentContext() {
         super();
     }
 

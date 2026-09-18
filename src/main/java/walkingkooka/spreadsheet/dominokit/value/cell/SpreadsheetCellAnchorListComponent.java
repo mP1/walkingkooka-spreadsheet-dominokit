@@ -32,18 +32,18 @@ import java.util.Optional;
 /**
  * A container that holds a few links CREATE LABELS, LABELS, REFERENCES and DELETE for a {@link SpreadsheetExpressionReference}.
  */
-public final class SpreadsheetCellLinksComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellLinksComponent> {
+public final class SpreadsheetCellAnchorListComponent implements HtmlComponentDelegator<HTMLDivElement, SpreadsheetCellAnchorListComponent> {
 
-    public static SpreadsheetCellLinksComponent empty(final String id,
-                                                      final SpreadsheetCellLinksComponentContext context) {
-        return new SpreadsheetCellLinksComponent(
+    public static SpreadsheetCellAnchorListComponent empty(final String id,
+                                                           final SpreadsheetCellAnchorListComponentContext context) {
+        return new SpreadsheetCellAnchorListComponent(
             id,
             context
         );
     }
 
-    private SpreadsheetCellLinksComponent(final String id,
-                                          final SpreadsheetCellLinksComponentContext context) {
+    private SpreadsheetCellAnchorListComponent(final String id,
+                                               final SpreadsheetCellAnchorListComponentContext context) {
         this.value = SpreadsheetCellValueAnchorComponent.with(
             id + "value" + SpreadsheetElementIds.LINK,
             context
@@ -85,7 +85,7 @@ public final class SpreadsheetCellLinksComponent implements HtmlComponentDelegat
         return this.createLabel.value();
     }
 
-    public SpreadsheetCellLinksComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
+    public SpreadsheetCellAnchorListComponent setValue(final Optional<SpreadsheetExpressionReference> value) {
         Objects.requireNonNull(value, "value");
 
         this.value.setValue(value)
@@ -102,7 +102,7 @@ public final class SpreadsheetCellLinksComponent implements HtmlComponentDelegat
         return this;
     }
 
-    public SpreadsheetCellLinksComponent clearValue() {
+    public SpreadsheetCellAnchorListComponent clearValue() {
         return this.setValue(Optional.empty());
     }
 

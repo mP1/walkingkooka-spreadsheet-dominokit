@@ -67,7 +67,7 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowMenuHistoryToken
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowSelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.navigate.SpreadsheetNavigateAnchorComponent;
-import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellLinksComponent;
+import walkingkooka.spreadsheet.dominokit.value.cell.SpreadsheetCellAnchorListComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.SpreadsheetDominoKitColor;
 import walkingkooka.spreadsheet.dominokit.viewport.menu.SpreadsheetSelectionMenu;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
@@ -281,20 +281,20 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     /**
      * Place formula links at the bottom/right of formula component.
      */
-    private SpreadsheetCellLinksComponent formulaCellLinks() {
-        return SpreadsheetCellLinksComponent.empty(
+    private SpreadsheetCellAnchorListComponent formulaCellLinks() {
+        return SpreadsheetCellAnchorListComponent.empty(
             ID_PREFIX,
             this.context
         );
     }
 
-    private final SpreadsheetCellLinksComponent formulaCellLinks;
+    private final SpreadsheetCellAnchorListComponent formulaCellLinks;
 
     /**
      * Refreshes the value of {@link #formulaCellLinks} from the current {@link HistoryToken}.
      */
     private void formulaCellLinksRefresh() {
-        final SpreadsheetCellLinksComponent formulaCellLinks = this.formulaCellLinks;
+        final SpreadsheetCellAnchorListComponent formulaCellLinks = this.formulaCellLinks;
 
         final HistoryToken historyToken = this.context.historyToken();
         final boolean show = historyToken instanceof SpreadsheetCellFormulaHistoryToken;
