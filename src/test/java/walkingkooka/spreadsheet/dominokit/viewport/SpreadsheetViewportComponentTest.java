@@ -343,7 +343,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "            HORIZONTAL\n" +
                 "              [1.0] min=1.0 max=16384.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
                 "          [#/1/SpreadsheetName111/cell/A1/navigate/A1/scroll%20right%2019px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
-                "  SpreadsheetNavigateLinkComponent\n" +
+                "  SpreadsheetNavigateAnchorComponent\n" +
                 "    \"Navigate\" [#/1/SpreadsheetName111/cell/A1/navigate] id=viewport-navigate-Link"
         );
     }
@@ -415,7 +415,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "            HORIZONTAL\n" +
                 "              [1.0] min=1.0 max=16384.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
                 "          [#/1/SpreadsheetName111/column/A/navigate/A1/scroll%20right%2019px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
-                "  SpreadsheetNavigateLinkComponent\n" +
+                "  SpreadsheetNavigateAnchorComponent\n" +
                 "    \"Navigate\" [#/1/SpreadsheetName111/column/A/navigate] id=viewport-navigate-Link"
         );
     }
@@ -487,7 +487,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 "            HORIZONTAL\n" +
                 "              [1.0] min=1.0 max=16384.0 id=viewport-horizontal-scrollbar-value-Slider\n" +
                 "          [#/1/SpreadsheetName111/row/1/navigate/A1/scroll%20right%2019px] mdi-arrow-right id=viewport-horizontal-scrollbar-right-Link\n" +
-                "  SpreadsheetNavigateLinkComponent\n" +
+                "  SpreadsheetNavigateAnchorComponent\n" +
                 "    \"Navigate\" [#/1/SpreadsheetName111/row/1/navigate] id=viewport-navigate-Link"
         );
     }

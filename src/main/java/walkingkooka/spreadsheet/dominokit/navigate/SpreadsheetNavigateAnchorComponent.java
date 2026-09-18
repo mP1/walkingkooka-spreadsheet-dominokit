@@ -31,16 +31,16 @@ import walkingkooka.text.printer.IndentingPrinter;
 import java.util.Objects;
 import java.util.Optional;
 
-public final class SpreadsheetNavigateLinkComponent implements HtmlComponentDelegator<HTMLAnchorElement, SpreadsheetNavigateLinkComponent>,
+public final class SpreadsheetNavigateAnchorComponent implements HtmlComponentDelegator<HTMLAnchorElement, SpreadsheetNavigateAnchorComponent>,
     HistoryWatcher {
 
-    public static SpreadsheetNavigateLinkComponent with(final HistoryContext context) {
-        return new SpreadsheetNavigateLinkComponent(
+    public static SpreadsheetNavigateAnchorComponent with(final HistoryContext context) {
+        return new SpreadsheetNavigateAnchorComponent(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private SpreadsheetNavigateLinkComponent(final HistoryContext context) {
+    private SpreadsheetNavigateAnchorComponent(final HistoryContext context) {
         context.addHistoryWatcher(this);
 
         this.anchor = HistoryTokenAnchorComponent.empty()
@@ -55,7 +55,7 @@ public final class SpreadsheetNavigateLinkComponent implements HtmlComponentDele
     }
 
     @Override
-    public SpreadsheetNavigateLinkComponent setId(final String id) {
+    public SpreadsheetNavigateAnchorComponent setId(final String id) {
         this.anchor.setId(id);
         return this;
     }

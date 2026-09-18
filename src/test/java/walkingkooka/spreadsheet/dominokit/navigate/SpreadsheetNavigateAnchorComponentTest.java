@@ -30,7 +30,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public final class SpreadsheetNavigateLinkComponentTest implements HtmlComponentTesting<SpreadsheetNavigateLinkComponent, HTMLAnchorElement> {
+public final class SpreadsheetNavigateAnchorComponentTest implements HtmlComponentTesting<SpreadsheetNavigateAnchorComponent, HTMLAnchorElement> {
 
     private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
     private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
@@ -41,7 +41,7 @@ public final class SpreadsheetNavigateLinkComponentTest implements HtmlComponent
             HistoryToken.spreadsheetListSelect(
                 HistoryTokenOffsetAndCount.EMPTY
             ),
-            "SpreadsheetNavigateLinkComponent\n" +
+            "SpreadsheetNavigateAnchorComponent\n" +
                 "  \"Navigate\" DISABLED"
         );
     }
@@ -53,7 +53,7 @@ public final class SpreadsheetNavigateLinkComponentTest implements HtmlComponent
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME
             ),
-            "SpreadsheetNavigateLinkComponent\n" +
+            "SpreadsheetNavigateAnchorComponent\n" +
                 "  \"Navigate\" [#/1/SpreadsheetName111/navigate]"
         );
     }
@@ -66,7 +66,7 @@ public final class SpreadsheetNavigateLinkComponentTest implements HtmlComponent
                 SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
-            "SpreadsheetNavigateLinkComponent\n" +
+            "SpreadsheetNavigateAnchorComponent\n" +
                 "  \"Navigate\" [#/1/SpreadsheetName111/cell/A1/navigate]"
         );
     }
@@ -80,7 +80,7 @@ public final class SpreadsheetNavigateLinkComponentTest implements HtmlComponent
                 SpreadsheetSelection.parseColumn("B")
                     .setDefaultAnchor()
             ),
-            "SpreadsheetNavigateLinkComponent\n" +
+            "SpreadsheetNavigateAnchorComponent\n" +
                 "  \"Navigate\" [#/1/SpreadsheetName111/column/B/navigate]"
         );
     }
@@ -99,7 +99,7 @@ public final class SpreadsheetNavigateLinkComponentTest implements HtmlComponent
             }
         };
 
-        final SpreadsheetNavigateLinkComponent component = SpreadsheetNavigateLinkComponent.with(context);
+        final SpreadsheetNavigateAnchorComponent component = SpreadsheetNavigateAnchorComponent.with(context);
         component.onHistoryTokenChange(
             HistoryToken.unknown(
                 UrlFragment.EMPTY
@@ -116,7 +116,7 @@ public final class SpreadsheetNavigateLinkComponentTest implements HtmlComponent
     // class............................................................................................................
 
     @Override
-    public Class<SpreadsheetNavigateLinkComponent> type() {
-        return SpreadsheetNavigateLinkComponent.class;
+    public Class<SpreadsheetNavigateAnchorComponent> type() {
+        return SpreadsheetNavigateAnchorComponent.class;
     }
 }
