@@ -63,7 +63,7 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
         context.addHistoryWatcher(this);
         context.addSpreadsheetDeltaFetcherWatcher(this);
 
-        this.validators = this.validators();
+        this.names = this.names();
 
         this.selector = this.selector();
 
@@ -88,15 +88,11 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
      * Creates the modal dialog, loaded with the {@link ValidatorSelector} textbox and some links.
      */
     private DialogComponent dialogCreate() {
-        final ValidatorSelectorDialogComponentContext context = this.context;
-
-        DialogComponent dialog = DialogComponent.largeEdit(
-            ID + SpreadsheetElementIds.DIALOG,
-            DialogComponent.INCLUDE_CLOSE,
-            context
-        );
-
-        return dialog.appendChild(this.validators)
+        return DialogComponent.largeEdit(
+                ID + SpreadsheetElementIds.DIALOG,
+                DialogComponent.INCLUDE_CLOSE,
+                this.context
+            ).appendChild(this.names)
             .appendChild(this.selector)
             .appendChild(this.links);
     }
@@ -110,9 +106,9 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
     private final ValidatorSelectorDialogComponentContext context;
 
-    // validators.......................................................................................................
+    // names............................................................................................................
 
-    private ValidatorNameAnchorListComponent validators() {
+    private ValidatorNameAnchorListComponent names() {
         return ValidatorNameAnchorListComponent.with(
             this.idPrefix(),
             this.context
@@ -120,9 +116,9 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     }
 
     // @VisibleForTesting
-    final ValidatorNameAnchorListComponent validators;
+    final ValidatorNameAnchorListComponent names;
 
-    // textBox..........................................................................................................
+    // selector.........................................................................................................
 
     /**
      * Creates a text box to edit the {@link ValidatorSelector} and installs a few value change type listeners
@@ -137,30 +133,6 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
      */
     // @VisibleForTesting
     final ValidatorSelectorComponent selector;
-
-    /**
-     * Copy any error messages for the {@link ValidatorSelector}.
-     */
-    private void copySelectorErrorMessages() {
-        final ValidatorSelectorComponent selector = this.selector;
-
-        if (false == selector.hasErrors()) {
-            selector.setErrors(
-                this.context.spreadsheetViewportCache()
-                    .historyTokenCell()
-                    .map(c -> c.formula()
-                        .validationError()
-                        .map(SpreadsheetError::message)
-                        .stream()
-                        .collect(Collectors.toList())
-                    ).orElse(Lists.empty())
-            );
-        }
-
-        if(selector.hasErrors()) {
-            this.links.disableSave();
-        }
-    }
 
     // dialog links.....................................................................................................
 
@@ -200,20 +172,37 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
     }
 
     @Override
-    public void refresh(final RefreshContext context) {
-        final ValidatorSelectorDialogComponentContext dialogComponentContext = this.context;
+    public void refresh(final RefreshContext refreshContext) {
+        final ValidatorSelectorComponent selector = this.selector;
+        final ValidatorSelectorDialogComponentContext context = this.context;
 
-        final Optional<ValidatorSelector> value = dialogComponentContext.undo();
-        this.selector.setValue(value);
-        this.validators.setValue(
+        final Optional<ValidatorSelector> value = context.undo();
+        selector.setValue(value);
+        this.names.setValue(
             value.map(ValidatorSelector::name)
         );
 
-        dialogComponentContext.refreshDialogTitle(this);
+        context.refreshDialogTitle(this);
 
-        this.links.refresh(dialogComponentContext);
+        this.links.refresh(context);
 
-        this.copySelectorErrorMessages();
+        // Copy any error messages for the {@link ValidatorSelector}.
+        if (false == selector.hasErrors()) {
+            selector.setErrors(
+                context.spreadsheetViewportCache()
+                    .historyTokenCell()
+                    .map(c -> c.formula()
+                        .validationError()
+                        .map(SpreadsheetError::message)
+                        .stream()
+                        .collect(Collectors.toList())
+                    ).orElse(Lists.empty())
+            );
+        }
+
+        if(selector.hasErrors()) {
+            this.links.disableSave();
+        }
     }
 
     @Override
