@@ -33,7 +33,7 @@ public final class PluginNameAnchorListComponentDelegatorTest implements Package
         return TestPluginNameAnchorListComponentDelegator.class;
     }
 
-    final static class TestPluginNameAnchorListComponentDelegator implements PluginNameAnchorListComponentDelegator<ValidatorName, ValidatorInfo, ValidatorInfoSet, ValidatorSelector, ValidatorAlias, ValidatorAliasSet> {
+    final static class TestPluginNameAnchorListComponentDelegator implements PluginNameAnchorListComponentDelegator<TestPluginNameAnchorListComponentDelegator, ValidatorName, ValidatorInfo, ValidatorInfoSet, ValidatorSelector, ValidatorAlias, ValidatorAliasSet> {
 
         @Override
         public PluginNameAnchorListComponent<ValidatorName, ValidatorInfo, ValidatorInfoSet, ValidatorSelector, ValidatorAlias, ValidatorAliasSet> valueComponent() {
