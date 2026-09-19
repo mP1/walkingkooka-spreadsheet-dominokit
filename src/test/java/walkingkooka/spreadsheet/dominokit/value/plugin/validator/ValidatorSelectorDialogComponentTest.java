@@ -91,10 +91,11 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "  DialogComponent\n" +
                 "    id=ValidatorSelector-Dialog includeClose=true CLOSED\n" +
                 "      ValidatorNameAnchorListComponent\n" +
-                "        AnchorListComponent\n" +
-                "          FlexLayoutComponent\n" +
-                "            ROW\n" +
-                "              id=ValidatorSelector-links\n" +
+                "        PluginNameAnchorListComponent\n" +
+                "          AnchorListComponent\n" +
+                "            FlexLayoutComponent\n" +
+                "              ROW\n" +
+                "                id=ValidatorSelector-links\n" +
                 "      ValidatorSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -151,10 +152,11 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "  DialogComponent\n" +
                 "    id=ValidatorSelector-Dialog includeClose=true CLOSED\n" +
                 "      ValidatorNameAnchorListComponent\n" +
-                "        AnchorListComponent\n" +
-                "          FlexLayoutComponent\n" +
-                "            ROW\n" +
-                "              id=ValidatorSelector-links\n" +
+                "        PluginNameAnchorListComponent\n" +
+                "          AnchorListComponent\n" +
+                "            FlexLayoutComponent\n" +
+                "              ROW\n" +
+                "                id=ValidatorSelector-links\n" +
                 "      ValidatorSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -219,13 +221,14 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "    Validator Title123\n" +
                 "    id=ValidatorSelector-Dialog includeClose=true\n" +
                 "      ValidatorNameAnchorListComponent\n" +
-                "        AnchorListComponent\n" +
-                "          FlexLayoutComponent\n" +
-                "            ROW\n" +
-                "              id=ValidatorSelector-links\n" +
-                "                \"Validator 1\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
-                "                \"Validator 2\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
-                "                \"Validator 3\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
+                "        PluginNameAnchorListComponent\n" +
+                "          AnchorListComponent\n" +
+                "            FlexLayoutComponent\n" +
+                "              ROW\n" +
+                "                id=ValidatorSelector-links\n" +
+                "                  \"Validator 1\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
+                "                  \"Validator 2\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
+                "                  \"Validator 3\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
                 "      ValidatorSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -311,13 +314,14 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "    Validator Title123\n" +
                 "    id=ValidatorSelector-Dialog includeClose=true\n" +
                 "      ValidatorNameAnchorListComponent\n" +
-                "        AnchorListComponent\n" +
-                "          FlexLayoutComponent\n" +
-                "            ROW\n" +
-                "              id=ValidatorSelector-links\n" +
-                "                \"Validator 1\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
-                "                \"Validator 2\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
-                "                \"Validator 3\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
+                "        PluginNameAnchorListComponent\n" +
+                "          AnchorListComponent\n" +
+                "            FlexLayoutComponent\n" +
+                "              ROW\n" +
+                "                id=ValidatorSelector-links\n" +
+                "                  \"Validator 1\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
+                "                  \"Validator 2\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
+                "                  \"Validator 3\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
                 "      ValidatorSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
@@ -400,13 +404,14 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
                 "    Validator Title123\n" +
                 "    id=ValidatorSelector-Dialog includeClose=true\n" +
                 "      ValidatorNameAnchorListComponent\n" +
-                "        AnchorListComponent\n" +
-                "          FlexLayoutComponent\n" +
-                "            ROW\n" +
-                "              id=ValidatorSelector-links\n" +
-                "                \"Validator 1\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
-                "                \"Validator 2\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
-                "                \"Validator 3\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
+                "        PluginNameAnchorListComponent\n" +
+                "          AnchorListComponent\n" +
+                "            FlexLayoutComponent\n" +
+                "              ROW\n" +
+                "                id=ValidatorSelector-links\n" +
+                "                  \"Validator 1\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-1] id=ValidatorSelector-validator-1-Link\n" +
+                "                  \"Validator 2\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-2] id=ValidatorSelector-validator-2-Link\n" +
+                "                  \"Validator 3\" [#/123/SpreadsheetName456/cell/A1/validator/save/validator-3] id=ValidatorSelector-validator-3-Link\n" +
                 "      ValidatorSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +

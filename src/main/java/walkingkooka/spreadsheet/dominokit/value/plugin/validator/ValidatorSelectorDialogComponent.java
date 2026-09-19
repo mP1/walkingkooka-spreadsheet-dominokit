@@ -205,7 +205,9 @@ public final class ValidatorSelectorDialogComponent implements DialogComponentLi
 
         final Optional<ValidatorSelector> value = dialogComponentContext.undo();
         this.selector.setValue(value);
-        this.validators.setValue(value);
+        this.validators.setValue(
+            value.map(ValidatorSelector::name)
+        );
 
         dialogComponentContext.refreshDialogTitle(this);
 
