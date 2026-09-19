@@ -24,15 +24,17 @@ import walkingkooka.plugin.PluginAliasSetLike;
 import walkingkooka.plugin.PluginInfoLike;
 import walkingkooka.plugin.PluginInfoSetLike;
 import walkingkooka.plugin.PluginSelectorLike;
+import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 
-public interface PluginNameAnchorListComponentDelegator<N extends Name & Comparable<N>,
+public interface PluginNameAnchorListComponentDelegator<C extends ValueComponent<HTMLDivElement, N, C>,
+    N extends Name & Comparable<N>,
     I extends PluginInfoLike<I, N>,
     IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
-    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> extends ValueComponentDelegator<HTMLDivElement, N, PluginNameAnchorListComponent<N, I, IS, S, A, AS>> {
+    AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> extends ValueComponentDelegator<HTMLDivElement, N, C> {
 
     // PluginNameAnchorListComponentDelegator...........................................................................
 
