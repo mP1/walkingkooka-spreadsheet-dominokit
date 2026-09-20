@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.viewport;
 
+import walkingkooka.logging.LoggerPath;
 import walkingkooka.logging.LoggingLevel;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
@@ -37,6 +38,16 @@ public class FakeSpreadsheetViewportComponentKeyBindingsContext extends FakeHist
     }
 
     // BrowserLoggingContext............................................................................................
+
+    @Override
+    public void logEnter(final LoggerPath logger) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void logExit() {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public void debug(final Object... values) {

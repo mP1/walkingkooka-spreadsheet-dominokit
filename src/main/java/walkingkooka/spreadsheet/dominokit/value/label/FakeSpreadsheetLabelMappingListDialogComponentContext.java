@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.label;
 
+import walkingkooka.logging.LoggerPath;
 import walkingkooka.logging.LoggingLevel;
 import walkingkooka.spreadsheet.dominokit.delta.FakeSpreadsheetDeltaLabelsTableComponentContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -66,6 +67,16 @@ public class FakeSpreadsheetLabelMappingListDialogComponentContext extends FakeS
 
     @Override
     public boolean isMatch(final HistoryToken token) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void logEnter(final LoggerPath logger) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void logExit() {
         throw new UnsupportedOperationException();
     }
 

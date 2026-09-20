@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.logging.LoggerPath;
 import walkingkooka.logging.LoggingLevel;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 
@@ -41,6 +42,16 @@ public class FakeRefreshContext extends FakeHistoryContext implements RefreshCon
     }
 
     // BrowserLoggingContext............................................................................................
+
+    @Override
+    public void logEnter(final LoggerPath logger) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void logExit() {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public void debug(final Object... values) {

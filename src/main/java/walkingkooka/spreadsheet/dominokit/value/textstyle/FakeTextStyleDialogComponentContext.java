@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle;
 
+import walkingkooka.logging.LoggerPath;
 import walkingkooka.logging.LoggingLevel;
 import walkingkooka.spreadsheet.dominokit.dialog.FakeDialogAnchorListComponentContext;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
@@ -112,6 +113,16 @@ public class FakeTextStyleDialogComponentContext extends FakeDialogAnchorListCom
 
     @Override
     public void fireCurrentHistoryToken() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void logEnter(final LoggerPath logger) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void logExit() {
         throw new UnsupportedOperationException();
     }
 
