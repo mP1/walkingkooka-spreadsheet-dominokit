@@ -18,6 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.logging;
 
 import elemental2.dom.DomGlobal;
+import walkingkooka.logging.LoggerPath;
 import walkingkooka.logging.LoggingLevel;
 
 import java.util.Objects;
@@ -36,6 +37,18 @@ final class ElementalLoggingContext implements BrowserLoggingContext {
     }
 
     // BrowserLoggingContext............................................................................................
+
+    @Override
+    public void logEnter(final LoggerPath logger) {
+        Objects.requireNonNull(logger, "logger");
+
+        // nop TODO console.group(logger.toString)
+    }
+
+    @Override
+    public void logExit() {
+        // nop TODO console.groupEnd
+    }
 
     @Override
     public void debug(final Object... values) {
