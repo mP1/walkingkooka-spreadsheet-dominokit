@@ -89,8 +89,7 @@ public final class PluginNameAnchorListComponent<N extends Name & Comparable<N>,
                 .text();
 
             anchors.appendChild(
-                historyToken.validator()
-                    .setSaveStringValue(name)
+                historyToken.setSaveStringValue(name)
                     .link(idPrefix + name)
                     .setTextContent(
                         CaseKind.kebabToTitle(name)
