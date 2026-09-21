@@ -17,21 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.importer;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-public final class SpreadsheetImporterNameAnchorListComponentContexts implements PublicStaticHelper {
+public class FakeSpreadsheetImporterNameAnchorListComponentContext extends FakeHistoryContext implements SpreadsheetImporterNameAnchorListComponentContext {
 
-    /**
-     * {@link FakeSpreadsheetImporterNameAnchorListComponentContext}
-     */
-    public static FakeSpreadsheetImporterNameAnchorListComponentContext fake() {
-        return new FakeSpreadsheetImporterNameAnchorListComponentContext();
+    public FakeSpreadsheetImporterNameAnchorListComponentContext() {
+        super();
     }
 
-    /**
-     * Stop creation
-     */
-    private SpreadsheetImporterNameAnchorListComponentContexts() {
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }
