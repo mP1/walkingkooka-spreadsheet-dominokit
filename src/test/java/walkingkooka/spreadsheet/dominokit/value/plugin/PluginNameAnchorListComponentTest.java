@@ -22,6 +22,12 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterAlias;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterAliasSet;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterInfo;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterInfoSet;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterName;
+import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
@@ -56,6 +62,48 @@ public final class PluginNameAnchorListComponentTest implements ValueComponentTe
                 "          \"Apple Tree\" [#/123/SpreadsheetName456/cell/A1/validator/save/apple-tree] id=TestId123-apple-tree-Link\n" +
                 "          \"Banana\" [#/123/SpreadsheetName456/cell/A1/validator/save/banana] id=TestId123-banana-Link\n" +
                 "          \"Carrot\" [#/123/SpreadsheetName456/cell/A1/validator/save/carrot] id=TestId123-carrot-Link\n"
+        );
+    }
+
+    // testClear uses a Validator property, this test uses a SpreadsheetImporter
+    @Test
+    public void testClearValue2() {
+        this.treePrintAndCheck(
+            PluginNameAnchorListComponent.with(
+                "TestId123-",
+                new FakePluginNameAnchorListComponentContext<SpreadsheetImporterName, SpreadsheetImporterInfo, SpreadsheetImporterInfoSet, SpreadsheetImporterSelector, SpreadsheetImporterAlias, SpreadsheetImporterAliasSet>() {
+
+                    @Override
+                    public HistoryToken historyToken() {
+                        return HistoryToken.metadataPropertySelect(
+                            SPREADSHEET_ID,
+                            SPREADSHEET_NAME,
+                            SpreadsheetMetadataPropertyName.CLIPBOARD_IMPORTER
+                        );
+                    }
+
+                    @Override
+                    public SpreadsheetMetadata spreadsheetMetadata() {
+                        return METADATA_EN_AU.set(
+                            SpreadsheetMetadataPropertyName.CLIPBOARD_IMPORTER,
+                            SpreadsheetImporterAliasSet.parse("apple-tree, banana, carrot")
+                        );
+                    }
+
+                    @Override
+                    public SpreadsheetMetadataPropertyName<SpreadsheetImporterAliasSet> metadataPropertyName() {
+                        return SpreadsheetMetadataPropertyName.CLIPBOARD_IMPORTER;
+                    }
+                }
+            ).clearValue(),
+            "PluginNameAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        id=TestId123-links\n" +
+                "          \"Apple Tree\" [#/123/SpreadsheetName456/spreadsheet/clipboardImporter/save/apple-tree] id=TestId123-apple-tree-Link\n" +
+                "          \"Banana\" [#/123/SpreadsheetName456/spreadsheet/clipboardImporter/save/banana] id=TestId123-banana-Link\n" +
+                "          \"Carrot\" [#/123/SpreadsheetName456/spreadsheet/clipboardImporter/save/carrot] id=TestId123-carrot-Link\n"
         );
     }
 
