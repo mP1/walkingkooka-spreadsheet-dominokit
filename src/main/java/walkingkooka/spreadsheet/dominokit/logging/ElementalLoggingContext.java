@@ -227,10 +227,10 @@ final class ElementalLoggingContext implements BrowserLoggingContext {
     }
 
     @Override
-    public boolean isLoggingEnabled(final LoggingLevel level) {
-        Objects.requireNonNull(level, "level");
+    public boolean isLoggingEnabled(final LoggingLevel loggingLevel) {
+        Objects.requireNonNull(loggingLevel, "loggingLevel");
 
-        return level != LoggingLevel.NONE;
+        return loggingLevel != LoggingLevel.NONE;
     }
 
     @Override
