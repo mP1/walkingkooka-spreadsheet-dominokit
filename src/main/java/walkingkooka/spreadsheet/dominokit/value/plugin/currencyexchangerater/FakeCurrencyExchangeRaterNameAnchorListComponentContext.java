@@ -17,21 +17,17 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater;
 
-import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
-public final class CurrencyExchangeRaterNameAnchorListComponentContexts implements PublicStaticHelper {
+public class FakeCurrencyExchangeRaterNameAnchorListComponentContext extends FakeHistoryContext implements CurrencyExchangeRaterNameAnchorListComponentContext {
 
-    /**
-     * {@link FakeCurrencyExchangeRaterNameAnchorListComponentContext}
-     */
-    public static FakeCurrencyExchangeRaterNameAnchorListComponentContext fake() {
-        return new FakeCurrencyExchangeRaterNameAnchorListComponentContext();
+    public FakeCurrencyExchangeRaterNameAnchorListComponentContext() {
+        super();
     }
 
-    /**
-     * Stop creation
-     */
-    private CurrencyExchangeRaterNameAnchorListComponentContexts() {
+    @Override
+    public SpreadsheetMetadata spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }
