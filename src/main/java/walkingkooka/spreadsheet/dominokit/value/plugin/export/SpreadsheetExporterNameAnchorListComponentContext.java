@@ -20,6 +20,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.export;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 
-public interface SpreadsheetNameAnchorListComponentContext extends HistoryContext,
+public interface SpreadsheetExporterNameAnchorListComponentContext extends HistoryContext,
     HasSpreadsheetMetadata {
 }
