@@ -46,6 +46,7 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName111/cell/A1/value/currency] id=test-Value-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/value/date] id=test-Value-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName111/cell/A1/value/email] id=test-Value-email-MenuItem\n" +
@@ -71,6 +72,7 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName111/cell/A1/value/currency] id=test-Value-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/value/date] id=test-Value-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName111/cell/A1/value/email] id=test-Value-email-MenuItem\n" +
@@ -103,6 +105,7 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName111/cell/A1/value/currency] id=test-Value-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/value/date] id=test-Value-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName111/cell/A1/value/email] id=test-Value-email-MenuItem\n" +

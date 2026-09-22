@@ -1601,6 +1601,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/valueType/save/currency] id=test-ValueTypes-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
@@ -1613,6 +1614,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/value/currency] id=test-Value-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/date] id=test-Value-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/A1/value/email] id=test-Value-email-MenuItem\n" +
@@ -3192,6 +3194,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/currency] id=test-ValueTypes-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
@@ -3204,6 +3207,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/currency] id=test-Value-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/date] id=test-Value-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/email] id=test-Value-email-MenuItem\n" +
@@ -5155,6 +5159,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/currency] id=test-ValueTypes-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
@@ -5167,6 +5172,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/value/currency] id=test-Value-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/value/date] id=test-Value-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/value/email] id=test-Value-email-MenuItem\n" +
@@ -6746,6 +6752,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/currency] id=test-ValueTypes-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
@@ -6758,6 +6765,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/boolean] id=test-Value-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/currency] id=test-Value-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date] id=test-Value-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/email] id=test-Value-email-MenuItem\n" +

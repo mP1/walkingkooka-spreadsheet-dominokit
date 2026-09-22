@@ -40,6 +40,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "    [] id=ValueType123-Select\n" +
                 "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
                 "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
+                "      \"Currency\" DISABLED id=ValueType123-currency-Option\n" +
                 "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
                 "      \"Date Time\" DISABLED id=ValueType123-date-time-Option\n" +
                 "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
@@ -62,6 +63,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "    [*] id=ValueType123-Select\n" +
                 "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
                 "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
+                "      \"Currency\" DISABLED id=ValueType123-currency-Option\n" +
                 "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
                 "      \"Date Time\" DISABLED id=ValueType123-date-time-Option\n" +
                 "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
@@ -88,6 +90,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "    [boolean] id=ValueType123-Select\n" +
                 "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
                 "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
+                "      \"Currency\" DISABLED id=ValueType123-currency-Option\n" +
                 "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
                 "      \"Date Time\" DISABLED id=ValueType123-date-time-Option\n" +
                 "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
