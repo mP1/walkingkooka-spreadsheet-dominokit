@@ -69,7 +69,7 @@ public final class FormFieldLabelComponentTest implements ValueTextBoxComponentL
                 "    TextBoxComponent\n" +
                 "      [aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
-                "        Length 51 of \"label\" not between 0..50 = \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"\n"
+                "        Length 51 not between 0..50\n"
         );
     }
 
