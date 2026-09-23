@@ -213,7 +213,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellReferences-cells-A1-Link\n" +
-                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=SpreadsheetCellReferences-cells-A1-formula-Link\n" +
+                "                  \"=1+2\" [#/123/SpreadsheetName456/cell/A1/formula] id=SpreadsheetCellReferences-cells-A1-formula-Link\n" +
                 "                  TextComponent\n" +
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
