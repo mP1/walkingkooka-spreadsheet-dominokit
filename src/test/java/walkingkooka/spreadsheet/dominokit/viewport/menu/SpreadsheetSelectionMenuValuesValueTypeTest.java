@@ -47,6 +47,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName111/cell/A1/valueType/save/currency] id=test-ValueTypes-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
@@ -72,6 +73,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName111/cell/A1/valueType/save/currency] id=test-ValueTypes-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
@@ -103,6 +105,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName111/cell/A1/valueType/save/currency] id=test-ValueTypes-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
@@ -128,6 +131,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
                 "    \"Boolean\" [/1/SpreadsheetName111/cell/A1/valueType/save/boolean] id=test-ValueTypes-boolean-MenuItem\n" +
+                "    \"Currency\" [/1/SpreadsheetName111/cell/A1/valueType/save/currency] id=test-ValueTypes-currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/date] id=test-ValueTypes-date-MenuItem\n" +
                 "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
