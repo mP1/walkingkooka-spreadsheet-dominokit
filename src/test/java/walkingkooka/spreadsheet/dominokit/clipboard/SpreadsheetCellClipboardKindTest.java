@@ -946,6 +946,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
             CELL,
             "{\n" +
                 "  \"formula\": {\n" +
+                "    \"text\": \"=1+2\",\n" +
                 "    \"value\": \"string111\",\n" +
                 "    \"valueType\": \"text\"\n" +
                 "  },\n" +
@@ -1134,11 +1135,13 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
     @Test
     public void testMarshallFormulaEmpty() {
-        final String formula = "";
         this.marshallAndCheck(
             SpreadsheetCellClipboardKind.FORMULA,
             CELL,
-            JsonNode.string(formula)
+            JsonNode.string(
+                CELL.formula()
+                    .text()
+            )
         );
     }
 

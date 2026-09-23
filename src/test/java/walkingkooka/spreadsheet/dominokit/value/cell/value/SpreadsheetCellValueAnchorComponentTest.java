@@ -132,7 +132,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                         SpreadsheetSelection.A1
                     )
                 ),
-            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/text] id=cell-value-anchor-id"
+            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/date] id=cell-value-anchor-id"
         );
     }
 

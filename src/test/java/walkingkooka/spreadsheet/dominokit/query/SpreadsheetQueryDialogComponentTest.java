@@ -770,7 +770,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
                 "                  \"A1\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-cells-A1-Link\n" +
-                "                  \"A1\" [#/123/SpreadsheetName456/cell/A1/formula] id=SpreadsheetCellQuery-cells-A1-formula-Link\n" +
+                "                  \"=1\" [#/123/SpreadsheetName456/cell/A1/formula] id=SpreadsheetCellQuery-cells-A1-formula-Link\n" +
                 "                  TextComponent\n" +
                 "                    \"\"\n" +
                 "                  TextNodeComponent\n" +
