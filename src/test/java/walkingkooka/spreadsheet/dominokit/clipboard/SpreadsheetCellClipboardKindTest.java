@@ -454,7 +454,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
     @Test
     public void testCellValueWithFormattedValueEmpty() {
-        final SpreadsheetCell cell = CELL.setFormattedValue(SpreadsheetCell.NO_FORMATTED_VALUE_CELL);
+        final SpreadsheetCell cell = CELL.setFormattedValue(SpreadsheetCell.NO_FORMATTED_VALUE);
 
         this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.FORMATTED_VALUE,
