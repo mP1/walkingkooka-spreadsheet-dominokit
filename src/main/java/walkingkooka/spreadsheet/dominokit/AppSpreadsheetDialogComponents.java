@@ -118,8 +118,6 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         cellReferences(context);
 
-        find(context);
-
         formatterParser(context);
 
         keyboard(context);
@@ -129,6 +127,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         locale(context);
 
         navigate(context);
+
+        query(context);
 
         sort(context);
 
@@ -337,12 +337,6 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         );
     }
 
-    private static void find(final AppContext context) {
-        SpreadsheetQueryDialogComponent.with(
-            SpreadsheetQueryDialogComponentContexts.appContext(context)
-        );
-    }
-
     private static void keyboard(final AppContext context) {
         SpreadsheetKeyboardDialogComponent.with(
             SpreadsheetKeyboardDialogComponentContexts.cell(context)
@@ -489,6 +483,12 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         SpreadsheetParserSelectorDialogComponent.with(
             SpreadsheetParserSelectorDialogComponentContexts.metadata(context)
+        );
+    }
+
+    private static void query(final AppContext context) {
+        SpreadsheetQueryDialogComponent.with(
+            SpreadsheetQueryDialogComponentContexts.appContext(context)
         );
     }
 
