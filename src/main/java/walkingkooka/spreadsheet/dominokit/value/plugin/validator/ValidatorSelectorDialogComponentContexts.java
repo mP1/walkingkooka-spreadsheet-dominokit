@@ -23,10 +23,10 @@ import walkingkooka.spreadsheet.dominokit.AppContext;
 public final class ValidatorSelectorDialogComponentContexts implements PublicStaticHelper {
 
     /**
-     * {@see AppContextValidatorSelectorDialogComponentContext}
+     * {@see ValidatorSelectorDialogComponentContextAppContext}
      */
     public static ValidatorSelectorDialogComponentContext appContext(final AppContext context) {
-        return AppContextValidatorSelectorDialogComponentContext.with(
+        return ValidatorSelectorDialogComponentContextAppContext.with(
             context
         );
     }
