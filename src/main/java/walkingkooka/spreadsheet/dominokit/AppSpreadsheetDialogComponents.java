@@ -68,6 +68,8 @@ import walkingkooka.spreadsheet.dominokit.value.plugin.comparator.SpreadsheetCom
 import walkingkooka.spreadsheet.dominokit.value.plugin.comparator.SpreadsheetComparatorNameListDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.plugin.convert.ConverterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.plugin.convert.ConverterSelectorDialogComponentContexts;
+import walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater.CurrencyExchangeRaterSelectorDialogComponent;
+import walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater.CurrencyExchangeRaterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.plugin.formatter.SpreadsheetFormatterSelectorDialogComponent;
 import walkingkooka.spreadsheet.dominokit.value.plugin.formatter.SpreadsheetFormatterSelectorDialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.value.plugin.formhandler.FormHandlerSelectorDialogComponent;
@@ -105,6 +107,8 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
         cellValue(context);
 
         currency(context);
+
+        currencyExchangeRater(context);
 
         dateTimeSymbols(context);
 
@@ -291,6 +295,12 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
 
         CurrencyDialogComponent.with(
             CurrencyDialogComponentContexts.appContextMetadataCurrency(context)
+        );
+    }
+
+    private static void currencyExchangeRater(final AppContext context) {
+        CurrencyExchangeRaterSelectorDialogComponent.with(
+            CurrencyExchangeRaterSelectorDialogComponentContexts.appContext(context)
         );
     }
 
