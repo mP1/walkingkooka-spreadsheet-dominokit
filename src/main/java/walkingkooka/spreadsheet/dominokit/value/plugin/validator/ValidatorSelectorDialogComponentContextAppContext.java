@@ -30,16 +30,16 @@ import walkingkooka.validation.provider.ValidatorSelector;
 import java.util.Objects;
 import java.util.Optional;
 
-final class AppContextValidatorSelectorDialogComponentContext implements ValidatorSelectorDialogComponentContext,
+final class ValidatorSelectorDialogComponentContextAppContext implements ValidatorSelectorDialogComponentContext,
     DialogComponentContextDelegator {
 
-    static AppContextValidatorSelectorDialogComponentContext with(final AppContext context) {
-        return new AppContextValidatorSelectorDialogComponentContext(
+    static ValidatorSelectorDialogComponentContextAppContext with(final AppContext context) {
+        return new ValidatorSelectorDialogComponentContextAppContext(
             Objects.requireNonNull(context, "context")
         );
     }
 
-    private AppContextValidatorSelectorDialogComponentContext(final AppContext context) {
+    private ValidatorSelectorDialogComponentContextAppContext(final AppContext context) {
         this.context = context;
     }
 
