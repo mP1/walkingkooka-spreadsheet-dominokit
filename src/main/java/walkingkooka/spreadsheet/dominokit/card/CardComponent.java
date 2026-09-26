@@ -53,7 +53,7 @@ public final class CardComponent implements HtmlComponent<HTMLDivElement, CardCo
         Objects.requireNonNull(title, "title");
 
         // TODO need to discover how to remove a title because setTitle(null) still shows an empty header
-        if (false == CharSequences.isNullOrEmpty(title)) {
+        if (CharSequences.isNotNullOrEmpty(title)) {
             this.card.setTitle(title);
         }
         return this;
