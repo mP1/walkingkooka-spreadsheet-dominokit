@@ -18,9 +18,17 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater;
 
 import walkingkooka.reflect.PublicStaticHelper;
+import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class CurrencyExchangeRaterSelectorDialogComponentContexts implements PublicStaticHelper {
 
+    /**
+     * {@link CurrencyExchangeRaterSelectorDialogComponentContextAppContext}
+     */
+    public static CurrencyExchangeRaterSelectorDialogComponentContext appContext(final AppContext context) {
+        return CurrencyExchangeRaterSelectorDialogComponentContextAppContext.with(context);
+    }
+    
     /**
      * {@link FakeCurrencyExchangeRaterSelectorDialogComponentContext}
      */
