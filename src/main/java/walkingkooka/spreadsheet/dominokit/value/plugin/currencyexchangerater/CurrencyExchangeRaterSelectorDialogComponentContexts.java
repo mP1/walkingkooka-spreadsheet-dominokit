@@ -18,29 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater;
 
 import walkingkooka.reflect.PublicStaticHelper;
-import walkingkooka.spreadsheet.dominokit.AppContext;
 
 public final class CurrencyExchangeRaterSelectorDialogComponentContexts implements PublicStaticHelper {
-
-    /**
-     * {@link AppContextCurrencyExchangeRaterSelectorDialogComponentContextCell}
-     */
-    public static CurrencyExchangeRaterSelectorDialogComponentContext cell(final AppContext context) {
-        return AppContextCurrencyExchangeRaterSelectorDialogComponentContextCell.with(context);
-    }
 
     /**
      * {@link FakeCurrencyExchangeRaterSelectorDialogComponentContext}
      */
     public static FakeCurrencyExchangeRaterSelectorDialogComponentContext fake() {
         return new FakeCurrencyExchangeRaterSelectorDialogComponentContext();
-    }
-
-    /**
-     * {@link AppContextCurrencyExchangeRaterSelectorDialogComponentContextMetadata}
-     */
-    public static CurrencyExchangeRaterSelectorDialogComponentContext metadata(final AppContext context) {
-        return AppContextCurrencyExchangeRaterSelectorDialogComponentContextMetadata.with(context);
     }
 
     /**
