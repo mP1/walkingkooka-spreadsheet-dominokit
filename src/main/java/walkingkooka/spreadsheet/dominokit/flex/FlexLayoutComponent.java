@@ -208,7 +208,7 @@ public final class FlexLayoutComponent implements HtmlComponentDelegator<HTMLDiv
             printer.println(this.isColumn() ? "COLUMN" : "ROW");
             {
                 final String id = this.id();
-                final boolean extraIndent = false == CharSequences.isNullOrEmpty(id);
+                final boolean extraIndent = CharSequences.isNotNullOrEmpty(id);
 
                 if (extraIndent) {
                     printer.indent();

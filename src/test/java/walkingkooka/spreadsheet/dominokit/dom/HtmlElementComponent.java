@@ -384,7 +384,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
 
             {
                 final String text = this.text;
-                if(false == CharSequences.isNullOrEmpty(text)) {
+                if(CharSequences.isNotNullOrEmpty(text)) {
                     printer.println(
                         CharSequences.quoteAndEscape(text)
                     );

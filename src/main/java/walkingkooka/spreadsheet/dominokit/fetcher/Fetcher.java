@@ -275,7 +275,7 @@ abstract public class Fetcher<W extends FetcherWatcher> implements HasHateosCont
         String actualBodyLength = "";
         if (body.isPresent()) {
             final String bodyText = body.get();
-            if (false == CharSequences.isNullOrEmpty(bodyText)) {
+            if (CharSequences.isNotNullOrEmpty(bodyText)) {
                 actualBodyLength = " " + bodyText.length();
             }
         }

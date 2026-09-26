@@ -245,7 +245,7 @@ public final class FormElementComponent<V, E extends HTMLElement, C extends Html
         printer.indent();
         {
             final String label = this.getLabel();
-            if (false == CharSequences.isNullOrEmpty(label)) {
+            if (CharSequences.isNotNullOrEmpty(label)) {
                 printer.println("label");
                 printer.indent();
                 {
@@ -255,7 +255,7 @@ public final class FormElementComponent<V, E extends HTMLElement, C extends Html
             }
 
             final String helperText = this.getHelperText();
-            if (false == CharSequences.isNullOrEmpty(helperText)) {
+            if (CharSequences.isNotNullOrEmpty(helperText)) {
                 printer.println("helperText");
                 printer.indent();
                 {

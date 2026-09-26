@@ -184,7 +184,7 @@ abstract class DialogComponentLike implements HtmlComponent<HTMLDivElement, Dial
         printer.indent();
         {
             final String title = this.title();
-            if (false == CharSequences.isNullOrEmpty(title)) {
+            if (CharSequences.isNotNullOrEmpty(title)) {
                 printer.println(title);
             }
 
