@@ -119,7 +119,8 @@ final class ElementalLoggingContext implements BrowserLoggingContext {
     @Override
     public void info(final String message) {
         this.info(
-            message
+            message,
+            null
         );
     }
 
@@ -152,7 +153,8 @@ final class ElementalLoggingContext implements BrowserLoggingContext {
     @Override
     public void error(final String message) {
         this.error(
-            message
+            message,
+            null
         );
     }
 
