@@ -1690,9 +1690,7 @@ public class App implements EntryPoint,
             this.currencyExchangeRaterInfoSet.renameIfPresent(
                 CurrencyExchangeRaterInfoSet.EMPTY
             ),
-            CurrencyExchangeRaterProviders.currencyExchangeRaters(
-                ExpressionNumberKind.DEFAULT::parse
-            )
+            CurrencyExchangeRaterProviders.empty()
         );
 
         final SpreadsheetExporterProvider spreadsheetExporterProvider = SpreadsheetExporterProviders.mergedMapped(
