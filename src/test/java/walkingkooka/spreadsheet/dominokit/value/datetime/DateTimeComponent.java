@@ -29,7 +29,7 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
- * A mock of main/TextBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
+ * A mock of main/TextBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough appearance of a component that includes
  * {@link DateTimeComponent}.
  */
 public final class DateTimeComponent extends TestTemporalComponent<LocalDateTime, DateTimeComponent> {

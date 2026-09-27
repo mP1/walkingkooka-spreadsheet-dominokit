@@ -122,21 +122,21 @@ final class AppCurrencyContext implements CurrencyContextDelegator,
     }
 
     /**
-     * Save the loaded currencys. These will appear in the {@link CurrencyComponent}.
+     * Save the loaded currencies. These will appear in the {@link CurrencyComponent}.
      */
     @Override
-    public void onCurrencyHateosResourceSet(final CurrencyHateosResourceSet currencys) {
-        final Set<Currency> availableCurrencys = Sets.hash();
+    public void onCurrencyHateosResourceSet(final CurrencyHateosResourceSet currencies) {
+        final Set<Currency> availableCurrencies = Sets.hash();
         final Map<CurrencyCode, String> currencyCodeToText = Maps.sorted();
 
-        for (final CurrencyHateosResource currencyHateosResource : currencys) {
+        for (final CurrencyHateosResource currencyHateosResource : currencies) {
             final CurrencyCode currencyCode = currencyHateosResource.value();
 
             final Currency currency = this.currencyForCurrencyCode(currencyCode)
                 .orElse(null);
 
             if (null != currency) {
-                availableCurrencys.add(currency);
+                availableCurrencies.add(currency);
 
                 currencyCodeToText.put(
                     currencyCode,

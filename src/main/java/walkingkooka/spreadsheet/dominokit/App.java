@@ -546,7 +546,7 @@ public class App implements EntryPoint,
             this.layout.element()
         );
 
-        // load all Currencys
+        // load all Currencies
         this.currencyFetcher.getCurrencies(
             0,
             Integer.MAX_VALUE
@@ -1472,7 +1472,7 @@ public class App implements EntryPoint,
                 metadata.mathContext()
             );
 
-            // SpreasdsheetMetadata#spreasheetEnvironmentContext will unwrap previous
+            // SpreadsheetMetadata#spreasheetEnvironmentContext will unwrap previous
             final SpreadsheetEnvironmentContext spreadsheetEnvironmentContext = metadata.spreadsheetEnvironmentContext(
                 this.spreadsheetEnvironmentContext
             );

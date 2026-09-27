@@ -41,7 +41,7 @@ public final class AppContextSpreadsheetNavigateDialogComponentContextNavigateTe
     }
 
     @Test
-    public void testIsMatchNavigatWithNavigation() {
+    public void testIsMatchNavigateWithNavigation() {
         final HistoryToken historyToken = HistoryToken.navigate(
             SPREADSHEET_ID,
             SPREADSHEET_NAME,

@@ -119,7 +119,7 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
                 "            \"20 Rows\" [#/*/offset/1/count/20] id=spreadsheetList-count-20-rows-Link\n"
         );
 
-        // previous history token opens the diloag, otherwise the metadata's below will be ignored.
+        // previous history token opens the dialog, otherwise the metadata's below will be ignored.
         dialog.onSpreadsheetMetadataSet(
             Sets.of(
                 this.spreadsheetMetadata(1, "SpreadsheetName111"),

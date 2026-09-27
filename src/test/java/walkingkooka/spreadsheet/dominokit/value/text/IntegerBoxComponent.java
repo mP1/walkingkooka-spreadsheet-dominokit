@@ -34,7 +34,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * A mock of main/IntegerBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough apperance of a component that includes
+ * A mock of main/IntegerBoxComponent with the same public interface and a helpful {@link TreePrintable}. This will be useful for unit tests to verify the rough appearance of a component that includes
  * {@link IntegerBoxComponent}.
  */
 public final class IntegerBoxComponent extends IntegerBoxComponentLike
