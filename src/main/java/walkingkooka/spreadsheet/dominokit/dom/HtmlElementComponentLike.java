@@ -114,6 +114,7 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
 
     public abstract C setText(final String text);
 
+    @Override
     public final C addBlurListener(final EventListener listener) {
         return this.addEventListener(
             EventType.blur.getName(),
@@ -149,6 +150,7 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
         );
     }
 
+    @Override
     public final C addFocusListener(final EventListener listener) {
         return this.addEventListener(
             EventType.focus.getName(),
@@ -156,6 +158,7 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
         );
     }
 
+    @Override
     public final C addFocusInListener(final EventListener listener) {
         return this.addEventListener(
             "focusin",
@@ -163,6 +166,7 @@ abstract class HtmlElementComponentLike<E extends HTMLElement, C extends HtmlEle
         );
     }
 
+    @Override
     public final C addFocusOutListener(final EventListener listener) {
         return this.addEventListener(
             "focusout",
