@@ -246,7 +246,7 @@ public final class AppCurrencyContextTest implements CurrencyContextTesting2<App
             HAS_CURRENCY_FETCHER_WATCHERS,
             CurrencyContexts.jre(
                 Currency.getInstance(locale),
-                new FakeCurrencyExchangeRater(),
+                new FakeCurrencyExchangeRater<>(),
                 LocaleContexts.jre(locale)
             )
         );

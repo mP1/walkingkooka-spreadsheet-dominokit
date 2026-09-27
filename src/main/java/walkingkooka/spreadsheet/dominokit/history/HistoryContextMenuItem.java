@@ -32,7 +32,7 @@ final class HistoryContextMenuItem {
 
         CURRENCY_CONTEXT = CurrencyContexts.jre(
             Currency.getInstance(locale),
-            new FakeCurrencyExchangeRater(),
+            new FakeCurrencyExchangeRater<>(),
             LocaleContexts.jre(locale)
         );
     }

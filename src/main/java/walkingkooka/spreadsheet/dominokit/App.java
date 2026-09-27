@@ -296,7 +296,7 @@ public class App implements EntryPoint,
 
     private final static CurrencyContext CURRENCY_CONTEXT = CurrencyContexts.jre(
         CURRENCY,
-        new FakeCurrencyExchangeRater(), // exchange rate computer
+        new FakeCurrencyExchangeRater<>(), // exchange rate computer
         LOCALE_CONTEXT
     );
 
