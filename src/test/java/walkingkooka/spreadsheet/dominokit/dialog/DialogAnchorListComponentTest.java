@@ -451,7 +451,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
 
     @Test
     public void testSetHistoryTokenPreProcessorSetValue() {
-        final DialogAnchorListComponent<TextStyle> component = DialogAnchorListComponent.<TextStyle>empty(
+        final DialogAnchorListComponent<TextStyle> component = DialogAnchorListComponent.empty(
                 ID_PREFIX,
                 this.createContext(
                     HistoryToken.cellStyle(
@@ -494,7 +494,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
 
     @Test
     public void testSetHistoryTokenPreProcessorSetValue2() {
-        final DialogAnchorListComponent<TextStyle> component = DialogAnchorListComponent.<TextStyle>empty(
+        final DialogAnchorListComponent<TextStyle> component = DialogAnchorListComponent.empty(
                 ID_PREFIX,
                 this.createContext(
                     HistoryToken.cellStyle(
