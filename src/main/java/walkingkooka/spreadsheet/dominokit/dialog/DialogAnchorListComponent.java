@@ -136,7 +136,7 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
             this.list.appendChild(child);
 
             if(child instanceof HistoryTokenSaveValueAnchorComponent) {
-                ((HistoryTokenSaveValueAnchorComponent) child)
+                ((HistoryTokenSaveValueAnchorComponent<?>) child)
                     .setHistoryTokenPreProcessor(this.historyTokenPreProcessor);
             }
         }

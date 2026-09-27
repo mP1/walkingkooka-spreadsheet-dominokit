@@ -61,5 +61,5 @@ public interface PluginNameAnchorListComponentContextDelegator<N extends Name & 
 
     // PluginNameAnchorListComponentContextDelegator....................................................................
 
-    PluginNameAnchorListComponentContext pluginNameAnchorListComponentContext();
+    PluginNameAnchorListComponentContext<N, I, IS, S, A, AS> pluginNameAnchorListComponentContext();
 }
