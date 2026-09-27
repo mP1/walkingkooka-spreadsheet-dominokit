@@ -115,7 +115,7 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
 
     @Override
     public boolean canConvert(final Object value,
-                              final Class<?> tyoe) {
+                              final Class<?> type) {
         throw new UnsupportedOperationException();
     }
 

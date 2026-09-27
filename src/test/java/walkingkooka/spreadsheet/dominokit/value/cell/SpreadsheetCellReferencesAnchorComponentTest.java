@@ -86,7 +86,7 @@ public final class SpreadsheetCellReferencesAnchorComponentTest implements Ancho
     }
 
     @Test
-    public void testSetValueWithCellWithNonZeroSpreadsheetExpresionReferences() {
+    public void testSetValueWithCellWithNonZeroSpreadsheetExpressionReferences() {
         this.treePrintAndCheck(
             this.createComponent(
                 SpreadsheetSelection.parseCell("B2"),

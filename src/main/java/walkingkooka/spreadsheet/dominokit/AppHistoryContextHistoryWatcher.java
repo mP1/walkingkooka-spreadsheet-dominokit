@@ -197,7 +197,7 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
      * load viewport response
      *   update local metadata selection=A1
      *   push history selection=A1
-     *   DONT want to PATCH metadata selection=A1 as this will cause load viewport selection=A2 to be ovewritten.
+     *   DONT want to PATCH metadata selection=A1 as this will cause load viewport selection=A2 to be overwritten.
      * </pre>
      */
     private static void patchMetadataIfSelectionChanged(final HistoryToken historyToken,

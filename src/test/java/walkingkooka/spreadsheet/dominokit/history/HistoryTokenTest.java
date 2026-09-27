@@ -3080,7 +3080,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     }
 
     @Test
-    public void testParseSpreadsheetIdSpreadsheetNameCellRangeNavigateHomeNavitations() {
+    public void testParseSpreadsheetIdSpreadsheetNameCellRangeNavigateHomeNavgtations() {
         this.parseStringAndCheck(
             "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/Z99/scroll%20right%20444px",
             HistoryToken.cellNavigate(

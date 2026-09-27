@@ -146,7 +146,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
             "/"
         );
 
-        // toolbar shoould be empty (hidden)
+        // toolbar should be empty (hidden)
         this.onHistoryTokenChangeAndCheck(
             this.createComponent(context),
             watchers,
