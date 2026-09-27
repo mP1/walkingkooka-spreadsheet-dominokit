@@ -73,7 +73,6 @@ import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProvider;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorProviders;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
-import walkingkooka.spreadsheet.convert.provider.SpreadsheetConvertersConverterProviders;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContext;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextReadWatcher;
 import walkingkooka.spreadsheet.dominokit.clipboard.ClipboardContextWriteWatcher;
@@ -1683,7 +1682,7 @@ public class App implements EntryPoint,
             this.spreadsheetComparatorInfoSet.renameIfPresent(
                 SpreadsheetComparatorInfoSet.EMPTY
             ),
-            SpreadsheetComparatorProviders.spreadsheetComparators()
+            SpreadsheetComparatorProviders.empty()
         );
 
         final CurrencyExchangeRaterProvider currencyExchangeRaterProvider = CurrencyExchangeRaterProviders.mergedMapped(
@@ -1711,14 +1710,14 @@ public class App implements EntryPoint,
             this.spreadsheetFormatterInfoSet.renameIfPresent(
                 SpreadsheetFormatterInfoSet.EMPTY
             ),
-            SpreadsheetFormatterProviders.spreadsheetFormatters()
+            SpreadsheetFormatterProviders.empty()
         );
 
         final FormHandlerProvider formHandlerProvider = FormHandlerProviders.mergedMapped(
             this.formHandlerInfoSet.renameIfPresent(
                 FormHandlerInfoSet.EMPTY
             ),
-            FormHandlerProviders.validation()
+            FormHandlerProviders.empty()
         );
 
         final SpreadsheetImporterProvider spreadsheetImporterProvider = SpreadsheetImporterProviders.mergedMapped(
@@ -1732,20 +1731,14 @@ public class App implements EntryPoint,
             this.spreadsheetParserInfoSet.renameIfPresent(
                 SpreadsheetParserInfoSet.EMPTY
             ),
-            SpreadsheetParserProviders.spreadsheetParsePattern(spreadsheetFormatterProvider)
+            SpreadsheetParserProviders.empty()
         );
 
         final ConverterProvider converterProvider = ConverterProviders.mergedMapped(
             this.converterInfoSet.renameIfPresent(
                 ConverterInfoSet.EMPTY
             ),
-            SpreadsheetConvertersConverterProviders.spreadsheetConverters(
-                (ProviderContext p) -> metadata.dateTimeConverter(
-                    spreadsheetFormatterProvider,
-                    spreadsheetParserProvider,
-                    p
-                )
-            )
+            ConverterProviders.empty()
         );
 
         final ValidatorProvider validatorProvider = ValidatorProviders.mergedMapped(
