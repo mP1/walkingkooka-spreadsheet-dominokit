@@ -71,14 +71,16 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
 
     private ConverterSelectorDialogComponent(final ConverterSelectorDialogComponentContext context) {
         this.context = context;
-        context.addHistoryWatcher(this);
 
-        context.addSpreadsheetMetadataFetcherWatcher(this);
-        context.addConverterFetcherWatcher(this);
+        this.missing = MissingConverterSetComponent.empty(MissingConverterSet.EMPTY);
 
-        this.missing = this.missing();
-
-        this.selector = this.selector();
+        this.selector = ConverterSelectorComponent.empty()
+            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
+            .addValueWatcher2(
+                (value) -> {
+                    this.refreshSaveLink(value);
+                }
+            );
 
         this.links = this.dialogAnchorListComponent(context)
             .save()
@@ -86,7 +88,18 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
             .undo()
             .close();
 
-        this.dialog = this.dialogCreate();
+        this.dialog = DialogComponent.largeEdit(
+                ID + SpreadsheetElementIds.DIALOG,
+                DialogComponent.INCLUDE_CLOSE,
+                context
+            ).appendChild(this.selector)
+            .appendChild(this.links)
+            .appendChild(this.missing);
+
+        context.addHistoryWatcher(this);
+
+        context.addSpreadsheetMetadataFetcherWatcher(this);
+        context.addConverterFetcherWatcher(this);
     }
 
     // ids..............................................................................................................
@@ -100,23 +113,6 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
 
     // dialog...........................................................................................................
 
-    /**
-     * Creates the modal dialog, loaded with the {@link ConverterSelector} textbox and some links.
-     */
-    private DialogComponent dialogCreate() {
-        final ConverterSelectorDialogComponentContext context = this.context;
-
-        DialogComponent dialog = DialogComponent.largeEdit(
-            ID + SpreadsheetElementIds.DIALOG,
-            DialogComponent.INCLUDE_CLOSE,
-            context
-        );
-
-        return dialog.appendChild(this.selector)
-            .appendChild(this.links)
-            .appendChild(this.missing);
-    }
-
     @Override
     public DialogComponent dialog() {
         return this.dialog;
@@ -124,56 +120,72 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
 
     private final DialogComponent dialog;
 
-    private final ConverterSelectorDialogComponentContext context;
-
-    // missing..........................................................................................................
-
-    private MissingConverterSetComponent missing() {
-        return MissingConverterSetComponent.empty(MissingConverterSet.EMPTY);
-    }
-
     private final MissingConverterSetComponent missing;
-
-    // textBox..........................................................................................................
-
-    /**
-     * Creates a text box to edit the {@link ConverterSelector} and installs a few value change type listeners
-     */
-    private ConverterSelectorComponent selector() {
-        return ConverterSelectorComponent.empty()
-            .setId(ID + SpreadsheetElementIds.TEXT_BOX)
-            .addValueWatcher2(
-                (value) -> {
-                    this.refreshSaveLink(value);
-
-                    if (value.isPresent()) {
-                        this.context.verifySelector(
-                            value.get()
-                                .toString()
-                        );
-                    }
-                }
-            );
-    }
 
     /**
      * The {@link ConverterSelectorComponent} that holds the {@link ConverterSelector} in text form.
      */
     private final ConverterSelectorComponent selector;
 
-    // dialog links.....................................................................................................
+    private final DialogAnchorListComponent<ConverterSelector> links;
 
-    void refreshSaveLink(final Optional<ConverterSelector> list) {
+    private final ConverterSelectorDialogComponentContext context;
+
+    // HistoryTokenAwareComponentLifecycle..............................................................................
+
+    @Override
+    public ComponentLifecycleMatcher componentLifecycleMatcher() {
+        return this.context;
+    }
+
+    @Override
+    public void dialogReset() {
+        // NOP
+    }
+
+    @Override
+    public void openGiveFocus(final RefreshContext context) {
+        context.giveFocus(
+            this.selector::focus
+        );
+    }
+
+    @Override
+    public void refresh(final RefreshContext context) {
+        final Optional<ConverterSelector> undo = this.context.undo();
+        this.selector.setValue(undo);
+        this.refreshSaveLink(undo);
+        this.refreshTitleAndLinks();
+    }
+
+    private void refreshSaveLink(final Optional<ConverterSelector> value) {
         this.selector.validate();
 
         this.links.setValue(
             this.selector.hasErrors() ?
                 Optional.empty() :
-                list
+                value
         );
+
+        if (value.isPresent()) {
+            this.context.verifySelector(
+                value.get()
+                    .toString()
+            );
+        }
     }
 
-    private final DialogAnchorListComponent<ConverterSelector> links;
+    private void refreshTitleAndLinks() {
+        final ConverterSelectorDialogComponentContext context = this.context;
+        context.refreshDialogTitle(this);
+
+        this.links.refresh(context);
+    }
+
+    @Override
+    public boolean shouldLogLifecycleChanges() {
+        return CONVERTER_SELECTOR_DIALOG_COMPONENT;
+    }
 
     // FetcherWatcher...................................................................................................
 
@@ -236,45 +248,5 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
     @Override
     public void onSpreadsheetMetadataSet(final Set<SpreadsheetMetadata> metadatas) {
         // Ignore many
-    }
-
-    // HistoryTokenAwareComponentLifecycle..............................................................................
-
-    @Override
-    public ComponentLifecycleMatcher componentLifecycleMatcher() {
-        return this.context;
-    }
-
-    @Override
-    public void dialogReset() {
-        // NOP
-    }
-
-    @Override
-    public void openGiveFocus(final RefreshContext context) {
-        context.giveFocus(
-            this.selector::focus
-        );
-    }
-
-    @Override
-    public void refresh(final RefreshContext context) {
-        final Optional<ConverterSelector> undo = this.context.undo();
-        this.selector.setValue(undo);
-        this.refreshSaveLink(undo);
-
-        this.refreshTitleAndLinks();
-    }
-
-    private void refreshTitleAndLinks() {
-        final ConverterSelectorDialogComponentContext context = this.context;
-        context.refreshDialogTitle(this);
-
-        this.links.refresh(context);
-    }
-
-    @Override
-    public boolean shouldLogLifecycleChanges() {
-        return CONVERTER_SELECTOR_DIALOG_COMPONENT;
     }
 }
