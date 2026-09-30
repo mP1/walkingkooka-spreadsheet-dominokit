@@ -284,9 +284,10 @@ public class App implements EntryPoint,
 
     private final static Locale LOCALE = Locale.forLanguageTag("en-AU");
 
-    private final static CanParseEnvironmentValueName CAN_PARSE_ENVIRONMENT_VALUE_NAME = (final String name) -> {
-        throw new UnsupportedOperationException();
-    };
+    private final static CanParseEnvironmentValueName CAN_PARSE_ENVIRONMENT_VALUE_NAME = (final String name) -> EnvironmentValueName.with(
+        name,
+        Object.class
+    );
 
     private final static Currency CURRENCY = Currency.getInstance(LOCALE);
 
