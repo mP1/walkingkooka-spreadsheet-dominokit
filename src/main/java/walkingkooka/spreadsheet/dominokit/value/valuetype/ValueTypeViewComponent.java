@@ -59,31 +59,31 @@ public final class ValueTypeViewComponent implements ValueComponent<HTMLElement,
         if (null != valueType) {
             final Color color;
 
-            if (valueType.isDate() || valueType.isDateTime() || valueType.isTime()) {
+            if (SpreadsheetValueType.DATE.test(valueType) || ValueType.DATE_TIME.test(valueType) || ValueType.TIME.test(valueType)) {
                 color = WebColorName.CHOCOLATE.color();
             } else {
-                if (valueType.isNumber()) {
+                if (SpreadsheetValueType.NUMBER.test(valueType)) {
                     color = WebColorName.LIMEGREEN.color();
                 } else {
-                    if (valueType.isError()) {
+                    if (SpreadsheetValueType.ERROR.test(valueType)) {
                         color = WebColorName.DEEPPINK.color();
                     } else {
-                        if (valueType.isText()) {
+                        if (SpreadsheetValueType.TEXT.test(valueType)) {
                             color = WebColorName.PURPLE.color();
                         } else {
-                            if (SpreadsheetValueType.isColor(valueType)) {
+                            if (SpreadsheetValueType.COLOR.test(valueType)) {
                                 color = WebColorName.OLIVE.color();
                             } else {
-                                if (SpreadsheetValueType.isReference(valueType)) {
+                                if (SpreadsheetValueType.REFERENCE.test(valueType)) {
                                     color = WebColorName.ORANGE.color();
                                 } else {
-                                    if (valueType.isJson()) {
+                                    if (SpreadsheetValueType.JSON.test(valueType)) {
                                         color = WebColorName.SANDYBROWN.color();
                                     } else {
-                                        if (valueType.isEmail() || valueType.isUrl()) {
+                                        if (SpreadsheetValueType.EMAIL.test(valueType) || SpreadsheetValueType.URL.test(valueType)) {
                                             color = WebColorName.AZURE.color();
                                         } else {
-                                            if (valueType.isList()) {
+                                            if (SpreadsheetValueType.LIST.test(valueType)) {
                                                 color = WebColorName.DARKSALMON.color();
                                             } else {
                                                 color = null;
@@ -113,7 +113,7 @@ public final class ValueTypeViewComponent implements ValueComponent<HTMLElement,
     @Override
     public Optional<ValueType> value() {
         return this.label.value()
-            .map(ValueType::with);
+            .map(ValueType::fromClassNameOrFail);
     }
 
     @Override

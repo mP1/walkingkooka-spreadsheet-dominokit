@@ -182,12 +182,7 @@ final class AppSpreadsheetDialogComponents implements PublicStaticHelper {
             SpreadsheetValueType.EMAIL,
             context
         );
-
-        cellValueEmail(
-            SpreadsheetValueType.EMAIL_ADDRESS,
-            context
-        );
-
+        
         cellValue(
             SpreadsheetValueType.NUMBER,
             ExpressionNumber.class,

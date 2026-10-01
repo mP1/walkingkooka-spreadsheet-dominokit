@@ -492,7 +492,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
                         this.spreadsheetName,
                         this.anchoredSelection,
                         null != valueOrNull ?
-                            SpreadsheetValueType.toValueType(valueOrNull.getClass())
+                            ValueType.fromClass(valueOrNull.getClass())
                                 .orElse(SpreadsheetValueType.TEXT) :
                             SpreadsheetValueType.TEXT, // valueType
                         value
@@ -722,7 +722,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             Optional.ofNullable(
                 null == valueTypeString ?
                     null :
-                    ValueType.with(valueTypeString)
+                    ValueType.fromClassNameOrFail(valueTypeString)
             )
         );
     }

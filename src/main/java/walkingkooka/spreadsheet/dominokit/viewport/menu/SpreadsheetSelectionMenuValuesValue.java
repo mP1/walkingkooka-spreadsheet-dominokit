@@ -68,7 +68,7 @@ final class SpreadsheetSelectionMenuValuesValue extends SpreadsheetSelectionMenu
                 .value()
                 .orElse(null);
             if (null != value) {
-                checked = SpreadsheetValueType.toValueType(
+                checked = ValueType.fromClass(
                     value.getClass()
                 ).orElse(null);
             }

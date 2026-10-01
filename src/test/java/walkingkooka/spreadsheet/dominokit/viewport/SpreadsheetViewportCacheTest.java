@@ -3780,7 +3780,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
                     a2.setFormula(
                         SpreadsheetFormula.EMPTY.setValueType(
                             Optional.of(
-                                ValueType.with("ignored")
+                                ValueType.DATE
                             )
                         )
                     ).setFormatter(
@@ -3835,7 +3835,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
         final ValidatorSelector validator = ValidatorSelector.parse("hello-validator");
 
-        final ValueType valueType = ValueType.with("hello-value-type");
+        final ValueType valueType = ValueType.TEXT;
 
         final SpreadsheetCellReference a2 = SpreadsheetSelection.parseCell("A2");
 

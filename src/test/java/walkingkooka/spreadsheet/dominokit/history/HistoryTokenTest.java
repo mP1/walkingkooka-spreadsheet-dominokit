@@ -3574,15 +3574,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellValueTypeSave() {
-        final ValueType valueType = ValueType.with("hello-value-type");
-
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/valueType/save/" + urlEncode(valueType.value()),
+            "/123/SpreadsheetName456/cell/A1/valueType/save/text",
             HistoryToken.cellValueTypeSave(
                 SPREADSHEET_ID,
                 NAME,
                 CELL.setDefaultAnchor(),
-                Optional.of(valueType)
+                Optional.of(ValueType.TEXT)
             )
         );
     }

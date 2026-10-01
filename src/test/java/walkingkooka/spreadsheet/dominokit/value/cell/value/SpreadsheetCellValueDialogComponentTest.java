@@ -49,6 +49,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
+import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.validation.ValueType;
 
 import java.time.LocalDate;
@@ -419,7 +420,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final SpreadsheetCellValueDialogComponent<AbsoluteUrl> dialog = SpreadsheetCellValueDialogComponent.with(
             AbsoluteUrlComponent.empty(),
             new TestSpreadsheetCellValueDialogComponentContext<>(
-                ValueType.URL,
+                SpreadsheetValueType.URL,
                 Optional.of(
                     Url.parseAbsolute("https://example.com/path1/k1=v2")
                 ),

@@ -93,8 +93,8 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
             "ValidationChoiceListComponent\n" +
                 "  SelectComponent\n" +
                 "    [] id=TestChoiceList123-\n" +
-                "      \"Value Label1\" [#/1/SpreadsheetName1/cell/A1/value/number/save/11] id=TestChoiceList123-11-Option\n" +
-                "      \"Value Label2\" [#/1/SpreadsheetName1/cell/A1/value/number/save/22] id=TestChoiceList123-22-Option\n" +
+                "      \"Value Label1\" [#/1/SpreadsheetName1/cell/A1/value/number-whole-integer/save/11] id=TestChoiceList123-11-Option\n" +
+                "      \"Value Label2\" [#/1/SpreadsheetName1/cell/A1/value/number-whole-integer/save/22] id=TestChoiceList123-22-Option\n" +
                 "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option\n"
         );
     }
@@ -131,8 +131,8 @@ public final class ValidationChoiceListComponentTest implements FormValueCompone
             "ValidationChoiceListComponent\n" +
                 "  SelectComponent\n" +
                 "    LabelLabel [ValueLabel1=11] id=TestChoiceList123-\n" +
-                "      \"Value Label1\" [#/1/SpreadsheetName1/cell/A1/value/number/save/11] id=TestChoiceList123-11-Option\n" +
-                "      \"Value Label2\" [#/1/SpreadsheetName1/cell/A1/value/number/save/22] id=TestChoiceList123-22-Option\n" +
+                "      \"Value Label1\" [#/1/SpreadsheetName1/cell/A1/value/number-whole-integer/save/11] id=TestChoiceList123-11-Option\n" +
+                "      \"Value Label2\" [#/1/SpreadsheetName1/cell/A1/value/number-whole-integer/save/22] id=TestChoiceList123-22-Option\n" +
                 "      \"Value Label3\" [#/1/SpreadsheetName1/cell/A1] id=TestChoiceList123--Option\n"
         );
     }
