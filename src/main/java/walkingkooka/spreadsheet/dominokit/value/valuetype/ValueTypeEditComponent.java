@@ -55,7 +55,7 @@ public final class ValueTypeEditComponent implements FormValueComponent<HTMLFiel
 
                 return context.selectOption(
                     idPrefix + nameText + SpreadsheetElementIds.OPTION, // id
-                    n.isAny() ?
+                    ValueType.ANY.equals(n) ?
                         "Any" :
                         CaseKind.KEBAB.change(
                             nameText,

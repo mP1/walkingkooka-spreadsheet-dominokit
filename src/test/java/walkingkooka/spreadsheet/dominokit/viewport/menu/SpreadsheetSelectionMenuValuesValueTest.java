@@ -54,7 +54,7 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/value/text] id=test-Value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/value/time] id=test-Value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName111/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/value/text/save/] id=test-Value-clear-MenuItem\n"
         );
@@ -80,7 +80,7 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/value/text] id=test-Value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/value/time] id=test-Value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName111/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/formula/save/] id=test-Value-clear-MenuItem\n"
         );
@@ -113,7 +113,7 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/value/text] CHECKED id=test-Value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/value/time] id=test-Value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName111/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/value/whole-number] id=test-Value-whole-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/value/text/save/] id=test-Value-clear-MenuItem\n"
         );

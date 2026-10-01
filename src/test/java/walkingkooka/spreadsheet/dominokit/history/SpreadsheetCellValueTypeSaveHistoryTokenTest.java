@@ -21,6 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
+import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.validation.ValueType;
@@ -32,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetCellValueTypeSaveHistoryTokenTest extends SpreadsheetCellValueTypeHistoryTokenTestCase<SpreadsheetCellValueTypeSaveHistoryToken> {
 
     private final static Optional<ValueType> VALUE_TYPE = Optional.of(
-        ValueType.with("hello-value-type")
+        SpreadsheetValueType.DATE
     );
 
     @Test
@@ -52,7 +53,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryTokenTest extends Spreadsh
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/valueType/save/hello-value-type");
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/valueType/save/date");
     }
 
     @Test
@@ -72,7 +73,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/valueType/save/hello-value-type"
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/valueType/save/date"
         );
     }
 
@@ -80,7 +81,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/*/top-left/valueType/save/hello-value-type"
+            "/123/SpreadsheetName456/cell/*/top-left/valueType/save/date"
         );
     }
 
@@ -88,7 +89,7 @@ public final class SpreadsheetCellValueTypeSaveHistoryTokenTest extends Spreadsh
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/valueType/save/hello-value-type"
+            "/123/SpreadsheetName456/cell/Label123/valueType/save/date"
         );
     }
 

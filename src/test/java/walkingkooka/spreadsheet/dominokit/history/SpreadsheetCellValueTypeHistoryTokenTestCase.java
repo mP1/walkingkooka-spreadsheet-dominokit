@@ -81,7 +81,7 @@ public abstract class SpreadsheetCellValueTypeHistoryTokenTestCase<T extends Spr
     @Test
     public final void testSetSaveValueWithNonEmpty() {
         final Optional<ValueType> value = Optional.of(
-            ValueType.with("hello-type-name")
+            ValueType.TEXT
         );
 
         this.setSaveValueAndCheck(

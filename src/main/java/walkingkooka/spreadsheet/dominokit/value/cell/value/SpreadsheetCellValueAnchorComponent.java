@@ -25,7 +25,6 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellValueHistoryTok
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
-import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.validation.ValueType;
 
 import java.util.Objects;
@@ -90,7 +89,7 @@ public final class SpreadsheetCellValueAnchorComponent implements ValueHistoryTo
                 // value present use that as the valueType
                 Optional<ValueType> valueType = Optional.empty();
                 if (formula.text().isEmpty() && null != value) {
-                    valueType = SpreadsheetValueType.toValueType(value.getClass());
+                    valueType = ValueType.fromClass(value.getClass());
                 }
 
                 if (false == valueType.isPresent()) {

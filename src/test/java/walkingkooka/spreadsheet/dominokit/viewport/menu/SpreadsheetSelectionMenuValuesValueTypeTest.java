@@ -55,7 +55,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName111/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n"
         );
@@ -81,7 +81,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName111/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/formula/save/] id=test-ValueType-clear-MenuItem\n"
         );
@@ -113,7 +113,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/text] CHECKED id=test-ValueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName111/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n"
         );
@@ -139,7 +139,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName111/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Whole Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/whole-number] id=test-ValueTypes-whole-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n"
         );

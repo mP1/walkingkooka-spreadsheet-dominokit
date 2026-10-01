@@ -176,7 +176,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithBooleanTrue() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.BOOLEAN_STRING,
+            SpreadsheetValueType.BOOLEAN,
             true,
             "{\n" +
                 "  \"formula\": {\n" +
@@ -189,7 +189,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithBooleanFalse() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.BOOLEAN_STRING,
+            SpreadsheetValueType.BOOLEAN,
             false,
             "{\n" +
                 "  \"formula\": {\n" +
@@ -202,7 +202,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithCell() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.CELL_STRING,
+            SpreadsheetValueType.CELL,
             SpreadsheetSelection.A1,
             "{\n" +
                 "  \"formula\": {\n" +
@@ -218,7 +218,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithCellRange() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.CELL_RANGE_STRING,
+            SpreadsheetValueType.CELL_RANGE,
             SpreadsheetSelection.A1.toCellRange(),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -234,7 +234,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithColumn() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.COLUMN_STRING,
+            SpreadsheetValueType.COLUMN,
             SpreadsheetSelection.parseColumn("AB"),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -250,7 +250,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithColumnRange() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.COLUMN_RANGE_STRING,
+            SpreadsheetValueType.COLUMN_RANGE,
             SpreadsheetSelection.parseColumnRange("C:D"),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -266,7 +266,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithDate() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.DATE_STRING,
+            SpreadsheetValueType.DATE,
             LocalDate.of(1999, 12, 31),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -282,7 +282,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithDateTime() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.DATE_TIME_STRING,
+            SpreadsheetValueType.DATE_TIME,
             LocalDateTime.of(1999, 12, 31, 12, 58, 59),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -298,7 +298,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithLabel() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.LABEL_STRING,
+            SpreadsheetValueType.LABEL,
             SpreadsheetSelection.labelName("HelloLabel"),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -314,7 +314,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithNumber() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.NUMBER_STRING,
+            SpreadsheetValueType.NUMBER,
             ExpressionNumberKind.BIG_DECIMAL.create(123),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -330,7 +330,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithRow() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.ROW_STRING,
+            SpreadsheetValueType.ROW,
             SpreadsheetSelection.parseRow("1"),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -346,7 +346,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithRowRange() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.ROW_RANGE_STRING,
+            SpreadsheetValueType.ROW_RANGE,
             SpreadsheetSelection.parseRowRange("2:3"),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -362,7 +362,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithText() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.TEXT_STRING,
+            SpreadsheetValueType.TEXT,
             "HelloText",
             "{\n" +
                 "  \"formula\": {\n" +
@@ -375,7 +375,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
     @Test
     public void testPatchValueWithTime() {
         this.patchValuePatchAndCheck(
-            SpreadsheetValueType.TIME_STRING,
+            SpreadsheetValueType.TIME,
             LocalTime.of(12, 58, 59),
             "{\n" +
                 "  \"formula\": {\n" +
@@ -388,26 +388,17 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
         );
     }
 
-    private void patchValuePatchAndCheck(final String valueType,
-                                         final Object value,
-                                         final String expected) {
-        this.patchValuePatchAndCheck2(
+    private void patchValuePatchAndCheck2(final ValueType valueType,
+                                          final Object value,
+                                          final JsonNode expected) {
+        this.patchValuePatchAndCheck(
             valueType,
-            Optional.of(value),
+            value instanceof Optional ?
+                (Optional<?>) value :
+                Optional.of(value),
             expected
         );
     }
-
-    private void patchValuePatchAndCheck2(final String valueType,
-                                          final Optional<Object> value,
-                                          final String expected) {
-        this.patchValuePatchAndCheck2(
-            ValueType.with(valueType),
-            value,
-            JsonNode.parse(expected)
-        );
-    }
-
     private void patchValuePatchAndCheck2(final ValueType valueType,
                                           final Optional<?> value,
                                           final JsonNode expected) {

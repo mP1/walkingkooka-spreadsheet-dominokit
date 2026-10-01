@@ -169,7 +169,7 @@ public final class SpreadsheetCellValueSelectHistoryTokenTest extends Spreadshee
     public void testSetValueWithDifferent() {
         final SpreadsheetCellValueHistoryToken historyToken = this.createHistoryToken();
 
-        final ValueType different = ValueType.with("different");
+        final ValueType different = ValueType.DATE;
 
         this.setValueAndCheck(
             historyToken,

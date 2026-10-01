@@ -217,8 +217,8 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 "      ValidationChoiceListComponent\n" +
                 "        SelectComponent\n" +
                 "          [] id=viewport-cell-A1-\n" +
-                "            \"Label1\" [#/1/SpreadsheetName222/cell/A1/value/number/save/111] id=viewport-cell-A1-111-Option\n" +
-                "            \"Label2\" [#/1/SpreadsheetName222/cell/A1/value/number/save/222] id=viewport-cell-A1-222-Option\n"
+                "            \"Label1\" [#/1/SpreadsheetName222/cell/A1/value/number-whole-integer/save/111] id=viewport-cell-A1-111-Option\n" +
+                "            \"Label2\" [#/1/SpreadsheetName222/cell/A1/value/number-whole-integer/save/222] id=viewport-cell-A1-222-Option\n"
         );
     }
 

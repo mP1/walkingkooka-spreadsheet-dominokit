@@ -4607,8 +4607,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                         } else {
                                             saveValue = MARSHALL_UNMARSHALL_CONTEXT.unmarshall(
                                                 JsonNode.parse(value),
-                                                SpreadsheetValueType.toClass(valueType)
-                                                    .orElse(String.class)
+                                                valueType.type()
                                             );
                                         }
                                     }
@@ -4630,7 +4629,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                     anchoredSpreadsheetSelection,
                                     parseOptional(
                                         value,
-                                        ValueType::with
+                                        ValueType::fromClassNameOrFail
                                     )
                                 );
                             }

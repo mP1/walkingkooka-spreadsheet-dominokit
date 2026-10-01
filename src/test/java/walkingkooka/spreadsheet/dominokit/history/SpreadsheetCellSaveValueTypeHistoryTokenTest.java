@@ -36,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends SpreadsheetCellSaveMapHistoryTokenTestCase<SpreadsheetCellSaveValueTypeHistoryToken>
     implements SpreadsheetMetadataTesting {
 
-    private final static ValueType VALUE_TYPE = ValueType.with("hello-value-type");
+    private final static ValueType VALUE_TYPE = ValueType.TEXT;
 
     @Test
     public void testWithSaveFormulasOutsideRangeFails() {
@@ -215,7 +215,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
             Optional.of(VALUE_TYPE),
             SpreadsheetSelection.parseCell("A3"),
             Optional.of(
-                ValueType.with("different-value-type")
+                ValueType.DATE
             )
         );
 
@@ -265,7 +265,7 @@ public final class SpreadsheetCellSaveValueTypeHistoryTokenTest extends Spreadsh
         final Map<SpreadsheetCellReference, Optional<ValueType>> value = Maps.of(
             CELL,
             Optional.of(
-                ValueType.with("different")
+                ValueType.DATE
             )
         );
 

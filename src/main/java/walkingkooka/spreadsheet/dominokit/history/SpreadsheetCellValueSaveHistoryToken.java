@@ -96,7 +96,7 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
         );
     }
 
-    // cell/A1/value/save/Value
+    // cell/A1/ValueType/save/Value
     @Override
     UrlFragment valueUrlFragment() {
         // TODO add support to remove JsonString open/close quotes, which is possible since #valueType is present.

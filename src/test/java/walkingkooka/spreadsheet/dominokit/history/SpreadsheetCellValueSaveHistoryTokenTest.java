@@ -38,7 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellValueSaveHistoryTokenTest extends SpreadsheetCellValueHistoryTokenTestCase<SpreadsheetCellValueSaveHistoryToken> {
 
-    private final static ValueType VALUE_TYPE = ValueType.with("number");
+    private final static ValueType VALUE_TYPE = ValueType.fromClassNameOrFail("number");
 
     private final static Optional<?> VALUE = Optional.of(
         ExpressionNumberKind.BIG_DECIMAL.create(123.5)
