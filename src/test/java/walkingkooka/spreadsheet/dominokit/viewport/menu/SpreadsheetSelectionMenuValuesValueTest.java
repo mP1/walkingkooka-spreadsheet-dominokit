@@ -51,10 +51,10 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
                 "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName111/cell/A1/value/email] id=test-Value-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName111/cell/A1/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/value/text] id=test-Value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/value/time] id=test-Value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName111/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/value/text/save/] id=test-Value-clear-MenuItem\n"
         );
@@ -77,10 +77,10 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
                 "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName111/cell/A1/value/email] id=test-Value-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName111/cell/A1/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/value/text] id=test-Value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/value/time] id=test-Value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName111/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/formula/save/] id=test-Value-clear-MenuItem\n"
         );
@@ -110,10 +110,10 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
                 "    \"Date Time\" [/1/SpreadsheetName111/cell/A1/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName111/cell/A1/value/email] id=test-Value-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName111/cell/A1/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/value/text] CHECKED id=test-Value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/value/time] id=test-Value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName111/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName111/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/value/text/save/] id=test-Value-clear-MenuItem\n"
         );
