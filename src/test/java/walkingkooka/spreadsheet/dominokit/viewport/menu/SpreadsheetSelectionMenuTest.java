@@ -1606,10 +1606,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/A1/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/A1/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/A1/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
@@ -1619,10 +1619,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/A1/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/A1/value/email] id=test-Value-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/A1/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/text] id=test-Value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/time] id=test-Value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/A1/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
@@ -3199,10 +3199,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
@@ -3212,10 +3212,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/email] id=test-Value-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/text] id=test-Value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/time] id=test-Value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
@@ -5164,10 +5164,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
@@ -5177,10 +5177,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/Label123/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/value/email] id=test-Value-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/Label123/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/value/text] id=test-Value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/value/time] id=test-Value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/Label123/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
@@ -6757,10 +6757,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/date-time] id=test-ValueTypes-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/email] id=test-ValueTypes-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/number] id=test-ValueTypes-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/text] id=test-ValueTypes-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/time] id=test-ValueTypes-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/number-whole] id=test-ValueTypes-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
@@ -6770,10 +6770,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Date Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/date-time] id=test-Value-date-time-MenuItem\n" +
                 "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/email] id=test-Value-email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/number] id=test-Value-number-MenuItem\n" +
+                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/text] id=test-Value-text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/time] id=test-Value-time-MenuItem\n" +
                 "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Number/whole\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/number-whole] id=test-Value-number/whole-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
