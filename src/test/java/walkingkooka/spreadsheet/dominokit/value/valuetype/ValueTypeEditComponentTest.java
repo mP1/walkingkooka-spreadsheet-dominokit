@@ -46,10 +46,10 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
                 "      \"Error/spreadsheet\" DISABLED id=ValueType123-error/spreadsheet-Option\n" +
                 "      \"Number\" DISABLED id=ValueType123-number-Option\n" +
+                "      \"Number/whole\" DISABLED id=ValueType123-number/whole-Option\n" +
                 "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
                 "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
-                "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
-                "      \"Number/whole\" DISABLED id=ValueType123-number/whole-Option\n"
+                "      \"Url\" DISABLED id=ValueType123-url-Option\n"
         );
     }
 
@@ -69,10 +69,10 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
                 "      \"Error/spreadsheet\" DISABLED id=ValueType123-error/spreadsheet-Option\n" +
                 "      \"Number\" DISABLED id=ValueType123-number-Option\n" +
+                "      \"Number/whole\" DISABLED id=ValueType123-number/whole-Option\n" +
                 "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
                 "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
-                "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
-                "      \"Number/whole\" DISABLED id=ValueType123-number/whole-Option\n"
+                "      \"Url\" DISABLED id=ValueType123-url-Option\n"
         );
     }
 
@@ -96,10 +96,10 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
                 "      \"Error/spreadsheet\" DISABLED id=ValueType123-error/spreadsheet-Option\n" +
                 "      \"Number\" DISABLED id=ValueType123-number-Option\n" +
+                "      \"Number/whole\" DISABLED id=ValueType123-number/whole-Option\n" +
                 "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
                 "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
-                "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
-                "      \"Number/whole\" DISABLED id=ValueType123-number/whole-Option\n"
+                "      \"Url\" DISABLED id=ValueType123-url-Option\n"
         );
     }
 

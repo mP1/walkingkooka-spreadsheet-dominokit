@@ -134,10 +134,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -267,10 +267,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -400,10 +400,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -531,10 +531,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -696,10 +696,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -858,10 +858,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -989,10 +989,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -1120,10 +1120,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -1251,10 +1251,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -1382,10 +1382,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -1513,10 +1513,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -1644,10 +1644,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -1775,10 +1775,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -1906,10 +1906,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -2037,10 +2037,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -2168,10 +2168,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -2299,10 +2299,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -2430,10 +2430,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -2561,10 +2561,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -2692,10 +2692,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
@@ -2823,10 +2823,10 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-email-Option\n" +
                 "                  \"Error/spreadsheet\" DISABLED id=SpreadsheetCellQuery-valueType-error/spreadsheet-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-number-Option\n" +
+                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-text-Option\n" +
                 "                  \"Time\" DISABLED id=SpreadsheetCellQuery-valueType-time-Option\n" +
                 "                  \"Url\" DISABLED id=SpreadsheetCellQuery-valueType-url-Option\n" +
-                "                  \"Number/whole\" DISABLED id=SpreadsheetCellQuery-valueType-number/whole-Option\n" +
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
