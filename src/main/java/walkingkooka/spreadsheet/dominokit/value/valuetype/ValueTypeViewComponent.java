@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.label.LabelComponent;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
+import walkingkooka.text.CaseKind;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
 import walkingkooka.validation.ValueType;
@@ -53,7 +54,14 @@ public final class ValueTypeViewComponent implements ValueComponent<HTMLElement,
     public ValueTypeViewComponent setValue(final Optional<ValueType> value) {
         Objects.requireNonNull(value, "value");
 
-        this.label.setValue(value.map(ValueType::value));
+        this.label.setValue(
+            value.map(
+                (ValueType v) -> CaseKind.CAMEL.change(
+                    v.text(),
+                    CaseKind.TITLE
+                ).toString()
+            )
+        );
 
         final ValueType valueType = value.orElse(null);
         if (null != valueType) {
@@ -113,7 +121,7 @@ public final class ValueTypeViewComponent implements ValueComponent<HTMLElement,
     @Override
     public Optional<ValueType> value() {
         return this.label.value()
-            .map(ValueType::fromClassNameOrFail);
+            .map(ValueType::parseOrFail);
     }
 
     @Override

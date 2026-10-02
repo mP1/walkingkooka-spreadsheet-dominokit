@@ -975,7 +975,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
                     Optional.of(
                         SpreadsheetValueType.NUMBER)
                 ),
-            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/query?value-type=number")
+            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/query?value-type=Number")
         );
     }
 
@@ -1001,7 +1001,7 @@ public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<Spreads
                 .setCount(COUNT)
                 .setValueType(VALUE_TYPE)
                 .setQuery(QUERY),
-            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/query?cell-range-path=BULR&count=34&offset=12&query=query789()&value-type=date")
+            Url.parseRelative("/api/spreadsheet/1234/cell/A1:B2/query?cell-range-path=BULR&count=34&offset=12&query=query789()&value-type=Date")
         );
     }
 

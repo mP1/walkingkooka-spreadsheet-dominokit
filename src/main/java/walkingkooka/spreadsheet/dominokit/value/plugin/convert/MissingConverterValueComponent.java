@@ -127,7 +127,7 @@ public final class MissingConverterValueComponent implements ValueComponent<HTML
                 ValueTypeViewComponent.empty()
                     .setValue(
                         Optional.of(
-                            ValueType.fromClassNameOrFail(
+                            ValueType.parseOrFail(
                                 missingConverterValue.type()
                             )
                         )

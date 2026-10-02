@@ -3494,7 +3494,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellValueValueType() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/value/text",
+            "/123/SpreadsheetName456/cell/A1/value/Text",
             HistoryToken.cellValueSelect(
                 SPREADSHEET_ID,
                 NAME,
@@ -3507,7 +3507,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellRangeValueValueType() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/value/text",
+            "/123/SpreadsheetName456/cell/A1:A2/value/Text",
             HistoryToken.cellValueSelect(
                 SPREADSHEET_ID,
                 NAME,
@@ -3522,7 +3522,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameLabelValueValueType() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/Label123/value/text",
+            "/123/SpreadsheetName456/cell/Label123/value/Text",
             HistoryToken.cellValueSelect(
                 SPREADSHEET_ID,
                 NAME,
@@ -3575,7 +3575,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testParseSpreadsheetIdSpreadsheetNameCellValueTypeSave() {
         this.parseStringAndCheck(
-            "/123/SpreadsheetName456/cell/A1/valueType/save/text",
+            "/123/SpreadsheetName456/cell/A1/valueType/save/Text",
             HistoryToken.cellValueTypeSave(
                 SPREADSHEET_ID,
                 NAME,

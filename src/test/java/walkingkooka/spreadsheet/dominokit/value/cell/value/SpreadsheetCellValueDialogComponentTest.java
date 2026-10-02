@@ -132,7 +132,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndNoDateValue() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/value/date"
+            "/123/SpreadsheetName456/cell/A1/value/Date"
         );
 
         final AppContext context = this.appContext(historyToken);
@@ -160,10 +160,10 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-undo-Link\n" +
-                "              \"Today\" [#/123/SpreadsheetName456/cell/A1/value/date/save/today] id=Test123-today-Link\n" +
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/Date/save/] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/Date/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/Date/save/] id=Test123-undo-Link\n" +
+                "              \"Today\" [#/123/SpreadsheetName456/cell/A1/value/Date/save/today] id=Test123-today-Link\n" +
                 "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
@@ -171,7 +171,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndDateValue() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/value/date"
+            "/123/SpreadsheetName456/cell/A1/value/Date"
         );
 
         final AppContext context = this.appContext(historyToken);
@@ -200,10 +200,10 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/date/save/%221999-12-31%22] id=Test123-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/date/save/] id=Test123-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/date/save/%221999-12-31%22] id=Test123-undo-Link\n" +
-                "              \"Today\" [#/123/SpreadsheetName456/cell/A1/value/date/save/today] id=Test123-today-Link\n" +
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/Date/save/%221999-12-31%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/Date/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/Date/save/%221999-12-31%22] id=Test123-undo-Link\n" +
+                "              \"Today\" [#/123/SpreadsheetName456/cell/A1/value/Date/save/today] id=Test123-today-Link\n" +
                 "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
@@ -211,7 +211,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndDateTimeValue() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/value/date-time"
+            "/123/SpreadsheetName456/cell/A1/value/DateTime"
         );
 
         final AppContext context = this.appContext(historyToken);
@@ -242,10 +242,10 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/date-time/save/%221999-12-31T12:58:59%22] id=Test123-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/date-time/save/] id=Test123-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/date-time/save/%221999-12-31T12:58:59%22] id=Test123-undo-Link\n" +
-                "              \"Now\" [#/123/SpreadsheetName456/cell/A1/value/date-time/save/now] id=Test123-now-Link\n" +
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/DateTime/save/%221999-12-31T12:58:59%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/DateTime/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/DateTime/save/%221999-12-31T12:58:59%22] id=Test123-undo-Link\n" +
+                "              \"Now\" [#/123/SpreadsheetName456/cell/A1/value/DateTime/save/now] id=Test123-now-Link\n" +
                 "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
@@ -253,7 +253,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndEmailValue() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/value/email"
+            "/123/SpreadsheetName456/cell/A1/value/EmailAddress"
         );
 
         final AppContext context = this.appContext(historyToken);
@@ -283,9 +283,9 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/email/save/%22user123@example.com%22] id=Test123-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/email/save/] id=Test123-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/email/save/%22user123@example.com%22] id=Test123-undo-Link\n" +
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/EmailAddress/save/%22user123@example.com%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/EmailAddress/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/EmailAddress/save/%22user123@example.com%22] id=Test123-undo-Link\n" +
                 "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
@@ -293,7 +293,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndTextValue() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/value/text"
+            "/123/SpreadsheetName456/cell/A1/value/Text"
         );
 
         final AppContext context = this.appContext(historyToken);
@@ -320,9 +320,9 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/text/save/%22HelloTextValue%22] id=Test123-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/text/save/%22HelloTextValue%22] id=Test123-undo-Link\n" +
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/Text/save/%22HelloTextValue%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/Text/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/Text/save/%22HelloTextValue%22] id=Test123-undo-Link\n" +
                 "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
@@ -330,7 +330,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndTextValueEmpty() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/value/text"
+            "/123/SpreadsheetName456/cell/A1/value/Text"
         );
 
         final AppContext context = this.appContext(historyToken);
@@ -356,9 +356,9 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/text/save/] id=Test123-undo-Link\n" +
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/Text/save/] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/Text/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/Text/save/] id=Test123-undo-Link\n" +
                 "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
@@ -366,7 +366,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndTimeValue() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/value/time"
+            "/123/SpreadsheetName456/cell/A1/value/Time"
         );
 
         final AppContext context = this.appContext(historyToken);
@@ -401,10 +401,10 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/time/save/%2212:58:59%22] id=Test123-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/time/save/] id=Test123-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/time/save/%2212:58:59%22] id=Test123-undo-Link\n" +
-                "              \"Now\" [#/123/SpreadsheetName456/cell/A1/value/time/save/now] id=Test123-now-Link\n" +
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/Time/save/%2212:58:59%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/Time/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/Time/save/%2212:58:59%22] id=Test123-undo-Link\n" +
+                "              \"Now\" [#/123/SpreadsheetName456/cell/A1/value/Time/save/now] id=Test123-now-Link\n" +
                 "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }

@@ -4599,10 +4599,10 @@ public abstract class HistoryToken implements HasUrlFragment {
                                 if ("".equals(value)) {
                                     saveValue = null;
                                 } else {
-                                    if (SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(value) && ((SpreadsheetValueType.DATE.equals(valueType) || SpreadsheetValueType.LOCAL_DATE.equals(valueType)))) {
+                                    if (SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(value) && ((SpreadsheetValueType.DATE.equals(valueType)))) {
                                         saveValue = SpreadsheetCellValueDialogComponent.TODAY_TEXT;
                                     } else {
-                                        if (SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value) && ((SpreadsheetValueType.DATE_TIME.equals(valueType) || SpreadsheetValueType.LOCAL_DATE_TIME.equals(valueType) || SpreadsheetValueType.TIME.equals(valueType) || SpreadsheetValueType.LOCAL_TIME.equals(valueType)))) {
+                                        if (SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(value) && ((SpreadsheetValueType.DATE_TIME.equals(valueType) || SpreadsheetValueType.TIME.equals(valueType)))) {
                                             saveValue = SpreadsheetCellValueDialogComponent.NOW_TEXT;
                                         } else {
                                             saveValue = MARSHALL_UNMARSHALL_CONTEXT.unmarshall(
@@ -4629,7 +4629,7 @@ public abstract class HistoryToken implements HasUrlFragment {
                                     anchoredSpreadsheetSelection,
                                     parseOptional(
                                         value,
-                                        ValueType::fromClassNameOrFail
+                                        ValueType::parseOrFail
                                     )
                                 );
                             }

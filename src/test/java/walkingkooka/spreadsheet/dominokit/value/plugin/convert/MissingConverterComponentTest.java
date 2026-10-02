@@ -50,12 +50,12 @@ public class MissingConverterComponentTest implements ValueComponentTesting<HTML
                 "        value\n" +
                 "          123 (walkingkooka.tree.expression.ExpressionNumberBigDecimal)\n" +
                 "        type\n" +
-                "          number\n" +
+                "          number/Number\n" +
                 "      MissingConverterValue\n" +
                 "        value\n" +
                 "          \"HelloWorldText\"\n" +
                 "        type\n" +
-                "          number\n"
+                "          number/Number\n"
         );
     }
 

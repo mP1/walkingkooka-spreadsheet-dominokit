@@ -722,7 +722,7 @@ abstract public class SpreadsheetCellHistoryToken extends SpreadsheetAnchoredSel
             Optional.ofNullable(
                 null == valueTypeString ?
                     null :
-                    ValueType.fromClassNameOrFail(valueTypeString)
+                    ValueType.parseOrFail(valueTypeString)
             )
         );
     }

@@ -39,17 +39,17 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "  SelectComponent\n" +
                 "    [] id=ValueType123-Select\n" +
                 "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
-                "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
-                "      \"Currency\" DISABLED id=ValueType123-currency-Option\n" +
-                "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
-                "      \"Date Time\" DISABLED id=ValueType123-date-time-Option\n" +
-                "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
-                "      \"Error/spreadsheet\" DISABLED id=ValueType123-error/spreadsheet-Option\n" +
-                "      \"Number\" DISABLED id=ValueType123-number-Option\n" +
-                "      \"Number/whole\" DISABLED id=ValueType123-number/whole-Option\n" +
-                "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
-                "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
-                "      \"Url\" DISABLED id=ValueType123-url-Option\n"
+                "      \"Boolean\" DISABLED id=ValueType123-Boolean-Option\n" +
+                "      \"Currency\" DISABLED id=ValueType123-Currency-Option\n" +
+                "      \"Date\" DISABLED id=ValueType123-Date-Option\n" +
+                "      \"Date Time\" DISABLED id=ValueType123-DateTime-Option\n" +
+                "      \"Email Address\" DISABLED id=ValueType123-EmailAddress-Option\n" +
+                "      \"Spreadsheet Error\" DISABLED id=ValueType123-SpreadsheetError-Option\n" +
+                "      \"Number\" DISABLED id=ValueType123-Number-Option\n" +
+                "      \"Text\" DISABLED id=ValueType123-Text-Option\n" +
+                "      \"Time\" DISABLED id=ValueType123-Time-Option\n" +
+                "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
+                "      \"Whole Number\" DISABLED id=ValueType123-wholeNumber-Option\n"
         );
     }
 
@@ -62,17 +62,17 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "  SelectComponent\n" +
                 "    [*] id=ValueType123-Select\n" +
                 "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
-                "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
-                "      \"Currency\" DISABLED id=ValueType123-currency-Option\n" +
-                "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
-                "      \"Date Time\" DISABLED id=ValueType123-date-time-Option\n" +
-                "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
-                "      \"Error/spreadsheet\" DISABLED id=ValueType123-error/spreadsheet-Option\n" +
-                "      \"Number\" DISABLED id=ValueType123-number-Option\n" +
-                "      \"Number/whole\" DISABLED id=ValueType123-number/whole-Option\n" +
-                "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
-                "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
-                "      \"Url\" DISABLED id=ValueType123-url-Option\n"
+                "      \"Boolean\" DISABLED id=ValueType123-Boolean-Option\n" +
+                "      \"Currency\" DISABLED id=ValueType123-Currency-Option\n" +
+                "      \"Date\" DISABLED id=ValueType123-Date-Option\n" +
+                "      \"Date Time\" DISABLED id=ValueType123-DateTime-Option\n" +
+                "      \"Email Address\" DISABLED id=ValueType123-EmailAddress-Option\n" +
+                "      \"Spreadsheet Error\" DISABLED id=ValueType123-SpreadsheetError-Option\n" +
+                "      \"Number\" DISABLED id=ValueType123-Number-Option\n" +
+                "      \"Text\" DISABLED id=ValueType123-Text-Option\n" +
+                "      \"Time\" DISABLED id=ValueType123-Time-Option\n" +
+                "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
+                "      \"Whole Number\" DISABLED id=ValueType123-wholeNumber-Option\n"
         );
     }
 
@@ -87,19 +87,46 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 ),
             "ValueTypeEditComponent\n" +
                 "  SelectComponent\n" +
-                "    [boolean] id=ValueType123-Select\n" +
+                "    [Boolean] id=ValueType123-Select\n" +
                 "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
-                "      \"Boolean\" DISABLED id=ValueType123-boolean-Option\n" +
-                "      \"Currency\" DISABLED id=ValueType123-currency-Option\n" +
-                "      \"Date\" DISABLED id=ValueType123-date-Option\n" +
-                "      \"Date Time\" DISABLED id=ValueType123-date-time-Option\n" +
-                "      \"Email\" DISABLED id=ValueType123-email-Option\n" +
-                "      \"Error/spreadsheet\" DISABLED id=ValueType123-error/spreadsheet-Option\n" +
-                "      \"Number\" DISABLED id=ValueType123-number-Option\n" +
-                "      \"Number/whole\" DISABLED id=ValueType123-number/whole-Option\n" +
-                "      \"Text\" DISABLED id=ValueType123-text-Option\n" +
-                "      \"Time\" DISABLED id=ValueType123-time-Option\n" +
-                "      \"Url\" DISABLED id=ValueType123-url-Option\n"
+                "      \"Boolean\" DISABLED id=ValueType123-Boolean-Option\n" +
+                "      \"Currency\" DISABLED id=ValueType123-Currency-Option\n" +
+                "      \"Date\" DISABLED id=ValueType123-Date-Option\n" +
+                "      \"Date Time\" DISABLED id=ValueType123-DateTime-Option\n" +
+                "      \"Email Address\" DISABLED id=ValueType123-EmailAddress-Option\n" +
+                "      \"Spreadsheet Error\" DISABLED id=ValueType123-SpreadsheetError-Option\n" +
+                "      \"Number\" DISABLED id=ValueType123-Number-Option\n" +
+                "      \"Text\" DISABLED id=ValueType123-Text-Option\n" +
+                "      \"Time\" DISABLED id=ValueType123-Time-Option\n" +
+                "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
+                "      \"Whole Number\" DISABLED id=ValueType123-wholeNumber-Option\n"
+        );
+    }
+
+    @Test
+    public void testTreePrintWithNumberValue() {
+        this.treePrintAndCheck(
+            this.createComponent()
+                .setValue(
+                    Optional.of(
+                        SpreadsheetValueType.NUMBER
+                    )
+                ),
+            "ValueTypeEditComponent\n" +
+                "  SelectComponent\n" +
+                "    [number/Number] id=ValueType123-Select\n" +
+                "      \"Any\" DISABLED id=ValueType123-*-Option\n" +
+                "      \"Boolean\" DISABLED id=ValueType123-Boolean-Option\n" +
+                "      \"Currency\" DISABLED id=ValueType123-Currency-Option\n" +
+                "      \"Date\" DISABLED id=ValueType123-Date-Option\n" +
+                "      \"Date Time\" DISABLED id=ValueType123-DateTime-Option\n" +
+                "      \"Email Address\" DISABLED id=ValueType123-EmailAddress-Option\n" +
+                "      \"Spreadsheet Error\" DISABLED id=ValueType123-SpreadsheetError-Option\n" +
+                "      \"Number\" DISABLED id=ValueType123-Number-Option\n" +
+                "      \"Text\" DISABLED id=ValueType123-Text-Option\n" +
+                "      \"Time\" DISABLED id=ValueType123-Time-Option\n" +
+                "      \"Url\" DISABLED id=ValueType123-url-Option\n" +
+                "      \"Whole Number\" DISABLED id=ValueType123-wholeNumber-Option\n"
         );
     }
 
@@ -113,7 +140,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
 
                 @Override
                 public HistoryToken historyToken() {
-                    return HistoryToken.cellSelect(
+                    return HistoryToken.cellValueTypeSelect(
                         SpreadsheetId.with(1),
                         SpreadsheetName.with("SpreadsheetName111"),
                         SpreadsheetSelection.A1.setDefaultAnchor()
