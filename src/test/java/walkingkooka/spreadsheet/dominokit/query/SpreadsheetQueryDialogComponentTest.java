@@ -130,7 +130,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -263,7 +263,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -396,7 +396,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -527,7 +527,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -692,7 +692,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -854,7 +854,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -985,7 +985,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -1116,7 +1116,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -1247,7 +1247,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -1378,7 +1378,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -1509,7 +1509,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -1640,7 +1640,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -1771,7 +1771,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -1902,7 +1902,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -2033,7 +2033,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -2164,7 +2164,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -2295,7 +2295,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -2426,7 +2426,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -2557,7 +2557,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -2688,7 +2688,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +
@@ -2819,7 +2819,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                  \"Currency\" DISABLED id=SpreadsheetCellQuery-valueType-Currency-Option\n" +
                 "                  \"Date\" DISABLED id=SpreadsheetCellQuery-valueType-Date-Option\n" +
                 "                  \"Date Time\" DISABLED id=SpreadsheetCellQuery-valueType-DateTime-Option\n" +
-                "                  \"Email Address\" DISABLED id=SpreadsheetCellQuery-valueType-EmailAddress-Option\n" +
+                "                  \"Email\" DISABLED id=SpreadsheetCellQuery-valueType-Email-Option\n" +
                 "                  \"Spreadsheet Error\" DISABLED id=SpreadsheetCellQuery-valueType-SpreadsheetError-Option\n" +
                 "                  \"Number\" DISABLED id=SpreadsheetCellQuery-valueType-Number-Option\n" +
                 "                  \"Text\" DISABLED id=SpreadsheetCellQuery-valueType-Text-Option\n" +

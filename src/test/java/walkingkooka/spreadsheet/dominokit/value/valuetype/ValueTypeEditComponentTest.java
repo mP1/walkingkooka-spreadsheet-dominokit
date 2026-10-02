@@ -43,7 +43,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      \"Currency\" DISABLED id=ValueType123-Currency-Option\n" +
                 "      \"Date\" DISABLED id=ValueType123-Date-Option\n" +
                 "      \"Date Time\" DISABLED id=ValueType123-DateTime-Option\n" +
-                "      \"Email Address\" DISABLED id=ValueType123-EmailAddress-Option\n" +
+                "      \"Email\" DISABLED id=ValueType123-Email-Option\n" +
                 "      \"Spreadsheet Error\" DISABLED id=ValueType123-SpreadsheetError-Option\n" +
                 "      \"Number\" DISABLED id=ValueType123-Number-Option\n" +
                 "      \"Text\" DISABLED id=ValueType123-Text-Option\n" +
@@ -66,7 +66,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      \"Currency\" DISABLED id=ValueType123-Currency-Option\n" +
                 "      \"Date\" DISABLED id=ValueType123-Date-Option\n" +
                 "      \"Date Time\" DISABLED id=ValueType123-DateTime-Option\n" +
-                "      \"Email Address\" DISABLED id=ValueType123-EmailAddress-Option\n" +
+                "      \"Email\" DISABLED id=ValueType123-Email-Option\n" +
                 "      \"Spreadsheet Error\" DISABLED id=ValueType123-SpreadsheetError-Option\n" +
                 "      \"Number\" DISABLED id=ValueType123-Number-Option\n" +
                 "      \"Text\" DISABLED id=ValueType123-Text-Option\n" +
@@ -93,7 +93,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      \"Currency\" DISABLED id=ValueType123-Currency-Option\n" +
                 "      \"Date\" DISABLED id=ValueType123-Date-Option\n" +
                 "      \"Date Time\" DISABLED id=ValueType123-DateTime-Option\n" +
-                "      \"Email Address\" DISABLED id=ValueType123-EmailAddress-Option\n" +
+                "      \"Email\" DISABLED id=ValueType123-Email-Option\n" +
                 "      \"Spreadsheet Error\" DISABLED id=ValueType123-SpreadsheetError-Option\n" +
                 "      \"Number\" DISABLED id=ValueType123-Number-Option\n" +
                 "      \"Text\" DISABLED id=ValueType123-Text-Option\n" +
@@ -120,7 +120,7 @@ public final class ValueTypeEditComponentTest implements FormValueComponentTesti
                 "      \"Currency\" DISABLED id=ValueType123-Currency-Option\n" +
                 "      \"Date\" DISABLED id=ValueType123-Date-Option\n" +
                 "      \"Date Time\" DISABLED id=ValueType123-DateTime-Option\n" +
-                "      \"Email Address\" DISABLED id=ValueType123-EmailAddress-Option\n" +
+                "      \"Email\" DISABLED id=ValueType123-Email-Option\n" +
                 "      \"Spreadsheet Error\" DISABLED id=ValueType123-SpreadsheetError-Option\n" +
                 "      \"Number\" DISABLED id=ValueType123-Number-Option\n" +
                 "      \"Text\" DISABLED id=ValueType123-Text-Option\n" +

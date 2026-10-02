@@ -1604,7 +1604,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName-1/cell/A1/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName-1/cell/A1/valueType/save/EmailAddress] id=test-ValueTypes-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
@@ -1617,7 +1617,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName-1/cell/A1/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName-1/cell/A1/value/EmailAddress] id=test-Value-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/A1/value/Email] id=test-Value-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/A1/value/Number] id=test-Value-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/Text] id=test-Value-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
@@ -3197,7 +3197,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/EmailAddress] id=test-ValueTypes-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
@@ -3210,7 +3210,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/EmailAddress] id=test-Value-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Email] id=test-Value-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Number] id=test-Value-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Text] id=test-Value-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
@@ -5162,7 +5162,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/EmailAddress] id=test-ValueTypes-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
@@ -5175,7 +5175,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName-1/cell/Label123/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName-1/cell/Label123/value/EmailAddress] id=test-Value-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/value/Email] id=test-Value-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/value/Number] id=test-Value-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/value/Text] id=test-Value-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
@@ -6755,7 +6755,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/EmailAddress] id=test-ValueTypes-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
@@ -6768,7 +6768,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/EmailAddress] id=test-Value-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Email] id=test-Value-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Number] id=test-Value-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Text] id=test-Value-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Time] id=test-Value-date-time/Time-MenuItem\n" +

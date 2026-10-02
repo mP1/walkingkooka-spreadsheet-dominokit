@@ -253,7 +253,7 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
     @Test
     public void testOnHistoryTokenChangeWithSpreadsheetCellValueHistoryTokenAndEmailValue() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/value/EmailAddress"
+            "/123/SpreadsheetName456/cell/A1/value/Email"
         );
 
         final AppContext context = this.appContext(historyToken);
@@ -283,9 +283,9 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
                 "            ROW\n" +
-                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/EmailAddress/save/%22user123@example.com%22] id=Test123-save-Link\n" +
-                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/EmailAddress/save/] id=Test123-clear-Link\n" +
-                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/EmailAddress/save/%22user123@example.com%22] id=Test123-undo-Link\n" +
+                "              \"Save\" [#/123/SpreadsheetName456/cell/A1/value/Email/save/%22user123@example.com%22] id=Test123-save-Link\n" +
+                "              \"Clear\" [#/123/SpreadsheetName456/cell/A1/value/Email/save/] id=Test123-clear-Link\n" +
+                "              \"Undo\" [#/123/SpreadsheetName456/cell/A1/value/Email/save/%22user123@example.com%22] id=Test123-undo-Link\n" +
                 "              \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
