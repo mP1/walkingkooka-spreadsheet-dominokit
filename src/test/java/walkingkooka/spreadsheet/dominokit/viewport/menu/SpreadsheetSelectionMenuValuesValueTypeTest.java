@@ -50,7 +50,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
                 "    \"Currency\" [/1/SpreadsheetName111/cell/A1/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName111/cell/A1/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName111/cell/A1/valueType/save/EmailAddress] id=test-ValueTypes-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
@@ -76,7 +76,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
                 "    \"Currency\" [/1/SpreadsheetName111/cell/A1/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName111/cell/A1/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName111/cell/A1/valueType/save/EmailAddress] id=test-ValueTypes-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
@@ -108,7 +108,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
                 "    \"Currency\" [/1/SpreadsheetName111/cell/A1/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName111/cell/A1/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName111/cell/A1/valueType/save/EmailAddress] id=test-ValueTypes-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/Text] CHECKED id=test-ValueTypes-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
@@ -134,7 +134,7 @@ public final class SpreadsheetSelectionMenuValuesValueTypeTest extends Spreadshe
                 "    \"Currency\" [/1/SpreadsheetName111/cell/A1/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName111/cell/A1/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName111/cell/A1/valueType/save/EmailAddress] id=test-ValueTypes-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName111/cell/A1/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +

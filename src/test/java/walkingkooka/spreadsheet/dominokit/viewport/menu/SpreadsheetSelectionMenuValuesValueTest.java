@@ -49,7 +49,7 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
                 "    \"Currency\" [/1/SpreadsheetName111/cell/A1/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName111/cell/A1/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName111/cell/A1/value/EmailAddress] id=test-Value-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/value/Email] id=test-Value-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName111/cell/A1/value/Number] id=test-Value-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/value/Text] id=test-Value-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
@@ -75,7 +75,7 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
                 "    \"Currency\" [/1/SpreadsheetName111/cell/A1/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName111/cell/A1/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName111/cell/A1/value/EmailAddress] id=test-Value-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/value/Email] id=test-Value-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName111/cell/A1/value/Number] id=test-Value-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/value/Text] id=test-Value-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
@@ -108,7 +108,7 @@ public final class SpreadsheetSelectionMenuValuesValueTest extends SpreadsheetSe
                 "    \"Currency\" [/1/SpreadsheetName111/cell/A1/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
                 "    \"Date\" [/1/SpreadsheetName111/cell/A1/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
                 "    \"Datetime\" [/1/SpreadsheetName111/cell/A1/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Emailaddress\" [/1/SpreadsheetName111/cell/A1/value/EmailAddress] id=test-Value-email/EmailAddress-MenuItem\n" +
+                "    \"Email\" [/1/SpreadsheetName111/cell/A1/value/Email] id=test-Value-email/Email-MenuItem\n" +
                 "    \"Number\" [/1/SpreadsheetName111/cell/A1/value/Number] id=test-Value-number/Number-MenuItem\n" +
                 "    \"Text\" [/1/SpreadsheetName111/cell/A1/value/Text] CHECKED id=test-Value-text/Text-MenuItem\n" +
                 "    \"Time\" [/1/SpreadsheetName111/cell/A1/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
