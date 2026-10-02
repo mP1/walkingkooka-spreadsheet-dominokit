@@ -50,7 +50,7 @@ public final class ValueTypeViewComponentTest implements ValueComponentTesting<H
                 ),
             "ValueTypeViewComponent\n" +
                 "  LabelComponent\n" +
-                "    \"url/absolute\"\n"
+                "    \"Absolute Url\"\n"
         );
     }
 
@@ -65,7 +65,7 @@ public final class ValueTypeViewComponentTest implements ValueComponentTesting<H
                 ),
             "ValueTypeViewComponent\n" +
                 "  LabelComponent\n" +
-                "    \"text\"\n"
+                "    \"Text\"\n"
         );
     }
 

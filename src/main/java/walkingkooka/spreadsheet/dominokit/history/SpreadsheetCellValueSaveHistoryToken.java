@@ -107,10 +107,10 @@ public final class SpreadsheetCellValueSaveHistoryToken extends SpreadsheetCellV
 
         Object valueOrNull = this.value.orElse(null);
         if (null != valueOrNull) {
-            if (SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(valueOrNull) && ((SpreadsheetValueType.DATE.equals(valueType) || SpreadsheetValueType.LOCAL_DATE.equals(valueType)))) {
+            if (SpreadsheetCellValueDialogComponent.TODAY_TEXT.equals(valueOrNull) && ((SpreadsheetValueType.DATE.equals(valueType)))) {
                 json = SpreadsheetCellValueDialogComponent.TODAY_TEXT;
             } else {
-                if (SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(valueOrNull) && ((SpreadsheetValueType.DATE_TIME.equals(valueType) || SpreadsheetValueType.LOCAL_DATE_TIME.equals(valueType) || SpreadsheetValueType.TIME.equals(valueType) || SpreadsheetValueType.LOCAL_TIME.equals(valueType)))) {
+                if (SpreadsheetCellValueDialogComponent.NOW_TEXT.equals(valueOrNull) && ((SpreadsheetValueType.DATE_TIME.equals(valueType) || SpreadsheetValueType.TIME.equals(valueType)))) {
                     json = SpreadsheetCellValueDialogComponent.NOW_TEXT;
                 } else {
                     json = MARSHALL_UNMARSHALL_CONTEXT.marshall(valueOrNull).toString();

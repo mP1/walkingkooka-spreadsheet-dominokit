@@ -948,7 +948,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
                 "  \"formula\": {\n" +
                 "    \"text\": \"=1+2\",\n" +
                 "    \"value\": \"string111\",\n" +
-                "    \"valueType\": \"text\"\n" +
+                "    \"valueType\": \"Text\"\n" +
                 "  },\n" +
                 "  \"currency\": \"AUD\",\n" +
                 "  \"currencyExchangeRater\": \"currency-exchange-rater-123\",\n" +
@@ -1296,7 +1296,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         this.marshallAndCheck(
             SpreadsheetCellClipboardKind.VALUE_TYPE,
             CELL,
-            JsonNode.string("text")
+            JsonNode.string("Text")
         );
     }
 

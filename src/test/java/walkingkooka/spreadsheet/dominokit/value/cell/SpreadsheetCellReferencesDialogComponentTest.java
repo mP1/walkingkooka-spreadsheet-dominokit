@@ -221,7 +221,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "                    AnchorListComponent\n" +
                 "                      FlexLayoutComponent\n" +
                 "                        ROW\n" +
-                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value/text] id=SpreadsheetCellReferences-cells-A1-value-Link\n" +
+                "                          \"Value\" [#/123/SpreadsheetName456/cell/A1/value/Text] id=SpreadsheetCellReferences-cells-A1-value-Link\n" +
                 "                          \"Create Label\" [#/123/SpreadsheetName456/cell/A1/label] id=SpreadsheetCellReferences-cells-A1-createLabel-Link\n" +
                 "                          \"Labels\" [#/123/SpreadsheetName456/cell/A1/labels] (0) id=SpreadsheetCellReferences-cells-A1-label-Link\n" +
                 "                          \"References\" [#/123/SpreadsheetName456/cell/A1/references] (2) id=SpreadsheetCellReferences-cells-A1-references-Link\n" +

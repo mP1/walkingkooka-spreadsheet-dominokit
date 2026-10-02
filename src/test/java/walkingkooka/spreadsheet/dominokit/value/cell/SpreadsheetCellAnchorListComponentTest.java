@@ -116,7 +116,7 @@ public final class SpreadsheetCellAnchorListComponentTest implements HtmlCompone
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Value\" [#/1/SpreadsheetName222/cell/A1/value/text] id=cells-value-Link\n" +
+                "        \"Value\" [#/1/SpreadsheetName222/cell/A1/value/Text] id=cells-value-Link\n" +
                 "        \"Create Label\" [#/1/SpreadsheetName222/cell/A1/label] id=cells-createLabel-Link\n" +
                 "        \"Labels\" [#/1/SpreadsheetName222/cell/A1/labels] (1) id=cells-label-Link\n" +
                 "        \"References\" [#/1/SpreadsheetName222/cell/A1/references] (2) id=cells-references-Link\n" +

@@ -274,7 +274,7 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
     @Test
     public void testParsePathOffsetCountValueType() {
         this.parseAndCheck2(
-            "/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/123/count/456/value-type/" + SpreadsheetValueType.NUMBER,
+            "/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/123/count/456/value-type/Number",
             Optional.of(
                 SpreadsheetCellRangeReferencePath.BULR
             ), // path
@@ -288,7 +288,7 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
     @Test
     public void testParsePathOffsetCountValueTypeEmptyQuery() {
         this.parseAndCheck2(
-            "/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/",
+            "/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/Date/query/",
             Optional.of(
                 SpreadsheetCellRangeReferencePath.BULR
             ), // path
@@ -304,7 +304,7 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
         final String query = "Hello()";
 
         this.parseAndCheck2(
-            "/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.DATE + "/query/" + query,
+            "/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/Date/query/" + query,
             Optional.of(
                 SpreadsheetCellRangeReferencePath.BULR
             ), // path
@@ -322,7 +322,7 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
         final String query = "1/23*4/5";
 
         this.parseAndCheck2(
-            "/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
+            "/123/SpreadsheetName456/cell/A1/query/path/BULR/offset/1234/count/5678/value-type/Time/query/" + query,
             Optional.of(
                 SpreadsheetCellRangeReferencePath.BULR
             ), // path
@@ -374,7 +374,7 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
     @Test
     public void testParseValueType() {
         this.parseAndCheck2(
-            "/123/SpreadsheetName456/cell/A1/query/value-type/" + SpreadsheetValueType.TIME,
+            "/123/SpreadsheetName456/cell/A1/query/value-type/Time",
             Optional.empty(), // path
             OptionalInt.empty(), // offset
             OptionalInt.empty(), // count
@@ -388,7 +388,7 @@ public final class SpreadsheetCellQueryHistoryTokenTest extends SpreadsheetCellH
         final String query = "1/23*4/5";
 
         this.parseAndCheck2(
-            "/123/SpreadsheetName456/cell/A1/query/value-type/" + SpreadsheetValueType.TIME + "/query/" + query,
+            "/123/SpreadsheetName456/cell/A1/query/value-type/Time/query/" + query,
             Optional.empty(), // path
             OptionalInt.empty(), // offset
             OptionalInt.empty(), // count

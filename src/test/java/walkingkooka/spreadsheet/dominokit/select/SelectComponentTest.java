@@ -53,10 +53,10 @@ public final class SelectComponentTest implements FormValueComponentTesting<HTML
                 )
             ,
             "SelectComponent\n" +
-                "  Label123 [time] id=id987 DISABLED REQUIRED\n" +
-                "    \"Text date\" [#/1/SpreadsheetName111/cell/A1/valueType/save/date] id=TestId-date\n" +
-                "    \"Text text\" [#/1/SpreadsheetName111/cell/A1/valueType/save/text] id=TestId-text\n" +
-                "    \"Text time\" [#/1/SpreadsheetName111/cell/A1/valueType/save/time] id=TestId-time\n"
+                "  Label123 [date-time/Time] id=id987 DISABLED REQUIRED\n" +
+                "    \"Text Date\" [#/1/SpreadsheetName111/cell/A1/valueType/save/Date] id=TestId-date-time/Date\n" +
+                "    \"Text Text\" [#/1/SpreadsheetName111/cell/A1/valueType/save/Text] id=TestId-text/Text\n" +
+                "    \"Text Time\" [#/1/SpreadsheetName111/cell/A1/valueType/save/Time] id=TestId-date-time/Time\n"
         );
     }
 
@@ -95,7 +95,8 @@ public final class SelectComponentTest implements FormValueComponentTesting<HTML
             (Optional<ValueType> value) -> new FakeHistoryContext()
                 .selectOption(
                     "TestId-" + value.map(ValueType::value).get(), // id
-                    "Text " + value.get(), // text
+                    "Text " + value.get()
+                        .text(), // text
                     value, // value
                     Optional.of(
                         HistoryToken.cellValueTypeSave(

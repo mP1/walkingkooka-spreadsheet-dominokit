@@ -110,7 +110,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                         SpreadsheetSelection.A1
                     )
                 ),
-            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/text] id=cell-value-anchor-id"
+            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/Text] id=cell-value-anchor-id"
         );
     }
 
@@ -132,7 +132,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                         SpreadsheetSelection.A1
                     )
                 ),
-            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/date] id=cell-value-anchor-id"
+            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/Date] id=cell-value-anchor-id"
         );
     }
 
@@ -154,7 +154,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                         SpreadsheetSelection.A1
                     )
                 ),
-            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/text] id=cell-value-anchor-id"
+            "\"A1\" [#/1/SpreadsheetName222/cell/A1/value/Text] id=cell-value-anchor-id"
         );
     }
 
@@ -187,7 +187,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                     SpreadsheetSelection.parseCellRange("B2:C3")
                 )
             ),
-            "\"B2:C3\" [#/1/SpreadsheetName222/cell/B2:C3/bottom-right/value/text] id=cell-value-anchor-id"
+            "\"B2:C3\" [#/1/SpreadsheetName222/cell/B2:C3/bottom-right/value/Text] id=cell-value-anchor-id"
         );
     }
 
@@ -207,7 +207,7 @@ public final class SpreadsheetCellValueAnchorComponentTest implements AnchorComp
                     SpreadsheetSelection.labelName("Label9999")
                 )
             ),
-            "\"Label9999\" [#/1/SpreadsheetName222/cell/Label9999/value/text] id=cell-value-anchor-id"
+            "\"Label9999\" [#/1/SpreadsheetName222/cell/Label9999/value/Text] id=cell-value-anchor-id"
         );
     }
 
