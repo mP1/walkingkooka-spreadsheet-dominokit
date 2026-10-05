@@ -290,10 +290,8 @@ public final class ClipboardTextItem implements HasText,
             );
         }
 
-        return SpreadsheetCellRange.with(
-            range,
-            values
-        );
+        return SpreadsheetCellRange.with(range)
+            .setValue(values);
     }
 
     private void checkMediaType() {
