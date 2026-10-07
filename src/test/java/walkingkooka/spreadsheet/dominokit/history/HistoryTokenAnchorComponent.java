@@ -31,6 +31,7 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextNode;
+import walkingkooka.tree.text.TextNodeContexts;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -227,7 +228,9 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
             if (flag.length() == 2) {
                 try {
                     TextNode.flag(flag)
-                        .toHtml();
+                        .toHtml(
+                            TextNodeContexts.fake()
+                        );
                     verified.add(flag);
                 } catch (final RuntimeException ignore) {
                     // nop
