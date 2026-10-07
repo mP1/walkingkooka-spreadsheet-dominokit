@@ -42,6 +42,7 @@ import walkingkooka.spreadsheet.dominokit.tooltip.TooltipComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.SpreadsheetDominoKitColor;
 import walkingkooka.text.CharSequences;
 import walkingkooka.tree.text.TextNode;
+import walkingkooka.tree.text.TextNodeContexts;
 
 import java.util.Objects;
 import java.util.Optional;
@@ -365,7 +366,9 @@ public final class HistoryTokenAnchorComponent extends HistoryTokenAnchorCompone
                 // try/catch required because flag may fail if not two character country code.
                 try {
                     final String html = TextNode.flag(flag)
-                        .toHtml();
+                        .toHtml(
+                            TextNodeContexts.fake()
+                        );
                     final Element element = DomGlobal.document.createElement("SPAN");
                     element.innerHTML = html;
                     final Text newFlag = Js.cast(
