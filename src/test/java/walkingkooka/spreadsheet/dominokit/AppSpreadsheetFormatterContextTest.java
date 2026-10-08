@@ -17,6 +17,7 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
+import walkingkooka.color.ColorContexts;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextTesting2;
@@ -472,6 +473,7 @@ public final class AppSpreadsheetFormatterContextTest implements SpreadsheetForm
     @Override
     public AppSpreadsheetFormatterContext createContext() {
         return AppSpreadsheetFormatterContext.with(
+            ColorContexts.basic(),
             DATE_TIME_CONTEXT,
             DECIMAL_NUMBER_CONTEXT
         );

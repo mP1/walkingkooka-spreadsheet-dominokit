@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit;
 import walkingkooka.Binary;
 import walkingkooka.Either;
 import walkingkooka.color.Color;
+import walkingkooka.color.ColorContext;
+import walkingkooka.color.ColorContextDelegator;
 import walkingkooka.convert.Converter;
 import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyContext;
@@ -71,24 +73,29 @@ import java.util.Optional;
  */
 final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContext,
     CanParseEnvironmentValueNameDelegator,
+    ColorContextDelegator,
     CurrencyContextDelegator,
     DateTimeContextDelegator,
     DecimalNumberContextDelegator,
     JsonNodeMarshallUnmarshallContextDelegator,
     LocaleContextDelegator {
 
-    static AppSpreadsheetFormatterContext with(final DateTimeContext dateTimeContext,
+    static AppSpreadsheetFormatterContext with(final ColorContext colorContext,
+                                               final DateTimeContext dateTimeContext,
                                                final DecimalNumberContext decimalNumberContext) {
         return new AppSpreadsheetFormatterContext(
+            Objects.requireNonNull(colorContext, "colorContext"),
             Objects.requireNonNull(dateTimeContext, "dateTimeContext"),
             Objects.requireNonNull(decimalNumberContext, "decimalNumberContext")
         );
     }
 
-    private AppSpreadsheetFormatterContext(final DateTimeContext dateTimeContext,
+    private AppSpreadsheetFormatterContext(final ColorContext colorContext,
+                                           final DateTimeContext dateTimeContext,
                                            final DecimalNumberContext decimalNumberContext) {
         super();
 
+        this.colorContext = colorContext;
         this.dateTimeContext = dateTimeContext;
         this.decimalNumberContext = decimalNumberContext;
     }
@@ -223,6 +230,15 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
     public CanParseEnvironmentValueName canParseEnvironmentValueName() {
         throw new UnsupportedOperationException();
     }
+
+    // ColorContextDelegator............................................................................................
+
+    @Override
+    public ColorContext colorContext() {
+        return this.colorContext;
+    }
+
+    private final ColorContext colorContext;
 
     // CurrencyContextDelegator.........................................................................................
 

@@ -21,6 +21,8 @@ import walkingkooka.Binary;
 import walkingkooka.Either;
 import walkingkooka.InvalidCharacterException;
 import walkingkooka.color.Color;
+import walkingkooka.color.IndexedColor;
+import walkingkooka.color.NamedColor;
 import walkingkooka.convert.Converter;
 import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyExchange;
@@ -802,6 +804,28 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public void giveFocus(final Runnable focus) {
+        throw new UnsupportedOperationException();
+    }
+
+    // ColorContext.....................................................................................................
+
+    @Override
+    public IndexedColor indexedColor(final int index) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Optional<Color> lookupColor(final Color color) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public NamedColor namedColor(final String name) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Color parseColor(final String color) {
         throw new UnsupportedOperationException();
     }
 

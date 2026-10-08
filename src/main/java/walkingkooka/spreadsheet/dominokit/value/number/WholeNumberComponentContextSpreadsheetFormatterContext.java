@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.value.number;
 import walkingkooka.Binary;
 import walkingkooka.Either;
 import walkingkooka.color.Color;
+import walkingkooka.color.ColorContext;
+import walkingkooka.color.ColorContextDelegator;
 import walkingkooka.convert.Converter;
 import walkingkooka.currency.CurrencyCode;
 import walkingkooka.currency.CurrencyExchange;
@@ -73,6 +75,7 @@ import java.util.Set;
  */
 final class WholeNumberComponentContextSpreadsheetFormatterContext implements SpreadsheetFormatterContext,
     CanParseEnvironmentValueNameDelegator,
+    ColorContextDelegator,
     DateTimeContextDelegator,
     DecimalNumberContextDelegator,
     JsonNodeMarshallUnmarshallContextDelegator,
@@ -227,6 +230,13 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
 
     @Override
     public CanParseEnvironmentValueName canParseEnvironmentValueName() {
+        throw new UnsupportedOperationException();
+    }
+
+    // ColorContextDelegator............................................................................................
+
+    @Override
+    public ColorContext colorContext() {
         throw new UnsupportedOperationException();
     }
 
