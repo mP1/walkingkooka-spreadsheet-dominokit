@@ -22,6 +22,7 @@ import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import walkingkooka.Binary;
 import walkingkooka.InvalidCharacterException;
+import walkingkooka.color.ColorContexts;
 import walkingkooka.convert.BinaryNumberConverterFunction;
 import walkingkooka.convert.ConverterLike;
 import walkingkooka.convert.provider.ConverterInfoSet;
@@ -310,6 +311,7 @@ public class App implements EntryPoint,
     private final static HasNow NOW = LocalDateTime::now;
 
     private final static SpreadsheetFormatterContext FORMATTER_CONTEXT = AppSpreadsheetFormatterContext.with(
+        ColorContexts.fake(),
         DateTimeContexts.basic(
             LOCALE_CONTEXT.dateTimeSymbolsForLocale(LOCALE)
                 .get(),
