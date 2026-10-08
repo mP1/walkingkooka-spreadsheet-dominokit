@@ -195,6 +195,7 @@ import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbols
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenuList;
 import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterSelectorEdit;
 import walkingkooka.spreadsheet.server.parser.SpreadsheetParserSelectorEdit;
+import walkingkooka.spreadsheet.value.HasSpreadsheetCell;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewport;
@@ -1780,7 +1781,7 @@ public class App implements EntryPoint,
 
         try {
             this.formatterContext = metadata.spreadsheetFormatterContext(
-                SpreadsheetMetadata.NO_CELL,
+                HasSpreadsheetCell.EMPTY_HAS_SPREADSHEET_CELL,
                 (final Optional<Object> value) -> {
                     throw new UnsupportedOperationException();
                 },
