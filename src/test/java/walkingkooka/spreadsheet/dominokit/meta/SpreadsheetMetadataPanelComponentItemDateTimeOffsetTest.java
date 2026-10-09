@@ -138,7 +138,7 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return METADATA_EN_AU;
+                return SPREADSHEET_METADATA;
             }
         };
         final SpreadsheetMetadataPanelComponentItemDateTimeOffset component = SpreadsheetMetadataPanelComponentItemDateTimeOffset.with(context);

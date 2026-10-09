@@ -55,7 +55,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
     HistoryTokenTesting,
     SpreadsheetMetadataTesting {
 
-    private final static SpreadsheetMetadata METADATA = METADATA_EN_AU.set(
+    private final static SpreadsheetMetadata METADATA = SPREADSHEET_METADATA.set(
         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
         SPREADSHEET_ID
     );

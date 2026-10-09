@@ -116,7 +116,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return METADATA_EN_AU.set(
+                return SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCellTest.SPREADSHEET_ID
                 ).set(
@@ -183,7 +183,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
 
         appContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
+                SPREADSHEET_METADATA.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
             );
 
         appContext.spreadsheetViewportCache()

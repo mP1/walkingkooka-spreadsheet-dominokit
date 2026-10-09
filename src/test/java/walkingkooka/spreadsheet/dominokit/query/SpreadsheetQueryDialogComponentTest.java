@@ -2962,7 +2962,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
-            return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+            return SPREADSHEET_METADATA.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 SpreadsheetId.parse("123")
             ).setOrRemove(

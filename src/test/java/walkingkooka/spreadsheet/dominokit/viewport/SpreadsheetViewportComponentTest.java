@@ -251,7 +251,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
     private final static int VIEWPORT_GRID_WIDTH = CELL_WIDTH * 2 - 1;
     private final static int VIEWPORT_GRID_HEIGHT = CELL_HEIGHT * 2 - 1;
 
-    private final static SpreadsheetMetadata SPREADSHEET_METADATA = SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+    private final static SpreadsheetMetadata SPREADSHEET_METADATA = SpreadsheetMetadataTesting.SPREADSHEET_METADATA.set(
         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
         SPREADSHEET_ID
     ).set(

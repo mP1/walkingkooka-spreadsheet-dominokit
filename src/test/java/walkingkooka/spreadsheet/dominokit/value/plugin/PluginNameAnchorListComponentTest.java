@@ -84,7 +84,7 @@ public final class PluginNameAnchorListComponentTest implements ValueComponentTe
 
                     @Override
                     public SpreadsheetMetadata spreadsheetMetadata() {
-                        return METADATA_EN_AU.set(
+                        return SPREADSHEET_METADATA.set(
                             SpreadsheetMetadataPropertyName.CLIPBOARD_IMPORTER,
                             SpreadsheetImporterAliasSet.parse("apple-tree, banana, carrot")
                         );
@@ -184,7 +184,7 @@ public final class PluginNameAnchorListComponentTest implements ValueComponentTe
 
                 @Override
                 public SpreadsheetMetadata spreadsheetMetadata() {
-                    return METADATA_EN_AU.set(
+                    return SPREADSHEET_METADATA.set(
                         SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS,
                         ValidatorAliasSet.parse("apple-tree, banana, carrot")
                     );

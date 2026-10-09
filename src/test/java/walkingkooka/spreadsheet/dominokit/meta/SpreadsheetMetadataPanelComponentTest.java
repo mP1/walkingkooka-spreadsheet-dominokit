@@ -49,12 +49,12 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
 
             @Override
             public Locale locale() {
-                return METADATA_EN_AU.locale();
+                return SPREADSHEET_METADATA.locale();
             }
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return METADATA_EN_AU.setDefaults(
+                return SPREADSHEET_METADATA.setDefaults(
                     SpreadsheetMetadata.NON_LOCALE_DEFAULTS
                 );
             }

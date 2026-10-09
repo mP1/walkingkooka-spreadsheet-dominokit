@@ -322,7 +322,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
-            return METADATA_EN_AU.set(
+            return SPREADSHEET_METADATA.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 SpreadsheetViewportFormulaComponentTest.SPREADSHEET_ID
             ).set(

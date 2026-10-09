@@ -36,7 +36,7 @@ public abstract class BorderColorSharedComponentTestCase<C extends BorderColorSh
     SpreadsheetMetadataTesting {
 
     static {
-        SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadataTesting.METADATA_EN_AU;
+        SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadataTesting.SPREADSHEET_METADATA;
 
         for(int i = SpreadsheetColors.MIN; i < SpreadsheetColors.MAX; i++) {
             spreadsheetMetadata = spreadsheetMetadata.set(

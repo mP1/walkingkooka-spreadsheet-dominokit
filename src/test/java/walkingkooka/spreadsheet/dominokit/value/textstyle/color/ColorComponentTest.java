@@ -486,7 +486,7 @@ public final class ColorComponentTest implements FormValueComponentTesting<HTMLF
 
                     @Override
                     public SpreadsheetMetadata spreadsheetMetadata() {
-                        return METADATA_EN_AU;
+                        return SPREADSHEET_METADATA;
                     }
                 }
             )

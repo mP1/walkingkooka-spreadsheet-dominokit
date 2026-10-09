@@ -434,7 +434,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                return SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     SpreadsheetLabelMappingDialogComponentTest.SPREADSHEET_ID
                 ).set(

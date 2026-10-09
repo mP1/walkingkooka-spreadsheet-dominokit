@@ -491,7 +491,7 @@ public final class CurrencyExchangeRaterSelectorDialogComponentTest implements D
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
-            return METADATA_EN_AU.set(
+            return SPREADSHEET_METADATA.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 CurrencyExchangeRaterSelectorDialogComponentTest.SPREADSHEET_ID
             ).set(

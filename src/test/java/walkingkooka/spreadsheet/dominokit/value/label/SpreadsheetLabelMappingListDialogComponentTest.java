@@ -61,7 +61,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
         SpreadsheetFormula.EMPTY.setText("=1+2")
     );
 
-    private final static SpreadsheetMetadata METADATA = SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+    private final static SpreadsheetMetadata METADATA = SPREADSHEET_METADATA.set(
         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
         SPREADSHEET_ID
     );

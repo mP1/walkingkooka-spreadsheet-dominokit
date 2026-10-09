@@ -1097,7 +1097,7 @@ public final class ColorPaletteComponentTest implements ValueComponentTesting<HT
 
                 @Override
                 public SpreadsheetMetadata spreadsheetMetadata() {
-                    return METADATA_EN_AU;
+                    return SPREADSHEET_METADATA;
                 }
             }
         );
