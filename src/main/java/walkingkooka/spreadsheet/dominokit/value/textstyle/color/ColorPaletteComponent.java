@@ -39,6 +39,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
 import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -183,8 +184,6 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
 
         final TdComponent[] cells = this.cells;
         final HistoryTokenAnchorComponent[] anchors = this.anchors;
-        final Function<Integer, Optional<Color>> numberToColors = metadata.numberToColor();
-        final Function<Integer, Optional<SpreadsheetColorName>> numberToColorNames = metadata.numberToColorName();
 
         //final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer = this.historyTokenPreparer;
 
@@ -194,13 +193,16 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
         for (int i = 0; i < COLOR_COUNT; i++) {
             final int colorNumber = 1 + i;
 
-            final Optional<Color> maybeColor = numberToColors.apply(colorNumber);
+            //final Optional<Color> maybeColor = numberToColors.apply(colorNumber);
+            final Optional<Color> maybeColor = metadata.get(
+                SpreadsheetMetadataPropertyName.numberedColor(colorNumber)
+            );
             if (maybeColor.isPresent()) {
                 // set the background color of the cell
                 final Color color = maybeColor.get();
                 cells[i].setBackgroundColor(color.toString());
 
-                final String text = numberToColorNames.apply(colorNumber)
+                final String text = metadata.colorName(colorNumber)
                     .map(SpreadsheetColorName::toString)
                     .orElse("color " + colorNumber);
 
