@@ -21,8 +21,8 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.math.DecimalNumberSymbols;
 import walkingkooka.net.UrlFragment;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -37,7 +37,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetCellSaveDecimalNumberSymbolsHistoryTokenTest extends SpreadsheetCellSaveMapHistoryTokenTestCase<SpreadsheetCellSaveDecimalNumberSymbolsHistoryToken>
-    implements SpreadsheetMetadataTesting {
+    implements HasSpreadsheetMetadataTesting {
 
     private final static DecimalNumberSymbols DECIMAL_NUMBER_SYMBOLS2 = DecimalNumberSymbols.fromDecimalFormatSymbols(
         '+',

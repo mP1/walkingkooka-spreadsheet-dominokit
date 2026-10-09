@@ -25,14 +25,14 @@ import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.tree.text.TextNode;
 
 import java.util.List;
 import java.util.Optional;
 
 public final class SpreadsheetFormatterTableComponentTest implements TableComponentTesting<HTMLDivElement, List<SpreadsheetFormatterSample>, SpreadsheetFormatterTableComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testRefresh() {

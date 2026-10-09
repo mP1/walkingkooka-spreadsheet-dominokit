@@ -23,15 +23,15 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.OptionalInt;
 
 public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetColumnRowInsertCountDialogComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static HistoryToken COLUMN_HISTORY_TOKEN = HistoryToken.columnInsertAfter(
         SPREADSHEET_ID,

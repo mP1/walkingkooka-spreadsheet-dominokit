@@ -26,10 +26,10 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 import java.time.LocalDateTime;
@@ -38,7 +38,7 @@ import java.util.Locale;
 import java.util.Optional;
 
 public final class SpreadsheetListTableComponentTest implements TableComponentTesting<HTMLDivElement, List<SpreadsheetMetadata>, SpreadsheetListTableComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static String ID = "Table123-";
 

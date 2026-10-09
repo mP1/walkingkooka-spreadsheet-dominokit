@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.math.DecimalNumberSymbols;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
 public abstract class SpreadsheetCellDecimalNumberSymbolsHistoryTokenTestCase<T extends SpreadsheetCellDecimalNumberSymbolsHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T>
-    implements SpreadsheetMetadataTesting {
+    implements HasSpreadsheetMetadataTesting {
 
     SpreadsheetCellDecimalNumberSymbolsHistoryTokenTestCase() {
         super();
@@ -78,7 +78,7 @@ public abstract class SpreadsheetCellDecimalNumberSymbolsHistoryTokenTestCase<T 
 
     @Test
     public final void testSetSaveValueWithNonEmpty() {
-        final Optional<DecimalNumberSymbols> value = Optional.of(SpreadsheetMetadataTesting.DECIMAL_NUMBER_SYMBOLS);
+        final Optional<DecimalNumberSymbols> value = Optional.of(HasSpreadsheetMetadataTesting.DECIMAL_NUMBER_SYMBOLS);
 
         this.setSaveValueAndCheck(
             this.createHistoryToken(),

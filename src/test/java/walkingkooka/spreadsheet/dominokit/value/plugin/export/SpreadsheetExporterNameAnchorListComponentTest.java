@@ -23,16 +23,16 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterAliasSet;
 import walkingkooka.spreadsheet.export.provider.SpreadsheetExporterName;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
 public final class SpreadsheetExporterNameAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement, SpreadsheetExporterName, SpreadsheetExporterNameAnchorListComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 

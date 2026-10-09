@@ -31,13 +31,13 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.List;
 
 public final class SpreadsheetCellSortDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetCellSortDialogComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     // should have one *EMPTY* SpreadsheetColumnOrRowSpreadsheetComparatorNamesComponent
     @Test

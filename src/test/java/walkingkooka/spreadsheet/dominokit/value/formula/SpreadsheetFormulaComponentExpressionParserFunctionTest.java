@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.formula;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.value.SpreadsheetErrorKind;
 import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -31,7 +31,7 @@ import java.util.Optional;
 public final class SpreadsheetFormulaComponentExpressionParserFunctionTest implements FunctionTesting2<SpreadsheetFormulaComponentExpressionParserFunction,
     String,
     SpreadsheetFormula>,
-    SpreadsheetMetadataTesting,
+    HasSpreadsheetMetadataTesting,
     TreePrintableTesting {
 
     @Test

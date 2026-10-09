@@ -31,9 +31,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -45,14 +45,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class TextStylePropertyColorComponentTest implements TextStylePropertyColorComponentTesting<HTMLFieldSetElement, TextStylePropertyColorComponent>,
     ComponentLifecycleMatcherTesting,
     ToStringTesting<TextStylePropertyColorComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static String ID_PREFIX = "TestId123-";
 
     private final static TextStylePropertyName<Color> PROPERTY_NAME = TextStylePropertyName.BACKGROUND_COLOR;
 
     static {
-        SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadataTesting.SPREADSHEET_METADATA;
+        SpreadsheetMetadata spreadsheetMetadata = HasSpreadsheetMetadataTesting.SPREADSHEET_METADATA;
 
         for(int i = SpreadsheetColors.MIN; i < SpreadsheetColors.MAX; i++) {
             spreadsheetMetadata = spreadsheetMetadata.set(

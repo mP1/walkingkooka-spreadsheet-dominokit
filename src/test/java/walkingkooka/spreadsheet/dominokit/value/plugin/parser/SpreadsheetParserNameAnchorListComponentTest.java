@@ -21,7 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -29,7 +29,7 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 
 public class SpreadsheetParserNameAnchorListComponentTest implements HtmlComponentTesting<SpreadsheetParserNameAnchorListComponent, HTMLDivElement>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static String ID = "ID123-";
 

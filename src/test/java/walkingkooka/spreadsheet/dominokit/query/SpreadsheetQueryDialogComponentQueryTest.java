@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.expression.function.TextMatch;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.text.CharSequences;
 import walkingkooka.text.cursor.TextCursors;
 import walkingkooka.text.printer.TreePrintableTesting;
@@ -36,7 +36,7 @@ import java.util.Optional;
 
 public final class SpreadsheetQueryDialogComponentQueryTest implements PublicStaticHelperTesting<SpreadsheetQueryDialogComponentQuery>,
     TreePrintableTesting,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     // without query but cellXXX getters................................................................................
 

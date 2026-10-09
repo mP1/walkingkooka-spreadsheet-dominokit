@@ -19,13 +19,13 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.parser;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
 
 import java.util.Optional;
 
 public final class SpreadsheetParserInfoSetComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetParserInfoSetComponent, SpreadsheetParserInfoSet>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testParseAndText() {

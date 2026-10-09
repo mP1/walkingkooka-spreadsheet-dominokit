@@ -23,13 +23,13 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfoSet;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
 public class SpreadsheetFormatterNameAnchorListComponentTest implements HtmlComponentTesting<SpreadsheetFormatterNameAnchorListComponent, HTMLDivElement>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static String ID = "ID123-";
 

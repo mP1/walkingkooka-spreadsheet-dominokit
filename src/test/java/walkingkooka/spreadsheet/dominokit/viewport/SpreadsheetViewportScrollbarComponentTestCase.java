@@ -29,10 +29,10 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
@@ -45,7 +45,7 @@ import java.util.Objects;
 public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends SpreadsheetColumnOrRowReference>
     implements ValueComponentTesting<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>>,
     TypeNameTesting<SpreadsheetViewportScrollbarComponent<R>>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     final static SpreadsheetCellReference HOME = SpreadsheetSelection.A1;
 

@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.currency.provider.CurrencyExchangeRaterSelector;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
 public abstract class SpreadsheetCellCurrencyExchangeRaterHistoryTokenTestCase<T extends SpreadsheetCellCurrencyExchangeRaterHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T>
-    implements SpreadsheetMetadataTesting {
+    implements HasSpreadsheetMetadataTesting {
 
     SpreadsheetCellCurrencyExchangeRaterHistoryTokenTestCase() {
         super();

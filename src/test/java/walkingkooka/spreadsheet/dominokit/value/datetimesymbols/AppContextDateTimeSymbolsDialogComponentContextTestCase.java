@@ -17,11 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.value.datetimesymbols;
 
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 public abstract class AppContextDateTimeSymbolsDialogComponentContextTestCase<C extends AppContextDateTimeSymbolsDialogComponentContext>
     implements DateTimeSymbolsDialogComponentContextTesting<C>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     AppContextDateTimeSymbolsDialogComponentContextTestCase() {
         super();

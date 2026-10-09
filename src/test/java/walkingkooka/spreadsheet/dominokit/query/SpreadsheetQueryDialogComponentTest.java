@@ -38,10 +38,10 @@ import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -54,7 +54,7 @@ import java.util.Optional;
 import java.util.Set;
 
 public final class SpreadsheetQueryDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetQueryDialogComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................
 

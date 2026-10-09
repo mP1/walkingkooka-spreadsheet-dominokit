@@ -21,10 +21,10 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.text.printer.TreePrintableTesting;
 
@@ -32,7 +32,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest implements TreePrintableTesting,
-    SpreadsheetMetadataTesting,
+    HasSpreadsheetMetadataTesting,
     ClassTesting<SpreadsheetMetadataPanelComponentItemDateTimeOffset> {
 
     @Test

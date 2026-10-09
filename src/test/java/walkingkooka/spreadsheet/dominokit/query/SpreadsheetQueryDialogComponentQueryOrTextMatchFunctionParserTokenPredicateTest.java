@@ -25,13 +25,13 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.text.cursor.parser.ParserToken;
 
 public final class SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate, ParserToken>,
     ToStringTesting<SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate>,
     ClassTesting<SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testTestNonFunctionName() {

@@ -28,9 +28,9 @@ import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterInfo;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterName;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterSelector;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.validation.provider.ValidatorAlias;
@@ -45,7 +45,7 @@ import java.util.Optional;
 public final class PluginNameAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement,
     ValidatorName,
     PluginNameAnchorListComponent<ValidatorName, ValidatorInfo, ValidatorInfoSet, ValidatorSelector, ValidatorAlias, ValidatorAliasSet>>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 

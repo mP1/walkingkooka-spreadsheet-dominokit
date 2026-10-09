@@ -24,7 +24,7 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightEqualsSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.text.cursor.parser.ParserToken;
 
@@ -34,7 +34,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetFormulaParserTokenComponent, SpreadsheetFormulaParserToken>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetFormulaParsers.conditionRight(
         SPREADSHEET_METADATA.spreadsheetParser(

@@ -24,19 +24,19 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.color.SpreadsheetColors;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.color.TextStylePropertyColorComponentTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
 public abstract class BorderColorSharedComponentTestCase<C extends BorderColorSharedComponent<C>> implements TextStylePropertyColorComponentTesting<HTMLFieldSetElement, C>,
     ComponentLifecycleMatcherTesting,
     ToStringTesting<C>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     static {
-        SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadataTesting.SPREADSHEET_METADATA;
+        SpreadsheetMetadata spreadsheetMetadata = HasSpreadsheetMetadataTesting.SPREADSHEET_METADATA;
 
         for(int i = SpreadsheetColors.MIN; i < SpreadsheetColors.MAX; i++) {
             spreadsheetMetadata = spreadsheetMetadata.set(

@@ -45,9 +45,9 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviderSamp
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelectorToken;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
@@ -62,7 +62,7 @@ import java.util.Optional;
 
 public final class SpreadsheetFormatterSelectorDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetFormatterSelectorDialogComponent>,
     HistoryTokenTesting,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static AnchoredSpreadsheetSelection CELL = SpreadsheetSelection.A1.setDefaultAnchor();
 
@@ -1985,7 +1985,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             @Override
             public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector,
                                                                        final ProviderContext context) {
-                return SpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
+                return HasSpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
                     selector,
                     context
                 );
@@ -1995,7 +1995,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             public <C extends ConverterContext> Converter<C> converter(final ConverterName converterSpreadsheet_Name,
                                                                        final List<?> values,
                                                                        final ProviderContext context) {
-                return SpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
+                return HasSpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
                     converterSpreadsheet_Name,
                     values,
                     context
@@ -2015,7 +2015,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             @Override
             public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterSelector selector,
                                                              final ProviderContext context) {
-                return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatter(
+                return HasSpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatter(
                     selector,
                     context
                 );
@@ -2025,7 +2025,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             public SpreadsheetFormatter spreadsheetFormatter(final SpreadsheetFormatterName spreadsheet_name,
                                                              final List<?> values,
                                                              final ProviderContext context) {
-                return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatter(
+                return HasSpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatter(
                     spreadsheet_name,
                     values,
                     context
@@ -2034,14 +2034,14 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
 
             @Override
             public Optional<SpreadsheetFormatterSelectorToken> spreadsheetFormatterNextToken(final SpreadsheetFormatterSelector selector) {
-                return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterNextToken(selector);
+                return HasSpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterNextToken(selector);
             }
 
             @Override
             public List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterSelector selector,
                                                                                 final boolean includeSamples,
                                                                                 final SpreadsheetFormatterProviderSamplesContext context) {
-                return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterSamples(
+                return HasSpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterSamples(
                     selector,
                     includeSamples,
                     context

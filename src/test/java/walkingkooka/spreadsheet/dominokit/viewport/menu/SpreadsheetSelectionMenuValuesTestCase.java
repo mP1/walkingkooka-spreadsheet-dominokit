@@ -19,8 +19,8 @@ package walkingkooka.spreadsheet.dominokit.viewport.menu;
 
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
@@ -28,7 +28,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 public abstract class SpreadsheetSelectionMenuValuesTestCase<M extends SpreadsheetSelectionMenuValues<T>, T> implements TreePrintableTesting,
     ClassTesting<M>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.parse("1");
 

@@ -29,10 +29,10 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
@@ -42,7 +42,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Optional;
 
 public final class ToolbarComponentTest implements HistoryTokenAwareComponentLifecycleTesting<ToolbarComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     // isMatch..........................................................................................................
 

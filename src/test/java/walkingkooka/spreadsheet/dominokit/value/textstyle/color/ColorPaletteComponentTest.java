@@ -24,8 +24,8 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -35,7 +35,7 @@ import java.util.function.Function;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class ColorPaletteComponentTest implements ValueComponentTesting<HTMLTableElement, Color, ColorPaletteComponent>,
-    SpreadsheetMetadataTesting,
+    HasSpreadsheetMetadataTesting,
     ComponentLifecycleMatcherTesting {
 
     private final static String ID_PREFIX = "TestColorPicker-";

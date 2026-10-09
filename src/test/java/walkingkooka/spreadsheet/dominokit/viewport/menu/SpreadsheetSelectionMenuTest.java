@@ -34,10 +34,10 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowHistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
@@ -68,7 +68,7 @@ import java.util.stream.Collectors;
 // TR\n",
 public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTesting<SpreadsheetSelectionMenu>,
     TreePrintableTesting,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private static final SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
 

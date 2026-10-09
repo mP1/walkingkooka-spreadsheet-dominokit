@@ -27,14 +27,14 @@ import walkingkooka.spreadsheet.dominokit.fetcher.ConverterFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
 public final class ConverterSelectorDialogComponentTest implements DialogComponentLifecycleTesting<ConverterSelectorDialogComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testOnHistoryTokenChange() {

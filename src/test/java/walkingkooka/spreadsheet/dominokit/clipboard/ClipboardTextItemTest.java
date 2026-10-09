@@ -31,8 +31,8 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserProviders;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
@@ -62,7 +62,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextItem>,
     HashCodeEqualsDefinedTesting2<ClipboardTextItem>,
     HasTextTesting,
-    SpreadsheetMetadataTesting,
+    HasSpreadsheetMetadataTesting,
     ThrowableTesting,
     ToStringTesting<ClipboardTextItem>,
     TreePrintableTesting {
@@ -888,7 +888,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 .setValue(
                     Sets.of(
                         SpreadsheetSelection.A1.setFormula(
-                            SpreadsheetMetadataTesting.parseFormula("=1")
+                            HasSpreadsheetMetadataTesting.parseFormula("=1")
                         ).setStyle(
                             TextStyle.EMPTY.set(
                                 TextStylePropertyName.TEXT_ALIGN,
@@ -927,7 +927,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                 .setValue(
                     Sets.of(
                         SpreadsheetSelection.A1.setFormula(
-                            SpreadsheetMetadataTesting.parseFormula("=1")
+                            HasSpreadsheetMetadataTesting.parseFormula("=1")
                         ).setStyle(
                             TextStyle.EMPTY.set(
                                 TextStylePropertyName.TEXT_ALIGN,
@@ -935,7 +935,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                             )
                         ),
                         B2.setFormula(
-                            SpreadsheetMetadataTesting.parseFormula("=22")
+                            HasSpreadsheetMetadataTesting.parseFormula("=22")
                         ).setFormatter(
                             Optional.of(
                                 SpreadsheetPattern.DEFAULT_TEXT_FORMAT_PATTERN.spreadsheetFormatterSelector()

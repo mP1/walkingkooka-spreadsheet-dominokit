@@ -26,14 +26,14 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
 public final class SpreadsheetComparatorNameListDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetComparatorNameListDialogComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testSetStringInvalid() {

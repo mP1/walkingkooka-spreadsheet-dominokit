@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 import java.util.Locale;
 import java.util.Optional;
 
 public abstract class SpreadsheetCellLocaleHistoryTokenTestCase<T extends SpreadsheetCellLocaleHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T>
-    implements SpreadsheetMetadataTesting {
+    implements HasSpreadsheetMetadataTesting {
 
     SpreadsheetCellLocaleHistoryTokenTestCase() {
         super();
@@ -80,7 +80,7 @@ public abstract class SpreadsheetCellLocaleHistoryTokenTestCase<T extends Spread
 
     @Test
     public final void testSetSaveValueWithNonEmpty() {
-        final Optional<Locale> value = Optional.of(SpreadsheetMetadataTesting.LOCALE);
+        final Optional<Locale> value = Optional.of(HasSpreadsheetMetadataTesting.LOCALE);
 
         this.setSaveValueAndCheck(
             this.createHistoryToken(),

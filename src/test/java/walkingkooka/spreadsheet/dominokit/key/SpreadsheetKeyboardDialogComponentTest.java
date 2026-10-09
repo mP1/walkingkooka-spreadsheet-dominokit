@@ -28,13 +28,13 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.insert.SpreadsheetColumnRowInsertCountDialogComponentTest;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindings;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindingses;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public final class SpreadsheetKeyboardDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetKeyboardDialogComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testOnHistoryTokenSpreadsheet() {

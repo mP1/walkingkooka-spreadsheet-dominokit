@@ -23,13 +23,13 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 import java.util.List;
 import java.util.Optional;
 
 public final class KeyBindingTableComponentTest implements TableComponentTesting<HTMLDivElement, List<KeyBinding>, KeyBindingTableComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testRefresh() {

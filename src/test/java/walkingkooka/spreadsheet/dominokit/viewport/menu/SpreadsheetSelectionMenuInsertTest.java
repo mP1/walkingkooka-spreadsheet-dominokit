@@ -26,8 +26,8 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFact
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
@@ -36,7 +36,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.util.Optional;
 
 public final class SpreadsheetSelectionMenuInsertTest implements TreePrintableTesting,
-    SpreadsheetMetadataTesting,
+    HasSpreadsheetMetadataTesting,
     ClassTesting<SpreadsheetSelectionMenuInsert> {
 
     @Test

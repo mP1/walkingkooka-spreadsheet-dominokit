@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.validation.provider.ValidatorSelector;
 
 import java.util.Optional;
 
 public abstract class SpreadsheetCellValidatorHistoryTokenTestCase<T extends SpreadsheetCellValidatorHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T>
-    implements SpreadsheetMetadataTesting {
+    implements HasSpreadsheetMetadataTesting {
 
     SpreadsheetCellValidatorHistoryTokenTestCase() {
         super();

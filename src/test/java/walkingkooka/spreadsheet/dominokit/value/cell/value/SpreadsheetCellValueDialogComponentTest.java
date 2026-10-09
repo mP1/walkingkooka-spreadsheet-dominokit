@@ -44,9 +44,9 @@ import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import walkingkooka.spreadsheet.dominokit.value.url.AbsoluteUrlComponent;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
@@ -60,7 +60,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 public final class SpreadsheetCellValueDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetCellValueDialogComponent<LocalDate>>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private static final String DATE_COMPONENT_ID = "Test123date-Date";
 

@@ -23,10 +23,10 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.text.printer.TreePrintableTesting;
 
@@ -35,7 +35,7 @@ import java.util.Optional;
 import java.util.Set;
 
 public final class SpreadsheetMetadataPanelComponentTest implements TreePrintableTesting,
-    SpreadsheetMetadataTesting,
+    HasSpreadsheetMetadataTesting,
     ClassTesting<SpreadsheetMetadataPanelComponent> {
 
     @Test

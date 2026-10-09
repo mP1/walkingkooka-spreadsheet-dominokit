@@ -40,9 +40,9 @@ import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviderSamplesContext;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSample;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserInfoSet;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserName;
@@ -62,7 +62,7 @@ import java.util.Optional;
 
 public final class SpreadsheetParserSelectorDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetParserSelectorDialogComponent>,
     HistoryTokenTesting,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static AnchoredSpreadsheetSelection CELL = SpreadsheetSelection.A1.setDefaultAnchor();
 
@@ -1463,7 +1463,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             @Override
             public <C extends ConverterContext> Converter<C> converter(final ConverterSelector selector,
                                                                        final ProviderContext context) {
-                return SpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
+                return HasSpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
                     selector,
                     context
                 );
@@ -1473,7 +1473,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             public <C extends ConverterContext> Converter<C> converter(final ConverterName converterName,
                                                                        final List<?> values,
                                                                        final ProviderContext context) {
-                return SpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
+                return HasSpreadsheetMetadataTesting.CONVERTER_PROVIDER.converter(
                     converterName,
                     values,
                     context
@@ -1483,7 +1483,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             @Override
             public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
                                                        final ProviderContext context) {
-                return SpreadsheetMetadataTesting.SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(
+                return HasSpreadsheetMetadataTesting.SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(
                     selector,
                     context
                 );
@@ -1493,7 +1493,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             public SpreadsheetParser spreadsheetParser(final SpreadsheetParserName name,
                                                        final List<?> values,
                                                        final ProviderContext context) {
-                return SpreadsheetMetadataTesting.SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(
+                return HasSpreadsheetMetadataTesting.SPREADSHEET_PARSER_PROVIDER.spreadsheetParser(
                     name,
                     values,
                     context
@@ -1502,7 +1502,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
 
             @Override
             public Optional<SpreadsheetParserSelectorToken> spreadsheetParserNextToken(final SpreadsheetParserSelector selector) {
-                return SpreadsheetMetadataTesting.SPREADSHEET_PARSER_PROVIDER.spreadsheetParserNextToken(selector);
+                return HasSpreadsheetMetadataTesting.SPREADSHEET_PARSER_PROVIDER.spreadsheetParserNextToken(selector);
             }
 
             @Override
@@ -1524,7 +1524,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             public List<SpreadsheetFormatterSample> spreadsheetFormatterSamples(final SpreadsheetFormatterSelector selector,
                                                                                 final boolean includeSamples,
                                                                                 final SpreadsheetFormatterProviderSamplesContext context) {
-                return SpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterSamples(
+                return HasSpreadsheetMetadataTesting.SPREADSHEET_FORMATTER_PROVIDER.spreadsheetFormatterSamples(
                     selector,
                     includeSamples,
                     context

@@ -30,16 +30,16 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
 public final class DecimalNumberSymbolsDialogComponentTest implements DialogComponentLifecycleTesting<DecimalNumberSymbolsDialogComponent>,
     HistoryTokenTesting,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     // DecimalNumberSymbolsComponent....................................................................................
 

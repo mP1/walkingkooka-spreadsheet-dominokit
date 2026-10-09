@@ -31,7 +31,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -44,7 +44,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class DialogAnchorListComponentTest implements HtmlComponentTesting<DialogAnchorListComponent<Locale>, HTMLDivElement>,
     ValueComponentTesting<HTMLDivElement, Locale, DialogAnchorListComponent<Locale>>,
-    SpreadsheetMetadataTesting,
+    HasSpreadsheetMetadataTesting,
     ComponentLifecycleMatcherTesting {
 
     private final static String ID_PREFIX = "Test123-";
