@@ -185,15 +185,12 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
         final TdComponent[] cells = this.cells;
         final HistoryTokenAnchorComponent[] anchors = this.anchors;
 
-        //final Function<HistoryToken, Optional<HistoryToken>> historyTokenPreparer = this.historyTokenPreparer;
-
         final Color selectedColorOrNull = this.value
             .orElse(null);
 
         for (int i = 0; i < COLOR_COUNT; i++) {
             final int colorNumber = 1 + i;
 
-            //final Optional<Color> maybeColor = numberToColors.apply(colorNumber);
             final Optional<Color> maybeColor = metadata.get(
                 SpreadsheetMetadataPropertyName.numberedColor(colorNumber)
             );
@@ -214,7 +211,6 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
                     anchor.disabled();
                 } else {
                     anchor.setHistoryToken(
-                        //historyTokenPreparer.apply(historyToken)
                         historyToken
                             .map(
                                 h -> h.setSaveValue(
@@ -227,7 +223,6 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
         }
 
         this.clearAnchor.setHistoryToken(
-            //historyTokenPreparer.apply(historyToken)
             historyToken
                 .map(HistoryToken::clearSaveValue)
         );
