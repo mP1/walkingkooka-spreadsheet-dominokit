@@ -74,7 +74,7 @@ public final class AppContextSpreadsheetQueryDialogComponentContextTest implemen
                         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(this);
 
                         cache.onSpreadsheetMetadata(
-                            METADATA_EN_AU.set(
+                            SPREADSHEET_METADATA.set(
                                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                                 SpreadsheetId.with(1)
                             )
@@ -123,7 +123,7 @@ public final class AppContextSpreadsheetQueryDialogComponentContextTest implemen
                         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(this);
 
                         cache.onSpreadsheetMetadata(
-                            METADATA_EN_AU.set(
+                            SPREADSHEET_METADATA.set(
                                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                                 SpreadsheetId.with(1)
                             )
@@ -167,7 +167,7 @@ public final class AppContextSpreadsheetQueryDialogComponentContextTest implemen
                         final SpreadsheetViewportCache cache = SpreadsheetViewportCache.empty(this);
 
                         cache.onSpreadsheetMetadata(
-                            METADATA_EN_AU.set(
+                            SPREADSHEET_METADATA.set(
                                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                                 SpreadsheetId.with(1)
                             )

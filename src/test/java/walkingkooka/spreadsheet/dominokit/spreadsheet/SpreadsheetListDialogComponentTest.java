@@ -30,7 +30,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 
 import java.time.LocalDateTime;
@@ -210,7 +209,7 @@ public final class SpreadsheetListDialogComponentTest implements DialogComponent
 
     private SpreadsheetMetadata spreadsheetMetadata(final long id,
                                                     final String name) {
-        return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+        return SPREADSHEET_METADATA.set(
             SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SpreadsheetId.with(id)
         ).set(
             SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, SpreadsheetName.with(name)

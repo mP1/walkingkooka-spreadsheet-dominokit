@@ -1620,7 +1620,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     private final static AppContext APP_CONTEXT = new FakeAppContext() {
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
-            return METADATA_EN_AU;
+            return SPREADSHEET_METADATA;
         }
 
         @Override

@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -262,7 +261,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
-            return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+            return SPREADSHEET_METADATA.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 SpreadsheetNavigateDialogComponentTest.SPREADSHEET_ID
             ).set(

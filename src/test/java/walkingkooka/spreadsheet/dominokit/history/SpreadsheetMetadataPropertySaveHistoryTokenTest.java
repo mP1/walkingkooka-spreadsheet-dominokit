@@ -32,7 +32,6 @@ import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterAliasSet;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -316,7 +315,7 @@ public final class SpreadsheetMetadataPropertySaveHistoryTokenTest extends Sprea
 
     @Test
     public void testParseUntilEmptySpreadsheetMetadataProperties() {
-        final SpreadsheetMetadata metadata = SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+        final SpreadsheetMetadata metadata = SPREADSHEET_METADATA.set(
             SpreadsheetMetadataPropertyName.CLIPBOARD_EXPORTER,
             SpreadsheetExporterAliasSet.parse("clipboard-exporter1")
         ).set(

@@ -46,7 +46,7 @@ public final class PluginNameAnchorListComponentContextBasicTest implements Plug
             NullPointerException.class,
             () -> PluginNameAnchorListComponentContextBasic.with(
                 null,
-                METADATA_EN_AU,
+                SPREADSHEET_METADATA,
                 HistoryContexts.fake()
             )
         );
@@ -70,7 +70,7 @@ public final class PluginNameAnchorListComponentContextBasicTest implements Plug
             NullPointerException.class,
             () -> PluginNameAnchorListComponentContextBasic.with(
                 SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS,
-                METADATA_EN_AU,
+                SPREADSHEET_METADATA,
                 null
             )
         );
@@ -80,7 +80,7 @@ public final class PluginNameAnchorListComponentContextBasicTest implements Plug
     public PluginNameAnchorListComponentContextBasic<ValidatorName, ValidatorInfo, ValidatorInfoSet, ValidatorSelector, ValidatorAlias, ValidatorAliasSet> createContext() {
         return PluginNameAnchorListComponentContextBasic.with(
             SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS,
-            METADATA_EN_AU,
+            SPREADSHEET_METADATA,
             new FakeHistoryContext() {
                 @Override
                 public Runnable addHistoryWatcher(final HistoryWatcher watcher) {

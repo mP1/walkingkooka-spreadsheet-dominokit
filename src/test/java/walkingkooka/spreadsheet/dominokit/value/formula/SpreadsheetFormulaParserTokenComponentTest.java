@@ -37,7 +37,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
     SpreadsheetMetadataTesting {
 
     private final static SpreadsheetParser SPREADSHEET_PARSER = SpreadsheetFormulaParsers.conditionRight(
-        METADATA_EN_AU.spreadsheetParser(
+        SPREADSHEET_METADATA.spreadsheetParser(
             SPREADSHEET_PARSER_PROVIDER,
             PROVIDER_CONTEXT
         )

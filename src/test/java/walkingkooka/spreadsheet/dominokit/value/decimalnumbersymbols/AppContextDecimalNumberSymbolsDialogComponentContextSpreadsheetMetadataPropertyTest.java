@@ -140,7 +140,7 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextSpreadshe
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return METADATA_EN_AU.set(
+                return SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID
                 ).set(
@@ -157,7 +157,7 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextSpreadshe
 
         appContext.spreadsheetViewportCache()
             .onSpreadsheetMetadata(
-                METADATA_EN_AU.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
+                SPREADSHEET_METADATA.set(SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SPREADSHEET_ID)
                     .set(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS, DECIMAL_NUMBER_SYMBOLS)
             );
 

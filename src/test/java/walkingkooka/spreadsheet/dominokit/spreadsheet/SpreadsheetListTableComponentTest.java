@@ -361,7 +361,7 @@ public final class SpreadsheetListTableComponentTest implements TableComponentTe
 
     private SpreadsheetMetadata spreadsheetMetadata(final long id,
                                                     final String name) {
-        return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+        return SPREADSHEET_METADATA.set(
             SpreadsheetMetadataPropertyName.SPREADSHEET_ID, SpreadsheetId.with(id)
         ).set(
             SpreadsheetMetadataPropertyName.SPREADSHEET_NAME, SpreadsheetName.with(name)

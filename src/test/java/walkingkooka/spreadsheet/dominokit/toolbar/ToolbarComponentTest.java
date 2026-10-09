@@ -499,7 +499,7 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                return SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     SpreadsheetId.with(1)
                 ).set(

@@ -740,7 +740,7 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                return SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     DecimalNumberSymbolsDialogComponentTest.SPREADSHEET_ID
                 ).setOrRemove(

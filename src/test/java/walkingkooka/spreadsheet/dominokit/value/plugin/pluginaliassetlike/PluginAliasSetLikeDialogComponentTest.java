@@ -318,7 +318,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                return SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     PluginAliasSetLikeDialogComponentTest.SPREADSHEET_ID
                 ).setOrRemove(

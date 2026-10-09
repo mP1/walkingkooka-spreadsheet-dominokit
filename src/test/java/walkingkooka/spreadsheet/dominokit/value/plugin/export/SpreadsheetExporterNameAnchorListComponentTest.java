@@ -90,7 +90,7 @@ public final class SpreadsheetExporterNameAnchorListComponentTest implements Val
 
                 @Override
                 public SpreadsheetMetadata spreadsheetMetadata() {
-                    return METADATA_EN_AU.set(
+                    return SPREADSHEET_METADATA.set(
                         SpreadsheetMetadataPropertyName.EXPORTERS,
                         SpreadsheetExporterAliasSet.parse("apple-tree, banana, carrot")
                     );

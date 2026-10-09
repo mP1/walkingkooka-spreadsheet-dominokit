@@ -52,7 +52,7 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
     private final static TextStylePropertyName<Color> PROPERTY_NAME = TextStylePropertyName.BACKGROUND_COLOR;
 
     static {
-        SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadataTesting.METADATA_EN_AU;
+        SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadataTesting.SPREADSHEET_METADATA;
 
         for(int i = SpreadsheetColors.MIN; i < SpreadsheetColors.MAX; i++) {
             spreadsheetMetadata = spreadsheetMetadata.set(

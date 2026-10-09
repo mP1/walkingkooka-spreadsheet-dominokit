@@ -532,7 +532,7 @@ public final class DateTimeSymbolsDialogComponentTest implements DialogComponent
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadataTesting.METADATA_EN_AU.set(
+                return SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     DateTimeSymbolsDialogComponentTest.SPREADSHEET_ID
                 ).setOrRemove(
