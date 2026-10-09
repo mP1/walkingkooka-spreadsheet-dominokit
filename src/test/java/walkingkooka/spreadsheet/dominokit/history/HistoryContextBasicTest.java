@@ -21,13 +21,13 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryContextBasicTest implements HistoryContextTesting<HistoryContextBasic>,
-    SpreadsheetMetadataTesting,
+    HasSpreadsheetMetadataTesting,
     ToStringTesting<HistoryContextBasic> {
 
     private final static HistoryToken HISTORY_TOKEN = HistoryToken.cellSelect(

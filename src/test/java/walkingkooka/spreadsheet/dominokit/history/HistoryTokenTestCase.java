@@ -32,9 +32,9 @@ import walkingkooka.reflect.MethodAttributes;
 import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -61,7 +61,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public abstract class HistoryTokenTestCase<T extends HistoryToken> implements PublicClassTesting<T>,
     HashCodeEqualsDefinedTesting2<T>,
     HasUrlFragmentTesting,
-    SpreadsheetMetadataTesting,
+    HasSpreadsheetMetadataTesting,
     ThrowableTesting,
     ToStringTesting<T> {
 

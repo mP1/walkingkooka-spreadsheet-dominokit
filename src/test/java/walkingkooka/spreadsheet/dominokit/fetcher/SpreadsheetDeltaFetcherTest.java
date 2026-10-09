@@ -28,8 +28,8 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQueryRequest;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReferencePath;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -57,7 +57,7 @@ import java.util.OptionalInt;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetDeltaFetcherTest implements FetcherTesting<SpreadsheetDeltaFetcher, SpreadsheetDeltaFetcherWatcher>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     // isGetAllCells....................................................................................................
 

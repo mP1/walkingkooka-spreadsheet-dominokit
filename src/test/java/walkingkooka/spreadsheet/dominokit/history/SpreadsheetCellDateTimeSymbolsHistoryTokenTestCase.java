@@ -19,12 +19,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.datetime.DateTimeSymbols;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
 public abstract class SpreadsheetCellDateTimeSymbolsHistoryTokenTestCase<T extends SpreadsheetCellDateTimeSymbolsHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T>
-    implements SpreadsheetMetadataTesting {
+    implements HasSpreadsheetMetadataTesting {
 
     SpreadsheetCellDateTimeSymbolsHistoryTokenTestCase() {
         super();
@@ -81,7 +81,7 @@ public abstract class SpreadsheetCellDateTimeSymbolsHistoryTokenTestCase<T exten
     @Test
     public final void testSetSaveValueWithNonEmpty() {
         final Optional<DateTimeSymbols> value = Optional.of(
-            SpreadsheetMetadataTesting.DATE_TIME_SYMBOLS
+            HasSpreadsheetMetadataTesting.DATE_TIME_SYMBOLS
         );
 
         this.setSaveValueAndCheck(

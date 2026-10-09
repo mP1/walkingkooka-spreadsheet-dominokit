@@ -35,8 +35,8 @@ import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.parser.SpreadsheetParser;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -71,7 +71,7 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
     HasUrlFragmentTesting,
     ParseStringTesting<SpreadsheetCellClipboardKind>,
     PredicateTesting,
-    SpreadsheetMetadataTesting,
+    HasSpreadsheetMetadataTesting,
     TreePrintableTesting {
 
     private final static CurrencyExchangeRaterSelector CURRENCY_EXCHANGE_RATER_SELECTOR = CurrencyExchangeRaterSelector.parse("currency-exchange-rater-123");

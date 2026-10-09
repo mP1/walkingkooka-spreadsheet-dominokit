@@ -18,13 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 import java.util.Currency;
 import java.util.Optional;
 
 public abstract class SpreadsheetCellCurrencyHistoryTokenTestCase<T extends SpreadsheetCellCurrencyHistoryToken> extends SpreadsheetCellHistoryTokenTestCase<T>
-    implements SpreadsheetMetadataTesting {
+    implements HasSpreadsheetMetadataTesting {
 
     SpreadsheetCellCurrencyHistoryTokenTestCase() {
         super();
@@ -81,7 +81,7 @@ public abstract class SpreadsheetCellCurrencyHistoryTokenTestCase<T extends Spre
     @Test
     public final void testSetSaveValueWithNonEmpty() {
         final Optional<Currency> value = Optional.of(
-            SpreadsheetMetadataTesting.CURRENCY
+            HasSpreadsheetMetadataTesting.CURRENCY
         );
 
         this.setSaveValueAndCheck(

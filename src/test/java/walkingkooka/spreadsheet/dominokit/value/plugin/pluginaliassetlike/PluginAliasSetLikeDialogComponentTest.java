@@ -30,9 +30,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetMetadataPropertySelectHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.plugin.function.ExpressionFunctionAliasSetComponent;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionFunctions;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.tree.expression.ExpressionFunctionName;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAlias;
 import walkingkooka.tree.expression.function.provider.ExpressionFunctionAliasSet;
@@ -51,7 +51,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
     ExpressionFunctionAlias,
     ExpressionFunctionAliasSet>>,
     HistoryTokenTesting,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static ExpressionFunctionAlias ALIAS1 = SpreadsheetExpressionFunctions.parseAlias("name1");
 

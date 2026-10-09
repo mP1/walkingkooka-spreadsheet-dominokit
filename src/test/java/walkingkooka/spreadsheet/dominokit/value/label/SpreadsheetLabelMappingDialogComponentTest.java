@@ -30,9 +30,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Locale;
@@ -429,7 +429,7 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
 
             @Override
             public Locale locale() {
-                return SpreadsheetMetadataTesting.LOCALE;
+                return HasSpreadsheetMetadataTesting.LOCALE;
             }
 
             @Override

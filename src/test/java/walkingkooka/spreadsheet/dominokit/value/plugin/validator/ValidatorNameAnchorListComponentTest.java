@@ -21,9 +21,9 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.validation.provider.ValidatorAliasSet;
@@ -32,7 +32,7 @@ import walkingkooka.validation.provider.ValidatorName;
 import java.util.Optional;
 
 public final class ValidatorNameAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement, ValidatorName, ValidatorNameAnchorListComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 

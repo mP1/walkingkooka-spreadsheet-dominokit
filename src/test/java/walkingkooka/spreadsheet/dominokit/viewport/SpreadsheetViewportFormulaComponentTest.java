@@ -34,10 +34,10 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
@@ -49,7 +49,7 @@ import java.util.Arrays;
 
 public final class SpreadsheetViewportFormulaComponentTest implements HtmlComponentTesting<SpreadsheetViewportFormulaComponent, HTMLFieldSetElement>,
     ComponentLifecycleMatcherTesting,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
     private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("Name222");

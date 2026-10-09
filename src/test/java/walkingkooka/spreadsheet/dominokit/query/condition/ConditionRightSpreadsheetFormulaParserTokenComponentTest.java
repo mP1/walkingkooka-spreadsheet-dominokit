@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.query.condition;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.formula.parser.ConditionRightSpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
 public final class ConditionRightSpreadsheetFormulaParserTokenComponentTest implements ValueTextBoxComponentLikeTesting<ConditionRightSpreadsheetFormulaParserTokenComponent, ConditionRightSpreadsheetFormulaParserToken>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testSetStringValue() {

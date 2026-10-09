@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.value.formula;
 import org.junit.jupiter.api.Test;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
 public final class SpreadsheetFormulaComponentTest implements ValueTextBoxComponentLikeTesting<SpreadsheetFormulaComponent, SpreadsheetFormula>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testSetStringValue() {

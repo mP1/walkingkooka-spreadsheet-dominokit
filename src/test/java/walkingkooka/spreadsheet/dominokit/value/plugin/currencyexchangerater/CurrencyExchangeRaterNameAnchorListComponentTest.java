@@ -23,16 +23,16 @@ import walkingkooka.currency.provider.CurrencyExchangeRaterAliasSet;
 import walkingkooka.currency.provider.CurrencyExchangeRaterName;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
 public final class CurrencyExchangeRaterNameAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement, CurrencyExchangeRaterName, CurrencyExchangeRaterNameAnchorListComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 

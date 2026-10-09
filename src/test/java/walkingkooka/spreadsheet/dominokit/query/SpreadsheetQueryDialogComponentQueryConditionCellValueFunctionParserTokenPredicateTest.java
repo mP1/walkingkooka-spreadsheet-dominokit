@@ -24,13 +24,13 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.text.cursor.parser.ParserToken;
 
 public final class SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate, ParserToken>,
     ToStringTesting<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
     ClassTesting<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testTestNonFunctionName() {

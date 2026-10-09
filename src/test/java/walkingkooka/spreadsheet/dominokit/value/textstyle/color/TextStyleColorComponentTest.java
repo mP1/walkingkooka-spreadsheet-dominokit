@@ -27,9 +27,9 @@ import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
@@ -40,10 +40,10 @@ import java.util.Optional;
 public final class TextStyleColorComponentTest implements TextStylePropertyColorComponentTesting<HTMLFieldSetElement, TextStyleColorComponent>,
     ComponentLifecycleMatcherTesting,
     ToStringTesting<TextStyleColorComponent>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     static {
-        SpreadsheetMetadata spreadsheetMetadata = SpreadsheetMetadataTesting.SPREADSHEET_METADATA;
+        SpreadsheetMetadata spreadsheetMetadata = HasSpreadsheetMetadataTesting.SPREADSHEET_METADATA;
 
         for(int i = SpreadsheetColors.MIN; i < SpreadsheetColors.MAX; i++) {
             spreadsheetMetadata = spreadsheetMetadata.set(

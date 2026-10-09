@@ -25,12 +25,12 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.expression.function.SpreadsheetExpressionFunctions;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 public final class SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicateTest implements PredicateTesting,
     ToStringTesting<SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate>,
     ClassTesting<SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPredicate>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testTestNonCallExpression() {

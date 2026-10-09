@@ -21,12 +21,12 @@ import walkingkooka.color.ColorContexts;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContextTesting2;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 import java.math.MathContext;
 
 public final class AppSpreadsheetFormatterContextTest implements SpreadsheetFormatterContextTesting2<AppSpreadsheetFormatterContext>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     private final static DecimalNumberContext DECIMAL_NUMBER_CONTEXT = DecimalNumberContexts.basic(
         DecimalNumberContext.DEFAULT_NUMBER_DIGIT_COUNT,

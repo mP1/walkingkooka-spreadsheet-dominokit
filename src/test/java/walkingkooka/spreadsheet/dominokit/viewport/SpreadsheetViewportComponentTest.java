@@ -34,10 +34,10 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -53,7 +53,7 @@ import java.util.Optional;
 
 public final class SpreadsheetViewportComponentTest implements HtmlComponentTesting<SpreadsheetViewportComponent, HTMLDivElement>,
     ParseStringTesting<Optional<SpreadsheetSelection>>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     // id...............................................................................................................
 
@@ -251,7 +251,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
     private final static int VIEWPORT_GRID_WIDTH = CELL_WIDTH * 2 - 1;
     private final static int VIEWPORT_GRID_HEIGHT = CELL_HEIGHT * 2 - 1;
 
-    private final static SpreadsheetMetadata SPREADSHEET_METADATA = SpreadsheetMetadataTesting.SPREADSHEET_METADATA.set(
+    private final static SpreadsheetMetadata SPREADSHEET_METADATA = HasSpreadsheetMetadataTesting.SPREADSHEET_METADATA.set(
         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
         SPREADSHEET_ID
     ).set(

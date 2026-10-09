@@ -17,11 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols;
 
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 public abstract class AppContextDecimalNumberSymbolsDialogComponentContextTestCase<C extends AppContextDecimalNumberSymbolsDialogComponentContext>
     implements DecimalNumberSymbolsDialogComponentContextTesting<C>,
-    SpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting {
 
     AppContextDecimalNumberSymbolsDialogComponentContextTestCase() {
         super();
