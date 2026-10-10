@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.formatter;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Either;
-import walkingkooka.color.Color;
 import walkingkooka.convert.Converter;
 import walkingkooka.convert.ConverterContext;
 import walkingkooka.convert.provider.ConverterName;
@@ -36,7 +35,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterInfoSet;
@@ -2109,16 +2107,6 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             @Override
             public int cellCharacterWidth() {
                 return SPREADSHEET_FORMATTER_CONTEXT.cellCharacterWidth();
-            }
-
-            @Override
-            public Optional<Color> colorNumber(final int number) {
-                return SPREADSHEET_FORMATTER_CONTEXT.colorNumber(number);
-            }
-
-            @Override
-            public Optional<Color> colorName(final SpreadsheetColorName name) {
-                return SPREADSHEET_FORMATTER_CONTEXT.colorName(name);
             }
 
             @Override

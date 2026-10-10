@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.number;
 
 import walkingkooka.Binary;
 import walkingkooka.Either;
-import walkingkooka.color.Color;
 import walkingkooka.color.ColorContext;
 import walkingkooka.color.ColorContextDelegator;
 import walkingkooka.convert.Converter;
@@ -39,7 +38,6 @@ import walkingkooka.net.email.EmailAddress;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.spreadsheet.convert.SpreadsheetConverterContext;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
-import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatterContext;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
@@ -120,16 +118,6 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
 
     @Override
     public int cellCharacterWidth() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<Color> colorNumber(int i) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<Color> colorName(final SpreadsheetColorName spreadsheetColorName) {
         throw new UnsupportedOperationException();
     }
 
