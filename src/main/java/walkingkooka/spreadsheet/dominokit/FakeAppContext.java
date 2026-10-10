@@ -76,7 +76,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentKeyBindings;
 import walkingkooka.spreadsheet.expression.SpreadsheetExpressionEvaluationContext;
-import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.format.SpreadsheetFormatter;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -874,16 +873,6 @@ public class FakeAppContext extends FakeSpreadsheetProvider
 
     @Override
     public int cellCharacterWidth() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<Color> colorNumber(final int number) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public Optional<Color> colorName(final SpreadsheetColorName name) {
         throw new UnsupportedOperationException();
     }
 
