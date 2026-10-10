@@ -1560,7 +1560,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
             }
 
             @Override
-            public Optional<SpreadsheetCell> cell() {
+            public Optional<SpreadsheetCell> spreadsheetCell() {
                 return Optional.empty();
             }
 

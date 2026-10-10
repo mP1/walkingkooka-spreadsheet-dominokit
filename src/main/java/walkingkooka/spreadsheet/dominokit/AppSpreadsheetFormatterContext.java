@@ -190,7 +190,7 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
     }
 
     @Override
-    public Optional<SpreadsheetCell> cell() {
+    public Optional<SpreadsheetCell> spreadsheetCell() {
         throw new UnsupportedOperationException();
     }
 
