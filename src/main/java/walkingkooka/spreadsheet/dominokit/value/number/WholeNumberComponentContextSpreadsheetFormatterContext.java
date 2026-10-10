@@ -139,7 +139,7 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
     }
 
     @Override
-    public Optional<SpreadsheetCell> cell() {
+    public Optional<SpreadsheetCell> spreadsheetCell() {
         throw new UnsupportedOperationException();
     }
 

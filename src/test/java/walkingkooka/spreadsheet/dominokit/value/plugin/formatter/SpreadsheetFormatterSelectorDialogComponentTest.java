@@ -2074,7 +2074,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             // SpreadsheetFormatterContext......................................................................................
 
             @Override
-            public Optional<SpreadsheetCell> cell() {
+            public Optional<SpreadsheetCell> spreadsheetCell() {
                 return Optional.empty();
             }
 

@@ -151,7 +151,7 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
     }
 
     @Override
-    public Optional<SpreadsheetCell> cell() {
+    public Optional<SpreadsheetCell> spreadsheetCell() {
         throw new UnsupportedOperationException();
     }
 
