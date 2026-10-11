@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 import elemental2.dom.HTMLTableElement;
 import walkingkooka.Cast;
 import walkingkooka.color.Color;
+import walkingkooka.color.NamedColor;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
@@ -199,8 +200,8 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
                 final Color color = maybeColor.get();
                 cells[i].setBackgroundColor(color.toString());
 
-                final String text = metadata.colorName(colorNumber)
-                    .map(SpreadsheetColorName::toString)
+                final String text = metadata.colorNumberReverseLookup(colorNumber)
+                    .map(NamedColor::value)
                     .orElse("color " + colorNumber);
 
                 // update the link that when clicked will save the selected color

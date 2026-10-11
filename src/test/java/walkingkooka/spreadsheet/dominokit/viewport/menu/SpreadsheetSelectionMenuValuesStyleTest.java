@@ -26,7 +26,6 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFact
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetAnchoredSelectionHistoryToken;
-import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
@@ -4435,7 +4434,9 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                     LOCALE
                 ).loadFromLocale(CURRENCY_LOCALE_CONTEXT)
                     .set(
-                        SpreadsheetMetadataPropertyName.namedColor(SpreadsheetColorName.BLACK),
+                        SpreadsheetMetadataPropertyName.namedColor(
+                            Color.named("Black")
+                        ),
                         1
                     ).set(
                         SpreadsheetMetadataPropertyName.numberedColor(1),
