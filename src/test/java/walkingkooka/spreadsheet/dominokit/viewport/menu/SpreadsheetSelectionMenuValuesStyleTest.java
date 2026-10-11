@@ -21,6 +21,7 @@ import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.color.Color;
+import walkingkooka.color.NamedColor;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -4434,9 +4435,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                     LOCALE
                 ).loadFromLocale(CURRENCY_LOCALE_CONTEXT)
                     .set(
-                        SpreadsheetMetadataPropertyName.namedColor(
-                            Color.named("Black")
-                        ),
+                        SpreadsheetMetadataPropertyName.namedColor(NamedColor.BLACK),
                         1
                     ).set(
                         SpreadsheetMetadataPropertyName.numberedColor(1),
