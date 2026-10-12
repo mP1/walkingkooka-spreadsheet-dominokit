@@ -18,6 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.value.number;
 
 import walkingkooka.InvalidCharacterException;
+import walkingkooka.color.ColorContext;
+import walkingkooka.color.ColorContextDelegator;
+import walkingkooka.color.ColorContexts;
 import walkingkooka.datetime.DateTimeContext;
 import walkingkooka.datetime.DateTimeContextDelegator;
 import walkingkooka.datetime.DateTimeContexts;
@@ -32,6 +35,7 @@ import walkingkooka.tree.expression.ExpressionNumberKind;
 import java.util.Locale;
 
 final class NumberComponentContextSpreadsheetParserContext implements SpreadsheetParserContext,
+    ColorContextDelegator,
     DateTimeContextDelegator,
     DecimalNumberContextDelegator {
 
@@ -41,6 +45,13 @@ final class NumberComponentContextSpreadsheetParserContext implements Spreadshee
 
     private NumberComponentContextSpreadsheetParserContext(final NumberComponentContext context) {
         this.context = context;
+    }
+
+    // ColorContextDelegator............................................................................................
+
+    @Override
+    public ColorContext colorContext() {
+        return ColorContexts.fake();
     }
 
     // DateTimeContextDelegator.........................................................................................
