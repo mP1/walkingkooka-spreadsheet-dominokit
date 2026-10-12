@@ -20,12 +20,12 @@ package walkingkooka.spreadsheet.dominokit.value.number;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
 import walkingkooka.math.DecimalNumberContexts;
-import walkingkooka.spreadsheet.parser.SpreadsheetParserContextTesting;
+import walkingkooka.spreadsheet.parser.SpreadsheetParserContextTesting2;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
 import java.math.MathContext;
 
-public final class NumberComponentContextSpreadsheetParserContextTest implements SpreadsheetParserContextTesting<NumberComponentContextSpreadsheetParserContext>,
+public final class NumberComponentContextSpreadsheetParserContextTest implements SpreadsheetParserContextTesting2<NumberComponentContextSpreadsheetParserContext>,
     DecimalNumberContextDelegator {
 
     @Override
