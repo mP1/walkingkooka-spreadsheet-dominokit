@@ -157,8 +157,11 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                         SpreadsheetFormula.EMPTY.setText("=1+2")
                     ).setFormattedValue(
                         Optional.of(
-                            SpreadsheetText.with("Hello").setColor(
-                                Optional.of(Color.parse("blue"))
+                            SpreadsheetText.EMPTY.setText("Hello")
+                                .setColor(
+                                    Optional.of(
+                                        Color.parse("blue")
+                                    )
                             ).textNode()
                         )
                     )
@@ -212,8 +215,11 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                         SpreadsheetFormula.EMPTY.setText("=1+2")
                     ).setFormattedValue(
                         Optional.of(
-                            SpreadsheetText.with("Hello").setColor(
-                                Optional.of(Color.parse("blue"))
+                            SpreadsheetText.EMPTY.setText("Hello")
+                                .setColor(
+                                    Optional.of(
+                                        Color.parse("blue")
+                                    )
                             ).textNode()
                         )
                     )

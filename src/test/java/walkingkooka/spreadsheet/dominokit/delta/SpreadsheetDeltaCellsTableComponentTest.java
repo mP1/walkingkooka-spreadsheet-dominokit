@@ -113,8 +113,11 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                         SpreadsheetFormula.EMPTY.setText("=1+2")
                     ).setFormattedValue(
                         Optional.of(
-                            SpreadsheetText.with("Hello").setColor(
-                                Optional.of(Color.parse("blue"))
+                            SpreadsheetText.EMPTY.setText("Hello")
+                                .setColor(
+                                    Optional.of(
+                                        Color.parse("blue")
+                                    )
                             ).textNode()
                         )
                     )
@@ -171,9 +174,12 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                         SpreadsheetFormula.EMPTY.setText("=111")
                     ).setFormattedValue(
                         Optional.of(
-                            SpreadsheetText.with("Hello").setColor(
-                                Optional.of(Color.parse("blue"))
-                            ).textNode()
+                            SpreadsheetText.EMPTY.setText("Hello")
+                                .setColor(
+                                    Optional.of(
+                                        Color.parse("blue")
+                                    )
+                                ).textNode()
                         )
                     ),
                     SpreadsheetSelection.parseCell("A2")
@@ -181,7 +187,8 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                             SpreadsheetFormula.EMPTY.setText("=222")
                         ).setFormattedValue(
                             Optional.of(
-                                SpreadsheetText.with("2222").textNode()
+                                SpreadsheetText.EMPTY.setText("2222")
+                                    .textNode()
                             )
                         )
                 )
