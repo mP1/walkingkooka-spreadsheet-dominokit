@@ -417,7 +417,7 @@ public abstract class HtmlElementComponent<E extends HTMLElement, C extends Html
         try {
             final RgbColor color = Color.parseRgb(value);
 
-            final WebColorName webColorName = color.toWebColorName()
+            final WebColorName webColorName = color.webColorName()
                 .orElse(null);
             if (null != webColorName) {
                 out = webColorName.toString();
