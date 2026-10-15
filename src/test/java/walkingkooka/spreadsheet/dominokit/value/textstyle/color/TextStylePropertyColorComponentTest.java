@@ -56,19 +56,21 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
 
         for(int i = SpreadsheetColors.MIN; i < SpreadsheetColors.MAX; i++) {
             spreadsheetMetadata = spreadsheetMetadata.set(
-                SpreadsheetMetadataPropertyName.numberedColor(i),
+                SpreadsheetMetadataPropertyName.numberedColor(
+                    Color.indexed(i)
+                ),
                 Color.fromRgb(i)
             );
         }
 
         COLOR1 = spreadsheetMetadata.getOrFail(
             SpreadsheetMetadataPropertyName.numberedColor(
-                SpreadsheetColors.MIN
+                Color.indexed(SpreadsheetColors.MIN)
             )
         );
         COLOR2 = spreadsheetMetadata.getOrFail(
             SpreadsheetMetadataPropertyName.numberedColor(
-                SpreadsheetColors.MIN + 1
+                Color.indexed(SpreadsheetColors.MIN + 1)
             )
         );
         SPREADSHEET_METADATA = spreadsheetMetadata;

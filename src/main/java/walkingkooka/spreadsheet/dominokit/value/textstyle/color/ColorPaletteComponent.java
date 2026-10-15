@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.color;
 import elemental2.dom.HTMLTableElement;
 import walkingkooka.Cast;
 import walkingkooka.color.Color;
+import walkingkooka.color.IndexedColor;
 import walkingkooka.color.NamedColor;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.HtmlComponent;
@@ -191,16 +192,17 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
 
         for (int i = 0; i < COLOR_COUNT; i++) {
             final int colorNumber = 1 + i;
+            final IndexedColor colorNumberIndexedColor = Color.indexed(colorNumber);
 
             final Optional<Color> maybeColor = metadata.get(
-                SpreadsheetMetadataPropertyName.numberedColor(colorNumber)
+                SpreadsheetMetadataPropertyName.numberedColor(colorNumberIndexedColor)
             );
             if (maybeColor.isPresent()) {
                 // set the background color of the cell
                 final Color color = maybeColor.get();
                 cells[i].setBackgroundColor(color.toString());
 
-                final String text = metadata.colorNumberReverseLookup(colorNumber)
+                final String text = metadata.colorNumberReverseLookup(colorNumberIndexedColor)
                     .map(NamedColor::value)
                     .orElse("color " + colorNumber);
 
