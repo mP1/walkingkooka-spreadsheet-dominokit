@@ -39,7 +39,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatchers;
-import walkingkooka.spreadsheet.format.SpreadsheetColorName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CharSequences;
@@ -53,7 +52,7 @@ import java.util.function.Function;
 
 /**
  * A ui that creates a grid and fills each cell with the current color value taken from {@link SpreadsheetMetadata}.
- * If a {@link SpreadsheetColorName} exists that will be used otherwise a name is formed by combining the "color-" and the color number.
+ * If a {@link NamedColor} exists that will be used otherwise a name is formed by combining the "color-" and the color number.
  * Each cell will have a link with a {@link HistoryToken} that saves its {@link Color}.
  */
 public final class ColorPaletteComponent implements ValueComponent<HTMLTableElement, Color, ColorPaletteComponent>,
