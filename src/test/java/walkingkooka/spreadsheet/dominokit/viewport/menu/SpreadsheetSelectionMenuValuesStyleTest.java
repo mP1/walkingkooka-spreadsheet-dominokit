@@ -4436,7 +4436,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 ).loadFromLocale(CURRENCY_LOCALE_CONTEXT)
                     .set(
                         SpreadsheetMetadataPropertyName.namedColor(NamedColor.BLACK),
-                        1
+                        Color.indexed(1)
                     ).set(
                         SpreadsheetMetadataPropertyName.numberedColor(
                             Color.indexed(1)
