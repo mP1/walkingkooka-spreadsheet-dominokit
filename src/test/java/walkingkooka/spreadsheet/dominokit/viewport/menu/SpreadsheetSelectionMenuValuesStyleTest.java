@@ -4438,7 +4438,9 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                         SpreadsheetMetadataPropertyName.namedColor(NamedColor.BLACK),
                         1
                     ).set(
-                        SpreadsheetMetadataPropertyName.numberedColor(1),
+                        SpreadsheetMetadataPropertyName.numberedColor(
+                            Color.indexed(1)
+                        ),
                         Color.BLACK
                     );
             }
