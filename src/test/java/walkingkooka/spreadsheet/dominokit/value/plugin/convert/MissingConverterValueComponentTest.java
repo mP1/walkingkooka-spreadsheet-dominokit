@@ -43,7 +43,8 @@ public class MissingConverterValueComponentTest implements ValueComponentTesting
             "MissingConverterValueComponent\n" +
                 "  MissingConverterValue\n" +
                 "    value\n" +
-                "      123 (walkingkooka.tree.expression.ExpressionNumberBigDecimal)\n" +
+                "      123\n" +
+                "        walkingkooka.tree.expression.ExpressionNumberBigDecimal\n" +
                 "    type\n" +
                 "      number/Number\n"
         );
