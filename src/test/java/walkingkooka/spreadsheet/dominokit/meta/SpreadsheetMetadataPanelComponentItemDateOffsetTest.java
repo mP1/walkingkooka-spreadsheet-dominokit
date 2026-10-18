@@ -155,13 +155,13 @@ public final class SpreadsheetMetadataPanelComponentItemDateOffsetTest implement
                 "            [1899-12-30] id=metadata-dateOffset-Date\n" +
                 "      LI\n" +
                 "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "          \"1900\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/0] id=metadata-dateOffset-0-Link\n" +
+                "          \"1900\" [#/1/SpreadsheetName1/spreadsheet/dateOffset/save/0] id=metadata-dateOffset-0-Link\n" +
                 "      LI\n" +
                 "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "          \"1904\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/1462] id=metadata-dateOffset-1462-Link\n" +
+                "          \"1904\" [#/1/SpreadsheetName1/spreadsheet/dateOffset/save/1462] id=metadata-dateOffset-1462-Link\n" +
                 "      LI\n" +
                 "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "          \"default\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/] id=metadata-dateOffset-default-Link\n" +
+                "          \"default\" [#/1/SpreadsheetName1/spreadsheet/dateOffset/save/] id=metadata-dateOffset-default-Link\n" +
                 "            TooltipComponent\n" +
                 "              \"0\"\n"
         );
