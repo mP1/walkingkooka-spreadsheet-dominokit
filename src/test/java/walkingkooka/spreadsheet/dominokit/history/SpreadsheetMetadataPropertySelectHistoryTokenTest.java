@@ -169,8 +169,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     // saveValue........................................................................................................
 
     @Test
-    public void testSetSaveValueDateTimeOffset() {
-        final SpreadsheetMetadataPropertyName<Long> propertyName = SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET;
+    public void testSetSaveValueDateOffset() {
+        final SpreadsheetMetadataPropertyName<Long> propertyName = SpreadsheetMetadataPropertyName.DATE_OFFSET;
         final Long value = Converters.EXCEL_1904_DATE_SYSTEM_OFFSET;
 
         this.setSaveValueAndCheck(
@@ -192,8 +192,8 @@ public final class SpreadsheetMetadataPropertySelectHistoryTokenTest extends Spr
     }
 
     @Test
-    public void testSetSaveValueDateTimeOffsetEmpty() {
-        final SpreadsheetMetadataPropertyName<Long> propertyName = SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET;
+    public void testSetSaveValueDateOffsetEmpty() {
+        final SpreadsheetMetadataPropertyName<Long> propertyName = SpreadsheetMetadataPropertyName.DATE_OFFSET;
 
         this.setSaveValueAndCheck(
             SpreadsheetMetadataPropertySelectHistoryToken.with(

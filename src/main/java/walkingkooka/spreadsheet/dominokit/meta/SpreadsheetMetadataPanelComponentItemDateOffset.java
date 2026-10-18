@@ -43,11 +43,11 @@ import java.util.Optional;
 
 
 /**
- * A {@link SpreadsheetMetadataPanelComponentItem} for {@link SpreadsheetMetadataPropertyName#DATE_TIME_OFFSET}
+ * A {@link SpreadsheetMetadataPanelComponentItem} for {@link SpreadsheetMetadataPropertyName#DATE_OFFSET}
  */
-final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends SpreadsheetMetadataPanelComponentItem<Long, SpreadsheetMetadataPanelComponentItemDateTimeOffset, HTMLUListElement> {
+final class SpreadsheetMetadataPanelComponentItemDateOffset extends SpreadsheetMetadataPanelComponentItem<Long, SpreadsheetMetadataPanelComponentItemDateOffset, HTMLUListElement> {
 
-    private final static SpreadsheetMetadataPropertyName<Long> PROPERTY_NAME = SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET;
+    private final static SpreadsheetMetadataPropertyName<Long> PROPERTY_NAME = SpreadsheetMetadataPropertyName.DATE_OFFSET;
 
     /**
      * The save value for the 1900 link
@@ -60,15 +60,15 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     private final static long _1904 = Converters.EXCEL_1904_DATE_SYSTEM_OFFSET - Converters.EXCEL_1900_DATE_SYSTEM_OFFSET;
 
     /**
-     * Factory that creates a new {@link SpreadsheetMetadataPanelComponentItemDateTimeOffset}.
+     * Factory that creates a new {@link SpreadsheetMetadataPanelComponentItemDateOffset}.
      */
-    static SpreadsheetMetadataPanelComponentItemDateTimeOffset with(final SpreadsheetMetadataPanelComponentContext context) {
-        return new SpreadsheetMetadataPanelComponentItemDateTimeOffset(
+    static SpreadsheetMetadataPanelComponentItemDateOffset with(final SpreadsheetMetadataPanelComponentContext context) {
+        return new SpreadsheetMetadataPanelComponentItemDateOffset(
             context
         );
     }
 
-    private SpreadsheetMetadataPanelComponentItemDateTimeOffset(final SpreadsheetMetadataPanelComponentContext context) {
+    private SpreadsheetMetadataPanelComponentItemDateOffset(final SpreadsheetMetadataPanelComponentContext context) {
         super(
             PROPERTY_NAME,
             context
@@ -81,7 +81,7 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
             AppContextDateComponentContext.with(context)
         );
         dateComponent.addValueWatcher2(
-            value -> SpreadsheetMetadataPanelComponentItemDateTimeOffset.this.save(
+            value -> SpreadsheetMetadataPanelComponentItemDateOffset.this.save(
                 toLong(value)
                     .map(Object::toString)
                     .orElse("")
@@ -130,13 +130,13 @@ final class SpreadsheetMetadataPanelComponentItemDateTimeOffset extends Spreadsh
     }
 
     @Override//
-    SpreadsheetMetadataPanelComponentItemDateTimeOffset addFocusListener(final EventListener listener) {
+    SpreadsheetMetadataPanelComponentItemDateOffset addFocusListener(final EventListener listener) {
         this.list.addFocusListener(listener);
         return this;
     }
 
     @Override
-    public SpreadsheetMetadataPanelComponentItemDateTimeOffset focus() {
+    public SpreadsheetMetadataPanelComponentItemDateOffset focus() {
         this.dateComponent.focus();
         return this;
     }

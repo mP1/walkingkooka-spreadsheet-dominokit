@@ -31,9 +31,9 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.time.LocalDate;
 import java.util.Optional;
 
-public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest implements TreePrintableTesting,
+public final class SpreadsheetMetadataPanelComponentItemDateOffsetTest implements TreePrintableTesting,
     HasSpreadsheetMetadataTesting,
-    ClassTesting<SpreadsheetMetadataPanelComponentItemDateTimeOffset> {
+    ClassTesting<SpreadsheetMetadataPanelComponentItemDateOffset> {
 
     @Test
     public void testToDateToLongToDate1900() {
@@ -93,8 +93,8 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
     private void toDateToLongToDateAndCheck(final LocalDate date) {
         this.checkEquals(
             Optional.of(date),
-            SpreadsheetMetadataPanelComponentItemDateTimeOffset.toDate(
-                SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(
+            SpreadsheetMetadataPanelComponentItemDateOffset.toDate(
+                SpreadsheetMetadataPanelComponentItemDateOffset.toLong(
                     Optional.of(date)
                 )
             ),
@@ -110,7 +110,7 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
             Optional.of(
                 2L
             ),
-            SpreadsheetMetadataPanelComponentItemDateTimeOffset.toLong(
+            SpreadsheetMetadataPanelComponentItemDateOffset.toLong(
                 Optional.of(
                     LocalDate.of(
                         1970,
@@ -132,7 +132,7 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
                 return HistoryToken.metadataPropertySelect(
                     SpreadsheetId.with(1),
                     SpreadsheetName.with("SpreadsheetName1"),
-                    SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET
+                    SpreadsheetMetadataPropertyName.DATE_OFFSET
                 );
             }
 
@@ -141,27 +141,27 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
                 return SPREADSHEET_METADATA;
             }
         };
-        final SpreadsheetMetadataPanelComponentItemDateTimeOffset component = SpreadsheetMetadataPanelComponentItemDateTimeOffset.with(context);
+        final SpreadsheetMetadataPanelComponentItemDateOffset component = SpreadsheetMetadataPanelComponentItemDateOffset.with(context);
         component.refresh(context);
 
         this.treePrintAndCheck(
             component,
-            "SpreadsheetMetadataPanelComponentItemDateTimeOffset\n" +
+            "SpreadsheetMetadataPanelComponentItemDateOffset\n" +
                 "  UL\n" +
                 "    style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +
                 "      LI\n" +
                 "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
                 "          DateComponent\n" +
-                "            [1899-12-30] id=metadata-dateTimeOffset-Date\n" +
+                "            [1899-12-30] id=metadata-dateOffset-Date\n" +
                 "      LI\n" +
                 "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "          \"1900\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/0] id=metadata-dateTimeOffset-0-Link\n" +
+                "          \"1900\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/0] id=metadata-dateOffset-0-Link\n" +
                 "      LI\n" +
                 "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "          \"1904\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/1462] id=metadata-dateTimeOffset-1462-Link\n" +
+                "          \"1904\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/1462] id=metadata-dateOffset-1462-Link\n" +
                 "      LI\n" +
                 "        style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "          \"default\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/] id=metadata-dateTimeOffset-default-Link\n" +
+                "          \"default\" [#/1/SpreadsheetName1/spreadsheet/dateTimeOffset/save/] id=metadata-dateOffset-default-Link\n" +
                 "            TooltipComponent\n" +
                 "              \"0\"\n"
         );
@@ -170,8 +170,8 @@ public final class SpreadsheetMetadataPanelComponentItemDateTimeOffsetTest imple
     // ClassTesting.....................................................................................................
 
     @Override
-    public Class<SpreadsheetMetadataPanelComponentItemDateTimeOffset> type() {
-        return SpreadsheetMetadataPanelComponentItemDateTimeOffset.class;
+    public Class<SpreadsheetMetadataPanelComponentItemDateOffset> type() {
+        return SpreadsheetMetadataPanelComponentItemDateOffset.class;
     }
 
     @Override

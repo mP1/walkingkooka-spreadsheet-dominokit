@@ -64,7 +64,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 return HistoryToken.metadataPropertySelect(
                     SpreadsheetId.with(1),
                     SpreadsheetName.with("SpreadsheetName111"),
-                    SpreadsheetMetadataPropertyName.DATE_TIME_OFFSET
+                    SpreadsheetMetadataPropertyName.DATE_OFFSET
                 );
             }
 
@@ -216,22 +216,22 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "    \"numberParser\" [#/1/SpreadsheetName111/spreadsheet/numberParser] id=metadata-numberParser-Link\n" +
                 "  SpreadsheetMetadataPanelComponentItemAnchorDefault\n" +
                 "    \"dateTimeSymbols\" [#/1/SpreadsheetName111/spreadsheet/dateTimeSymbols] id=metadata-dateTimeSymbols-Link\n" +
-                "  SpreadsheetMetadataPanelComponentItemDateTimeOffset\n" +
+                "  SpreadsheetMetadataPanelComponentItemDateOffset\n" +
                 "    UL\n" +
                 "      style=\"align-items: center; display: flex; flex-wrap: wrap; justify-content: flex-start; list-style-type: none; margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px; padding-left: 0;\"\n" +
                 "        LI\n" +
                 "          style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
                 "            DateComponent\n" +
-                "              [1899-12-30] id=metadata-dateTimeOffset-Date\n" +
+                "              [1899-12-30] id=metadata-dateOffset-Date\n" +
                 "        LI\n" +
                 "          style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "            \"1900\" [#/1/SpreadsheetName111/spreadsheet/dateTimeOffset/save/0] id=metadata-dateTimeOffset-0-Link\n" +
+                "            \"1900\" [#/1/SpreadsheetName111/spreadsheet/dateTimeOffset/save/0] id=metadata-dateOffset-0-Link\n" +
                 "        LI\n" +
                 "          style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "            \"1904\" [#/1/SpreadsheetName111/spreadsheet/dateTimeOffset/save/1462] id=metadata-dateTimeOffset-1462-Link\n" +
+                "            \"1904\" [#/1/SpreadsheetName111/spreadsheet/dateTimeOffset/save/1462] id=metadata-dateOffset-1462-Link\n" +
                 "        LI\n" +
                 "          style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
-                "            \"default\" [#/1/SpreadsheetName111/spreadsheet/dateTimeOffset/save/] id=metadata-dateTimeOffset-default-Link\n" +
+                "            \"default\" [#/1/SpreadsheetName111/spreadsheet/dateTimeOffset/save/] id=metadata-dateOffset-default-Link\n" +
                 "              TooltipComponent\n" +
                 "                \"1904\"\n" +
                 "  SpreadsheetMetadataPanelComponentItemNumber\n" +

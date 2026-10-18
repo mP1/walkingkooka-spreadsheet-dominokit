@@ -72,8 +72,8 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
     /**
      * {@see SpreadsheetMetadataPanelComponentItemDateTimeOffset}
      */
-    static SpreadsheetMetadataPanelComponentItemDateTimeOffset dateTimeOffset(final SpreadsheetMetadataPanelComponentContext context) {
-        return SpreadsheetMetadataPanelComponentItemDateTimeOffset.with(
+    static SpreadsheetMetadataPanelComponentItemDateOffset dateOffset(final SpreadsheetMetadataPanelComponentContext context) {
+        return SpreadsheetMetadataPanelComponentItemDateOffset.with(
             context
         );
     }
