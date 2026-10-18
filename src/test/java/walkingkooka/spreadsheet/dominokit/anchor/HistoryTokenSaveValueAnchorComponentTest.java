@@ -152,7 +152,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                     Optional.empty() // NO_FILTER
                 )
             ).setHistoryTokenPreProcessor(
-                (HistoryToken historyToken) -> historyToken.clearStylePropertyName()
+                HistoryToken::clearStylePropertyName
             ).setValue(
                 Optional.of(
                     TextStyle.parse("color: black; font-weight: bold;")
