@@ -229,12 +229,21 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
     public void onVerify(final SpreadsheetId id,
                          final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
                          final Set<MissingConverter> missingConverters) {
-        this.selector.clearErrors();
+        final ConverterSelectorComponent selector = this.selector;
+        selector.clearErrors();
+
         this.missing.setValue(
             Optional.of(
                 MissingConverterSet.EMPTY.setElements(missingConverters)
             )
         );
+        // re-enable if no errors...
+        this.links.setValue(
+            selector.hasErrors() ?
+                Optional.empty() :
+                selector.value()
+        );
+        this.refreshTitleAndLinks();
     }
 
     // SpreadsheetMetadataFetcherWatcher................................................................................
