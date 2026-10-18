@@ -23,7 +23,7 @@ import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class CurrencyExchangeRaterSelectorDialogComponentContextAppContextTest implements CurrencyExchangeRaterSelectorDialogComponentContextTesting {
+public final class CurrencyExchangeRaterSelectorDialogComponentContextAppContextTest implements CurrencyExchangeRaterSelectorDialogComponentContextTesting<CurrencyExchangeRaterSelectorDialogComponentContextAppContext> {
 
     @Test
     public void testWithNullAppContextFails() {
