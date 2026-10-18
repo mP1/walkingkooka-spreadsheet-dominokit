@@ -77,9 +77,7 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
         this.selector = ConverterSelectorComponent.empty()
             .setId(ID + SpreadsheetElementIds.TEXT_BOX)
             .addValueWatcher2(
-                (value) -> {
-                    this.refreshSaveLink(value);
-                }
+                this::refreshSaveLink
             );
 
         this.links = this.dialogAnchorListComponent(context)
