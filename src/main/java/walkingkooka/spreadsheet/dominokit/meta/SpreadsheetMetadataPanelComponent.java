@@ -286,7 +286,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
     }
 
     private SpreadsheetMetadataPanelComponentItem<?, ?, ?> dateTimeOffset() {
-        return SpreadsheetMetadataPanelComponentItem.dateTimeOffset(
+        return SpreadsheetMetadataPanelComponentItem.dateOffset(
             this.context
         );
     }
