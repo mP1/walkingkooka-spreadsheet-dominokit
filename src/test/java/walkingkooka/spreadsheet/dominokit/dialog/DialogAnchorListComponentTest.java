@@ -874,6 +874,148 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
         );
     }
 
+    // enableSave.......................................................................................................
+
+    @Test
+    public void testEnableSaveWithoutErrors() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .save()
+            .clearLink()
+            .undo()
+            .close()
+            .enableSave();
+
+        // save remains disabled with no value
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" DISABLED id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testEnableSaveClearValueWithoutErrors() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .save()
+            .clearLink()
+            .undo()
+            .close()
+            .clearValue()
+            .enableSave();
+
+        // save remains disabled with no value
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testEnableSaveWithValueAndWithoutErrors() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .save()
+            .clearLink()
+            .undo()
+            .close()
+            .setValue(OPTIONAL_LOCALE)
+            .setComponentWithErrors(
+                new FakeComponentWithErrors<>() {
+                    @Override
+                    public List<String> errors() {
+                        return Lists.empty();
+                    }
+                }
+            ).enableSave();
+
+        // save enabled because no errors
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testEnableSaveWithoutErrorsAutoDisableWhenMissingValue() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .save()
+            .clearLink()
+            .undo()
+            .close()
+            .saveAutoDisableWhenMissingValue()
+            .setComponentWithErrors(
+                new FakeComponentWithErrors<>() {
+                    @Override
+                    public List<String> errors() {
+                        return Lists.empty();
+                    }
+                }
+            ).enableSave();
+
+        // remains disabled because value is missing
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" DISABLED id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testEnableSaveWithValueAndWithErrors() {
+        final DialogAnchorListComponent<Locale> component = this.createComponent()
+            .save()
+            .clearLink()
+            .undo()
+            .close()
+            .setValue(OPTIONAL_LOCALE)
+            .setComponentWithErrors(
+                new FakeComponentWithErrors<>() {
+                    @Override
+                    public List<String> errors() {
+                        return Lists.of("Error111");
+                    }
+                }
+            ).enableSave();
+
+        // will continue to be disabled because of errors
+        this.treePrintAndCheck(
+            component,
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n" +
+                "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
+                "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"
+        );
+    }
+
     @Override
     public DialogAnchorListComponent<Locale> createComponent() {
         return DialogAnchorListComponent.empty(

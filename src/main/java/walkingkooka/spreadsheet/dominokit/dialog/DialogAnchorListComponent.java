@@ -171,6 +171,20 @@ public final class DialogAnchorListComponent<T> implements HtmlComponentDelegato
      * Disable the save link, temporarily, until the next {@link #setValue(Optional).}
      * This is useful when another component has errors and the save link should be disabled.
      */
+    public DialogAnchorListComponent<T> enableSave() {
+        this.save();
+
+        final ComponentWithErrors<?> hasErrors = this.hasErrors;
+        if (null == hasErrors || hasErrors.errors().isEmpty()) {
+            this.save.setEnabled(true);
+        }
+        return this;
+    }
+
+    /**
+     * Disable the save link, temporarily, until the next {@link #setValue(Optional).}
+     * This is useful when another component has errors and the save link should be disabled.
+     */
     public DialogAnchorListComponent<T> disableSave() {
         this.save();
 
