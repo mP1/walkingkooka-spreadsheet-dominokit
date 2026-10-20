@@ -18,8 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.convert;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.collect.set.Sets;
+import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.spreadsheet.convert.provider.MissingConverter;
+import walkingkooka.spreadsheet.convert.provider.MissingConverterSet;
+import walkingkooka.spreadsheet.convert.provider.MissingConverterValue;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -35,6 +40,8 @@ import java.util.Optional;
 
 public final class ConverterSelectorDialogComponentTest implements DialogComponentLifecycleTesting<ConverterSelectorDialogComponent>,
     HasSpreadsheetMetadataTesting {
+
+    private final static SpreadsheetMetadataPropertyName<ConverterSelector> PROPERTY_NAME = SpreadsheetMetadataPropertyName.QUERY_CONVERTER;
 
     @Test
     public void testOnHistoryTokenChange() {
@@ -71,6 +78,168 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
                 "              \"Clear\" [#/123/Spreadsheet123/spreadsheet/queryConverter/save/] id=ConverterSelector-clear-Link\n" +
                 "              \"Undo\" [#/123/Spreadsheet123/spreadsheet/queryConverter/save/undo-converter] id=ConverterSelector-undo-Link\n" +
                 "              \"Close\" [#/123/Spreadsheet123/spreadsheet] id=ConverterSelector-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testOnVerifyWithoutErrorsWithoutVerifyErrors() {
+        final AppContext context = this.appContext(
+            "/123/Spreadsheet123/spreadsheet/queryConverter"
+        );
+
+        final ConverterSelectorDialogComponent dialog = ConverterSelectorDialogComponent.with(
+            new TestConverterSelectorDialogComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return context.historyToken();
+                }
+            }
+        );
+
+        dialog.refresh(context);
+
+        dialog.onVerify(
+            SPREADSHEET_ID,
+            PROPERTY_NAME,
+            MissingConverterSet.EMPTY
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "ConverterSelectorDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    Converter Title123\n" +
+                "    id=ConverterSelector-Dialog includeClose=true CLOSED\n" +
+                "      ConverterSelectorComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [undo-converter] icons=mdi-close-circle id=ConverterSelector-TextBox REQUIRED\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/123/Spreadsheet123/spreadsheet/queryConverter/save/undo-converter] id=ConverterSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet123/spreadsheet/queryConverter/save/] id=ConverterSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet123/spreadsheet/queryConverter/save/undo-converter] id=ConverterSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet123/spreadsheet] id=ConverterSelector-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testOnVerifyWithErrorsWithoutVerifyErrors() {
+        final AppContext context = this.appContext(
+            "/123/Spreadsheet123/spreadsheet/queryConverter"
+        );
+
+        final ConverterSelectorDialogComponent dialog = ConverterSelectorDialogComponent.with(
+            new TestConverterSelectorDialogComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return context.historyToken();
+                }
+            }
+        );
+
+        dialog.refresh(context);
+
+        dialog.selector.setStringValue(
+            Optional.of("!@#")
+        );
+
+        dialog.onVerify(
+            SPREADSHEET_ID,
+            PROPERTY_NAME,
+            MissingConverterSet.EMPTY
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "ConverterSelectorDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    Converter Title123\n" +
+                "    id=ConverterSelector-Dialog includeClose=true CLOSED\n" +
+                "      ConverterSelectorComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [!@#] icons=mdi-close-circle id=ConverterSelector-TextBox REQUIRED\n" +
+                "            Errors\n" +
+                "              Invalid character '!' at 0\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" [#/123/Spreadsheet123/spreadsheet/queryConverter/save/] id=ConverterSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet123/spreadsheet/queryConverter/save/] id=ConverterSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet123/spreadsheet/queryConverter/save/undo-converter] id=ConverterSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet123/spreadsheet] id=ConverterSelector-close-Link\n"
+        );
+    }
+
+    @Test
+    public void testOnVerifyWithVerifyErrors() {
+        final AppContext context = this.appContext(
+            "/123/Spreadsheet123/spreadsheet/queryConverter"
+        );
+
+        final ConverterSelectorDialogComponent dialog = ConverterSelectorDialogComponent.with(
+            new TestConverterSelectorDialogComponentContext() {
+                @Override
+                public HistoryToken historyToken() {
+                    return context.historyToken();
+                }
+            }
+        );
+
+        dialog.refresh(context);
+
+        dialog.selector.setStringValue(
+            Optional.of("hello")
+        );
+
+        dialog.onVerify(
+            SPREADSHEET_ID,
+            PROPERTY_NAME,
+            MissingConverterSet.EMPTY.concat(
+                MissingConverter.with(
+                    ConverterName.with("converter123"),
+                    Sets.of(
+                        MissingConverterValue.with(
+                            "Value1",
+                            String.class.getName()
+                        )
+                    )
+                )
+            )
+        );
+
+        this.treePrintAndCheck(
+            dialog,
+            "ConverterSelectorDialogComponent\n" +
+                "  DialogComponent\n" +
+                "    Converter Title123\n" +
+                "    id=ConverterSelector-Dialog includeClose=true CLOSED\n" +
+                "      ConverterSelectorComponent\n" +
+                "        ValueTextBoxComponent\n" +
+                "          TextBoxComponent\n" +
+                "            [hello] icons=mdi-close-circle id=ConverterSelector-TextBox REQUIRED\n" +
+                "      DialogAnchorListComponent\n" +
+                "        AnchorListComponent\n" +
+                "          FlexLayoutComponent\n" +
+                "            ROW\n" +
+                "              \"Save\" DISABLED id=ConverterSelector-save-Link\n" +
+                "              \"Clear\" [#/123/Spreadsheet123/spreadsheet/queryConverter/save/] id=ConverterSelector-clear-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet123/spreadsheet/queryConverter/save/undo-converter] id=ConverterSelector-undo-Link\n" +
+                "              \"Close\" [#/123/Spreadsheet123/spreadsheet] id=ConverterSelector-close-Link\n" +
+                "      MissingConverterSetComponent\n" +
+                "        MissingConverterSet\n" +
+                "          MissingConverter\n" +
+                "            converter123\n" +
+                "              MissingConverterValue\n" +
+                "                value\n" +
+                "                  \"Value1\"\n" +
+                "                    java.lang.String\n" +
+                "                type\n" +
+                "                  java.lang.String\n"
         );
     }
 
@@ -144,7 +313,7 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
     public ConverterSelectorDialogComponent createSpreadsheetDialogComponentLifecycle(final HistoryToken historyToken) {
         return ConverterSelectorDialogComponent.with(
             ConverterSelectorDialogComponentContexts.appContext(
-                SpreadsheetMetadataPropertyName.QUERY_CONVERTER,
+                PROPERTY_NAME,
                 this.appContext(historyToken.toString())
             )
         );
