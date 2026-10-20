@@ -31,7 +31,7 @@ public final class HideZeroValues implements PublicStaticHelper {
     public static boolean isHideZeroValues(final HasSpreadsheetMetadata context) {
         Objects.requireNonNull(context, "context");
 
-        return context.spreadsheetMetadata()
+        return context.spreadsheetMetadataOrFail()
             .get(SpreadsheetMetadataPropertyName.HIDE_ZERO_VALUES)
             .orElse(false);
     }

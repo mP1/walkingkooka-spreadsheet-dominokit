@@ -103,7 +103,7 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 

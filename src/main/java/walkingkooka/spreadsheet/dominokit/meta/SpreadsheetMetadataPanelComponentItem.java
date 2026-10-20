@@ -220,7 +220,7 @@ abstract class SpreadsheetMetadataPanelComponentItem<T, C extends SpreadsheetMet
 
         // if value absent must be using default so disable
         anchor.setEnabled(
-            context.spreadsheetMetadata()
+            context.spreadsheetMetadataOrFail()
                 .getIgnoringDefaults(propertyName)
                 .isPresent()
         );

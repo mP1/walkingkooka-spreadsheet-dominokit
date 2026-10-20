@@ -66,6 +66,8 @@ public final class OutlineColorComponentTest implements TextStylePropertyColorCo
     private final static Color COLOR;
 
     private final static SpreadsheetMetadata SPREADSHEET_METADATA;
+
+    private final static Optional<SpreadsheetMetadata> OPTIONAL_SPREADSHEET_METADATA = Optional.of(SPREADSHEET_METADATA);
     
     @Test
     public void testSetValue() {
@@ -537,8 +539,8 @@ public final class OutlineColorComponentTest implements TextStylePropertyColorCo
             private final HistoryWatchers watchers = HistoryWatchers.empty();
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA;
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return OPTIONAL_SPREADSHEET_METADATA;
             }
         };
     }

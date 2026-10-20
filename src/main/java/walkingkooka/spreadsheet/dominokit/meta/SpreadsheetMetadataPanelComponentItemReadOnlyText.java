@@ -80,7 +80,7 @@ final class SpreadsheetMetadataPanelComponentItemReadOnlyText<T> extends Spreads
 
     @Override
     public void refresh(final RefreshContext context) {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadataOrFail();
 
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
         final String text = metadata.getIgnoringDefaults(propertyName)

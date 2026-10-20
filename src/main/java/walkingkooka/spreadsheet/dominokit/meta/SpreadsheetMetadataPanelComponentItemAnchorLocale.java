@@ -44,7 +44,7 @@ final class SpreadsheetMetadataPanelComponentItemAnchorLocale extends Spreadshee
     void refreshAnchor() {
         final SpreadsheetMetadataPanelComponentContext context = this.context;
 
-        final Optional<Locale> locale = context.spreadsheetMetadata()
+        final Optional<Locale> locale = context.spreadsheetMetadataOrFail()
             .getIgnoringDefaults(SpreadsheetMetadataPropertyName.LOCALE);
 
         final String country = locale.map(Locale::getCountry)

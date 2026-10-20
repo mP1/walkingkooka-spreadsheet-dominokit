@@ -1619,8 +1619,8 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
 
     private final static AppContext APP_CONTEXT = new FakeAppContext() {
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return SpreadsheetCellClipboardKindTest.SPREADSHEET_METADATA;
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+            return OPTIONAL_SPREADSHEET_METADATA;
         }
 
         @Override

@@ -193,7 +193,7 @@ public final class SpreadsheetNavigateDialogComponent implements DialogComponent
                     .setNavigation(
                         Optional.of(
                             SpreadsheetViewportHomeNavigationList.with(
-                                this.context.spreadsheetMetadata()
+                                this.context.spreadsheetMetadataOrFail()
                                     .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT_HOME)
                             )
                         )

@@ -172,10 +172,12 @@ public final class AppContextCurrencyDialogComponentContextMetadataCurrencyTest 
             new FakeAppContext() {
 
                 @Override
-                public SpreadsheetMetadata spreadsheetMetadata() {
-                    return SpreadsheetMetadata.EMPTY.set(
-                        SpreadsheetMetadataPropertyName.CURRENCY,
-                        AppContextCurrencyDialogComponentContextMetadataCurrencyTest.CURRENCY
+                public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                    return Optional.of(
+                        SpreadsheetMetadata.EMPTY.set(
+                            SpreadsheetMetadataPropertyName.CURRENCY,
+                            AppContextCurrencyDialogComponentContextMetadataCurrencyTest.CURRENCY
+                        )
                     );
                 }
             }

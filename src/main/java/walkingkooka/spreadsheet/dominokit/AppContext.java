@@ -141,7 +141,7 @@ public interface AppContext extends CanGiveFocus,
             loaded = token.cast(SpreadsheetNameHistoryToken.class)
                 .spreadsheetId()
                 .equals(
-                    this.spreadsheetMetadata()
+                    this.spreadsheetMetadataOrFail()
                         .id()
                         .orElse(null)
                 );

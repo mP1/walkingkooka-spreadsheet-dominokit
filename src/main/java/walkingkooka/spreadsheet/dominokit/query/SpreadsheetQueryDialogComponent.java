@@ -299,7 +299,7 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
 
     private SpreadsheetParserContext spreadsheetParserContext() {
         final SpreadsheetQueryDialogComponentContext context = this.context;
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadataOrFail();
 
         return metadata.spreadsheetParserContext(
             SpreadsheetMetadata.NO_CELL,
@@ -505,7 +505,7 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
      * disable it.
      */
     private void refreshLoadHighlightingQuery(final SpreadsheetCellQueryHistoryToken token) {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadataOrFail();
         final SpreadsheetCellQuery highlightingQuery = metadata.get(SpreadsheetMetadataPropertyName.QUERY)
             .orElse(null);
 

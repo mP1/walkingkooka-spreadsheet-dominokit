@@ -498,13 +498,15 @@ public final class ToolbarComponentTest implements HistoryTokenAwareComponentLif
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return ToolbarComponentTest.SPREADSHEET_METADATA.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SpreadsheetId.with(1)
-                ).set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
-                    SpreadsheetName.with("Spreadsheet123")
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    ToolbarComponentTest.SPREADSHEET_METADATA.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetId.with(1)
+                    ).set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                        SpreadsheetName.with("Spreadsheet123")
+                    )
                 );
             }
 

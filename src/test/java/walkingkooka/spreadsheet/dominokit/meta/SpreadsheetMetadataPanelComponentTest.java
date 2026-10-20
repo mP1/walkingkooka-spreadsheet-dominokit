@@ -53,9 +53,11 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA.setDefaults(
-                    SpreadsheetMetadata.NON_LOCALE_DEFAULTS
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    SPREADSHEET_METADATA.setDefaults(
+                        SpreadsheetMetadata.NON_LOCALE_DEFAULTS
+                    )
                 );
             }
 

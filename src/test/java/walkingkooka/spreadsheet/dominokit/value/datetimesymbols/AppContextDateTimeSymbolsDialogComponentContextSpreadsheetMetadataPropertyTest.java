@@ -107,13 +107,15 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMet
         final AppContext appContext = new FakeAppContext() {
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_METADATA.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID
-                ).set(
-                    SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
-                    DATE_TIME_SYMBOLS
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_METADATA.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID
+                    ).set(
+                        SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
+                        DATE_TIME_SYMBOLS
+                    )
                 );
             }
         };
@@ -163,13 +165,15 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMet
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_METADATA.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID
-                ).set(
-                    SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
-                    DATE_TIME_SYMBOLS
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_METADATA.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        AppContextDateTimeSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID
+                    ).set(
+                        SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
+                        DATE_TIME_SYMBOLS
+                    )
                 );
             }
 

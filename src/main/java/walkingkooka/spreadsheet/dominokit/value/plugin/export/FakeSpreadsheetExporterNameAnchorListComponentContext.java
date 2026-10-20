@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.export;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 public class FakeSpreadsheetExporterNameAnchorListComponentContext extends FakeHistoryContext implements SpreadsheetExporterNameAnchorListComponentContext {
 
     public FakeSpreadsheetExporterNameAnchorListComponentContext() {
@@ -27,7 +29,7 @@ public class FakeSpreadsheetExporterNameAnchorListComponentContext extends FakeH
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }

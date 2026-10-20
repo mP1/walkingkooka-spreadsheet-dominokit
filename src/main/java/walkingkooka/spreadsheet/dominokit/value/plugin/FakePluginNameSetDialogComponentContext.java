@@ -58,7 +58,7 @@ public class FakePluginNameSetDialogComponentContext extends FakeDialogComponent
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }

@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 public class FakeSpreadsheetViewportFormulaComponentContext extends FakeRefreshContext implements SpreadsheetViewportFormulaComponentContext {
 
     public FakeSpreadsheetViewportFormulaComponentContext() {
@@ -66,7 +68,7 @@ public class FakeSpreadsheetViewportFormulaComponentContext extends FakeRefreshC
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }

@@ -111,10 +111,12 @@ public final class ValidatorNameAnchorListComponentTest implements ValueComponen
                 }
 
                 @Override
-                public SpreadsheetMetadata spreadsheetMetadata() {
-                    return SPREADSHEET_METADATA.set(
-                        SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS,
-                        ValidatorAliasSet.parse("apple-tree, banana, carrot")
+                public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                    return Optional.of(
+                        SPREADSHEET_METADATA.set(
+                            SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS,
+                            ValidatorAliasSet.parse("apple-tree, banana, carrot")
+                        )
                     );
                 }
             }

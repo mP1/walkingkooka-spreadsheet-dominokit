@@ -7436,11 +7436,13 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadata.EMPTY.set(
-                    SpreadsheetMetadataPropertyName.LOCALE,
-                    LOCALE
-                ).loadFromLocale(CURRENCY_LOCALE_CONTEXT);
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    SpreadsheetMetadata.EMPTY.set(
+                        SpreadsheetMetadataPropertyName.LOCALE,
+                        LOCALE
+                    ).loadFromLocale(CURRENCY_LOCALE_CONTEXT)
+                );
             }
         };
     }

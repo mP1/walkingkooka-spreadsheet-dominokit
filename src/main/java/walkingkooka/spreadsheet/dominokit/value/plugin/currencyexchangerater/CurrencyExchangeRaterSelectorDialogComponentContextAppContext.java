@@ -68,7 +68,7 @@ final class CurrencyExchangeRaterSelectorDialogComponentContextAppContext implem
     // CurrencyExchangeRaterSelectorNameAnchorListComponentContext......................................................
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 

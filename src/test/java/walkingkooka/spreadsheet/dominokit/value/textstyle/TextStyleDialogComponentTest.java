@@ -12304,8 +12304,8 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
             private final SpreadsheetViewportCache spreadsheetViewportCache = SpreadsheetViewportCache.empty(this);
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return this.spreadsheetMetadata;
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(this.spreadsheetMetadata);
             }
 
             private SpreadsheetMetadata spreadsheetMetadata = METADATA.setOrRemove(

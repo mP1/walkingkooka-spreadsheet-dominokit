@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 public class FakeSpreadsheetViewportScrollbarComponentContext extends FakeHistoryContext implements SpreadsheetViewportScrollbarComponentContext {
 
     public FakeSpreadsheetViewportScrollbarComponentContext() {
@@ -42,7 +44,7 @@ public class FakeSpreadsheetViewportScrollbarComponentContext extends FakeHistor
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 

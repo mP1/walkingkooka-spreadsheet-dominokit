@@ -89,10 +89,12 @@ public final class SpreadsheetImporterNameAnchorListComponentTest implements Val
                 }
 
                 @Override
-                public SpreadsheetMetadata spreadsheetMetadata() {
-                    return SPREADSHEET_METADATA.set(
-                        SpreadsheetMetadataPropertyName.IMPORTERS,
-                        SpreadsheetImporterAliasSet.parse("apple-tree, banana, carrot")
+                public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                    return Optional.of(
+                        SPREADSHEET_METADATA.set(
+                            SpreadsheetMetadataPropertyName.IMPORTERS,
+                            SpreadsheetImporterAliasSet.parse("apple-tree, banana, carrot")
+                        )
                     );
                 }
             }

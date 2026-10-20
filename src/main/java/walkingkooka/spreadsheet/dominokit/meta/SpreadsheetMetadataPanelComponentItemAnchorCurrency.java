@@ -48,7 +48,7 @@ final class SpreadsheetMetadataPanelComponentItemAnchorCurrency extends Spreadsh
     void refreshAnchor() {
         final SpreadsheetMetadataPanelComponentContext context = this.context;
 
-        final Optional<Currency> currency = context.spreadsheetMetadata()
+        final Optional<Currency> currency = context.spreadsheetMetadataOrFail()
             .getIgnoringDefaults(SpreadsheetMetadataPropertyName.CURRENCY);
 
         this.anchor.setFlags(

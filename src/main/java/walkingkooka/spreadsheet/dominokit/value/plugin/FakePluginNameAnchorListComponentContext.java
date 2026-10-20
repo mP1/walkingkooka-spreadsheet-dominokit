@@ -27,6 +27,8 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
+import java.util.Optional;
+
 public class FakePluginNameAnchorListComponentContext<N extends Name & Comparable<N>,
     I extends PluginInfoLike<I, N>,
     IS extends PluginInfoSetLike<N, I, IS, S, A, AS>,
@@ -45,7 +47,7 @@ public class FakePluginNameAnchorListComponentContext<N extends Name & Comparabl
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }

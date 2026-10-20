@@ -61,7 +61,7 @@ final class AppContextSpreadsheetParserSelectorDialogComponentContextMetadata ex
     public Optional<SpreadsheetParserSelector> undo() {
         return this.propertyName()
             .flatMap(
-                p -> this.context.spreadsheetMetadata()
+                p -> this.context.spreadsheetMetadataOrFail()
                     .get(p)
             );
     }

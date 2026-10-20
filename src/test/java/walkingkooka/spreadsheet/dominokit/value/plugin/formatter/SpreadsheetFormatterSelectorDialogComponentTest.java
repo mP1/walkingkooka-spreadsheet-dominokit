@@ -2047,10 +2047,12 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetFormatterSelectorDialogComponentTest.SPREADSHEET_METADATA.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SpreadsheetFormatterSelectorDialogComponentTest.SPREADSHEET_ID
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    SpreadsheetFormatterSelectorDialogComponentTest.SPREADSHEET_METADATA.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetFormatterSelectorDialogComponentTest.SPREADSHEET_ID
+                    )
                 );
             }
 

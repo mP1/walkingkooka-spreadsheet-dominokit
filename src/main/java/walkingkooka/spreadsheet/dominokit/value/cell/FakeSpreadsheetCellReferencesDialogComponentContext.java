@@ -55,7 +55,7 @@ public class FakeSpreadsheetCellReferencesDialogComponentContext extends FakeDia
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 

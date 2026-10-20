@@ -33,6 +33,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.datetime.AppContextDateComponentContext;
 import walkingkooka.spreadsheet.dominokit.value.datetime.DateComponent;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.time.LocalDate;
@@ -149,8 +150,8 @@ final class SpreadsheetMetadataPanelComponentItemDateOffset extends SpreadsheetM
 
     @Override
     public void refresh(final RefreshContext context) {
-        final Optional<Long> metadataValue = this.context.spreadsheetMetadata()
-            .getIgnoringDefaults(PROPERTY_NAME);
+        final SpreadsheetMetadata spreadsheetMetadata = this.context.spreadsheetMetadataOrFail();
+        final Optional<Long> metadataValue = spreadsheetMetadata.getIgnoringDefaults(PROPERTY_NAME);
 
         this.dateComponent.setValue(
             toDate(metadataValue)
@@ -181,8 +182,7 @@ final class SpreadsheetMetadataPanelComponentItemDateOffset extends SpreadsheetM
 
         this.refreshDefaultValue(
             this.defaultValueAnchor,
-            this.context.spreadsheetMetadata()
-                .defaults()
+            spreadsheetMetadata.defaults()
                 .get(this.propertyName)
                 .map(this::formatValue)
                 .orElse("0")

@@ -129,7 +129,7 @@ final class SpreadsheetMetadataPanelComponentItemText extends SpreadsheetMetadat
 
     @Override
     public void refresh(final RefreshContext context) {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadataOrFail();
 
         this.textBox.setValue(
             metadata.getIgnoringDefaults(this.propertyName)

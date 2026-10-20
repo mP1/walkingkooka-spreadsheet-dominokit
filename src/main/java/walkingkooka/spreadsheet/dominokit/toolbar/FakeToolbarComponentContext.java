@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 public class FakeToolbarComponentContext extends FakeRefreshContext
     implements ToolbarComponentContext {
 
@@ -40,7 +42,7 @@ public class FakeToolbarComponentContext extends FakeRefreshContext
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 

@@ -67,7 +67,7 @@ final class FormHandlerSelectorDialogComponentContextDefaultFormHandler implemen
 
     @Override
     public Optional<FormHandlerSelector> undo() {
-        return this.context.spreadsheetMetadata()
+        return this.context.spreadsheetMetadataOrFail()
             .get(PROPERTY_NAME);
     }
 

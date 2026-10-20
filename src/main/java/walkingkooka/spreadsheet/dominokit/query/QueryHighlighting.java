@@ -31,7 +31,7 @@ public final class QueryHighlighting implements PublicStaticHelper {
     public static boolean isEnabled(final HasSpreadsheetMetadata context) {
         Objects.requireNonNull(context, "context");
 
-        return context.spreadsheetMetadata()
+        return context.spreadsheetMetadataOrFail()
             .get(SpreadsheetMetadataPropertyName.QUERY_HIGHLIGHTING)
             .orElse(false);
     }

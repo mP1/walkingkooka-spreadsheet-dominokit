@@ -63,7 +63,7 @@ final class AppContextTextStyleDialogComponentContextMetadataStyle extends AppCo
 
     @Override
     public Optional<TextStyle> undo() {
-        return this.context.spreadsheetMetadata()
+        return this.context.spreadsheetMetadataOrFail()
             .getIgnoringDefaults(SpreadsheetMetadataPropertyName.STYLE);
     }
 

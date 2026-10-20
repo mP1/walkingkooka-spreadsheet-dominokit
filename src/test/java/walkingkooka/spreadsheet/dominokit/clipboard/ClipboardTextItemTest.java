@@ -965,8 +965,8 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                         }
 
                         @Override
-                        public SpreadsheetMetadata spreadsheetMetadata() {
-                            return ClipboardTextItemTest.SPREADSHEET_METADATA;
+                        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                            return OPTIONAL_SPREADSHEET_METADATA;
                         }
 
                         @Override

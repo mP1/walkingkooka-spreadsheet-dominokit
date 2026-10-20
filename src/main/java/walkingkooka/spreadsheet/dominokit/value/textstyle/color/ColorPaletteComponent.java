@@ -181,7 +181,7 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
         final Optional<HistoryToken> historyToken = this.historyTokenPreparer.apply(
             context.historyToken()
         );
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadataOrFail();
 
         final TdComponent[] cells = this.cells;
         final HistoryTokenAnchorComponent[] anchors = this.anchors;

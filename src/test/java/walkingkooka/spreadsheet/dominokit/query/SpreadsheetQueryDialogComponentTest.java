@@ -612,13 +612,13 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
 
         // required otherwise SpreadsheetViewportCache will "ignore delta because they belong to a different spreadsheet
         appContext.metadataFetcherWatchers.onSpreadsheetMetadata(
-            appContext.spreadsheetMetadata()
+            appContext.spreadsheetMetadataOrFail()
         );
 
         // SpreadsheetId=123
         this.checkEquals(
             SpreadsheetId.with(0x123),
-            appContext.spreadsheetMetadata()
+            appContext.spreadsheetMetadataOrFail()
                 .id()
                 .orElse(null),
             "active spreadsheet id = 123"
@@ -2961,13 +2961,15 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
         final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers = SpreadsheetMetadataFetcherWatchers.empty();
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return SpreadsheetQueryDialogComponentTest.SPREADSHEET_METADATA.set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                SpreadsheetId.parse("123")
-            ).setOrRemove(
-                SpreadsheetMetadataPropertyName.QUERY,
-                highlightingQuery.orElse(null)
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+            return Optional.of(
+                SpreadsheetQueryDialogComponentTest.SPREADSHEET_METADATA.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    SpreadsheetId.parse("123")
+                ).setOrRemove(
+                    SpreadsheetMetadataPropertyName.QUERY,
+                    highlightingQuery.orElse(null)
+                )
             );
         }
 
@@ -3020,7 +3022,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
         private final HistoryWatchers historyWatchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
             return this.context.spreadsheetMetadata();
         }
 

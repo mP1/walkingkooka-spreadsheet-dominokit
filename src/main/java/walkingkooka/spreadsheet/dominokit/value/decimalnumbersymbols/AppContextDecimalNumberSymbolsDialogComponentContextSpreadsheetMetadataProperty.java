@@ -52,7 +52,7 @@ public class AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMeta
 
     @Override
     public Optional<DecimalNumberSymbols> undo() {
-        return this.context.spreadsheetMetadata()
+        return this.context.spreadsheetMetadataOrFail()
             .get(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS);
     }
 
@@ -61,7 +61,7 @@ public class AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMeta
         final AppContext context = this.context;
         context.spreadsheetMetadataFetcher()
             .patchMetadata(
-                context.spreadsheetMetadata()
+                context.spreadsheetMetadataOrFail()
                     .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
                 SpreadsheetMetadata.EMPTY.setOrRemove(
                     SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS,

@@ -51,7 +51,7 @@ public interface SpreadsheetViewportComponentContext extends HasSpreadsheetDelta
      * Helper that gets the {@link SpreadsheetCellReference home} for the viewport or fails
      */
     default SpreadsheetCellReference home() {
-        return this.spreadsheetMetadata()
+        return this.spreadsheetMetadataOrFail()
             .getOrFail(SpreadsheetMetadataPropertyName.VIEWPORT_HOME);
     }
 }

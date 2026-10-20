@@ -126,7 +126,7 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorPaletteCompone
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 

@@ -112,7 +112,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContextExpressionFunct
     final ExpressionFunctionAliasSet providerAliasSetLikeAndFunctions() {
         final AppContext context = this.context;
 
-        return context.spreadsheetMetadata()
+        return context.spreadsheetMetadataOrFail()
             .get(SpreadsheetMetadataPropertyName.FUNCTIONS)
             .orElse(SpreadsheetExpressionFunctions.EMPTY_ALIAS_SET)
             .keepAliasOrNameAll(

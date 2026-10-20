@@ -49,7 +49,7 @@ final class AppContextLocaleDialogComponentContextMetadataLocale extends AppCont
 
     @Override
     public Optional<Locale> undo() {
-        return this.context.spreadsheetMetadata()
+        return this.context.spreadsheetMetadataOrFail()
             .get(PROPERTY_NAME);
     }
 

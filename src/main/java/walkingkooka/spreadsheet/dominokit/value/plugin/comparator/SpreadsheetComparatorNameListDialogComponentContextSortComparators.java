@@ -67,7 +67,7 @@ final class SpreadsheetComparatorNameListDialogComponentContextSortComparators i
 
     @Override
     public Optional<SpreadsheetComparatorNameList> undo() {
-        return this.context.spreadsheetMetadata()
+        return this.context.spreadsheetMetadataOrFail()
             .get(PROPERTY_NAME);
     }
 

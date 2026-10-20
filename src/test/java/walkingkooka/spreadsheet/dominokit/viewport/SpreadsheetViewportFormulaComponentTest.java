@@ -46,6 +46,7 @@ import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 public final class SpreadsheetViewportFormulaComponentTest implements HtmlComponentTesting<SpreadsheetViewportFormulaComponent, HTMLFieldSetElement>,
     ComponentLifecycleMatcherTesting,
@@ -142,7 +143,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         final SpreadsheetViewportFormulaComponent component = SpreadsheetViewportFormulaComponent.with(context);
 
         context.spreadsheetMetadataFetcherWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata()
+            context.spreadsheetMetadataOrFail()
         );
 
         context.historyWatchers.onHistoryTokenChange(
@@ -192,7 +193,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         final SpreadsheetViewportFormulaComponent component = SpreadsheetViewportFormulaComponent.with(context);
 
         context.spreadsheetMetadataFetcherWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata()
+            context.spreadsheetMetadataOrFail()
         );
 
         context.historyWatchers.onHistoryTokenChange(
@@ -246,7 +247,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         final SpreadsheetViewportFormulaComponent component = SpreadsheetViewportFormulaComponent.with(context);
 
         context.spreadsheetMetadataFetcherWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata()
+            context.spreadsheetMetadataOrFail()
         );
 
         context.historyWatchers.onHistoryTokenChange(
@@ -321,13 +322,15 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
         private final HistoryToken historyToken;
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return SpreadsheetViewportFormulaComponentTest.SPREADSHEET_METADATA.set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                SpreadsheetViewportFormulaComponentTest.SPREADSHEET_ID
-            ).set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
-                SPREADSHEET_NAME
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+            return Optional.of(
+                SpreadsheetViewportFormulaComponentTest.SPREADSHEET_METADATA.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    SpreadsheetViewportFormulaComponentTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                    SPREADSHEET_NAME
+                )
             );
         }
 

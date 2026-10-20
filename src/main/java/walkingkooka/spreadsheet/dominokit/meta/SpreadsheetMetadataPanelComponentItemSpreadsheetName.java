@@ -82,7 +82,7 @@ final class SpreadsheetMetadataPanelComponentItemSpreadsheetName extends Spreads
     @Override
     public void refresh(final RefreshContext context) {
         this.spreadsheetNameComponent.setValue(
-            this.context.spreadsheetMetadata()
+            this.context.spreadsheetMetadataOrFail()
                 .get(this.propertyName)
         );
     }

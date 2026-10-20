@@ -92,7 +92,7 @@ final class SpreadsheetMetadataPanelComponentItemNumber extends SpreadsheetMetad
 
     @Override
     public void refresh(final RefreshContext context) {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadataOrFail();
 
         this.integerBox.setValue(
             Optional.ofNullable(

@@ -532,8 +532,8 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return metadata;
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(metadata);
             }
 
             @Override
@@ -628,7 +628,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                 }
 
                 @Override
-                public SpreadsheetMetadata spreadsheetMetadata() {
+                public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
                     return appContext.spreadsheetMetadata();
                 }
 

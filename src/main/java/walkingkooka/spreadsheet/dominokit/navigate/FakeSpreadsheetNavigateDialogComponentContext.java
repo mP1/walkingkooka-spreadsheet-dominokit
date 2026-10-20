@@ -22,6 +22,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 public class FakeSpreadsheetNavigateDialogComponentContext extends FakeDialogComponentContext
     implements SpreadsheetNavigateDialogComponentContext {
 
@@ -42,7 +44,7 @@ public class FakeSpreadsheetNavigateDialogComponentContext extends FakeDialogCom
     // HasSpreadsheetMetadata...........................................................................................
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 

@@ -21,6 +21,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 public class FakeTextStylePropertyColorComponentContext extends FakeHistoryContext
     implements TextStylePropertyColorComponentContext {
 
@@ -34,7 +36,7 @@ public class FakeTextStylePropertyColorComponentContext extends FakeHistoryConte
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }

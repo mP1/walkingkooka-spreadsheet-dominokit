@@ -144,7 +144,7 @@ public abstract class SpreadsheetNameHistoryToken extends SpreadsheetIdHistoryTo
         // be loaded then fire history token again.
         final SpreadsheetId spreadsheetId = this.spreadsheetId;
 
-        final SpreadsheetId previousId = context.spreadsheetMetadata()
+        final SpreadsheetId previousId = context.spreadsheetMetadataOrFail()
             .id()
             .orElse(null);
         if (false == spreadsheetId.equals(previousId)) {

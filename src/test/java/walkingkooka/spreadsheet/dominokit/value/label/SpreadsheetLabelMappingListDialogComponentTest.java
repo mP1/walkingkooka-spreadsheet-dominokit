@@ -535,8 +535,8 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
         final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers = SpreadsheetMetadataFetcherWatchers.empty();
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return METADATA;
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+            return Optional.of(METADATA);
         }
 
         @Override

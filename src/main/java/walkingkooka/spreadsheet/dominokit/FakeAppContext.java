@@ -389,7 +389,7 @@ public class FakeAppContext extends FakeSpreadsheetProvider
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 

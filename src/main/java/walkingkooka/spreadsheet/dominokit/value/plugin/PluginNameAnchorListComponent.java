@@ -84,7 +84,7 @@ public final class PluginNameAnchorListComponent<N extends Name & Comparable<N>,
         final HistoryToken historyToken = context.historyToken();
         final String idPrefix = this.idPrefix;
 
-        for (final A aliases : context.spreadsheetMetadata().getOrFail(context.metadataPropertyName())) {
+        for (final A aliases : context.spreadsheetMetadataOrFail().getOrFail(context.metadataPropertyName())) {
             final String name = aliases.name()
                 .text();
 

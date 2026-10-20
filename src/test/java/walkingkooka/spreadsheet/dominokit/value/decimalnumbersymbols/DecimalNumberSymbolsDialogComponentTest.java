@@ -739,13 +739,15 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return DecimalNumberSymbolsDialogComponentTest.SPREADSHEET_METADATA.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    DecimalNumberSymbolsDialogComponentTest.SPREADSHEET_ID
-                ).setOrRemove(
-                    SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS,
-                    decimalNumberSymbols
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    DecimalNumberSymbolsDialogComponentTest.SPREADSHEET_METADATA.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        DecimalNumberSymbolsDialogComponentTest.SPREADSHEET_ID
+                    ).setOrRemove(
+                        SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS,
+                        decimalNumberSymbols
+                    )
                 );
             }
 
