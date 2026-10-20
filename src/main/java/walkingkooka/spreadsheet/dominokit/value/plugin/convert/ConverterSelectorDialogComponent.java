@@ -123,7 +123,8 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
     /**
      * The {@link ConverterSelectorComponent} that holds the {@link ConverterSelector} in text form.
      */
-    private final ConverterSelectorComponent selector;
+    // @VisibleForTesting
+    final ConverterSelectorComponent selector;
 
     private final DialogAnchorListComponent<ConverterSelector> links;
 
@@ -229,20 +230,16 @@ public final class ConverterSelectorDialogComponent implements DialogComponentLi
     public void onVerify(final SpreadsheetId id,
                          final SpreadsheetMetadataPropertyName<ConverterSelector> metadataPropertyName,
                          final Set<MissingConverter> missingConverters) {
-        final ConverterSelectorComponent selector = this.selector;
-        selector.clearErrors();
+        final MissingConverterSet missingConverterSet = MissingConverterSet.EMPTY.setElements(missingConverters);
 
         this.missing.setValue(
-            Optional.of(
-                MissingConverterSet.EMPTY.setElements(missingConverters)
-            )
+            Optional.of(missingConverterSet)
         );
-        // re-enable if no errors...
-        this.links.setValue(
-            selector.hasErrors() ?
-                Optional.empty() :
-                selector.value()
-        );
+        if(missingConverterSet.isNotEmpty()) {
+            this.links.disableSave();
+        } else {
+            this.links.enableSave();
+        }
         this.refreshTitleAndLinks();
     }
 
