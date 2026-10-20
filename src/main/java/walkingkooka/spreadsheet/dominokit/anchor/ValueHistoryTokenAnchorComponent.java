@@ -50,6 +50,8 @@ public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponen
         this.anchor = anchor;
         this.getter = getter;
         this.setter = setter;
+
+        this.value = Optional.empty();
     }
 
     @Override
@@ -76,10 +78,16 @@ public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponen
             value,
             this.anchor
         );
+        this.value = value;
         return this;
     }
 
     private final BiConsumer<Optional<T>, HistoryTokenAnchorComponent> setter;
+
+    /**
+     * Backup that is necessary because disabling an {@link HistoryTokenAnchorComponent} also clears the value.
+     */
+    private Optional<T> value;
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<T> watcher) {
@@ -96,6 +104,11 @@ public final class ValueHistoryTokenAnchorComponent<T> implements AnchorComponen
     @Override
     public ValueHistoryTokenAnchorComponent<T> setDisabled(final boolean disabled) {
         this.anchor.setDisabled(disabled);
+
+        // restore the value on the anchor when re-enabled.
+        if (false == disabled) {
+            this.setValue(this.value);
+        }
         return this;
     }
 
