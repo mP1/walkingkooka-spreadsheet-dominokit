@@ -157,7 +157,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [date] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "            Errors\n" +
                 "              Empty \"text\"\n" +
                 "      DialogAnchorListComponent\n" +
@@ -294,7 +294,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date dd/mm/yyyy] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [date dd/mm/yyyy] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -450,7 +450,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time dd/mm/yyyy hh:mm:ss] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -627,7 +627,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [number $#0.00] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -730,7 +730,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [text @ \"Hello\"] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [text @ \"Hello\"] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -848,7 +848,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time hh:mm] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [time hh:mm] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -999,7 +999,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date dd/mm/yyyy] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [date dd/mm/yyyy] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1169,7 +1169,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [date-time dd/mm/yyyy hh:mm:ss] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [date-time dd/mm/yyyy hh:mm:ss] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1360,7 +1360,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [number $#0.00] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1551,7 +1551,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [number $#0.00] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [number $#0.00] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1668,7 +1668,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [text @ \"Hello\"] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [text @ \"Hello\"] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +
@@ -1800,7 +1800,7 @@ public final class SpreadsheetFormatterSelectorDialogComponentTest implements Di
                 "      SpreadsheetFormatterSelectorComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            [time hh:mm] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox REQUIRED\n" +
+                "            [time hh:mm] icons=mdi-close-circle id=SpreadsheetFormatterSelector-selector-TextBox\n" +
                 "      DialogAnchorListComponent\n" +
                 "        AnchorListComponent\n" +
                 "          FlexLayoutComponent\n" +

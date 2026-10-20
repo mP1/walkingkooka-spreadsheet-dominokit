@@ -109,12 +109,13 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
 
         this.selector = SpreadsheetFormatterSelectorComponent.empty()
             .setId(ID + "-selector" + SpreadsheetElementIds.TEXT_BOX)
+            .optional()
             .addValueWatcher2(
                 this::onSelectorValue
             );
 
         this.links = this.dialogAnchorListComponent(this.context)
-            .saveAutoDisableWhenMissingValue()
+            .save()
             .undo()
             .clearLink()
             .close()
@@ -280,19 +281,14 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
 
         // clear or update the errors
         final String message = edit.message();
-        final boolean hasNoError = CharSequences.isNullOrEmpty(message);
-
-        if(this.selector.stringValue().isEmpty() || hasNoError) {
-            this.links.setValue(
-                this.selector.stringValue().isEmpty() || hasNoError ?
-                    edit.selector() :
-                    Optional.empty()
-            );
-        } else {
+        if(CharSequences.isNotNullOrEmpty(message)) {
             this.selector.setErrors(
                 Lists.of(message)
             );
             this.links.disableSave();
+        } else {
+            this.selector.clearErrors();
+            this.links.enableSave();
         }
 
         this.refreshTitleTabsAndFormatterNames();
