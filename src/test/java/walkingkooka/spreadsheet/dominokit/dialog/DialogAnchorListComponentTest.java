@@ -167,6 +167,24 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
     }
 
     @Test
+    public void testSaveSetValueDisableEnable() {
+        this.treePrintAndCheck(
+            DialogAnchorListComponent.empty(
+                    ID_PREFIX,
+                    this.createContext()
+                ).save()
+                .setValue(VALUE)
+                .disableSave()
+                .enableSave(),
+            "DialogAnchorListComponent\n" +
+                "  AnchorListComponent\n" +
+                "    FlexLayoutComponent\n" +
+                "      ROW\n" +
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-AU] id=Test123-save-Link\n"
+        );
+    }
+
+    @Test
     public void testClear() {
         this.treePrintAndCheck(
             DialogAnchorListComponent.empty(
