@@ -851,7 +851,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     new FakeAppContext() {
                         @Override
                         public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
-                            return SPREADSHEET_METADATA.jsonNodeUnmarshallContext(
+                            return ClipboardTextItemTest.SPREADSHEET_METADATA.jsonNodeUnmarshallContext(
                                 SPREADSHEET_CAN_PARSE_ENVIRONMENT_VALUE_NAME,
                                 CURRENCY_LOCALE_CONTEXT // CurrencyCodeLanguageTagContext
                             );
@@ -958,7 +958,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
                     new FakeAppContext() {
                         @Override
                         public JsonNodeUnmarshallContext jsonNodeUnmarshallContext() {
-                            return SPREADSHEET_METADATA.jsonNodeUnmarshallContext(
+                            return ClipboardTextItemTest.SPREADSHEET_METADATA.jsonNodeUnmarshallContext(
                                 SPREADSHEET_CAN_PARSE_ENVIRONMENT_VALUE_NAME,
                                 CURRENCY_LOCALE_CONTEXT // CurrencyCodeLanguageTagContext
                             );
@@ -966,7 +966,7 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
 
                         @Override
                         public SpreadsheetMetadata spreadsheetMetadata() {
-                            return SPREADSHEET_METADATA;
+                            return ClipboardTextItemTest.SPREADSHEET_METADATA;
                         }
 
                         @Override

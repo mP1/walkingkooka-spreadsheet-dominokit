@@ -261,7 +261,7 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
-            return SPREADSHEET_METADATA.set(
+            return SpreadsheetNavigateDialogComponentTest.SPREADSHEET_METADATA.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 SpreadsheetNavigateDialogComponentTest.SPREADSHEET_ID
             ).set(

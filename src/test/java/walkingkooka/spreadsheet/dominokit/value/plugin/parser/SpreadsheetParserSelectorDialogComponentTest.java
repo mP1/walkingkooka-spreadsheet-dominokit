@@ -1531,7 +1531,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA.set(
+                return SpreadsheetParserSelectorDialogComponentTest.SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     SpreadsheetParserSelectorDialogComponentTest.SPREADSHEET_ID
                 );

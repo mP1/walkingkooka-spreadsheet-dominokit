@@ -1079,7 +1079,7 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA.set(
+                return SpreadsheetKeyboardDialogComponentTest.SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_ID
                 ).set(

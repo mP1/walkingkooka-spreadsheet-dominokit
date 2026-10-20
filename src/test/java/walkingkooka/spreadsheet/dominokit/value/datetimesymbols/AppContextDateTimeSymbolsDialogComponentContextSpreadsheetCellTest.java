@@ -116,7 +116,7 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA.set(
+                return AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCellTest.SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCellTest.SPREADSHEET_ID
                 ).set(

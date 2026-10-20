@@ -79,7 +79,7 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
     static class TestAppContext extends FakeAppContext {
         TestAppContext(final SpreadsheetCellReference home,
                        final HistoryToken historyToken) {
-            this.spreadsheetMetadata = SPREADSHEET_METADATA.set(
+            this.spreadsheetMetadata = SpreadsheetViewportScrollbarComponentTestCase.SPREADSHEET_METADATA.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 ID
             ).set(
