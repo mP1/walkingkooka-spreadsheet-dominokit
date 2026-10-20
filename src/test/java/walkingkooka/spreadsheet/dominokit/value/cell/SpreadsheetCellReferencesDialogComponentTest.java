@@ -285,7 +285,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
-            return SPREADSHEET_METADATA.set(
+            return SpreadsheetCellReferencesDialogComponentTest.SPREADSHEET_METADATA.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 SpreadsheetCellReferencesDialogComponentTest.SPREADSHEET_ID
             ).set(

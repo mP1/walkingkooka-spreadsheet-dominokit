@@ -65,7 +65,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA.set(
+                return SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_ID
                 ).set(
@@ -144,7 +144,7 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA.set(
+                return SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_ID
                 ).set(

@@ -140,7 +140,7 @@ public final class AppContextDecimalNumberSymbolsDialogComponentContextSpreadshe
 
             @Override
             public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA.set(
+                return AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_METADATA.set(
                     SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                     AppContextDecimalNumberSymbolsDialogComponentContextSpreadsheetMetadataPropertyTest.SPREADSHEET_ID
                 ).set(

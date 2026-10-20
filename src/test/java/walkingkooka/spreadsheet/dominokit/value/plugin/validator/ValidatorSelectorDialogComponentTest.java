@@ -493,7 +493,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
 
         @Override
         public SpreadsheetMetadata spreadsheetMetadata() {
-            return SPREADSHEET_METADATA.set(
+            return ValidatorSelectorDialogComponentTest.SPREADSHEET_METADATA.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
                 ValidatorSelectorDialogComponentTest.SPREADSHEET_ID
             ).set(
