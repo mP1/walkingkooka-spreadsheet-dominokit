@@ -91,7 +91,7 @@ abstract class AppContextPluginAliasSetLikeDialogComponentContext<N extends Name
 
     @Override
     public final AS metadataAliasSetLike() {
-        return this.context.spreadsheetMetadata()
+        return this.context.spreadsheetMetadataOrFail()
             .getIgnoringDefaults(this.metadataPropertyName())
             .orElse(this.emptyAliasSetLike());
     }

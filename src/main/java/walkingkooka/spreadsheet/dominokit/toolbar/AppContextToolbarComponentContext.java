@@ -25,6 +25,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatc
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 final class AppContextToolbarComponentContext implements ToolbarComponentContext,
     RefreshContextDelegator,
     HasSpreadsheetDeltaFetcherWatchersDelegator {
@@ -47,7 +49,7 @@ final class AppContextToolbarComponentContext implements ToolbarComponentContext
     // HasSpreadsheetMetadata...........................................................................................
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 

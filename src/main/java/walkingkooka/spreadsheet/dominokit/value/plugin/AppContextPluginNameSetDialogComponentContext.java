@@ -52,7 +52,7 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
 
     @Override
     public Optional<PluginNameSet> undo() {
-        return this.spreadsheetMetadata()
+        return this.spreadsheetMetadataOrFail()
             .get(SpreadsheetMetadataPropertyName.PLUGINS);
     }
 
@@ -70,7 +70,7 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 

@@ -29,6 +29,8 @@ import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.FakeTextAlig
 import walkingkooka.spreadsheet.dominokit.value.textstyle.textalign.TextAlignComponent;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 public final class TextStylePropertyComponentTest implements ClassTesting<TextStylePropertyComponent<?, ?, ?>> {
 
     // setLabelFromPropertyName.........................................................................................
@@ -52,8 +54,8 @@ public final class TextStylePropertyComponentTest implements ClassTesting<TextSt
                     }
 
                     @Override
-                    public SpreadsheetMetadata spreadsheetMetadata() {
-                        return SpreadsheetMetadata.EMPTY;
+                    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                        return Optional.of(SpreadsheetMetadata.EMPTY);
                     }
                 }
             ),

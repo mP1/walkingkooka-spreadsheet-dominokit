@@ -303,8 +303,8 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadata.EMPTY;
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(SpreadsheetMetadata.EMPTY);
             }
         };
     }

@@ -1551,8 +1551,8 @@ public class App implements EntryPoint,
      * Returns the current or last loaded {@link SpreadsheetMetadata}
      */
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
-        return this.spreadsheetMetadata;
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+        return Optional.of(this.spreadsheetMetadata);
     }
 
     private SpreadsheetMetadata spreadsheetMetadata;
@@ -1680,7 +1680,7 @@ public class App implements EntryPoint,
             this.jsonNodeMarshallUnmarshallContext()
         );
 
-        final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = this.spreadsheetMetadataOrFail();
 
         final SpreadsheetComparatorProvider spreadsheetComparatorProvider = SpreadsheetComparatorProviders.mergedMapped(
             this.spreadsheetComparatorInfoSet.renameIfPresent(

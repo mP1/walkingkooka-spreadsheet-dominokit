@@ -173,10 +173,12 @@ public final class AppContextLocaleDialogComponentContextMetadataLocaleTest exte
             new FakeAppContext() {
 
                 @Override
-                public SpreadsheetMetadata spreadsheetMetadata() {
-                    return SpreadsheetMetadata.EMPTY.set(
-                        SpreadsheetMetadataPropertyName.LOCALE,
-                        AppContextLocaleDialogComponentContextMetadataLocaleTest.LOCALE
+                public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                    return Optional.of(
+                        SpreadsheetMetadata.EMPTY.set(
+                            SpreadsheetMetadataPropertyName.LOCALE,
+                            AppContextLocaleDialogComponentContextMetadataLocaleTest.LOCALE
+                        )
                     );
                 }
             }

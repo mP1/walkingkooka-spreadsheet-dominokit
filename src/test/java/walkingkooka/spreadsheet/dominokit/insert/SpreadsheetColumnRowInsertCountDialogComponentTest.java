@@ -28,6 +28,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
 import java.util.OptionalInt;
 
 public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetColumnRowInsertCountDialogComponent>,
@@ -64,13 +65,15 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_METADATA.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_ID
-                ).set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
-                    SPREADSHEET_NAME
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_METADATA.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_ID
+                    ).set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                        SPREADSHEET_NAME
+                    )
                 );
             }
 
@@ -143,13 +146,15 @@ public final class SpreadsheetColumnRowInsertCountDialogComponentTest implements
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_METADATA.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_ID
-                ).set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
-                    SPREADSHEET_NAME
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_METADATA.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetColumnRowInsertCountDialogComponentTest.SPREADSHEET_ID
+                    ).set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                        SPREADSHEET_NAME
+                    )
                 );
             }
 

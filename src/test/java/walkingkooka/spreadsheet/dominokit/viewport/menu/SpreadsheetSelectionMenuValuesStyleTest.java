@@ -4429,12 +4429,13 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadata.EMPTY.set(
-                    SpreadsheetMetadataPropertyName.LOCALE,
-                    LOCALE
-                ).loadFromLocale(CURRENCY_LOCALE_CONTEXT)
-                    .set(
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    SpreadsheetMetadata.EMPTY.set(
+                        SpreadsheetMetadataPropertyName.LOCALE,
+                        LOCALE
+                    ).loadFromLocale(CURRENCY_LOCALE_CONTEXT)
+                        .set(
                         SpreadsheetMetadataPropertyName.namedColor(NamedColor.BLACK),
                         Color.indexed(1)
                     ).set(
@@ -4442,7 +4443,8 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                             Color.indexed(1)
                         ),
                         Color.BLACK
-                    );
+                    )
+                );
             }
         };
     }

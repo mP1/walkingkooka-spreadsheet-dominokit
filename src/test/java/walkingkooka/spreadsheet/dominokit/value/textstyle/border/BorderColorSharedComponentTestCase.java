@@ -59,6 +59,8 @@ public abstract class BorderColorSharedComponentTestCase<C extends BorderColorSh
 
     final static SpreadsheetMetadata SPREADSHEET_METADATA;
 
+    final static Optional<SpreadsheetMetadata> OPTIONAL_SPREADSHEET_METADATA = Optional.of(SPREADSHEET_METADATA);
+
     final static Optional<String> NO_FILTER = Optional.empty();
 
     public BorderColorSharedComponentTestCase() {

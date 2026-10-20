@@ -504,13 +504,15 @@ public final class SpreadsheetCellValueDialogComponentTest implements DialogComp
         final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers = SpreadsheetMetadataFetcherWatchers.empty();
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return SpreadsheetCellValueDialogComponentTest.SPREADSHEET_METADATA.set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                SpreadsheetCellValueDialogComponentTest.SPREADSHEET_ID
-            ).set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
-                SPREADSHEET_NAME
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+            return Optional.of(
+                SpreadsheetCellValueDialogComponentTest.SPREADSHEET_METADATA.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    SpreadsheetCellValueDialogComponentTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                    SPREADSHEET_NAME
+                )
             );
         }
 

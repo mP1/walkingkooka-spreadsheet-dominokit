@@ -119,7 +119,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     @Override
     public List<SpreadsheetComparatorName> sortComparatorNames() {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadataOrFail();
 
         final SpreadsheetComparatorNameList sortComparators = metadata.get(SpreadsheetMetadataPropertyName.SORT_COMPARATORS)
             .orElse(SpreadsheetComparatorNameList.EMPTY);
@@ -213,7 +213,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
 
     @Override
     public List<SpreadsheetParserSelector> spreadsheetParserSelectors() {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadataOrFail();
 
         return metadata.get(SpreadsheetMetadataPropertyName.PARSERS)
             .orElse(SpreadsheetParserAliasSet.EMPTY)
@@ -224,7 +224,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     
     @Override
     public List<ValidatorSelector> validatorSelectors() {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadataOrFail();
 
         final ValidatorAliasSet validators = metadata.get(SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS)
             .orElse(ValidatorAliasSet.EMPTY);
@@ -245,7 +245,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     final static String ID_PREFIX = SpreadsheetViewportComponent.ID_PREFIX + "context-menu-";
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 

@@ -207,15 +207,14 @@ final class AppHistoryContextHistoryWatcher implements HistoryContext,
             // when a loadViewport has not yet updated history token with response selection.
             final Optional<AnchoredSpreadsheetSelection> selection = historyToken.anchoredSelectionOrEmpty();
 
-            final Optional<AnchoredSpreadsheetSelection> previousSelection = context.spreadsheetMetadata()
-                .get(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION);
+            final SpreadsheetMetadata spreadsheetMetadata = context.spreadsheetMetadataOrFail();
+            final Optional<AnchoredSpreadsheetSelection> previousSelection = spreadsheetMetadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION);
             if (false == selection.equals(previousSelection)) {
 
                 context.debug(AppHistoryContextHistoryWatcher.class.getSimpleName() + ".patchMetadataIfSelectionChanged selection changed from " + previousSelection.orElse(null) + " TO " + selection.orElse(null) + " will update Metadata");
 
                 // initially metadata will be empty because it has not yet loaded, context.viewport below will fail.
-                if (context.spreadsheetMetadata()
-                    .get(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION)
+                if (spreadsheetMetadata.get(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION)
                     .isPresent()) {
 
                     final SpreadsheetIdHistoryToken spreadsheetIdHistoryToken = (SpreadsheetIdHistoryToken) historyToken;

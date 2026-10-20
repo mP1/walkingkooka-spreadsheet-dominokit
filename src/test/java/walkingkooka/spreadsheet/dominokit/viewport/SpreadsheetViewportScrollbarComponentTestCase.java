@@ -41,6 +41,7 @@ import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Optional;
 
 public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends SpreadsheetColumnOrRowReference>
     implements ValueComponentTesting<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>>,
@@ -136,8 +137,8 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
         private HistoryToken historyToken;
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return this.spreadsheetMetadata;
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+            return Optional.of(this.spreadsheetMetadata);
         }
 
         private final SpreadsheetMetadata spreadsheetMetadata;
@@ -184,7 +185,7 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
         }
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
             return this.context.spreadsheetMetadata();
         }
 

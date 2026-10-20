@@ -74,7 +74,7 @@ final class AppContextConverterSelectorDialogComponentContext implements Convert
 
     @Override
     public Optional<ConverterSelector> undo() {
-        return this.context.spreadsheetMetadata()
+        return this.context.spreadsheetMetadataOrFail()
             .get(this.propertyName);
     }
 

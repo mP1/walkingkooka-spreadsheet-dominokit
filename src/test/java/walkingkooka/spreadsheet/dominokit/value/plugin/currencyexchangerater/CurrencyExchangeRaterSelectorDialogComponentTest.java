@@ -254,7 +254,7 @@ public final class CurrencyExchangeRaterSelectorDialogComponentTest implements D
         );
 
         context.metadataWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata()
+            context.spreadsheetMetadataOrFail()
         );
 
         final CurrencyExchangeRaterSelectorDialogComponent dialog = CurrencyExchangeRaterSelectorDialogComponent.with(
@@ -346,7 +346,7 @@ public final class CurrencyExchangeRaterSelectorDialogComponentTest implements D
         );
 
         context.metadataWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata()
+            context.spreadsheetMetadataOrFail()
         );
 
         final CurrencyExchangeRaterSelectorDialogComponent dialog = CurrencyExchangeRaterSelectorDialogComponent.with(
@@ -445,7 +445,7 @@ public final class CurrencyExchangeRaterSelectorDialogComponentTest implements D
         }
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
             return this.context.spreadsheetMetadata();
         }
 
@@ -490,13 +490,15 @@ public final class CurrencyExchangeRaterSelectorDialogComponentTest implements D
         final SpreadsheetMetadataFetcherWatchers metadataWatchers = SpreadsheetMetadataFetcherWatchers.empty();
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return CurrencyExchangeRaterSelectorDialogComponentTest.SPREADSHEET_METADATA.set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                CurrencyExchangeRaterSelectorDialogComponentTest.SPREADSHEET_ID
-            ).set(
-                SpreadsheetMetadataPropertyName.CURRENCY_EXCHANGE_RATERS,
-                CurrencyExchangeRaterAliasSet.parse("currency-exchange-rater-1, currency-exchange-rater-2, currency-exchange-rater-3")
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+            return Optional.of(
+                CurrencyExchangeRaterSelectorDialogComponentTest.SPREADSHEET_METADATA.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    CurrencyExchangeRaterSelectorDialogComponentTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.CURRENCY_EXCHANGE_RATERS,
+                    CurrencyExchangeRaterAliasSet.parse("currency-exchange-rater-1, currency-exchange-rater-2, currency-exchange-rater-3")
+                )
             );
         }
 

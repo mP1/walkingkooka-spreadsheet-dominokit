@@ -68,7 +68,7 @@ final class ValidatorSelectorDialogComponentContextAppContext implements Validat
     // ValidatorSelectorNameAnchorListComponentContext..................................................................
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 

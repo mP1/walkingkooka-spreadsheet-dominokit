@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
+import java.util.Optional;
 
 abstract class AppContextSpreadsheetNavigateDialogComponentContext implements SpreadsheetNavigateDialogComponentContext,
     RefreshContextDelegator {
@@ -49,7 +50,7 @@ abstract class AppContextSpreadsheetNavigateDialogComponentContext implements Sp
     // HasSpreadsheetMetadata...........................................................................................
 
     @Override
-    public final SpreadsheetMetadata spreadsheetMetadata() {
+    public final Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 

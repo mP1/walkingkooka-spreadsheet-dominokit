@@ -48,7 +48,7 @@ final class AppContextDecimalNumberSymbolsDialogComponentContextCell extends App
 
     @Override
     public Optional<DecimalNumberSymbols> copyDecimalNumberSymbols() {
-        return this.context.spreadsheetMetadata()
+        return this.context.spreadsheetMetadataOrFail()
             .get(SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_SYMBOLS);
     }
 
@@ -66,7 +66,7 @@ final class AppContextDecimalNumberSymbolsDialogComponentContextCell extends App
         final AppContext context = this.context;
         context.spreadsheetDeltaFetcher()
             .patchDecimalNumberSymbols(
-                context.spreadsheetMetadata()
+                context.spreadsheetMetadataOrFail()
                     .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
                 context.historyToken()
                     .cast(SpreadsheetCellDecimalNumberSymbolsHistoryToken.class)

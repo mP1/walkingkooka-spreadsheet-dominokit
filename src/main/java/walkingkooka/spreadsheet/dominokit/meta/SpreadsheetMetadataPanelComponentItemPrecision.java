@@ -115,7 +115,7 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
     @Override
     public void refresh(final RefreshContext context) {
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadataOrFail();
 
         this.integerBox.setValue(
             metadata.getIgnoringDefaults(this.propertyName)
@@ -150,8 +150,7 @@ final class SpreadsheetMetadataPanelComponentItemPrecision extends SpreadsheetMe
 
         this.refreshDefaultValue(
             this.defaultValueAnchor,
-            this.context.spreadsheetMetadata()
-                .defaults()
+            metadata.defaults()
                 .get(propertyName)
                 .map(Object::toString)
                 .orElse("")

@@ -167,7 +167,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
         );
 
         context.metadataFetcherWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata()
+            context.spreadsheetMetadataOrFail()
         );
 
         context.deltaFetcherWatchers.onSpreadsheetDelta(
@@ -284,13 +284,15 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
         final SpreadsheetMetadataFetcherWatchers metadataFetcherWatchers = SpreadsheetMetadataFetcherWatchers.empty();
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return SpreadsheetCellReferencesDialogComponentTest.SPREADSHEET_METADATA.set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                SpreadsheetCellReferencesDialogComponentTest.SPREADSHEET_ID
-            ).set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
-                SPREADSHEET_NAME
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+            return Optional.of(
+                SpreadsheetCellReferencesDialogComponentTest.SPREADSHEET_METADATA.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    SpreadsheetCellReferencesDialogComponentTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                    SPREADSHEET_NAME
+                )
             );
         }
 
@@ -336,7 +338,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
         private final HistoryWatchers historyWatchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
             return this.context.spreadsheetMetadata();
         }
 

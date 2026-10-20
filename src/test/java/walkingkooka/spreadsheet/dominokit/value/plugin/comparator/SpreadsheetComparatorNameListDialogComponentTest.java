@@ -212,10 +212,12 @@ public final class SpreadsheetComparatorNameListDialogComponentTest implements D
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetMetadata.EMPTY.set(
-                    SpreadsheetMetadataPropertyName.COMPARATORS,
-                    SpreadsheetComparatorAliasSet.parse("undo-comparator-1")
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    SpreadsheetMetadata.EMPTY.set(
+                        SpreadsheetMetadataPropertyName.COMPARATORS,
+                        SpreadsheetComparatorAliasSet.parse("undo-comparator-1")
+                    )
                 );
             }
         };

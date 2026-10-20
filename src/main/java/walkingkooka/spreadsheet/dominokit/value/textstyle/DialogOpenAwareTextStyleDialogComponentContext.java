@@ -61,7 +61,7 @@ final class DialogOpenAwareTextStyleDialogComponentContext implements TextStyleD
     // TextStyleDialogComponentContext..................................................................................
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 

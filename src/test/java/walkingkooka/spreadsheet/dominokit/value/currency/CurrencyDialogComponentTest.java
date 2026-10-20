@@ -283,10 +283,12 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
             private final SpreadsheetViewportCache spreadsheetViewportCache = SpreadsheetViewportCache.empty(this);
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return METADATA.setOrRemove(
-                    SpreadsheetMetadataPropertyName.CURRENCY,
-                    currencyCode.orElse(EURO)
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    METADATA.setOrRemove(
+                        SpreadsheetMetadataPropertyName.CURRENCY,
+                        currencyCode.orElse(EURO)
+                    )
                 );
             }
 

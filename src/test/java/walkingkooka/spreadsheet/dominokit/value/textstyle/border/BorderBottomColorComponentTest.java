@@ -502,8 +502,8 @@ public final class BorderBottomColorComponentTest extends BorderColorSharedCompo
             private final HistoryWatchers watchers = HistoryWatchers.empty();
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA;
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return OPTIONAL_SPREADSHEET_METADATA;
             }
         };
     }

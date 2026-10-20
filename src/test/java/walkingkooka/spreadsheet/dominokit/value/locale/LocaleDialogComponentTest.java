@@ -286,10 +286,12 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
             private final SpreadsheetViewportCache spreadsheetViewportCache = SpreadsheetViewportCache.empty(this);
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return METADATA.setOrRemove(
-                    SpreadsheetMetadataPropertyName.LOCALE,
-                    locale.orElse(Locale.FRANCE)
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    METADATA.setOrRemove(
+                        SpreadsheetMetadataPropertyName.LOCALE,
+                        locale.orElse(Locale.FRANCE)
+                    )
                 );
             }
 

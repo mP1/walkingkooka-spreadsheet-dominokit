@@ -195,7 +195,7 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 

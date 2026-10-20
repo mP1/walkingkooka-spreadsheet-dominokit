@@ -26,6 +26,7 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
 import java.util.Objects;
+import java.util.Optional;
 
 abstract class AppContextTextStyleDialogComponentContext implements TextStyleDialogComponentContext,
     DialogComponentContextDelegator,
@@ -37,7 +38,7 @@ abstract class AppContextTextStyleDialogComponentContext implements TextStyleDia
     }
 
     @Override
-    public final SpreadsheetMetadata spreadsheetMetadata() {
+    public final Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 

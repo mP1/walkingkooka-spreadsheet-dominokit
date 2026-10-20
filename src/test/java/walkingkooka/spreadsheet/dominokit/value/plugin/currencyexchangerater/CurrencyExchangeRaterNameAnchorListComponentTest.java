@@ -89,10 +89,12 @@ public final class CurrencyExchangeRaterNameAnchorListComponentTest implements V
                 }
 
                 @Override
-                public SpreadsheetMetadata spreadsheetMetadata() {
-                    return SPREADSHEET_METADATA.set(
-                        SpreadsheetMetadataPropertyName.CURRENCY_EXCHANGE_RATERS,
-                        CurrencyExchangeRaterAliasSet.parse("apple-tree, banana, carrot")
+                public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                    return Optional.of(
+                        SPREADSHEET_METADATA.set(
+                            SpreadsheetMetadataPropertyName.CURRENCY_EXCHANGE_RATERS,
+                            CurrencyExchangeRaterAliasSet.parse("apple-tree, banana, carrot")
+                        )
                     );
                 }
             }

@@ -275,7 +275,7 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
 
             @Override
             public ExpressionFunctionAliasSet metadataAliasSetLike() {
-                return context.spreadsheetMetadata()
+                return context.spreadsheetMetadataOrFail()
                     .getOrFail(SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS);
             }
 
@@ -317,13 +317,15 @@ public final class PluginAliasSetLikeDialogComponentTest implements DialogCompon
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return PluginAliasSetLikeDialogComponentTest.SPREADSHEET_METADATA.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    PluginAliasSetLikeDialogComponentTest.SPREADSHEET_ID
-                ).setOrRemove(
-                    SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS,
-                    infos
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                        PluginAliasSetLikeDialogComponentTest.SPREADSHEET_METADATA.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        PluginAliasSetLikeDialogComponentTest.SPREADSHEET_ID
+                    ).setOrRemove(
+                        SpreadsheetMetadataPropertyName.FORMULA_FUNCTIONS,
+                        infos
+                    )
                 );
             }
 

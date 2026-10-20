@@ -58,7 +58,7 @@ abstract class ToolbarComponentItemAnchorMetadataBoolean<T extends ToolbarCompon
     public final void refresh(final RefreshContext context) {
         final SpreadsheetMetadataPropertyName<Boolean> propertyName = this.propertyName();
 
-        final boolean enabled = this.context.spreadsheetMetadata()
+        final boolean enabled = this.context.spreadsheetMetadataOrFail()
             .get(propertyName)
             .orElse(false);
 

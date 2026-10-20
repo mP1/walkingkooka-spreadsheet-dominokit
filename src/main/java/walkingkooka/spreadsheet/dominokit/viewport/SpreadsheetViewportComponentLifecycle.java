@@ -41,7 +41,7 @@ public interface SpreadsheetViewportComponentLifecycle extends HistoryTokenAware
         boolean match = token instanceof SpreadsheetNameHistoryToken;
 
         if (match) {
-            final SpreadsheetMetadata metadata = this.spreadsheetMetadata();
+            final SpreadsheetMetadata metadata = this.spreadsheetMetadataOrFail();
             final SpreadsheetViewportCache viewportCache = this.spreadsheetViewportCache();
             final SpreadsheetViewportWindows windows = viewportCache.windows();
 

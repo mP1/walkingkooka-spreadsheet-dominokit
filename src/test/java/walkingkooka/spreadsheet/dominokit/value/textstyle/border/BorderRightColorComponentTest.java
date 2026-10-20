@@ -502,8 +502,8 @@ public final class BorderRightColorComponentTest extends BorderColorSharedCompon
             private final HistoryWatchers watchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA;
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return OPTIONAL_SPREADSHEET_METADATA;
             }
         };
     }

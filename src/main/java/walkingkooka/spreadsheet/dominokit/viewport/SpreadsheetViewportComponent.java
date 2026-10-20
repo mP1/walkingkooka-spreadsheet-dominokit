@@ -516,7 +516,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     private void refreshLayout() {
         final SpreadsheetViewportComponentContext context = this.context;
 
-        final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = context.spreadsheetMetadataOrFail();
 
         this.mustRefresh = metadata.shouldViewRefresh(this.refreshMetadata);
         this.refreshMetadata = metadata;
@@ -714,7 +714,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             }
         }
 
-        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadata();
+        final SpreadsheetMetadata metadata = this.context.spreadsheetMetadataOrFail();
 
         this.table.refresh(
             metadata.id()
@@ -876,8 +876,8 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     // SpreadsheetViewportComponentLifecycle............................................................................
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
-        return this.metadata;
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+        return Optional.of(this.metadata);
     }
 
     @Override
@@ -1077,7 +1077,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
             final int width = this.viewportGridWidth;
             final int height = this.viewportGridHeight;
 
-            final SpreadsheetMetadata metadata = context.spreadsheetMetadata();
+            final SpreadsheetMetadata metadata = context.spreadsheetMetadataOrFail();
             if (reload && width > 0 && height > 0 && metadata.isNotEmpty()) {
                 if (metadata.isEmpty()) {
                     if (SPREADSHEET_VIEWPORT_COMPONENT) {
@@ -1100,7 +1100,7 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     public void loadViewportCells() {
         final SpreadsheetViewportComponentContext context = this.context;
 
-        final SpreadsheetId id = context.spreadsheetMetadata()
+        final SpreadsheetId id = context.spreadsheetMetadataOrFail()
             .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID);
 
         final SpreadsheetViewport viewport = this.viewport()

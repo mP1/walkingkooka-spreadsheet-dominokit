@@ -25,6 +25,7 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dom.UlComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.text.CaseKind;
 
@@ -121,8 +122,8 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
     @Override
     public void refresh(final RefreshContext context) {
         final SpreadsheetMetadataPropertyName<T> propertyName = this.propertyName;
-        final T metadataValue = this.context.spreadsheetMetadata()
-            .getIgnoringDefaults(propertyName)
+        final SpreadsheetMetadata spreadsheetMetadata = this.context.spreadsheetMetadataOrFail();
+        final T metadataValue = spreadsheetMetadata.getIgnoringDefaults(propertyName)
             .orElse(null);
 
         final HistoryToken token = context.historyToken()
@@ -151,8 +152,7 @@ final class SpreadsheetMetadataPanelComponentItemEnum<T extends Enum<T>> extends
 
         this.refreshDefaultValue(
             this.defaultValueAnchor,
-            this.context.spreadsheetMetadata()
-                .defaults()
+            spreadsheetMetadata.defaults()
                 .get(propertyName)
                 .map(this::format)
                 .orElse("")

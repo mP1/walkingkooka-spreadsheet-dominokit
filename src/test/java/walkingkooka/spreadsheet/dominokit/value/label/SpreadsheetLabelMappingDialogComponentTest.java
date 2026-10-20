@@ -36,6 +36,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Locale;
+import java.util.Optional;
 
 public final class SpreadsheetLabelMappingDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetLabelMappingDialogComponent> {
 
@@ -433,13 +434,15 @@ public final class SpreadsheetLabelMappingDialogComponentTest implements DialogC
             }
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SpreadsheetLabelMappingDialogComponentTest.SPREADSHEET_METADATA.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    SpreadsheetLabelMappingDialogComponentTest.SPREADSHEET_ID
-                ).set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
-                    SPREADSHEET_NAME
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                        SpreadsheetLabelMappingDialogComponentTest.SPREADSHEET_METADATA.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        SpreadsheetLabelMappingDialogComponentTest.SPREADSHEET_ID
+                    ).set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                        SPREADSHEET_NAME
+                    )
                 );
             }
 

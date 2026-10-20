@@ -32,6 +32,7 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
+import java.util.Optional;
 
 final class PluginNameAnchorListComponentContextBasic<N extends Name & Comparable<N>,
     I extends PluginInfoLike<I, N>,
@@ -77,7 +78,7 @@ final class PluginNameAnchorListComponentContextBasic<N extends Name & Comparabl
     // HasSpreadsheetMetadata...........................................................................................
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.hasSpreadsheetMetadata.spreadsheetMetadata();
     }
 

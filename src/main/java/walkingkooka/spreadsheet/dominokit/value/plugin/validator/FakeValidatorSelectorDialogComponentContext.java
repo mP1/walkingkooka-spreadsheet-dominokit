@@ -47,7 +47,7 @@ public class FakeValidatorSelectorDialogComponentContext extends FakeDialogCompo
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 

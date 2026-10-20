@@ -255,7 +255,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         );
 
         context.metadataWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata()
+            context.spreadsheetMetadataOrFail()
         );
 
         final ValidatorSelectorDialogComponent dialog = ValidatorSelectorDialogComponent.with(
@@ -348,7 +348,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         );
 
         context.metadataWatchers.onSpreadsheetMetadata(
-            context.spreadsheetMetadata()
+            context.spreadsheetMetadataOrFail()
         );
 
         final ValidatorSelectorDialogComponent dialog = ValidatorSelectorDialogComponent.with(
@@ -447,7 +447,7 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         }
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
             return this.context.spreadsheetMetadata();
         }
 
@@ -492,13 +492,15 @@ public final class ValidatorSelectorDialogComponentTest implements DialogCompone
         final SpreadsheetMetadataFetcherWatchers metadataWatchers = SpreadsheetMetadataFetcherWatchers.empty();
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return ValidatorSelectorDialogComponentTest.SPREADSHEET_METADATA.set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                ValidatorSelectorDialogComponentTest.SPREADSHEET_ID
-            ).set(
-                SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS,
-                ValidatorAliasSet.parse("validator-1, validator-2, validator-3")
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+            return Optional.of(
+                ValidatorSelectorDialogComponentTest.SPREADSHEET_METADATA.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    ValidatorSelectorDialogComponentTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.VALIDATION_VALIDATORS,
+                    ValidatorAliasSet.parse("validator-1, validator-2, validator-3")
+                )
             );
         }
 

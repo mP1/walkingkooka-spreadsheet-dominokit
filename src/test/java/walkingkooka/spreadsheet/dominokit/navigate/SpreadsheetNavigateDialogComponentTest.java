@@ -28,6 +28,8 @@ import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetNavigateDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetNavigateDialogComponent> {
@@ -260,17 +262,19 @@ public final class SpreadsheetNavigateDialogComponentTest implements DialogCompo
         private final HistoryToken historyToken;
 
         @Override
-        public SpreadsheetMetadata spreadsheetMetadata() {
-            return SpreadsheetNavigateDialogComponentTest.SPREADSHEET_METADATA.set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                SpreadsheetNavigateDialogComponentTest.SPREADSHEET_ID
-            ).set(
-                SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
-                SPREADSHEET_NAME
-            ).set(
-                SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
-                SpreadsheetSelection.A1
-            ).remove(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION);
+        public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+            return Optional.of(
+                    SpreadsheetNavigateDialogComponentTest.SPREADSHEET_METADATA.set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                    SpreadsheetNavigateDialogComponentTest.SPREADSHEET_ID
+                ).set(
+                    SpreadsheetMetadataPropertyName.SPREADSHEET_NAME,
+                    SPREADSHEET_NAME
+                ).set(
+                    SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
+                    SpreadsheetSelection.A1
+                ).remove(SpreadsheetMetadataPropertyName.VIEWPORT_SELECTION)
+            );
         }
 
         @Override

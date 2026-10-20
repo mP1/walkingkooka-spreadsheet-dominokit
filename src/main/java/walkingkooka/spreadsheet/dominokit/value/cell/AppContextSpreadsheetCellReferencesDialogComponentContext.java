@@ -110,7 +110,7 @@ final class AppContextSpreadsheetCellReferencesDialogComponentContext implements
     // HasSpreadsheetMetadata...........................................................................................
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         return this.context.spreadsheetMetadata();
     }
 

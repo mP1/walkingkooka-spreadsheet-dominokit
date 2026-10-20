@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.currencyexchangerater;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 public class FakeCurrencyExchangeRaterNameAnchorListComponentContext extends FakeHistoryContext implements CurrencyExchangeRaterNameAnchorListComponentContext {
 
     public FakeCurrencyExchangeRaterNameAnchorListComponentContext() {
@@ -27,7 +29,7 @@ public class FakeCurrencyExchangeRaterNameAnchorListComponentContext extends Fak
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }

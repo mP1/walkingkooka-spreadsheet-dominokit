@@ -81,6 +81,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
 
     private final static SpreadsheetMetadata SPREADSHEET_METADATA;
 
+    private final static Optional<SpreadsheetMetadata> OPTIONAL_SPREADSHEET_METADATA = Optional.of(SPREADSHEET_METADATA);
+
     private final static TextStylePropertyColorComponentContext CONTEXT = new FakeTextStylePropertyColorComponentContext();
 
     // with.............................................................................................................
@@ -1975,8 +1977,8 @@ public final class TextStylePropertyColorComponentTest implements TextStylePrope
             private final HistoryWatchers watchers = walkingkooka.spreadsheet.dominokit.history.HistoryWatchers.empty();
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return SPREADSHEET_METADATA;
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return OPTIONAL_SPREADSHEET_METADATA;
             }
         };
     }

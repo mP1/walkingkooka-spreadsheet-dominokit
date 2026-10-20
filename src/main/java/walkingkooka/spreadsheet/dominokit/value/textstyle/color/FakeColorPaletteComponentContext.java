@@ -21,6 +21,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatc
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 public class FakeColorPaletteComponentContext extends FakeHistoryContext implements ColorPaletteComponentContext {
 
     public FakeColorPaletteComponentContext() {
@@ -33,7 +35,7 @@ public class FakeColorPaletteComponentContext extends FakeHistoryContext impleme
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }

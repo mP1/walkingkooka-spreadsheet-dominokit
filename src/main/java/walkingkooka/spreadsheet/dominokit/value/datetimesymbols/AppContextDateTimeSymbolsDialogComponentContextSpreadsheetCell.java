@@ -48,7 +48,7 @@ final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell exten
 
     @Override
     public Optional<DateTimeSymbols> copyDateTimeSymbols() {
-        return this.context.spreadsheetMetadata()
+        return this.context.spreadsheetMetadataOrFail()
             .get(SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS);
     }
 
@@ -66,7 +66,7 @@ final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCell exten
         final AppContext context = this.context;
         context.spreadsheetDeltaFetcher()
             .patchDateTimeSymbols(
-                context.spreadsheetMetadata()
+                context.spreadsheetMetadataOrFail()
                     .getOrFail(SpreadsheetMetadataPropertyName.SPREADSHEET_ID),
                 context.historyToken()
                     .cast(SpreadsheetCellDateTimeSymbolsHistoryToken.class)

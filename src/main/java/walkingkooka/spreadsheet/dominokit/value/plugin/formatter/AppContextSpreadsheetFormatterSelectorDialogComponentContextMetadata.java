@@ -62,7 +62,7 @@ final class AppContextSpreadsheetFormatterSelectorDialogComponentContextMetadata
     @Override
     public Optional<SpreadsheetFormatterSelector> undo() {
         return this.spreadsheetMetadataPropertyName()
-            .flatMap(p -> this.context.spreadsheetMetadata()
+            .flatMap(p -> this.context.spreadsheetMetadataOrFail()
                 .getIgnoringDefaults(p)
             );
     }

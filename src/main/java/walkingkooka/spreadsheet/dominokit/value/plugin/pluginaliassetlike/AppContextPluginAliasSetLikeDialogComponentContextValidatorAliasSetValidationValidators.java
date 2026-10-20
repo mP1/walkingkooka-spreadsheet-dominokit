@@ -42,7 +42,7 @@ final class AppContextPluginAliasSetLikeDialogComponentContextValidatorAliasSetV
     public ValidatorAliasSet pluginAliasSetLike() {
         final AppContext context = this.context;
 
-        return context.spreadsheetMetadata()
+        return context.spreadsheetMetadataOrFail()
             .get(SpreadsheetMetadataPropertyName.VALIDATORS)
             .orElse(ValidatorAliasSet.EMPTY)
             .keepAliasOrNameAll(

@@ -115,13 +115,15 @@ public final class AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCel
         final AppContext appContext = new FakeAppContext() {
 
             @Override
-            public SpreadsheetMetadata spreadsheetMetadata() {
-                return AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCellTest.SPREADSHEET_METADATA.set(
-                    SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCellTest.SPREADSHEET_ID
-                ).set(
-                    SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
-                    dateTimeSymbols
+            public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
+                return Optional.of(
+                    AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCellTest.SPREADSHEET_METADATA.set(
+                        SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
+                        AppContextDateTimeSymbolsDialogComponentContextSpreadsheetCellTest.SPREADSHEET_ID
+                    ).set(
+                        SpreadsheetMetadataPropertyName.DATE_TIME_SYMBOLS,
+                        dateTimeSymbols
+                    )
                 );
             }
         };

@@ -20,6 +20,8 @@ package walkingkooka.spreadsheet.dominokit.value.plugin.validator;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 
+import java.util.Optional;
+
 public class FakeValidatorNameAnchorListComponentContext extends FakeHistoryContext implements ValidatorNameAnchorListComponentContext {
 
     public FakeValidatorNameAnchorListComponentContext() {
@@ -27,7 +29,7 @@ public class FakeValidatorNameAnchorListComponentContext extends FakeHistoryCont
     }
 
     @Override
-    public SpreadsheetMetadata spreadsheetMetadata() {
+    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
 }

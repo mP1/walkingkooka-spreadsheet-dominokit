@@ -647,7 +647,7 @@ public final class SpreadsheetMetadataPanelComponent implements SpreadsheetFormC
         // rendering the panel will fail complaining LOCALE Is absent.
         //
         // https://github.com/mP1/walkingkooka-spreadsheet-dominokit/issues/1018
-        if (this.context.spreadsheetMetadata()
+        if (this.context.spreadsheetMetadataOrFail()
             .get(SpreadsheetMetadataPropertyName.LOCALE)
             .isPresent()) {
             this.items.forEach(i -> i.refresh(context));
