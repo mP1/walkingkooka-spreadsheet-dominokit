@@ -892,7 +892,7 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" DISABLED id=Test123-save-Link\n" +
+                "        \"Save\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-save-Link\n" +
                 "        \"Clear\" [#/123/SpreadsheetName111/cell/A1/locale/save/] id=Test123-clear-Link\n" +
                 "        \"Undo\" [#/123/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=Test123-undo-Link\n" +
                 "        \"Close\" [#/123/SpreadsheetName111/cell/A1] id=Test123-close-Link\n"

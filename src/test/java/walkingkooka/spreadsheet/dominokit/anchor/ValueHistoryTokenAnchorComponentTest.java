@@ -120,6 +120,38 @@ public final class ValueHistoryTokenAnchorComponentTest implements ValueComponen
         );
     }
 
+    @Test
+    public void testSetValueDisable() {
+        final String value = "/Hello";
+
+        this.valueAndCheck(
+            ValueHistoryTokenAnchorComponent.with(
+                HistoryTokenAnchorComponent.empty(),
+                GETTER,
+                SETTER
+            ).setValue(
+                Optional.of(value)
+            ).disabled()
+        );
+    }
+
+    @Test
+    public void testSetValueDisableEnable() {
+        final String value = "/Hello";
+
+        this.valueAndCheck(
+            ValueHistoryTokenAnchorComponent.with(
+                    HistoryTokenAnchorComponent.empty(),
+                    GETTER,
+                    SETTER
+                ).setValue(
+                    Optional.of(value)
+                ).disabled()
+                .enabled(),
+            value
+        );
+    }
+
     // TreePrint........................................................................................................
 
     @Test
