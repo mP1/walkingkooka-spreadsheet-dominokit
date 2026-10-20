@@ -107,9 +107,18 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
 
         this.removeOrReplace = RemoveOrReplacePluginSelectorTokenComponent.empty(ID + "-removeOrReplace-");
 
-        this.selector = this.selector();
+        this.selector = SpreadsheetFormatterSelectorComponent.empty()
+            .setId(ID + "-selector" + SpreadsheetElementIds.TEXT_BOX)
+            .addValueWatcher2(
+                this::onSelectorValue
+            );
 
-        this.links = this.links();
+        this.links = this.dialogAnchorListComponent(this.context)
+            .saveAutoDisableWhenMissingValue()
+            .undo()
+            .clearLink()
+            .close()
+            .setComponentWithErrors(this.selector);
 
         this.dialog = this.dialogCreate();
 
@@ -184,17 +193,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
     private final RemoveOrReplacePluginSelectorTokenComponent<SpreadsheetFormatterSelectorToken, SpreadsheetFormatterSelectorTokenAlternative> removeOrReplace;
 
     // selector..........................................................................................................
-
-    /**
-     * Creates a text box to edit the {@link SpreadsheetFormatterSelector} and installs a few value change type listeners
-     */
-    private SpreadsheetFormatterSelectorComponent selector() {
-        return SpreadsheetFormatterSelectorComponent.empty()
-            .setId(ID + "-selector" + SpreadsheetElementIds.TEXT_BOX)
-            .addValueWatcher2(
-                this::onSelectorValue
-            );
-    }
 
     private void onSelectorValue(final Optional<SpreadsheetFormatterSelector> selector) {
         if(this.selector.hasErrors()) {
@@ -308,15 +306,6 @@ public final class SpreadsheetFormatterSelectorDialogComponent implements Dialog
     }
 
     // dialog links.....................................................................................................
-
-    private DialogAnchorListComponent<SpreadsheetFormatterSelector> links() {
-        return this.dialogAnchorListComponent(this.context)
-            .saveAutoDisableWhenMissingValue()
-            .undo()
-            .clearLink()
-            .close()
-            .setComponentWithErrors(this.selector);
-    }
 
     private final DialogAnchorListComponent<SpreadsheetFormatterSelector> links;
 
