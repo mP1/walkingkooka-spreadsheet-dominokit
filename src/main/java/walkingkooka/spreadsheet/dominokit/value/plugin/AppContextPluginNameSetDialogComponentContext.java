@@ -24,14 +24,16 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetMetadataFetcherWatchersDelegator;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
 import java.util.Optional;
 
 final class AppContextPluginNameSetDialogComponentContext implements PluginNameSetDialogComponentContext,
+    HasSpreadsheetMetadataDelegator,
     HasSpreadsheetMetadataFetcherWatchersDelegator,
     DialogComponentContextDelegator {
 
@@ -69,16 +71,18 @@ final class AppContextPluginNameSetDialogComponentContext implements PluginNameS
         return this.context;
     }
 
-    @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
-    }
-
     // DialogComponentContext...........................................................................................
 
     @Override
     public DialogComponentContext dialogComponentContext() {
         return DialogComponentContexts.basic(this.context);
+    }
+
+    // HasSpreadsheetMetadataDelegator..................................................................................
+
+    @Override
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.context;
     }
 
     // Object...........................................................................................................

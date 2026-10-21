@@ -881,6 +881,12 @@ public final class SpreadsheetViewportComponent implements HtmlComponentDelegato
     }
 
     @Override
+    public void setSpreadsheetMetadata(final Optional<SpreadsheetMetadata> spreadsheetMetadata) {
+        Objects.requireNonNull(spreadsheetMetadata, "spreadsheetMetadata");
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {
         return this.context.spreadsheetViewportCache();
     }

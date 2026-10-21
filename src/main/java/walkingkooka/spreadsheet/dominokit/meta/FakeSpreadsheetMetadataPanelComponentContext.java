@@ -47,6 +47,11 @@ public class FakeSpreadsheetMetadataPanelComponentContext extends FakeRefreshCon
     }
 
     @Override
+    public void setSpreadsheetMetadata(final Optional<SpreadsheetMetadata> spreadsheetMetadata) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public List<String> ampms() {
         throw new UnsupportedOperationException();
     }

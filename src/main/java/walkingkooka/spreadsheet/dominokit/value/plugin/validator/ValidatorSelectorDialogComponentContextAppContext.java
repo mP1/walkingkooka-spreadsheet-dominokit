@@ -23,7 +23,8 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.validation.provider.ValidatorSelector;
 
@@ -31,7 +32,8 @@ import java.util.Objects;
 import java.util.Optional;
 
 final class ValidatorSelectorDialogComponentContextAppContext implements ValidatorSelectorDialogComponentContext,
-    DialogComponentContextDelegator {
+    DialogComponentContextDelegator,
+    HasSpreadsheetMetadataDelegator {
 
     static ValidatorSelectorDialogComponentContextAppContext with(final AppContext context) {
         return new ValidatorSelectorDialogComponentContextAppContext(
@@ -65,11 +67,11 @@ final class ValidatorSelectorDialogComponentContextAppContext implements Validat
         return this.context.spreadsheetViewportCache();
     }
 
-    // ValidatorSelectorNameAnchorListComponentContext..................................................................
+    // HasSpreadsheetMetadataDelegator..................................................................................
 
     @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.context;
     }
 
     // DialogComponentContext...........................................................................................

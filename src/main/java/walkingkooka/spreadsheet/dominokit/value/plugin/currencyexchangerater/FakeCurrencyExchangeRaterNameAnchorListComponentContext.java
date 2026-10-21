@@ -32,4 +32,9 @@ public class FakeCurrencyExchangeRaterNameAnchorListComponentContext extends Fak
     public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public void setSpreadsheetMetadata(final Optional<SpreadsheetMetadata> spreadsheetMetadata) {
+        throw new UnsupportedOperationException();
+    }
 }

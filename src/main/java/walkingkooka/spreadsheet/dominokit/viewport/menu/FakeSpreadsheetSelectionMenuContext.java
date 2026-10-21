@@ -130,6 +130,11 @@ public class FakeSpreadsheetSelectionMenuContext extends FakeColorPaletteCompone
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public void setSpreadsheetMetadata(final Optional<SpreadsheetMetadata> spreadsheetMetadata) {
+        throw new UnsupportedOperationException();
+    }
+
     // SpreadsheetLabelNameResolver.....................................................................................
 
     @Override

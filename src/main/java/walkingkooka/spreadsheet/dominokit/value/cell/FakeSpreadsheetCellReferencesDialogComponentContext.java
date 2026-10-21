@@ -59,6 +59,11 @@ public class FakeSpreadsheetCellReferencesDialogComponentContext extends FakeDia
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public void setSpreadsheetMetadata(final Optional<SpreadsheetMetadata> spreadsheetMetadata) {
+        throw new UnsupportedOperationException();
+    }
+
     // SpreadsheetCellReferencesAnchorComponentContext..................................................................
 
     @Override

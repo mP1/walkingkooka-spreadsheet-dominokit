@@ -23,23 +23,19 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 
 import java.util.Objects;
-import java.util.Optional;
 
 abstract class AppContextTextStyleDialogComponentContext implements TextStyleDialogComponentContext,
     DialogComponentContextDelegator,
-    ComponentLifecycleMatcher {
+    ComponentLifecycleMatcher,
+    HasSpreadsheetMetadataDelegator {
 
     AppContextTextStyleDialogComponentContext(final AppContext context) {
         super();
         this.context = Objects.requireNonNull(context, "context");
-    }
-
-    @Override
-    public final Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
     }
 
     @Override
@@ -52,6 +48,13 @@ abstract class AppContextTextStyleDialogComponentContext implements TextStyleDia
     @Override
     public final DialogComponentContext dialogComponentContext() {
         return DialogComponentContexts.basic(this.context);
+    }
+
+    // HasSpreadsheetMetadataDelegator..................................................................................
+
+    @Override
+    public final HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.context;
     }
 
     final AppContext context;

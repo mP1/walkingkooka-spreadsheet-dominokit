@@ -143,6 +143,11 @@ public class FakeSpreadsheetViewportComponentContext extends FakeRefreshContext 
     }
 
     @Override
+    public void setSpreadsheetMetadata(final Optional<SpreadsheetMetadata> spreadsheetMetadata) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public Optional<SpreadsheetSelection> resolveLabel(SpreadsheetLabelName spreadsheetLabelName) {
         throw new UnsupportedOperationException();
     }

@@ -33,6 +33,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.menu.SpreadsheetSelectionMenuContext;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserAliasSet;
@@ -59,6 +61,7 @@ import java.util.stream.Collectors;
  * A {@link SpreadsheetSelectionMenuContext} used by a {@link SpreadsheetViewportComponent}.
  */
 final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implements SpreadsheetSelectionMenuContext,
+    HasSpreadsheetMetadataDelegator,
     SpreadsheetComparatorProviderDelegator,
     HistoryContextDelegator,
     CurrencyLocaleContextDelegator {
@@ -245,14 +248,16 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
     final static String ID_PREFIX = SpreadsheetViewportComponent.ID_PREFIX + "context-menu-";
 
     @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
-    }
-
-    @Override
     public Optional<SpreadsheetCell> selectionSummary() {
         return this.context.spreadsheetViewportCache()
             .selectionSummary();
+    }
+
+    // HasSpreadsheetMetadataDelegator..................................................................................
+
+    @Override
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.context;
     }
 
     // SpreadsheetComparatorProvider....................................................................................

@@ -32,7 +32,8 @@ import walkingkooka.spreadsheet.dominokit.history.LoadedSpreadsheetMetadataRequi
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportComponentLifecycle;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 import walkingkooka.text.printer.IndentingPrinter;
 import walkingkooka.tree.text.TextStylePropertyName;
 
@@ -44,6 +45,7 @@ import java.util.Optional;
  * A toolbar that contains icons that trigger an action.
  */
 public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivElement, ToolbarComponent>,
+    HasSpreadsheetMetadataDelegator,
     SpreadsheetViewportComponentLifecycle,
     LoadedSpreadsheetMetadataRequired,
     NopFetcherWatcher,
@@ -177,9 +179,11 @@ public final class ToolbarComponent implements HtmlComponentDelegator<HTMLDivEle
         return this.context.spreadsheetViewportCache();
     }
 
+    // HasSpreadsheetMetadataDelegator..................................................................................
+
     @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.context;
     }
 
     private final ToolbarComponentContext context;

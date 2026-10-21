@@ -47,6 +47,11 @@ public class FakeToolbarComponentContext extends FakeRefreshContext
     }
 
     @Override
+    public void setSpreadsheetMetadata(final Optional<SpreadsheetMetadata> spreadsheetMetadata) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetViewportCache spreadsheetViewportCache() {
         throw new UnsupportedOperationException();
     }

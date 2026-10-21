@@ -23,13 +23,13 @@ import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchers;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
-
-import java.util.Optional;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 
 final class AppContextToolbarComponentContext implements ToolbarComponentContext,
     RefreshContextDelegator,
-    HasSpreadsheetDeltaFetcherWatchersDelegator {
+    HasSpreadsheetDeltaFetcherWatchersDelegator,
+    HasSpreadsheetMetadataDelegator {
 
     static AppContextToolbarComponentContext with(final AppContext context) {
         return new AppContextToolbarComponentContext(context);
@@ -46,11 +46,11 @@ final class AppContextToolbarComponentContext implements ToolbarComponentContext
         return this.context;
     }
 
-    // HasSpreadsheetMetadata...........................................................................................
+    // HasSpreadsheetMetadataDelegator..................................................................................
 
     @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.context;
     }
 
     // HasSpreadsheetViewportCache......................................................................................
