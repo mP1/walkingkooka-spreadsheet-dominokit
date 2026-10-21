@@ -172,6 +172,7 @@ import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterProvider;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterProviders;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.SpreadsheetMetadataLoader;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataLoaders;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
@@ -329,6 +330,8 @@ public class App implements EntryPoint,
             MathContext.UNLIMITED
         )
     );
+
+    private final static SpreadsheetMetadataLoader SPREADSHEET_METADATA_LOADER = SpreadsheetMetadataLoaders.empty();
 
     public App() {
         SpreadsheetServerStartup.init();
@@ -503,6 +506,7 @@ public class App implements EntryPoint,
         this.addValidatorFetcherWatcher(this);
 
         this.spreadsheetEnvironmentContext = SpreadsheetEnvironmentContexts.basic(
+            SPREADSHEET_METADATA_LOADER,
             Storages.fake(),
             StorageEnvironmentContexts.basic(
                 EnvironmentContexts.map(
