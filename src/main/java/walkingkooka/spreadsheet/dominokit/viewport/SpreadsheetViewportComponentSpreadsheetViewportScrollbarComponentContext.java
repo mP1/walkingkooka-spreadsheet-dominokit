@@ -19,12 +19,13 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 
 import java.util.Objects;
-import java.util.Optional;
 
 final class SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext implements SpreadsheetViewportScrollbarComponentContext,
+    HasSpreadsheetMetadataDelegator,
     HistoryContextDelegator {
 
     static SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentContext with(final SpreadsheetViewportComponent component,
@@ -46,9 +47,11 @@ final class SpreadsheetViewportComponentSpreadsheetViewportScrollbarComponentCon
         return this.component.spreadsheetViewportCache();
     }
 
+    // HasSpreadsheetMetadataDelegator..................................................................................
+
     @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.component.spreadsheetMetadata();
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.component;
     }
 
     // SpreadsheetViewportScrollbarComponentContext.....................................................................

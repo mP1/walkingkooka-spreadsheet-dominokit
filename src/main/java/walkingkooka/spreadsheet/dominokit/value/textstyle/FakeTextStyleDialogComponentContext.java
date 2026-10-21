@@ -62,6 +62,11 @@ public class FakeTextStyleDialogComponentContext extends FakeDialogAnchorListCom
     }
 
     @Override
+    public void setSpreadsheetMetadata(final Optional<SpreadsheetMetadata> spreadsheetMetadata) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public boolean isSpreadsheetMetadataLoaded() {
         throw new UnsupportedOperationException();
     }

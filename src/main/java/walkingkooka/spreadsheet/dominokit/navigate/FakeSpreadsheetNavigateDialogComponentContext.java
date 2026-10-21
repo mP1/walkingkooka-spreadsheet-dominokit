@@ -48,6 +48,11 @@ public class FakeSpreadsheetNavigateDialogComponentContext extends FakeDialogCom
         throw new UnsupportedOperationException();
     }
 
+    @Override
+    public void setSpreadsheetMetadata(final Optional<SpreadsheetMetadata> spreadsheetMetadata) {
+        throw new UnsupportedOperationException();
+    }
+
     // ComponentLifecycleMatcher........................................................................................
 
     @Override

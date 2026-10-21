@@ -28,7 +28,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 import walkingkooka.tree.text.TextStyle;
 
 import java.util.Optional;
@@ -37,6 +38,7 @@ import java.util.function.BooleanSupplier;
 final class DialogOpenAwareTextStyleDialogComponentContext implements TextStyleDialogComponentContext,
     DialogComponentContextDelegator,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
+    HasSpreadsheetMetadataDelegator,
     HasSpreadsheetMetadataFetcherWatchersDelegator {
 
     static DialogOpenAwareTextStyleDialogComponentContext with(final BooleanSupplier dialogIsOpen,
@@ -59,11 +61,6 @@ final class DialogOpenAwareTextStyleDialogComponentContext implements TextStyleD
     }
 
     // TextStyleDialogComponentContext..................................................................................
-
-    @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
-    }
 
     @Override
     public Optional<TextStyle> undo() {
@@ -117,6 +114,13 @@ final class DialogOpenAwareTextStyleDialogComponentContext implements TextStyleD
 
     @Override
     public HasSpreadsheetDeltaFetcherWatchers hasSpreadsheetDeltaFetcherWatchers() {
+        return this.context;
+    }
+
+    // HasSpreadsheetMetadataDelegator..................................................................................
+
+    @Override
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
         return this.context;
     }
 

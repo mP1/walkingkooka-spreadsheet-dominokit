@@ -24,14 +24,16 @@ import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContextDelegator
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContexts;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetDeltaFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.viewport.SpreadsheetViewportCache;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
 import java.util.Objects;
 import java.util.Optional;
 
 final class CurrencyExchangeRaterSelectorDialogComponentContextAppContext implements CurrencyExchangeRaterSelectorDialogComponentContext,
-    DialogComponentContextDelegator {
+    DialogComponentContextDelegator,
+    HasSpreadsheetMetadataDelegator {
 
     static CurrencyExchangeRaterSelectorDialogComponentContextAppContext with(final AppContext context) {
         return new CurrencyExchangeRaterSelectorDialogComponentContextAppContext(
@@ -65,18 +67,18 @@ final class CurrencyExchangeRaterSelectorDialogComponentContextAppContext implem
         return this.context.spreadsheetViewportCache();
     }
 
-    // CurrencyExchangeRaterSelectorNameAnchorListComponentContext......................................................
-
-    @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
-    }
-
     // DialogComponentContext...........................................................................................
 
     @Override
     public DialogComponentContext dialogComponentContext() {
         return DialogComponentContexts.basic(this.context);
+    }
+
+    // HasSpreadsheetMetadata...........................................................................................
+
+    @Override
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.context;
     }
 
     private final AppContext context;

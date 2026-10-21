@@ -22,12 +22,13 @@ import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContextDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 
 import java.util.Objects;
-import java.util.Optional;
 
 abstract class AppContextSpreadsheetNavigateDialogComponentContext implements SpreadsheetNavigateDialogComponentContext,
+    HasSpreadsheetMetadataDelegator,
     RefreshContextDelegator {
 
     AppContextSpreadsheetNavigateDialogComponentContext(final AppContext context) {
@@ -47,11 +48,11 @@ abstract class AppContextSpreadsheetNavigateDialogComponentContext implements Sp
         return token.isSave();
     }
 
-    // HasSpreadsheetMetadata...........................................................................................
+    // HasSpreadsheetMetadataDelegator..................................................................................
 
     @Override
-    public final Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
+    public final HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.context;
     }
 
     // RefreshContextDelegator..........................................................................................

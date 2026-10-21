@@ -93,6 +93,11 @@ public class FakeSpreadsheetQueryDialogComponentContext extends FakeDialogCompon
     }
 
     @Override
+    public void setSpreadsheetMetadata(final Optional<SpreadsheetMetadata> spreadsheetMetadata) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public SpreadsheetParser spreadsheetParser(final SpreadsheetParserSelector selector,
                                                final ProviderContext context) {
         throw new UnsupportedOperationException();

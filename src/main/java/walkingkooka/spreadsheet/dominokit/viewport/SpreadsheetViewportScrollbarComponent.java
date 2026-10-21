@@ -31,7 +31,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.slider.SliderComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponent;
 import walkingkooka.spreadsheet.dominokit.value.ValueWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
@@ -60,6 +61,7 @@ import java.util.Optional;
  */
 public abstract class SpreadsheetViewportScrollbarComponent<R extends SpreadsheetColumnOrRowReference>
     implements ValueComponent<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>>,
+    HasSpreadsheetMetadataDelegator,
     SpreadsheetViewportComponentLifecycle,
     HtmlComponentDelegator<HTMLDivElement, SpreadsheetViewportScrollbarComponent<R>>,
     HtmlStyledComponent<SpreadsheetViewportScrollbarComponent<R>> {
@@ -383,13 +385,15 @@ public abstract class SpreadsheetViewportScrollbarComponent<R extends Spreadshee
     }
 
     @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
-    }
-
-    @Override
     public boolean shouldLogLifecycleChanges() {
         return SPREADSHEET_VIEWPORT_SCROLLBAR_COMPONENT;
+    }
+
+    // HasSpreadsheetMetadataDelegator..................................................................................
+
+    @Override
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.context;
     }
 
     private final SpreadsheetViewportScrollbarComponentContext context;

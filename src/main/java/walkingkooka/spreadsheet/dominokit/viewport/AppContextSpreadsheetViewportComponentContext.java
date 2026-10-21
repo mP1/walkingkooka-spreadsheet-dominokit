@@ -37,7 +37,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetFormatterFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcher;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContext;
 import walkingkooka.spreadsheet.dominokit.history.recent.RecentValueSavesContextDelegator;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelNameResolver;
@@ -54,6 +55,7 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     HasSpreadsheetDeltaFetcher,
     HasSpreadsheetDeltaFetcherWatchersDelegator,
     HasSpreadsheetFormatterFetcherWatchersDelegator,
+    HasSpreadsheetMetadataDelegator,
     HasSpreadsheetMetadataFetcher,
     HasSpreadsheetMetadataFetcherWatchersDelegator,
     CurrencyLocaleContextDelegator,
@@ -103,8 +105,8 @@ final class AppContextSpreadsheetViewportComponentContext implements Spreadsheet
     }
 
     @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.context.spreadsheetMetadata();
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.context;
     }
 
     @Override

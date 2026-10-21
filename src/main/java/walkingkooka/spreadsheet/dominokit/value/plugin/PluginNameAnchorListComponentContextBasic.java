@@ -28,11 +28,10 @@ import walkingkooka.plugin.PluginSelectorLike;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContextDelegator;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
-import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataDelegator;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
 import java.util.Objects;
-import java.util.Optional;
 
 final class PluginNameAnchorListComponentContextBasic<N extends Name & Comparable<N>,
     I extends PluginInfoLike<I, N>,
@@ -40,6 +39,7 @@ final class PluginNameAnchorListComponentContextBasic<N extends Name & Comparabl
     S extends PluginSelectorLike<N>,
     A extends PluginAliasLike<N, S, A>,
     AS extends PluginAliasSetLike<N, I, IS, S, A, AS>> implements PluginNameAnchorListComponentContext<N, I, IS, S, A, AS>,
+    HasSpreadsheetMetadataDelegator,
     HistoryContextDelegator,
     UsesToStringBuilder {
 
@@ -75,11 +75,11 @@ final class PluginNameAnchorListComponentContextBasic<N extends Name & Comparabl
 
     private final SpreadsheetMetadataPropertyName<AS> metadataPropertyName;
 
-    // HasSpreadsheetMetadata...........................................................................................
+    // HasSpreadsheetMetadataDelegator..................................................................................
 
     @Override
-    public Optional<SpreadsheetMetadata> spreadsheetMetadata() {
-        return this.hasSpreadsheetMetadata.spreadsheetMetadata();
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
+        return this.hasSpreadsheetMetadata;
     }
 
     private final HasSpreadsheetMetadata hasSpreadsheetMetadata;
