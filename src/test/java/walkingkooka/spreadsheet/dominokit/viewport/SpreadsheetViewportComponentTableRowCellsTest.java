@@ -28,10 +28,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 import walkingkooka.tree.text.Length;
@@ -76,8 +74,8 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.cellSelect(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName222"),
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
                     SpreadsheetSelection.A1.setDefaultAnchor()
                 );
             }
@@ -151,7 +149,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
 
         final SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY.set(
             SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-            SpreadsheetId.with(1)
+            SPREADSHEET_ID
         ).set(
             SpreadsheetMetadataPropertyName.STYLE,
             TextStyle.EMPTY.set(
@@ -171,7 +169,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetDelta(
                 HttpMethod.GET,
-                Url.parseRelative("/api/spreadsheet/1/cell/A1"),
+                Url.parseRelative("/api/spreadsheet/123/cell/A1"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         SpreadsheetSelection.A1.setFormula(
@@ -202,7 +200,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
                 "    SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
                 "      TH\n" +
                 "        id=\"viewport-row-1\" style=\"background-color: #111111; box-sizing: border-box; color: #222222; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
-                "          \"1\" [#/1/SpreadsheetName222/row/1] id=viewport-row-1-Link\n" +
+                "          \"1\" [#/123/SpreadsheetName456/row/1] id=viewport-row-1-Link\n" +
                 "    SpreadsheetViewportComponentTableCellSpreadsheetCell\n" +
                 "      TD\n" +
                 "        id=\"viewport-cell-A1\" tabIndex=0 style=\"box-sizing: border-box; color: white; height: 50px; min-height: 50px; min-width: 100px; width: 100px;\"\n" +
@@ -239,8 +237,8 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
             @Override
             public HistoryToken historyToken() {
                 return HistoryToken.cellSelect(
-                    SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName222"),
+                    SPREADSHEET_ID,
+                    SPREADSHEET_NAME,
                     SpreadsheetSelection.A1.setDefaultAnchor()
                 );
             }
@@ -305,7 +303,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
 
         final SpreadsheetMetadata metadata = SpreadsheetMetadata.EMPTY.set(
             SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-            SpreadsheetId.with(1)
+            SPREADSHEET_ID
         ).set(
             SpreadsheetMetadataPropertyName.STYLE,
             TextStyle.EMPTY.set(
@@ -325,7 +323,7 @@ public final class SpreadsheetViewportComponentTableRowCellsTest extends Spreads
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetDelta(
                 HttpMethod.GET,
-                Url.parseRelative("/api/spreadsheet/1/cell/A1"),
+                Url.parseRelative("/api/spreadsheet/123/cell/A1"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         SpreadsheetSelection.A1.setFormula(
