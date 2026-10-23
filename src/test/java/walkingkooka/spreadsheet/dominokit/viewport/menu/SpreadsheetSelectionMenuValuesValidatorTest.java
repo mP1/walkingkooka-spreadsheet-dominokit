@@ -68,12 +68,12 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
+                "    \"Absolute Url\" [/123/SpreadsheetName456/cell/A1/validator/save/absolute-url] id=test-Validator-absolute-url-MenuItem\n" +
+                "    \"Email Address\" [/123/SpreadsheetName456/cell/A1/validator/save/email-address] id=test-Validator-email-address-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/validator] id=test-Validator-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/validator] id=test-Validator-edit-MenuItem\n"
         );
     }
 
@@ -89,11 +89,7 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
             historyToken,
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                    .setValidator(
-                        Optional.of(
-                            ValidatorSelector.parse("hello-validator-1")
-                        )
-                    )
+                    .setValidator(OPTIONAL_VALIDATOR_SELECTOR)
             ),
             Lists.empty() // recents
         );
@@ -118,12 +114,12 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-1] CHECKED id=test-Validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
+                "    \"Absolute Url\" [/123/SpreadsheetName456/cell/A1/validator/save/absolute-url] CHECKED id=test-Validator-absolute-url-MenuItem\n" +
+                "    \"Email Address\" [/123/SpreadsheetName456/cell/A1/validator/save/email-address] id=test-Validator-email-address-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/validator] id=test-Validator-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/validator] id=test-Validator-edit-MenuItem\n"
         );
     }
 
@@ -139,8 +135,8 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
             historyToken,
             Optional.empty(), // summary
             Lists.of(
-                ValidatorSelector.parse("hello-validator-1"),
-                ValidatorSelector.parse("hello-validator-2")
+                VALIDATOR_SELECTOR,
+                DIFFERENT_VALIDATOR_SELECTOR
             ) // recent
         );
 
@@ -164,15 +160,15 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
+                "    \"Absolute Url\" [/123/SpreadsheetName456/cell/A1/validator/save/absolute-url] id=test-Validator-absolute-url-MenuItem\n" +
+                "    \"Email Address\" [/123/SpreadsheetName456/cell/A1/validator/save/email-address] id=test-Validator-email-address-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/validator] id=test-Validator-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/validator] id=test-Validator-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-1] id=test-Validator-recent-0-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName111/cell/A1/validator/save/hello-validator-2] id=test-Validator-recent-1-MenuItem\n"
+                "    \"Absolute Url\" [/123/SpreadsheetName456/cell/A1/validator/save/absolute-url] id=test-Validator-recent-0-MenuItem\n" +
+                "    \"Email Address\" [/123/SpreadsheetName456/cell/A1/validator/save/email-address] id=test-Validator-recent-1-MenuItem\n"
         );
     }
 
@@ -194,8 +190,8 @@ public final class SpreadsheetSelectionMenuValuesValidatorTest extends Spreadshe
             @Override
             public List<ValidatorSelector> validatorSelectors() {
                 return Lists.of(
-                    ValidatorSelector.parse("hello-validator-1"),
-                    ValidatorSelector.parse("hello-validator-2")
+                    VALIDATOR_SELECTOR,
+                    DIFFERENT_VALIDATOR_SELECTOR
                 );
             }
 

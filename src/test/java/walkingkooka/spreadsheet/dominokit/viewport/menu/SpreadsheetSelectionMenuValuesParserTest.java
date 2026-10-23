@@ -36,9 +36,6 @@ import java.util.Optional;
 
 public final class SpreadsheetSelectionMenuValuesParserTest extends SpreadsheetSelectionMenuValuesTestCase<SpreadsheetSelectionMenuValuesParser, SpreadsheetParserSelector> {
 
-    private final static SpreadsheetParserSelector PARSER1 = SpreadsheetParserSelector.parse("test-parser-111 111");
-    private final static SpreadsheetParserSelector PARSER2 = SpreadsheetParserSelector.parse("test-parser-222");
-
     @Test
     public void testBuild() {
         this.buildAndCheck(
@@ -51,12 +48,12 @@ public final class SpreadsheetSelectionMenuValuesParserTest extends SpreadsheetS
             Lists.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Parser\" id=test-Parser-SubMenu\n" +
-                "    \"Test Parser 111 (test-parser-111 111)\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-111%20111] id=test-Parser-test-parser-111-MenuItem\n" +
-                "    \"Test Parser 222\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-222] id=test-Parser-test-parser-222-MenuItem\n" +
+                "    \"Different Parser Selector 222\" [/123/SpreadsheetName456/cell/A1/parser/save/different-parser-selector-222] id=test-Parser-different-parser-selector-222-MenuItem\n" +
+                "    \"Parser Selector 111\" [/123/SpreadsheetName456/cell/A1/parser/save/parser-selector-111] id=test-Parser-parser-selector-111-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName111/cell/A1/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/A1/parser/save/] id=test-Parser-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/parser] id=test-Parser-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/parser] id=test-Parser-edit-MenuItem\n"
         );
     }
 
@@ -70,15 +67,13 @@ public final class SpreadsheetSelectionMenuValuesParserTest extends SpreadsheetS
             ),
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                    .setParser(
-                        Optional.of(PARSER1)
-                    )
+                    .setParser(OPTIONAL_PARSER_SELECTOR)
             ),
             Lists.empty(), // recents
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Parser\" id=test-Parser-SubMenu\n" +
-                "    \"Test Parser 111 (test-parser-111 111)\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-111%20111] CHECKED id=test-Parser-test-parser-111-MenuItem\n" +
-                "    \"Test Parser 222\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-222] id=test-Parser-test-parser-222-MenuItem\n" +
+                "    \"Different Parser Selector 222\" [/1/SpreadsheetName111/cell/A1/parser/save/different-parser-selector-222] id=test-Parser-different-parser-selector-222-MenuItem\n" +
+                "    \"Parser Selector 111\" [/1/SpreadsheetName111/cell/A1/parser/save/parser-selector-111] CHECKED id=test-Parser-parser-selector-111-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName111/cell/A1/parser/save/] id=test-Parser-clear-MenuItem\n" +
                 "    -----\n" +
@@ -96,18 +91,18 @@ public final class SpreadsheetSelectionMenuValuesParserTest extends SpreadsheetS
             ),
             Optional.empty(), // summary
             Lists.of(
-                PARSER1
+                PARSER_SELECTOR
             ), // recent,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Parser\" id=test-Parser-SubMenu\n" +
-                "    \"Test Parser 111 (test-parser-111 111)\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-111%20111] id=test-Parser-test-parser-111-MenuItem\n" +
-                "    \"Test Parser 222\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-222] id=test-Parser-test-parser-222-MenuItem\n" +
+                "    \"Different Parser Selector 222\" [/123/SpreadsheetName456/cell/A1/parser/save/different-parser-selector-222] id=test-Parser-different-parser-selector-222-MenuItem\n" +
+                "    \"Parser Selector 111\" [/123/SpreadsheetName456/cell/A1/parser/save/parser-selector-111] id=test-Parser-parser-selector-111-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName111/cell/A1/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/A1/parser/save/] id=test-Parser-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/parser] id=test-Parser-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/parser] id=test-Parser-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Test Parser 111 (test-parser-111 111)\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-111%20111] id=test-Parser-recent-0-MenuItem\n"
+                "    \"Parser Selector 111\" [/123/SpreadsheetName456/cell/A1/parser/save/parser-selector-111] id=test-Parser-recent-0-MenuItem\n"
         );
     }
 
@@ -122,24 +117,24 @@ public final class SpreadsheetSelectionMenuValuesParserTest extends SpreadsheetS
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                     .setParser(
-                        Optional.of(PARSER1)
+                        Optional.of(PARSER_SELECTOR)
                     )
             ), // summary
             Lists.of(
-                PARSER1,
-                PARSER2
+                PARSER_SELECTOR,
+                DIFFERENT_PARSER_SELECTOR
             ), // recent,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Parser\" id=test-Parser-SubMenu\n" +
-                "    \"Test Parser 111 (test-parser-111 111)\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-111%20111] CHECKED id=test-Parser-test-parser-111-MenuItem\n" +
-                "    \"Test Parser 222\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-222] id=test-Parser-test-parser-222-MenuItem\n" +
+                "    \"Different Parser Selector 222\" [/123/SpreadsheetName456/cell/A1/parser/save/different-parser-selector-222] id=test-Parser-different-parser-selector-222-MenuItem\n" +
+                "    \"Parser Selector 111\" [/123/SpreadsheetName456/cell/A1/parser/save/parser-selector-111] CHECKED id=test-Parser-parser-selector-111-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName111/cell/A1/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/A1/parser/save/] id=test-Parser-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/parser] id=test-Parser-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/parser] id=test-Parser-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Test Parser 111 (test-parser-111 111)\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-111%20111] CHECKED id=test-Parser-recent-0-MenuItem\n" +
-                "    \"Test Parser 222\" [/1/SpreadsheetName111/cell/A1/parser/save/test-parser-222] id=test-Parser-recent-1-MenuItem\n"
+                "    \"Parser Selector 111\" [/123/SpreadsheetName456/cell/A1/parser/save/parser-selector-111] CHECKED id=test-Parser-recent-0-MenuItem\n" +
+                "    \"Different Parser Selector 222\" [/123/SpreadsheetName456/cell/A1/parser/save/different-parser-selector-222] id=test-Parser-recent-1-MenuItem\n"
         );
     }
 
@@ -198,8 +193,8 @@ public final class SpreadsheetSelectionMenuValuesParserTest extends SpreadsheetS
             @Override
             public List<SpreadsheetParserSelector> spreadsheetParserSelectors() {
                 return Lists.of(
-                    PARSER1,
-                    PARSER2
+                    PARSER_SELECTOR,
+                    DIFFERENT_PARSER_SELECTOR
                 );
             }
 

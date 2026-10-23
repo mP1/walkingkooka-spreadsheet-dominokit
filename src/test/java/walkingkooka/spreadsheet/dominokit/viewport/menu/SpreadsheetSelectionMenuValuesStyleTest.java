@@ -60,14 +60,14 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
-                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
-                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
-                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
-                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
+                "      (mdi-format-align-left) \"Left\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
+                "      (mdi-format-align-center) \"Center\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
+                "      (mdi-format-align-right) \"Right\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
+                "      (mdi-format-align-justify) \"Justify\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
                 "    \"Vertical Alignment\" id=test-Style-verticalAlignment-SubMenu\n" +
-                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
-                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
-                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
+                "      (mdi-format-align-top) \"Top\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
+                "      (mdi-format-align-middle) \"Middle\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
+                "      (mdi-format-align-bottom) \"Bottom\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-Style-color-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -76,7 +76,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/color/save/black] id=test-Style-color-color-1-Link\n" +
+                "                    \"Black\" [#/123/SpreadsheetName456/cell/A1/style/color/save/black] id=test-Style-color-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-2-Link\n" +
@@ -251,7 +251,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-Style-backgroundColor-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -260,7 +260,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/background-color/save/black] id=test-Style-backgroundColor-color-1-Link\n" +
+                "                    \"Black\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/black] id=test-Style-backgroundColor-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-2-Link\n" +
@@ -435,20 +435,20 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName111/cell/A1/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName111/cell/A1/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
-                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
+                "    (mdi-format-bold) \"Bold\" [/123/SpreadsheetName456/cell/A1/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/123/SpreadsheetName456/cell/A1/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
+                "    (mdi-format-underline) \"Underline\" [/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
-                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
+                "      (mdi-format-letter-case) \"Capitalize\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
-                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
-                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
-                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
+                "      (mdi-format-text-wrapping-clip) \"Clip\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
+                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
+                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
                 "    \"Border\" id=test-Style-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-Style-borderTopColor-SubMenu\n" +
@@ -459,7 +459,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-top-color/save/black] id=test-Style-borderTopColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/black] id=test-Style-borderTopColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderTopColor-color-2-Link\n" +
@@ -634,26 +634,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderTopStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderTopWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-Style-borderLeftColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -663,7 +663,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-left-color/save/black] id=test-Style-borderLeftColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/black] id=test-Style-borderLeftColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderLeftColor-color-2-Link\n" +
@@ -838,26 +838,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderLeftStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderLeftWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-Style-borderRightColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -867,7 +867,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-right-color/save/black] id=test-Style-borderRightColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/black] id=test-Style-borderRightColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderRightColor-color-2-Link\n" +
@@ -1042,26 +1042,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderRightStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderRightWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-Style-borderBottomColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -1071,7 +1071,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-color/save/black] id=test-Style-borderBottomColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/black] id=test-Style-borderBottomColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderBottomColor-color-2-Link\n" +
@@ -1246,26 +1246,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderBottomStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderBottomWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-Style-borderColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -1275,7 +1275,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-color/save/black] id=test-Style-borderColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-color/save/black] id=test-Style-borderColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderColor-color-2-Link\n" +
@@ -1450,30 +1450,30 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderAllStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderAllWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName111/cell/A1/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/A1/style/*/save/] id=test-Style-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/style] id=test-Style-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/style] id=test-Style-edit-MenuItem\n"
         );
     }
 
@@ -1500,14 +1500,14 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
-                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/] CHECKED id=test-Style-alignment-left-MenuItem\n" +
-                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
-                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
-                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
+                "      (mdi-format-align-left) \"Left\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/] CHECKED id=test-Style-alignment-left-MenuItem\n" +
+                "      (mdi-format-align-center) \"Center\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
+                "      (mdi-format-align-right) \"Right\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
+                "      (mdi-format-align-justify) \"Justify\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
                 "    \"Vertical Alignment\" id=test-Style-verticalAlignment-SubMenu\n" +
-                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
-                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
-                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
+                "      (mdi-format-align-top) \"Top\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
+                "      (mdi-format-align-middle) \"Middle\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
+                "      (mdi-format-align-bottom) \"Bottom\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-Style-color-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -1516,7 +1516,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/color/save/black] id=test-Style-color-color-1-Link\n" +
+                "                    \"Black\" [#/123/SpreadsheetName456/cell/A1/style/color/save/black] id=test-Style-color-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-2-Link\n" +
@@ -1691,7 +1691,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-Style-backgroundColor-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -1700,7 +1700,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/background-color/save/black] id=test-Style-backgroundColor-color-1-Link\n" +
+                "                    \"Black\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/black] id=test-Style-backgroundColor-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-2-Link\n" +
@@ -1875,20 +1875,20 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName111/cell/A1/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName111/cell/A1/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
-                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
+                "    (mdi-format-bold) \"Bold\" [/123/SpreadsheetName456/cell/A1/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/123/SpreadsheetName456/cell/A1/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
+                "    (mdi-format-underline) \"Underline\" [/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
-                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
+                "      (mdi-format-letter-case) \"Capitalize\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
-                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
-                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
-                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
+                "      (mdi-format-text-wrapping-clip) \"Clip\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
+                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
+                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
                 "    \"Border\" id=test-Style-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-Style-borderTopColor-SubMenu\n" +
@@ -1899,7 +1899,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-top-color/save/black] id=test-Style-borderTopColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/black] id=test-Style-borderTopColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderTopColor-color-2-Link\n" +
@@ -2074,26 +2074,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderTopStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderTopWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-Style-borderLeftColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -2103,7 +2103,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-left-color/save/black] id=test-Style-borderLeftColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/black] id=test-Style-borderLeftColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderLeftColor-color-2-Link\n" +
@@ -2278,26 +2278,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderLeftStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderLeftWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-Style-borderRightColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -2307,7 +2307,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-right-color/save/black] id=test-Style-borderRightColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/black] id=test-Style-borderRightColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderRightColor-color-2-Link\n" +
@@ -2482,26 +2482,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderRightStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderRightWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-Style-borderBottomColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -2511,7 +2511,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-color/save/black] id=test-Style-borderBottomColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/black] id=test-Style-borderBottomColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderBottomColor-color-2-Link\n" +
@@ -2686,26 +2686,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderBottomStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderBottomWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-Style-borderColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -2715,7 +2715,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-color/save/black] id=test-Style-borderColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-color/save/black] id=test-Style-borderColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderColor-color-2-Link\n" +
@@ -2890,30 +2890,30 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderAllStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderAllWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName111/cell/A1/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/A1/style/*/save/] id=test-Style-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/style] id=test-Style-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/style] id=test-Style-edit-MenuItem\n"
         );
     }
 
@@ -2939,14 +2939,14 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
-                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
-                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
-                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
-                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName111/cell/A1/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
+                "      (mdi-format-align-left) \"Left\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
+                "      (mdi-format-align-center) \"Center\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
+                "      (mdi-format-align-right) \"Right\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
+                "      (mdi-format-align-justify) \"Justify\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
                 "    \"Vertical Alignment\" id=test-Style-verticalAlignment-SubMenu\n" +
-                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
-                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
-                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName111/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
+                "      (mdi-format-align-top) \"Top\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
+                "      (mdi-format-align-middle) \"Middle\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
+                "      (mdi-format-align-bottom) \"Bottom\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-Style-color-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -2955,7 +2955,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/color/save/black] id=test-Style-color-color-1-Link\n" +
+                "                    \"Black\" [#/123/SpreadsheetName456/cell/A1/style/color/save/black] id=test-Style-color-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-color-color-2-Link\n" +
@@ -3130,7 +3130,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-Style-backgroundColor-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -3139,7 +3139,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                    \"Black\" [#/1/SpreadsheetName111/cell/A1/style/background-color/save/black] id=test-Style-backgroundColor-color-1-Link\n" +
+                "                    \"Black\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/black] id=test-Style-backgroundColor-color-1-Link\n" +
                 "                TD\n" +
                 "                  style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                    DISABLED id=test-Style-backgroundColor-color-2-Link\n" +
@@ -3314,20 +3314,20 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName111/cell/A1/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName111/cell/A1/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
-                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName111/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
+                "    (mdi-format-bold) \"Bold\" [/123/SpreadsheetName456/cell/A1/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/123/SpreadsheetName456/cell/A1/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
+                "    (mdi-format-underline) \"Underline\" [/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
-                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName111/cell/A1/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
+                "      (mdi-format-letter-case) \"Capitalize\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
-                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
-                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
-                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName111/cell/A1/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
+                "      (mdi-format-text-wrapping-clip) \"Clip\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
+                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
+                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
                 "    \"Border\" id=test-Style-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-Style-borderTopColor-SubMenu\n" +
@@ -3338,7 +3338,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-top-color/save/black] id=test-Style-borderTopColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/black] id=test-Style-borderTopColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderTopColor-color-2-Link\n" +
@@ -3513,26 +3513,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderTopStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderTopWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-Style-borderLeftColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -3542,7 +3542,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-left-color/save/black] id=test-Style-borderLeftColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/black] id=test-Style-borderLeftColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderLeftColor-color-2-Link\n" +
@@ -3717,26 +3717,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderLeftStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderLeftWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-Style-borderRightColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -3746,7 +3746,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-right-color/save/black] id=test-Style-borderRightColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/black] id=test-Style-borderRightColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderRightColor-color-2-Link\n" +
@@ -3921,26 +3921,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderRightStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderRightWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-Style-borderBottomColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -3950,7 +3950,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-color/save/black] id=test-Style-borderBottomColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/black] id=test-Style-borderBottomColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderBottomColor-color-2-Link\n" +
@@ -4125,26 +4125,26 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderBottomStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderBottomWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-Style-borderColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -4154,7 +4154,7 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      style=\"background-color: black; border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
-                "                        \"Black\" [#/1/SpreadsheetName111/cell/A1/style/border-color/save/black] id=test-Style-borderColor-color-1-Link\n" +
+                "                        \"Black\" [#/123/SpreadsheetName456/cell/A1/style/border-color/save/black] id=test-Style-borderColor-color-1-Link\n" +
                 "                    TD\n" +
                 "                      style=\"border-color: black; border-style: solid; border-width: 2px; height: 32px; text-align: center; width: 64px;\"\n" +
                 "                        DISABLED id=test-Style-borderColor-color-2-Link\n" +
@@ -4329,32 +4329,32 @@ public final class SpreadsheetSelectionMenuValuesStyleTest extends SpreadsheetSe
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName111/cell/A1/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderAllStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderAllWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName111/cell/A1/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName111/cell/A1/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/A1/style/*/save/] id=test-Style-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/style] id=test-Style-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/style] id=test-Style-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Color\" [/1/SpreadsheetName111/cell/A1/style/color/save/black] id=test-Style-recent-0-MenuItem\n"
+                "    \"Color\" [/123/SpreadsheetName456/cell/A1/style/color/save/black] id=test-Style-recent-0-MenuItem\n"
         );
     }
 

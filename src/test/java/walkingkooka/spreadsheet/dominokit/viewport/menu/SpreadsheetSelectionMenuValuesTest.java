@@ -87,9 +87,9 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
         this.treePrintAndCheck(
             menuValues,
             "  \"Locale\" id=Test123-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/locale/save/] id=Test123-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=Test123-Locale-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/locale] id=Test123-Locale-edit-MenuItem\n"
         );
     }
 
@@ -138,12 +138,12 @@ public final class SpreadsheetSelectionMenuValuesTest extends SpreadsheetSelecti
         this.treePrintAndCheck(
             menuValues,
             "  \"Locale\" id=Test123-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=Test123-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/locale/save/] id=Test123-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=Test123-Locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/locale] id=Test123-Locale-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"English (Australia)\" [/1/SpreadsheetName111/cell/A1/locale/save/en-AU] CHECKED id=Test123-Locale-recent-0-MenuItem\n" +
-                "    \"English (Canada)\" [/1/SpreadsheetName111/cell/A1/locale/save/en-CA] id=Test123-Locale-recent-1-MenuItem\n"
+                "    \"English (Australia)\" [/123/SpreadsheetName456/cell/A1/locale/save/en-AU] CHECKED id=Test123-Locale-recent-0-MenuItem\n" +
+                "    \"English (Canada)\" [/123/SpreadsheetName456/cell/A1/locale/save/en-CA] id=Test123-Locale-recent-1-MenuItem\n"
         );
     }
 

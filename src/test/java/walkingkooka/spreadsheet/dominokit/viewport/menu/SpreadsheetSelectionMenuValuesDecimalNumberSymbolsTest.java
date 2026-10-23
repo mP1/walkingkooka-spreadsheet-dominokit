@@ -30,26 +30,10 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
-import java.text.DecimalFormatSymbols;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 
 public final class SpreadsheetSelectionMenuValuesDecimalNumberSymbolsTest extends SpreadsheetSelectionMenuValuesTestCase<SpreadsheetSelectionMenuValuesDecimalNumberSymbols, DecimalNumberSymbols> {
-
-    private final static DecimalNumberSymbols DECIMAL_NUMBER_SYMBOLS_AU = DecimalNumberSymbols.fromDecimalFormatSymbols(
-        '+',
-        new DecimalFormatSymbols(
-            Locale.forLanguageTag("en-AU")
-        )
-    );
-
-    private final static DecimalNumberSymbols DECIMAL_NUMBER_SYMBOLS_NZ = DecimalNumberSymbols.fromDecimalFormatSymbols(
-        '+',
-        new DecimalFormatSymbols(
-            Locale.forLanguageTag("en-NZ")
-        )
-    );
 
     @Test
     public void testBuild() {
@@ -63,9 +47,9 @@ public final class SpreadsheetSelectionMenuValuesDecimalNumberSymbolsTest extend
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n"
         );
     }
 
@@ -82,9 +66,9 @@ public final class SpreadsheetSelectionMenuValuesDecimalNumberSymbolsTest extend
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n"
         );
     }
 
@@ -100,14 +84,14 @@ public final class SpreadsheetSelectionMenuValuesDecimalNumberSymbolsTest extend
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                     .setDecimalNumberSymbols(
-                        Optional.of(DECIMAL_NUMBER_SYMBOLS_AU)
+                        Optional.of(DECIMAL_NUMBER_SYMBOLS)
                     )
             ),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n"
         );
     }
 
@@ -120,18 +104,18 @@ public final class SpreadsheetSelectionMenuValuesDecimalNumberSymbolsTest extend
                 CELL
             ),
             Lists.of(
-                DECIMAL_NUMBER_SYMBOLS_AU,
-                DECIMAL_NUMBER_SYMBOLS_NZ
+                DECIMAL_NUMBER_SYMBOLS,
+                DIFFERENT_DECIMAL_NUMBER_SYMBOLS
             ), // recentDecimalNumberSymbols
             Optional.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"-,+,0,$,.,e,\\\",\\\",∞,.,NaN,%,‰\" [/1/SpreadsheetName111/cell/A1/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=test-DecimalNumberSymbols-recent-0-MenuItem\n" +
-                "    \"-,+,0,$,.,E,\\\",\\\",∞,.,NaN,%,‰\" [/1/SpreadsheetName111/cell/A1/decimalNumberSymbols/save/-,+,0,$,.,E,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=test-DecimalNumberSymbols-recent-1-MenuItem\n"
+                "    \"-,+,0,$,.,e,\\\",\\\",∞,.,NaN,%,‰\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/-,+,0,$,.,e,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=test-DecimalNumberSymbols-recent-0-MenuItem\n" +
+                "    \"-,+,0,$,.,E,\\\",\\\",∞,.,NaN,%,‰\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/-,+,0,$,.,E,%22,%22,%E2%88%9E,.,NaN,%25,%E2%80%B0] id=test-DecimalNumberSymbols-recent-1-MenuItem\n"
         );
     }
 
