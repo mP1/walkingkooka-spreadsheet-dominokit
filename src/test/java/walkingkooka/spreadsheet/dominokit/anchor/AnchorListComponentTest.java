@@ -26,8 +26,7 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.dom.HasFocusBlurEventListenerTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 
 import java.util.Optional;
 
@@ -36,11 +35,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class AnchorListComponentTest implements HtmlComponentTesting<AnchorListComponent, HTMLDivElement>,
     CanBeEmptyTesting,
     HasFocusBlurEventListenerTesting<AnchorListComponent>,
+    HasSpreadsheetMetadataTesting,
     ToStringTesting<AnchorListComponent> {
-
-    private static final SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
-    private static final SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
-
+    
     // appendChild......................................................................................................
 
 
@@ -72,7 +69,7 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
             "AnchorListComponent\n" +
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
-                "      \"Edit spreadsheet name\" [#/1/SpreadsheetName111]\n"
+                "      \"Edit spreadsheet name\" [#/123/SpreadsheetName456]\n"
         );
     }
 
@@ -109,7 +106,7 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
             "AnchorListComponent\n" +
                 "  FlexLayoutComponent\n" +
                 "    ROW\n" +
-                "      \"Again\" [#/1/SpreadsheetName111]\n"
+                "      \"Again\" [#/123/SpreadsheetName456]\n"
         );
     }
 
@@ -198,7 +195,7 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
                             )
                         )
                 ),
-            "ROW DIV [[#/1/SpreadsheetName111]]"
+            "ROW DIV [[#/123/SpreadsheetName456]]"
         );
     }
     // class............................................................................................................
