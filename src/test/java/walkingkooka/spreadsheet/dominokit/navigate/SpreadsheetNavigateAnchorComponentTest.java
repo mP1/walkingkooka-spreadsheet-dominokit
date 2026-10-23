@@ -26,14 +26,11 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public final class SpreadsheetNavigateAnchorComponentTest implements HtmlComponentTesting<SpreadsheetNavigateAnchorComponent, HTMLAnchorElement> {
-
-    private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
-    private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName111");
+public final class SpreadsheetNavigateAnchorComponentTest implements HtmlComponentTesting<SpreadsheetNavigateAnchorComponent, HTMLAnchorElement>,
+    HasSpreadsheetMetadataTesting {
 
     @Test
     public void testTreePrintSpreadsheetListSelectHistoryToken() {
@@ -54,7 +51,7 @@ public final class SpreadsheetNavigateAnchorComponentTest implements HtmlCompone
                 SPREADSHEET_NAME
             ),
             "SpreadsheetNavigateAnchorComponent\n" +
-                "  \"Navigate\" [#/1/SpreadsheetName111/navigate]"
+                "  \"Navigate\" [#/123/SpreadsheetName456/navigate]"
         );
     }
 
@@ -67,7 +64,7 @@ public final class SpreadsheetNavigateAnchorComponentTest implements HtmlCompone
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             "SpreadsheetNavigateAnchorComponent\n" +
-                "  \"Navigate\" [#/1/SpreadsheetName111/cell/A1/navigate]"
+                "  \"Navigate\" [#/123/SpreadsheetName456/cell/A1/navigate]"
         );
     }
 
@@ -81,7 +78,7 @@ public final class SpreadsheetNavigateAnchorComponentTest implements HtmlCompone
                     .setDefaultAnchor()
             ),
             "SpreadsheetNavigateAnchorComponent\n" +
-                "  \"Navigate\" [#/1/SpreadsheetName111/column/B/navigate]"
+                "  \"Navigate\" [#/123/SpreadsheetName456/column/B/navigate]"
         );
     }
 
