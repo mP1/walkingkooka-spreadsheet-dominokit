@@ -43,7 +43,7 @@ public final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRowTest
             "SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
                 "  TH\n" +
                 "    id=\"viewport-row-1\" style=\"box-sizing: border-box; color: #222222; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
-                "      \"1\" [#/1/SpreadsheetName222/row/1] id=viewport-row-1-Link\n"
+                "      \"1\" [#/123/SpreadsheetName456/row/1] id=viewport-row-1-Link\n"
         );
     }
 
@@ -59,7 +59,7 @@ public final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRowTest
             "SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
                 "  TH\n" +
                 "    id=\"viewport-row-1\" style=\"background-color: #111111; box-sizing: border-box; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
-                "      \"1\" [#/1/SpreadsheetName222/row/1] id=viewport-row-1-Link\n"
+                "      \"1\" [#/123/SpreadsheetName456/row/1] id=viewport-row-1-Link\n"
         );
     }
 
@@ -75,7 +75,7 @@ public final class SpreadsheetViewportComponentTableCellHeaderSpreadsheetRowTest
             "SpreadsheetViewportComponentTableCellHeaderSpreadsheetRow\n" +
                 "  TH\n" +
                 "    id=\"viewport-row-1\" style=\"box-sizing: border-box; color: #222222; height: 50px; min-height: 50px; min-width: 80px; width: 80px;\"\n" +
-                "      \"1\" [#/1/SpreadsheetName222/row/1] id=viewport-row-1-Link\n"
+                "      \"1\" [#/123/SpreadsheetName456/row/1] id=viewport-row-1-Link\n"
         );
     }
 
