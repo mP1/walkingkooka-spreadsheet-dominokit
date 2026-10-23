@@ -47,8 +47,8 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
         final SpreadsheetSelectionMenuContext context = this.context(
             historyToken,
             Lists.of(
-                SpreadsheetFormatterSelector.parse("date recent-1A"),
-                SpreadsheetFormatterSelector.parse("date recent-2B")
+                FORMATTER_SELECTOR,
+                DIFFERENT_FORMATTER_SELECTOR
             ),
             Lists.empty(),
             Optional.empty() // selectionSummary
@@ -74,12 +74,12 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Formatter\" id=test-Formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Date (date recent-1A)\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20recent-1A] id=test-Formatter-recent-0-MenuItem\n" +
-                "    \"Date (date recent-2B)\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
+                "    \"Formatter Selector 111\" [/123/SpreadsheetName456/cell/A1/formatter/save/formatter-selector-111] id=test-Formatter-recent-0-MenuItem\n" +
+                "    \"Different Formatter Selector 222\" [/123/SpreadsheetName456/cell/A1/formatter/save/different-formatter-selector-222] id=test-Formatter-recent-1-MenuItem\n"
         );
     }
 
@@ -91,13 +91,13 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
             CELL
         );
 
-        final SpreadsheetFormatterSelector matchedSelector = SpreadsheetFormatterSelector.parse("date recent-1A");
+        final SpreadsheetFormatterSelector matchedSelector = FORMATTER_SELECTOR;
 
         final SpreadsheetSelectionMenuContext context = this.context(
             historyToken,
             Lists.of(
                 matchedSelector,
-                SpreadsheetFormatterSelector.parse("date recent-2B")
+                DIFFERENT_FORMATTER_SELECTOR
             ), // recent
             Lists.empty(), // menu
             Optional.of(
@@ -128,12 +128,12 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Formatter\" id=test-Formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Date (date recent-1A)\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20recent-1A] CHECKED id=test-Formatter-recent-0-MenuItem\n" +
-                "    \"Date (date recent-2B)\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
+                "    \"Formatter Selector 111\" [/123/SpreadsheetName456/cell/A1/formatter/save/formatter-selector-111] CHECKED id=test-Formatter-recent-0-MenuItem\n" +
+                "    \"Different Formatter Selector 222\" [/123/SpreadsheetName456/cell/A1/formatter/save/different-formatter-selector-222] id=test-Formatter-recent-1-MenuItem\n"
         );
     }
 
@@ -188,14 +188,14 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Formatter\" id=test-Formatter-SubMenu\n" +
                 "    \"Date\" id=test-Formatter-date-SubMenu\n" +
-                "      \"Short\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20yy/mm/dd] id=test-Formatter-date-MenuItem\n" +
-                "      \"Medium\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-Formatter-date-MenuItem\n" +
+                "      \"Short\" [/123/SpreadsheetName456/cell/A1/formatter/save/date%20yy/mm/dd] id=test-Formatter-date-MenuItem\n" +
+                "      \"Medium\" [/123/SpreadsheetName456/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-Formatter-date-MenuItem\n" +
                 "    \"Text\" id=test-Formatter-text-SubMenu\n" +
-                "      \"Default text\" [/1/SpreadsheetName111/cell/A1/formatter/save/text%20@] id=test-Formatter-text-MenuItem\n" +
+                "      \"Default text\" [/123/SpreadsheetName456/cell/A1/formatter/save/text%20@] id=test-Formatter-text-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n"
         );
     }
 
@@ -257,14 +257,14 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Formatter\" id=test-Formatter-SubMenu\n" +
                 "    \"Date\" id=test-Formatter-date-SubMenu\n" +
-                "      \"Short\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20yy/mm/dd] CHECKED id=test-Formatter-date-MenuItem\n" +
-                "      \"Medium\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-Formatter-date-MenuItem\n" +
+                "      \"Short\" [/123/SpreadsheetName456/cell/A1/formatter/save/date%20yy/mm/dd] CHECKED id=test-Formatter-date-MenuItem\n" +
+                "      \"Medium\" [/123/SpreadsheetName456/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-Formatter-date-MenuItem\n" +
                 "    \"Text\" id=test-Formatter-text-SubMenu\n" +
-                "      \"Default text\" [/1/SpreadsheetName111/cell/A1/formatter/save/text%20@] id=test-Formatter-text-MenuItem\n" +
+                "      \"Default text\" [/123/SpreadsheetName456/cell/A1/formatter/save/text%20@] id=test-Formatter-text-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n"
         );
     }
 
@@ -279,8 +279,8 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
         final SpreadsheetSelectionMenuContext context = this.context(
             historyToken,
             Lists.of(
-                SpreadsheetFormatterSelector.parse("date recent-1A"),
-                SpreadsheetFormatterSelector.parse("date recent-2B")
+                FORMATTER_SELECTOR,
+                DIFFERENT_FORMATTER_SELECTOR
             ),
             Lists.of(
                 SpreadsheetFormatterMenu.with(
@@ -337,21 +337,21 @@ public final class SpreadsheetSelectionMenuValuesFormatterTest extends Spreadshe
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Formatter\" id=test-Formatter-SubMenu\n" +
                 "    \"Date\" id=test-Formatter-date-SubMenu\n" +
-                "      \"Short\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20yy/mm/dd] id=test-Formatter-date-MenuItem\n" +
-                "      \"Medium\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-Formatter-date-MenuItem\n" +
+                "      \"Short\" [/123/SpreadsheetName456/cell/A1/formatter/save/date%20yy/mm/dd] id=test-Formatter-date-MenuItem\n" +
+                "      \"Medium\" [/123/SpreadsheetName456/cell/A1/formatter/save/date%20yyyy/mm/ddd] id=test-Formatter-date-MenuItem\n" +
                 "    \"Date Time\" id=test-Formatter-date-time-SubMenu\n" +
-                "      \"Short\" [/1/SpreadsheetName111/cell/A1/formatter/save/date-time%20yy/mm/dd] id=test-Formatter-date-time-MenuItem\n" +
-                "      \"Medium\" [/1/SpreadsheetName111/cell/A1/formatter/save/date-time%20yyyy/mm/ddd] id=test-Formatter-date-time-MenuItem\n" +
-                "      \"Long\" [/1/SpreadsheetName111/cell/A1/formatter/save/date-time%20yyyy/mmm/dddd] id=test-Formatter-date-time-MenuItem\n" +
+                "      \"Short\" [/123/SpreadsheetName456/cell/A1/formatter/save/date-time%20yy/mm/dd] id=test-Formatter-date-time-MenuItem\n" +
+                "      \"Medium\" [/123/SpreadsheetName456/cell/A1/formatter/save/date-time%20yyyy/mm/ddd] id=test-Formatter-date-time-MenuItem\n" +
+                "      \"Long\" [/123/SpreadsheetName456/cell/A1/formatter/save/date-time%20yyyy/mmm/dddd] id=test-Formatter-date-time-MenuItem\n" +
                 "    \"Text\" id=test-Formatter-text-SubMenu\n" +
-                "      \"Default text\" [/1/SpreadsheetName111/cell/A1/formatter/save/text%20@] id=test-Formatter-text-MenuItem\n" +
+                "      \"Default text\" [/123/SpreadsheetName456/cell/A1/formatter/save/text%20@] id=test-Formatter-text-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Date (date recent-1A)\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20recent-1A] id=test-Formatter-recent-0-MenuItem\n" +
-                "    \"Date (date recent-2B)\" [/1/SpreadsheetName111/cell/A1/formatter/save/date%20recent-2B] id=test-Formatter-recent-1-MenuItem\n"
+                "    \"Formatter Selector 111\" [/123/SpreadsheetName456/cell/A1/formatter/save/formatter-selector-111] id=test-Formatter-recent-0-MenuItem\n" +
+                "    \"Different Formatter Selector 222\" [/123/SpreadsheetName456/cell/A1/formatter/save/different-formatter-selector-222] id=test-Formatter-recent-1-MenuItem\n"
         );
     }
 

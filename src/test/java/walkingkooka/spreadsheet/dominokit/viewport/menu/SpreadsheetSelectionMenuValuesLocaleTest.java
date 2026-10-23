@@ -25,8 +25,6 @@ import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFact
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellLocaleSelectHistoryToken;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
@@ -48,9 +46,9 @@ public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetS
             Lists.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
         );
     }
 
@@ -67,9 +65,9 @@ public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetS
             Lists.empty(), // recents
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
         );
     }
 
@@ -77,24 +75,20 @@ public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetS
     public void testBuildWithChecked() {
         this.buildAndCheck(
             HistoryToken.cellLocaleSelect(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("SpreadsheetName111"),
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ),
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                    .setLocale(
-                        Optional.of(
-                            Locale.forLanguageTag("en-AU")
-                        )
-                    )
+                    .setLocale(OPTIONAL_LOCALE)
             ),
             Lists.empty(), // recents
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/locale] id=test-Locale-edit-MenuItem\n"
         );
     }
 
@@ -108,17 +102,17 @@ public final class SpreadsheetSelectionMenuValuesLocaleTest extends SpreadsheetS
             ),
             Optional.empty(), // summary
             Lists.of(
-                Locale.forLanguageTag("en-AU"),
-                Locale.forLanguageTag("en-NZ")
+                LOCALE,
+                DIFFERENT_LOCALE
             ), // recent,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"English (Australia)\" [/1/SpreadsheetName111/cell/A1/locale/save/en-AU] id=test-Locale-recent-0-MenuItem\n" +
-                "    \"English (New Zealand)\" [/1/SpreadsheetName111/cell/A1/locale/save/en-NZ] id=test-Locale-recent-1-MenuItem\n"
+                "    \"English (Australia)\" [/123/SpreadsheetName456/cell/A1/locale/save/en-AU] id=test-Locale-recent-0-MenuItem\n" +
+                "    \"English (New Zealand)\" [/123/SpreadsheetName456/cell/A1/locale/save/en-NZ] id=test-Locale-recent-1-MenuItem\n"
         );
     }
 

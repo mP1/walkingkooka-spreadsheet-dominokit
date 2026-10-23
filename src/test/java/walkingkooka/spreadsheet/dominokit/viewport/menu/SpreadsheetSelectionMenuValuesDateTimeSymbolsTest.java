@@ -30,24 +30,10 @@ import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 
-import java.text.DateFormatSymbols;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 
 public final class SpreadsheetSelectionMenuValuesDateTimeSymbolsTest extends SpreadsheetSelectionMenuValuesTestCase<SpreadsheetSelectionMenuValuesDateTimeSymbols, DateTimeSymbols> {
-
-    private final static DateTimeSymbols DATE_TIME_SYMBOLS_AU = DateTimeSymbols.fromDateFormatSymbols(
-        new DateFormatSymbols(
-            Locale.forLanguageTag("en-AU")
-        )
-    );
-
-    private final static DateTimeSymbols DATE_TIME_SYMBOLS_NZ = DateTimeSymbols.fromDateFormatSymbols(
-        new DateFormatSymbols(
-            Locale.forLanguageTag("en-NZ")
-        )
-    );
 
     @Test
     public void testBuild() {
@@ -61,9 +47,9 @@ public final class SpreadsheetSelectionMenuValuesDateTimeSymbolsTest extends Spr
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n"
         );
     }
 
@@ -80,9 +66,9 @@ public final class SpreadsheetSelectionMenuValuesDateTimeSymbolsTest extends Spr
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n"
         );
     }
 
@@ -98,14 +84,14 @@ public final class SpreadsheetSelectionMenuValuesDateTimeSymbolsTest extends Spr
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                     .setDateTimeSymbols(
-                        Optional.of(DATE_TIME_SYMBOLS_AU)
+                        Optional.of(DATE_TIME_SYMBOLS)
                     )
             ),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n"
         );
     }
 
@@ -118,18 +104,18 @@ public final class SpreadsheetSelectionMenuValuesDateTimeSymbolsTest extends Spr
                 CELL
             ),
             Lists.of(
-                DATE_TIME_SYMBOLS_AU,
-                DATE_TIME_SYMBOLS_NZ
+                DATE_TIME_SYMBOLS,
+                DIFFERENT_DATE_TIME_SYMBOLS
             ), // recentDateTimeSymbols
             Optional.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"am,pm\\\",\\\"January,February,March,April,May,June,July,August,September,October,November,December\\\",\\\"Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.\\\",\\\"Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday\\\",\\\"Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.\" [/1/SpreadsheetName111/cell/A1/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=test-DateTimeSymbols-recent-0-MenuItem\n" +
-                "    \"AM,PM\\\",\\\"January,February,March,April,May,June,July,August,September,October,November,December\\\",\\\"Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec\\\",\\\"Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday\\\",\\\"Sun,Mon,Tue,Wed,Thu,Fri,Sat\" [/1/SpreadsheetName111/cell/A1/dateTimeSymbols/save/%22AM,PM%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun,Mon,Tue,Wed,Thu,Fri,Sat%22] id=test-DateTimeSymbols-recent-1-MenuItem\n"
+                "    \"am,pm\\\",\\\"January,February,March,April,May,June,July,August,September,October,November,December\\\",\\\"Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.\\\",\\\"Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday\\\",\\\"Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/%22am,pm%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan.,Feb.,Mar.,Apr.,May,Jun.,Jul.,Aug.,Sep.,Oct.,Nov.,Dec.%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun.,Mon.,Tue.,Wed.,Thu.,Fri.,Sat.%22] id=test-DateTimeSymbols-recent-0-MenuItem\n" +
+                "    \"AM,PM\\\",\\\"January,February,March,April,May,June,July,August,September,October,November,December\\\",\\\"Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec\\\",\\\"Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday\\\",\\\"Sun,Mon,Tue,Wed,Thu,Fri,Sat\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/%22AM,PM%22,%22January,February,March,April,May,June,July,August,September,October,November,December%22,%22Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec%22,%22Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday%22,%22Sun,Mon,Tue,Wed,Thu,Fri,Sat%22] id=test-DateTimeSymbols-recent-1-MenuItem\n"
         );
     }
 

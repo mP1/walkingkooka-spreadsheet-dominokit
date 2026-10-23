@@ -48,9 +48,9 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
         );
     }
 
@@ -67,9 +67,9 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             Optional.empty(), // summary
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
         );
     }
 
@@ -84,17 +84,13 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
             Lists.empty(), // recentCurrencies
             Optional.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                    .setCurrency(
-                        Optional.of(
-                            Currency.getInstance("AUD")
-                        )
-                    )
+                    .setCurrency(OPTIONAL_CURRENCY)
             ),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/currency] id=test-Currency-edit-MenuItem\n"
         );
     }
 
@@ -107,18 +103,18 @@ public final class SpreadsheetSelectionMenuValuesCurrencyTest extends Spreadshee
                 CELL
             ),
             Lists.of(
-                Currency.getInstance("AUD"),
-                Currency.getInstance("NZD")
+                CURRENCY,
+                DIFFERENT_CURRENCY
             ), // recentCurrencies
             Optional.empty(),
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName111/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName111/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
                 "    -----\n" +
-                "    \"Australian Dollar\" [/1/SpreadsheetName111/cell/A1/currency/save/AUD] id=test-Currency-recent-0-MenuItem\n" +
-                "    \"New Zealand Dollar\" [/1/SpreadsheetName111/cell/A1/currency/save/NZD] id=test-Currency-recent-1-MenuItem\n"
+                "    \"Australian Dollar\" [/123/SpreadsheetName456/cell/A1/currency/save/AUD] id=test-Currency-recent-0-MenuItem\n" +
+                "    \"New Zealand Dollar\" [/123/SpreadsheetName456/cell/A1/currency/save/NZD] id=test-Currency-recent-1-MenuItem\n"
         );
     }
 
