@@ -24,8 +24,6 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.tree.text.TextAlign;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStyleProperty;
@@ -213,9 +211,6 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
     public void testPushHistoryTokenIfNecessaryWithDifferent() {
         final TextStyle textStyle = TextStyle.parse("color: #111;");
 
-        final SpreadsheetId spreadsheetId = SPREADSHEET_ID;
-        final SpreadsheetName spreadsheetName = SPREADSHEET_NAME;
-
         final HistoryContext historyContext = new FakeHistoryContext() {
             @Override
             public HistoryToken historyToken() {
@@ -223,8 +218,8 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             }
 
             private HistoryToken historyToken = HistoryToken.spreadsheetSelect(
-                spreadsheetId,
-                spreadsheetName
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME
             );
 
             @Override
@@ -243,8 +238,8 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
 
         this.checkEquals(
             HistoryToken.metadataPropertyStyleSave(
-                spreadsheetId,
-                spreadsheetName,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 PROPERTY.name(),
                 PROPERTY.value()
             ),
