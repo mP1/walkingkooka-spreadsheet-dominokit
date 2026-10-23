@@ -26,8 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -36,12 +35,9 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorComponentTesting<SpreadsheetLabelCreateAnchorComponent>,
-    ValueComponentTesting<HTMLAnchorElement, SpreadsheetExpressionReference, SpreadsheetLabelCreateAnchorComponent> {
-
-    private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1L);
-
-    private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName222");
-
+    ValueComponentTesting<HTMLAnchorElement, SpreadsheetExpressionReference, SpreadsheetLabelCreateAnchorComponent>,
+    HasSpreadsheetMetadataTesting {
+    
     // with.............................................................................................................
 
     @Test
@@ -101,7 +97,7 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
                     SPREADSHEET_NAME
                 )
             ).clearValue(),
-            "\"Create\" [#/1/SpreadsheetName222/create-label] id=cell-create-label-id"
+            "\"Create\" [#/123/SpreadsheetName456/create-label] id=cell-create-label-id"
         );
     }
 
@@ -121,7 +117,7 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
                     SpreadsheetSelection.A1
                 )
             ),
-            "\"A1\" [#/1/SpreadsheetName222/cell/A1/label] id=cell-create-label-id"
+            "\"A1\" [#/123/SpreadsheetName456/cell/A1/label] id=cell-create-label-id"
         );
     }
 
@@ -134,7 +130,7 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
                         SpreadsheetSelection.parseCellRange("A1:B2")
                     )
                 ),
-            "\"A1:B2\" [#/1/SpreadsheetName222/cell/A1:B2/bottom-right/label] id=cell-create-label-id"
+            "\"A1:B2\" [#/123/SpreadsheetName456/cell/A1:B2/bottom-right/label] id=cell-create-label-id"
         );
     }
 
@@ -147,7 +143,7 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
                         SpreadsheetSelection.labelName("Label999")
                     )
                 ),
-            "\"Label999\" [#/1/SpreadsheetName222/cell/Label999/label] id=cell-create-label-id"
+            "\"Label999\" [#/123/SpreadsheetName456/cell/Label999/label] id=cell-create-label-id"
         );
     }
 
@@ -171,7 +167,7 @@ public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorCo
 
     @Override
     public SpreadsheetLabelCreateAnchorComponent createComponent() {
-        return this.createComponent("/1/SpreadsheetName222");
+        return this.createComponent("/123/SpreadsheetName456");
     }
 
     private SpreadsheetLabelCreateAnchorComponent createComponent(final String historyToken) {
