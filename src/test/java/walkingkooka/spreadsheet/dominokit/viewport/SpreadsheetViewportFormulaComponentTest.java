@@ -35,10 +35,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -51,9 +49,6 @@ import java.util.Optional;
 public final class SpreadsheetViewportFormulaComponentTest implements HtmlComponentTesting<SpreadsheetViewportFormulaComponent, HTMLFieldSetElement>,
     ComponentLifecycleMatcherTesting,
     HasSpreadsheetMetadataTesting {
-
-    private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
-    private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("Name222");
 
     // isMatch..........................................................................................................
 
@@ -153,7 +148,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
 
         context.spreadsheetDeltaFetcherWatchers.onSpreadsheetDelta(
             HttpMethod.GET,
-            Url.parseRelative("/api/spreadsheet/1/cell/"),
+            Url.parseRelative("/api/spreadsheet/123/cell/"),
             SpreadsheetDelta.EMPTY.setCells(
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
@@ -205,7 +200,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
 
         context.spreadsheetDeltaFetcherWatchers.onSpreadsheetDelta(
             HttpMethod.GET,
-            Url.parseRelative("/api/spreadsheet/1/cell/"),
+            Url.parseRelative("/api/spreadsheet/123/cell/"),
             SpreadsheetDelta.EMPTY.setCells(
                 Sets.of(
                     labelTarget.setFormula(
@@ -257,7 +252,7 @@ public final class SpreadsheetViewportFormulaComponentTest implements HtmlCompon
 
         context.spreadsheetDeltaFetcherWatchers.onSpreadsheetDelta(
             HttpMethod.GET,
-            Url.parseRelative("/api/spreadsheet/1/cell/"),
+            Url.parseRelative("/api/spreadsheet/123/cell/"),
             SpreadsheetDelta.EMPTY
         );
 
