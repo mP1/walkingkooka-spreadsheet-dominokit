@@ -27,6 +27,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -39,11 +40,9 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorComponentTesting<HistoryTokenSaveValueAnchorComponent<Color>>,
-    ValueComponentTesting<HTMLAnchorElement, Color, HistoryTokenSaveValueAnchorComponent<Color>> {
-
-    private final static SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
-    private final static SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName1");
-
+    ValueComponentTesting<HTMLAnchorElement, Color, HistoryTokenSaveValueAnchorComponent<Color>>,
+    HasSpreadsheetMetadataTesting {
+    
     @Test
     public void testWithNullIdFails() {
         assertThrows(
@@ -75,7 +74,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                         Color.parse("#123456")
                     )
                 ),
-            "\"Save\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+            "\"Save\" [#/123/SpreadsheetName456/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 
@@ -97,7 +96,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                     )
                 )
             ).setValue(value),
-            "\"Save\" [#/1/SpreadsheetName1/cell/A1/formatter/save/number%20$%23%23%23.00] id=id123"
+            "\"Save\" [#/123/SpreadsheetName456/cell/A1/formatter/save/number%20$%23%23%23.00] id=id123"
         );
     }
 
@@ -123,7 +122,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
             this.createComponent(
                 HistoryToken.cellLabelSelect(
                     SpreadsheetId.with(1),
-                    SpreadsheetName.with("SpreadsheetName1"),
+                    SpreadsheetName.with("SpreadsheetName456"),
                     SpreadsheetSelection.A1.setDefaultAnchor()
                 )
             ).setValue(Optional.empty()),
@@ -158,7 +157,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                     TextStyle.parse("color: black; font-weight: bold;")
                 )
             ),
-            "\"Save\" [#/1/SpreadsheetName1/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=HistoryTokenSaveValueAnchorComponent-Link"
+            "\"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 
@@ -167,7 +166,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
         this.treePrintAndCheck(
             this.createComponent()
                 .clearValue(),
-            "\"Save\" [#/1/SpreadsheetName1/cell/A1/style/color/save/] id=HistoryTokenSaveValueAnchorComponent-Link"
+            "\"Save\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 
@@ -190,7 +189,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                         Color.parse("#123456")
                     )
                 ).setTextContent("Clear"),
-            "\"Clear\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+            "\"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 
@@ -204,7 +203,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                         Color.parse("#123456")
                     )
                 ),
-            "\"Hello\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+            "\"Hello\" [#/123/SpreadsheetName456/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 
@@ -220,7 +219,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                         Color.parse("#123456")
                     )
                 ),
-            "\"Save\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+            "\"Save\" [#/123/SpreadsheetName456/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 
@@ -245,7 +244,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                         Color.parse("#123456")
                     )
                 ),
-            "\"Save\" [#/1/SpreadsheetName1/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
+            "\"Save\" [#/123/SpreadsheetName456/cell/A1/style/color/save/%23123456] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 
@@ -255,8 +254,8 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
     public HistoryTokenSaveValueAnchorComponent<Color> createComponent() {
         return this.createComponent(
             HistoryToken.cellStyleSave(
-                SpreadsheetId.with(1),
-                SpreadsheetName.with("SpreadsheetName1"),
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor(),
                 TextStylePropertyName.COLOR,
                 Optional.of(Color.BLACK)
