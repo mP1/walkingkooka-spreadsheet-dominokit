@@ -217,8 +217,8 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                 "      ValidationChoiceListComponent\n" +
                 "        SelectComponent\n" +
                 "          [] id=viewport-cell-A1-\n" +
-                "            \"Label1\" [#/1/SpreadsheetName222/cell/A1/value/Integer/save/111] id=viewport-cell-A1-111-Option\n" +
-                "            \"Label2\" [#/1/SpreadsheetName222/cell/A1/value/Integer/save/222] id=viewport-cell-A1-222-Option\n"
+                "            \"Label1\" [#/123/SpreadsheetName456/cell/A1/value/Integer/save/111] id=viewport-cell-A1-111-Option\n" +
+                "            \"Label2\" [#/123/SpreadsheetName456/cell/A1/value/Integer/save/222] id=viewport-cell-A1-222-Option\n"
         );
     }
 
@@ -487,7 +487,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
         tableContext.spreadsheetViewportCache()
             .onSpreadsheetDelta(
                 HttpMethod.GET,
-                Url.parseRelative("/api/spreadsheet/1/cell/A1"),
+                Url.parseRelative("/api/spreadsheet/123/cell/A1"),
                 SpreadsheetDelta.EMPTY.setCells(
                     Sets.of(
                         SELECTION.setFormula(
