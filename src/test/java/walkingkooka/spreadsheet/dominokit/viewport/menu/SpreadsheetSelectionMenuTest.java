@@ -35,10 +35,8 @@ import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowHistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetLabelMapping;
@@ -70,18 +68,10 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
     TreePrintableTesting,
     HasSpreadsheetMetadataTesting {
 
-    private static final SpreadsheetId SPREADSHEET_ID = SpreadsheetId.with(1);
-
-    private static final SpreadsheetName SPREADSHEET_NAME = SpreadsheetName.with("SpreadsheetName-1");
-
     private final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 
     private final static Optional<SpreadsheetCell> NO_SUMMARY = Optional.empty();
-
-    private static final SpreadsheetParserSelector PARSER1 = SpreadsheetParserSelector.parse("hello-parser-1");
-
-    private static final ValidatorSelector VALIDATOR1 = ValidatorSelector.parse("hello-validator-1");
-
+    
     @Test
     public void testCell() {
         final SpreadsheetCellHistoryToken token = HistoryToken.cellSelect(
@@ -113,86 +103,85 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/date-time-symbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/A1/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/A1/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/A1/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/A1/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/A1/cut/date-time-symbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/A1/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/A1/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/A1/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/A1/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/A1/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/date-time-symbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/A1/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/A1/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/A1/copy/date-time-symbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/A1/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/A1/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/A1/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/A1/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/A1/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/date-time-symbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/A1/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/A1/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/A1/paste/date-time-symbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/A1/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/currency] id=test-Currency-edit-MenuItem\n" +
                 "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-Formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Parser\" id=test-Parser-SubMenu\n" +
-                "    \"Hello Parser 1\" [/1/SpreadsheetName-1/cell/A1/parser/save/hello-parser-1] id=test-Parser-hello-parser-1-MenuItem\n" +
-                "    \"Test Parser 2\" [/1/SpreadsheetName-1/cell/A1/parser/save/test-parser-2] id=test-Parser-test-parser-2-MenuItem\n" +
-                "    \"Test Parser 3\" [/1/SpreadsheetName-1/cell/A1/parser/save/test-parser-3] id=test-Parser-test-parser-3-MenuItem\n" +
+                "    \"Different Parser Selector 222\" [/123/SpreadsheetName456/cell/A1/parser/save/different-parser-selector-222] id=test-Parser-different-parser-selector-222-MenuItem\n" +
+                "    \"Parser Selector 111\" [/123/SpreadsheetName456/cell/A1/parser/save/parser-selector-111] id=test-Parser-parser-selector-111-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/A1/parser/save/] id=test-Parser-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/parser] id=test-Parser-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/parser] id=test-Parser-edit-MenuItem\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
-                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
-                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
-                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
-                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/A1/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
+                "      (mdi-format-align-left) \"Left\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
+                "      (mdi-format-align-center) \"Center\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
+                "      (mdi-format-align-right) \"Right\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
+                "      (mdi-format-align-justify) \"Justify\" [/123/SpreadsheetName456/cell/A1/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
                 "    \"Vertical Alignment\" id=test-Style-verticalAlignment-SubMenu\n" +
-                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
-                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
-                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
+                "      (mdi-format-align-top) \"Top\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
+                "      (mdi-format-align-middle) \"Middle\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
+                "      (mdi-format-align-bottom) \"Bottom\" [/123/SpreadsheetName456/cell/A1/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-Style-color-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -376,7 +365,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/color/save/] id=test-Style-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-Style-backgroundColor-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -560,20 +549,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/A1/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/A1/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
-                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
+                "    (mdi-format-bold) \"Bold\" [/123/SpreadsheetName456/cell/A1/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/123/SpreadsheetName456/cell/A1/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
+                "    (mdi-format-underline) \"Underline\" [/123/SpreadsheetName456/cell/A1/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
-                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/A1/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
+                "      (mdi-format-letter-case) \"Capitalize\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/123/SpreadsheetName456/cell/A1/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
-                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/A1/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
-                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/A1/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
-                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/A1/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
+                "      (mdi-format-text-wrapping-clip) \"Clip\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
+                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
+                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/123/SpreadsheetName456/cell/A1/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
                 "    \"Border\" id=test-Style-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-Style-borderTopColor-SubMenu\n" +
@@ -759,26 +748,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderTopStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderTopWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-Style-borderLeftColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -963,26 +952,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderLeftStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderLeftWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-Style-borderRightColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -1167,26 +1156,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderRightStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderRightWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-Style-borderBottomColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -1371,26 +1360,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderBottomStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderBottomWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-Style-borderColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -1575,101 +1564,100 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/A1/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderAllStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderAllWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/A1/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/A1/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/A1/style/*/save/] id=test-Style-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/style] id=test-Style-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Boolean] id=test-ValueTypes-Boolean-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
-                "    \"Datetime\" [/1/SpreadsheetName-1/cell/A1/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Wholenumber\" [/1/SpreadsheetName-1/cell/A1/valueType/save/wholeNumber] id=test-ValueTypes-number/wholeNumber-MenuItem\n" +
+                "    \"Boolean\" [/123/SpreadsheetName456/cell/A1/valueType/save/Boolean] id=test-ValueTypes-Boolean-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/A1/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
+                "    \"Date\" [/123/SpreadsheetName456/cell/A1/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
+                "    \"Datetime\" [/123/SpreadsheetName456/cell/A1/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
+                "    \"Email\" [/123/SpreadsheetName456/cell/A1/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
+                "    \"Number\" [/123/SpreadsheetName456/cell/A1/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
+                "    \"Text\" [/123/SpreadsheetName456/cell/A1/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
+                "    \"Time\" [/123/SpreadsheetName456/cell/A1/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
+                "    \"Url\" [/123/SpreadsheetName456/cell/A1/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
+                "    \"Wholenumber\" [/123/SpreadsheetName456/cell/A1/valueType/save/wholeNumber] id=test-ValueTypes-number/wholeNumber-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/A1/value/Boolean] id=test-Value-Boolean-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/A1/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/A1/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
-                "    \"Datetime\" [/1/SpreadsheetName-1/cell/A1/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/A1/value/Email] id=test-Value-email/Email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/A1/value/Number] id=test-Value-number/Number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/A1/value/Text] id=test-Value-text/Text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/A1/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Wholenumber\" [/1/SpreadsheetName-1/cell/A1/value/wholeNumber] id=test-Value-number/wholeNumber-MenuItem\n" +
+                "    \"Boolean\" [/123/SpreadsheetName456/cell/A1/value/Boolean] id=test-Value-Boolean-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/A1/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
+                "    \"Date\" [/123/SpreadsheetName456/cell/A1/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
+                "    \"Datetime\" [/123/SpreadsheetName456/cell/A1/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
+                "    \"Email\" [/123/SpreadsheetName456/cell/A1/value/Email] id=test-Value-email/Email-MenuItem\n" +
+                "    \"Number\" [/123/SpreadsheetName456/cell/A1/value/Number] id=test-Value-number/Number-MenuItem\n" +
+                "    \"Text\" [/123/SpreadsheetName456/cell/A1/value/Text] id=test-Value-text/Text-MenuItem\n" +
+                "    \"Time\" [/123/SpreadsheetName456/cell/A1/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
+                "    \"Url\" [/123/SpreadsheetName456/cell/A1/value/url] id=test-Value-url-MenuItem\n" +
+                "    \"Wholenumber\" [/123/SpreadsheetName456/cell/A1/value/wholeNumber] id=test-Value-number/wholeNumber-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/value] id=test-Value-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/A1/validator/save/hello-validator-3] id=test-Validator-hello-validator-3-MenuItem\n" +
+                "    \"Absolute Url\" [/123/SpreadsheetName456/cell/A1/validator/save/absolute-url] id=test-Validator-absolute-url-MenuItem\n" +
+                "    \"Email Address\" [/123/SpreadsheetName456/cell/A1/validator/save/email-address] id=test-Validator-email-address-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/A1/validator] id=test-Validator-edit-MenuItem\n" +
-                "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/A1/validator] id=test-Validator-edit-MenuItem\n" +
+                "  (mdi-star) \"Hide Zero Values\" [/123/SpreadsheetName456/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
-                "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/A1/delete] id=test-delete-MenuItem\n" +
+                "  (mdi-close) \"Delete\" [/123/SpreadsheetName456/cell/A1/delete] id=test-delete-MenuItem\n" +
                 "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/A/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/A/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/column/A/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/column/A/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/column/A/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/column/A/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
                 "    (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/A/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/column/A/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/column/A/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/column/A/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/column/A/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
                 "    (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
-                "  \"Freeze\" [/1/SpreadsheetName-1/cell/A1/freeze] id=test-freeze-MenuItem\n" +
-                "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
+                "  \"Freeze\" [/123/SpreadsheetName456/cell/A1/freeze] id=test-freeze-MenuItem\n" +
+                "  \"Unfreeze\" [/123/SpreadsheetName456/cell/A1/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/A1/label] id=test-label-create-MenuItem\n" +
-                "    \"List...\" [/1/SpreadsheetName-1/cell/A1/labels] id=test-labels-list-MenuItem\n" +
-                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "  \"References\" [/1/SpreadsheetName-1/cell/A1/references] [1] id=test-references-MenuItem\n" +
+                "    \"Create...\" [/123/SpreadsheetName456/cell/A1/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/123/SpreadsheetName456/cell/A1/labels] id=test-labels-list-MenuItem\n" +
+                "    \"Label123 (A1)\" [/123/SpreadsheetName456/label/Label123] id=test-label-0-MenuItem\n" +
+                "  \"References\" [/123/SpreadsheetName456/cell/A1/references] [1] id=test-references-MenuItem\n" +
                 "  -----\n" +
-                "  \"Reload\" [/1/SpreadsheetName-1/cell/A1/reload] id=test-reload-MenuItem\n"
+                "  \"Reload\" [/123/SpreadsheetName456/cell/A1/reload] id=test-reload-MenuItem\n"
         );
     }
 
@@ -1706,86 +1694,85 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             menu,
             "\"Cell B2:C3 Menu\" id=Cell-MenuId\n" +
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/date-time-symbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/date-time-symbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/date-time-symbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/date-time-symbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/date-time-symbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/date-time-symbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/currency] id=test-Currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/currency] id=test-Currency-edit-MenuItem\n" +
                 "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-Formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/formatter] id=test-Formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/locale] id=test-Locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Parser\" id=test-Parser-SubMenu\n" +
-                "    \"Hello Parser 1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parser/save/hello-parser-1] id=test-Parser-hello-parser-1-MenuItem\n" +
-                "    \"Test Parser 2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parser/save/test-parser-2] id=test-Parser-test-parser-2-MenuItem\n" +
-                "    \"Test Parser 3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parser/save/test-parser-3] id=test-Parser-test-parser-3-MenuItem\n" +
+                "    \"Different Parser Selector 222\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/parser/save/different-parser-selector-222] id=test-Parser-different-parser-selector-222-MenuItem\n" +
+                "    \"Parser Selector 111\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/parser/save/parser-selector-111] id=test-Parser-parser-selector-111-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/parser/save/] id=test-Parser-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/parser] id=test-Parser-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/parser] id=test-Parser-edit-MenuItem\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
-                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
-                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
-                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
-                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
+                "      (mdi-format-align-left) \"Left\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
+                "      (mdi-format-align-center) \"Center\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
+                "      (mdi-format-align-right) \"Right\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
+                "      (mdi-format-align-justify) \"Justify\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
                 "    \"Vertical Alignment\" id=test-Style-verticalAlignment-SubMenu\n" +
-                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
-                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
-                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
+                "      (mdi-format-align-top) \"Top\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
+                "      (mdi-format-align-middle) \"Middle\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
+                "      (mdi-format-align-bottom) \"Bottom\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-Style-color-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -1969,7 +1956,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/color/save/] id=test-Style-color-color-clear-Link\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/color/save/] id=test-Style-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-Style-backgroundColor-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -2153,20 +2140,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
-                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
+                "    (mdi-format-bold) \"Bold\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
+                "    (mdi-format-underline) \"Underline\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
-                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
+                "      (mdi-format-letter-case) \"Capitalize\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
-                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
-                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
-                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
+                "      (mdi-format-text-wrapping-clip) \"Clip\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
+                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
+                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
                 "    \"Border\" id=test-Style-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-Style-borderTopColor-SubMenu\n" +
@@ -2352,26 +2339,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderTopStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderTopWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-Style-borderLeftColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -2556,26 +2543,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderLeftStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderLeftWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-Style-borderRightColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -2760,26 +2747,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderRightStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderRightWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-Style-borderBottomColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -2964,26 +2951,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderBottomStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderBottomWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-Style-borderColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -3168,318 +3155,317 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderAllStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderAllWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style/*/save/] id=test-Style-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/style] id=test-Style-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Boolean] id=test-ValueTypes-Boolean-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
-                "    \"Datetime\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Wholenumber\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/wholeNumber] id=test-ValueTypes-number/wholeNumber-MenuItem\n" +
+                "    \"Boolean\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/Boolean] id=test-ValueTypes-Boolean-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
+                "    \"Date\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
+                "    \"Datetime\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
+                "    \"Email\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
+                "    \"Number\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
+                "    \"Text\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
+                "    \"Time\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
+                "    \"Url\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
+                "    \"Wholenumber\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/wholeNumber] id=test-ValueTypes-number/wholeNumber-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Boolean] id=test-Value-Boolean-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
-                "    \"Datetime\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Email] id=test-Value-email/Email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Number] id=test-Value-number/Number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Text] id=test-Value-text/Text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Wholenumber\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value/wholeNumber] id=test-Value-number/wholeNumber-MenuItem\n" +
+                "    \"Boolean\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value/Boolean] id=test-Value-Boolean-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
+                "    \"Date\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
+                "    \"Datetime\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
+                "    \"Email\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value/Email] id=test-Value-email/Email-MenuItem\n" +
+                "    \"Number\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value/Number] id=test-Value-number/Number-MenuItem\n" +
+                "    \"Text\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value/Text] id=test-Value-text/Text-MenuItem\n" +
+                "    \"Time\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
+                "    \"Url\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value/url] id=test-Value-url-MenuItem\n" +
+                "    \"Wholenumber\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value/wholeNumber] id=test-Value-number/wholeNumber-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/value] id=test-Value-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/hello-validator-3] id=test-Validator-hello-validator-3-MenuItem\n" +
+                "    \"Absolute Url\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/validator/save/absolute-url] id=test-Validator-absolute-url-MenuItem\n" +
+                "    \"Email Address\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/validator/save/email-address] id=test-Validator-email-address-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator/save/] id=test-Validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/validator] id=test-Validator-edit-MenuItem\n" +
-                "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/validator] id=test-Validator-edit-MenuItem\n" +
+                "  (mdi-star) \"Hide Zero Values\" [/123/SpreadsheetName456/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
-                "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/delete] id=test-delete-MenuItem\n" +
+                "  (mdi-close) \"Delete\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/delete] id=test-delete-MenuItem\n" +
                 "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/column/B:C/right/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/column/B:C/right/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/column/B:C/right/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/column/B:C/right/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
                 "    (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/B:C/right/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/column/B:C/right/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/column/B:C/right/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/column/B:C/right/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/column/B:C/right/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/2:3/bottom/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/2:3/bottom/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/2:3/bottom/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/2:3/bottom/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/2:3/bottom/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/2:3/bottom/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/2:3/bottom/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/2:3/bottom/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
                 "    (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/2:3/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/2:3/bottom/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/2:3/bottom/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/2:3/bottom/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/2:3/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Background Color\" id=test-column-sort-background-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=background-color] id=test-column-sort-background-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=background-color-reversed] id=test-column-sort-background-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=background-color] id=test-column-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=background-color-reversed] id=test-column-sort-background-color-reverse-MenuItem\n" +
                 "    \"Border Bottom Color\" id=test-column-sort-border-bottom-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-bottom-color] id=test-column-sort-border-bottom-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-bottom-color-reversed] id=test-column-sort-border-bottom-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=border-bottom-color] id=test-column-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=border-bottom-color-reversed] id=test-column-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-column-sort-border-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-color] id=test-column-sort-border-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-color-reversed] id=test-column-sort-border-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=border-color] id=test-column-sort-border-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=border-color-reversed] id=test-column-sort-border-color-reverse-MenuItem\n" +
                 "    \"Border Left Color\" id=test-column-sort-border-left-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-left-color] id=test-column-sort-border-left-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-left-color-reversed] id=test-column-sort-border-left-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=border-left-color] id=test-column-sort-border-left-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=border-left-color-reversed] id=test-column-sort-border-left-color-reverse-MenuItem\n" +
                 "    \"Border Right Color\" id=test-column-sort-border-right-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-right-color] id=test-column-sort-border-right-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-right-color-reversed] id=test-column-sort-border-right-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=border-right-color] id=test-column-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=border-right-color-reversed] id=test-column-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Border Top Color\" id=test-column-sort-border-top-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-top-color] id=test-column-sort-border-top-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=border-top-color-reversed] id=test-column-sort-border-top-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=border-top-color] id=test-column-sort-border-top-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=border-top-color-reversed] id=test-column-sort-border-top-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-column-sort-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=color] id=test-column-sort-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=color] id=test-column-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
                 "    \"Currency\" id=test-column-sort-currency-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=currency] id=test-column-sort-currency-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=currency-reversed] id=test-column-sort-currency-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=currency] id=test-column-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=currency-reversed] id=test-column-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-column-sort-custom-list-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=custom-list] id=test-column-sort-custom-list-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=custom-list-reversed] id=test-column-sort-custom-list-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=custom-list] id=test-column-sort-custom-list-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=custom-list-reversed] id=test-column-sort-custom-list-reverse-MenuItem\n" +
                 "    \"Custom List Case Insensitive\" id=test-column-sort-custom-list-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=custom-list-case-insensitive] id=test-column-sort-custom-list-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=custom-list-case-insensitive-reversed] id=test-column-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=custom-list-case-insensitive] id=test-column-sort-custom-list-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=custom-list-case-insensitive-reversed] id=test-column-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Error\" id=test-column-sort-error-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=error] id=test-column-sort-error-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=error-reversed] id=test-column-sort-error-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=error] id=test-column-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=error-reversed] id=test-column-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-column-sort-formatter-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=formatter] id=test-column-sort-formatter-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=formatter-reversed] id=test-column-sort-formatter-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=formatter] id=test-column-sort-formatter-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=formatter-reversed] id=test-column-sort-formatter-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Locale\" id=test-column-sort-locale-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=locale] id=test-column-sort-locale-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=locale-reversed] id=test-column-sort-locale-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=locale] id=test-column-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=locale-reversed] id=test-column-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
                 "    \"Outline Color\" id=test-column-sort-outline-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=outline-color] id=test-column-sort-outline-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=outline-color-reversed] id=test-column-sort-outline-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=outline-color] id=test-column-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=outline-color-reversed] id=test-column-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Parser\" id=test-column-sort-parser-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=parser] id=test-column-sort-parser-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=parser-reversed] id=test-column-sort-parser-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=parser] id=test-column-sort-parser-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=parser-reversed] id=test-column-sort-parser-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Text Decoration Color\" id=test-column-sort-text-decoration-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-decoration-color] id=test-column-sort-text-decoration-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-decoration-color-reversed] id=test-column-sort-text-decoration-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=text-decoration-color] id=test-column-sort-text-decoration-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=text-decoration-color-reversed] id=test-column-sort-text-decoration-color-reverse-MenuItem\n" +
                 "    \"Text With Numbers\" id=test-column-sort-text-with-numbers-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers] id=test-column-sort-text-with-numbers-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers-reversed] id=test-column-sort-text-with-numbers-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers] id=test-column-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers-reversed] id=test-column-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Text With Numbers Case Insensitive\" id=test-column-sort-text-with-numbers-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers-case-insensitive] id=test-column-sort-text-with-numbers-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers-case-insensitive-reversed] id=test-column-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers-case-insensitive] id=test-column-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=text-with-numbers-case-insensitive-reversed] id=test-column-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
                 "    \"Validator\" id=test-column-sort-validator-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=validator] id=test-column-sort-validator-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=validator-reversed] id=test-column-sort-validator-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=validator] id=test-column-sort-validator-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=validator-reversed] id=test-column-sort-validator-reverse-MenuItem\n" +
                 "    \"Value Type\" id=test-column-sort-value-type-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=value-type] id=test-column-sort-value-type-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=value-type-reversed] id=test-column-sort-value-type-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=value-type] id=test-column-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=value-type-reversed] id=test-column-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
+                "    \"Edit\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=background-color] id=test-row-sort-background-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=background-color] id=test-row-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
                 "    \"Border Bottom Color\" id=test-row-sort-border-bottom-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-row-sort-border-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-color] id=test-row-sort-border-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=border-color] id=test-row-sort-border-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
                 "    \"Border Left Color\" id=test-row-sort-border-left-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
                 "    \"Border Right Color\" id=test-row-sort-border-right-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Border Top Color\" id=test-row-sort-border-top-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-top-color] id=test-row-sort-border-top-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=border-top-color-reversed] id=test-row-sort-border-top-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=border-top-color] id=test-row-sort-border-top-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=border-top-color-reversed] id=test-row-sort-border-top-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=color] id=test-row-sort-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=color] id=test-row-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
                 "    \"Currency\" id=test-row-sort-currency-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=currency] id=test-row-sort-currency-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=currency] id=test-row-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
                 "    \"Custom List Case Insensitive\" id=test-row-sort-custom-list-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=custom-list-case-insensitive] id=test-row-sort-custom-list-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=custom-list-case-insensitive-reversed] id=test-row-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=custom-list-case-insensitive] id=test-row-sort-custom-list-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=custom-list-case-insensitive-reversed] id=test-row-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date] id=test-row-sort-date-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=date] id=test-row-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date-time] id=test-row-sort-date-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=date-time] id=test-row-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Error\" id=test-row-sort-error-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=error] id=test-row-sort-error-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=error] id=test-row-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-row-sort-formatter-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=formatter] id=test-row-sort-formatter-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=formatter] id=test-row-sort-formatter-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Locale\" id=test-row-sort-locale-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=locale] id=test-row-sort-locale-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=locale] id=test-row-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=number] id=test-row-sort-number-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=number] id=test-row-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
                 "    \"Outline Color\" id=test-row-sort-outline-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Parser\" id=test-row-sort-parser-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=parser] id=test-row-sort-parser-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=parser-reversed] id=test-row-sort-parser-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=parser] id=test-row-sort-parser-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=parser-reversed] id=test-row-sort-parser-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text] id=test-row-sort-text-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=text] id=test-row-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Text Decoration Color\" id=test-row-sort-text-decoration-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-decoration-color] id=test-row-sort-text-decoration-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-decoration-color-reversed] id=test-row-sort-text-decoration-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=text-decoration-color] id=test-row-sort-text-decoration-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=text-decoration-color-reversed] id=test-row-sort-text-decoration-color-reverse-MenuItem\n" +
                 "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Text With Numbers Case Insensitive\" id=test-row-sort-text-with-numbers-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time] id=test-row-sort-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=time] id=test-row-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
                 "    \"Validator\" id=test-row-sort-validator-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=validator] id=test-row-sort-validator-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=validator] id=test-row-sort-validator-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
                 "    \"Value Type\" id=test-row-sort-value-type-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=value-type] id=test-row-sort-value-type-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=value-type] id=test-row-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year] id=test-row-sort-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/save/2=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=year] id=test-row-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/save/2=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/sort/edit/2=] id=test-row-sort-edit-MenuItem\n" +
+                "    \"Edit\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/sort/edit/2=] id=test-row-sort-edit-MenuItem\n" +
                 "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/label] id=test-label-create-MenuItem\n" +
-                "    \"List...\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/labels] id=test-labels-list-MenuItem\n" +
-                "    \"Label123 (B2)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "  \"References\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/references] [0] id=test-references-MenuItem\n" +
+                "    \"Create...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/labels] id=test-labels-list-MenuItem\n" +
+                "    \"Label123 (B2)\" [/123/SpreadsheetName456/label/Label123] id=test-label-0-MenuItem\n" +
+                "  \"References\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n" +
-                "  \"Reload\" [/1/SpreadsheetName-1/cell/B2:C3/bottom-right/reload] id=test-reload-MenuItem\n"
+                "  \"Reload\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/reload] id=test-reload-MenuItem\n"
         );
     }
 
@@ -3511,129 +3497,129 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         this.treePrintAndCheck2(
             menu,
             "\"Column B:C Menu\" id=Column-MenuId\n" +
-                "  \"Clear\" [/1/SpreadsheetName-1/column/B:C/left/clear] id=test-clear-MenuItem\n" +
-                "  (mdi-table-column-remove) \"Delete\" [/1/SpreadsheetName-1/column/B:C/left/delete] id=test-delete-MenuItem\n" +
+                "  \"Clear\" [/123/SpreadsheetName456/column/B:C/left/clear] id=test-clear-MenuItem\n" +
+                "  (mdi-table-column-remove) \"Delete\" [/123/SpreadsheetName456/column/B:C/left/delete] id=test-delete-MenuItem\n" +
                 "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/B:C/left/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/column/B:C/left/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/column/B:C/left/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/column/B:C/left/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/column/B:C/left/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
                 "    (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/B:C/left/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/column/B:C/left/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/column/B:C/left/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/column/B:C/left/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/column/B:C/left/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Column\" id=test-column-sort-SubMenu\n" +
                 "    \"Background Color\" id=test-column-sort-background-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=background-color] id=test-column-sort-background-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=background-color-reversed] id=test-column-sort-background-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=background-color] id=test-column-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=background-color-reversed] id=test-column-sort-background-color-reverse-MenuItem\n" +
                 "    \"Border Bottom Color\" id=test-column-sort-border-bottom-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-bottom-color] id=test-column-sort-border-bottom-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-bottom-color-reversed] id=test-column-sort-border-bottom-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=border-bottom-color] id=test-column-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=border-bottom-color-reversed] id=test-column-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-column-sort-border-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-color] id=test-column-sort-border-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-color-reversed] id=test-column-sort-border-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=border-color] id=test-column-sort-border-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=border-color-reversed] id=test-column-sort-border-color-reverse-MenuItem\n" +
                 "    \"Border Left Color\" id=test-column-sort-border-left-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-left-color] id=test-column-sort-border-left-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-left-color-reversed] id=test-column-sort-border-left-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=border-left-color] id=test-column-sort-border-left-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=border-left-color-reversed] id=test-column-sort-border-left-color-reverse-MenuItem\n" +
                 "    \"Border Right Color\" id=test-column-sort-border-right-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-right-color] id=test-column-sort-border-right-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-right-color-reversed] id=test-column-sort-border-right-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=border-right-color] id=test-column-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=border-right-color-reversed] id=test-column-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Border Top Color\" id=test-column-sort-border-top-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-top-color] id=test-column-sort-border-top-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=border-top-color-reversed] id=test-column-sort-border-top-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=border-top-color] id=test-column-sort-border-top-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=border-top-color-reversed] id=test-column-sort-border-top-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-column-sort-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=color] id=test-column-sort-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=color] id=test-column-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=color-reversed] id=test-column-sort-color-reverse-MenuItem\n" +
                 "    \"Currency\" id=test-column-sort-currency-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=currency] id=test-column-sort-currency-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=currency-reversed] id=test-column-sort-currency-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=currency] id=test-column-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=currency-reversed] id=test-column-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-column-sort-custom-list-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=custom-list] id=test-column-sort-custom-list-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=custom-list-reversed] id=test-column-sort-custom-list-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=custom-list] id=test-column-sort-custom-list-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=custom-list-reversed] id=test-column-sort-custom-list-reverse-MenuItem\n" +
                 "    \"Custom List Case Insensitive\" id=test-column-sort-custom-list-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=custom-list-case-insensitive] id=test-column-sort-custom-list-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=custom-list-case-insensitive-reversed] id=test-column-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=custom-list-case-insensitive] id=test-column-sort-custom-list-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=custom-list-case-insensitive-reversed] id=test-column-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
                 "    \"Date\" id=test-column-sort-date-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=date] id=test-column-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=date-reversed] id=test-column-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-column-sort-date-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=date-time] id=test-column-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=date-time-reversed] id=test-column-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-column-sort-day-of-month-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=day-of-month] id=test-column-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=day-of-month-reversed] id=test-column-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-column-sort-day-of-week-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=day-of-week] id=test-column-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=day-of-week-reversed] id=test-column-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Error\" id=test-column-sort-error-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=error] id=test-column-sort-error-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=error-reversed] id=test-column-sort-error-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=error] id=test-column-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=error-reversed] id=test-column-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-column-sort-formatter-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=formatter] id=test-column-sort-formatter-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=formatter-reversed] id=test-column-sort-formatter-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=formatter] id=test-column-sort-formatter-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=formatter-reversed] id=test-column-sort-formatter-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-column-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=hour-of-am-pm] id=test-column-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=hour-of-am-pm-reversed] id=test-column-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-column-sort-hour-of-day-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=hour-of-day] id=test-column-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=hour-of-day-reversed] id=test-column-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Locale\" id=test-column-sort-locale-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=locale] id=test-column-sort-locale-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=locale-reversed] id=test-column-sort-locale-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=locale] id=test-column-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=locale-reversed] id=test-column-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-column-sort-minute-of-hour-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=minute-of-hour] id=test-column-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=minute-of-hour-reversed] id=test-column-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-column-sort-month-of-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=month-of-year] id=test-column-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=month-of-year-reversed] id=test-column-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-column-sort-nano-of-second-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=nano-of-second] id=test-column-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=nano-of-second-reversed] id=test-column-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-column-sort-number-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=number] id=test-column-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=number-reversed] id=test-column-sort-number-reverse-MenuItem\n" +
                 "    \"Outline Color\" id=test-column-sort-outline-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=outline-color] id=test-column-sort-outline-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=outline-color-reversed] id=test-column-sort-outline-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=outline-color] id=test-column-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=outline-color-reversed] id=test-column-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Parser\" id=test-column-sort-parser-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=parser] id=test-column-sort-parser-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=parser-reversed] id=test-column-sort-parser-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=parser] id=test-column-sort-parser-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=parser-reversed] id=test-column-sort-parser-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-column-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=seconds-of-minute] id=test-column-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=seconds-of-minute-reversed] id=test-column-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-column-sort-text-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=text] id=test-column-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=text-reversed] id=test-column-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-column-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=text-case-insensitive] id=test-column-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=text-case-insensitive-reversed] id=test-column-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Text Decoration Color\" id=test-column-sort-text-decoration-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-decoration-color] id=test-column-sort-text-decoration-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-decoration-color-reversed] id=test-column-sort-text-decoration-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=text-decoration-color] id=test-column-sort-text-decoration-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=text-decoration-color-reversed] id=test-column-sort-text-decoration-color-reverse-MenuItem\n" +
                 "    \"Text With Numbers\" id=test-column-sort-text-with-numbers-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-with-numbers] id=test-column-sort-text-with-numbers-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-with-numbers-reversed] id=test-column-sort-text-with-numbers-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=text-with-numbers] id=test-column-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=text-with-numbers-reversed] id=test-column-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Text With Numbers Case Insensitive\" id=test-column-sort-text-with-numbers-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-with-numbers-case-insensitive] id=test-column-sort-text-with-numbers-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=text-with-numbers-case-insensitive-reversed] id=test-column-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=text-with-numbers-case-insensitive] id=test-column-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=text-with-numbers-case-insensitive-reversed] id=test-column-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-column-sort-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=time] id=test-column-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=time-reversed] id=test-column-sort-time-reverse-MenuItem\n" +
                 "    \"Validator\" id=test-column-sort-validator-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=validator] id=test-column-sort-validator-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=validator-reversed] id=test-column-sort-validator-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=validator] id=test-column-sort-validator-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=validator-reversed] id=test-column-sort-validator-reverse-MenuItem\n" +
                 "    \"Value Type\" id=test-column-sort-value-type-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=value-type] id=test-column-sort-value-type-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=value-type-reversed] id=test-column-sort-value-type-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=value-type] id=test-column-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=value-type-reversed] id=test-column-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-column-sort-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/column/B:C/left/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=year] id=test-column-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/column/B:C/left/sort/save/B=year-reversed] id=test-column-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit\" [/1/SpreadsheetName-1/column/B:C/left/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
+                "    \"Edit\" [/123/SpreadsheetName456/column/B:C/left/sort/edit/B=] id=test-column-sort-edit-MenuItem\n" +
                 "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
@@ -3671,86 +3657,85 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/cut/date-time-symbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/Label123/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/Label123/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/Label123/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/Label123/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/Label123/cut/date-time-symbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/Label123/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/Label123/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/Label123/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/Label123/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/Label123/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/Label123/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/Label123/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/Label123/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/Label123/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/copy/date-time-symbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/Label123/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/Label123/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/Label123/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/Label123/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/Label123/copy/date-time-symbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/Label123/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/Label123/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/Label123/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/Label123/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/Label123/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/Label123/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/Label123/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/Label123/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/Label123/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/Label123/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/Label123/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/Label123/paste/date-time-symbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/Label123/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/Label123/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/Label123/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/Label123/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/Label123/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/Label123/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/Label123/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/Label123/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/Label123/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/Label123/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/Label123/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/Label123/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/Label123/paste/date-time-symbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/Label123/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/Label123/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/Label123/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/Label123/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/Label123/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/Label123/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/Label123/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/Label123/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/Label123/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/currency] id=test-Currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/Label123/currency] id=test-Currency-edit-MenuItem\n" +
                 "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/Label123/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/Label123/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-Formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/formatter] id=test-Formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/Label123/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/locale] id=test-Locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/Label123/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Parser\" id=test-Parser-SubMenu\n" +
-                "    \"Hello Parser 1\" [/1/SpreadsheetName-1/cell/Label123/parser/save/hello-parser-1] id=test-Parser-hello-parser-1-MenuItem\n" +
-                "    \"Test Parser 2\" [/1/SpreadsheetName-1/cell/Label123/parser/save/test-parser-2] id=test-Parser-test-parser-2-MenuItem\n" +
-                "    \"Test Parser 3\" [/1/SpreadsheetName-1/cell/Label123/parser/save/test-parser-3] id=test-Parser-test-parser-3-MenuItem\n" +
+                "    \"Different Parser Selector 222\" [/123/SpreadsheetName456/cell/Label123/parser/save/different-parser-selector-222] id=test-Parser-different-parser-selector-222-MenuItem\n" +
+                "    \"Parser Selector 111\" [/123/SpreadsheetName456/cell/Label123/parser/save/parser-selector-111] id=test-Parser-parser-selector-111-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/parser/save/] id=test-Parser-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/parser] id=test-Parser-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/Label123/parser] id=test-Parser-edit-MenuItem\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
-                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
-                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
-                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
-                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/Label123/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
+                "      (mdi-format-align-left) \"Left\" [/123/SpreadsheetName456/cell/Label123/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
+                "      (mdi-format-align-center) \"Center\" [/123/SpreadsheetName456/cell/Label123/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
+                "      (mdi-format-align-right) \"Right\" [/123/SpreadsheetName456/cell/Label123/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
+                "      (mdi-format-align-justify) \"Justify\" [/123/SpreadsheetName456/cell/Label123/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
                 "    \"Vertical Alignment\" id=test-Style-verticalAlignment-SubMenu\n" +
-                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
-                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
-                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/Label123/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
+                "      (mdi-format-align-top) \"Top\" [/123/SpreadsheetName456/cell/Label123/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
+                "      (mdi-format-align-middle) \"Middle\" [/123/SpreadsheetName456/cell/Label123/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
+                "      (mdi-format-align-bottom) \"Bottom\" [/123/SpreadsheetName456/cell/Label123/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-Style-color-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -3934,7 +3919,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/color/save/] id=test-Style-color-color-clear-Link\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/Label123/style/color/save/] id=test-Style-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-Style-backgroundColor-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -4118,20 +4103,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/Label123/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/Label123/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
-                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/Label123/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/Label123/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
+                "    (mdi-format-bold) \"Bold\" [/123/SpreadsheetName456/cell/Label123/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/123/SpreadsheetName456/cell/Label123/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/123/SpreadsheetName456/cell/Label123/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
+                "    (mdi-format-underline) \"Underline\" [/123/SpreadsheetName456/cell/Label123/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
-                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/Label123/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/123/SpreadsheetName456/cell/Label123/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
+                "      (mdi-format-letter-case) \"Capitalize\" [/123/SpreadsheetName456/cell/Label123/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/123/SpreadsheetName456/cell/Label123/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/123/SpreadsheetName456/cell/Label123/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
-                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/Label123/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
-                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/Label123/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
-                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/Label123/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
+                "      (mdi-format-text-wrapping-clip) \"Clip\" [/123/SpreadsheetName456/cell/Label123/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
+                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/123/SpreadsheetName456/cell/Label123/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
+                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/123/SpreadsheetName456/cell/Label123/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
                 "    \"Border\" id=test-Style-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-Style-borderTopColor-SubMenu\n" +
@@ -4317,26 +4302,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/Label123/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderTopStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/Label123/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderTopWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/Label123/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/Label123/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/Label123/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/Label123/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/Label123/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/Label123/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-Style-borderLeftColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -4521,26 +4506,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/Label123/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderLeftStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/Label123/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderLeftWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/Label123/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/Label123/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/Label123/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/Label123/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/Label123/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/Label123/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-Style-borderRightColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -4725,26 +4710,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/Label123/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderRightStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/Label123/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderRightWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/Label123/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/Label123/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/Label123/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/Label123/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/Label123/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/Label123/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-Style-borderBottomColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -4929,26 +4914,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/Label123/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderBottomStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderBottomWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/Label123/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-Style-borderColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -5133,101 +5118,100 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/Label123/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/Label123/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderAllStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/Label123/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderAllWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/Label123/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/Label123/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/Label123/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/Label123/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/Label123/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/Label123/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/Label123/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/style/*/save/] id=test-Style-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/style] id=test-Style-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/Label123/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Boolean] id=test-ValueTypes-Boolean-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
-                "    \"Datetime\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Wholenumber\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/wholeNumber] id=test-ValueTypes-number/wholeNumber-MenuItem\n" +
+                "    \"Boolean\" [/123/SpreadsheetName456/cell/Label123/valueType/save/Boolean] id=test-ValueTypes-Boolean-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/Label123/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
+                "    \"Date\" [/123/SpreadsheetName456/cell/Label123/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
+                "    \"Datetime\" [/123/SpreadsheetName456/cell/Label123/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
+                "    \"Email\" [/123/SpreadsheetName456/cell/Label123/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
+                "    \"Number\" [/123/SpreadsheetName456/cell/Label123/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
+                "    \"Text\" [/123/SpreadsheetName456/cell/Label123/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
+                "    \"Time\" [/123/SpreadsheetName456/cell/Label123/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
+                "    \"Url\" [/123/SpreadsheetName456/cell/Label123/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
+                "    \"Wholenumber\" [/123/SpreadsheetName456/cell/Label123/valueType/save/wholeNumber] id=test-ValueTypes-number/wholeNumber-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/Label123/value/Boolean] id=test-Value-Boolean-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/Label123/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/Label123/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
-                "    \"Datetime\" [/1/SpreadsheetName-1/cell/Label123/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/Label123/value/Email] id=test-Value-email/Email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/Label123/value/Number] id=test-Value-number/Number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/Label123/value/Text] id=test-Value-text/Text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/Label123/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/Label123/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Wholenumber\" [/1/SpreadsheetName-1/cell/Label123/value/wholeNumber] id=test-Value-number/wholeNumber-MenuItem\n" +
+                "    \"Boolean\" [/123/SpreadsheetName456/cell/Label123/value/Boolean] id=test-Value-Boolean-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/Label123/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
+                "    \"Date\" [/123/SpreadsheetName456/cell/Label123/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
+                "    \"Datetime\" [/123/SpreadsheetName456/cell/Label123/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
+                "    \"Email\" [/123/SpreadsheetName456/cell/Label123/value/Email] id=test-Value-email/Email-MenuItem\n" +
+                "    \"Number\" [/123/SpreadsheetName456/cell/Label123/value/Number] id=test-Value-number/Number-MenuItem\n" +
+                "    \"Text\" [/123/SpreadsheetName456/cell/Label123/value/Text] id=test-Value-text/Text-MenuItem\n" +
+                "    \"Time\" [/123/SpreadsheetName456/cell/Label123/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
+                "    \"Url\" [/123/SpreadsheetName456/cell/Label123/value/url] id=test-Value-url-MenuItem\n" +
+                "    \"Wholenumber\" [/123/SpreadsheetName456/cell/Label123/value/wholeNumber] id=test-Value-number/wholeNumber-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/value] id=test-Value-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/Label123/validator/save/hello-validator-3] id=test-Validator-hello-validator-3-MenuItem\n" +
+                "    \"Absolute Url\" [/123/SpreadsheetName456/cell/Label123/validator/save/absolute-url] id=test-Validator-absolute-url-MenuItem\n" +
+                "    \"Email Address\" [/123/SpreadsheetName456/cell/Label123/validator/save/email-address] id=test-Validator-email-address-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/Label123/validator/save/] id=test-Validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/Label123/validator] id=test-Validator-edit-MenuItem\n" +
-                "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/Label123/validator] id=test-Validator-edit-MenuItem\n" +
+                "  (mdi-star) \"Hide Zero Values\" [/123/SpreadsheetName456/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
-                "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/Label123/delete] id=test-delete-MenuItem\n" +
+                "  (mdi-close) \"Delete\" [/123/SpreadsheetName456/cell/Label123/delete] id=test-delete-MenuItem\n" +
                 "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-column-plus-before) \"Insert before column\" id=test-column-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/Z/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/Z/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/Z/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/Z/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/column/Z/insertBefore/1] id=test-column-insert-before-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/column/Z/insertBefore/2] id=test-column-insert-before-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/column/Z/insertBefore/3] id=test-column-insert-before-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/column/Z/insertBefore] id=test-column-insert-before-prompt-MenuItem\n" +
                 "    (mdi-table-column-plus-after) \"Insert after column\" id=test-column-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/column/Z/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/column/Z/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/column/Z/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/column/Z/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/column/Z/insertAfter/1] id=test-column-insert-after-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/column/Z/insertAfter/2] id=test-column-insert-after-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/column/Z/insertAfter/3] id=test-column-insert-after-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/column/Z/insertAfter] id=test-column-insert-after-prompt-MenuItem\n" +
                 "    -----\n" +
                 "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/1/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/1/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/1/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/1/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
                 "    (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/1/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/1/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/1/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/1/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
-                "  \"Freeze\" [/1/SpreadsheetName-1/cell/Label123/freeze] id=test-freeze-MenuItem\n" +
-                "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/Label123/unfreeze] id=test-unfreeze-MenuItem\n" +
+                "  \"Freeze\" [/123/SpreadsheetName456/cell/Label123/freeze] id=test-freeze-MenuItem\n" +
+                "  \"Unfreeze\" [/123/SpreadsheetName456/cell/Label123/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/Label123/label] id=test-label-create-MenuItem\n" +
-                "    \"List...\" [/1/SpreadsheetName-1/cell/Label123/labels] id=test-labels-list-MenuItem\n" +
-                "    \"Label123 (A1)\" [/1/SpreadsheetName-1/label/Label123] id=test-label-0-MenuItem\n" +
-                "  \"References\" [/1/SpreadsheetName-1/cell/Label123/references] [0] id=test-references-MenuItem\n" +
+                "    \"Create...\" [/123/SpreadsheetName456/cell/Label123/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/123/SpreadsheetName456/cell/Label123/labels] id=test-labels-list-MenuItem\n" +
+                "    \"Label123 (A1)\" [/123/SpreadsheetName456/label/Label123] id=test-label-0-MenuItem\n" +
+                "  \"References\" [/123/SpreadsheetName456/cell/Label123/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n" +
-                "  \"Reload\" [/1/SpreadsheetName-1/cell/Label123/reload] id=test-reload-MenuItem\n"
+                "  \"Reload\" [/123/SpreadsheetName456/cell/Label123/reload] id=test-reload-MenuItem\n"
         );
     }
 
@@ -5264,86 +5248,85 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             menu,
             "\"Cell A1 Menu\" id=Cell-MenuId\n" +
                 "  (mdi-content-cut) \"Cut\" id=test-clipboard-cut-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/date-time-symbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/cell] id=test-clipboard-cut-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/formula] id=test-clipboard-cut-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/currency] id=test-clipboard-cut-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/date-time-symbols] id=test-clipboard-cut-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/date-time-symbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/currency] id=test-clipboard-copy-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/date-time-symbols] id=test-clipboard-copy-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
-                "    \"Cell\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
-                "    \"Formula\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
-                "    \"Date Time Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/date-time-symbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
-                "    \"Decimal Number Symbols\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
-                "    \"Formatter\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
-                "    \"Locale\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
-                "    \"Parser\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
-                "    \"Style\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
-                "    \"Validator\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
-                "    \"Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
-                "    \"Value Type\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/1/SpreadsheetName-1/cell/UnknownLabel/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "    \"Cell\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
+                "    \"Formula\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/currency] id=test-clipboard-paste-currency-MenuItem\n" +
+                "    \"Date Time Symbols\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/date-time-symbols] id=test-clipboard-paste-date-time-symbols-MenuItem\n" +
+                "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
+                "    \"Formatter\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
+                "    \"Locale\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+                "    \"Parser\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
+                "    \"Style\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
+                "    \"Validator\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
+                "    \"Value\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
+                "    \"Value Type\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
+                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency/save/] id=test-Currency-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/currency/save/] id=test-Currency-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/currency] id=test-Currency-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/UnknownLabel/currency] id=test-Currency-edit-MenuItem\n" +
                 "  \"DateTimeSymbols\" id=test-DateTimeSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/dateTimeSymbols/save/] id=test-DateTimeSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/UnknownLabel/dateTimeSymbols] id=test-DateTimeSymbols-edit-MenuItem\n" +
                 "  \"DecimalNumberSymbols\" id=test-DecimalNumberSymbols-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/decimalNumberSymbols/save/] id=test-DecimalNumberSymbols-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/UnknownLabel/decimalNumberSymbols] id=test-DecimalNumberSymbols-edit-MenuItem\n" +
                 "  \"Formatter\" id=test-Formatter-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/formatter/save/] id=test-Formatter-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/formatter] id=test-Formatter-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/UnknownLabel/formatter] id=test-Formatter-edit-MenuItem\n" +
                 "  \"Locale\" id=test-Locale-SubMenu\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale/save/] id=test-Locale-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/locale/save/] id=test-Locale-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/locale] id=test-Locale-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/UnknownLabel/locale] id=test-Locale-edit-MenuItem\n" +
                 "  \"Parser\" id=test-Parser-SubMenu\n" +
-                "    \"Hello Parser 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/parser/save/hello-parser-1] id=test-Parser-hello-parser-1-MenuItem\n" +
-                "    \"Test Parser 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/parser/save/test-parser-2] id=test-Parser-test-parser-2-MenuItem\n" +
-                "    \"Test Parser 3\" [/1/SpreadsheetName-1/cell/UnknownLabel/parser/save/test-parser-3] id=test-Parser-test-parser-3-MenuItem\n" +
+                "    \"Different Parser Selector 222\" [/123/SpreadsheetName456/cell/UnknownLabel/parser/save/different-parser-selector-222] id=test-Parser-different-parser-selector-222-MenuItem\n" +
+                "    \"Parser Selector 111\" [/123/SpreadsheetName456/cell/UnknownLabel/parser/save/parser-selector-111] id=test-Parser-parser-selector-111-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/parser/save/] id=test-Parser-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/parser/save/] id=test-Parser-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/parser] id=test-Parser-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/UnknownLabel/parser] id=test-Parser-edit-MenuItem\n" +
                 "  \"Style\" id=test-Style-SubMenu\n" +
                 "    \"Alignment\" id=test-Style-alignment-SubMenu\n" +
-                "      (mdi-format-align-left) \"Left\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
-                "      (mdi-format-align-center) \"Center\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
-                "      (mdi-format-align-right) \"Right\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
-                "      (mdi-format-align-justify) \"Justify\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
+                "      (mdi-format-align-left) \"Left\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-align/save/LEFT] id=test-Style-alignment-left-MenuItem\n" +
+                "      (mdi-format-align-center) \"Center\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-align/save/CENTER] id=test-Style-alignment-center-MenuItem\n" +
+                "      (mdi-format-align-right) \"Right\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-align/save/RIGHT] id=test-Style-alignment-right-MenuItem\n" +
+                "      (mdi-format-align-justify) \"Justify\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-align/save/JUSTIFY] id=test-Style-alignment-justify-MenuItem\n" +
                 "    \"Vertical Alignment\" id=test-Style-verticalAlignment-SubMenu\n" +
-                "      (mdi-format-align-top) \"Top\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
-                "      (mdi-format-align-middle) \"Middle\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
-                "      (mdi-format-align-bottom) \"Bottom\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
+                "      (mdi-format-align-top) \"Top\" [/123/SpreadsheetName456/cell/UnknownLabel/style/vertical-align/save/TOP] id=test-Style-verticalAlignment-top-MenuItem\n" +
+                "      (mdi-format-align-middle) \"Middle\" [/123/SpreadsheetName456/cell/UnknownLabel/style/vertical-align/save/MIDDLE] id=test-Style-verticalAlignment-middle-MenuItem\n" +
+                "      (mdi-format-align-bottom) \"Bottom\" [/123/SpreadsheetName456/cell/UnknownLabel/style/vertical-align/save/BOTTOM] id=test-Style-verticalAlignment-bottom-MenuItem\n" +
                 "    (mdi-palette) \"Color\" id=test-Style-color-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -5527,7 +5510,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/color/save/] id=test-Style-color-color-clear-Link\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/UnknownLabel/style/color/save/] id=test-Style-color-color-clear-Link\n" +
                 "    (mdi-palette) \"Background Color\" id=test-Style-backgroundColor-SubMenu\n" +
                 "      ColorPaletteComponent\n" +
                 "        TABLE\n" +
@@ -5711,20 +5694,20 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "              TR\n",
                 "                TD\n" +
                 "                  colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                    \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
-                "    (mdi-format-bold) \"Bold\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
-                "    (mdi-format-italic) \"Italics\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
-                "    (mdi-format-strikethrough) \"Strike-thru\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
-                "    (mdi-format-underline) \"Underline\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
+                "                    \"Clear\" [#/123/SpreadsheetName456/cell/UnknownLabel/style/background-color/save/] id=test-Style-backgroundColor-color-clear-Link\n" +
+                "    (mdi-format-bold) \"Bold\" [/123/SpreadsheetName456/cell/UnknownLabel/style/font-weight/save/BOLD] id=test-Style-BOLD-MenuItem\n" +
+                "    (mdi-format-italic) \"Italics\" [/123/SpreadsheetName456/cell/UnknownLabel/style/font-style/save/ITALIC] id=test-Style-italic-MenuItem\n" +
+                "    (mdi-format-strikethrough) \"Strike-thru\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-decoration-line/save/LINE_THROUGH] id=test-lineThrough-MenuItem\n" +
+                "    (mdi-format-underline) \"Underline\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-decoration-line/save/UNDERLINE] id=test-underline-MenuItem\n" +
                 "    \"Text case\" id=test-Style-textCase-SubMenu\n" +
-                "      (mdi-format-letter-case-upper) \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
-                "      (mdi-format-letter-case) \"Capitalize\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
-                "      (mdi-format-letter-case-lower) \"Lower case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
-                "      (mdi-format-letter-case-upper) \"Upper case\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-transform/save/] id=test-Style-textCase-none-MenuItem\n" +
+                "      (mdi-format-letter-case) \"Capitalize\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-transform/save/CAPITALIZE] id=test-Style-textCase-capitalize-MenuItem\n" +
+                "      (mdi-format-letter-case-lower) \"Lower case\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-transform/save/LOWERCASE] id=test-Style-textCase-lowercase-MenuItem\n" +
+                "      (mdi-format-letter-case-upper) \"Upper case\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-transform/save/UPPERCASE] id=test-Style-textCase-uppercase-MenuItem\n" +
                 "    \"Wrapping\" id=test-Style-textWrapping-SubMenu\n" +
-                "      (mdi-format-text-wrapping-clip) \"Clip\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
-                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
-                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
+                "      (mdi-format-text-wrapping-clip) \"Clip\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-wrapping/save/CLIP] id=test-Style-textWrapping-clip-MenuItem\n" +
+                "      (mdi-format-text-wrapping-overflow) \"Overflow\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-wrapping/save/OVERFLOW] id=test-Style-textWrapping-overflow-MenuItem\n" +
+                "      (mdi-format-text-wrapping-wrap) \"Wrap\" [/123/SpreadsheetName456/cell/UnknownLabel/style/text-wrapping/save/WRAP] id=test-Style-textWrapping-wrap-MenuItem\n" +
                 "    \"Border\" id=test-Style-border-SubMenu\n" +
                 "      (mdi-border-top-variant) \"Top\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Top Color\" id=test-Style-borderTopColor-SubMenu\n" +
@@ -5910,26 +5893,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-color/save/] id=test-Style-borderTopColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderTopStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/NONE] id=test-Style-borderTopStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/HIDDEN] id=test-Style-borderTopStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/DOTTED] id=test-Style-borderTopStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/DASHED] id=test-Style-borderTopStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/SOLID] id=test-Style-borderTopStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/DOUBLE] id=test-Style-borderTopStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/GROOVE] id=test-Style-borderTopStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/RIDGE] id=test-Style-borderTopStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/INSET] id=test-Style-borderTopStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/OUTSET] id=test-Style-borderTopStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-style/save/] id=test-Style-borderTopStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderTopWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-width/save/0px] id=test-Style-borderTopWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-width/save/1px] id=test-Style-borderTopWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-width/save/2px] id=test-Style-borderTopWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-width/save/3px] id=test-Style-borderTopWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-width/save/4px] id=test-Style-borderTopWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-top-width/save/] id=test-Style-borderTopWidth-clear-MenuItem\n" +
                 "      (mdi-border-left-variant) \"Left\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Left Color\" id=test-Style-borderLeftColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -6114,26 +6097,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-color/save/] id=test-Style-borderLeftColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderLeftStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/NONE] id=test-Style-borderLeftStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/HIDDEN] id=test-Style-borderLeftStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/DOTTED] id=test-Style-borderLeftStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/DASHED] id=test-Style-borderLeftStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/SOLID] id=test-Style-borderLeftStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/DOUBLE] id=test-Style-borderLeftStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/GROOVE] id=test-Style-borderLeftStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/RIDGE] id=test-Style-borderLeftStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/INSET] id=test-Style-borderLeftStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/OUTSET] id=test-Style-borderLeftStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-style/save/] id=test-Style-borderLeftStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderLeftWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-width/save/0px] id=test-Style-borderLeftWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-width/save/1px] id=test-Style-borderLeftWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-width/save/2px] id=test-Style-borderLeftWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-width/save/3px] id=test-Style-borderLeftWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-width/save/4px] id=test-Style-borderLeftWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-left-width/save/] id=test-Style-borderLeftWidth-clear-MenuItem\n" +
                 "      (mdi-border-right-variant) \"Right\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Right Color\" id=test-Style-borderRightColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -6318,26 +6301,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-color/save/] id=test-Style-borderRightColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderRightStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/NONE] id=test-Style-borderRightStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/HIDDEN] id=test-Style-borderRightStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/DOTTED] id=test-Style-borderRightStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/DASHED] id=test-Style-borderRightStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/SOLID] id=test-Style-borderRightStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/DOUBLE] id=test-Style-borderRightStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/GROOVE] id=test-Style-borderRightStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/RIDGE] id=test-Style-borderRightStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/INSET] id=test-Style-borderRightStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/OUTSET] id=test-Style-borderRightStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-style/save/] id=test-Style-borderRightStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderRightWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-width/save/0px] id=test-Style-borderRightWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-width/save/1px] id=test-Style-borderRightWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-width/save/2px] id=test-Style-borderRightWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-width/save/3px] id=test-Style-borderRightWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-width/save/4px] id=test-Style-borderRightWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-right-width/save/] id=test-Style-borderRightWidth-clear-MenuItem\n" +
                 "      (mdi-border-bottom-variant) \"Bottom\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Bottom Color\" id=test-Style-borderBottomColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -6522,26 +6505,26 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-color/save/] id=test-Style-borderBottomColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderBottomStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/NONE] id=test-Style-borderBottomStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/HIDDEN] id=test-Style-borderBottomStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/DOTTED] id=test-Style-borderBottomStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/DASHED] id=test-Style-borderBottomStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/SOLID] id=test-Style-borderBottomStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/DOUBLE] id=test-Style-borderBottomStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/GROOVE] id=test-Style-borderBottomStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/RIDGE] id=test-Style-borderBottomStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/INSET] id=test-Style-borderBottomStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/OUTSET] id=test-Style-borderBottomStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-style/save/] id=test-Style-borderBottomStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderBottomWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-width/save/0px] id=test-Style-borderBottomWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-width/save/1px] id=test-Style-borderBottomWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-width/save/2px] id=test-Style-borderBottomWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-width/save/3px] id=test-Style-borderBottomWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-width/save/4px] id=test-Style-borderBottomWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-bottom-width/save/] id=test-Style-borderBottomWidth-clear-MenuItem\n" +
                 "      (mdi-border-all-variant) \"All\" id=test-Style-border-SubMenu\n" +
                 "        (mdi-palette) \"Border Color\" id=test-Style-borderColor-SubMenu\n" +
                 "          ColorPaletteComponent\n" +
@@ -6726,80 +6709,79 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "                  TR\n",
                 "                    TD\n" +
                 "                      colspan=8 style=\"height: 32px; text-align: center; width: 100%;\"\n" +
-                "                        \"Clear\" [#/1/SpreadsheetName-1/cell/UnknownLabel/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
+                "                        \"Clear\" [#/123/SpreadsheetName456/cell/UnknownLabel/style/border-color/save/] id=test-Style-borderColor-color-clear-Link\n" +
                 "        \"Style\" id=test-Style-borderAllStyle-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
-                "          \"Hidden\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
-                "          \"Dotted\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
-                "          \"Dashed\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
-                "          \"Solid\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
-                "          \"Double\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
-                "          \"Groove\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
-                "          \"Ridge\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
-                "          \"Inset\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
-                "          \"Outset\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/NONE] id=test-Style-borderAllStyle-none-MenuItem\n" +
+                "          \"Hidden\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/HIDDEN] id=test-Style-borderAllStyle-hidden-MenuItem\n" +
+                "          \"Dotted\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/DOTTED] id=test-Style-borderAllStyle-dotted-MenuItem\n" +
+                "          \"Dashed\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/DASHED] id=test-Style-borderAllStyle-dashed-MenuItem\n" +
+                "          \"Solid\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/SOLID] id=test-Style-borderAllStyle-solid-MenuItem\n" +
+                "          \"Double\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/DOUBLE] id=test-Style-borderAllStyle-double-MenuItem\n" +
+                "          \"Groove\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/GROOVE] id=test-Style-borderAllStyle-groove-MenuItem\n" +
+                "          \"Ridge\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/RIDGE] id=test-Style-borderAllStyle-ridge-MenuItem\n" +
+                "          \"Inset\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/INSET] id=test-Style-borderAllStyle-inset-MenuItem\n" +
+                "          \"Outset\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/OUTSET] id=test-Style-borderAllStyle-outset-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-style/save/] id=test-Style-borderAllStyle-clear-MenuItem\n" +
                 "        \"Width\" id=test-Style-borderAllWidth-SubMenu\n" +
-                "          \"None\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
-                "          \"1\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
-                "          \"2\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
-                "          \"3\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
-                "          \"4\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
-                "          (mdi-format-clear) \"Clear\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
+                "          \"None\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-width/save/0px] id=test-Style-borderAllWidth-0-MenuItem\n" +
+                "          \"1\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-width/save/1px] id=test-Style-borderAllWidth-1-MenuItem\n" +
+                "          \"2\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-width/save/2px] id=test-Style-borderAllWidth-2-MenuItem\n" +
+                "          \"3\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-width/save/3px] id=test-Style-borderAllWidth-3-MenuItem\n" +
+                "          \"4\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-width/save/4px] id=test-Style-borderAllWidth-4-MenuItem\n" +
+                "          (mdi-format-clear) \"Clear\" [/123/SpreadsheetName456/cell/UnknownLabel/style/border-width/save/] id=test-Style-borderAllWidth-clear-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-format-clear) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/style/*/save/] id=test-Style-clear-MenuItem\n" +
+                "    (mdi-format-clear) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/style/*/save/] id=test-Style-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/style] id=test-Style-edit-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/UnknownLabel/style] id=test-Style-edit-MenuItem\n" +
                 "  \"Value Type\" id=test-ValueType-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Boolean] id=test-ValueTypes-Boolean-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
-                "    \"Datetime\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
-                "    \"Wholenumber\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/wholeNumber] id=test-ValueTypes-number/wholeNumber-MenuItem\n" +
+                "    \"Boolean\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/Boolean] id=test-ValueTypes-Boolean-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/Currency] id=test-ValueTypes-currency/Currency-MenuItem\n" +
+                "    \"Date\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/Date] id=test-ValueTypes-date-time/Date-MenuItem\n" +
+                "    \"Datetime\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/DateTime] id=test-ValueTypes-date-time/DateTime-MenuItem\n" +
+                "    \"Email\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/Email] id=test-ValueTypes-email/Email-MenuItem\n" +
+                "    \"Number\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/Number] id=test-ValueTypes-number/Number-MenuItem\n" +
+                "    \"Text\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/Text] id=test-ValueTypes-text/Text-MenuItem\n" +
+                "    \"Time\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/Time] id=test-ValueTypes-date-time/Time-MenuItem\n" +
+                "    \"Url\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/url] id=test-ValueTypes-url-MenuItem\n" +
+                "    \"Wholenumber\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/wholeNumber] id=test-ValueTypes-number/wholeNumber-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/valueType/save/] id=test-ValueType-clear-MenuItem\n" +
                 "  \"Value\" id=test-Value-SubMenu\n" +
-                "    \"Boolean\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Boolean] id=test-Value-Boolean-MenuItem\n" +
-                "    \"Currency\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
-                "    \"Date\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
-                "    \"Datetime\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
-                "    \"Email\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Email] id=test-Value-email/Email-MenuItem\n" +
-                "    \"Number\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Number] id=test-Value-number/Number-MenuItem\n" +
-                "    \"Text\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Text] id=test-Value-text/Text-MenuItem\n" +
-                "    \"Time\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
-                "    \"Url\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/url] id=test-Value-url-MenuItem\n" +
-                "    \"Wholenumber\" [/1/SpreadsheetName-1/cell/UnknownLabel/value/wholeNumber] id=test-Value-number/wholeNumber-MenuItem\n" +
+                "    \"Boolean\" [/123/SpreadsheetName456/cell/UnknownLabel/value/Boolean] id=test-Value-Boolean-MenuItem\n" +
+                "    \"Currency\" [/123/SpreadsheetName456/cell/UnknownLabel/value/Currency] id=test-Value-currency/Currency-MenuItem\n" +
+                "    \"Date\" [/123/SpreadsheetName456/cell/UnknownLabel/value/Date] id=test-Value-date-time/Date-MenuItem\n" +
+                "    \"Datetime\" [/123/SpreadsheetName456/cell/UnknownLabel/value/DateTime] id=test-Value-date-time/DateTime-MenuItem\n" +
+                "    \"Email\" [/123/SpreadsheetName456/cell/UnknownLabel/value/Email] id=test-Value-email/Email-MenuItem\n" +
+                "    \"Number\" [/123/SpreadsheetName456/cell/UnknownLabel/value/Number] id=test-Value-number/Number-MenuItem\n" +
+                "    \"Text\" [/123/SpreadsheetName456/cell/UnknownLabel/value/Text] id=test-Value-text/Text-MenuItem\n" +
+                "    \"Time\" [/123/SpreadsheetName456/cell/UnknownLabel/value/Time] id=test-Value-date-time/Time-MenuItem\n" +
+                "    \"Url\" [/123/SpreadsheetName456/cell/UnknownLabel/value/url] id=test-Value-url-MenuItem\n" +
+                "    \"Wholenumber\" [/123/SpreadsheetName456/cell/UnknownLabel/value/wholeNumber] id=test-Value-number/wholeNumber-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/value] id=test-Value-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/value] id=test-Value-clear-MenuItem\n" +
                 "  \"Validator\" id=test-Validator-SubMenu\n" +
-                "    \"Hello Validator 1\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-1] id=test-Validator-hello-validator-1-MenuItem\n" +
-                "    \"Hello Validator 2\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-2] id=test-Validator-hello-validator-2-MenuItem\n" +
-                "    \"Hello Validator 3\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/hello-validator-3] id=test-Validator-hello-validator-3-MenuItem\n" +
+                "    \"Absolute Url\" [/123/SpreadsheetName456/cell/UnknownLabel/validator/save/absolute-url] id=test-Validator-absolute-url-MenuItem\n" +
+                "    \"Email Address\" [/123/SpreadsheetName456/cell/UnknownLabel/validator/save/email-address] id=test-Validator-email-address-MenuItem\n" +
                 "    -----\n" +
-                "    (mdi-close) \"Clear...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator/save/] id=test-Validator-clear-MenuItem\n" +
+                "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/validator/save/] id=test-Validator-clear-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit...\" [/1/SpreadsheetName-1/cell/UnknownLabel/validator] id=test-Validator-edit-MenuItem\n" +
-                "  (mdi-star) \"Hide Zero Values\" [/1/SpreadsheetName-1/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
+                "    \"Edit...\" [/123/SpreadsheetName456/cell/UnknownLabel/validator] id=test-Validator-edit-MenuItem\n" +
+                "  (mdi-star) \"Hide Zero Values\" [/123/SpreadsheetName456/spreadsheet/hideZeroValues/save/true] id=test-hideIfZero-MenuItem\n" +
                 "  -----\n" +
-                "  (mdi-close) \"Delete\" [/1/SpreadsheetName-1/cell/UnknownLabel/delete] id=test-delete-MenuItem\n" +
+                "  (mdi-close) \"Delete\" [/123/SpreadsheetName456/cell/UnknownLabel/delete] id=test-delete-MenuItem\n" +
                 "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu DISABLED\n" +
                 "  -----\n" +
-                "  \"Freeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/freeze] id=test-freeze-MenuItem\n" +
-                "  \"Unfreeze\" [/1/SpreadsheetName-1/cell/UnknownLabel/unfreeze] id=test-unfreeze-MenuItem\n" +
+                "  \"Freeze\" [/123/SpreadsheetName456/cell/UnknownLabel/freeze] id=test-freeze-MenuItem\n" +
+                "  \"Unfreeze\" [/123/SpreadsheetName456/cell/UnknownLabel/unfreeze] id=test-unfreeze-MenuItem\n" +
                 "  -----\n" +
                 "  \"Labels\" [1] id=test-label-SubMenu\n" +
-                "    \"Create...\" [/1/SpreadsheetName-1/cell/UnknownLabel/label] id=test-label-create-MenuItem\n" +
-                "    \"List...\" [/1/SpreadsheetName-1/cell/UnknownLabel/labels] id=test-labels-list-MenuItem\n" +
-                "    \"UnknownLabel (A1)\" [/1/SpreadsheetName-1/label/UnknownLabel] id=test-label-0-MenuItem\n" +
-                "  \"References\" [/1/SpreadsheetName-1/cell/UnknownLabel/references] [0] id=test-references-MenuItem\n" +
+                "    \"Create...\" [/123/SpreadsheetName456/cell/UnknownLabel/label] id=test-label-create-MenuItem\n" +
+                "    \"List...\" [/123/SpreadsheetName456/cell/UnknownLabel/labels] id=test-labels-list-MenuItem\n" +
+                "    \"UnknownLabel (A1)\" [/123/SpreadsheetName456/label/UnknownLabel] id=test-label-0-MenuItem\n" +
+                "  \"References\" [/123/SpreadsheetName456/cell/UnknownLabel/references] [0] id=test-references-MenuItem\n" +
                 "  -----\n" +
-                "  \"Reload\" [/1/SpreadsheetName-1/cell/UnknownLabel/reload] id=test-reload-MenuItem\n"
+                "  \"Reload\" [/123/SpreadsheetName456/cell/UnknownLabel/reload] id=test-reload-MenuItem\n"
         );
     }
 
@@ -6831,129 +6813,129 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         this.treePrintAndCheck2(
             menu,
             "\"Row 3 Menu\" id=Row-MenuId\n" +
-                "  \"Clear\" [/1/SpreadsheetName-1/row/3/clear] id=test-clear-MenuItem\n" +
-                "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3/delete] id=test-delete-MenuItem\n" +
+                "  \"Clear\" [/123/SpreadsheetName456/row/3/clear] id=test-clear-MenuItem\n" +
+                "  (mdi-table-row-remove) \"Delete\" [/123/SpreadsheetName456/row/3/delete] id=test-delete-MenuItem\n" +
                 "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/3/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/3/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/3/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/3/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/3/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/3/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/3/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/3/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
                 "    (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/3/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/3/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/3/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/3/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/3/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/3/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/3/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/3/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
                 "    \"Border Bottom Color\" id=test-row-sort-border-bottom-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-row-sort-border-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-color] id=test-row-sort-border-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=border-color] id=test-row-sort-border-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
                 "    \"Border Left Color\" id=test-row-sort-border-left-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
                 "    \"Border Right Color\" id=test-row-sort-border-right-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Border Top Color\" id=test-row-sort-border-top-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-top-color] id=test-row-sort-border-top-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=border-top-color-reversed] id=test-row-sort-border-top-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=border-top-color] id=test-row-sort-border-top-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=border-top-color-reversed] id=test-row-sort-border-top-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
                 "    \"Currency\" id=test-row-sort-currency-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=currency] id=test-row-sort-currency-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=currency] id=test-row-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
                 "    \"Custom List Case Insensitive\" id=test-row-sort-custom-list-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=custom-list-case-insensitive] id=test-row-sort-custom-list-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=custom-list-case-insensitive-reversed] id=test-row-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=custom-list-case-insensitive] id=test-row-sort-custom-list-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=custom-list-case-insensitive-reversed] id=test-row-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=date-time] id=test-row-sort-date-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=date-time] id=test-row-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Error\" id=test-row-sort-error-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=error] id=test-row-sort-error-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=error] id=test-row-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-row-sort-formatter-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=formatter] id=test-row-sort-formatter-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=formatter] id=test-row-sort-formatter-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Locale\" id=test-row-sort-locale-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=locale] id=test-row-sort-locale-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=locale] id=test-row-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
                 "    \"Outline Color\" id=test-row-sort-outline-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Parser\" id=test-row-sort-parser-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=parser] id=test-row-sort-parser-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=parser-reversed] id=test-row-sort-parser-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=parser] id=test-row-sort-parser-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=parser-reversed] id=test-row-sort-parser-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text] id=test-row-sort-text-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=text] id=test-row-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Text Decoration Color\" id=test-row-sort-text-decoration-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-decoration-color] id=test-row-sort-text-decoration-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-decoration-color-reversed] id=test-row-sort-text-decoration-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=text-decoration-color] id=test-row-sort-text-decoration-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=text-decoration-color-reversed] id=test-row-sort-text-decoration-color-reverse-MenuItem\n" +
                 "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Text With Numbers Case Insensitive\" id=test-row-sort-text-with-numbers-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
                 "    \"Validator\" id=test-row-sort-validator-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=validator] id=test-row-sort-validator-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=validator] id=test-row-sort-validator-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
                 "    \"Value Type\" id=test-row-sort-value-type-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=value-type] id=test-row-sort-value-type-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=value-type] id=test-row-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit\" [/1/SpreadsheetName-1/row/3/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
+                "    \"Edit\" [/123/SpreadsheetName456/row/3/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
                 "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
@@ -6988,129 +6970,129 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         this.treePrintAndCheck2(
             menu,
             "\"Row 3:4 Menu\" id=Row-MenuId\n" +
-                "  \"Clear\" [/1/SpreadsheetName-1/row/3:4/top/clear] id=test-clear-MenuItem\n" +
-                "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3:4/top/delete] id=test-delete-MenuItem\n" +
+                "  \"Clear\" [/123/SpreadsheetName456/row/3:4/top/clear] id=test-clear-MenuItem\n" +
+                "  (mdi-table-row-remove) \"Delete\" [/123/SpreadsheetName456/row/3:4/top/delete] id=test-delete-MenuItem\n" +
                 "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/3:4/top/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/3:4/top/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/3:4/top/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/3:4/top/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/3:4/top/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
                 "    (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/3:4/top/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/3:4/top/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/3:4/top/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/3:4/top/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/3:4/top/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
                 "    \"Border Bottom Color\" id=test-row-sort-border-bottom-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-row-sort-border-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-color] id=test-row-sort-border-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=border-color] id=test-row-sort-border-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
                 "    \"Border Left Color\" id=test-row-sort-border-left-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
                 "    \"Border Right Color\" id=test-row-sort-border-right-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Border Top Color\" id=test-row-sort-border-top-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-top-color] id=test-row-sort-border-top-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=border-top-color-reversed] id=test-row-sort-border-top-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=border-top-color] id=test-row-sort-border-top-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=border-top-color-reversed] id=test-row-sort-border-top-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
                 "    \"Currency\" id=test-row-sort-currency-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=currency] id=test-row-sort-currency-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=currency] id=test-row-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
                 "    \"Custom List Case Insensitive\" id=test-row-sort-custom-list-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=custom-list-case-insensitive] id=test-row-sort-custom-list-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=custom-list-case-insensitive-reversed] id=test-row-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=custom-list-case-insensitive] id=test-row-sort-custom-list-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=custom-list-case-insensitive-reversed] id=test-row-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date-time] id=test-row-sort-date-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=date-time] id=test-row-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Error\" id=test-row-sort-error-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=error] id=test-row-sort-error-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=error] id=test-row-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-row-sort-formatter-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=formatter] id=test-row-sort-formatter-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=formatter] id=test-row-sort-formatter-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Locale\" id=test-row-sort-locale-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=locale] id=test-row-sort-locale-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=locale] id=test-row-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
                 "    \"Outline Color\" id=test-row-sort-outline-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Parser\" id=test-row-sort-parser-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=parser] id=test-row-sort-parser-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=parser-reversed] id=test-row-sort-parser-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=parser] id=test-row-sort-parser-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=parser-reversed] id=test-row-sort-parser-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text] id=test-row-sort-text-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=text] id=test-row-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Text Decoration Color\" id=test-row-sort-text-decoration-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-decoration-color] id=test-row-sort-text-decoration-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-decoration-color-reversed] id=test-row-sort-text-decoration-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=text-decoration-color] id=test-row-sort-text-decoration-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=text-decoration-color-reversed] id=test-row-sort-text-decoration-color-reverse-MenuItem\n" +
                 "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Text With Numbers Case Insensitive\" id=test-row-sort-text-with-numbers-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
                 "    \"Validator\" id=test-row-sort-validator-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=validator] id=test-row-sort-validator-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=validator] id=test-row-sort-validator-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
                 "    \"Value Type\" id=test-row-sort-value-type-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=value-type] id=test-row-sort-value-type-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=value-type] id=test-row-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/top/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/top/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/top/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
+                "    \"Edit\" [/123/SpreadsheetName456/row/3:4/top/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
                 "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
@@ -7145,129 +7127,129 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
         this.treePrintAndCheck2(
             menu,
             "\"Row 3:4 Menu\" id=Row-MenuId\n" +
-                "  \"Clear\" [/1/SpreadsheetName-1/row/3:4/bottom/clear] id=test-clear-MenuItem\n" +
-                "  (mdi-table-row-remove) \"Delete\" [/1/SpreadsheetName-1/row/3:4/bottom/delete] id=test-delete-MenuItem\n" +
+                "  \"Clear\" [/123/SpreadsheetName456/row/3:4/bottom/clear] id=test-clear-MenuItem\n" +
+                "  (mdi-table-row-remove) \"Delete\" [/123/SpreadsheetName456/row/3:4/bottom/delete] id=test-delete-MenuItem\n" +
                 "  -----\n" +
                 "  \"Insert\" id=test-insert-SubMenu\n" +
                 "    (mdi-table-row-plus-before) \"Insert before row\" id=test-row-insert-before-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/3:4/bottom/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/3:4/bottom/insertBefore/1] id=test-row-insert-before-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/3:4/bottom/insertBefore/2] id=test-row-insert-before-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/3:4/bottom/insertBefore/3] id=test-row-insert-before-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/3:4/bottom/insertBefore] id=test-row-insert-before-prompt-MenuItem\n" +
                 "    (mdi-table-row-plus-after) \"Insert after row\" id=test-row-insert-after-SubMenu\n" +
-                "      \"1\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
-                "      \"2\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
-                "      \"3\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
-                "      \"...\" [/1/SpreadsheetName-1/row/3:4/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
+                "      \"1\" [/123/SpreadsheetName456/row/3:4/bottom/insertAfter/1] id=test-row-insert-after-1-MenuItem\n" +
+                "      \"2\" [/123/SpreadsheetName456/row/3:4/bottom/insertAfter/2] id=test-row-insert-after-2-MenuItem\n" +
+                "      \"3\" [/123/SpreadsheetName456/row/3:4/bottom/insertAfter/3] id=test-row-insert-after-3-MenuItem\n" +
+                "      \"...\" [/123/SpreadsheetName456/row/3:4/bottom/insertAfter] id=test-row-insert-after-prompt-MenuItem\n" +
                 "  -----\n" +
                 "  (mdi-sort) \"Sort Row\" id=test-row-sort-SubMenu\n" +
                 "    \"Background Color\" id=test-row-sort-background-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=background-color] id=test-row-sort-background-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=background-color-reversed] id=test-row-sort-background-color-reverse-MenuItem\n" +
                 "    \"Border Bottom Color\" id=test-row-sort-border-bottom-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=border-bottom-color] id=test-row-sort-border-bottom-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=border-bottom-color-reversed] id=test-row-sort-border-bottom-color-reverse-MenuItem\n" +
                 "    \"Border Color\" id=test-row-sort-border-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-color] id=test-row-sort-border-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=border-color] id=test-row-sort-border-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=border-color-reversed] id=test-row-sort-border-color-reverse-MenuItem\n" +
                 "    \"Border Left Color\" id=test-row-sort-border-left-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=border-left-color] id=test-row-sort-border-left-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=border-left-color-reversed] id=test-row-sort-border-left-color-reverse-MenuItem\n" +
                 "    \"Border Right Color\" id=test-row-sort-border-right-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=border-right-color] id=test-row-sort-border-right-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=border-right-color-reversed] id=test-row-sort-border-right-color-reverse-MenuItem\n" +
                 "    \"Border Top Color\" id=test-row-sort-border-top-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-top-color] id=test-row-sort-border-top-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=border-top-color-reversed] id=test-row-sort-border-top-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=border-top-color] id=test-row-sort-border-top-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=border-top-color-reversed] id=test-row-sort-border-top-color-reverse-MenuItem\n" +
                 "    \"Color\" id=test-row-sort-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=color] id=test-row-sort-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=color-reversed] id=test-row-sort-color-reverse-MenuItem\n" +
                 "    \"Currency\" id=test-row-sort-currency-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=currency] id=test-row-sort-currency-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=currency] id=test-row-sort-currency-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=currency-reversed] id=test-row-sort-currency-reverse-MenuItem\n" +
                 "    \"Custom List\" id=test-row-sort-custom-list-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=custom-list] id=test-row-sort-custom-list-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=custom-list-reversed] id=test-row-sort-custom-list-reverse-MenuItem\n" +
                 "    \"Custom List Case Insensitive\" id=test-row-sort-custom-list-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=custom-list-case-insensitive] id=test-row-sort-custom-list-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=custom-list-case-insensitive-reversed] id=test-row-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=custom-list-case-insensitive] id=test-row-sort-custom-list-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=custom-list-case-insensitive-reversed] id=test-row-sort-custom-list-case-insensitive-reverse-MenuItem\n" +
                 "    \"Date\" id=test-row-sort-date-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=date] id=test-row-sort-date-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=date-reversed] id=test-row-sort-date-reverse-MenuItem\n" +
                 "    \"Date Time\" id=test-row-sort-date-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date-time] id=test-row-sort-date-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=date-time] id=test-row-sort-date-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=date-time-reversed] id=test-row-sort-date-time-reverse-MenuItem\n" +
                 "    \"Day Of Month\" id=test-row-sort-day-of-month-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=day-of-month] id=test-row-sort-day-of-month-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=day-of-month-reversed] id=test-row-sort-day-of-month-reverse-MenuItem\n" +
                 "    \"Day Of Week\" id=test-row-sort-day-of-week-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=day-of-week] id=test-row-sort-day-of-week-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=day-of-week-reversed] id=test-row-sort-day-of-week-reverse-MenuItem\n" +
                 "    \"Error\" id=test-row-sort-error-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=error] id=test-row-sort-error-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=error] id=test-row-sort-error-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=error-reversed] id=test-row-sort-error-reverse-MenuItem\n" +
                 "    \"Formatter\" id=test-row-sort-formatter-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=formatter] id=test-row-sort-formatter-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=formatter] id=test-row-sort-formatter-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=formatter-reversed] id=test-row-sort-formatter-reverse-MenuItem\n" +
                 "    \"Hour Of Am Pm\" id=test-row-sort-hour-of-am-pm-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=hour-of-am-pm] id=test-row-sort-hour-of-am-pm-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=hour-of-am-pm-reversed] id=test-row-sort-hour-of-am-pm-reverse-MenuItem\n" +
                 "    \"Hour Of Day\" id=test-row-sort-hour-of-day-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=hour-of-day] id=test-row-sort-hour-of-day-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=hour-of-day-reversed] id=test-row-sort-hour-of-day-reverse-MenuItem\n" +
                 "    \"Locale\" id=test-row-sort-locale-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=locale] id=test-row-sort-locale-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=locale] id=test-row-sort-locale-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=locale-reversed] id=test-row-sort-locale-reverse-MenuItem\n" +
                 "    \"Minute Of Hour\" id=test-row-sort-minute-of-hour-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=minute-of-hour] id=test-row-sort-minute-of-hour-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=minute-of-hour-reversed] id=test-row-sort-minute-of-hour-reverse-MenuItem\n" +
                 "    \"Month Of Year\" id=test-row-sort-month-of-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=month-of-year] id=test-row-sort-month-of-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=month-of-year-reversed] id=test-row-sort-month-of-year-reverse-MenuItem\n" +
                 "    \"Nano Of Second\" id=test-row-sort-nano-of-second-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=nano-of-second] id=test-row-sort-nano-of-second-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=nano-of-second-reversed] id=test-row-sort-nano-of-second-reverse-MenuItem\n" +
                 "    \"Number\" id=test-row-sort-number-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=number] id=test-row-sort-number-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=number-reversed] id=test-row-sort-number-reverse-MenuItem\n" +
                 "    \"Outline Color\" id=test-row-sort-outline-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=outline-color] id=test-row-sort-outline-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=outline-color-reversed] id=test-row-sort-outline-color-reverse-MenuItem\n" +
                 "    \"Parser\" id=test-row-sort-parser-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=parser] id=test-row-sort-parser-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=parser-reversed] id=test-row-sort-parser-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=parser] id=test-row-sort-parser-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=parser-reversed] id=test-row-sort-parser-reverse-MenuItem\n" +
                 "    \"Seconds Of Minute\" id=test-row-sort-seconds-of-minute-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=seconds-of-minute] id=test-row-sort-seconds-of-minute-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=seconds-of-minute-reversed] id=test-row-sort-seconds-of-minute-reverse-MenuItem\n" +
                 "    \"Text\" id=test-row-sort-text-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text] id=test-row-sort-text-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=text] id=test-row-sort-text-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=text-reversed] id=test-row-sort-text-reverse-MenuItem\n" +
                 "    \"Text Case Insensitive\" id=test-row-sort-text-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=text-case-insensitive] id=test-row-sort-text-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=text-case-insensitive-reversed] id=test-row-sort-text-case-insensitive-reverse-MenuItem\n" +
                 "    \"Text Decoration Color\" id=test-row-sort-text-decoration-color-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-decoration-color] id=test-row-sort-text-decoration-color-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-decoration-color-reversed] id=test-row-sort-text-decoration-color-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=text-decoration-color] id=test-row-sort-text-decoration-color-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=text-decoration-color-reversed] id=test-row-sort-text-decoration-color-reverse-MenuItem\n" +
                 "    \"Text With Numbers\" id=test-row-sort-text-with-numbers-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=text-with-numbers] id=test-row-sort-text-with-numbers-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=text-with-numbers-reversed] id=test-row-sort-text-with-numbers-reverse-MenuItem\n" +
                 "    \"Text With Numbers Case Insensitive\" id=test-row-sort-text-with-numbers-case-insensitive-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=text-with-numbers-case-insensitive] id=test-row-sort-text-with-numbers-case-insensitive-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=text-with-numbers-case-insensitive-reversed] id=test-row-sort-text-with-numbers-case-insensitive-reverse-MenuItem\n" +
                 "    \"Time\" id=test-row-sort-time-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=time] id=test-row-sort-time-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=time-reversed] id=test-row-sort-time-reverse-MenuItem\n" +
                 "    \"Validator\" id=test-row-sort-validator-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=validator] id=test-row-sort-validator-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=validator] id=test-row-sort-validator-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=validator-reversed] id=test-row-sort-validator-reverse-MenuItem\n" +
                 "    \"Value Type\" id=test-row-sort-value-type-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=value-type] id=test-row-sort-value-type-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=value-type] id=test-row-sort-value-type-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=value-type-reversed] id=test-row-sort-value-type-reverse-MenuItem\n" +
                 "    \"Year\" id=test-row-sort-year-SubMenu\n" +
-                "      \"Forward\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
-                "      \"Reverse\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
+                "      \"Forward\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=year] id=test-row-sort-year-MenuItem\n" +
+                "      \"Reverse\" [/123/SpreadsheetName456/row/3:4/bottom/sort/save/3=year-reversed] id=test-row-sort-year-reverse-MenuItem\n" +
                 "    -----\n" +
-                "    \"Edit\" [/1/SpreadsheetName-1/row/3:4/bottom/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
+                "    \"Edit\" [/123/SpreadsheetName456/row/3:4/bottom/sort/edit/3=] id=test-row-sort-edit-MenuItem\n" +
                 "  -----\n" +
                 "  \"Freeze\" id=test-freeze-MenuItem\n" +
                 "  \"Unfreeze\" id=test-unfreeze-MenuItem\n"
@@ -7415,18 +7397,16 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
             @Override
             public List<SpreadsheetParserSelector> spreadsheetParserSelectors() {
                 return Lists.of(
-                    PARSER1,
-                    SpreadsheetParserSelector.parse("test-parser-2"),
-                    SpreadsheetParserSelector.parse("test-parser-3")
+                    PARSER_SELECTOR,
+                    DIFFERENT_PARSER_SELECTOR
                 );
             }
 
             @Override
             public List<ValidatorSelector> validatorSelectors() {
                 return Lists.of(
-                    VALIDATOR1,
-                    ValidatorSelector.parse("hello-validator-3"),
-                    ValidatorSelector.parse("hello-validator-2")
+                    VALIDATOR_SELECTOR,
+                    DIFFERENT_VALIDATOR_SELECTOR
                 );
             }
 
