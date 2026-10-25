@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.formatter;
 
+import walkingkooka.logging.LoggingContext;
+import walkingkooka.logging.LoggingContextDelegator;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
@@ -41,6 +43,7 @@ import java.util.Locale;
  */
 abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext implements SpreadsheetFormatterSelectorDialogComponentContext,
     DialogComponentContextDelegator,
+    LoggingContextDelegator,
     SpreadsheetFormatterContextDelegator,
     SpreadsheetFormatterProviderDelegator {
 
@@ -54,6 +57,13 @@ abstract class AppContextSpreadsheetFormatterSelectorDialogComponentContext impl
     @Override
     public final String formatterTableHistoryTokenSave(final SpreadsheetFormatterSelector selector) {
         return selector.text();
+    }
+
+    // LoggingContextDelegator..........................................................................................
+
+    @Override
+    public final LoggingContext loggingContext() {
+        return this.context;
     }
 
     // SpreadsheetFormatterContext......................................................................................

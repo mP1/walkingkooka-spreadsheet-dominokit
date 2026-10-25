@@ -34,6 +34,8 @@ import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.locale.LocaleLanguageTag;
+import walkingkooka.logging.LoggingContext;
+import walkingkooka.logging.LoggingContextDelegator;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
 import walkingkooka.net.email.EmailAddress;
@@ -76,26 +78,31 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
     DateTimeContextDelegator,
     DecimalNumberContextDelegator,
     JsonNodeMarshallUnmarshallContextDelegator,
-    LocaleContextDelegator {
+    LocaleContextDelegator,
+    LoggingContextDelegator {
 
     static AppSpreadsheetFormatterContext with(final ColorContext colorContext,
                                                final DateTimeContext dateTimeContext,
-                                               final DecimalNumberContext decimalNumberContext) {
+                                               final DecimalNumberContext decimalNumberContext,
+                                               final LoggingContext loggingContext) {
         return new AppSpreadsheetFormatterContext(
             Objects.requireNonNull(colorContext, "colorContext"),
             Objects.requireNonNull(dateTimeContext, "dateTimeContext"),
-            Objects.requireNonNull(decimalNumberContext, "decimalNumberContext")
+            Objects.requireNonNull(decimalNumberContext, "decimalNumberContext"),
+            Objects.requireNonNull(loggingContext, "loggingContext")
         );
     }
 
     private AppSpreadsheetFormatterContext(final ColorContext colorContext,
                                            final DateTimeContext dateTimeContext,
-                                           final DecimalNumberContext decimalNumberContext) {
+                                           final DecimalNumberContext decimalNumberContext,
+                                           final LoggingContext loggingContext) {
         super();
 
         this.colorContext = colorContext;
         this.dateTimeContext = dateTimeContext;
         this.decimalNumberContext = decimalNumberContext;
+        this.loggingContext = loggingContext;
     }
 
     @Override
@@ -304,6 +311,15 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
         return LocaleContexts.fake();
     }
 
+    // LoggingContextDelegator..........................................................................................
+
+    @Override
+    public LoggingContext loggingContext() {
+        return this.loggingContext;
+    }
+
+    private final LoggingContext loggingContext;
+
     // MediaTypeDetector................................................................................................
 
     @Override
@@ -316,6 +332,11 @@ final class AppSpreadsheetFormatterContext implements SpreadsheetFormatterContex
 
     @Override
     public String toString() {
-        return "dateTimeContext: " + this.dateTimeContext + ", decimalNumberContext: " + this.decimalNumberContext;
+        return "dateTimeContext: " +
+            this.dateTimeContext +
+            ", decimalNumberContext: " +
+            this.decimalNumberContext +
+            ", loggingContext: " +
+            this.loggingContext;
     }
 }

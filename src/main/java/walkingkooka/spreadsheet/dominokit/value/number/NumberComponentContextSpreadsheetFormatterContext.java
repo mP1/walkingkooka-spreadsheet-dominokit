@@ -33,6 +33,8 @@ import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.locale.LocaleLanguageTag;
+import walkingkooka.logging.LoggingContext;
+import walkingkooka.logging.LoggingContextDelegator;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
 import walkingkooka.net.email.EmailAddress;
@@ -78,7 +80,8 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
     DateTimeContextDelegator,
     DecimalNumberContextDelegator,
     JsonNodeMarshallUnmarshallContextDelegator,
-    LocaleContextDelegator {
+    LocaleContextDelegator,
+    LoggingContextDelegator {
 
     static NumberComponentContextSpreadsheetFormatterContext with(final NumberComponentContext context) {
         return new NumberComponentContextSpreadsheetFormatterContext(context);
@@ -301,6 +304,13 @@ final class NumberComponentContextSpreadsheetFormatterContext implements Spreads
     }
 
     private final static LocaleContext LOCALE_CONTEXT = LocaleContexts.fake();
+
+    // LoggingContextDelegator..........................................................................................
+
+    @Override
+    public LoggingContext loggingContext() {
+        return this.context;
+    }
 
     // MediaTypeDetector................................................................................................
 

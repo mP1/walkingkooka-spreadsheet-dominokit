@@ -306,6 +306,10 @@ public class App implements EntryPoint,
 
     private final static LineEnding LINE_ENDING = LineEnding.CRNL;
 
+    private final static BrowserLoggingContext LOGGING_CONTEXT = AppLoggingContext.with(
+        LoggingContexts.elemental()
+    );
+
     private final static MediaTypeDetector MEDIA_TYPE_DETECTOR = MediaTypeDetectors.fake();
 
     private final static BinaryNumberConverterFunction<SpreadsheetConverterContext> MULTIPLIER = ExpressionNumberBinaryNumberConverterFunctions.multiply();
@@ -328,7 +332,8 @@ public class App implements EntryPoint,
                 .get(),
             LOCALE,
             MathContext.UNLIMITED
-        )
+        ),
+        LOGGING_CONTEXT
     );
 
     private final static SpreadsheetMetadataLoader SPREADSHEET_METADATA_LOADER = SpreadsheetMetadataLoaders.empty();
@@ -338,13 +343,8 @@ public class App implements EntryPoint,
 
         this.addWindowResizeListener(this::onWindowResize);
 
-        // logging
-        this.loggingContext = AppLoggingContext.with(
-            LoggingContexts.elemental()
-        );
-
-        this.canGiveFocus = CanGiveFocuses.scheduler(this.loggingContext);
-        AppUncaughtExceptionHandler.with(this.loggingContext);
+        this.canGiveFocus = CanGiveFocuses.scheduler(LOGGING_CONTEXT);
+        AppUncaughtExceptionHandler.with(LOGGING_CONTEXT);
 
         this.unmarshallContext = JsonNodeUnmarshallContexts.basic(
             ExpressionNumberKind.DEFAULT,
@@ -1429,10 +1429,8 @@ public class App implements EntryPoint,
 
     @Override
     public BrowserLoggingContext browserLoggingContext() {
-        return this.loggingContext;
+        return LOGGING_CONTEXT;
     }
-
-    private final BrowserLoggingContext loggingContext;
 
     // MediaTypeDetector................................................................................................
 

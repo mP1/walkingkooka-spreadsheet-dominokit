@@ -32,6 +32,8 @@ import walkingkooka.environment.CanParseEnvironmentValueNameDelegator;
 import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleLanguageTag;
+import walkingkooka.logging.LoggingContext;
+import walkingkooka.logging.LoggingContextDelegator;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
 import walkingkooka.net.email.EmailAddress;
@@ -77,7 +79,8 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
     DateTimeContextDelegator,
     DecimalNumberContextDelegator,
     JsonNodeMarshallUnmarshallContextDelegator,
-    LocaleContextDelegator {
+    LocaleContextDelegator,
+    LoggingContextDelegator {
 
     static WholeNumberComponentContextSpreadsheetFormatterContext with(final WholeNumberComponentContext context) {
         return new WholeNumberComponentContextSpreadsheetFormatterContext(context);
@@ -295,6 +298,13 @@ final class WholeNumberComponentContextSpreadsheetFormatterContext implements Sp
 
     @Override
     public LocaleContext localeContext() {
+        throw new UnsupportedOperationException();
+    }
+
+    // LoggingContextDelegator..........................................................................................
+
+    @Override
+    public LoggingContext loggingContext() {
         throw new UnsupportedOperationException();
     }
 
