@@ -47,7 +47,7 @@ public final class SpreadsheetCellCurrencyExchangeRaterSaveHistoryTokenTest exte
 
     @Test
     public void testUrlFragmentCell() {
-        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/currencyExchangeRater/save/" + CURRENCY_EXCHANGE_RATER);
+        this.urlFragmentAndCheck("/123/SpreadsheetName456/cell/A1/currencyExchangeRater/save/" + SpreadsheetNameHistoryTokenTestCase.CURRENCY_EXCHANGE_RATER);
     }
 
     @Test
@@ -67,7 +67,7 @@ public final class SpreadsheetCellCurrencyExchangeRaterSaveHistoryTokenTest exte
     public void testUrlFragmentCellRange() {
         this.urlFragmentAndCheck(
             CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/B2:C3/top-left/currencyExchangeRater/save/" + CURRENCY_EXCHANGE_RATER
+            "/123/SpreadsheetName456/cell/B2:C3/top-left/currencyExchangeRater/save/" + SpreadsheetNameHistoryTokenTestCase.CURRENCY_EXCHANGE_RATER
         );
     }
 
@@ -75,7 +75,7 @@ public final class SpreadsheetCellCurrencyExchangeRaterSaveHistoryTokenTest exte
     public void testUrlFragmentCellRangeStar() {
         this.urlFragmentAndCheck(
             SpreadsheetSelection.ALL_CELLS.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
-            "/123/SpreadsheetName456/cell/*/top-left/currencyExchangeRater/save/" + CURRENCY_EXCHANGE_RATER
+            "/123/SpreadsheetName456/cell/*/top-left/currencyExchangeRater/save/" + SpreadsheetNameHistoryTokenTestCase.CURRENCY_EXCHANGE_RATER
         );
     }
 
@@ -83,7 +83,7 @@ public final class SpreadsheetCellCurrencyExchangeRaterSaveHistoryTokenTest exte
     public void testUrlFragmentLabel() {
         this.urlFragmentAndCheck(
             LABEL,
-            "/123/SpreadsheetName456/cell/Label123/currencyExchangeRater/save/" + CURRENCY_EXCHANGE_RATER
+            "/123/SpreadsheetName456/cell/Label123/currencyExchangeRater/save/" + SpreadsheetNameHistoryTokenTestCase.CURRENCY_EXCHANGE_RATER
         );
     }
 
@@ -107,7 +107,7 @@ public final class SpreadsheetCellCurrencyExchangeRaterSaveHistoryTokenTest exte
     public void testSaveValue() {
         this.saveValueAndCheck(
             this.createHistoryToken(),
-            CURRENCY_EXCHANGE_RATER
+            SpreadsheetNameHistoryTokenTestCase.CURRENCY_EXCHANGE_RATER
         );
     }
 
