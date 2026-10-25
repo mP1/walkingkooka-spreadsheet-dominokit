@@ -21,7 +21,9 @@ import com.google.gwt.core.client.EntryPoint;
 import elemental2.dom.DomGlobal;
 import elemental2.dom.Headers;
 import walkingkooka.Binary;
+import walkingkooka.Cast;
 import walkingkooka.InvalidCharacterException;
+import walkingkooka.collect.list.Lists;
 import walkingkooka.color.ColorContexts;
 import walkingkooka.convert.BinaryNumberConverterFunction;
 import walkingkooka.convert.ConverterLike;
@@ -235,6 +237,7 @@ import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.Currency;
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.OptionalInt;
@@ -334,6 +337,17 @@ public class App implements EntryPoint,
             MathContext.UNLIMITED
         ),
         LOGGING_CONTEXT
+    );
+
+    private final static List<SpreadsheetMetadataPropertyName<?>> PROVIDER_CONTEXT_SPREADSHEET_METADATA_PROPERTY_NAMES = Lists.of(
+        SpreadsheetMetadataPropertyName.DATE_OFFSET,
+        SpreadsheetMetadataPropertyName.DECIMAL_NUMBER_DIGIT_COUNT,
+        SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
+        SpreadsheetMetadataPropertyName.EXPRESSION_NUMBER_KIND,
+        SpreadsheetMetadataPropertyName.PRECISION,
+        SpreadsheetMetadataPropertyName.ROUNDING_MODE,
+        SpreadsheetMetadataPropertyName.TWO_DIGIT_YEAR,
+        SpreadsheetMetadataPropertyName.VALUE_SEPARATOR
     );
 
     private final static SpreadsheetMetadataLoader SPREADSHEET_METADATA_LOADER = SpreadsheetMetadataLoaders.empty();
@@ -505,7 +519,7 @@ public class App implements EntryPoint,
         this.validatorInfoSet = ValidatorInfoSet.EMPTY;
         this.addValidatorFetcherWatcher(this);
 
-        this.spreadsheetEnvironmentContext = SpreadsheetEnvironmentContexts.basic(
+        final SpreadsheetEnvironmentContext spreadsheetEnvironmentContext = SpreadsheetEnvironmentContexts.basic(
             SPREADSHEET_METADATA_LOADER,
             Storages.fake(),
             StorageEnvironmentContexts.basic(
@@ -522,13 +536,30 @@ public class App implements EntryPoint,
                 )
             )
         );
+        this.spreadsheetEnvironmentContext = spreadsheetEnvironmentContext;
+
+        final SpreadsheetMetadata spreadsheetMetadataDefaults = SpreadsheetMetadata.NON_LOCALE_DEFAULTS.set(
+            SpreadsheetMetadataPropertyName.LOCALE,
+            LOCALE
+        ).loadFromLocale(this);
+
+        // copy required environment value such as date-offset
+        for (final SpreadsheetMetadataPropertyName<?> spreadsheetMetadataPropertyName : PROVIDER_CONTEXT_SPREADSHEET_METADATA_PROPERTY_NAMES) {
+            spreadsheetMetadataPropertyName.toEnvironmentValueName()
+                .setEnvironmentValue(
+                    Cast.to(
+                        spreadsheetMetadataDefaults.getOrFail(spreadsheetMetadataPropertyName)
+                    ),
+                    spreadsheetEnvironmentContext
+                );
+        }
 
         this.providerContext = SpreadsheetProviderContexts.spreadsheet(
             MEDIA_TYPE_DETECTOR,
             MULTIPLIER,
             Storages.fake(),
             this,
-            this.spreadsheetEnvironmentContext(),
+            spreadsheetEnvironmentContext,
             this.jsonNodeMarshallUnmarshallContext()
         );
 
@@ -1060,7 +1091,8 @@ public class App implements EntryPoint,
 
     @Override
     public void setLocale(final Locale locale) {
-        throw new UnsupportedOperationException();
+        // ignore
+        // will be called by SpreadsheetMetadata.loadFromLocale
     }
 
     @Override
