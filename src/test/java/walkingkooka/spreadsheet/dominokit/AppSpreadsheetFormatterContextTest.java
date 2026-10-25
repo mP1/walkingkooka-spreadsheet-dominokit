@@ -475,7 +475,8 @@ public final class AppSpreadsheetFormatterContextTest implements SpreadsheetForm
         return AppSpreadsheetFormatterContext.with(
             ColorContexts.basic(),
             DATE_TIME_CONTEXT,
-            DECIMAL_NUMBER_CONTEXT
+            DECIMAL_NUMBER_CONTEXT,
+            LOGGING_CONTEXT
         );
     }
 

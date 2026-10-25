@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.number;
 
+import walkingkooka.logging.LoggingContext;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
-public interface NumberComponentContext extends DecimalNumberContext {
+public interface NumberComponentContext extends DecimalNumberContext,
+    LoggingContext {
 
     ExpressionNumberKind expressionNumberKind();
 

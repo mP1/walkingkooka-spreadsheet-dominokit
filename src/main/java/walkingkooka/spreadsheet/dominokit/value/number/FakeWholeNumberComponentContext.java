@@ -17,6 +17,8 @@
 
 package walkingkooka.spreadsheet.dominokit.value.number;
 
+import walkingkooka.logging.LoggerPath;
+import walkingkooka.logging.LoggingLevel;
 import walkingkooka.math.FakeDecimalNumberContext;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
@@ -33,6 +35,102 @@ public class FakeWholeNumberComponentContext extends FakeDecimalNumberContext im
 
     @Override
     public int generalFormatNumberDigitCount() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void logEnter(final LoggerPath logger) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void logExit() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void log(final LoggingLevel loggingLevel,
+                    final String message,
+                    final Throwable throwable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isLoggingEnabled(final LoggingLevel loggingLevel) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void debug(final String message) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void debug(final String message,
+                      final Throwable throwable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void info(final String message) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void info(final String message,
+                     final Throwable throwable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void warn(final String message) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void warn(final String message,
+                     final Throwable throwable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void error(final String message) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void error(final String message,
+                      final Throwable throwable) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isDebugEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isInfoEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isWarnEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isErrorEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public boolean isNoneEnabled() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public LoggingLevel loggingLevel() {
         throw new UnsupportedOperationException();
     }
 }

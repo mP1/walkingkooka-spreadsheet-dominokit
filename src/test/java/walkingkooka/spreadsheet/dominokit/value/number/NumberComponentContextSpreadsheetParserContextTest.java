@@ -17,9 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.number;
 
+import walkingkooka.logging.LoggingContext;
+import walkingkooka.logging.LoggingContextDelegator;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
 import walkingkooka.math.DecimalNumberContexts;
+import walkingkooka.spreadsheet.dominokit.logging.LoggingContexts;
 import walkingkooka.spreadsheet.parser.SpreadsheetParserContextTesting2;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
@@ -36,7 +39,8 @@ public final class NumberComponentContextSpreadsheetParserContextTest implements
     }
 
     final static class TestNumberComponentContext implements NumberComponentContext,
-        DecimalNumberContextDelegator {
+        DecimalNumberContextDelegator,
+        LoggingContextDelegator {
 
         // DecimalNumberContextDelegator................................................................................
 
@@ -53,6 +57,13 @@ public final class NumberComponentContextSpreadsheetParserContextTest implements
         @Override
         public int generalFormatNumberDigitCount() {
             throw new UnsupportedOperationException();
+        }
+
+        // LoggingContextDelegator......................................................................................
+
+        @Override
+        public LoggingContext loggingContext() {
+            return LoggingContexts.fake();
         }
     }
 

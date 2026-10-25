@@ -18,6 +18,8 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.parser;
 
 import walkingkooka.InvalidCharacterException;
+import walkingkooka.logging.LoggingContext;
+import walkingkooka.logging.LoggingContextDelegator;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentContext;
@@ -48,6 +50,7 @@ import java.util.Locale;
  */
 abstract class AppContextSpreadsheetParserSelectorDialogComponentContext implements SpreadsheetParserSelectorDialogComponentContext,
     DialogComponentContextDelegator,
+    LoggingContextDelegator,
     SpreadsheetFormatterContextDelegator,
     SpreadsheetFormatterProviderDelegator,
     SpreadsheetParserProviderDelegator,
@@ -58,6 +61,13 @@ abstract class AppContextSpreadsheetParserSelectorDialogComponentContext impleme
 
         this.throttler = Throttler.empty(Throttler.KEYBOARD_DELAY);
         this.context = context;
+    }
+
+    // LoggingContextDelegator..........................................................................................
+
+    @Override
+    public final LoggingContext loggingContext() {
+        return this.context;
     }
 
     // SpreadsheetFormatterContext......................................................................................

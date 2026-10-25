@@ -18,10 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.value.number;
 
 import org.junit.jupiter.api.Test;
+import walkingkooka.logging.LoggingContext;
+import walkingkooka.logging.LoggingContextDelegator;
 import walkingkooka.math.DecimalNumberContext;
 import walkingkooka.math.DecimalNumberContextDelegator;
 import walkingkooka.math.DecimalNumberContexts;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetElementIds;
+import walkingkooka.spreadsheet.dominokit.logging.LoggingContexts;
 import walkingkooka.spreadsheet.dominokit.value.ValueTextBoxComponentLikeTesting;
 import walkingkooka.tree.expression.ExpressionNumber;
 import walkingkooka.tree.expression.ExpressionNumberKind;
@@ -290,7 +293,8 @@ public final class WholeNumberComponentTest implements ValueTextBoxComponentLike
     }
 
     final static class TestWholeNumberComponentContext implements WholeNumberComponentContext,
-        DecimalNumberContextDelegator {
+        DecimalNumberContextDelegator,
+        LoggingContextDelegator {
 
         // DecimalNumberContextDelegator................................................................................
 
@@ -307,6 +311,13 @@ public final class WholeNumberComponentTest implements ValueTextBoxComponentLike
         @Override
         public int generalFormatNumberDigitCount() {
             return DecimalNumberContext.DEFAULT_NUMBER_DIGIT_COUNT;
+        }
+
+        // LoggingContextDelegator......................................................................................
+
+        @Override
+        public LoggingContext loggingContext() {
+            return LoggingContexts.fake();
         }
     }
 
