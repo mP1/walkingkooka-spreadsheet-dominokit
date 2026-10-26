@@ -26,9 +26,8 @@ import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
@@ -44,7 +43,8 @@ import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryContextRecentValueSavesContextTest implements RecentValueSavesContextTesting<HistoryContextRecentValueSavesContext> {
+public final class HistoryContextRecentValueSavesContextTest implements RecentValueSavesContextTesting<HistoryContextRecentValueSavesContext>,
+    SpreadsheetEnvironmentContextTesting {
 
     @Test
     public void testWithNullHistoryContextFails() {
@@ -54,8 +54,6 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
         );
     }
 
-    private final static SpreadsheetId ID = SpreadsheetId.parse("1");
-    private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName222");
     private final static AnchoredSpreadsheetSelection CELL = SpreadsheetSelection.A1.setDefaultAnchor();
 
     // recentValueSaves.................................................................................................
@@ -75,8 +73,8 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
                 formatter4
             ),
             (v) -> HistoryToken.cellFormatterSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL,
                 Optional.of(v)
             ),
@@ -104,8 +102,8 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
                 locale5
             ),
             (v) -> HistoryToken.cellLocaleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL,
                 Optional.ofNullable(v)
             ),
@@ -132,8 +130,8 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
                 parser4
             ),
             (v) -> HistoryToken.cellParserSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL,
                 Optional.of(v)
             ),
@@ -177,8 +175,8 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
                 style4
             ),
             (TextStyleProperty<?> v) -> HistoryToken.cellStyleSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL,
                 Cast.to(
                     v.name()
@@ -209,8 +207,8 @@ public final class HistoryContextRecentValueSavesContextTest implements RecentVa
                 validator4
             ),
             (v) -> HistoryToken.cellValidatorSave(
-                ID,
-                NAME,
+                SPREADSHEET_ID,
+                SPREADSHEET_NAME,
                 CELL,
                 Optional.of(v)
             ),
