@@ -39,10 +39,10 @@ import walkingkooka.spreadsheet.engine.SpreadsheetDelta;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -75,6 +75,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetViewportCacheTest implements IteratorTesting,
     SpreadsheetLabelNameResolverTesting,
+    HasSpreadsheetMetadataTesting,
     PublicClassTesting<SpreadsheetViewportCache> {
 
     private final static SpreadsheetCellReference A1 = SpreadsheetCellReference.A1;
@@ -3167,8 +3168,6 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         );
     }
 
-    private final static SpreadsheetName NAME = SpreadsheetName.with("Spreadsheet123");
-
     @Test
     public void testSelectionSummaryChangeClearsSelection() {
         final TestAppContext context = this.context();
@@ -3183,7 +3182,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -3207,7 +3206,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor()
             )
@@ -3259,7 +3258,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
                     .setDefaultAnchor()
             )
@@ -3303,7 +3302,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor()
             )
@@ -3357,7 +3356,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
                     .setDefaultAnchor()
             )
@@ -3401,7 +3400,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
                     .setDefaultAnchor()
             )
@@ -3467,7 +3466,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
                     .setDefaultAnchor()
             )
@@ -3516,7 +3515,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
                     .setDefaultAnchor()
             )
@@ -3571,7 +3570,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
                     .setDefaultAnchor()
             )
@@ -3625,7 +3624,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:B2")
                     .setDefaultAnchor()
             )
@@ -3645,7 +3644,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
                     .setDefaultAnchor()
             )
@@ -3692,7 +3691,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.labelMappingSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.labelName("Label1")
             )
         );
@@ -3710,7 +3709,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
                     .setDefaultAnchor()
             )
@@ -3808,7 +3807,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID1,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
                     .setDefaultAnchor()
             )
@@ -4529,7 +4528,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.spreadsheetSelect(
                 ID,
-                NAME
+                SPREADSHEET_NAME
             )
         );
 
@@ -4544,7 +4543,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.columnSelect(
                 ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.column()
                     .setDefaultAnchor()
             )
@@ -4561,7 +4560,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.columnSelect(
                 ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.column()
                     .setDefaultAnchor()
             )
@@ -4578,7 +4577,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
@@ -4594,7 +4593,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.labelName("LabelMissing123")
                     .setDefaultAnchor()
             )
@@ -4611,7 +4610,7 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
         context.pushHistoryToken(
             HistoryToken.cellSelect(
                 ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             )
         );
