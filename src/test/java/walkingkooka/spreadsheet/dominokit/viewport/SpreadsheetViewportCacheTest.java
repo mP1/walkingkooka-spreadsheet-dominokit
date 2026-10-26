@@ -132,13 +132,6 @@ public final class SpreadsheetViewportCacheTest implements IteratorTesting,
 
     private final static SpreadsheetId ID3 = SpreadsheetId.parse("333");
 
-    private final static AppContext CONTEXT = new FakeAppContext() {
-        @Override
-        public void debug(final Object... values) {
-            // nop
-        }
-    };
-
     @Override
     public void testAllMethodsVisibility() {
         // nop
