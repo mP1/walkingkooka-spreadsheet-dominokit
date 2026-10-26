@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.dom;
 import elemental2.dom.HTMLTableElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentDelegator;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.dom.HtmlComponentDelegatorTest.TestSpreadsheetComponentDelegator;
@@ -28,7 +29,8 @@ import walkingkooka.text.printer.IndentingPrinter;
 
 import java.util.Optional;
 
-public class HtmlComponentDelegatorTest implements HtmlComponentTesting<TestSpreadsheetComponentDelegator, HTMLTableElement> {
+public class HtmlComponentDelegatorTest implements HtmlComponentTesting<TestSpreadsheetComponentDelegator, HTMLTableElement>,
+    PublicClassTesting<TestSpreadsheetComponentDelegator> {
 
     @Override
     public void testTestNaming() {

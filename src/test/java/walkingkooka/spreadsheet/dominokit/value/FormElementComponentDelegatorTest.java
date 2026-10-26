@@ -18,20 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class FormElementComponentDelegatorTest implements ClassTesting<FormElementComponentDelegator<?, ?>> {
+public final class FormElementComponentDelegatorTest implements PublicClassTesting<FormElementComponentDelegator<?, ?>> {
 
     // class............................................................................................................
 
     @Override
     public Class<FormElementComponentDelegator<?, ?>> type() {
         return Cast.to(FormElementComponentDelegator.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

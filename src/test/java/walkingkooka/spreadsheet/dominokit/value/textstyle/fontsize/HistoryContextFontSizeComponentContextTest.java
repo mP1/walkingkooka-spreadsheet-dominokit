@@ -19,8 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.fontsize;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.suggestbox.SuggestBoxComponent;
 import walkingkooka.tree.text.FontSize;
@@ -30,7 +29,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryContextFontSizeComponentContextTest implements ClassTesting2<HistoryContextFontSizeComponentContext> {
+public final class HistoryContextFontSizeComponentContextTest implements PackagePrivateClassTesting<HistoryContextFontSizeComponentContext> {
 
     @Test
     public void testWithNullHistoryContextFails() {
@@ -124,10 +123,5 @@ public final class HistoryContextFontSizeComponentContextTest implements ClassTe
     @Override
     public Class<HistoryContextFontSizeComponentContext> type() {
         return HistoryContextFontSizeComponentContext.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

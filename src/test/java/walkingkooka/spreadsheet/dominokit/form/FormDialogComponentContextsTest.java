@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.form;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class FormDialogComponentContextsTest implements ClassTesting2<FormDialogComponentContexts> {
+public final class FormDialogComponentContextsTest implements PublicClassTesting<FormDialogComponentContexts> {
 
     @Override
     public Class<FormDialogComponentContexts> type() {
         return FormDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

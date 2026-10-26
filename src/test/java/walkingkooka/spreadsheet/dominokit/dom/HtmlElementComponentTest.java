@@ -24,8 +24,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.ToStringTesting;
 import walkingkooka.color.Color;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.flex.FlexLayoutComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.value.text.TextComponent;
@@ -42,7 +41,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HtmlElementComponentTest implements ClassTesting<DivComponent>,
+public final class HtmlElementComponentTest implements PublicClassTesting<DivComponent>,
     HasFocusBlurEventListenerTesting<DivComponent>,
     TreePrintableTesting,
     ToStringTesting<DivComponent> {
@@ -590,10 +589,5 @@ public final class HtmlElementComponentTest implements ClassTesting<DivComponent
     @Override
     public Class<DivComponent> type() {
         return Cast.to(HtmlElementComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

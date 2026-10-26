@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.convert.provider.ConverterName;
 import walkingkooka.convert.provider.ConverterSelector;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.convert.provider.MissingConverter;
 import walkingkooka.spreadsheet.convert.provider.MissingConverterSet;
 import walkingkooka.spreadsheet.convert.provider.MissingConverterValue;
@@ -324,10 +323,5 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
     @Override
     public Class<ConverterSelectorDialogComponent> type() {
         return ConverterSelectorDialogComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

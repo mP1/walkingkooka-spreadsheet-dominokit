@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class SpreadsheetFormHistoryTokenTest implements ClassTesting2<SpreadsheetFormHistoryToken> {
+public final class SpreadsheetFormHistoryTokenTest implements PublicClassTesting<SpreadsheetFormHistoryToken> {
 
     @Override
     public Class<SpreadsheetFormHistoryToken> type() {
         return SpreadsheetFormHistoryToken.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

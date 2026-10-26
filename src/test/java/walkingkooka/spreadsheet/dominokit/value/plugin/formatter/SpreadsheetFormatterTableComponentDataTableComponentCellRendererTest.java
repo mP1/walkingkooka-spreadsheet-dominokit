@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.formatter;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class SpreadsheetFormatterTableComponentDataTableComponentCellRendererTest implements ClassTesting<SpreadsheetFormatterTableComponentDataTableComponentCellRenderer> {
+public final class SpreadsheetFormatterTableComponentDataTableComponentCellRendererTest implements PackagePrivateClassTesting<SpreadsheetFormatterTableComponentDataTableComponentCellRenderer> {
 
     @Override
     public Class<SpreadsheetFormatterTableComponentDataTableComponentCellRenderer> type() {
         return SpreadsheetFormatterTableComponentDataTableComponentCellRenderer.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -20,8 +20,7 @@ package walkingkooka.spreadsheet.dominokit.contextmenu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.ToStringTesting;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -31,7 +30,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetContextMenuItem>,
+public class SpreadsheetContextMenuItemTest implements PublicClassTesting<SpreadsheetContextMenuItem>,
     TreePrintableTesting,
     ToStringTesting<SpreadsheetContextMenuItem> {
 
@@ -194,10 +193,5 @@ public class SpreadsheetContextMenuItemTest implements ClassTesting<SpreadsheetC
     @Override
     public Class<SpreadsheetContextMenuItem> type() {
         return Cast.to(SpreadsheetContextMenuItem.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

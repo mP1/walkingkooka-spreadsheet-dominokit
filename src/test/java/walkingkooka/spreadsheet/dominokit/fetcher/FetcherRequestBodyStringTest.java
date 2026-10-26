@@ -19,14 +19,13 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class FetcherRequestBodyStringTest implements HashCodeEqualsDefinedTesting2<FetcherRequestBodyString>,
-    ClassTesting2<FetcherRequestBodyString> {
+    PackagePrivateClassTesting<FetcherRequestBodyString> {
 
     // with.............................................................................................................
 
@@ -73,10 +72,5 @@ public final class FetcherRequestBodyStringTest implements HashCodeEqualsDefined
     @Override
     public Class<FetcherRequestBodyString> type() {
         return FetcherRequestBodyString.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

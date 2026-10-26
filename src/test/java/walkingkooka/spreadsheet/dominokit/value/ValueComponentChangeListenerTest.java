@@ -18,20 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.value;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class ValueComponentChangeListenerTest implements ClassTesting<ValueComponentChangeListener<Void>> {
+public final class ValueComponentChangeListenerTest implements PackagePrivateClassTesting<ValueComponentChangeListener<Void>> {
 
     // class............................................................................................................
 
     @Override
     public Class<ValueComponentChangeListener<Void>> type() {
         return Cast.to(ValueComponentChangeListener.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

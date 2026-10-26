@@ -18,12 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
-public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTesting<SpreadsheetViewportComponentThumbnails> {
+public final class SpreadsheetViewportComponentThumbnailsTest implements PackagePrivateClassTesting<SpreadsheetViewportComponentThumbnails> {
 
     @Test
     public void testOnlyHomeNoCells() {
@@ -159,10 +158,5 @@ public final class SpreadsheetViewportComponentThumbnailsTest implements ClassTe
     @Override
     public Class<SpreadsheetViewportComponentThumbnails> type() {
         return SpreadsheetViewportComponentThumbnails.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

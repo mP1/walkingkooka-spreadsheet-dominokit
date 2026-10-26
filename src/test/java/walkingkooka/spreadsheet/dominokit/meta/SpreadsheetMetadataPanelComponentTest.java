@@ -19,8 +19,7 @@ package walkingkooka.spreadsheet.dominokit.meta;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.currency.CurrencyCode;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
@@ -36,7 +35,7 @@ import java.util.Set;
 
 public final class SpreadsheetMetadataPanelComponentTest implements TreePrintableTesting,
     HasSpreadsheetMetadataTesting,
-    ClassTesting<SpreadsheetMetadataPanelComponent> {
+    PublicClassTesting<SpreadsheetMetadataPanelComponent> {
 
     @Test
     public void testRender() {
@@ -332,10 +331,5 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
     @Override
     public Class<SpreadsheetMetadataPanelComponent> type() {
         return SpreadsheetMetadataPanelComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

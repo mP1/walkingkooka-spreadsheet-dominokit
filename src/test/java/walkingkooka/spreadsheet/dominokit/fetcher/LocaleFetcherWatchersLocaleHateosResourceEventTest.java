@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class LocaleFetcherWatchersLocaleHateosResourceEventTest implements ClassTesting<LocaleFetcherWatchersLocaleHateosResourceEvent> {
+public final class LocaleFetcherWatchersLocaleHateosResourceEventTest implements PackagePrivateClassTesting<LocaleFetcherWatchersLocaleHateosResourceEvent> {
 
     @Override
     public Class<LocaleFetcherWatchersLocaleHateosResourceEvent> type() {
         return LocaleFetcherWatchersLocaleHateosResourceEvent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

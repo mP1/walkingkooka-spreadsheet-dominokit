@@ -18,13 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.dominokit.key.KeyBinding;
 import walkingkooka.text.LineEnding;
 
 import java.util.stream.Collectors;
 
-public final class BasicSpreadsheetViewportComponentKeyBindingsTest implements SpreadsheetViewportComponentKeyBindingsTesting<BasicSpreadsheetViewportComponentKeyBindings> {
+public final class BasicSpreadsheetViewportComponentKeyBindingsTest implements SpreadsheetViewportComponentKeyBindingsTesting<BasicSpreadsheetViewportComponentKeyBindings>,
+    PackagePrivateClassTesting<BasicSpreadsheetViewportComponentKeyBindings> {
 
     @Test
     public void testAllToString() {
@@ -96,10 +97,5 @@ public final class BasicSpreadsheetViewportComponentKeyBindingsTest implements S
     @Override
     public Class<BasicSpreadsheetViewportComponentKeyBindings> type() {
         return BasicSpreadsheetViewportComponentKeyBindings.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

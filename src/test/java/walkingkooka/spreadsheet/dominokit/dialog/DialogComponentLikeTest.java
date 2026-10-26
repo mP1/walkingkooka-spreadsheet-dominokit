@@ -17,10 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.dialog;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class DialogComponentLikeTest implements ClassTesting<DialogComponentLike> {
+public final class DialogComponentLikeTest implements PackagePrivateClassTesting<DialogComponentLike> {
 
     @Override
     public void testAllMethodsVisibility() {
@@ -32,10 +31,5 @@ public final class DialogComponentLikeTest implements ClassTesting<DialogCompone
     @Override
     public Class<DialogComponentLike> type() {
         return DialogComponentLike.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

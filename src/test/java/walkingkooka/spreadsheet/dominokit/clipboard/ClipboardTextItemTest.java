@@ -24,8 +24,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.plugin.ProviderContext;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
@@ -60,7 +59,7 @@ import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextItem>,
+public final class ClipboardTextItemTest implements PublicClassTesting<ClipboardTextItem>,
     HashCodeEqualsDefinedTesting2<ClipboardTextItem>,
     HasTextTesting,
     SpreadsheetEnvironmentContextTesting,
@@ -1060,11 +1059,6 @@ public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextIt
     @Override
     public Class<ClipboardTextItem> type() {
         return ClipboardTextItem.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 
     // HashCodeEqualsDefinedTesting2....................................................................................

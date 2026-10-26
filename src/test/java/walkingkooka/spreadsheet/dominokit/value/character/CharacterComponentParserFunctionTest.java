@@ -17,20 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.value.character;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class CharacterComponentParserFunctionTest implements ClassTesting2<CharacterComponentParserFunction> {
+public final class CharacterComponentParserFunctionTest implements PackagePrivateClassTesting<CharacterComponentParserFunction> {
 
     // class............................................................................................................
 
     @Override
     public Class<CharacterComponentParserFunction> type() {
         return CharacterComponentParserFunction.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

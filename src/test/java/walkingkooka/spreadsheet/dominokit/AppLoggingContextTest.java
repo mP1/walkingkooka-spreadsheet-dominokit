@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class AppLoggingContextTest implements ClassTesting<AppLoggingContext> {
+public final class AppLoggingContextTest implements PackagePrivateClassTesting<AppLoggingContext> {
 
     @Override
     public Class<AppLoggingContext> type() {
         return AppLoggingContext.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

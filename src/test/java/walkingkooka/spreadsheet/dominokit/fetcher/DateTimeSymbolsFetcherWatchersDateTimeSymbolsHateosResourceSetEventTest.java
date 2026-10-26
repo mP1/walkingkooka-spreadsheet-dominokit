@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEventTest implements ClassTesting<DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEvent> {
+public final class DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEventTest implements PackagePrivateClassTesting<DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEvent> {
 
     @Override
     public Class<DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEvent> type() {
         return DateTimeSymbolsFetcherWatchersDateTimeSymbolsHateosResourceSetEvent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

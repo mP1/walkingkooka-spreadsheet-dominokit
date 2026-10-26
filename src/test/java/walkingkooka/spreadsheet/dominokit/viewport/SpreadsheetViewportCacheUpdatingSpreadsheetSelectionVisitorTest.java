@@ -18,13 +18,15 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import walkingkooka.collect.map.Maps;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitorTesting;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportWindows;
 
 import java.util.Collections;
 
-public final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitorTest implements SpreadsheetSelectionVisitorTesting<SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor> {
+public final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitorTest implements SpreadsheetSelectionVisitorTesting<SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor>,
+    PackagePrivateClassTesting<SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor> {
+
     @Override
     public SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor createVisitor() {
         return SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitor.accept(
@@ -33,11 +35,6 @@ public final class SpreadsheetViewportCacheUpdatingSpreadsheetSelectionVisitorTe
             Collections.emptyMap(),
             SpreadsheetViewportWindows.parse("A1:Z99")
         );
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 
     @Override

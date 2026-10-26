@@ -22,8 +22,7 @@ import walkingkooka.CanBeEmptyTesting;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.net.HasUrlFragmentTesting;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.text.cursor.TextCursor;
 import walkingkooka.text.cursor.TextCursorSavePoint;
@@ -40,7 +39,7 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
     HashCodeEqualsDefinedTesting2<HistoryTokenOffsetAndCount>,
     ThrowableTesting,
     ToStringTesting<HistoryTokenOffsetAndCount>,
-    ClassTesting<HistoryTokenOffsetAndCount> {
+    PublicClassTesting<HistoryTokenOffsetAndCount> {
 
     private final static OptionalInt OFFSET = OptionalInt.of(1);
 
@@ -526,11 +525,6 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
     }
 
     // class............................................................................................................
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
-    }
 
     @Override
     public Class<HistoryTokenOffsetAndCount> type() {

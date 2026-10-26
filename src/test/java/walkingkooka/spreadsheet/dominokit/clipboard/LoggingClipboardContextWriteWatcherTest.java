@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.clipboard;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class LoggingClipboardContextWriteWatcherTest implements ClassTesting<LoggingClipboardContextWriteWatcher> {
+public final class LoggingClipboardContextWriteWatcherTest implements PackagePrivateClassTesting<LoggingClipboardContextWriteWatcher> {
 
     @Override
     public Class<LoggingClipboardContextWriteWatcher> type() {
         return LoggingClipboardContextWriteWatcher.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

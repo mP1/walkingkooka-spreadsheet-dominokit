@@ -21,10 +21,9 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<DecimalNumberSymbolsFetcher> {
+public final class DecimalNumberSymbolsFetcherTest implements PublicClassTesting<DecimalNumberSymbolsFetcher> {
 
     @Test
     public void testLocaleLanguageTag() {
@@ -107,10 +106,5 @@ public final class DecimalNumberSymbolsFetcherTest implements ClassTesting<Decim
     @Override
     public Class<DecimalNumberSymbolsFetcher> type() {
         return DecimalNumberSymbolsFetcher.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

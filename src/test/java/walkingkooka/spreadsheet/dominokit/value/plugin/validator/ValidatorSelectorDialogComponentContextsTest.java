@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.validator;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class ValidatorSelectorDialogComponentContextsTest implements ClassTesting2<ValidatorSelectorDialogComponentContexts> {
+public final class ValidatorSelectorDialogComponentContextsTest implements PublicClassTesting<ValidatorSelectorDialogComponentContexts> {
 
     @Override
     public Class<ValidatorSelectorDialogComponentContexts> type() {
         return ValidatorSelectorDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

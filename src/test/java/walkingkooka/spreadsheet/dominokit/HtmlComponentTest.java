@@ -22,8 +22,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.tree.text.Border;
 import walkingkooka.tree.text.Length;
 import walkingkooka.tree.text.Margin;
@@ -36,7 +35,7 @@ import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public final class HtmlComponentTest implements ClassTesting2<HtmlComponent<?, ?>> {
+public final class HtmlComponentTest implements PublicClassTesting<HtmlComponent<?, ?>> {
 
     // setStyleProperty.................................................................................................
 
@@ -311,10 +310,5 @@ public final class HtmlComponentTest implements ClassTesting2<HtmlComponent<?, ?
     @Override
     public Class<HtmlComponent<?, ?>> type() {
         return Cast.to(HtmlComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

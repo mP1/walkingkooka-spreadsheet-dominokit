@@ -21,13 +21,12 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.net.HasUrlFragmentTesting;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBase64>,
+public final class BrowserFileBase64Test implements PackagePrivateClassTesting<BrowserFileBase64>,
     HashCodeEqualsDefinedTesting2<BrowserFileBase64>,
     ToStringTesting<BrowserFileBase64>,
     HasUrlFragmentTesting,
@@ -166,10 +165,5 @@ public final class BrowserFileBase64Test implements ClassTesting2<BrowserFileBas
     @Override
     public Class<BrowserFileBase64> type() {
         return BrowserFileBase64.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -18,12 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.viewport;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStyle;
 
-public final class SpreadsheetViewportContextTest implements ClassTesting<SpreadsheetViewportContext> {
+public final class SpreadsheetViewportContextTest implements PublicClassTesting<SpreadsheetViewportContext> {
 
     // selectionStyle...................................................................................................
 
@@ -287,10 +286,5 @@ public final class SpreadsheetViewportContextTest implements ClassTesting<Spread
     @Override
     public Class<SpreadsheetViewportContext> type() {
         return SpreadsheetViewportContext.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

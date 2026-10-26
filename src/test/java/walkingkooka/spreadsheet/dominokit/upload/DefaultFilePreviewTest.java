@@ -17,10 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.upload;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class DefaultFilePreviewTest implements ClassTesting<DefaultFilePreview> {
+public final class DefaultFilePreviewTest implements PackagePrivateClassTesting<DefaultFilePreview> {
 
     @Override
     public void testAllMethodsVisibility() {
@@ -32,10 +31,5 @@ public final class DefaultFilePreviewTest implements ClassTesting<DefaultFilePre
     @Override
     public Class<DefaultFilePreview> type() {
         return DefaultFilePreview.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

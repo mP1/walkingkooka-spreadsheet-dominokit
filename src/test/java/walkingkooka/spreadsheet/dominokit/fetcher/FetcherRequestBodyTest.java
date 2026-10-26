@@ -18,20 +18,14 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class FetcherRequestBodyTest implements ClassTesting<FetcherRequestBody<?>> {
+public final class FetcherRequestBodyTest implements PublicClassTesting<FetcherRequestBody<?>> {
 
     // class............................................................................................................
 
     @Override
     public Class<FetcherRequestBody<?>> type() {
         return Cast.to(FetcherRequestBody.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

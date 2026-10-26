@@ -18,18 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.datetime;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class TemporalComponentContextDateTimeFormatInfoTest implements ClassTesting<TemporalComponentContextDateTimeFormatInfo<?>> {
+public final class TemporalComponentContextDateTimeFormatInfoTest implements PackagePrivateClassTesting<TemporalComponentContextDateTimeFormatInfo<?>> {
 
     @Override
     public Class<TemporalComponentContextDateTimeFormatInfo<?>> type() {
         return Cast.to(TemporalComponentContextDateTimeFormatInfo.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

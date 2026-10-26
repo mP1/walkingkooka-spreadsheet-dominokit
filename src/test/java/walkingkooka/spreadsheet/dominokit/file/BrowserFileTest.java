@@ -18,12 +18,11 @@
 package walkingkooka.spreadsheet.dominokit.file;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.test.ParseStringTesting;
 
 public final class BrowserFileTest implements ParseStringTesting<BrowserFile>,
-    ClassTesting<BrowserFile> {
+    PublicClassTesting<BrowserFile> {
 
     // parse............................................................................................................
 
@@ -85,10 +84,5 @@ public final class BrowserFileTest implements ParseStringTesting<BrowserFile>,
     @Override
     public Class<BrowserFile> type() {
         return BrowserFile.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

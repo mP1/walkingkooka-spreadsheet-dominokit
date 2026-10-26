@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -46,7 +46,8 @@ import java.util.Set;
 
 public final class LocaleDialogComponentTest implements DialogComponentLifecycleTesting<LocaleDialogComponent>,
     HistoryTokenTesting,
-    HasSpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting,
+    PublicClassTesting<LocaleDialogComponent> {
 
     private final static SpreadsheetMetadata METADATA = SPREADSHEET_METADATA.set(
         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
@@ -337,10 +338,5 @@ public final class LocaleDialogComponentTest implements DialogComponentLifecycle
     @Override
     public Class<LocaleDialogComponent> type() {
         return LocaleDialogComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

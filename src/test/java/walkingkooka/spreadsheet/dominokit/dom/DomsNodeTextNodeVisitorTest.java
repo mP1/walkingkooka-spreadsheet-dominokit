@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.dom;
 
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.tree.text.TextNodeVisitorTesting;
 
-public final class DomsNodeTextNodeVisitorTest implements TextNodeVisitorTesting<DomsNodeTextNodeVisitor> {
+public final class DomsNodeTextNodeVisitorTest implements TextNodeVisitorTesting<DomsNodeTextNodeVisitor>,
+    PackagePrivateClassTesting<DomsNodeTextNodeVisitor> {
+
     @Override
     public DomsNodeTextNodeVisitor createVisitor() {
         return new DomsNodeTextNodeVisitor();
@@ -34,10 +36,5 @@ public final class DomsNodeTextNodeVisitorTest implements TextNodeVisitorTesting
     @Override
     public Class<DomsNodeTextNodeVisitor> type() {
         return DomsNodeTextNodeVisitor.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -22,8 +22,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.map.Maps;
 import walkingkooka.color.Color;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
@@ -65,7 +64,7 @@ import java.util.OptionalInt;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
+public final class HistoryTokenTest implements PublicClassTesting<HistoryToken>,
     ParseStringTesting<HistoryToken>,
     SpreadsheetEnvironmentContextTesting,
     ThrowableTesting {
@@ -5015,10 +5014,5 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Override
     public Class<HistoryToken> type() {
         return HistoryToken.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

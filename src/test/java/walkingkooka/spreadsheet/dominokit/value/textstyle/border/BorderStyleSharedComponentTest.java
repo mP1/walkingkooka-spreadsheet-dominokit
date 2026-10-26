@@ -18,18 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.border;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class BorderStyleSharedComponentTest implements ClassTesting<BorderStyleSharedComponent<?>> {
+public final class BorderStyleSharedComponentTest implements PackagePrivateClassTesting<BorderStyleSharedComponent<?>> {
 
     @Override
     public Class<BorderStyleSharedComponent<?>> type() {
         return Cast.to(BorderStyleSharedComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

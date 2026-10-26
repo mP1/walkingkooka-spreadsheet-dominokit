@@ -21,8 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReferenceOrRange;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -40,7 +39,7 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokensTest im
     HashCodeEqualsDefinedTesting2<SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens>,
     HasTextTesting,
     ToStringTesting<SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens>,
-    ClassTesting<SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens> {
+    PackagePrivateClassTesting<SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens> {
 
     private final static Optional<SpreadsheetColumnOrRowReferenceOrRange> COLUMN_OR_ROW = Optional.of(
         SpreadsheetSelection.A1.column()
@@ -490,10 +489,5 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokensTest im
     @Override
     public Class<SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens> type() {
         return SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

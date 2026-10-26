@@ -21,6 +21,7 @@ import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
@@ -34,7 +35,8 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponentTest implements HtmlComponentTesting<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent, HTMLDivElement> {
+public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponentTest implements HtmlComponentTesting<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent, HTMLDivElement>,
+    PackagePrivateClassTesting<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent> {
 
     // cell.............................................................................................................
 
@@ -214,7 +216,7 @@ public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRe
         );
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameRemoverComponent> type() {

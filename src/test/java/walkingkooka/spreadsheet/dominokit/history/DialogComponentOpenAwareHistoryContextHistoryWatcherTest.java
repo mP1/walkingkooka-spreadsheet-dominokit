@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class DialogComponentOpenAwareHistoryContextHistoryWatcherTest implements ClassTesting2<DialogComponentOpenAwareHistoryContextHistoryWatcher> {
+public final class DialogComponentOpenAwareHistoryContextHistoryWatcherTest implements PackagePrivateClassTesting<DialogComponentOpenAwareHistoryContextHistoryWatcher> {
 
     @Override
     public Class<DialogComponentOpenAwareHistoryContextHistoryWatcher> type() {
         return DialogComponentOpenAwareHistoryContextHistoryWatcher.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

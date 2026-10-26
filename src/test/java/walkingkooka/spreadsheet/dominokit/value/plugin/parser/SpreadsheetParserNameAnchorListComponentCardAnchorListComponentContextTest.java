@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.parser;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContextTest implements ClassTesting<SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContext> {
+public final class SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContextTest implements PackagePrivateClassTesting<SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContext> {
 
     @Override
     public Class<SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContext> type() {
         return SpreadsheetParserNameAnchorListComponentCardAnchorListComponentContext.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

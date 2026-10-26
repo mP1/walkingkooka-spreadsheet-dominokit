@@ -18,18 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.datetime;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class DominoKitPickerComponentTest implements ClassTesting<DominoKitPickerComponent<?, ?>> {
+public final class DominoKitPickerComponentTest implements PackagePrivateClassTesting<DominoKitPickerComponent<?, ?>> {
 
     @Override
     public Class<DominoKitPickerComponent<?, ?>> type() {
         return Cast.to(DominoKitPickerComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

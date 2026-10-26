@@ -18,18 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.datatable;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class DataTableComponentDataTableCellRendererTest implements ClassTesting<DataTableComponentDataTableCellRenderer<String>> {
+public final class DataTableComponentDataTableCellRendererTest implements PackagePrivateClassTesting<DataTableComponentDataTableCellRenderer<String>> {
 
     @Override
     public Class<DataTableComponentDataTableCellRenderer<String>> type() {
         return Cast.to(DataTableComponentDataTableCellRenderer.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

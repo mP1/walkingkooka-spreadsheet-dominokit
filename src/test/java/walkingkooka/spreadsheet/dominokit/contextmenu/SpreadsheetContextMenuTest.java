@@ -23,8 +23,7 @@ import org.dominokit.domino.ui.icons.MdiIcon;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContexts;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -35,7 +34,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 
 import java.util.Optional;
 
-public final class SpreadsheetContextMenuTest implements ClassTesting<SpreadsheetContextMenu>,
+public final class SpreadsheetContextMenuTest implements PublicClassTesting<SpreadsheetContextMenu>,
     TreePrintableTesting {
 
     @Test
@@ -422,15 +421,10 @@ public final class SpreadsheetContextMenuTest implements ClassTesting<Spreadshee
         );
     }
 
-    // ClassTesting...................................................................................................,,
+    // Class............................................................................................................
 
     @Override
     public Class<SpreadsheetContextMenu> type() {
         return Cast.to(SpreadsheetContextMenu.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

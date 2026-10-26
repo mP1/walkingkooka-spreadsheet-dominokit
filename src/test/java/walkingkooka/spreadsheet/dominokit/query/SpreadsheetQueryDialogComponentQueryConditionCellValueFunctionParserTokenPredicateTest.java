@@ -20,8 +20,7 @@ package walkingkooka.spreadsheet.dominokit.query;
 import org.junit.jupiter.api.Test;
 import walkingkooka.ToStringTesting;
 import walkingkooka.predicate.PredicateTesting2;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormulaParsers;
 import walkingkooka.spreadsheet.formula.parser.SpreadsheetFormulaParserToken;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
@@ -29,7 +28,7 @@ import walkingkooka.text.cursor.parser.ParserToken;
 
 public final class SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate, ParserToken>,
     ToStringTesting<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
-    ClassTesting<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
+    PackagePrivateClassTesting<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
     HasSpreadsheetMetadataTesting {
 
     @Test
@@ -153,10 +152,5 @@ public final class SpreadsheetQueryDialogComponentQueryConditionCellValueFunctio
     @Override
     public Class<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate> type() {
         return SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

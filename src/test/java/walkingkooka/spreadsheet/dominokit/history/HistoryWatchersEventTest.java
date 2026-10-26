@@ -19,13 +19,12 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryWatchersEventTest implements ClassTesting<HistoryWatchersEvent> {
+public final class HistoryWatchersEventTest implements PackagePrivateClassTesting<HistoryWatchersEvent> {
 
     // with.............................................................................................................
 
@@ -58,10 +57,5 @@ public final class HistoryWatchersEventTest implements ClassTesting<HistoryWatch
     @Override
     public Class<HistoryWatchersEvent> type() {
         return HistoryWatchersEvent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

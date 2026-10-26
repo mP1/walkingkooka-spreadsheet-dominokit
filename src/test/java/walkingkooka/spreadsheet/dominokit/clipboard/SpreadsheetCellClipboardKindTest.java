@@ -28,8 +28,7 @@ import walkingkooka.net.header.HasContentTypeTesting;
 import walkingkooka.net.header.MediaType;
 import walkingkooka.plugin.ProviderContext;
 import walkingkooka.predicate.PredicateTesting;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
@@ -66,7 +65,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class SpreadsheetCellClipboardKindTest implements ClassTesting<SpreadsheetCellClipboardKind>,
+public final class SpreadsheetCellClipboardKindTest implements PublicClassTesting<SpreadsheetCellClipboardKind>,
     HasContentTypeTesting,
     HasUrlFragmentTesting,
     ParseStringTesting<SpreadsheetCellClipboardKind>,
@@ -1643,15 +1642,10 @@ public final class SpreadsheetCellClipboardKindTest implements ClassTesting<Spre
         }
     };
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<SpreadsheetCellClipboardKind> type() {
         return SpreadsheetCellClipboardKind.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

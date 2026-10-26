@@ -19,11 +19,13 @@ package walkingkooka.spreadsheet.dominokit.viewport;
 
 import elemental2.dom.HTMLElement;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 
 public abstract class SpreadsheetViewportComponentTableCellTestCase<E extends HTMLElement, C extends SpreadsheetViewportComponentTableCell<E, C>> implements HtmlComponentTesting<C, E>,
-    SpreadsheetEnvironmentContextTesting {
+    SpreadsheetEnvironmentContextTesting,
+    PackagePrivateClassTesting<C> {
 
     SpreadsheetViewportComponentTableCellTestCase() {
         super();

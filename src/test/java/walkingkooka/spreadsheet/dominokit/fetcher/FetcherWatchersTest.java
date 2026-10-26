@@ -25,12 +25,11 @@ import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.net.http.HttpStatus;
 import walkingkooka.net.http.HttpStatusCode;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
 import java.util.Optional;
 
-public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?>> {
+public final class FetcherWatchersTest implements PackagePrivateClassTesting<FetcherWatchers<?>> {
 
     private final static AbsoluteOrRelativeUrl URL = Url.parseRelative("/something");
 
@@ -281,15 +280,10 @@ public final class FetcherWatchersTest implements ClassTesting<FetcherWatchers<?
         }
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<FetcherWatchers<?>> type() {
         return Cast.to(FetcherWatchers.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

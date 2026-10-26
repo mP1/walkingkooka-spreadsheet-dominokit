@@ -18,14 +18,13 @@
 package walkingkooka.spreadsheet.dominokit.anchor;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.anchor.ValueHistoryTokenAnchorComponentDelegatorTest.TestValueHistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 
 import java.util.Optional;
 
-public final class ValueHistoryTokenAnchorComponentDelegatorTest implements ClassTesting<ValueHistoryTokenAnchorComponentDelegator<TestValueHistoryTokenAnchorComponent, Void>> {
+public final class ValueHistoryTokenAnchorComponentDelegatorTest implements PublicClassTesting<ValueHistoryTokenAnchorComponentDelegator<TestValueHistoryTokenAnchorComponent, Void>> {
 
     static class TestValueHistoryTokenAnchorComponent implements ValueHistoryTokenAnchorComponentDelegator<TestValueHistoryTokenAnchorComponent, Void> {
         @Override
@@ -52,10 +51,5 @@ public final class ValueHistoryTokenAnchorComponentDelegatorTest implements Clas
     @Override
     public Class<ValueHistoryTokenAnchorComponentDelegator<TestValueHistoryTokenAnchorComponent, Void>> type() {
         return Cast.to(ValueHistoryTokenAnchorComponentDelegator.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }
