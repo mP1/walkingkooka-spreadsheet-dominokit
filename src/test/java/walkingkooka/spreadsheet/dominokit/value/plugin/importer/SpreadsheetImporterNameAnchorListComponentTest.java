@@ -26,15 +26,11 @@ import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterAliasSet;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterName;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
-import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 import java.util.Optional;
 
 public final class SpreadsheetImporterNameAnchorListComponentTest implements ValueComponentTesting<HTMLDivElement, SpreadsheetImporterName, SpreadsheetImporterNameAnchorListComponent>,
     SpreadsheetEnvironmentContextTesting {
-
-    private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
     @Test
     public void testClearValue() {
