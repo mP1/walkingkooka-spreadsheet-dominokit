@@ -31,7 +31,6 @@ import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellRangeReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
@@ -71,18 +70,16 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     SpreadsheetEnvironmentContextTesting,
     ThrowableTesting {
 
-    private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");
-
     private static final SpreadsheetSelectHistoryToken SPREADSHEET_ID_SPREADSHEET_NAME_TOKEN = HistoryToken.spreadsheetSelect(
         SPREADSHEET_ID,
-        NAME
+        SPREADSHEET_NAME
     );
 
     private final static SpreadsheetCellReference CELL = SpreadsheetSelection.A1;
 
     private static final SpreadsheetCellSelectHistoryToken CELL_TOKEN = HistoryToken.cellSelect(
         SPREADSHEET_ID,
-        NAME,
+        SPREADSHEET_NAME,
         CELL.setDefaultAnchor()
     );
 
@@ -92,7 +89,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     private static final SpreadsheetLabelMappingSelectHistoryToken LABEL_MAPPING_TOKEN = HistoryToken.labelMappingSelect(
         SPREADSHEET_ID,
-        NAME,
+        SPREADSHEET_NAME,
         LABEL
     );
 
@@ -121,7 +118,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -132,7 +129,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
             )
         );
@@ -143,7 +140,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 LABEL.setDefaultAnchor()
             )
         );
@@ -156,13 +153,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
             HistoryToken.cellFormulaSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport,
                 "=1"
             ),
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -173,7 +170,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -186,12 +183,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
             HistoryToken.columnClear(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             ),
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -202,7 +199,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setDefaultAnchor()
             )
         );
@@ -213,7 +210,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -226,12 +223,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
             HistoryToken.rowClear(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             ),
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -242,7 +239,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.anchoredSelectionHistoryTokenOrEmptyAndCheck(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setDefaultAnchor()
             )
         );
@@ -299,14 +296,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testCopyWithSpreadsheetCellHistoryTokenWithCell() {
         final HistoryToken historyToken = HistoryToken.cellSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             CELL.setDefaultAnchor()
         );
 
         this.checkEquals(
             HistoryToken.cellClipboardCopy(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.CELL
             ),
@@ -321,7 +318,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
         final HistoryToken historyToken = HistoryToken.cellSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             cell
         );
 
@@ -329,7 +326,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             this.checkEquals(
                 HistoryToken.cellClipboardCopy(
                     SPREADSHEET_ID,
-                    NAME,
+                    SPREADSHEET_NAME,
                     cell,
                     kind
                 ),
@@ -342,7 +339,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testCopyWithSpreadsheetColumnHistoryToken() {
         final HistoryToken historyToken = HistoryToken.columnSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             COLUMN.setDefaultAnchor()
         );
 
@@ -356,7 +353,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testCopyWithSpreadsheetRowHistoryToken() {
         final HistoryToken historyToken = HistoryToken.rowSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             ROW.setDefaultAnchor()
         );
 
@@ -391,14 +388,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testCutWithCellHistoryTokenWithCell() {
         final HistoryToken historyToken = HistoryToken.cellSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             CELL.setDefaultAnchor()
         );
 
         this.checkEquals(
             HistoryToken.cellClipboardCut(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.CELL
             ),
@@ -413,7 +410,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
         final HistoryToken historyToken = HistoryToken.cellSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             cell
         );
 
@@ -421,7 +418,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             this.checkEquals(
                 HistoryToken.cellClipboardCut(
                     SPREADSHEET_ID,
-                    NAME,
+                    SPREADSHEET_NAME,
                     cell,
                     kind
                 ),
@@ -434,7 +431,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testCutWithSpreadsheetColumnHistoryToken() {
         final HistoryToken historyToken = HistoryToken.columnSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             COLUMN.setDefaultAnchor()
         );
 
@@ -448,7 +445,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testCutWithSpreadsheetRowHistoryToken() {
         final HistoryToken historyToken = HistoryToken.rowSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             ROW.setDefaultAnchor()
         );
 
@@ -482,14 +479,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testSetCellPasteWithCellHistoryToken() {
         final HistoryToken historyToken = HistoryToken.cellSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             CELL.setDefaultAnchor()
         );
 
         this.checkEquals(
             HistoryToken.cellClipboardPaste(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 SpreadsheetCellClipboardKind.CELL
             ),
@@ -504,7 +501,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
         final HistoryToken historyToken = HistoryToken.cellSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             cell
         );
 
@@ -512,7 +509,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             this.checkEquals(
                 HistoryToken.cellClipboardPaste(
                     SPREADSHEET_ID,
-                    NAME,
+                    SPREADSHEET_NAME,
                     cell,
                     kind
                 ),
@@ -525,7 +522,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testPasteWithColumnHistoryToken() {
         final HistoryToken historyToken = HistoryToken.columnSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             COLUMN.setDefaultAnchor()
         );
 
@@ -539,7 +536,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testPasteWithRowHistoryToken() {
         final HistoryToken historyToken = HistoryToken.rowSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             ROW.setDefaultAnchor()
         );
 
@@ -565,7 +562,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testClearCell() {
         final HistoryToken historyToken = HistoryToken.cellSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             CELL.setDefaultAnchor()
         );
 
@@ -578,13 +575,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testClearColumn() {
         final AnchoredSpreadsheetSelection selection = COLUMN.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.columnSelect(SPREADSHEET_ID, NAME, selection);
+        final HistoryToken historyToken = HistoryToken.columnSelect(SPREADSHEET_ID, SPREADSHEET_NAME, selection);
 
         this.checkEquals(
             historyToken.clear(),
             HistoryToken.columnClear(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 selection
             )
         );
@@ -593,13 +590,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testClearRow() {
         final AnchoredSpreadsheetSelection selection = ROW.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.rowSelect(SPREADSHEET_ID, NAME, selection);
+        final HistoryToken historyToken = HistoryToken.rowSelect(SPREADSHEET_ID, SPREADSHEET_NAME, selection);
 
         this.checkEquals(
             historyToken.clear(),
             HistoryToken.rowClear(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 selection
             )
         );
@@ -622,7 +619,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setCountAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             ),
             OptionalInt.of(1)
@@ -636,7 +633,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setCountAndCheck(
             HistoryToken.columnInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 count
             ),
@@ -651,14 +648,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setCountAndCheck(
             HistoryToken.columnInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 OptionalInt.empty()
             ),
             count,
             HistoryToken.columnInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 count
             )
@@ -672,7 +669,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setCountAndCheck(
             HistoryToken.columnInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 count
             ),
@@ -687,14 +684,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setCountAndCheck(
             HistoryToken.columnInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 OptionalInt.empty()
             ),
             count,
             HistoryToken.columnInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 count
             )
@@ -708,7 +705,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setCountAndCheck(
             HistoryToken.rowInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 count
             ),
@@ -723,14 +720,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setCountAndCheck(
             HistoryToken.rowInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 OptionalInt.empty()
             ),
             count,
             HistoryToken.rowInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 count
             )
@@ -744,7 +741,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setCountAndCheck(
             HistoryToken.rowInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 count
             ),
@@ -759,14 +756,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setCountAndCheck(
             HistoryToken.rowInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 OptionalInt.empty()
             ),
             count,
             HistoryToken.rowInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 count
             )
@@ -808,13 +805,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testDeleteCell() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.delete(),
             HistoryToken.cellDelete(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -823,13 +820,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testDeleteColumn() {
         final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.columnSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.columnSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.delete(),
             HistoryToken.columnDelete(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -838,13 +835,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testDeleteRow() {
         final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.rowSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.rowSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.delete(),
             HistoryToken.rowDelete(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -865,13 +862,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testFreezeCell() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.A1.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.freeze(),
             HistoryToken.cellFreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -881,13 +878,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testFreezeColumn() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseColumn("A")
             .setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.columnSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.columnSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.freeze(),
             HistoryToken.columnFreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -897,13 +894,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testFreezeRow() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseRow("1")
             .setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.rowSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.rowSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.freeze(),
             HistoryToken.rowFreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -925,7 +922,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
     @Test
     public void testSetLabelName() {
-        final HistoryToken historyToken = HistoryToken.spreadsheetSelect(SPREADSHEET_ID, NAME);
+        final HistoryToken historyToken = HistoryToken.spreadsheetSelect(SPREADSHEET_ID, SPREADSHEET_NAME);
 
         this.checkEquals(
             historyToken.setLabelName(
@@ -933,7 +930,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             ),
             HistoryToken.labelMappingSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );
@@ -946,12 +943,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.checkEquals(
             HistoryToken.cellLocaleSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             ),
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             ).locale()
         );
@@ -992,12 +989,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 cell
             ),
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 cell
             )
         );
@@ -1010,12 +1007,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             ),
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             )
         );
@@ -1028,12 +1025,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             ),
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             )
         );
@@ -1046,12 +1043,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 cell
             ),
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 cell
             )
         );
@@ -1064,12 +1061,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 column
             ),
             HistoryToken.columnMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 column
             )
         );
@@ -1082,12 +1079,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             ),
             HistoryToken.columnMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             )
         );
@@ -1100,12 +1097,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             ),
             HistoryToken.columnMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             )
         );
@@ -1118,12 +1115,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 row
             ),
             HistoryToken.rowMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 row
             )
         );
@@ -1136,12 +1133,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             ),
             HistoryToken.rowMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             )
         );
@@ -1154,12 +1151,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             ),
             HistoryToken.rowMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             )
         );
@@ -1181,12 +1178,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             ),
             CELL,
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -1197,12 +1194,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             ),
             CELL,
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -1213,13 +1210,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
             ),
             CELL,
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -1230,13 +1227,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             ),
             CELL,
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -1249,13 +1246,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             ),
             differentCell,
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 differentCell.setDefaultAnchor()
             )
         );
@@ -1269,13 +1266,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             ),
             SpreadsheetSelection.A1,
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             )
         );
@@ -1288,13 +1285,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
             ),
             differentCell,
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 differentCell.setDefaultAnchor()
             )
         );
@@ -1307,12 +1304,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             ),
             COLUMN,
             HistoryToken.columnMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -1323,13 +1320,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
             ),
             COLUMN,
             HistoryToken.columnMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -1340,13 +1337,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             ),
             COLUMN,
             HistoryToken.columnMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -1359,13 +1356,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             ),
             differentColumn,
             HistoryToken.columnMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 differentColumn.setDefaultAnchor()
             )
         );
@@ -1379,13 +1376,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             ),
             SpreadsheetSelection.A1,
             HistoryToken.columnMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             )
         );
@@ -1398,13 +1395,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumnRange("A:B").setDefaultAnchor()
             ),
             differentColumn,
             HistoryToken.columnMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 differentColumn.setDefaultAnchor()
             )
         );
@@ -1417,12 +1414,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             ),
             ROW,
             HistoryToken.rowMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -1433,13 +1430,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             ),
             ROW,
             HistoryToken.rowMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -1450,13 +1447,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             ),
             ROW,
             HistoryToken.rowMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -1469,13 +1466,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             ),
             differentRow,
             HistoryToken.rowMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 differentRow.setDefaultAnchor()
             )
         );
@@ -1489,13 +1486,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             ),
             SpreadsheetSelection.A1,
             HistoryToken.rowMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 range
             )
         );
@@ -1508,13 +1505,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.menuAndCheck(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
             ),
             differentRow,
             HistoryToken.rowMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 differentRow.setDefaultAnchor()
             )
         );
@@ -1552,12 +1549,12 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.checkEquals(
             HistoryToken.metadataPropertySelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 metadataProperty
             ),
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             ).setMetadataPropertyName(metadataProperty)
         );
@@ -1581,14 +1578,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testReloadWithSpreadsheetNameHistoryToken() {
         final HistoryToken historyToken = HistoryToken.spreadsheetSelect(
             SPREADSHEET_ID,
-            NAME
+            SPREADSHEET_NAME
         );
 
         this.checkEquals(
             historyToken.reload(),
             HistoryToken.spreadsheetReload(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             )
         );
     }
@@ -1597,7 +1594,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testReloadWithSpreadsheetCellSelectHistoryToken() {
         final HistoryToken historyToken = HistoryToken.cellSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             CELL.setDefaultAnchor()
         );
 
@@ -1605,7 +1602,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             historyToken.reload(),
             HistoryToken.cellReload(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -1617,7 +1614,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testSetSaveValueWithInvalidValueFails() {
         final HistoryToken historyToken = HistoryToken.cellDateTimeSymbolsSelect(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             CELL.setDefaultAnchor()
         );
 
@@ -1651,11 +1648,11 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.checkEquals(
             HistoryToken.spreadsheetSelect(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             ),
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.A1.setDefaultAnchor()
             ).clearSelection()
         );
@@ -1682,13 +1679,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortEdit(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.cellSortEdit(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1702,13 +1699,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortEdit(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.cellSortEdit(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1722,13 +1719,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortEdit(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.columnSortEdit(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1742,13 +1739,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortEdit(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.columnSortEdit(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1762,13 +1759,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortEdit(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.rowSortEdit(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1782,13 +1779,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortEdit(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.rowSortEdit(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1826,13 +1823,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortSave(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.cellSortSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1846,13 +1843,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortSave(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.cellSortSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1866,13 +1863,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortSave(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.columnSortSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1886,13 +1883,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortSave(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.columnSortSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1906,13 +1903,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortSave(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.rowSortSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1926,13 +1923,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
         this.setSortSave(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setDefaultAnchor()
             ),
             comparatorNames,
             HistoryToken.rowSortSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setDefaultAnchor(),
                 comparatorNames
             )
@@ -1967,7 +1964,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testSetStylePropertyNameCell() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
-        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.setStylePropertyName(
@@ -1975,7 +1972,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             ),
             HistoryToken.cellStyle(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport,
                 Optional.of(property),
                 NO_FILTER
@@ -1987,7 +1984,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testSetStylePropertyNameCell2() {
         final AnchoredSpreadsheetSelection viewport = CELL.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.OUTLINE_COLOR;
-        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.setStylePropertyName(
@@ -1995,7 +1992,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             ),
             HistoryToken.cellStyle(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport,
                 Optional.of(property),
                 NO_FILTER
@@ -2007,7 +2004,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testSetStylePropertyNameColumn() {
         final AnchoredSpreadsheetSelection viewport = COLUMN.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
-        final HistoryToken historyToken = HistoryToken.columnSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.columnSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         assertSame(
             historyToken.setStylePropertyName(
@@ -2021,7 +2018,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testSetStylePropertyNameRow() {
         final AnchoredSpreadsheetSelection viewport = ROW.setDefaultAnchor();
         final TextStylePropertyName<Color> property = TextStylePropertyName.COLOR;
-        final HistoryToken historyToken = HistoryToken.rowSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.rowSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         assertSame(
             historyToken.setStylePropertyName(
@@ -2046,13 +2043,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     @Test
     public void testUnfreezeCell() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.A1.setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.cellSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.unfreeze(),
             HistoryToken.cellUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -2062,13 +2059,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testUnfreezeColumn() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseColumn("A")
             .setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.columnSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.columnSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.unfreeze(),
             HistoryToken.columnUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -2078,13 +2075,13 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     public void testUnfreezeRow() {
         final AnchoredSpreadsheetSelection viewport = SpreadsheetSelection.parseRow("1")
             .setDefaultAnchor();
-        final HistoryToken historyToken = HistoryToken.rowSelect(SPREADSHEET_ID, NAME, viewport);
+        final HistoryToken historyToken = HistoryToken.rowSelect(SPREADSHEET_ID, SPREADSHEET_NAME, viewport);
 
         this.checkEquals(
             historyToken.unfreeze(),
             HistoryToken.rowUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 viewport
             )
         );
@@ -2098,14 +2095,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             cell
         );
 
         this.checkEquals(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 cell
             ),
             historyToken
@@ -2118,14 +2115,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             cell
         );
 
         this.checkEquals(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 cell
             ),
             historyToken
@@ -2138,14 +2135,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             cell
         );
 
         this.checkEquals(
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 cell
             ),
             historyToken
@@ -2158,14 +2155,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             column
         );
 
         this.checkEquals(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 column
             ),
             historyToken
@@ -2178,14 +2175,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             column
         );
 
         this.checkEquals(
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 column
             ),
             historyToken
@@ -2198,14 +2195,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             row
         );
 
         this.checkEquals(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 row
             ),
             historyToken
@@ -2218,14 +2215,14 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
 
         final SpreadsheetAnchoredSelectionHistoryToken historyToken = HistoryToken.selection(
             SPREADSHEET_ID,
-            NAME,
+            SPREADSHEET_NAME,
             row
         );
 
         this.checkEquals(
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 row
             ),
             historyToken
@@ -2307,7 +2304,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/keyboard",
             HistoryToken.spreadsheetKeyboard(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             )
         );
     }
@@ -2318,7 +2315,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/reload",
             HistoryToken.spreadsheetReload(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             )
         );
     }
@@ -2329,7 +2326,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/reload/save",
             HistoryToken.spreadsheetReload(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             )
         );
     }
@@ -2390,7 +2387,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/Label123",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 LABEL.setDefaultAnchor()
             )
         );
@@ -2402,7 +2399,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2:C3",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
             )
         );
@@ -2414,7 +2411,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2:C3/top-left",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT)
             )
         );
@@ -2426,7 +2423,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2:C3/top-right",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
             )
         );
@@ -2438,7 +2435,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2:C3/left",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
             )
         );
@@ -2460,7 +2457,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/clear",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2472,7 +2469,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2:C3/clear",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_RIGHT)
             )
         );
@@ -2484,7 +2481,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2:C3/top-right/clear",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_RIGHT)
             )
         );
@@ -2498,7 +2495,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/currency",
             HistoryToken.cellCurrencySelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2510,7 +2507,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/currency/toolbar",
             HistoryToken.cellCurrencyUnselect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2522,7 +2519,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/currency/save/",
             HistoryToken.cellCurrencySave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             )
@@ -2535,7 +2532,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/currency/save/" + CURRENCY.getCurrencyCode(),
             HistoryToken.cellCurrencySave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(CURRENCY)
             )
@@ -2550,7 +2547,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/dateTimeSymbols",
             HistoryToken.cellDateTimeSymbolsSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2562,7 +2559,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/toolbar",
             HistoryToken.cellDateTimeSymbolsUnselect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2574,7 +2571,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/",
             HistoryToken.cellDateTimeSymbolsSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             )
@@ -2587,7 +2584,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/dateTimeSymbols/save/" + DATE_TIME_SYMBOLS.text(),
             HistoryToken.cellDateTimeSymbolsSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(DATE_TIME_SYMBOLS)
             )
@@ -2602,7 +2599,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols",
             HistoryToken.cellDecimalNumberSymbolsSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2614,7 +2611,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/toolbar",
             HistoryToken.cellDecimalNumberSymbolsUnselect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2626,7 +2623,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/",
             HistoryToken.cellDecimalNumberSymbolsSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             )
@@ -2639,7 +2636,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/decimalNumberSymbols/save/" + urlEncode(DECIMAL_NUMBER_SYMBOLS.text()),
             HistoryToken.cellDecimalNumberSymbolsSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(DECIMAL_NUMBER_SYMBOLS)
             )
@@ -2654,7 +2651,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/delete",
             HistoryToken.cellDelete(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2668,7 +2665,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/form",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2680,7 +2677,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/form/FormName123",
             HistoryToken.cellFormSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 FormName.with("FormName123")
             )
@@ -2693,7 +2690,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/form/FormName123/save",
             HistoryToken.cellFormSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 FormName.with("FormName123"),
                 SpreadsheetCellReferenceToValueMap.EMPTY
@@ -2720,7 +2717,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/form/FormName123/save/" + SpreadsheetCellReferenceToValueMap.with(cellToValues).urlFragment(),
             HistoryToken.cellFormSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 FormName.with("FormName123"),
                 cellToValues
@@ -2736,7 +2733,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/formatter",
             HistoryToken.cellFormatterSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2748,7 +2745,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/formatter/toolbar",
             HistoryToken.cellFormatterUnselect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2760,7 +2757,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/formatter/save/",
             HistoryToken.cellFormatterSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             )
@@ -2776,7 +2773,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/formatter/save/" + selector,
             HistoryToken.cellFormatterSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(selector)
             )
@@ -2791,7 +2788,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/clear-and-formula",
             HistoryToken.cellClearAndFormula(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2805,7 +2802,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/formula",
             HistoryToken.cellFormula(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2817,7 +2814,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/formula/menu",
             HistoryToken.cellFormulaMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2829,7 +2826,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/formula/save/=1+2",
             HistoryToken.cellFormulaSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 "=1+2"
             )
@@ -2844,7 +2841,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B1/freeze",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCell("B1").setDefaultAnchor()
             )
         );
@@ -2856,7 +2853,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A2/freeze",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCell("A2").setDefaultAnchor()
             )
         );
@@ -2868,7 +2865,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/freeze",
             HistoryToken.cellFreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2880,7 +2877,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B1:C3/freeze",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("B1:C3").setDefaultAnchor()
             )
         );
@@ -2892,7 +2889,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A2:C3/freeze",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:C3").setDefaultAnchor()
             )
         );
@@ -2904,7 +2901,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1:B2/freeze",
             HistoryToken.cellFreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2").setDefaultAnchor()
             )
         );
@@ -2918,7 +2915,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/keyboard",
             HistoryToken.cellKeyboard(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2932,7 +2929,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/label",
             HistoryToken.cellLabelSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2944,7 +2941,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/label/",
             HistoryToken.cellLabelSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -2956,7 +2953,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2:C3/label",
             HistoryToken.cellLabelSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setDefaultAnchor()
             )
         );
@@ -2968,7 +2965,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2:C3/bottom-left/label",
             HistoryToken.cellLabelSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM_LEFT)
             )
         );
@@ -2982,7 +2979,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/labels",
             HistoryToken.cellLabels(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -2995,7 +2992,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/labels/offset/-1",
             HistoryToken.cellLabels(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -3008,7 +3005,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/labels/count/-1",
             HistoryToken.cellLabels(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -3021,7 +3018,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/labels/offset/111/count/222",
             HistoryToken.cellLabels(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.with(
                     OptionalInt.of(111), // offset
@@ -3039,7 +3036,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/menu",
             HistoryToken.cellMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3053,7 +3050,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/navigate",
             HistoryToken.cellNavigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryToken.NO_NAVIGATION
             )
@@ -3066,7 +3063,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/navigate/Z99/scroll%20right%20444px",
             HistoryToken.cellNavigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(
                     SpreadsheetViewportHomeNavigationList.with(
@@ -3085,7 +3082,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2:C3/top-left/navigate/Z99/scroll%20right%20444px",
             HistoryToken.cellNavigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP_LEFT),
                 Optional.of(
                     SpreadsheetViewportHomeNavigationList.with(
@@ -3106,7 +3103,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/parser",
             HistoryToken.cellParserSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3118,7 +3115,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/parser/toolbar",
             HistoryToken.cellParserUnselect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3133,7 +3130,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/parser/save/" + selector,
             HistoryToken.cellParserSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(selector)
             )
@@ -3148,7 +3145,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/references",
             HistoryToken.cellReferences(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -3161,7 +3158,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/references/offset/-1",
             HistoryToken.cellReferences(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -3174,7 +3171,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/references/count/-1",
             HistoryToken.cellReferences(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.EMPTY
             )
@@ -3187,7 +3184,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/references/offset/111/count/222",
             HistoryToken.cellReferences(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 HistoryTokenOffsetAndCount.with(
                     OptionalInt.of(111), // offset
@@ -3205,7 +3202,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/reload",
             HistoryToken.cellReload(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3219,7 +3216,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/label/save/",
             HistoryToken.cellLabelSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3231,7 +3228,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/label/save/Label123",
             HistoryToken.cellLabelSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 LABEL
             )
@@ -3246,7 +3243,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/sort",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3258,7 +3255,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/sort/invalid",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3280,7 +3277,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/style",
             HistoryToken.cellStyle(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty(),
                 NO_FILTER
@@ -3294,7 +3291,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/style/color",
             HistoryToken.cellStyle(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(TextStylePropertyName.COLOR),
                 NO_FILTER
@@ -3308,7 +3305,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/style/color/save/",
             HistoryToken.cellStyleSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 TextStylePropertyName.COLOR,
                 Optional.empty()
@@ -3322,7 +3319,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/style/color/save/#123456",
             HistoryToken.cellStyleSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 TextStylePropertyName.COLOR,
                 Optional.of(
@@ -3340,7 +3337,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2:C3/unfreeze",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("B2:C3")
                     .setDefaultAnchor()
             )
@@ -3353,7 +3350,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A2:C3/unfreeze",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A2:C3")
                     .setDefaultAnchor()
             )
@@ -3366,7 +3363,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1:B2/unfreeze",
             HistoryToken.cellUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:B2")
                     .setDefaultAnchor()
             )
@@ -3379,7 +3376,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/B2/unfreeze",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCell("B2")
                     .setDefaultAnchor()
             )
@@ -3392,7 +3389,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A2/unfreeze",
             HistoryToken.cellSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCell("A2")
                     .setDefaultAnchor()
             )
@@ -3405,7 +3402,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/unfreeze",
             HistoryToken.cellUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3417,7 +3414,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/unfreeze/extra",
             HistoryToken.cellUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3431,7 +3428,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/validator",
             HistoryToken.cellValidatorSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3443,7 +3440,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/validator/toolbar",
             HistoryToken.cellValidatorUnselect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3455,7 +3452,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/validator/save/",
             HistoryToken.cellValidatorSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             )
@@ -3470,7 +3467,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/validator/save/" + urlEncode(validator.toString()),
             HistoryToken.cellValidatorSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(validator)
             )
@@ -3485,7 +3482,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/value",
             HistoryToken.cellValueUnselect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3497,7 +3494,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/value/Text",
             HistoryToken.cellValueSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 ValueType.TEXT
             )
@@ -3510,7 +3507,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1:A2/value/Text",
             HistoryToken.cellValueSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseCellRange("A1:A2")
                     .setDefaultAnchor(),
                 ValueType.TEXT
@@ -3525,7 +3522,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/Label123/value/Text",
             HistoryToken.cellValueSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.labelName("Label123")
                     .setDefaultAnchor(),
                 ValueType.TEXT
@@ -3541,7 +3538,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/valueType",
             HistoryToken.cellValueTypeSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3553,7 +3550,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/valueType/toolbar",
             HistoryToken.cellValueTypeUnselect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor()
             )
         );
@@ -3565,7 +3562,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/valueType/save/",
             HistoryToken.cellValueTypeSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.empty()
             )
@@ -3578,7 +3575,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/cell/A1/valueType/save/Text",
             HistoryToken.cellValueTypeSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 CELL.setDefaultAnchor(),
                 Optional.of(ValueType.TEXT)
             )
@@ -3617,7 +3614,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3629,7 +3626,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/bottom-left",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3641,7 +3638,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/BB:CC",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
             )
         );
@@ -3653,7 +3650,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/BB:CC/left",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT)
             )
         );
@@ -3665,7 +3662,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/BB:CC/right",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
             )
         );
@@ -3677,7 +3674,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/BB:CC/top-left",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.RIGHT)
             )
         );
@@ -3689,7 +3686,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/!invalid",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3701,7 +3698,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/clear",
             HistoryToken.columnClear(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3713,7 +3710,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/delete",
             HistoryToken.columnDelete(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3725,7 +3722,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3737,7 +3734,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/freeze",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3749,7 +3746,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/A/freeze",
             HistoryToken.columnFreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("A")
                     .setDefaultAnchor()
             )
@@ -3762,7 +3759,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA:BB/freeze",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumnRange("AA:BB")
                     .setAnchor(SpreadsheetViewportAnchor.RIGHT)
             )
@@ -3775,7 +3772,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/A:B/freeze",
             HistoryToken.columnFreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumnRange("A:B")
                     .setAnchor(SpreadsheetViewportAnchor.RIGHT)
             )
@@ -3788,7 +3785,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/insertAfter",
             HistoryToken.columnInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 OptionalInt.empty()
             )
@@ -3801,7 +3798,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/insertAfter/",
             HistoryToken.columnInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 OptionalInt.empty()
             )
@@ -3814,7 +3811,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/insertAfter/123",
             HistoryToken.columnInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 OptionalInt.of(
                     123
@@ -3829,7 +3826,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/insertBefore",
             HistoryToken.columnInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 OptionalInt.empty()
             )
@@ -3842,7 +3839,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/insertBefore/",
             HistoryToken.columnInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 OptionalInt.empty()
             )
@@ -3855,7 +3852,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/insertBefore/123",
             HistoryToken.columnInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 OptionalInt.of(
                     123
@@ -3872,7 +3869,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/keyboard",
             HistoryToken.columnKeyboard(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3884,7 +3881,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/menu",
             HistoryToken.columnMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3896,7 +3893,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/navigate",
             HistoryToken.columnNavigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 Optional.empty()
             )
@@ -3909,7 +3906,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/navigate/Z99/scroll%20right%20444px",
             HistoryToken.columnNavigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor(),
                 Optional.of(
                 SpreadsheetViewportHomeNavigationList.with(
@@ -3928,7 +3925,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/BB:CC/left/navigate/Z99/scroll%20right%20444px",
             HistoryToken.columnNavigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN_RANGE.setAnchor(SpreadsheetViewportAnchor.LEFT),
                 Optional.of(
                 SpreadsheetViewportHomeNavigationList.with(
@@ -3947,7 +3944,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/formatter/yymmdd",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3959,7 +3956,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/AA/style",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 COLUMN.setDefaultAnchor()
             )
         );
@@ -3971,7 +3968,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/B/unfreeze",
             HistoryToken.columnSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("B").setDefaultAnchor()
             )
         );
@@ -3983,7 +3980,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/A/unfreeze",
             HistoryToken.columnUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("A").setDefaultAnchor()
             )
         );
@@ -3995,7 +3992,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/column/A/unfreeze/extra",
             HistoryToken.columnUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseColumn("A")
                     .setDefaultAnchor()
             )
@@ -4010,7 +4007,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/form",
             HistoryToken.formList(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY
             )
         );
@@ -4022,7 +4019,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/form/*/offset/1/count/2",
             HistoryToken.formList(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY.setOffset(
                     OptionalInt.of(1)
                 ).setCount(
@@ -4038,7 +4035,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/form/FormName123",
             HistoryToken.formSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 FormName.with("FormName123"),
                 HistoryToken.NO_FIELD
             )
@@ -4051,7 +4048,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/form/FormName123/field/A1",
             HistoryToken.formSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 FormName.with("FormName123"),
                 Optional.of(
                     SpreadsheetSelection.A1
@@ -4066,7 +4063,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/form/FormName123/field/Label123",
             HistoryToken.formSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 FormName.with("FormName123"),
                 Optional.of(LABEL)
             )
@@ -4079,7 +4076,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/form/FormName123/delete",
             HistoryToken.formDelete(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 FormName.with("FormName123")
             )
         );
@@ -4091,7 +4088,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/form/FormName123/save",
             HistoryToken.formSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 FormName.with("FormName123"),
                 HistoryToken.NO_FIELD
             )
@@ -4114,7 +4111,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/form/FormName123/save/" + JSON_NODE_MARSHALL_CONTEXT.marshall(form),
             HistoryToken.formSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 form,
                 HistoryToken.NO_FIELD
             )
@@ -4137,7 +4134,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/form/FormName123/field/A1/save/" + JSON_NODE_MARSHALL_CONTEXT.marshall(form),
             HistoryToken.formSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 form,
                 Optional.of(SpreadsheetSelection.A1)
             )
@@ -4160,7 +4157,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/form/FormName123/field/Label123/save/" + JSON_NODE_MARSHALL_CONTEXT.marshall(form),
             HistoryToken.formSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 form,
                 Optional.of(LABEL)
             )
@@ -4175,7 +4172,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/create-label",
             HistoryToken.labelMappingCreate(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             )
         );
     }
@@ -4218,7 +4215,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/label/Label123/delete",
             HistoryToken.labelMappingDelete(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );
@@ -4254,7 +4251,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/label/Label123/delete/extra",
             HistoryToken.labelMappingDelete(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );
@@ -4266,7 +4263,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/label",
             HistoryToken.labelMappingList(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY
             )
         );
@@ -4278,7 +4275,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/label/*",
             HistoryToken.labelMappingList(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.EMPTY
             )
         );
@@ -4290,7 +4287,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/label/*/offset/123/count/456",
             HistoryToken.labelMappingList(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 HistoryTokenOffsetAndCount.with(
                     OptionalInt.of(123),
                     OptionalInt.of(456)
@@ -4305,7 +4302,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/label/Label123/save",
             HistoryToken.labelMappingSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );
@@ -4317,7 +4314,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/label/Label123/save/!invalid",
             HistoryToken.labelMappingSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 LABEL
             )
         );
@@ -4329,7 +4326,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/label/Label123/save/A1",
             HistoryToken.labelMappingSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(CELL)
             )
         );
@@ -4341,7 +4338,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/label/Label123/save/B2:C3",
             HistoryToken.labelMappingSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(CELL_RANGE)
             )
         );
@@ -4353,7 +4350,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/label/Label123/save/Label456",
             HistoryToken.labelMappingSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 LABEL.setLabelMappingReference(
                     SpreadsheetSelection.labelName("Label456")
                 )
@@ -4393,7 +4390,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet",
             HistoryToken.metadataSelect(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             )
         );
     }
@@ -4404,7 +4401,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet/!invalid",
             HistoryToken.metadataSelect(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             )
         );
     }
@@ -4415,7 +4412,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet/defaultYear",
             HistoryToken.metadataPropertySelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR
             )
         );
@@ -4427,7 +4424,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet/defaultYear/save/XYZ",
             HistoryToken.metadataPropertySelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR
             )
         );
@@ -4439,7 +4436,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet/defaultYear/save/",
             HistoryToken.metadataPropertySave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
                 Optional.empty()
             )
@@ -4452,7 +4449,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet/defaultYear/save/1950",
             HistoryToken.metadataPropertySave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetMetadataPropertyName.DEFAULT_YEAR,
                 Optional.of(1950)
             )
@@ -4465,7 +4462,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet/style/!invalid",
             HistoryToken.metadataSelect(
                 SPREADSHEET_ID,
-                NAME
+                SPREADSHEET_NAME
             )
         );
     }
@@ -4476,7 +4473,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet/style",
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 Optional.empty(), // stylePropertyName
                 NO_FILTER
             )
@@ -4489,7 +4486,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet/style/color",
             HistoryToken.metadataPropertyStyle(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 Optional.of(TextStylePropertyName.COLOR),
                 NO_FILTER
             )
@@ -4502,7 +4499,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet/style/color/save/",
             HistoryToken.metadataPropertyStyleSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 TextStylePropertyName.COLOR,
                 Optional.empty()
             )
@@ -4515,7 +4512,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/spreadsheet/style/color/save/#123456",
             HistoryToken.metadataPropertyStyleSave(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 TextStylePropertyName.COLOR,
                 Optional.of(
                     Color.parse("#123456")
@@ -4532,7 +4529,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/navigate",
             HistoryToken.navigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 Optional.empty()
             )
         );
@@ -4544,7 +4541,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/navigate/Z99/scroll%20right%20444px",
             HistoryToken.navigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 Optional.of(
                     SpreadsheetViewportHomeNavigationList.with(
                         SpreadsheetSelection.parseCell("Z99")
@@ -4588,7 +4585,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4600,7 +4597,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/bottom-left",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4612,7 +4609,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/22:33",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
             )
         );
@@ -4624,7 +4621,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/22:33/top",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.TOP)
             )
         );
@@ -4636,7 +4633,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/22:33/bottom",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
             )
         );
@@ -4648,7 +4645,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/22:33/top-left",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM)
             )
         );
@@ -4660,7 +4657,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/!invalid",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4672,7 +4669,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/clear",
             HistoryToken.rowClear(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4684,7 +4681,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/delete",
             HistoryToken.rowDelete(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4696,7 +4693,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4708,7 +4705,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/freeze",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4720,7 +4717,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/1/freeze",
             HistoryToken.rowFreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseRow("1").setDefaultAnchor()
             )
         );
@@ -4732,7 +4729,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/22:33/freeze",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setDefaultAnchor()
             )
         );
@@ -4744,7 +4741,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/1:2/freeze",
             HistoryToken.rowFreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseRowRange("1:2").setDefaultAnchor()
             )
         );
@@ -4756,7 +4753,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/insertAfter",
             HistoryToken.rowInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 OptionalInt.empty()
             )
@@ -4769,7 +4766,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/insertAfter/",
             HistoryToken.rowInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 OptionalInt.empty()
             )
@@ -4783,7 +4780,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/insertAfter/123",
             HistoryToken.rowInsertAfter(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 OptionalInt.of(
                     123
@@ -4798,7 +4795,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/insertBefore",
             HistoryToken.rowInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 OptionalInt.empty()
             )
@@ -4811,7 +4808,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/insertBefore/",
             HistoryToken.rowInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 OptionalInt.empty()
             )
@@ -4824,7 +4821,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/insertBefore/123",
             HistoryToken.rowInsertBefore(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 OptionalInt.of(
                     123
@@ -4841,7 +4838,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/keyboard",
             HistoryToken.rowKeyboard(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4853,7 +4850,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/menu",
             HistoryToken.rowMenu(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4865,7 +4862,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/navigate",
             HistoryToken.rowNavigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 Optional.empty()
             )
@@ -4878,7 +4875,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/navigate/Z99/scroll down%20444px",
             HistoryToken.rowNavigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor(),
                 Optional.of(
                     SpreadsheetViewportHomeNavigationList.with(
@@ -4897,7 +4894,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/22:33/bottom/navigate/Z99/scroll%20down%20444px",
             HistoryToken.rowNavigate(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setAnchor(SpreadsheetViewportAnchor.BOTTOM),
                 Optional.of(
                     SpreadsheetViewportHomeNavigationList.with(
@@ -4916,7 +4913,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/formatter/yymmdd",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4928,7 +4925,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/style",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4940,7 +4937,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/11/unfreeze",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW.setDefaultAnchor()
             )
         );
@@ -4952,7 +4949,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/1/unfreeze",
             HistoryToken.rowUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseRow("1").setDefaultAnchor()
             )
         );
@@ -4964,7 +4961,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/22:33/unfreeze",
             HistoryToken.rowSelect(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 ROW_RANGE.setDefaultAnchor()
             )
         );
@@ -4976,7 +4973,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/1/unfreeze",
             HistoryToken.rowUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseRow("1").setDefaultAnchor()
             )
         );
@@ -4988,7 +4985,7 @@ public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
             "/123/SpreadsheetName456/row/1/unfreeze/extra",
             HistoryToken.rowUnfreeze(
                 SPREADSHEET_ID,
-                NAME,
+                SPREADSHEET_NAME,
                 SpreadsheetSelection.parseRow("1").setDefaultAnchor()
             )
         );
