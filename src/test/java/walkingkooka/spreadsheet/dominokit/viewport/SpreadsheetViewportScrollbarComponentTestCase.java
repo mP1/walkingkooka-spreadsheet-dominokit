@@ -29,11 +29,9 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatchers;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
-import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.reference.SpreadsheetCellReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetColumnOrRowReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
@@ -46,26 +44,22 @@ import java.util.Optional;
 public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends SpreadsheetColumnOrRowReference>
     implements ValueComponentTesting<HTMLDivElement, R, SpreadsheetViewportScrollbarComponent<R>>,
     TypeNameTesting<SpreadsheetViewportScrollbarComponent<R>>,
-    HasSpreadsheetMetadataTesting {
+    SpreadsheetEnvironmentContextTesting {
 
     final static SpreadsheetCellReference HOME = SpreadsheetSelection.A1;
-
-    final static SpreadsheetId ID = SpreadsheetId.with(1);
-
-    final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName222");
 
     final static HistoryToken SPREADSHEET_LIST = HistoryToken.spreadsheetListSelect(
         HistoryTokenOffsetAndCount.EMPTY
     );
 
     final static HistoryToken SPREADSHEET_SELECT = HistoryToken.spreadsheetSelect(
-        ID,
-        NAME
+        SPREADSHEET_ID,
+        SPREADSHEET_NAME
     );
 
     final static HistoryToken CELL_SELECT = HistoryToken.cellSelect(
-        ID,
-        NAME,
+        SPREADSHEET_ID,
+        SPREADSHEET_NAME,
         SpreadsheetSelection.A1.setDefaultAnchor()
     );
 
@@ -82,7 +76,7 @@ public abstract class SpreadsheetViewportScrollbarComponentTestCase<R extends Sp
                        final HistoryToken historyToken) {
             this.spreadsheetMetadata = SpreadsheetViewportScrollbarComponentTestCase.SPREADSHEET_METADATA.set(
                 SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
-                ID
+                SpreadsheetViewportScrollbarComponentTestCase.SPREADSHEET_ID
             ).set(
                 SpreadsheetMetadataPropertyName.VIEWPORT_HOME,
                 home
