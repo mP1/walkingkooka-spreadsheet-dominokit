@@ -26,11 +26,11 @@ import walkingkooka.spreadsheet.dominokit.HtmlComponentTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
-import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
 public final class SpreadsheetNavigateAnchorComponentTest implements HtmlComponentTesting<SpreadsheetNavigateAnchorComponent, HTMLAnchorElement>,
-    HasSpreadsheetMetadataTesting {
+    SpreadsheetEnvironmentContextTesting {
 
     @Test
     public void testTreePrintSpreadsheetListSelectHistoryToken() {

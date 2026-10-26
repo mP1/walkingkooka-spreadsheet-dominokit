@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenOffsetAndCount;
 import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
-import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetExpressionReference;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 
@@ -36,7 +36,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class SpreadsheetLabelCreateAnchorComponentTest implements AnchorComponentTesting<SpreadsheetLabelCreateAnchorComponent>,
     ValueComponentTesting<HTMLAnchorElement, SpreadsheetExpressionReference, SpreadsheetLabelCreateAnchorComponent>,
-    HasSpreadsheetMetadataTesting {
+    SpreadsheetEnvironmentContextTesting {
     
     // with.............................................................................................................
 

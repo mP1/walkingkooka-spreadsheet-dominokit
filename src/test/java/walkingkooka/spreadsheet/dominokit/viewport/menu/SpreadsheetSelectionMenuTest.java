@@ -33,8 +33,8 @@ import walkingkooka.spreadsheet.dominokit.history.HistoryWatcher;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetColumnHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetRowHistoryToken;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
@@ -46,7 +46,6 @@ import walkingkooka.spreadsheet.server.formatter.SpreadsheetFormatterMenu;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.spreadsheet.viewport.SpreadsheetViewportAnchor;
 import walkingkooka.text.printer.TreePrintable;
-import walkingkooka.text.printer.TreePrintableTesting;
 import walkingkooka.tree.text.TextStyleProperty;
 import walkingkooka.validation.provider.ValidatorSelector;
 
@@ -65,8 +64,7 @@ import java.util.stream.Collectors;
 // with
 // TR\n",
 public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTesting<SpreadsheetSelectionMenu>,
-    TreePrintableTesting,
-    HasSpreadsheetMetadataTesting {
+    SpreadsheetEnvironmentContextTesting {
 
     private final static SpreadsheetLabelName LABEL = SpreadsheetSelection.labelName("Label123");
 

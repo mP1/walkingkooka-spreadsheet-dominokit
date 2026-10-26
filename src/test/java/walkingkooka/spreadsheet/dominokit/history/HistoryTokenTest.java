@@ -27,9 +27,9 @@ import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNamesList;
 import walkingkooka.spreadsheet.dominokit.clipboard.SpreadsheetCellClipboardKind;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
@@ -68,7 +68,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryTokenTest implements ClassTesting<HistoryToken>,
     ParseStringTesting<HistoryToken>,
-    HasSpreadsheetMetadataTesting,
+    SpreadsheetEnvironmentContextTesting,
     ThrowableTesting {
 
     private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName456");

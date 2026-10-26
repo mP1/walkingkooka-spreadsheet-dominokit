@@ -19,14 +19,14 @@ package walkingkooka.spreadsheet.dominokit.viewport.menu;
 
 import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
-import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.spreadsheet.viewport.AnchoredSpreadsheetSelection;
 import walkingkooka.text.printer.TreePrintableTesting;
 
 public abstract class SpreadsheetSelectionMenuValuesTestCase<M extends SpreadsheetSelectionMenuValues<T>, T> implements TreePrintableTesting,
     ClassTesting<M>,
-    HasSpreadsheetMetadataTesting {
+    SpreadsheetEnvironmentContextTesting {
 
     final static AnchoredSpreadsheetSelection CELL = SpreadsheetSelection.A1.setDefaultAnchor();
 
