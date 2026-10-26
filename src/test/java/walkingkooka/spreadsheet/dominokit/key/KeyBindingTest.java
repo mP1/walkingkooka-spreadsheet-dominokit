@@ -22,9 +22,8 @@ import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.compare.ComparableTesting2;
-import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.ConstantsTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
 import java.util.Set;
 
@@ -34,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBinding>,
     ToStringTesting<KeyBinding>,
-    ClassTesting<KeyBinding>,
+    PublicClassTesting<KeyBinding>,
     ComparableTesting2<KeyBinding>,
     ConstantsTesting<KeyBinding> {
 
@@ -615,10 +614,5 @@ public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBi
     @Override
     public Class<KeyBinding> type() {
         return KeyBinding.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

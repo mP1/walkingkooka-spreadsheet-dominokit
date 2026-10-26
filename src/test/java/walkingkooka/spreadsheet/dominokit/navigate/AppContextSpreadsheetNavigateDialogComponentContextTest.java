@@ -17,20 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.navigate;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class AppContextSpreadsheetNavigateDialogComponentContextTest implements ClassTesting<AppContextSpreadsheetNavigateDialogComponentContext> {
+public final class AppContextSpreadsheetNavigateDialogComponentContextTest implements PackagePrivateClassTesting<AppContextSpreadsheetNavigateDialogComponentContext> {
 
     // class............................................................................................................
 
     @Override
     public Class<AppContextSpreadsheetNavigateDialogComponentContext> type() {
         return AppContextSpreadsheetNavigateDialogComponentContext.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

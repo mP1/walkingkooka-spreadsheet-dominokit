@@ -22,11 +22,10 @@ import walkingkooka.Cast;
 import walkingkooka.convert.provider.ConverterSelector;
 import walkingkooka.net.AbsoluteOrRelativeUrl;
 import walkingkooka.net.Url;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
 
-public final class ConverterFetcherTest implements ClassTesting<ConverterFetcher> {
+public final class ConverterFetcherTest implements PublicClassTesting<ConverterFetcher> {
 
     // verifyConverterSelector..........................................................................................
 
@@ -76,10 +75,5 @@ public final class ConverterFetcherTest implements ClassTesting<ConverterFetcher
     @Override
     public Class<ConverterFetcher> type() {
         return ConverterFetcher.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

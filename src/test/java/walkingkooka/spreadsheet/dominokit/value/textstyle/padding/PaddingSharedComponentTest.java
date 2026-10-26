@@ -18,14 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.value.textstyle.padding;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class PaddingSharedComponentTest implements ClassTesting<PaddingSharedComponent<?>> {
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
-    }
+public final class PaddingSharedComponentTest implements PackagePrivateClassTesting<PaddingSharedComponent<?>> {
 
     @Override
     public Class<PaddingSharedComponent<?>> type() {

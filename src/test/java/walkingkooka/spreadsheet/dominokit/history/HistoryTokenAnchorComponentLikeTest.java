@@ -17,25 +17,19 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class HistoryTokenAnchorComponentLikeTest implements ClassTesting<HistoryTokenAnchorComponentLike> {
+public final class HistoryTokenAnchorComponentLikeTest implements PackagePrivateClassTesting<HistoryTokenAnchorComponentLike> {
 
     @Override
     public void testAllMethodsVisibility() {
         throw new UnsupportedOperationException();
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<HistoryTokenAnchorComponentLike> type() {
         return HistoryTokenAnchorComponentLike.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

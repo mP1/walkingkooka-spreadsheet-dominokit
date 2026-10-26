@@ -20,6 +20,7 @@ package walkingkooka.spreadsheet.dominokit.query;
 import org.junit.jupiter.api.Test;
 import walkingkooka.CanBeEmpty;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.reflect.PublicStaticHelperTesting;
 import walkingkooka.spreadsheet.engine.SpreadsheetCellQuery;
 import walkingkooka.spreadsheet.expression.function.TextMatch;
@@ -36,7 +37,8 @@ import java.util.Optional;
 
 public final class SpreadsheetQueryDialogComponentQueryTest implements PublicStaticHelperTesting<SpreadsheetQueryDialogComponentQuery>,
     TreePrintableTesting,
-    HasSpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting,
+    PackagePrivateClassTesting<SpreadsheetQueryDialogComponentQuery> {
 
     // without query but cellXXX getters................................................................................
 

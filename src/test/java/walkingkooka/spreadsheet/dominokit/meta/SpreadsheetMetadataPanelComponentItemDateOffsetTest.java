@@ -18,8 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.meta;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -33,7 +32,7 @@ import java.util.Optional;
 
 public final class SpreadsheetMetadataPanelComponentItemDateOffsetTest implements TreePrintableTesting,
     HasSpreadsheetMetadataTesting,
-    ClassTesting<SpreadsheetMetadataPanelComponentItemDateOffset> {
+    PackagePrivateClassTesting<SpreadsheetMetadataPanelComponentItemDateOffset> {
 
     @Test
     public void testToDateToLongToDate1900() {
@@ -167,15 +166,10 @@ public final class SpreadsheetMetadataPanelComponentItemDateOffsetTest implement
         );
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<SpreadsheetMetadataPanelComponentItemDateOffset> type() {
         return SpreadsheetMetadataPanelComponentItemDateOffset.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

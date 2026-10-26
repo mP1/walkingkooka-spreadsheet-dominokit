@@ -18,7 +18,7 @@
 package walkingkooka.spreadsheet.dominokit.key;
 
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
@@ -36,7 +36,8 @@ import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import java.util.Optional;
 
 public final class SpreadsheetKeyboardDialogComponentTest implements DialogComponentLifecycleTesting<SpreadsheetKeyboardDialogComponent>,
-    HasSpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting,
+    PublicClassTesting<SpreadsheetKeyboardDialogComponent> {
 
     @Test
     public void testOnHistoryTokenSpreadsheet() {
@@ -1165,11 +1166,6 @@ public final class SpreadsheetKeyboardDialogComponentTest implements DialogCompo
     @Override
     public Class<SpreadsheetKeyboardDialogComponent> type() {
         return SpreadsheetKeyboardDialogComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }
 

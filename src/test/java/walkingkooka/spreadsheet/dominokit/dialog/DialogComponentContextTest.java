@@ -19,8 +19,7 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.datetime.DateTimeSymbols;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
@@ -36,7 +35,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class DialogComponentContextTest implements ClassTesting<DialogComponentContext> {
+public final class DialogComponentContextTest implements PublicClassTesting<DialogComponentContext> {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 
@@ -367,10 +366,5 @@ public final class DialogComponentContextTest implements ClassTesting<DialogComp
     @Override
     public Class<DialogComponentContext> type() {
         return DialogComponentContext.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

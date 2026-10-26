@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEventTest implements ClassTesting<DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent> {
+public final class DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEventTest implements PackagePrivateClassTesting<DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent> {
 
     @Override
     public Class<DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent> type() {
         return DecimalNumberSymbolsFetcherWatchersDecimalNumberSymbolsHateosResourceEvent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -20,12 +20,11 @@ package walkingkooka.spreadsheet.dominokit.fetcher;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.net.UrlQueryString;
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
 import java.util.OptionalInt;
 
-public final class FetcherTest implements ClassTesting2<Fetcher<?>> {
+public final class FetcherTest implements PublicClassTesting<Fetcher<?>> {
 
     // errorMessage.....................................................................................................
 
@@ -156,10 +155,5 @@ public final class FetcherTest implements ClassTesting2<Fetcher<?>> {
     @Override
     public Class<Fetcher<?>> type() {
         return Cast.to(Fetcher.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

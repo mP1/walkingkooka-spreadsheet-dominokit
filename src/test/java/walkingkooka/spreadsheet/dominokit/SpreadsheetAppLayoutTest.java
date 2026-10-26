@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class SpreadsheetAppLayoutTest implements ClassTesting<SpreadsheetAppLayout> {
+public final class SpreadsheetAppLayoutTest implements PackagePrivateClassTesting<SpreadsheetAppLayout> {
 
     @Override
     public Class<SpreadsheetAppLayout> type() {
         return SpreadsheetAppLayout.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

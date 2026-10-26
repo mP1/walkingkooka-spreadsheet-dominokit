@@ -19,12 +19,11 @@ package walkingkooka.spreadsheet.dominokit.history;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.AppContexts;
 
-public final class HistoryWatchersTest implements ClassTesting<HistoryWatchers> {
+public final class HistoryWatchersTest implements PublicClassTesting<HistoryWatchers> {
 
     @Test
     public void testAddThenFire() {
@@ -50,15 +49,10 @@ public final class HistoryWatchersTest implements ClassTesting<HistoryWatchers> 
 
     private boolean fired = false;
 
-    // ClassTesting....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<HistoryWatchers> type() {
         return HistoryWatchers.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

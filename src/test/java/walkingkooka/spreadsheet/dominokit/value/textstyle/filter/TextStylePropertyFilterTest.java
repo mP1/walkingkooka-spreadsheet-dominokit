@@ -21,8 +21,7 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.TextStylePropertyComponent;
 import walkingkooka.spreadsheet.dominokit.value.textstyle.opacity.OpacityComponent;
 import walkingkooka.text.CharSequences;
@@ -39,7 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStylePropertyFilterTest implements HashCodeEqualsDefinedTesting2<TextStylePropertyFilter>,
     ToStringTesting<TextStylePropertyFilter>,
-    ClassTesting<TextStylePropertyFilter> {
+    PublicClassTesting<TextStylePropertyFilter> {
 
     // with.............................................................................................................
 
@@ -594,10 +593,5 @@ public final class TextStylePropertyFilterTest implements HashCodeEqualsDefinedT
     @Override
     public Class<TextStylePropertyFilter> type() {
         return TextStylePropertyFilter.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

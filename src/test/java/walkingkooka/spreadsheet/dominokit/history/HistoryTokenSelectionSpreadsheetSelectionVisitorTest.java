@@ -17,10 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.history;
 
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelectionVisitorTesting;
 
-public final class HistoryTokenSelectionSpreadsheetSelectionVisitorTest implements SpreadsheetSelectionVisitorTesting<HistoryTokenSelectionSpreadsheetSelectionVisitor> {
+public final class HistoryTokenSelectionSpreadsheetSelectionVisitorTest implements SpreadsheetSelectionVisitorTesting<HistoryTokenSelectionSpreadsheetSelectionVisitor>,
+    PackagePrivateClassTesting<HistoryTokenSelectionSpreadsheetSelectionVisitor> {
+
     @Override
     public HistoryTokenSelectionSpreadsheetSelectionVisitor createVisitor() {
         return new HistoryTokenSelectionSpreadsheetSelectionVisitor(
@@ -33,11 +35,6 @@ public final class HistoryTokenSelectionSpreadsheetSelectionVisitorTest implemen
     @Override
     public Class<HistoryTokenSelectionSpreadsheetSelectionVisitor> type() {
         return HistoryTokenSelectionSpreadsheetSelectionVisitor.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 
     @Override

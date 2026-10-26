@@ -21,8 +21,7 @@ import org.dominokit.domino.ui.icons.Icon;
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorName;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
@@ -42,7 +41,7 @@ import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class SpreadsheetSelectionMenuSortTest implements ClassTesting<SpreadsheetSelectionMenuSort>,
+public class SpreadsheetSelectionMenuSortTest implements PackagePrivateClassTesting<SpreadsheetSelectionMenuSort>,
     HasSpreadsheetMetadataTesting,
     TreePrintableTesting {
 
@@ -490,15 +489,10 @@ public class SpreadsheetSelectionMenuSortTest implements ClassTesting<Spreadshee
         );
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<SpreadsheetSelectionMenuSort> type() {
         return SpreadsheetSelectionMenuSort.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

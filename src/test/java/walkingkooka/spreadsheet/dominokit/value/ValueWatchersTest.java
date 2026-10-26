@@ -19,13 +19,12 @@ package walkingkooka.spreadsheet.dominokit.value;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.text.CharSequences;
 
 import java.util.Optional;
 
-public final class ValueWatchersTest implements ClassTesting<ValueWatchers<String>> {
+public final class ValueWatchersTest implements PublicClassTesting<ValueWatchers<String>> {
 
     private final static String VALUE = "Value123";
 
@@ -87,15 +86,10 @@ public final class ValueWatchersTest implements ClassTesting<ValueWatchers<Strin
         }
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<ValueWatchers<String>> type() {
         return Cast.to(ValueWatchers.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

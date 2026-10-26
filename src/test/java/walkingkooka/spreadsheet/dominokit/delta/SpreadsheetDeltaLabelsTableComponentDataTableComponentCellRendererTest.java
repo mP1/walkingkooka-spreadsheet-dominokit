@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.delta;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class SpreadsheetDeltaLabelsTableComponentDataTableComponentCellRendererTest implements ClassTesting<SpreadsheetDeltaLabelsTableComponentDataTableComponentCellRenderer> {
+public final class SpreadsheetDeltaLabelsTableComponentDataTableComponentCellRendererTest implements PackagePrivateClassTesting<SpreadsheetDeltaLabelsTableComponentDataTableComponentCellRenderer> {
 
     @Override
     public Class<SpreadsheetDeltaLabelsTableComponentDataTableComponentCellRenderer> type() {
         return SpreadsheetDeltaLabelsTableComponentDataTableComponentCellRenderer.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

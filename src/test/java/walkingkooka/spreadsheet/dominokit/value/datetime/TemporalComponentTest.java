@@ -18,10 +18,9 @@
 package walkingkooka.spreadsheet.dominokit.value.datetime;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class TemporalComponentTest implements ClassTesting<TemporalComponent<?, ?>> {
+public final class TemporalComponentTest implements PackagePrivateClassTesting<TemporalComponent<?, ?>> {
 
     @Override
     public void testAllMethodsVisibility() {
@@ -31,10 +30,5 @@ public final class TemporalComponentTest implements ClassTesting<TemporalCompone
     @Override
     public Class<TemporalComponent<?, ?>> type() {
         return Cast.to(TemporalComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

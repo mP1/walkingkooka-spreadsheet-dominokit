@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.datetimesymbols;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class AppContextDateTimeSymbolsDialogComponentContextTest implements ClassTesting<AppContextDateTimeSymbolsDialogComponentContext> {
+public final class AppContextDateTimeSymbolsDialogComponentContextTest implements PackagePrivateClassTesting<AppContextDateTimeSymbolsDialogComponentContext> {
 
     @Override
     public Class<AppContextDateTimeSymbolsDialogComponentContext> type() {
         return AppContextDateTimeSymbolsDialogComponentContext.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

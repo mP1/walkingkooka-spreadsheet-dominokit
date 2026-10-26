@@ -21,7 +21,6 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.locale.LocaleLanguageTag;
 import walkingkooka.net.Url;
 import walkingkooka.net.UrlPath;
-import walkingkooka.reflect.JavaVisibility;
 
 public final class DateTimeSymbolsFetcherTest implements FetcherTesting<DateTimeSymbolsFetcher, DateTimeSymbolsFetcherWatcher> {
 
@@ -106,10 +105,5 @@ public final class DateTimeSymbolsFetcherTest implements FetcherTesting<DateTime
     @Override
     public Class<DateTimeSymbolsFetcher> type() {
         return DateTimeSymbolsFetcher.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

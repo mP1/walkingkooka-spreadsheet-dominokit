@@ -19,8 +19,7 @@ package walkingkooka.spreadsheet.dominokit.viewport.menu;
 
 import org.dominokit.domino.ui.menu.Menu;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenu;
 import walkingkooka.spreadsheet.dominokit.contextmenu.SpreadsheetContextMenuFactory;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -37,7 +36,7 @@ import java.util.Optional;
 
 public final class SpreadsheetSelectionMenuInsertTest implements TreePrintableTesting,
     HasSpreadsheetMetadataTesting,
-    ClassTesting<SpreadsheetSelectionMenuInsert> {
+    PackagePrivateClassTesting<SpreadsheetSelectionMenuInsert> {
 
     @Test
     public void testBuildWithCell() {
@@ -173,10 +172,5 @@ public final class SpreadsheetSelectionMenuInsertTest implements TreePrintableTe
     @Override
     public Class<SpreadsheetSelectionMenuInsert> type() {
         return SpreadsheetSelectionMenuInsert.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

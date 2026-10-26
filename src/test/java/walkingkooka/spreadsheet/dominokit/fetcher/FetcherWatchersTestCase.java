@@ -17,19 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public abstract class FetcherWatchersTestCase<T> implements ClassTesting<T> {
+public abstract class FetcherWatchersTestCase<T> implements PublicClassTesting<T> {
 
     FetcherWatchersTestCase() {
         super();
-    }
-
-    // ClassTesting....................................................................................................
-
-    @Override
-    public final JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

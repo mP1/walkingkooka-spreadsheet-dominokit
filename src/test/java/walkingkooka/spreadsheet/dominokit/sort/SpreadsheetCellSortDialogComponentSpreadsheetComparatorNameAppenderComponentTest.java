@@ -23,6 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.Sets;
 import walkingkooka.net.Url;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetColumnOrRowSpreadsheetComparatorNames;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfo;
 import walkingkooka.spreadsheet.compare.provider.SpreadsheetComparatorInfoSet;
@@ -38,7 +39,8 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponentTest implements HtmlComponentTesting<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent, HTMLDivElement> {
+public final class SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponentTest implements HtmlComponentTesting<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent, HTMLDivElement>,
+    PackagePrivateClassTesting<SpreadsheetCellSortDialogComponentSpreadsheetComparatorNameAppenderComponent> {
 
     // cell.............................................................................................................
 

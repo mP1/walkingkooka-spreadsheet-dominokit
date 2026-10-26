@@ -17,20 +17,14 @@
 
 package walkingkooka.spreadsheet.dominokit.value.csv;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class CsvStringListComponentParserFunctionTest implements ClassTesting2<CsvStringListComponentParserFunction> {
+public final class CsvStringListComponentParserFunctionTest implements PackagePrivateClassTesting<CsvStringListComponentParserFunction> {
 
     // class............................................................................................................
 
     @Override
     public Class<CsvStringListComponentParserFunction> type() {
         return CsvStringListComponentParserFunction.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

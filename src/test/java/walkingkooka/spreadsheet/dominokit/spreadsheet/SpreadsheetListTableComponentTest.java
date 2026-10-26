@@ -23,6 +23,7 @@ import walkingkooka.collect.list.Lists;
 import walkingkooka.environment.AuditInfo;
 import walkingkooka.net.email.EmailAddress;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetListHistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
@@ -38,7 +39,8 @@ import java.util.Locale;
 import java.util.Optional;
 
 public final class SpreadsheetListTableComponentTest implements TableComponentTesting<HTMLDivElement, List<SpreadsheetMetadata>, SpreadsheetListTableComponent>,
-    HasSpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting,
+    PackagePrivateClassTesting<SpreadsheetListTableComponent> {
 
     private final static String ID = "Table123-";
 

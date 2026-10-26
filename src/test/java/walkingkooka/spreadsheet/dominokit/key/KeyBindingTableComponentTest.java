@@ -20,7 +20,7 @@ package walkingkooka.spreadsheet.dominokit.key;
 import elemental2.dom.HTMLDivElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.value.TableComponentTesting;
 import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
@@ -29,7 +29,8 @@ import java.util.List;
 import java.util.Optional;
 
 public final class KeyBindingTableComponentTest implements TableComponentTesting<HTMLDivElement, List<KeyBinding>, KeyBindingTableComponent>,
-    HasSpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting,
+    PublicClassTesting<KeyBindingTableComponent> {
 
     @Test
     public void testRefresh() {
@@ -172,10 +173,5 @@ public final class KeyBindingTableComponentTest implements TableComponentTesting
     @Override
     public Class<KeyBindingTableComponent> type() {
         return KeyBindingTableComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.util;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class ThrottlerTest implements ClassTesting<Throttler> {
+public final class ThrottlerTest implements PublicClassTesting<Throttler> {
 
     @Override
     public Class<Throttler> type() {
         return Throttler.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

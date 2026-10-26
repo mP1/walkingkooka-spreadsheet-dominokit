@@ -19,8 +19,7 @@ package walkingkooka.spreadsheet.dominokit.value.textstyle.fontsize;
 
 import org.dominokit.domino.ui.menu.MenuItem;
 import org.junit.jupiter.api.Test;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.ComponentLifecycleMatcherTesting;
 import walkingkooka.spreadsheet.dominokit.history.FakeHistoryContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryContext;
@@ -33,7 +32,7 @@ import walkingkooka.tree.text.TextStylePropertyName;
 import java.util.Optional;
 
 public final class FontSizeComponentContextTest implements ComponentLifecycleMatcherTesting,
-    ClassTesting<FontSizeComponentContext> {
+    PublicClassTesting<FontSizeComponentContext> {
 
     @Test
     public void testHistoryTokenMenuItem() {
@@ -89,10 +88,5 @@ public final class FontSizeComponentContextTest implements ComponentLifecycleMat
     @Override
     public Class<FontSizeComponentContext> type() {
         return FontSizeComponentContext.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -21,8 +21,7 @@ import org.dominokit.domino.ui.datatable.ColumnConfig;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.SpreadsheetIcons;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.HistoryTokenAnchorComponent;
@@ -35,7 +34,7 @@ import walkingkooka.text.printer.TreePrintableTesting;
 import java.util.Optional;
 import java.util.OptionalInt;
 
-public final class DataTableComponentTest implements ClassTesting<DataTableComponent<String>>,
+public final class DataTableComponentTest implements PublicClassTesting<DataTableComponent<String>>,
     TreePrintableTesting {
 
     private final static String ID_PREFIX = "tableId123-";
@@ -726,10 +725,5 @@ public final class DataTableComponentTest implements ClassTesting<DataTableCompo
     @Override
     public Class<DataTableComponent<String>> type() {
         return Cast.to(DataTableComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

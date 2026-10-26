@@ -18,18 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class FetcherWatchersEventTest implements ClassTesting<FetcherWatchersEvent<?>> {
+public final class FetcherWatchersEventTest implements PackagePrivateClassTesting<FetcherWatchersEvent<?>> {
 
     @Override
     public Class<FetcherWatchersEvent<?>> type() {
         return Cast.to(FetcherWatchersEvent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

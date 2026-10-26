@@ -17,10 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class ComponentLifecycleMatcherDelegatorTest implements ClassTesting<ComponentLifecycleMatcherDelegator> {
+public final class ComponentLifecycleMatcherDelegatorTest implements PublicClassTesting<ComponentLifecycleMatcherDelegator> {
 
     static class TestComponentLifecycleMatcherDelegator implements ComponentLifecycleMatcherDelegator {
 
@@ -35,10 +34,5 @@ public final class ComponentLifecycleMatcherDelegatorTest implements ClassTestin
     @Override
     public Class<ComponentLifecycleMatcherDelegator> type() {
         return ComponentLifecycleMatcherDelegator.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

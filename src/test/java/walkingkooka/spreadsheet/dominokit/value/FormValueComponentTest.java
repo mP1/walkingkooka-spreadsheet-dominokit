@@ -21,13 +21,12 @@ import elemental2.dom.HTMLElement;
 import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
 import java.util.List;
 import java.util.Optional;
 
-public final class FormValueComponentTest implements ClassTesting<FormValueComponent<?, ?, ?>> {
+public final class FormValueComponentTest implements PublicClassTesting<FormValueComponent<?, ?, ?>> {
 
     // addValueWatcherSkipIfErrors......................................................................................
 
@@ -94,10 +93,5 @@ public final class FormValueComponentTest implements ClassTesting<FormValueCompo
     @Override
     public Class<FormValueComponent<?, ?, ?>> type() {
         return Cast.to(FormValueComponent.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class AppUncaughtExceptionHandlerTest implements ClassTesting<AppUncaughtExceptionHandler> {
+public final class AppUncaughtExceptionHandlerTest implements PackagePrivateClassTesting<AppUncaughtExceptionHandler> {
 
     @Override
     public Class<AppUncaughtExceptionHandler> type() {
         return AppUncaughtExceptionHandler.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

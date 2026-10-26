@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.dialog;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.RefreshContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTestingTest.TestDialogComponentLifecycle;
@@ -163,7 +162,7 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
         return new TestDialogComponentLifecycle();
     }
 
-    final static class TestDialogComponentLifecycle implements DialogComponentLifecycle,
+    public final static class TestDialogComponentLifecycle implements DialogComponentLifecycle,
         TreePrintable {
 
         TestDialogComponentLifecycle() {
@@ -248,10 +247,5 @@ public final class DialogComponentLifecycleTestingTest implements DialogComponen
     @Override
     public Class<TestDialogComponentLifecycle> type() {
         return TestDialogComponentLifecycle.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

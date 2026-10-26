@@ -19,7 +19,6 @@ package walkingkooka.spreadsheet.dominokit.value.decimalnumbersymbols;
 
 import org.junit.jupiter.api.Test;
 import walkingkooka.math.DecimalNumberSymbols;
-import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -758,15 +757,10 @@ public final class DecimalNumberSymbolsDialogComponentTest implements DialogComp
         };
     }
 
-    // ClassTesting.....................................................................................................
+    // Class...........................................................................................................
 
     @Override
     public Class<DecimalNumberSymbolsDialogComponent> type() {
         return DecimalNumberSymbolsDialogComponent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

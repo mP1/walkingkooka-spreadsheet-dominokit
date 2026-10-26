@@ -24,8 +24,7 @@ import walkingkooka.collect.set.SortedSets;
 import walkingkooka.compare.ComparableTesting2;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.math.DecimalNumberSymbols;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.server.datetimesymbols.DateTimeSymbolsHateosResource;
 import walkingkooka.spreadsheet.server.decimalnumbersymbols.DecimalNumberSymbolsHateosResource;
 import walkingkooka.text.HasTextTesting;
@@ -39,7 +38,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class LocaleComponentSuggestionsValueTest implements ComparableTesting2<LocaleComponentSuggestionsValue<Integer>>,
-    ClassTesting<LocaleComponentSuggestionsValue<Integer>>,
+    PublicClassTesting<LocaleComponentSuggestionsValue<Integer>>,
     HasTextTesting {
 
     private final static Locale LOCALE = Locale.ENGLISH;
@@ -218,10 +217,5 @@ public final class LocaleComponentSuggestionsValueTest implements ComparableTest
     @Override
     public Class<LocaleComponentSuggestionsValue<Integer>> type() {
         return Cast.to(LocaleComponentSuggestionsValue.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

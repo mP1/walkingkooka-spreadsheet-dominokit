@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.convert;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class ConverterSelectorDialogComponentContextsTest implements ClassTesting2<ConverterSelectorDialogComponentContexts> {
+public final class ConverterSelectorDialogComponentContextsTest implements PublicClassTesting<ConverterSelectorDialogComponentContexts> {
 
     @Override
     public Class<ConverterSelectorDialogComponentContexts> type() {
         return ConverterSelectorDialogComponentContexts.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.number;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class WholeNumberComponentContextSpreadsheetParserContextTest implements ClassTesting2<WholeNumberComponentContextSpreadsheetParserContext> {
+public final class WholeNumberComponentContextSpreadsheetParserContextTest implements PackagePrivateClassTesting<WholeNumberComponentContextSpreadsheetParserContext> {
 
     @Override
     public Class<WholeNumberComponentContextSpreadsheetParserContext> type() {
         return WholeNumberComponentContextSpreadsheetParserContext.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

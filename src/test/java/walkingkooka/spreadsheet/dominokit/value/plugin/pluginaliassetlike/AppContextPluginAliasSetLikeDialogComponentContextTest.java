@@ -18,18 +18,12 @@
 package walkingkooka.spreadsheet.dominokit.value.plugin.pluginaliassetlike;
 
 import walkingkooka.Cast;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class AppContextPluginAliasSetLikeDialogComponentContextTest implements ClassTesting<AppContextPluginAliasSetLikeDialogComponentContext<?, ?, ?, ?, ?, ?>> {
+public final class AppContextPluginAliasSetLikeDialogComponentContextTest implements PackagePrivateClassTesting<AppContextPluginAliasSetLikeDialogComponentContext<?, ?, ?, ?, ?, ?>> {
 
     @Override
     public Class<AppContextPluginAliasSetLikeDialogComponentContext<?, ?, ?, ?, ?, ?>> type() {
         return Cast.to(AppContextPluginAliasSetLikeDialogComponentContext.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

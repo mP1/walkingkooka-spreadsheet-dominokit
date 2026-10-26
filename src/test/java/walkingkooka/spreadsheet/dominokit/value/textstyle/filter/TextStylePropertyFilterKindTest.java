@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.value.textstyle.filter;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 
-public final class TextStylePropertyFilterKindTest implements ClassTesting<TextStylePropertyFilterKind> {
+public final class TextStylePropertyFilterKindTest implements PublicClassTesting<TextStylePropertyFilterKind> {
 
     @Override
     public Class<TextStylePropertyFilterKind> type() {
         return TextStylePropertyFilterKind.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

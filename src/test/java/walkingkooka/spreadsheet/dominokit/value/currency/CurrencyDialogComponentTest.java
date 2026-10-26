@@ -23,6 +23,7 @@ import walkingkooka.currency.CurrencyCode;
 import walkingkooka.net.Url;
 import walkingkooka.net.http.HttpMethod;
 import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.dialog.DialogComponentLifecycleTesting;
@@ -47,7 +48,8 @@ import java.util.Set;
 
 public final class CurrencyDialogComponentTest implements DialogComponentLifecycleTesting<CurrencyDialogComponent>,
     HistoryTokenTesting,
-    HasSpreadsheetMetadataTesting {
+    HasSpreadsheetMetadataTesting,
+    PackagePrivateClassTesting<CurrencyDialogComponent> {
 
     private final static SpreadsheetMetadata METADATA = SPREADSHEET_METADATA.set(
         SpreadsheetMetadataPropertyName.SPREADSHEET_ID,
@@ -335,7 +337,7 @@ public final class CurrencyDialogComponentTest implements DialogComponentLifecyc
         };
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<CurrencyDialogComponent> type() {

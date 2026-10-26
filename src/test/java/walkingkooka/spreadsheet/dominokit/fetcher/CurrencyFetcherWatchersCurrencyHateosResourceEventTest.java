@@ -17,18 +17,12 @@
 
 package walkingkooka.spreadsheet.dominokit.fetcher;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class CurrencyFetcherWatchersCurrencyHateosResourceEventTest implements ClassTesting<CurrencyFetcherWatchersCurrencyHateosResourceEvent> {
+public final class CurrencyFetcherWatchersCurrencyHateosResourceEventTest implements PackagePrivateClassTesting<CurrencyFetcherWatchersCurrencyHateosResourceEvent> {
 
     @Override
     public Class<CurrencyFetcherWatchersCurrencyHateosResourceEvent> type() {
         return CurrencyFetcherWatchersCurrencyHateosResourceEvent.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }

@@ -22,8 +22,7 @@ import walkingkooka.Cast;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.collect.set.SortedSets;
 import walkingkooka.compare.ComparableTesting2;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.text.HasTextTesting;
 
 import java.util.Currency;
@@ -33,7 +32,7 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class CurrencyComponentSuggestionsValueTest implements ComparableTesting2<CurrencyComponentSuggestionsValue<Integer>>,
-    ClassTesting<CurrencyComponentSuggestionsValue<Integer>>,
+    PublicClassTesting<CurrencyComponentSuggestionsValue<Integer>>,
     HasTextTesting {
 
     private final static Currency CURRENCY = Currency.getInstance("AUD");
@@ -139,10 +138,5 @@ public final class CurrencyComponentSuggestionsValueTest implements ComparableTe
     @Override
     public Class<CurrencyComponentSuggestionsValue<Integer>> type() {
         return Cast.to(CurrencyComponentSuggestionsValue.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

@@ -22,8 +22,7 @@ import walkingkooka.Cast;
 import walkingkooka.ToStringTesting;
 import walkingkooka.collect.list.Lists;
 import walkingkooka.net.UrlFragment;
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.AppContext;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
@@ -41,7 +40,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class HistoryTokenRecorderTest implements ClassTesting<HistoryTokenRecorder<?>>,
+public final class HistoryTokenRecorderTest implements PublicClassTesting<HistoryTokenRecorder<?>>,
     TreePrintableTesting,
     ToStringTesting<HistoryTokenRecorder<?>> {
 
@@ -390,15 +389,10 @@ public final class HistoryTokenRecorderTest implements ClassTesting<HistoryToken
         };
     }
 
-    // ClassTesting.....................................................................................................
+    // Class............................................................................................................
 
     @Override
     public Class<HistoryTokenRecorder<?>> type() {
         return Cast.to(HistoryTokenRecorder.class);
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
     }
 }

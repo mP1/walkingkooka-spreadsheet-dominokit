@@ -17,10 +17,9 @@
 
 package walkingkooka.spreadsheet.dominokit.tab;
 
-import walkingkooka.reflect.ClassTesting;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PackagePrivateClassTesting;
 
-public final class TabsComponentLikeTest implements ClassTesting<TabsComponentLike> {
+public final class TabsComponentLikeTest implements PackagePrivateClassTesting<TabsComponentLike> {
 
     @Override
     public void testAllMethodsVisibility() {
@@ -30,10 +29,5 @@ public final class TabsComponentLikeTest implements ClassTesting<TabsComponentLi
     @Override
     public Class<TabsComponentLike> type() {
         return TabsComponentLike.class;
-    }
-
-    @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PACKAGE_PRIVATE;
     }
 }
