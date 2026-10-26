@@ -17,10 +17,11 @@
 
 package walkingkooka.spreadsheet.dominokit.value.plugin.formhandler;
 
-import walkingkooka.reflect.ClassTesting2;
-import walkingkooka.reflect.JavaVisibility;
+import walkingkooka.reflect.PublicStaticHelperTesting;
 
-public final class FormHandlerSelectorDialogComponentContextsTest implements ClassTesting2<FormHandlerSelectorDialogComponentContexts> {
+import java.lang.reflect.Method;
+
+public final class FormHandlerSelectorDialogComponentContextsTest implements PublicStaticHelperTesting<FormHandlerSelectorDialogComponentContexts> {
 
     @Override
     public Class<FormHandlerSelectorDialogComponentContexts> type() {
@@ -28,7 +29,7 @@ public final class FormHandlerSelectorDialogComponentContextsTest implements Cla
     }
 
     @Override
-    public JavaVisibility typeVisibility() {
-        return JavaVisibility.PUBLIC;
+    public boolean canHavePublicTypes(final Method method) {
+        return false;
     }
 }
