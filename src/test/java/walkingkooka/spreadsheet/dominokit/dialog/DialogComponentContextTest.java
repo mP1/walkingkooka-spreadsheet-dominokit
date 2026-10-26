@@ -21,10 +21,9 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.datetime.DateTimeSymbols;
 import walkingkooka.reflect.PublicClassTesting;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterSelector;
-import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataPropertyName;
-import walkingkooka.spreadsheet.meta.SpreadsheetName;
 import walkingkooka.spreadsheet.parser.provider.SpreadsheetParserSelector;
 import walkingkooka.spreadsheet.reference.SpreadsheetSelection;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -35,11 +34,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public final class DialogComponentContextTest implements PublicClassTesting<DialogComponentContext> {
-
-    private final static SpreadsheetId ID = SpreadsheetId.with(1);
-
-    private final static SpreadsheetName NAME = SpreadsheetName.with("SpreadsheetName123");
+public final class DialogComponentContextTest implements SpreadsheetEnvironmentContextTesting,
+    PublicClassTesting<DialogComponentContext> {
 
     // selectionDialogTitle.............................................................................................
 
@@ -108,14 +104,14 @@ public final class DialogComponentContextTest implements PublicClassTesting<Dial
                 public HistoryToken historyToken() {
                     return selection.isPresent() ?
                         HistoryToken.cellSelect(
-                            ID,
-                            NAME,
+                            SPREADSHEET_ID,
+                            SPREADSHEET_NAME,
                             selection.get()
                                 .setDefaultAnchor()
                         ) :
                         HistoryToken.spreadsheetSelect(
-                            ID,
-                            NAME
+                            SPREADSHEET_ID,
+                            SPREADSHEET_NAME
                         );
                 }
             }.selectionDialogTitle(action),
@@ -170,8 +166,8 @@ public final class DialogComponentContextTest implements PublicClassTesting<Dial
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.cellStyle(
-                        ID,
-                        NAME,
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         selection.setDefaultAnchor(),
                         Optional.of(propertyName),
                         Optional.empty() // no filter
@@ -256,8 +252,8 @@ public final class DialogComponentContextTest implements PublicClassTesting<Dial
                 @Override
                 public HistoryToken historyToken() {
                     return HistoryToken.selection(
-                        ID,
-                        NAME,
+                        SPREADSHEET_ID,
+                        SPREADSHEET_NAME,
                         selection.setDefaultAnchor()
                     );
                 }
