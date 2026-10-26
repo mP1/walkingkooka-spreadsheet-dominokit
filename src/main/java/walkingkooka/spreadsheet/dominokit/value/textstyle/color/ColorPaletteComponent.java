@@ -277,7 +277,7 @@ public final class ColorPaletteComponent implements ValueComponent<HTMLTableElem
         return this;
     }
 
-    private Optional<Color> value = Optional.empty();
+    private Optional<Color> value;
 
     @Override
     public Runnable addValueWatcher(final ValueWatcher<Color> watcher) {
