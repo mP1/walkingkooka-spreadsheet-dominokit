@@ -18,9 +18,9 @@
 package walkingkooka.spreadsheet.dominokit;
 
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 
-public interface ComponentLifecycleMatcherTesting extends HasSpreadsheetMetadataTesting {
+public interface ComponentLifecycleMatcherTesting extends SpreadsheetEnvironmentContextTesting {
 
     default void shouldIgnoreAndCheck(final ComponentLifecycleMatcher matcher,
                                       final HistoryToken token,

@@ -28,6 +28,7 @@ import walkingkooka.reflect.ClassTesting;
 import walkingkooka.reflect.JavaVisibility;
 import walkingkooka.reflect.ThrowableTesting;
 import walkingkooka.spreadsheet.dominokit.FakeAppContext;
+import walkingkooka.spreadsheet.environment.SpreadsheetEnvironmentContextTesting;
 import walkingkooka.spreadsheet.format.pattern.SpreadsheetPattern;
 import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.formula.SpreadsheetFormula;
@@ -62,7 +63,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class ClipboardTextItemTest implements ClassTesting<ClipboardTextItem>,
     HashCodeEqualsDefinedTesting2<ClipboardTextItem>,
     HasTextTesting,
-    HasSpreadsheetMetadataTesting,
+    SpreadsheetEnvironmentContextTesting,
     ThrowableTesting,
     ToStringTesting<ClipboardTextItem>,
     TreePrintableTesting {

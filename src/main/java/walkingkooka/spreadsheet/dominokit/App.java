@@ -172,6 +172,7 @@ import walkingkooka.spreadsheet.format.provider.SpreadsheetFormatterProviders;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterInfoSet;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterProvider;
 import walkingkooka.spreadsheet.importer.provider.SpreadsheetImporterProviders;
+import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetId;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadata;
 import walkingkooka.spreadsheet.meta.SpreadsheetMetadataLoader;
@@ -1128,6 +1129,11 @@ public class App implements EntryPoint,
 
     @Override
     public SpreadsheetEnvironmentContext environmentContext() {
+        return this.spreadsheetEnvironmentContext;
+    }
+
+    @Override
+    public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
         return this.spreadsheetEnvironmentContext;
     }
 
