@@ -1133,6 +1133,11 @@ public class App implements EntryPoint,
     }
 
     @Override
+    public HasSpreadsheetCell hasSpreadsheetCell() {
+        return this.spreadsheetEnvironmentContext;
+    }
+    
+    @Override
     public HasSpreadsheetMetadata hasSpreadsheetMetadata() {
         return this.spreadsheetEnvironmentContext;
     }
@@ -1821,7 +1826,6 @@ public class App implements EntryPoint,
 
         try {
             this.formatterContext = metadata.spreadsheetFormatterContext(
-                HasSpreadsheetCell.EMPTY_HAS_SPREADSHEET_CELL,
                 (final Optional<Object> value) -> {
                     throw new UnsupportedOperationException();
                 },
