@@ -118,7 +118,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
         this.valueAndCheck(
             "=1999/12/31",
             SpreadsheetFormulaParserToken.date(
-                Lists.of(
+                Lists.<ParserToken>of(
                     SpreadsheetFormulaParserToken.year(1999, "1999"),
                     SpreadsheetFormulaParserToken.textLiteral("/", "/"),
                     SpreadsheetFormulaParserToken.monthNumber(12, "12"),
@@ -135,7 +135,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
         this.valueAndCheck(
             "=1999/12/31 12:58",
             SpreadsheetFormulaParserToken.dateTime(
-                Lists.of(
+                Lists.<ParserToken>of(
                     SpreadsheetFormulaParserToken.year(1999, "1999"),
                     SpreadsheetFormulaParserToken.textLiteral("/", "/"),
                     SpreadsheetFormulaParserToken.monthNumber(12, "12"),
@@ -156,7 +156,7 @@ public final class SpreadsheetFormulaParserTokenComponentTest implements ValueTe
         this.valueAndCheck(
             "=12:58:59",
             SpreadsheetFormulaParserToken.time(
-                Lists.of(
+                Lists.<ParserToken>of(
                     SpreadsheetFormulaParserToken.hour(12, "12"),
                     SpreadsheetFormulaParserToken.textLiteral(":", ":"),
                     SpreadsheetFormulaParserToken.minute(58, "58"),
