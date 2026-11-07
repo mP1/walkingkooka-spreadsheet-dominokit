@@ -120,7 +120,7 @@ public final class TextStyleDialogComponentTest implements DialogComponentLifecy
         for(final TextStylePropertyComponent<?, ?, ?> c : component.components) {
             // only TextBoxes can have invalid string values.
             if(c instanceof ValueTextBoxComponentLike) {
-                final ValueTextBoxComponentLike<?, ?> valueTextBoxComponent = (ValueTextBoxComponentLike<?, ?>) c;
+                final ValueTextBoxComponentLike<?, ?> valueTextBoxComponent = Cast.to(c);
 
                 System.out.println(c);
 
