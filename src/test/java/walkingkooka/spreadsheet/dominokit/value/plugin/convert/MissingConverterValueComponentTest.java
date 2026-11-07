@@ -24,6 +24,8 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import walkingkooka.spreadsheet.value.SpreadsheetValueType;
 import walkingkooka.tree.expression.ExpressionNumberKind;
 
+import java.util.Optional;
+
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MissingConverterValueComponentTest implements ValueComponentTesting<HTMLDivElement, MissingConverterValue, MissingConverterValueComponent> {
@@ -46,7 +48,9 @@ public class MissingConverterValueComponentTest implements ValueComponentTesting
                 "      123\n" +
                 "        walkingkooka.tree.expression.ExpressionNumberBigDecimal\n" +
                 "    type\n" +
-                "      number/Number\n"
+                "      number/Number\n" +
+                "    message\n" +
+                "      \"Message 123\"\n"
         );
     }
 
@@ -55,7 +59,8 @@ public class MissingConverterValueComponentTest implements ValueComponentTesting
         return MissingConverterValueComponent.empty(
             MissingConverterValue.with(
                 ExpressionNumberKind.BIG_DECIMAL.create(123),
-                SpreadsheetValueType.NUMBER.value()
+                SpreadsheetValueType.NUMBER.value(),
+                Optional.of("Message 123")
             )
         );
     }

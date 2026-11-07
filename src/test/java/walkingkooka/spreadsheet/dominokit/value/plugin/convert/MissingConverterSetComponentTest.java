@@ -86,7 +86,8 @@ public class MissingConverterSetComponentTest implements ValueComponentTesting<H
                                 12,
                                 31
                             ),
-                            SpreadsheetValueType.DATE.value()
+                            SpreadsheetValueType.DATE.value(),
+                            MissingConverterValue.NO_MESSAGE
                         )
                     )
                 )
@@ -96,11 +97,13 @@ public class MissingConverterSetComponentTest implements ValueComponentTesting<H
                     Sets.of(
                         MissingConverterValue.with(
                             ExpressionNumberKind.BIG_DECIMAL.create(123),
-                            SpreadsheetValueType.NUMBER.value()
+                            SpreadsheetValueType.NUMBER.value(),
+                            MissingConverterValue.NO_MESSAGE
                         ),
                         MissingConverterValue.with(
                             "HelloWorldText",
-                            SpreadsheetValueType.NUMBER.value()
+                            SpreadsheetValueType.NUMBER.value(),
+                            MissingConverterValue.NO_MESSAGE
                         )
                     )
                 )
