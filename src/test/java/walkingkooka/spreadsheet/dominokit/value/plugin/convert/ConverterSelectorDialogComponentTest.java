@@ -204,7 +204,8 @@ public final class ConverterSelectorDialogComponentTest implements DialogCompone
                     Sets.of(
                         MissingConverterValue.with(
                             "Value1",
-                            String.class.getName()
+                            String.class.getName(),
+                            MissingConverterValue.NO_MESSAGE
                         )
                     )
                 )

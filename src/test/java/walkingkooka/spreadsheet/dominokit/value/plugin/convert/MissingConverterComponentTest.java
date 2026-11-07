@@ -69,11 +69,13 @@ public class MissingConverterComponentTest implements ValueComponentTesting<HTML
                 Sets.of(
                     MissingConverterValue.with(
                         ExpressionNumberKind.BIG_DECIMAL.create(123),
-                        SpreadsheetValueType.NUMBER.value()
+                        SpreadsheetValueType.NUMBER.value(),
+                        MissingConverterValue.NO_MESSAGE
                     ),
                     MissingConverterValue.with(
                         "HelloWorldText",
-                        SpreadsheetValueType.NUMBER.value()
+                        SpreadsheetValueType.NUMBER.value(),
+                        MissingConverterValue.NO_MESSAGE
                     )
                 )
             )
