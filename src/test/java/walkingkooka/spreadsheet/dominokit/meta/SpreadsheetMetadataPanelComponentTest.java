@@ -131,7 +131,7 @@ public final class SpreadsheetMetadataPanelComponentTest implements TreePrintabl
                 "        LI\n" +
                 "          style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
                 "            IntegerBoxComponent\n" +
-                "              [8]\n" +
+                "              [9]\n" +
                 "               min: 0 step: 1\n" +
                 "        LI\n" +
                 "          style=\"display: flex; padding-bottom: 0px; padding-left: 0px; padding-right: 0px; padding-top: 0px;\"\n" +
