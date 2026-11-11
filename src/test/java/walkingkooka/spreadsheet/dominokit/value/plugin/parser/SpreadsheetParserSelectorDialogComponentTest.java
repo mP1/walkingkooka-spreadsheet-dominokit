@@ -995,7 +995,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            ROW\n" +
                 "              \"Save\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20dd/mm/yyyy%20hh:mm:ss] id=SpreadsheetParserSelector-save-Link\n" +
                 "              \"Clear\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20yyyy/mm/dd%20hh:mm] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/spreadsheet/dateTimeParser/save/date-time%20yyyy/mm/dd%20hh:mm:ss;yyyy/mm/dd%20hh:mm] id=SpreadsheetParserSelector-undo-Link\n" +
                 "              \"Close\" [#/123/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
@@ -1290,7 +1290,7 @@ public final class SpreadsheetParserSelectorDialogComponentTest implements Dialo
                 "            ROW\n" +
                 "              \"Save\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm] id=SpreadsheetParserSelector-save-Link\n" +
                 "              \"Clear\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/] id=SpreadsheetParserSelector-clear-Link\n" +
-                "              \"Undo\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm:ss] id=SpreadsheetParserSelector-undo-Link\n" +
+                "              \"Undo\" [#/123/Spreadsheet1/spreadsheet/timeParser/save/time%20hh:mm:ss;hh:mm] id=SpreadsheetParserSelector-undo-Link\n" +
                 "              \"Close\" [#/123/Spreadsheet1/spreadsheet] id=SpreadsheetParserSelector-close-Link\n"
         );
     }
