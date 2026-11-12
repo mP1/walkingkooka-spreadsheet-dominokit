@@ -44,7 +44,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStylePropertyColorComponentTest implements TextStylePropertyColorComponentTesting<HTMLFieldSetElement, TextStylePropertyColorComponent>,
     ComponentLifecycleMatcherTesting,
-    ToStringTesting<TextStylePropertyColorComponent>,
+    ToStringTesting,
     HasSpreadsheetMetadataTesting {
 
     private final static String ID_PREFIX = "TestId123-";

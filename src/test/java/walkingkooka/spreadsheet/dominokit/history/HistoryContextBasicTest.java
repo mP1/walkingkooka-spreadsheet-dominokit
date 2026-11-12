@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryContextBasicTest implements HistoryContextTesting<HistoryContextBasic>,
     SpreadsheetEnvironmentContextTesting,
-    ToStringTesting<HistoryContextBasic> {
+    ToStringTesting {
 
     private final static HistoryToken HISTORY_TOKEN = HistoryToken.cellSelect(
         SPREADSHEET_ID,

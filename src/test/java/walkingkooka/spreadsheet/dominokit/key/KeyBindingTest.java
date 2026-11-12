@@ -32,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class KeyBindingTest implements HashCodeEqualsDefinedTesting2<KeyBinding>,
-    ToStringTesting<KeyBinding>,
+    ToStringTesting,
     PublicClassTesting<KeyBinding>,
     ComparableTesting2<KeyBinding>,
     ConstantsTesting<KeyBinding> {

@@ -29,7 +29,7 @@ import java.util.function.Function;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class BasicSpreadsheetViewportContextTest implements SpreadsheetViewportContextTesting<BasicSpreadsheetViewportContext>,
-    ToStringTesting<BasicSpreadsheetViewportContext> {
+    ToStringTesting {
 
     private final static TextStyle ALL_CELLS_STYLE = TextStyle.EMPTY.set(
         TextStylePropertyName.COLOR,

@@ -37,7 +37,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStylePropertyFilterTest implements HashCodeEqualsDefinedTesting2<TextStylePropertyFilter>,
-    ToStringTesting<TextStylePropertyFilter>,
+    ToStringTesting,
     PublicClassTesting<TextStylePropertyFilter> {
 
     // with.............................................................................................................

@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class BrowserFileBase64Test implements PackagePrivateClassTesting<BrowserFileBase64>,
     HashCodeEqualsDefinedTesting2<BrowserFileBase64>,
-    ToStringTesting<BrowserFileBase64>,
+    ToStringTesting,
     HasUrlFragmentTesting,
     TreePrintableTesting {
 

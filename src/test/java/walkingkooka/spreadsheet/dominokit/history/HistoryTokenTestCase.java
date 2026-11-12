@@ -63,7 +63,7 @@ public abstract class HistoryTokenTestCase<T extends HistoryToken> implements Pu
     HasUrlFragmentTesting,
     SpreadsheetEnvironmentContextTesting,
     ThrowableTesting,
-    ToStringTesting<T> {
+    ToStringTesting {
 
     final static Optional<String> NO_FILTER = Optional.empty();
 

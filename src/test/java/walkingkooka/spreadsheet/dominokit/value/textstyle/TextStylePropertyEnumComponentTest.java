@@ -49,7 +49,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextStylePropertyEnumComponentTest implements TextStylePropertyEnumComponentTesting<TextAlign, TextStylePropertyEnumComponent<TextAlign>>,
     ComponentLifecycleMatcherTesting,
-    ToStringTesting<TextStylePropertyEnumComponent<TextAlign>> {
+    ToStringTesting {
 
     private final static String ID_PREFIX = "TestId123";
     private final static TextStylePropertyName<TextAlign> PROPERTY_NAME = TextStylePropertyName.TEXT_ALIGN;

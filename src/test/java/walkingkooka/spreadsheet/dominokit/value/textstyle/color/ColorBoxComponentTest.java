@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.value.ValueComponentTesting;
 import java.util.Optional;
 
 public final class ColorBoxComponentTest implements ValueComponentTesting<HTMLDivElement, Color, ColorBoxComponent>,
-    ToStringTesting<ColorBoxComponent> {
+    ToStringTesting {
 
     @Test
     public void testEmpty() {

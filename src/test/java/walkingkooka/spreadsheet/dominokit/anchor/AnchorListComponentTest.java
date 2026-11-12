@@ -36,7 +36,7 @@ public final class AnchorListComponentTest implements HtmlComponentTesting<Ancho
     CanBeEmptyTesting,
     HasFocusBlurEventListenerTesting<AnchorListComponent>,
     SpreadsheetEnvironmentContextTesting,
-    ToStringTesting<AnchorListComponent> {
+    ToStringTesting {
     
     // appendChild......................................................................................................
 

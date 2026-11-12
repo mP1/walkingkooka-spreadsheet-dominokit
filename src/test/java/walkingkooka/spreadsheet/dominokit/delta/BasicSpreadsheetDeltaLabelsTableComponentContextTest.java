@@ -38,7 +38,7 @@ import java.util.function.Function;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class BasicSpreadsheetDeltaLabelsTableComponentContextTest implements SpreadsheetDeltaLabelsTableComponentContextTesting<BasicSpreadsheetDeltaLabelsTableComponentContext>,
-    ToStringTesting<BasicSpreadsheetDeltaLabelsTableComponentContext> {
+    ToStringTesting {
 
     private final static Function<SpreadsheetExpressionReference, Optional<String>> CELL_TO_FORMULA_TEXT = (SpreadsheetExpressionReference reference) -> {
         Objects.requireNonNull(reference, "reference");
