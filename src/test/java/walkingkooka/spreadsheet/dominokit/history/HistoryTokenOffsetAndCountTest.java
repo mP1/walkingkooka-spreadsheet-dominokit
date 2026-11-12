@@ -38,7 +38,7 @@ public final class HistoryTokenOffsetAndCountTest implements HasUrlFragmentTesti
     CanBeEmptyTesting,
     HashCodeEqualsDefinedTesting2<HistoryTokenOffsetAndCount>,
     ThrowableTesting,
-    ToStringTesting<HistoryTokenOffsetAndCount>,
+    ToStringTesting,
     PublicClassTesting<HistoryTokenOffsetAndCount> {
 
     private final static OptionalInt OFFSET = OptionalInt.of(1);

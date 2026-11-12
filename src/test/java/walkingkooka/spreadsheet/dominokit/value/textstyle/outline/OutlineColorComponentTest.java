@@ -40,7 +40,7 @@ import java.util.Optional;
 
 public final class OutlineColorComponentTest implements TextStylePropertyColorComponentTesting<HTMLFieldSetElement, OutlineColorComponent>,
     ComponentLifecycleMatcherTesting,
-    ToStringTesting<OutlineColorComponent>,
+    ToStringTesting,
     HasSpreadsheetMetadataTesting {
 
     static {

@@ -28,7 +28,7 @@ import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.text.cursor.parser.ParserToken;
 
 public final class SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate, ParserToken>,
-    ToStringTesting<SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate>,
+    ToStringTesting,
     PackagePrivateClassTesting<SpreadsheetQueryDialogComponentQueryOrTextMatchFunctionParserTokenPredicate>,
     HasSpreadsheetMetadataTesting {
 

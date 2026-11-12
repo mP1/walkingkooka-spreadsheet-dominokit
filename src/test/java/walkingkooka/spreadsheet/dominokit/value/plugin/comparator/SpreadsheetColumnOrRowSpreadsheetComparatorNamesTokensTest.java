@@ -38,7 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokensTest implements ParseStringTesting<SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens>,
     HashCodeEqualsDefinedTesting2<SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens>,
     HasTextTesting,
-    ToStringTesting<SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens>,
+    ToStringTesting,
     PackagePrivateClassTesting<SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens> {
 
     private final static Optional<SpreadsheetColumnOrRowReferenceOrRange> COLUMN_OR_ROW = Optional.of(

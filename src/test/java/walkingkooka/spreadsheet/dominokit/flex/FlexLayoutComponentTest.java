@@ -28,7 +28,7 @@ import java.util.Optional;
 
 public final class FlexLayoutComponentTest implements HtmlComponentTesting<FlexLayoutComponent, HTMLDivElement>,
     HasFocusBlurEventListenerTesting<FlexLayoutComponent>,
-    ToStringTesting<FlexLayoutComponent> {
+    ToStringTesting {
 
     @Test
     public void testTreePrint() {

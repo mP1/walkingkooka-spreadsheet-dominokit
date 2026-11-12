@@ -39,7 +39,7 @@ import java.util.Optional;
 
 public final class TextStyleColorComponentTest implements TextStylePropertyColorComponentTesting<HTMLFieldSetElement, TextStyleColorComponent>,
     ComponentLifecycleMatcherTesting,
-    ToStringTesting<TextStyleColorComponent>,
+    ToStringTesting,
     HasSpreadsheetMetadataTesting {
 
     static {

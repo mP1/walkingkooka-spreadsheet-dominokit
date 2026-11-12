@@ -27,7 +27,7 @@ import walkingkooka.spreadsheet.meta.HasSpreadsheetMetadataTesting;
 import walkingkooka.text.cursor.parser.ParserToken;
 
 public final class SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicateTest implements PredicateTesting2<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate, ParserToken>,
-    ToStringTesting<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
+    ToStringTesting,
     PackagePrivateClassTesting<SpreadsheetQueryDialogComponentQueryConditionCellValueFunctionParserTokenPredicate>,
     HasSpreadsheetMetadataTesting {
 

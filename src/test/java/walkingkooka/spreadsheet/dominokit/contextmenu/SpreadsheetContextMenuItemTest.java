@@ -32,7 +32,7 @@ import java.util.Optional;
 
 public class SpreadsheetContextMenuItemTest implements PublicClassTesting<SpreadsheetContextMenuItem>,
     TreePrintableTesting,
-    ToStringTesting<SpreadsheetContextMenuItem> {
+    ToStringTesting {
 
     // TreePrintable....................................................................................................
 

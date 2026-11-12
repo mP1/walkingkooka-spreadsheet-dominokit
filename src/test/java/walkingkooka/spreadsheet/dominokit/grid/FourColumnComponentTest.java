@@ -26,7 +26,7 @@ import walkingkooka.spreadsheet.dominokit.value.text.TextBoxComponent;
 import java.util.Optional;
 
 public final class FourColumnComponentTest implements HtmlComponentTesting<FourColumnComponent, HTMLDivElement>,
-    ToStringTesting<FourColumnComponent> {
+    ToStringTesting {
 
     @Test
     public void testTreePrint() {

@@ -27,7 +27,7 @@ import walkingkooka.tree.text.BoxEdge;
 import java.util.Optional;
 
 public final class BorderBoxComponentTest implements ValueComponentTesting<HTMLDivElement, Border, BorderBoxComponent>,
-    ToStringTesting<BorderBoxComponent> {
+    ToStringTesting {
 
     @Test
     public void testEmpty() {

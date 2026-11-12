@@ -30,7 +30,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryContextFontFamilyComponentContextTest implements HistoryContextTesting<HistoryContextFontFamilyComponentContext>,
-    ToStringTesting<HistoryContextFontFamilyComponentContext> {
+    ToStringTesting {
 
     private final static List<FontFamily> FONT_FAMILIES = Lists.of(
         FontFamily.with("Times New Roman")

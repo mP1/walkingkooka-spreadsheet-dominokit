@@ -21,11 +21,13 @@ import org.junit.jupiter.api.Test;
 import walkingkooka.Cast;
 import walkingkooka.HashCodeEqualsDefinedTesting2;
 import walkingkooka.ToStringTesting;
+import walkingkooka.reflect.PublicClassTesting;
 
 import java.util.Optional;
 
 public final class HistoryTokenMenuItemTest implements HashCodeEqualsDefinedTesting2<HistoryTokenMenuItem<HistoryToken>>,
-    ToStringTesting<HistoryTokenMenuItem<HistoryToken>> {
+    PublicClassTesting<HistoryTokenMenuItem<HistoryToken>>,
+    ToStringTesting {
 
     @Test
     public void testEqualsDifferentHistoryTokenAnchorComponent() {

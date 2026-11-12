@@ -44,7 +44,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public final class HtmlElementComponentTest implements PublicClassTesting<DivComponent>,
     HasFocusBlurEventListenerTesting<DivComponent>,
     TreePrintableTesting,
-    ToStringTesting<DivComponent> {
+    ToStringTesting {
 
     // setId............................................................................................................
 

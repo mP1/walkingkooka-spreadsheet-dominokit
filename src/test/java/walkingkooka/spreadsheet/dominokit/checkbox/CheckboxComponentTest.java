@@ -25,7 +25,7 @@ import walkingkooka.spreadsheet.dominokit.value.FormValueComponentTesting;
 import java.util.Optional;
 
 public final class CheckboxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, Boolean, CheckboxComponent>,
-    ToStringTesting<CheckboxComponent> {
+    ToStringTesting {
 
     @Test
     public void testTreePrintDisabledTrue() {

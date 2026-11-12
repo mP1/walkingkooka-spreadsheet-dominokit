@@ -37,7 +37,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class TextBoxComponentTest implements FormValueComponentTesting<HTMLFieldSetElement, String, TextBoxComponent>,
     HasEventListenerTesting<String, TextBoxComponent>,
-    ToStringTesting<TextBoxComponent> {
+    ToStringTesting {
 
     // setId............................................................................................................
 

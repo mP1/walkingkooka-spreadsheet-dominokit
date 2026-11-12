@@ -42,7 +42,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public final class HistoryTokenRecorderTest implements PublicClassTesting<HistoryTokenRecorder<?>>,
     TreePrintableTesting,
-    ToStringTesting<HistoryTokenRecorder<?>> {
+    ToStringTesting {
 
     private final static SpreadsheetId ID = SpreadsheetId.with(1);
 

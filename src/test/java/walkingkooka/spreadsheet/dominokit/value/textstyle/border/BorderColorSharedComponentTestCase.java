@@ -32,7 +32,7 @@ import java.util.Optional;
 
 public abstract class BorderColorSharedComponentTestCase<C extends BorderColorSharedComponent<C>> implements TextStylePropertyColorComponentTesting<HTMLFieldSetElement, C>,
     ComponentLifecycleMatcherTesting,
-    ToStringTesting<C>,
+    ToStringTesting,
     HasSpreadsheetMetadataTesting {
 
     static {

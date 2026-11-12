@@ -64,7 +64,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
     HasTextTesting,
     SpreadsheetEnvironmentContextTesting,
     ThrowableTesting,
-    ToStringTesting<ClipboardTextItem>,
+    ToStringTesting,
     TreePrintableTesting {
 
     private static final List<MediaType> TYPES = Lists.of(
