@@ -78,6 +78,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * A Fetcher (yes as in the WindowResizeWatcher's fetch object) that provides numerous CRUD and PATCH operations for a {@link SpreadsheetDelta}.
@@ -273,9 +274,11 @@ public final class SpreadsheetDeltaFetcher extends Fetcher<SpreadsheetDeltaFetch
         if (false == navigations.isEmpty()) {
             result = result.addParameter(
                 SpreadsheetDeltaUrlQueryParameters.NAVIGATION,
-                SpreadsheetViewport.SEPARATOR.toSeparatedString(
-                    navigations,
-                    SpreadsheetViewportNavigation::text
+                SpreadsheetViewport.SEPARATOR.toDelimiteredString(
+                    navigations.stream()
+                        .map(SpreadsheetViewportNavigation::text)
+                        .collect(Collectors.toList()),
+                    SpreadsheetViewport.SEPARATOR.constantSeparator()
                 )
             );
         }
