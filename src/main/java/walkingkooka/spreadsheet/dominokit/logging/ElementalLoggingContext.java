@@ -34,6 +34,7 @@ final class ElementalLoggingContext implements BrowserLoggingContext {
      * Stop creation use singleton
      */
     private ElementalLoggingContext() {
+        this.loggingLevel = LoggingLevel.NONE;
     }
 
     // BrowserLoggingContext............................................................................................
@@ -230,13 +231,20 @@ final class ElementalLoggingContext implements BrowserLoggingContext {
 
     @Override
     public boolean isLoggingEnabled(final LoggingLevel loggingLevel) {
-        Objects.requireNonNull(loggingLevel, "loggingLevel");
-
-        return loggingLevel != LoggingLevel.NONE;
+        return this.loggingLevel.isEnabled(loggingLevel);
     }
 
     @Override
     public LoggingLevel loggingLevel() {
-        return LoggingLevel.DEBUG;
+        return this.loggingLevel;
+    }
+
+    private LoggingLevel loggingLevel;
+
+    @Override
+    public void setLoggingLevel(final LoggingLevel loggingLevel) {
+        Objects.requireNonNull(loggingLevel, "loggingLevel");
+
+        this.loggingLevel = loggingLevel;
     }
 }

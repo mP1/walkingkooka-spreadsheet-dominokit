@@ -133,4 +133,9 @@ public class FakeNumberComponentContext extends FakeDecimalNumberContext impleme
     public LoggingLevel loggingLevel() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public void setLoggingLevel(final LoggingLevel loggingLevel) {
+        throw new UnsupportedOperationException();
+    }
 }
