@@ -191,4 +191,9 @@ public class FakeSpreadsheetLabelMappingListDialogComponentContext extends FakeS
     public LoggingLevel loggingLevel() {
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public void setLoggingLevel(final LoggingLevel loggingLevel) {
+        throw new UnsupportedOperationException();
+    }
 }
