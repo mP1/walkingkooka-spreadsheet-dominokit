@@ -202,7 +202,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -335,7 +335,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -468,7 +468,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -599,7 +599,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -764,7 +764,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -926,7 +926,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -1057,7 +1057,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -1188,7 +1188,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -1319,7 +1319,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -1450,7 +1450,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -1581,7 +1581,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -1712,7 +1712,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -1843,7 +1843,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -1974,7 +1974,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -2105,7 +2105,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -2236,7 +2236,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -2367,7 +2367,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -2498,7 +2498,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -2629,7 +2629,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -2760,7 +2760,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -2891,7 +2891,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +

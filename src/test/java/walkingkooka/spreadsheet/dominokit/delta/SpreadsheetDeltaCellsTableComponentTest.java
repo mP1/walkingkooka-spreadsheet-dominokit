@@ -92,7 +92,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "          Cell\n" +
                 "          Formula\n" +
                 "          Value\n" +
-                "          Formatted\n" +
+                "          Output\n" +
                 "          Links\n" +
                 "        CHILDREN\n" +
                 "          FlexLayoutComponent\n" +
@@ -136,7 +136,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "          Cell\n" +
                 "          Formula\n" +
                 "          Value\n" +
-                "          Formatted\n" +
+                "          Output\n" +
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
@@ -206,7 +206,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 "          Cell\n" +
                 "          Formula\n" +
                 "          Value\n" +
-                "          Formatted\n" +
+                "          Output\n" +
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
