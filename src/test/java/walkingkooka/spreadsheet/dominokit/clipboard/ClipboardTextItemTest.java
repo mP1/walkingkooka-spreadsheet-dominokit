@@ -740,7 +740,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
             Sets.of(
                 SpreadsheetSelection.A1.setFormula(
                     SpreadsheetFormula.EMPTY.setText("=1")
-                ).setFormattedValue(
+                ).setOutput(
                     Optional.of(
                         TextNode.text("111")
                     )
@@ -748,7 +748,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
                 SpreadsheetSelection.parseCell("B2")
                     .setFormula(
                         SpreadsheetFormula.EMPTY.setText("=2")
-                    ).setFormattedValue(
+                    ).setOutput(
                         Optional.of(
                             TextNode.text("222")
                         )

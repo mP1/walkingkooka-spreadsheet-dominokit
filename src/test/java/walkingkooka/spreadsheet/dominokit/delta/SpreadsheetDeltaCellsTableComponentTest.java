@@ -111,7 +111,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText("=1+2")
-                    ).setFormattedValue(
+                    ).setOutput(
                         Optional.of(
                             SpreadsheetText.EMPTY.setText("Hello")
                                 .setColor(
@@ -172,7 +172,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText("=111")
-                    ).setFormattedValue(
+                    ).setOutput(
                         Optional.of(
                             SpreadsheetText.EMPTY.setText("Hello")
                                 .setColor(
@@ -185,7 +185,7 @@ public final class SpreadsheetDeltaCellsTableComponentTest implements TableCompo
                     SpreadsheetSelection.parseCell("A2")
                         .setFormula(
                             SpreadsheetFormula.EMPTY.setText("=222")
-                        ).setFormattedValue(
+                        ).setOutput(
                             Optional.of(
                                 SpreadsheetText.EMPTY.setText("2222")
                                     .textNode()

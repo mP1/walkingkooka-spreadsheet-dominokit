@@ -155,7 +155,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText("=1+2")
-                    ).setFormattedValue(
+                    ).setOutput(
                         Optional.of(
                             SpreadsheetText.EMPTY.setText("Hello")
                                 .setColor(
@@ -213,7 +213,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 Sets.of(
                     SpreadsheetSelection.A1.setFormula(
                         SpreadsheetFormula.EMPTY.setText("=1+2")
-                    ).setFormattedValue(
+                    ).setOutput(
                         Optional.of(
                             SpreadsheetText.EMPTY.setText("Hello")
                                 .setColor(

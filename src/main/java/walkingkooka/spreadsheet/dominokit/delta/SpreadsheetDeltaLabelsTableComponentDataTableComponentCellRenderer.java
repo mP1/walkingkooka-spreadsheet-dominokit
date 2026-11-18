@@ -59,7 +59,7 @@ final class SpreadsheetDeltaLabelsTableComponentDataTableComponentCellRenderer i
                 component = this.renderCellFormula(row);
                 break;
             case 2: // cell formatted value
-                component = this.renderCellFormattedValue(row);
+                component = this.renderCellOutput(row);
                 break;
             case 3: // links
                 component = this.renderLabelLinks(row);
@@ -106,10 +106,10 @@ final class SpreadsheetDeltaLabelsTableComponentDataTableComponentCellRenderer i
         return component;
     }
 
-    private TextNodeComponent renderCellFormattedValue(final SpreadsheetDeltaLabelsTableComponentRow row) {
+    private TextNodeComponent renderCellOutput(final SpreadsheetDeltaLabelsTableComponentRow row) {
         return
             TextNodeComponent.with(
-                row.cell.flatMap(SpreadsheetCell::formattedValue)
+                row.cell.flatMap(SpreadsheetCell::output)
             );
     }
 

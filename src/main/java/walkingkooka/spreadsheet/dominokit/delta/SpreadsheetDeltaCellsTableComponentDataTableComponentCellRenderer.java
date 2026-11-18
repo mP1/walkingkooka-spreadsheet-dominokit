@@ -62,7 +62,7 @@ final class SpreadsheetDeltaCellsTableComponentDataTableComponentCellRenderer im
                 component = renderCellValue(cell);
                 break;
             case 3: // cell formatted value
-                component = renderCellFormattedValue(cell);
+                component = renderCellOutput(cell);
                 break;
             case 4: // links
                 component = renderCellLinks(cell);
@@ -97,9 +97,9 @@ final class SpreadsheetDeltaCellsTableComponentDataTableComponentCellRenderer im
             );
     }
 
-    private TextNodeComponent renderCellFormattedValue(final SpreadsheetCell cell) {
+    private TextNodeComponent renderCellOutput(final SpreadsheetCell cell) {
         return TextNodeComponent.with(
-            cell.formattedValue()
+            cell.output()
         );
     }
 

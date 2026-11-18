@@ -455,7 +455,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
                           final JsonNodeMarshallContext context) {
             return marshallCellToOptionalTypeValue(
                 cell,
-                cell.formattedValue(),
+                cell.output(),
                 context
             );
         }
@@ -468,7 +468,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
                     .value()
             ).setFormula(
                 SpreadsheetFormula.EMPTY
-            ).setFormattedValue(
+            ).setOutput(
                 context.unmarshallOptionalWithType(node)
             );
         }

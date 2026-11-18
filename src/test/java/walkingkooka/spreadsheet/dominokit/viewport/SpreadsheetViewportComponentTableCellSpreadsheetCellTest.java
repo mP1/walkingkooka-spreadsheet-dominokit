@@ -494,7 +494,7 @@ public final class SpreadsheetViewportComponentTableCellSpreadsheetCellTest exte
                             SpreadsheetFormula.EMPTY.setText("=1+2")
                                 .setValue(value)
                                 .setError(error)
-                        ).setFormattedValue(formatted)
+                        ).setOutput(formatted)
                     )
                 )
             );

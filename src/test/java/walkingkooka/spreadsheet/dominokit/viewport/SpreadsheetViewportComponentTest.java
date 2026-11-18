@@ -702,7 +702,7 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
                     Sets.of(
                         SpreadsheetSelection.A1.setFormula(
                             SpreadsheetFormula.EMPTY.setText("=1+2")
-                        ).setFormattedValue(
+                        ).setOutput(
                             Optional.of(
                                 TextNode.text("*** 3.0")
                             )

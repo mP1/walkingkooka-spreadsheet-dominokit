@@ -510,7 +510,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                     Sets.of(
                         SpreadsheetSelection.A1.setFormula(
                             SpreadsheetFormula.EMPTY.setText("=1+2")
-                        ).setFormattedValue(
+                        ).setOutput(
                             Optional.of(
                                 TextNode.text("*** 3.0")
                             )
@@ -975,7 +975,7 @@ public final class SpreadsheetViewportComponentTableTest implements HtmlComponen
                     Sets.of(
                         SpreadsheetSelection.A1.setFormula(
                             SpreadsheetFormula.EMPTY.setText("=1+2")
-                        ).setFormattedValue(
+                        ).setOutput(
                             Optional.of(
                                 TextNode.text("*** 3.0")
                             )

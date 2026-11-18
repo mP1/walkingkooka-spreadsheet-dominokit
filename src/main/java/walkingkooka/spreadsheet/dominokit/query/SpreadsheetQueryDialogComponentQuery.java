@@ -56,7 +56,7 @@ final class SpreadsheetQueryDialogComponentQuery implements PublicStaticHelper {
                                               final Optional<TextMatch> style,
                                               final Optional<ConditionRightSpreadsheetFormulaParserToken> value,
                                               final Optional<TextMatch> validator,
-                                              final Optional<TextMatch> formattedValue) {
+                                              final Optional<TextMatch> output) {
         ParserToken token = query.map(
             SpreadsheetCellQuery::parserToken
         ).orElse(null);
@@ -134,7 +134,7 @@ final class SpreadsheetQueryDialogComponentQuery implements PublicStaticHelper {
 
         token = replaceTextMatchOr(
             token, // old
-            formattedValue,
+            output,
             SpreadsheetExpressionFunctions.CELL_FORMATTED_VALUE,
             or
         );
