@@ -104,7 +104,7 @@ public final class SpreadsheetDeltaCellsTableComponent implements TableComponent
                 CellTextAlign.LEFT
             ),
             columnConfig(
-                "Formatted",
+                "Output",
                 CellTextAlign.LEFT
             ),
             columnConfig(

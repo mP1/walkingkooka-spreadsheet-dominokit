@@ -106,7 +106,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -150,7 +150,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -208,7 +208,7 @@ public final class SpreadsheetCellReferencesDialogComponentTest implements Dialo
                 "                Cell\n" +
                 "                Formula\n" +
                 "                Value\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
