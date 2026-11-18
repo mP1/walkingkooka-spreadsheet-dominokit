@@ -305,7 +305,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
      */
     FORMATTED_VALUE(
         TextNode.class,
-        SpreadsheetMediaTypes.JSON_FORMATTED_VALUE
+        SpreadsheetMediaTypes.JSON_OUTPUT
     ) {
         @Override
         JsonNode marshall(final SpreadsheetCell cell,
