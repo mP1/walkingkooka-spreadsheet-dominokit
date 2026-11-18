@@ -501,6 +501,87 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
     }
 
     @Test
+    public void testToJsonCellsOutputNone() {
+        this.toJsonAndCheck(
+            "*",
+            Sets.of(
+            ),
+            SpreadsheetCellClipboardKind.OUTPUT,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
+                    "  \"cell-range\": \"*\",\n" +
+                    "  \"value\": {}\n" +
+                    "}"
+            )
+        );
+    }
+
+    @Test
+    public void testToJsonCellsOutputSeveral() {
+        this.toJsonAndCheck(
+            "A1:B2",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(
+                    SpreadsheetFormula.EMPTY.setText("=1")
+                ).setOutput(
+                    Optional.of(
+                        TextNode.text("111")
+                    )
+                ),
+                SpreadsheetSelection.parseCell("B2")
+                    .setFormula(
+                        SpreadsheetFormula.EMPTY.setText("=2")
+                    ).setOutput(
+                        Optional.of(
+                            TextNode.text("222")
+                        )
+                    )
+            ),
+            SpreadsheetCellClipboardKind.OUTPUT,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
+                    "  \"cell-range\": \"A1:B2\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": {\n" +
+                    "      \"type\": \"text\",\n" +
+                    "      \"value\": \"111\"\n" +
+                    "    },\n" +
+                    "    \"B2\": {\n" +
+                    "      \"type\": \"text\",\n" +
+                    "      \"value\": \"222\"\n" +
+                    "    }\n" +
+                    "  }\n" +
+                    "}"
+            )
+        );
+    }
+
+    @Test
+    public void testToJsonCellsOutputMissing() {
+        this.toJsonAndCheck(
+            "A1",
+            Sets.of(
+                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
+            ),
+            SpreadsheetCellClipboardKind.OUTPUT,
+            ClipboardTextItem.with(
+                TYPES,
+                "{\n" +
+                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
+                    "  \"cell-range\": \"A1\",\n" +
+                    "  \"value\": {\n" +
+                    "    \"A1\": null\n" +
+                    "  }\n" +
+                    "}"
+            )
+        );
+    }
+
+    @Test
     public void testToJsonCellsParserNone() {
         this.toJsonAndCheck(
             "A1:B2",
@@ -709,87 +790,6 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
                     "    \"B2\": {\n" +
                     "      \"textAlign\": \"CENTER\"\n" +
                     "    }\n" +
-                    "  }\n" +
-                    "}"
-            )
-        );
-    }
-
-    @Test
-    public void testToJsonCellsFormattedNone() {
-        this.toJsonAndCheck(
-            "*",
-            Sets.of(
-            ),
-            SpreadsheetCellClipboardKind.OUTPUT,
-            ClipboardTextItem.with(
-                TYPES,
-                "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
-                    "  \"cell-range\": \"*\",\n" +
-                    "  \"value\": {}\n" +
-                    "}"
-            )
-        );
-    }
-
-    @Test
-    public void testToJsonCellsFormattedSeveral() {
-        this.toJsonAndCheck(
-            "A1:B2",
-            Sets.of(
-                SpreadsheetSelection.A1.setFormula(
-                    SpreadsheetFormula.EMPTY.setText("=1")
-                ).setOutput(
-                    Optional.of(
-                        TextNode.text("111")
-                    )
-                ),
-                SpreadsheetSelection.parseCell("B2")
-                    .setFormula(
-                        SpreadsheetFormula.EMPTY.setText("=2")
-                    ).setOutput(
-                        Optional.of(
-                            TextNode.text("222")
-                        )
-                    )
-            ),
-            SpreadsheetCellClipboardKind.OUTPUT,
-            ClipboardTextItem.with(
-                TYPES,
-                "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
-                    "  \"cell-range\": \"A1:B2\",\n" +
-                    "  \"value\": {\n" +
-                    "    \"A1\": {\n" +
-                    "      \"type\": \"text\",\n" +
-                    "      \"value\": \"111\"\n" +
-                    "    },\n" +
-                    "    \"B2\": {\n" +
-                    "      \"type\": \"text\",\n" +
-                    "      \"value\": \"222\"\n" +
-                    "    }\n" +
-                    "  }\n" +
-                    "}"
-            )
-        );
-    }
-
-    @Test
-    public void testToJsonCellsFormattedMissing() {
-        this.toJsonAndCheck(
-            "A1",
-            Sets.of(
-                SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-            ),
-            SpreadsheetCellClipboardKind.OUTPUT,
-            ClipboardTextItem.with(
-                TYPES,
-                "{\n" +
-                    "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextNode\",\n" +
-                    "  \"cell-range\": \"A1\",\n" +
-                    "  \"value\": {\n" +
-                    "    \"A1\": null\n" +
                     "  }\n" +
                     "}"
             )
