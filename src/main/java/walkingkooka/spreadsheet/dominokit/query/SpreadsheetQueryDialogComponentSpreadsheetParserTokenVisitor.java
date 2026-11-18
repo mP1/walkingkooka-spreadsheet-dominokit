@@ -122,7 +122,7 @@ final class SpreadsheetQueryDialogComponentSpreadsheetFormulaParserTokenVisitor 
             if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_VALIDATOR, wizard.validator)) {
                 break;
             }
-            if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_FORMATTED_VALUE, wizard.formattedValue)) {
+            if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_FORMATTED_VALUE, wizard.output)) {
                 break;
             }
 
@@ -237,7 +237,7 @@ final class SpreadsheetQueryDialogComponentSpreadsheetFormulaParserTokenVisitor 
             // callFormatter()
             // callParser()
             // callStyle()
-            // callFormattedValue()
+            // callOutput()
             if (getter.equals(functionName)) {
                 final List<ParserToken> parameters = namedFunction.parameters()
                     .parameters();

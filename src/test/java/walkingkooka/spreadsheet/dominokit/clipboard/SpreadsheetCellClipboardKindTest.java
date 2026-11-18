@@ -107,7 +107,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
             Optional.of(
                 ValidatorSelector.parse("validator-111")
             )
-        ).setFormattedValue(
+        ).setOutput(
             Optional.of(
                 TextNode.text("Formatted-value - Hello123")
             )
@@ -443,22 +443,22 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     }
 
     @Test
-    public void testCellValueWithFormattedValue() {
+    public void testCellValueWithOutput() {
         this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.OUTPUT,
             CELL,
-            CELL.formattedValue()
+            CELL.output()
         );
     }
 
     @Test
-    public void testCellValueWithFormattedValueEmpty() {
-        final SpreadsheetCell cell = CELL.setFormattedValue(SpreadsheetCell.NO_FORMATTED_VALUE);
+    public void testCellValueWithOutputEmpty() {
+        final SpreadsheetCell cell = CELL.setOutput(SpreadsheetCell.NO_OUTPUT);
 
         this.cellValueAndCheck(
             SpreadsheetCellClipboardKind.OUTPUT,
             cell,
-            cell.formattedValue()
+            cell.output()
         );
     }
 
@@ -870,7 +870,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     }
 
     @Test
-    public void testFromMediaTypeWithFormattedValue() {
+    public void testFromMediaTypeWithOutput() {
         this.fromMediaTypeAndCheck(
             SpreadsheetCellClipboardKind.OUTPUT.contentTypeOrFail(),
             SpreadsheetCellClipboardKind.OUTPUT
@@ -1024,7 +1024,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
                 "    \"color\": \"black\"\n" +
                 "  },\n" +
                 "  \"validator\": \"validator-111\",\n" +
-                "  \"formattedValue\": {\n" +
+                "  \"output\": {\n" +
                 "    \"type\": \"text\",\n" +
                 "    \"value\": \"Formatted-value - Hello123\"\n" +
                 "  }\n" +
@@ -1300,7 +1300,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     }
 
     @Test
-    public void testMarshallFormattedValueEmpty() {
+    public void testMarshallOutputEmpty() {
         this.marshallAndCheck(
             SpreadsheetCellClipboardKind.OUTPUT,
             SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
@@ -1309,11 +1309,11 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     }
 
     @Test
-    public void testMarshallFormattedValue() {
+    public void testMarshallOutput() {
         this.marshallAndCheck(
             SpreadsheetCellClipboardKind.OUTPUT,
             SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
-                .setFormattedValue(
+                .setOutput(
                     Optional.of(
                         TextNode.text("Hello")
                     )
@@ -1450,16 +1450,16 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     }
 
     @Test
-    public void testUnmarshallCellFormattedValue() {
+    public void testUnmarshallCellOutput() {
         final String formula = "=1+2";
-        final Optional<TextNode> formattedValue = Optional.of(
+        final Optional<TextNode> output = Optional.of(
             TextNode.text("3")
         );
 
         this.unmarshallAndCheck(
             SpreadsheetSelection.A1.setFormula(
                 SpreadsheetFormula.EMPTY.setText(formula)
-            ).setFormattedValue(formattedValue)
+            ).setOutput(output)
         );
     }
 
@@ -1561,7 +1561,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     }
 
     @Test
-    public void testUnmarshallFormattedValueEmpty() {
+    public void testUnmarshallOutputEmpty() {
         this.unmarshallAndCheck(
             SpreadsheetCellClipboardKind.OUTPUT,
             JsonNode.nullNode(),
@@ -1570,13 +1570,13 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     }
 
     @Test
-    public void testUnmarshallFormattedValue() {
+    public void testUnmarshallOutput() {
         final TextNode value = TextNode.text("Text123");
 
         this.unmarshallAndCheck(
             SpreadsheetCellClipboardKind.OUTPUT,
             APP_CONTEXT.marshallWithType(value),
-            EMPTY_FORMULA.setFormattedValue(
+            EMPTY_FORMULA.setOutput(
                 Optional.of(value)
             )
         );

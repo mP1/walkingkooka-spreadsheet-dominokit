@@ -104,7 +104,7 @@ final class SpreadsheetQueryDialogComponentQueryTextMatchFunctionParserTokenPred
             // callFormatter()
             // callParser()
             // callStyle()
-            // callFormattedValue()
+            // callOutput()
             if (this.getter.equals(functionName)) {
                 final List<ParserToken> parameters = namedFunction.parameters()
                     .parameters();

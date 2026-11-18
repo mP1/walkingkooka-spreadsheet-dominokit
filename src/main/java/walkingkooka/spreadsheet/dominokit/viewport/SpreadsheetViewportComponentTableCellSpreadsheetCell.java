@@ -137,7 +137,7 @@ final class SpreadsheetViewportComponentTableCellSpreadsheetCell extends Spreads
                     );
 
                     if (false == zeroValue) {
-                        TextNode formatted = cell.formattedValue()
+                        TextNode formatted = cell.output()
                             .orElse(null);
                         if (null != formatted) {
                             if (formatted.isBadge()) {

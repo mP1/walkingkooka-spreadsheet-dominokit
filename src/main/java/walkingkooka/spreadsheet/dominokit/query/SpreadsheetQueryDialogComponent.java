@@ -89,7 +89,7 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
         this.style = this.style();
         this.value = this.value();
         this.validator = this.validator();
-        this.formattedValue = this.formattedValue();
+        this.output = this.output();
 
         this.execute = this.anchor("Execute");
         this.reset = this.anchor("Reset");
@@ -137,7 +137,7 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
                             this.style,
                             this.value,
                             this.validator,
-                            this.formattedValue
+                            this.output
                         )
                     )
             ).appendChild(this.query)
@@ -251,7 +251,7 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
             this.style.value(),
             this.value.value(),
             this.validator.value(),
-            this.formattedValue.value()
+            this.output.value()
         );
 
         this.query.setValue(formula);
@@ -439,15 +439,15 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
 
     final TextMatchComponent validator;
 
-    // formattedValue...................................................................................................
+    // output...................................................................................................
 
-    private TextMatchComponent formattedValue() {
+    private TextMatchComponent output() {
         return textMatchComponent(
             "Formatted"
         );
     }
 
-    final TextMatchComponent formattedValue;
+    final TextMatchComponent output;
 
     // TextMatchComponent...............................................................................................
 
