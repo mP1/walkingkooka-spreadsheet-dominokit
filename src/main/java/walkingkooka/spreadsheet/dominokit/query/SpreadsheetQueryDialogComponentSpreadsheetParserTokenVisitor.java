@@ -113,6 +113,9 @@ final class SpreadsheetQueryDialogComponentSpreadsheetFormulaParserTokenVisitor 
             if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_LOCALE, wizard.locale)) {
                 break;
             }
+            if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_OUTPUT, wizard.output)) {
+                break;
+            }
             if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_PARSER, wizard.parser)) {
                 break;
             }
@@ -120,9 +123,6 @@ final class SpreadsheetQueryDialogComponentSpreadsheetFormulaParserTokenVisitor 
                 break;
             }
             if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_VALIDATOR, wizard.validator)) {
-                break;
-            }
-            if (this.isCellGetterAndTextMatch(left, right, SpreadsheetExpressionFunctions.CELL_FORMATTED_VALUE, wizard.output)) {
                 break;
             }
 
@@ -235,9 +235,9 @@ final class SpreadsheetQueryDialogComponentSpreadsheetFormulaParserTokenVisitor 
 
             // callFormula()
             // callFormatter()
+            // callOutput()
             // callParser()
             // callStyle()
-            // callOutput()
             if (getter.equals(functionName)) {
                 final List<ParserToken> parameters = namedFunction.parameters()
                     .parameters();

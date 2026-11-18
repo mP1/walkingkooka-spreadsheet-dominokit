@@ -2644,7 +2644,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
     @Test
     public void testOnHistoryTokenChangeWithQueryWithOutputGetter() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/query/query/textMatch(\"*formatted-value*\",cellFormattedValue())"
+            "/123/SpreadsheetName456/cell/A1/query/query/textMatch(\"*formatted-value*\",cellOutput())"
         );
 
         final AppContext appContext = this.appContext(
@@ -2742,14 +2742,14 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [textMatch(\"*formatted-value*\",cellFormattedValue())] icons=mdi-close-circle id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
+                "            Query [textMatch(\"*formatted-value*\",cellOutput())] icons=mdi-close-circle id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Execute\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellQuery-execute-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Execute\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatted-value*%22,cellOutput())] id=SpreadsheetCellQuery-execute-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/textMatch(%22*formatted-value*%22,cellOutput())] id=SpreadsheetCellQuery-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formatted-value*%22,cellFormattedValue())] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/textMatch(%22*formatted-value*%22,cellOutput())] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
@@ -2775,7 +2775,7 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
     @Test
     public void testOnHistoryTokenChangeWithQueryWithAllWizardFields() {
         final HistoryToken historyToken = HistoryToken.parseString(
-            "/123/SpreadsheetName456/cell/A1/query/query/OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*locale*\",cellLocale()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10, OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*output*\",cellFormattedValue())))))))))"
+            "/123/SpreadsheetName456/cell/A1/query/query/OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),OR(textMatch(\"*formatted*\",cellFormatter()),OR(textMatch(\"*locale*\",cellLocale()),OR(textMatch(\"*parser*\",cellParser()),OR(textMatch(\"*style*\",cellStyle()),OR(cellValue()<10, OR(textMatch(\"*validator*\",cellValidator()),textMatch(\"*formatted-value*\",cellOutput())))))))))"
         );
 
         final AppContext appContext = this.appContext(
@@ -2869,18 +2869,18 @@ public final class SpreadsheetQueryDialogComponentTest implements DialogComponen
                 "            TextMatchComponent\n" +
                 "              ValueTextBoxComponent\n" +
                 "                TextBoxComponent\n" +
-                "                  Formatted [*output*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
+                "                  Formatted [*formatted-value*] icons=mdi-close-circle id=SpreadsheetCellQuery-formatted-TextBox\n" +
                 "      SpreadsheetFormulaComponent\n" +
                 "        ValueTextBoxComponent\n" +
                 "          TextBoxComponent\n" +
-                "            Query [OR(OR(OR(OR(OR(OR(OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)),textMatch(\"*formatted*\",cellFormatter())),textMatch(\"*locale*\",cellLocale())),textMatch(\"*parser*\",cellParser())),textMatch(\"*style*\",cellStyle())),textMatch(\"*validator*\",cellValidator())),textMatch(\"*output*\",cellFormattedValue()))] icons=mdi-close-circle id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
+                "            Query [OR(OR(OR(OR(OR(OR(OR(oldQuery(),OR(textMatch(\"*formula*\",cellFormula()),cellValue()<10)),textMatch(\"*formatted*\",cellFormatter())),textMatch(\"*locale*\",cellLocale())),textMatch(\"*parser*\",cellParser())),textMatch(\"*style*\",cellStyle())),textMatch(\"*validator*\",cellValidator())),textMatch(\"*formatted-value*\",cellOutput()))] icons=mdi-close-circle id=SpreadsheetCellQuery-query-TextBox REQUIRED\n" +
                 "      AnchorListComponent\n" +
                 "        FlexLayoutComponent\n" +
                 "          ROW\n" +
-                "            \"Execute\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*output*%22,cellFormattedValue())))))))))] id=SpreadsheetCellQuery-execute-Link\n" +
-                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*output*%22,cellFormattedValue())))))))))] id=SpreadsheetCellQuery-reset-Link\n" +
+                "            \"Execute\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formatted-value*%22,cellOutput())))))))))] id=SpreadsheetCellQuery-execute-Link\n" +
+                "            \"Reset\" [#/123/SpreadsheetName456/cell/A1/query/query/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formatted-value*%22,cellOutput())))))))))] id=SpreadsheetCellQuery-reset-Link\n" +
                 "            \"Load Highlighting Query\" DISABLED id=SpreadsheetCellQuery-load-highlighting-query-Link\n" +
-                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*output*%22,cellFormattedValue())))))))))] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
+                "            \"Save as Highlighting Query\" [#/123/SpreadsheetName456/spreadsheet/query/save/OR(oldQuery(),OR(textMatch(%22*formula*%22,cellFormula()),OR(textMatch(%22*formatted*%22,cellFormatter()),OR(textMatch(%22*locale*%22,cellLocale()),OR(textMatch(%22*parser*%22,cellParser()),OR(textMatch(%22*style*%22,cellStyle()),OR(cellValue()%3C10,%20OR(textMatch(%22*validator*%22,cellValidator()),textMatch(%22*formatted-value*%22,cellOutput())))))))))] id=SpreadsheetCellQuery-save-as-highlighting-query-Link\n" +
                 "            \"Close\" [#/123/SpreadsheetName456/cell/A1] id=SpreadsheetCellQuery-close-Link\n" +
                 "      SpreadsheetDeltaCellsTableComponent\n" +
                 "        CardComponent\n" +
