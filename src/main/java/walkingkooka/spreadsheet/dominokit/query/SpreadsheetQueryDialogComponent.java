@@ -133,11 +133,11 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
                             this.decimalNumberSymbols,
                             this.formatter,
                             this.locale,
+                            this.output,
                             this.parser,
                             this.style,
                             this.value,
-                            this.validator,
-                            this.output
+                            this.validator
                         )
                     )
             ).appendChild(this.query)
@@ -393,7 +393,17 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
     }
 
     final TextMatchComponent locale;
-    
+
+    // output...................................................................................................
+
+    private TextMatchComponent output() {
+        return textMatchComponent(
+            "Output"
+        );
+    }
+
+    final TextMatchComponent output;
+
     // parser...........................................................................................................
 
     private TextMatchComponent parser() {
@@ -438,16 +448,6 @@ public final class SpreadsheetQueryDialogComponent implements DialogComponentLif
     }
 
     final TextMatchComponent validator;
-
-    // output...................................................................................................
-
-    private TextMatchComponent output() {
-        return textMatchComponent(
-            "Formatted"
-        );
-    }
-
-    final TextMatchComponent output;
 
     // TextMatchComponent...............................................................................................
 
