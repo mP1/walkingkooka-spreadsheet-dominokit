@@ -748,9 +748,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         final String name = this.name();
 
-        this.spreadsheetCellValueKind = "OUTPUT".equals(name) ?
-            SpreadsheetCellValueKind.FORMATTED_VALUE :
-            SpreadsheetCellValueKind.valueOf(name);
+        this.spreadsheetCellValueKind = SpreadsheetCellValueKind.valueOf(name);
 
         this.urlFragment = UrlFragment.parse(
             CaseKind.SNAKE.change(
