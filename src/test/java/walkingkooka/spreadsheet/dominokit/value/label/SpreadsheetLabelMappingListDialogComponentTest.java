@@ -101,7 +101,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -151,7 +151,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -203,7 +203,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -274,7 +274,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -328,7 +328,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
@@ -400,7 +400,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              CHILDREN\n" +
                 "                FlexLayoutComponent\n" +
@@ -454,7 +454,7 @@ public final class SpreadsheetLabelMappingListDialogComponentTest implements Dia
                 "              COLUMN(S)\n" +
                 "                Label\n" +
                 "                Cell\n" +
-                "                Formatted\n" +
+                "                Output\n" +
                 "                Links\n" +
                 "              ROW(S)\n" +
                 "                ROW 0\n" +
