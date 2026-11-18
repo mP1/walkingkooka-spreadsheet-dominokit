@@ -149,7 +149,7 @@ public final class SpreadsheetCellClipboardCutHistoryToken extends SpreadsheetCe
                                 JsonNode.nullNode()
                             );
                             break;
-                        case FORMATTED_VALUE:
+                        case OUTPUT:
                             throw new UnsupportedOperationException("Cut formatted-value is not supported");
                     }
                 }
