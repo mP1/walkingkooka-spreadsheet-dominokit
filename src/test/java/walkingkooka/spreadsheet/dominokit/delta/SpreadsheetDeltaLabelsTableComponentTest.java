@@ -93,7 +93,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "        COLUMN(S)\n" +
                 "          Label\n" +
                 "          Cell\n" +
-                "          Formatted\n" +
+                "          Output\n" +
                 "          Links\n" +
                 "        CHILDREN\n" +
                 "          FlexLayoutComponent\n" +
@@ -121,7 +121,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "        COLUMN(S)\n" +
                 "          Label\n" +
                 "          Cell\n" +
-                "          Formatted\n" +
+                "          Output\n" +
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
@@ -175,7 +175,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "        COLUMN(S)\n" +
                 "          Label\n" +
                 "          Cell\n" +
-                "          Formatted\n" +
+                "          Output\n" +
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +
@@ -233,7 +233,7 @@ public final class SpreadsheetDeltaLabelsTableComponentTest implements TableComp
                 "        COLUMN(S)\n" +
                 "          Label\n" +
                 "          Cell\n" +
-                "          Formatted\n" +
+                "          Output\n" +
                 "          Links\n" +
                 "        ROW(S)\n" +
                 "          ROW 0\n" +

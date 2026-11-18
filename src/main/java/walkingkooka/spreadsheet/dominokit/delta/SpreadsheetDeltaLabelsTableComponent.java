@@ -100,7 +100,7 @@ public final class SpreadsheetDeltaLabelsTableComponent implements TableComponen
                 CellTextAlign.LEFT
             ),
             columnConfig(
-                "Formatted",
+                "Output",
                 CellTextAlign.LEFT
             ),
             columnConfig(
