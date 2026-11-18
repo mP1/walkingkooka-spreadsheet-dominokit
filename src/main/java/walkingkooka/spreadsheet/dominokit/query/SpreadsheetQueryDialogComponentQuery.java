@@ -107,6 +107,13 @@ final class SpreadsheetQueryDialogComponentQuery implements PublicStaticHelper {
 
         token = replaceTextMatchOr(
             token, // old
+            output,
+            SpreadsheetExpressionFunctions.CELL_OUTPUT,
+            or
+        );
+
+        token = replaceTextMatchOr(
+            token, // old
             parser,
             SpreadsheetExpressionFunctions.CELL_PARSER,
             or
@@ -129,13 +136,6 @@ final class SpreadsheetQueryDialogComponentQuery implements PublicStaticHelper {
             token, // old
             validator,
             SpreadsheetExpressionFunctions.CELL_VALIDATOR,
-            or
-        );
-
-        token = replaceTextMatchOr(
-            token, // old
-            output,
-            SpreadsheetExpressionFunctions.CELL_FORMATTED_VALUE,
             or
         );
 
