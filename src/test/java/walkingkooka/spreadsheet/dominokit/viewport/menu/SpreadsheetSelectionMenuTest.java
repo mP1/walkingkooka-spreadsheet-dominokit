@@ -113,7 +113,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/A1/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/A1/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/A1/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/A1/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/A1/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
@@ -127,7 +127,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/A1/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/A1/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/A1/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/A1/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/A1/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
@@ -141,7 +141,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/A1/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/A1/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
@@ -1704,7 +1704,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
@@ -1718,7 +1718,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
@@ -1732,7 +1732,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/currency/save/] id=test-Currency-clear-MenuItem\n" +
@@ -3667,7 +3667,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/Label123/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/Label123/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/Label123/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/Label123/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/Label123/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/Label123/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/Label123/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
@@ -3681,7 +3681,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/Label123/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/Label123/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/Label123/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/Label123/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/Label123/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/Label123/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/Label123/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
@@ -3695,7 +3695,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/Label123/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/Label123/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/Label123/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/Label123/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/Label123/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/currency/save/] id=test-Currency-clear-MenuItem\n" +
@@ -5258,7 +5258,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/formatted-value] id=test-clipboard-cut-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
@@ -5272,7 +5272,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/formatted-value] id=test-clipboard-copy-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
@@ -5286,7 +5286,7 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Validator\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Formatted Value\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/formatted-value] id=test-clipboard-paste-formatted-value-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/currency/save/] id=test-Currency-clear-MenuItem\n" +

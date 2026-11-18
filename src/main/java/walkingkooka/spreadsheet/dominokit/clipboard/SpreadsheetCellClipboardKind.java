@@ -301,44 +301,6 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
     },
 
     /**
-     * The clipboard value is a formatted text.
-     */
-    FORMATTED_VALUE(
-        TextNode.class,
-        SpreadsheetMediaTypes.JSON_OUTPUT
-    ) {
-        @Override
-        JsonNode marshall(final SpreadsheetCell cell,
-                          final JsonNodeMarshallContext context) {
-            return marshallCellToOptionalTypeValue(
-                cell,
-                cell.formattedValue(),
-                context
-            );
-        }
-
-        @Override //
-        SpreadsheetCell unmarshall(final JsonNode node,
-                                   final JsonNodeUnmarshallContext context) {
-            return SpreadsheetSelection.parseCell(
-                node.name()
-                    .value()
-            ).setFormula(
-                SpreadsheetFormula.EMPTY
-            ).setFormattedValue(
-                context.unmarshallOptionalWithType(node)
-            );
-        }
-
-        @Override
-        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
-                                      final SpreadsheetId id,
-                                      final SpreadsheetCellRange range) {
-            throw new UnsupportedOperationException("Pasting formattedValue not supported");
-        }
-    },
-
-    /**
      * The clipboard value is cells to {@link SpreadsheetFormatterSelector}.
      */
     FORMATTER(
@@ -477,6 +439,45 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
                     SpreadsheetCell::locale
                 )
             );
+        }
+    },
+
+
+    /**
+     * The clipboard value is a formatted text or output.
+     */
+    OUTPUT(
+        TextNode.class,
+        SpreadsheetMediaTypes.JSON_OUTPUT
+    ) {
+        @Override
+        JsonNode marshall(final SpreadsheetCell cell,
+                          final JsonNodeMarshallContext context) {
+            return marshallCellToOptionalTypeValue(
+                cell,
+                cell.formattedValue(),
+                context
+            );
+        }
+
+        @Override //
+        SpreadsheetCell unmarshall(final JsonNode node,
+                                   final JsonNodeUnmarshallContext context) {
+            return SpreadsheetSelection.parseCell(
+                node.name()
+                    .value()
+            ).setFormula(
+                SpreadsheetFormula.EMPTY
+            ).setFormattedValue(
+                context.unmarshallOptionalWithType(node)
+            );
+        }
+
+        @Override
+        public void saveOrUpdateCells(final SpreadsheetDeltaFetcher fetcher,
+                                      final SpreadsheetId id,
+                                      final SpreadsheetCellRange range) {
+            throw new UnsupportedOperationException("Pasting OUTPUT not supported");
         }
     },
 
@@ -747,7 +748,9 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
 
         final String name = this.name();
 
-        this.spreadsheetCellValueKind = SpreadsheetCellValueKind.valueOf(name);
+        this.spreadsheetCellValueKind = "OUTPUT".equals(name) ?
+            SpreadsheetCellValueKind.FORMATTED_VALUE :
+            SpreadsheetCellValueKind.valueOf(name);
 
         this.urlFragment = UrlFragment.parse(
             CaseKind.SNAKE.change(
@@ -895,7 +898,7 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
         VALIDATOR,
         VALUE,
         VALUE_TYPE,
-        FORMATTED_VALUE
+        OUTPUT
     );
 
     static {

@@ -721,7 +721,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
             "*",
             Sets.of(
             ),
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.OUTPUT,
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
@@ -754,7 +754,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
                         )
                     )
             ),
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.OUTPUT,
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +
@@ -782,7 +782,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
             Sets.of(
                 SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
             ),
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.OUTPUT,
             ClipboardTextItem.with(
                 TYPES,
                 "{\n" +

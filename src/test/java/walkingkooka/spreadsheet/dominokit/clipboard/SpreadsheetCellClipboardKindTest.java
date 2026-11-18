@@ -117,7 +117,12 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     public void testEnumOrderingMatchesSpreadsheetCellValueKind() {
         this.checkEquals(
             Arrays.stream(SpreadsheetCellValueKind.values())
-                .map(Enum::name)
+                .map(
+                    (SpreadsheetCellValueKind kind) ->
+                        kind == SpreadsheetCellValueKind.FORMATTED_VALUE ?
+                            "OUTPUT" :
+                            kind.name()
+                )
                 .sorted()
                 .collect(Collectors.joining(", ")),
             Arrays.stream(SpreadsheetCellClipboardKind.values())
@@ -217,7 +222,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     @Test
     public void testPredicateFormatted() {
         this.predicateAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE
+            SpreadsheetCellClipboardKind.OUTPUT
         );
     }
 
@@ -445,7 +450,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     @Test
     public void testCellValueWithFormattedValue() {
         this.cellValueAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.OUTPUT,
             CELL,
             CELL.formattedValue()
         );
@@ -456,7 +461,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
         final SpreadsheetCell cell = CELL.setFormattedValue(SpreadsheetCell.NO_FORMATTED_VALUE);
 
         this.cellValueAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.OUTPUT,
             cell,
             cell.formattedValue()
         );
@@ -529,7 +534,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     @Test
     public void testContentTypeWithFormatted() {
         this.contentTypeAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.OUTPUT,
             MediaType.parse("application/json+walkingkooka.tree.text.TextNode")
         );
     }
@@ -872,8 +877,8 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     @Test
     public void testFromMediaTypeWithFormattedValue() {
         this.fromMediaTypeAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE.contentTypeOrFail(),
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE
+            SpreadsheetCellClipboardKind.OUTPUT.contentTypeOrFail(),
+            SpreadsheetCellClipboardKind.OUTPUT
         );
     }
 
@@ -1302,7 +1307,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     @Test
     public void testMarshallFormattedValueEmpty() {
         this.marshallAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.OUTPUT,
             SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY),
             JsonNode.nullNode()
         );
@@ -1311,7 +1316,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     @Test
     public void testMarshallFormattedValue() {
         this.marshallAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.OUTPUT,
             SpreadsheetSelection.A1.setFormula(SpreadsheetFormula.EMPTY)
                 .setFormattedValue(
                     Optional.of(
@@ -1563,7 +1568,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     @Test
     public void testUnmarshallFormattedValueEmpty() {
         this.unmarshallAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.OUTPUT,
             JsonNode.nullNode(),
             EMPTY_FORMULA
         );
@@ -1574,7 +1579,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
         final TextNode value = TextNode.text("Text123");
 
         this.unmarshallAndCheck(
-            SpreadsheetCellClipboardKind.FORMATTED_VALUE,
+            SpreadsheetCellClipboardKind.OUTPUT,
             APP_CONTEXT.marshallWithType(value),
             EMPTY_FORMULA.setFormattedValue(
                 Optional.of(value)
