@@ -891,12 +891,12 @@ public enum SpreadsheetCellClipboardKind implements HasContentType,
         DECIMAL_NUMBER_SYMBOLS,
         FORMATTER,
         LOCALE,
+        OUTPUT,
         PARSER,
         STYLE,
         VALIDATOR,
         VALUE,
-        VALUE_TYPE,
-        OUTPUT
+        VALUE_TYPE
     );
 
     static {

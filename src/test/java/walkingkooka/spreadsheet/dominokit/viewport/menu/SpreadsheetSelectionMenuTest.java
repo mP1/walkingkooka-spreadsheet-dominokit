@@ -108,12 +108,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/A1/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/A1/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/A1/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/A1/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/A1/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/A1/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/A1/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/A1/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/A1/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/A1/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/A1/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/A1/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
@@ -122,12 +122,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/A1/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/A1/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/A1/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/A1/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/A1/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/A1/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/A1/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/A1/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/A1/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/A1/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/A1/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/A1/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
@@ -136,12 +136,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/A1/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/A1/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/A1/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/A1/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/A1/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/A1/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/A1/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/A1/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/A1/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/A1/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/A1/currency/save/] id=test-Currency-clear-MenuItem\n" +
@@ -1699,12 +1699,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
@@ -1713,12 +1713,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
@@ -1727,12 +1727,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/B2:C3/bottom-right/currency/save/] id=test-Currency-clear-MenuItem\n" +
@@ -3662,12 +3662,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/Label123/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/Label123/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/Label123/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/Label123/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/Label123/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/Label123/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/Label123/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/Label123/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/Label123/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/Label123/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/Label123/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/Label123/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
@@ -3676,12 +3676,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/Label123/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/Label123/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/Label123/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/Label123/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/Label123/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/Label123/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/Label123/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/Label123/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/Label123/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/Label123/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/Label123/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/Label123/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
@@ -3690,12 +3690,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/Label123/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/Label123/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/Label123/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/Label123/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/Label123/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/Label123/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/Label123/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/Label123/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/Label123/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/Label123/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/Label123/currency/save/] id=test-Currency-clear-MenuItem\n" +
@@ -5253,12 +5253,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/decimal-number-symbols] id=test-clipboard-cut-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/formatter] id=test-clipboard-cut-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/locale] id=test-clipboard-cut-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/parser] id=test-clipboard-cut-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/style] id=test-clipboard-cut-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/validator] id=test-clipboard-cut-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/value] id=test-clipboard-cut-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/value-type] id=test-clipboard-cut-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/UnknownLabel/cut/output] id=test-clipboard-cut-output-MenuItem\n" +
                 "  (mdi-content-copy) \"Copy\" id=test-clipboard-copy-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/cell] id=test-clipboard-copy-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/formula] id=test-clipboard-copy-formula-MenuItem\n" +
@@ -5267,12 +5267,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/decimal-number-symbols] id=test-clipboard-copy-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/formatter] id=test-clipboard-copy-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/locale] id=test-clipboard-copy-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/parser] id=test-clipboard-copy-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/style] id=test-clipboard-copy-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/validator] id=test-clipboard-copy-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/value] id=test-clipboard-copy-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/value-type] id=test-clipboard-copy-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/UnknownLabel/copy/output] id=test-clipboard-copy-output-MenuItem\n" +
                 "  (mdi-content-paste) \"Paste\" id=test-clipboard-paste-SubMenu\n" +
                 "    \"Cell\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/cell] id=test-clipboard-paste-cell-MenuItem\n" +
                 "    \"Formula\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/formula] id=test-clipboard-paste-formula-MenuItem\n" +
@@ -5281,12 +5281,12 @@ public final class SpreadsheetSelectionMenuTest implements PublicStaticHelperTes
                 "    \"Decimal Number Symbols\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/decimal-number-symbols] id=test-clipboard-paste-decimal-number-symbols-MenuItem\n" +
                 "    \"Formatter\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/formatter] id=test-clipboard-paste-formatter-MenuItem\n" +
                 "    \"Locale\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/locale] id=test-clipboard-paste-locale-MenuItem\n" +
+                "    \"Output\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "    \"Parser\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/parser] id=test-clipboard-paste-parser-MenuItem\n" +
                 "    \"Style\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/style] id=test-clipboard-paste-style-MenuItem\n" +
                 "    \"Validator\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/validator] id=test-clipboard-paste-validator-MenuItem\n" +
                 "    \"Value\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/value] id=test-clipboard-paste-value-MenuItem\n" +
                 "    \"Value Type\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/value-type] id=test-clipboard-paste-value-type-MenuItem\n" +
-                "    \"Output\" [/123/SpreadsheetName456/cell/UnknownLabel/paste/output] id=test-clipboard-paste-output-MenuItem\n" +
                 "  -----\n" +
                 "  \"Currency\" id=test-Currency-SubMenu\n" +
                 "    (mdi-close) \"Clear...\" [/123/SpreadsheetName456/cell/UnknownLabel/currency/save/] id=test-Currency-clear-MenuItem\n" +
