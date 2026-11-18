@@ -117,12 +117,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     public void testEnumOrderingMatchesSpreadsheetCellValueKind() {
         this.checkEquals(
             Arrays.stream(SpreadsheetCellValueKind.values())
-                .map(
-                    (SpreadsheetCellValueKind kind) ->
-                        kind == SpreadsheetCellValueKind.FORMATTED_VALUE ?
-                            "OUTPUT" :
-                            kind.name()
-                )
+                .map(Enum::name)
                 .sorted()
                 .collect(Collectors.joining(", ")),
             Arrays.stream(SpreadsheetCellClipboardKind.values())
