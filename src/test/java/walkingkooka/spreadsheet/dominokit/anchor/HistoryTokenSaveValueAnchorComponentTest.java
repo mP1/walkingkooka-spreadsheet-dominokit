@@ -157,7 +157,7 @@ public final class HistoryTokenSaveValueAnchorComponentTest implements AnchorCom
                     TextStyle.parse("color: black; font-weight: bold;")
                 )
             ),
-            "\"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=HistoryTokenSaveValueAnchorComponent-Link"
+            "\"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD] id=HistoryTokenSaveValueAnchorComponent-Link"
         );
     }
 

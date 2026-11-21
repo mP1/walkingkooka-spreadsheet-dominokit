@@ -503,9 +503,9 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=Test123-save-Link\n" +
+                "        \"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD] id=Test123-save-Link\n" +
                 "        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20white;%20text-align:%20LEFT;] id=Test123-undo-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20white;%20text-align:%20LEFT] id=Test123-undo-Link\n" +
                 "        \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
@@ -545,9 +545,9 @@ public final class DialogAnchorListComponentTest implements HtmlComponentTesting
                 "  AnchorListComponent\n" +
                 "    FlexLayoutComponent\n" +
                 "      ROW\n" +
-                "        \"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD;] id=Test123-save-Link\n" +
+                "        \"Save\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20black;%20font-weight:%20BOLD] id=Test123-save-Link\n" +
                 "        \"Clear\" [#/123/SpreadsheetName456/cell/A1/style/*/save/] id=Test123-clear-Link\n" +
-                "        \"Undo\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20white;%20text-align:%20LEFT;] id=Test123-undo-Link\n" +
+                "        \"Undo\" [#/123/SpreadsheetName456/cell/A1/style/*/save/color:%20white;%20text-align:%20LEFT] id=Test123-undo-Link\n" +
                 "        \"Close\" [#/123/SpreadsheetName456/cell/A1] id=Test123-close-Link\n"
         );
     }
