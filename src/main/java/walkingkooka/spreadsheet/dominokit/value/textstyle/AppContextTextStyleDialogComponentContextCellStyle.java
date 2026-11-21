@@ -22,8 +22,8 @@ import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcher;
 import walkingkooka.spreadsheet.dominokit.fetcher.HasSpreadsheetDeltaFetcherWatchersDelegator;
 import walkingkooka.spreadsheet.dominokit.fetcher.SpreadsheetMetadataFetcherWatcher;
 import walkingkooka.spreadsheet.dominokit.history.HistoryToken;
-import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleHistoryToken;
 import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleSaveHistoryToken;
+import walkingkooka.spreadsheet.dominokit.history.SpreadsheetCellStyleSelectHistoryToken;
 import walkingkooka.spreadsheet.value.SpreadsheetCell;
 import walkingkooka.tree.text.TextStyle;
 import walkingkooka.tree.text.TextStylePropertyName;
@@ -58,7 +58,7 @@ final class AppContextTextStyleDialogComponentContextCellStyle extends AppContex
 
     @Override
     public boolean isMatch(final HistoryToken token) {
-        return token instanceof SpreadsheetCellStyleHistoryToken;
+        return token instanceof SpreadsheetCellStyleSelectHistoryToken;
     }
 
     @Override
