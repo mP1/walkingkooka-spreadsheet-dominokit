@@ -53,8 +53,6 @@ import walkingkooka.locale.LocaleContext;
 import walkingkooka.locale.LocaleContextDelegator;
 import walkingkooka.locale.LocaleContexts;
 import walkingkooka.locale.LocaleLanguageTag;
-import walkingkooka.logging.CanLog;
-import walkingkooka.logging.CanLogs;
 import walkingkooka.logging.LoggingContext;
 import walkingkooka.logging.LoggingLevel;
 import walkingkooka.math.DecimalNumberContext;
@@ -280,8 +278,6 @@ public class App implements EntryPoint,
     ValidatorFetcherWatcher,
     WindowResizeWatcher {
 
-    private final static CanLog CAN_LOG = CanLogs.nullCanLog();
-
     private final static Charset CHARSET = StandardCharsets.UTF_8;
 
     /**
@@ -310,9 +306,15 @@ public class App implements EntryPoint,
 
     private final static LineEnding LINE_ENDING = LineEnding.CRNL;
 
-    private final static BrowserLoggingContext LOGGING_CONTEXT = AppLoggingContext.with(
-        LoggingContexts.elemental()
-    );
+    static {
+        final BrowserLoggingContext loggingContext = AppLoggingContext.with(
+            LoggingContexts.elemental()
+        );
+        loggingContext.setLoggingLevel(LoggingLevel.DEBUG);
+        LOGGING_CONTEXT = loggingContext;
+    }
+
+    private final static BrowserLoggingContext LOGGING_CONTEXT;
 
     private final static MediaTypeDetector MEDIA_TYPE_DETECTOR = MediaTypeDetectors.fake();
 
@@ -525,13 +527,13 @@ public class App implements EntryPoint,
             Storages.fake(),
             StorageEnvironmentContexts.basic(
                 EnvironmentContexts.map(
-                    CAN_LOG,
+                    LOGGING_CONTEXT, // CanLog
                     CHARSET,
                     CURRENCY,
                     Indentation.SPACES2, // "default" cant use this.indentation() to avoid race
                     LINE_ENDING,
                     LOCALE,
-                    LoggingLevel.NONE,
+                    LOGGING_CONTEXT.loggingLevel(),
                     NOW,
                     EnvironmentContext.ANONYMOUS // will be replaced when the metadata loads
                 )
