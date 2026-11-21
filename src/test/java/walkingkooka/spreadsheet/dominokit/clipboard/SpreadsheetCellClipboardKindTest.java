@@ -1020,9 +1020,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
                 "  \"formatter\": \"hello-formatter\",\n" +
                 "  \"locale\": \"en-AU\",\n" +
                 "  \"parser\": \"number $0.00\",\n" +
-                "  \"style\": {\n" +
-                "    \"color\": \"black\"\n" +
-                "  },\n" +
+                "  \"style\": \"color: black\",\n" +
                 "  \"validator\": \"validator-111\",\n" +
                 "  \"output\": {\n" +
                 "    \"type\": \"text\",\n" +
@@ -1233,9 +1231,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
                         TextAlign.CENTER
                     )
                 ),
-            "{\n" +
-                "  \"textAlign\": \"CENTER\"\n" +
-                "}"
+            "\"text-align: CENTER\""
         );
     }
 
@@ -1541,7 +1537,7 @@ public final class SpreadsheetCellClipboardKindTest implements PublicClassTestin
     public void testUnmarshallStyleEmpty() {
         this.unmarshallAndCheck(
             SpreadsheetCellClipboardKind.STYLE,
-            JsonNode.object(),
+            JsonNode.string(""),
             EMPTY_FORMULA
         );
     }

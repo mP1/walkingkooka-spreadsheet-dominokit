@@ -100,7 +100,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseOneCell() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1/save/style/{\"A1\":{\"color\":\"#123456\"}}",
+            "/123/SpreadsheetName456/cell/A1/save/style/{\"A1\":\"color: #123456\"}",
             SpreadsheetCellSaveStyleHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
@@ -119,7 +119,7 @@ public final class SpreadsheetCellSaveStyleHistoryTokenTest extends SpreadsheetC
     @Test
     public void testParseSeveralCells() {
         this.parseAndCheck(
-            "/123/SpreadsheetName456/cell/A1:A2/save/style/{\"A1\":{\"color\":\"#111111\"},\"A2\":{\"color\":\"#222222\"}}",
+            "/123/SpreadsheetName456/cell/A1:A2/save/style/{\"A1\":\"color: #111111\",\"A2\":\"color: #222222\"}",
             SpreadsheetCellSaveStyleHistoryToken.with(
                 SPREADSHEET_ID,
                 SPREADSHEET_NAME,
