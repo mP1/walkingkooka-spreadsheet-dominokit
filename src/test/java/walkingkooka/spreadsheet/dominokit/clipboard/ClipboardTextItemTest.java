@@ -273,9 +273,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
                     "      \"formula\": {\n" +
                     "        \"text\": \"=1\"\n" +
                     "      },\n" +
-                    "      \"style\": {\n" +
-                    "        \"textAlign\": \"CENTER\"\n" +
-                    "      }\n" +
+                    "      \"style\": \"text-align: CENTER\"\n" +
                     "    }\n" +
                     "  }\n" +
                     "}"
@@ -316,9 +314,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
                     "      \"formula\": {\n" +
                     "        \"text\": \"=1\"\n" +
                     "      },\n" +
-                    "      \"style\": {\n" +
-                    "        \"textAlign\": \"CENTER\"\n" +
-                    "      }\n" +
+                    "      \"style\": \"text-align: CENTER\"\n" +
                     "    },\n" +
                     "    \"B2\": {\n" +
                     "      \"formula\": {\n" +
@@ -716,7 +712,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
                     "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
                     "  \"cell-range\": \"A1:C3\",\n" +
                     "  \"value\": {\n" +
-                    "    \"A1\": {}\n" +
+                    "    \"A1\": \"\"\n" +
                     "  }\n" +
                     "}"
             )
@@ -745,10 +741,8 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
                     "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
-                    "    \"A1\": {},\n" +
-                    "    \"B2\": {\n" +
-                    "      \"textAlign\": \"CENTER\"\n" +
-                    "    }\n" +
+                    "    \"A1\": \"\",\n" +
+                    "    \"B2\": \"text-align: CENTER\"\n" +
                     "  }\n" +
                     "}"
             )
@@ -784,12 +778,8 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
                     "  \"mediaType\": \"application/json+walkingkooka.tree.text.TextStyle\",\n" +
                     "  \"cell-range\": \"A1:B2\",\n" +
                     "  \"value\": {\n" +
-                    "    \"A1\": {\n" +
-                    "      \"fontStyle\": \"ITALIC\"\n" +
-                    "    },\n" +
-                    "    \"B2\": {\n" +
-                    "      \"textAlign\": \"CENTER\"\n" +
-                    "    }\n" +
+                    "    \"A1\": \"font-style: ITALIC\",\n" +
+                    "    \"B2\": \"text-align: CENTER\"\n" +
                     "  }\n" +
                     "}"
             )
@@ -878,9 +868,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
                 "      \"formula\": {\n" +
                 "        \"text\": \"=1\"\n" +
                 "      },\n" +
-                "      \"style\": {\n" +
-                "        \"text-align\": \"CENTER\"\n" +
-                "      }\n" +
+                "      \"style\": \"text-align: CENTER\"\n" +
                 "    }\n" +
                 "  }\n" +
                 "}",
@@ -911,9 +899,7 @@ public final class ClipboardTextItemTest implements PublicClassTesting<Clipboard
                 "      \"formula\": {\n" +
                 "        \"text\": \"=1\"\n" +
                 "      },\n" +
-                "      \"style\": {\n" +
-                "        \"text-align\": \"CENTER\"\n" +
-                "      }\n" +
+                "      \"style\": \"text-align: CENTER\"\n" +
                 "    },\n" +
                 "    \"B2\": {\n" +
                 "      \"formula\": {\n" +
