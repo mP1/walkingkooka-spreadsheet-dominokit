@@ -306,15 +306,9 @@ public class App implements EntryPoint,
 
     private final static LineEnding LINE_ENDING = LineEnding.CRNL;
 
-    static {
-        final BrowserLoggingContext loggingContext = AppLoggingContext.with(
-            LoggingContexts.elemental()
-        );
-        loggingContext.setLoggingLevel(LoggingLevel.DEBUG);
-        LOGGING_CONTEXT = loggingContext;
-    }
-
-    private final static BrowserLoggingContext LOGGING_CONTEXT;
+    private final static BrowserLoggingContext LOGGING_CONTEXT = AppLoggingContext.with(
+        LoggingContexts.elemental()
+    );
 
     private final static MediaTypeDetector MEDIA_TYPE_DETECTOR = MediaTypeDetectors.fake();
 

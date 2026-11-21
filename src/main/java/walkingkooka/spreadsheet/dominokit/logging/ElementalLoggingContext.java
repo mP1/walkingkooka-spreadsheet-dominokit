@@ -37,7 +37,7 @@ final class ElementalLoggingContext implements BrowserLoggingContext {
      * Stop creation use singleton
      */
     private ElementalLoggingContext() {
-        this.loggingLevel = LoggingLevel.NONE;
+        this.loggingLevel = LoggingLevel.DEBUG;
     }
 
     // BrowserLoggingContext............................................................................................
