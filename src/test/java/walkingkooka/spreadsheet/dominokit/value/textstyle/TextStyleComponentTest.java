@@ -42,13 +42,13 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             TextStyleComponent.empty()
                 .setValue(
                     Optional.of(
-                        TextStyle.parse("color: #111; text-align: left;")
+                        TextStyle.parse("color: #111; text-align: left")
                     )
                 ),
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: #111; text-align: LEFT;] icons=mdi-close-circle REQUIRED\n"
+                "      [color: #111; text-align: LEFT] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -58,13 +58,13 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             TextStyleComponent.empty()
                 .setValue(
                     Optional.of(
-                        TextStyle.parse("font-variant: SMALL_CAPS;")
+                        TextStyle.parse("font-variant: SMALL_CAPS")
                     )
                 ),
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [font-variant: SMALL_CAPS;] icons=mdi-close-circle REQUIRED\n"
+                "      [font-variant: SMALL_CAPS] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -74,13 +74,13 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             TextStyleComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "color: #111; text-align: left;"
+                        "color: #111; text-align: left"
                     )
                 ),
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: #111; text-align: left;] icons=mdi-close-circle REQUIRED\n"
+                "      [color: #111; text-align: left] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -90,13 +90,13 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             TextStyleComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "font-variant: SMALL_CAPS;"
+                        "font-variant: SMALL_CAPS"
                     )
                 ),
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [font-variant: SMALL_CAPS;] icons=mdi-close-circle REQUIRED\n"
+                "      [font-variant: SMALL_CAPS] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -106,13 +106,13 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             TextStyleComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "font-variant: SMALL_caps;"
+                        "font-variant: SMALL_caps"
                     )
                 ),
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [font-variant: SMALL_caps;] icons=mdi-close-circle REQUIRED\n"
+                "      [font-variant: SMALL_caps] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -122,13 +122,13 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             TextStyleComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "  color:  #111;  text-align:  left;"
+                        "  color:  #111;  text-align:  left"
                     )
                 ),
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [  color:  #111;  text-align:  left;] icons=mdi-close-circle REQUIRED\n"
+                "      [  color:  #111;  text-align:  left] icons=mdi-close-circle REQUIRED\n"
         );
     }
 
@@ -138,13 +138,13 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
             TextStyleComponent.empty()
                 .setStringValue(
                     Optional.of(
-                        "color: #111; text-align: XYZ;"
+                        "color: #111; text-align: XYZ"
                     )
                 ),
             "TextStyleComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [color: #111; text-align: XYZ;] icons=mdi-close-circle REQUIRED\n" +
+                "      [color: #111; text-align: XYZ] icons=mdi-close-circle REQUIRED\n" +
                 "      Errors\n" +
                 "        Unknown value \"XYZ\"\n"
         );
@@ -209,7 +209,7 @@ public final class TextStyleComponentTest implements ValueTextBoxComponentLikeTe
 
     @Test
     public void testPushHistoryTokenIfNecessaryWithDifferent() {
-        final TextStyle textStyle = TextStyle.parse("color: #111;");
+        final TextStyle textStyle = TextStyle.parse("color: #111");
 
         final HistoryContext historyContext = new FakeHistoryContext() {
             @Override

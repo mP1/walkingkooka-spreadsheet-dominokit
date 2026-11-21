@@ -81,7 +81,7 @@ abstract class SpreadsheetViewportComponentTableCell<E extends HTMLElement, C ex
                 TextStylePropertyName.HEIGHT,
                 height
             )
-        ).text() + "box-sizing: border-box;";
+        ).text() + ";box-sizing: border-box;";
     }
 
     abstract Length<?> width(final SpreadsheetViewportComponentTableContext context);

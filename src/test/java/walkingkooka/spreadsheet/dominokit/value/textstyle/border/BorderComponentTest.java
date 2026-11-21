@@ -103,7 +103,7 @@ public final class BorderComponentTest extends BorderSharedComponentTestCase<Bor
             "BorderComponent\n" +
                 "  ValueTextBoxComponent\n" +
                 "    TextBoxComponent\n" +
-                "      [top-color: white; top-style: DASHED; top-width: 2px;] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n" +
+                "      [top-color: white; top-style: DASHED; top-width: 2px] icons=mdi-close-circle id=TestIdPrefix123-border-TextBox REQUIRED\n" +
                 "        innerRight\n" +
                 "          BorderBoxComponent\n" +
                 "            Border\n" +
