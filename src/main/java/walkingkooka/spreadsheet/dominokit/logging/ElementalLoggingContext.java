@@ -23,6 +23,9 @@ import walkingkooka.logging.LoggingLevel;
 
 import java.util.Objects;
 
+/**
+ * The native implementation of a {@link BrowserLoggingContext}, with all logging messages sent to the console.
+ */
 final class ElementalLoggingContext implements BrowserLoggingContext {
 
     /**
