@@ -4995,16 +4995,6 @@ public final class HistoryTokenTest implements PublicClassTesting<HistoryToken>,
         return HistoryToken.parseString(urlFragment);
     }
 
-    @Override
-    public Class<? extends RuntimeException> parseStringFailedExpected(final Class<? extends RuntimeException> thrown) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public RuntimeException parseStringFailedExpected(final RuntimeException thrown) {
-        throw new UnsupportedOperationException();
-    }
-
     private String urlEncode(final Object object) {
         return URLEncoder.encode(object.toString());
     }

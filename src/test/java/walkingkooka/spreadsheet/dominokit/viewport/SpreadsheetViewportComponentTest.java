@@ -228,16 +228,6 @@ public final class SpreadsheetViewportComponentTest implements HtmlComponentTest
     public Optional<SpreadsheetSelection> parseString(final String id) {
         return SpreadsheetViewportComponent.parseElementId(id);
     }
-
-    @Override
-    public Class<? extends RuntimeException> parseStringFailedExpected(final Class<? extends RuntimeException> thrown) {
-        return thrown;
-    }
-
-    @Override
-    public RuntimeException parseStringFailedExpected(final RuntimeException thrown) {
-        return thrown;
-    }
     
     private final static SpreadsheetCellReference SELECTION = SpreadsheetSelection.A1;
 

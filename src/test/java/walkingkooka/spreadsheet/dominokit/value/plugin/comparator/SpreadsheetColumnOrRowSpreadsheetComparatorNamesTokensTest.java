@@ -378,16 +378,6 @@ public final class SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokensTest im
         return SpreadsheetColumnOrRowSpreadsheetComparatorNamesTokens.parse(text);
     }
 
-    @Override
-    public Class<? extends RuntimeException> parseStringFailedExpected(final Class<? extends RuntimeException> thrown) {
-        return thrown;
-    }
-
-    @Override
-    public RuntimeException parseStringFailedExpected(final RuntimeException cause) {
-        return cause;
-    }
-
     // hashCode/equals..................................................................................................
 
     @Test
