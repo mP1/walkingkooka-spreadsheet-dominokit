@@ -69,16 +69,6 @@ public final class BrowserFileTest implements ParseStringTesting<BrowserFile>,
         return BrowserFile.parse(string);
     }
 
-    @Override
-    public Class<? extends RuntimeException> parseStringFailedExpected(final Class<? extends RuntimeException> thrown) {
-        return thrown;
-    }
-
-    @Override
-    public RuntimeException parseStringFailedExpected(final RuntimeException thrown) {
-        return thrown;
-    }
-
     // class............................................................................................................
 
     @Override
