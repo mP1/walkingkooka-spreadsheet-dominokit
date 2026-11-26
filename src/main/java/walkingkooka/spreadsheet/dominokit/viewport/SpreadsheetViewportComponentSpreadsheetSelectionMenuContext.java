@@ -127,7 +127,7 @@ final class SpreadsheetViewportComponentSpreadsheetSelectionMenuContext implemen
         final SpreadsheetComparatorNameList sortComparators = metadata.get(SpreadsheetMetadataPropertyName.SORT_COMPARATORS)
             .orElse(SpreadsheetComparatorNameList.EMPTY);
 
-        return SpreadsheetComparatorNameList.with(
+        return SpreadsheetComparatorNameList.EMPTY.setElements(
             metadata.get(SpreadsheetMetadataPropertyName.COMPARATORS)
                 .orElse(SpreadsheetComparatorAliasSet.EMPTY)
                 .stream()
