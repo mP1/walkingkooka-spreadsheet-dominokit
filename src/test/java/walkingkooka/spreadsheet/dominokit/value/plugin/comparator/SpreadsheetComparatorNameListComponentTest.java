@@ -27,7 +27,7 @@ public final class SpreadsheetComparatorNameListComponentTest implements ValueTe
 
     @Test
     public void testParseAndText() {
-        final SpreadsheetComparatorNameList names = SpreadsheetComparatorNameList.with(
+        final SpreadsheetComparatorNameList names = SpreadsheetComparatorNameList.EMPTY.setElements(
             SpreadsheetComparatorNameList.parse("day-of-month, year")
         );
 
